@@ -167,30 +167,39 @@ a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text
     <h3 style="margin-top:0;">Order & Payment Details</h3>
     <p class="muted" id="selectedProductText" style="font-size:14px; margin-bottom:15px; font-weight:bold;"></p>
 
-    <form onsubmit="submitOrder(event)">
+    <!-- Completely Free Formsubmit Service Endpoint -->
+    <form id="orderForm" action="https://formsubmit.co/groextenderdevice@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+      <input type="hidden" name="_subject" value="New Order Received - Grow Extender">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <input type="hidden" id="formProduct" name="Product_Ordered">
+      <input type="hidden" id="formQuantity" name="Quantity">
+      <input type="hidden" id="formTotalPrice" name="Total_Price">
+
       <div class="form-group">
         <label>Full Name *</label>
-        <input type="text" id="custName" placeholder="Enter your full name" required>
+        <input type="text" name="Customer_Name" id="custName" placeholder="Enter your full name" required>
       </div>
 
       <div class="form-group">
         <label>Phone Number *</label>
-        <input type="tel" id="custPhone" placeholder="Enter 10-digit mobile number" required>
+        <input type="tel" name="Phone_Number" id="custPhone" placeholder="Enter 10-digit mobile number" required>
       </div>
 
       <div class="form-group">
         <label>Full Address *</label>
-        <textarea id="custAddress" rows="2" placeholder="House no, Street, Area, Landmark" required></textarea>
+        <textarea name="Shipping_Address" id="custAddress" rows="2" placeholder="House no, Street, Area, Landmark" required></textarea>
       </div>
 
       <div class="form-group">
         <label>Pincode / Postal Code *</label>
-        <input type="text" id="custPincode" placeholder="6-digit pincode" required>
+        <input type="text" name="Pincode" id="custPincode" placeholder="6-digit pincode" required>
       </div>
 
       <div class="form-group">
         <label>Country *</label>
-        <select id="custCountry" required>
+        <select name="Country" id="custCountry" required>
           <option value="India" selected>India</option>
           <option value="Bangladesh">Bangladesh</option>
           <option value="Nepal">Nepal</option>
@@ -201,11 +210,11 @@ a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text
       <div class="payment-box">
         <label style="font-size:14px; font-weight:bold;">Select Payment Method:</label>
         <div style="margin-top:8px;">
-          <input type="radio" id="payOnline" name="payMethod" value="Full Online" checked onclick="togglePayment()">
+          <input type="radio" id="payOnline" name="Payment_Method" value="Full Online" checked onclick="togglePayment()">
           <label for="payOnline" style="display:inline; font-weight:normal;">Full Online Payment (UPI / QR / NetBanking / Card)</label>
         </div>
         <div style="margin-top:8px;">
-          <input type="radio" id="payCOD" name="payMethod" value="COD" onclick="togglePayment()">
+          <input type="radio" id="payCOD" name="Payment_Method" value="Cash on Delivery (COD)" onclick="togglePayment()">
           <label for="payCOD" style="display:inline; font-weight:normal;">Cash on Delivery (COD)</label>
         </div>
 
@@ -218,7 +227,7 @@ a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text
 
       <div style="margin-top:15px;" id="priceBreakdown"></div>
 
-      <button type="submit" class="btn" style="background:var(--green); margin-top:15px;" id="submitBtn">Proceed to Pay & Confirm Order</button>
+      <button type="submit" class="btn" style="background:var(--green); margin-top:15px;" id="submitBtn">Confirm & Place Order</button>
     </form>
   </div>
 </div>
@@ -229,8 +238,8 @@ a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text
   
   <div class="footer-contact">
     <span>📧 Email Support: <a href="mailto:groextenderdevice@gmail.com">groextenderdevice@gmail.com</a></span>
-    <span>📞 Emergency 24h Contact: <a href="tel:8145470421">8145470421</a></span>
-    <span>💬 WhatsApp Support: <a href="https://wa.me/918145470421" target="_blank">8145470421</a></span>
+    <span>📞 Phone / WhatsApp: <a href="tel:8145470421">8145470421</a></span>
+    <span>💬 WhatsApp Direct Link: <a href="https://wa.me/918145470421" target="_blank">8145470421</a></span>
   </div>
 </footer>
 
@@ -253,6 +262,10 @@ function openOrderModal(name, price, qtyId) {
   currentQty = parseInt(document.getElementById(qtyId).innerText);
   totalPrice = unitPrice * currentQty;
 
+  document.getElementById('formProduct').value = pName;
+  document.getElementById('formQuantity').value = currentQty;
+  document.getElementById('formTotalPrice').value = '₹' + totalPrice;
+
   document.getElementById('selectedProductText').innerText = "Selected: " + name + " (Qty: " + currentQty + ") — Total: ₹" + totalPrice;
   document.getElementById('orderModal').style.display = 'flex';
   togglePayment();
@@ -272,25 +285,54 @@ function togglePayment() {
     notice.style.display = 'block';
     const remaining = totalPrice - 249;
     breakdown.innerHTML = `<small>Online Advance: <b>₹249</b><br>Cash on Delivery: <b>₹${remaining}</b></small>`;
-    btn.innerText = "Pay ₹249 & Unlock COD Order";
+    btn.innerText = "Confirm Order & Pay ₹249 Advance";
   } else {
     notice.style.display = 'none';
     breakdown.innerHTML = `<small>Total Payable Amount: <b>₹${totalPrice}</b></small>`;
-    btn.innerText = "Proceed to Online Payment";
+    btn.innerText = "Confirm & Place Order";
   }
 }
 
-function submitOrder(e) {
+function handleFormSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('custName').value;
-  const isCOD = document.getElementById('payCOD').checked;
+  const btn = document.getElementById('submitBtn');
+  btn.innerText = "Processing...";
+  btn.disabled = true;
 
-  if(isCOD) {
-    alert("Hello " + name + "!\n\nYour COD request for " + pName + " (Qty: " + currentQty + ") is initiated.\n\nPlease pay ₹249 via UPI/Online to unlock your Cash on Delivery order.");
-  } else {
-    alert("Hello " + name + "!\n\nRedirecting to Online Payment (UPI / Bank) for ₹" + totalPrice);
-  }
+  const form = document.getElementById('orderForm');
+  const name = document.getElementById('custName').value;
+  const phone = document.getElementById('custPhone').value;
+  const address = document.getElementById('custAddress').value;
+  const pincode = document.getElementById('custPincode').value;
+  const country = document.getElementById('custCountry').value;
+  const isCOD = document.getElementById('payCOD').checked;
+  const payMethod = isCOD ? "COD (₹249 Advance)" : "Full Online";
+
+  // Send Email in background via Formsubmit
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form)
+  }).catch(err => console.log(err));
+
+  // WhatsApp Message Redirect
+  const waMessage = `*New Order Request*%0A%0A` +
+    `*Product:* ${pName}%0A` +
+    `*Quantity:* ${currentQty}%0A` +
+    `*Total Price:* ₹${totalPrice}%0A` +
+    `*Payment Method:* ${payMethod}%0A%0A` +
+    `*Customer Details:*%0A` +
+    `*Name:* ${name}%0A` +
+    `*Phone:* ${phone}%0A` +
+    `*Address:* ${address}, ${pincode}, ${country}`;
+
+  const waUrl = `https://wa.me/918145470421?text=${waMessage}`;
+
   closeOrderModal();
+  btn.disabled = false;
+  togglePayment();
+
+  // Redirect to WhatsApp
+  window.open(waUrl, '_blank');
 }
 </script>
 
