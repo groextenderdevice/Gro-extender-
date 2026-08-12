@@ -1,291 +1,66 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gro Extender Device - Order Now</title>
-  <style>
-    /* Global Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    body {
-      background-color: #f4f6f8;
-      color: #333;
-      line-height: 1.6;
-      padding: 20px 10px;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-    h2 {
-      text-align: center;
-      color: #1a252f;
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
-
-    /* Product Section */
-    .product-card {
-      border: 1px solid #e1e8ed;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 20px;
-      background: #fafbfc;
-    }
-    .product-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-    .price-tag {
-      font-size: 20px;
-      color: #27ae60;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    /* Quantity Controls */
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-    .quantity-control label {
-      font-weight: 600;
-    }
-    .btn-qty {
-      width: 32px;
-      height: 32px;
-      background-color: #e2e8f0;
-      border: none;
-      border-radius: 6px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #333;
-    }
-    .btn-qty:hover {
-      background-color: #cbd5e1;
-    }
-    .qty-display {
-      font-size: 16px;
-      font-weight: bold;
-      min-width: 20px;
-      text-align: center;
-    }
-
-    /* Order Summary */
-    .summary-box {
-      border-top: 2px dashed #e1e8ed;
-      padding-top: 15px;
-      margin-top: 15px;
-    }
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
-    .summary-row.total {
-      font-size: 18px;
-      font-weight: bold;
-      color: #d35400;
-      border-top: 1px solid #ddd;
-      padding-top: 8px;
-    }
-
-    /* Form Fields */
-    .form-group {
-      margin-bottom: 16px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-      font-size: 14px;
-      color: #4a5568;
-    }
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus, 
-    .form-group select:focus, 
-    .form-group textarea:focus {
-      border-color: #3182ce;
-    }
-
-    /* Payment Method Box */
-    .payment-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .payment-option {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-      cursor: pointer;
-    }
-
-    /* Submit Button */
-    .btn-submit {
-      width: 100%;
-      background-color: #27ae60;
-      color: #ffffff;
-      border: none;
-      padding: 14px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    .btn-submit:hover {
-      background-color: #2196f3;
-    }
-  </style>
+  <title>Checkout</title>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Checkout / Order Form</h2>
+  <!-- Hidden Form Inputs Container / Form Start -->
+  <form action="https://formspree.io/f/meaigbry" method="POST">
 
-    <!-- Product Card -->
-    <div class="product-card">
-      <div class="product-title">Gro Extender Device</div>
-      <div class="price-tag">Price: ₹<span id="unitPrice">2499</span></div>
+    <input type="hidden" name="subject" value="New Order Received">
+    <input type="hidden" name="from_name" value="Order Form">
+    <input type="hidden" id="formProduct" name="Product">
+    <input type="hidden" id="formQuantity" name="Quantity">
+    <input type="hidden" id="formTotal" name="Total">
 
-      <div class="quantity-control">
-        <label>Quantity:</label>
-        <button type="button" class="btn-qty" onclick="changeQuantity(-1)">-</button>
-        <span class="qty-display" id="qtyDisplay">1</span>
-        <button type="button" class="btn-qty" onclick="changeQuantity(1)">+</button>
+    <div class="form-group">
+      <label>Full Name *</label>
+      <input type="text" name="Customer_Name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number *</label>
+      <input type="tel" name="Phone_Number" required>
+    </div>
+
+    <div class="form-group">
+      <label>Full Address *</label>
+      <textarea name="Address" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Pincode / Postal Code *</label>
+      <input type="text" name="Pincode" required>
+    </div>
+
+    <div class="form-group">
+      <label>Country *</label>
+      <select name="Country" id="custCountry">
+        <option value="India" selected>India</option>
+        <option value="Bangladesh">Bangladesh</option>
+        <option value="Nepal">Nepal</option>
+      </select>
+    </div>
+
+    <!-- Payment Method Selection -->
+    <div class="payment-box">
+      <label>Payment Method</label>
+      <div>
+        <input type="radio" id="cod" name="Payment_Method" value="COD" checked>
+        <label for="cod">Cash on Delivery</label>
       </div>
-
-      <div class="summary-box">
-        <div class="summary-row">
-          <span>Item Total:</span>
-          <span>₹<span id="itemTotal">2499</span></span>
-        </div>
-        <div class="summary-row">
-          <span>Shipping:</span>
-          <span>FREE</span>
-        </div>
-        <div class="summary-row total">
-          <span>Total Payable:</span>
-          <span>₹<span id="grandTotal">2499</span></span>
-        </div>
+      <div>
+        <input type="radio" id="online" name="Payment_Method" value="Online">
+        <label for="online">Online Payment</label>
       </div>
     </div>
 
-    <!-- START OF FORM -->
-    <form action="https://formspree.io/f/meaigbry" method="POST">
+    <button type="submit">Place Order</button>
 
-      <!-- Hidden Form Fields for Product Info -->
-      <input type="hidden" name="_subject" value="New Order Received - Gro Extender Device">
-      <input type="hidden" id="formProduct" name="Product" value="Gro Extender Device">
-      <input type="hidden" id="formQuantity" name="Quantity" value="1">
-      <input type="hidden" id="formTotal" name="Total_Amount" value="₹2499">
-
-      <!-- Customer Details -->
-      <div class="form-group">
-        <label>Full Name *</label>
-        <input type="text" name="Customer_Name" required placeholder="Enter your full name">
-      </div>
-
-      <div class="form-group">
-        <label>Phone Number *</label>
-        <input type="tel" name="Phone_Number" required placeholder="Enter 10-digit mobile number">
-      </div>
-
-      <div class="form-group">
-        <label>Full Address *</label>
-        <textarea name="Full_Address" rows="3" required placeholder="House No, Road/Street, Area, Landmark"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Pincode / Postal Code *</label>
-        <input type="text" name="Pincode" required placeholder="e.g. 700001">
-      </div>
-
-      <div class="form-group">
-        <label>Country *</label>
-        <select name="Country" id="custCountry">
-          <option value="India" selected>India</option>
-          <option value="Bangladesh">Bangladesh</option>
-          <option value="Nepal">Nepal</option>
-        </select>
-      </div>
-
-      <!-- Payment Method Selection -->
-      <div class="payment-box">
-        <label style="font-weight: bold; margin-bottom: 10px; display: block;">Payment Method *</label>
-        
-        <label class="payment-option">
-          <input type="radio" name="Payment_Method" value="Cash on Delivery" checked>
-          <span>Cash on Delivery (COD)</span>
-        </label>
-        
-        <label class="payment-option">
-          <input type="radio" name="Payment_Method" value="Online Payment / UPI">
-          <span>Online Payment / UPI</span>
-        </label>
-      </div>
-
-      <!-- Submit Button -->
-      <button type="submit" class="btn-submit">Confirm & Place Order</button>
-
-    </form>
-    <!-- END OF FORM -->
-
-  </div>
-
-  <script>
-    let unitPrice = 2499;
-    let currentQty = 1;
-
-    function updateCalculations() {
-      let total = unitPrice * currentQty;
-      
-      document.getElementById('qtyDisplay').innerText = currentQty;
-      document.getElementById('itemTotal').innerText = total;
-      document.getElementById('grandTotal').innerText = total;
-
-      // Update hidden inputs for Formspree
-      document.getElementById('formQuantity').value = currentQty;
-      document.getElementById('formTotal').value = '₹' + total;
-    }
-
-    function changeQuantity(amount) {
-      currentQty += amount;
-      if (currentQty < 1) {
-        currentQty = 1;
-      }
-      updateCalculations();
-    }
-  </script>
+  </form>
 
 </body>
 </html>
