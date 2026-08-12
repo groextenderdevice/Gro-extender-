@@ -328,7 +328,27 @@ function submitOrder(e) {
     window.location.href = whatsappURL;
   }, 500);
 }
+</script></script>
+
+<!-- QR কোড সেকশন (BUY NOW-তে ক্লিক করলে শো করবে) -->
+<div id="payment-section" style="display: none; border: 2px solid #5f259f; padding: 20px; border-radius: 10px; text-align: center; max-width: 350px; margin: 20px auto; background-color: #ffffff;">
+  <h4 style="color: #5f259f; margin-bottom: 8px;">অনলাইন পেমেন্ট (UPI QR Code)</h4>
+  <p style="font-size: 13px; color: #555; margin-bottom: 10px;">PhonePe, GPay, Paytm বা যেকোনো UPI অ্যাপ দিয়ে স্ক্যান করে পেমেন্ট করুন:</p>
+  
+  <img src="qr-code.png" alt="PhonePe QR Code" style="width: 220px; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+  
+  <p style="font-size: 12px; color: #666; margin-top: 10px;">*পেমেন্ট সফল হওয়ার পর UTR / Transaction ID ফর্মে লিখে Submit করুন।</p>
+</div>
+
+<script>
+  function showQRCode() {
+    var paymentBox = document.getElementById("payment-section");
+    paymentBox.style.display = "block";
+    paymentBox.scrollIntoView({ behavior: 'smooth' });
+  }
 </script>
+</body>
+</html>
 
 </body>
 </html>
