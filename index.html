@@ -79,6 +79,17 @@ footer h3{color:#fff;margin-top:0}footer p,footer li{font-size:14px;line-height:
 @media(max-width:900px){.hero-grid,.products{grid-template-columns:1fr 1fr}.hero-grid{gap:22px}.products .product:last-child{grid-column:1/-1}.main-image{height:260px}}
 @media(max-width:650px){.navlinks{display:none}.hero{padding:42px 0}.hero-grid,.products,.form-grid,.policy,.footer-grid{grid-template-columns:1fr}.products .product:last-child{grid-column:auto}.trust{grid-template-columns:1fr}.payment-options{grid-template-columns:1fr}.field.full-field{grid-column:auto}.main-image{height:280px}}
 </style>
+
+<style id="direct-contact-added">
+.direct-contact-added{position:fixed;right:16px;bottom:18px;z-index:99999;display:flex;flex-direction:column;gap:10px}
+.direct-contact-added a{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 7px 20px rgba(0,0,0,.25);overflow:hidden;border:2px solid #fff}
+.direct-contact-added .wa-btn{background:#25D366;color:#fff}
+.direct-contact-added .wa-btn svg{width:31px;height:31px;fill:#fff}
+.direct-contact-added .call-btn{background:#7bc64b}
+.direct-contact-added .call-btn img{width:100%;height:100%;object-fit:cover}
+@media(max-width:600px){.direct-contact-added{right:12px;bottom:12px}.direct-contact-added a{width:54px;height:54px}}
+</style>
+
 </head>
 <body>
 
@@ -337,13 +348,8 @@ function paymentMethodChanged(){
   if(method==="cod"){
     document.getElementById("paymentArea").innerHTML=`
       <div class="payment-box">
-        <h3>COD — Advance Online Payment First</h3>
-        <p><b>First pay online:</b> ${money(COD_ADVANCE)} advance. After the advance payment is successfully verified, COD will be unlocked.</p>
-        <div class="summary">
-          <div class="summary-row"><span>Advance Online</span><b>${money(COD_ADVANCE)}</b></div>
-          <div class="summary-row"><span>Remaining COD After Delivery</span><b>${money(Math.max(0,(selectedProduct.price*selectedQty)-COD_ADVANCE))}</b></div>
-          <div class="summary-row summary-total"><span>Total Order</span><b>${money(selectedProduct.price*selectedQty)}</b></div>
-        </div>
+        <h3>COD — ₹${COD_ADVANCE} Advance Payment</h3>
+        <p>Pay the advance first. COD is treated as unlocked only after the receiving account verifies the payment.</p>
         <img class="qr" src="qr-code.png" alt="UPI QR Code">
         <div class="upi-id">${UPI_ID}</div>
         <div class="note">After paying ₹${COD_ADVANCE}, enter the UTR / Transaction ID below. Entering a UTR does not itself prove payment.</div>
@@ -372,12 +378,7 @@ function onlineTypeChanged(){
   if(type==="upi"){
     document.getElementById("onlineArea").innerHTML=`
       <div class="note">On compatible phones, the UPI button can open the installed UPI-app chooser. The QR works with supported UPI apps.</div>
-      <label style="display:block;font-weight:900;font-size:13px;margin:12px 0 6px">Choose UPI App</label>
-      <select id="upiApp">
-        <option>PhonePe</option><option>G Pay</option><option>Paytm</option>
-        <option>MobiKwik</option><option>Amazon Pay</option>
-      </select>
-      <button class="btn btn-primary full" style="margin-top:10px" onclick="startUPI(${total})">Pay ${money(total)} with UPI</button>
+      <button class="btn btn-primary full" onclick="startUPI(${total})">Pay ${money(total)} with UPI</button>
       <img class="qr" src="qr-code.png" alt="UPI QR Code">
       <div class="upi-id">${UPI_ID}</div>
       <label>UTR / Transaction ID *</label>
@@ -386,14 +387,7 @@ function onlineTypeChanged(){
   }else{
     document.getElementById("onlineArea").innerHTML=`
       <div class="note"><b>Live Net Banking:</b> a static GitHub page cannot securely connect directly to every bank. Use a payment gateway checkout here for real-time Success / Failed / Pending verification.</div>
-      <label style="display:block;font-weight:900;font-size:13px;margin-top:12px">Bank</label>
-      <select id="bankChoice">
-        <option>All Bank — choose from payment gateway</option>
-        <option>State Bank of India</option><option>HDFC Bank</option><option>ICICI Bank</option>
-        <option>Axis Bank</option><option>Punjab National Bank</option><option>Bank of Baroda</option>
-        <option>Canara Bank</option><option>Union Bank of India</option><option>Other Bank</option>
-      </select>
-      <button class="btn btn-primary full" style="margin-top:10px" onclick="startBankGateway()">Continue to Secure Net Banking</button>`;
+      <button class="btn btn-primary full" onclick="startBankGateway()">Continue to Secure Net Banking</button>`;
   }
 }
 
@@ -417,10 +411,9 @@ function setStatus(text,type="pending"){
 
 function startUPI(total){
   const c=validateCustomer(); if(!c)return;
-  const app=document.getElementById("upiApp")?.value || "UPI";
   const url=`upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent("Gro Extender")}&am=${encodeURIComponent(total)}&cu=INR`;
   window.location.href=url;
-  setStatus("Pending — complete payment using "+app+".");
+  setStatus("Pending — complete payment in your UPI app.");
   toast("UPI payment started. Complete it, then enter the UTR.");
 }
 
@@ -471,5 +464,16 @@ function closeImage(){document.getElementById("imageModal").style.display="none"
 
 renderProducts();
 </script>
+
+<!-- DIRECT WHATSAPP + CALL: added without removing existing features -->
+<div class="direct-contact-added" aria-label="Direct Contact">
+  <a class="wa-btn" href="https://wa.me/917407792138?text=Hello%20Gro%20Extender%2C%20I%20need%20help%20with%20my%20order." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.19c-.27-.14-1.58-.78-1.83-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.34-.79-.7-1.33-1.57-1.49-1.83-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.46-.84-2-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.58-.65 1.8-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32zM16.02 4.03c-6.63 0-12.02 5.39-12.02 12.02 0 2.12.56 4.19 1.62 6.01L4 28l6.1-1.6a11.98 11.98 0 0 0 5.92 1.56h.01c6.63 0 12.02-5.39 12.02-12.02S22.66 4.03 16.02 4.03zm0 21.87h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.62.95.97-3.53-.23-.36a9.86 9.86 0 1 1 8.27 4.52z"/></svg>
+  </a>
+  <a class="call-btn" href="tel:+917407792138" aria-label="Call" title="Call">
+    <img src="pngtree-call-sign-png-image_6539421.png" alt="Call">
+  </a>
+</div>
+
 </body>
 </html>
