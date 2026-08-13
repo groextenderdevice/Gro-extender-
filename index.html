@@ -90,6 +90,44 @@ footer h3{color:#fff;margin-top:0}footer p,footer li{font-size:14px;line-height:
 @media(max-width:600px){.direct-contact-added{right:12px;bottom:12px}.direct-contact-added a{width:54px;height:54px}}
 </style>
 
+
+<style id="direct-contact-style">
+.direct-contact{
+  position:fixed;right:16px;bottom:22px;z-index:99999;
+  display:flex;flex-direction:column;gap:12px;
+  pointer-events:auto;
+}
+.direct-contact-btn{
+  width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:3px solid #fff;text-decoration:none;
+  box-shadow:0 7px 22px rgba(0,0,0,.28);
+  transition:transform .18s ease,box-shadow .18s ease;
+  overflow:hidden;
+}
+.direct-contact-btn:hover{
+  transform:scale(1.07);box-shadow:0 10px 28px rgba(0,0,0,.34);
+}
+.direct-contact-btn:active{transform:scale(.96)}
+.direct-contact-btn.whatsapp{background:#25D366}
+.direct-contact-btn.call{background:#7AC943}
+.direct-contact-btn svg{width:31px;height:31px;display:block}
+.direct-contact-btn img{width:100%;height:100%;object-fit:cover;display:block}
+.direct-contact-label{
+  position:absolute;right:68px;padding:7px 10px;border-radius:8px;
+  background:#111;color:#fff;font-size:12px;font-weight:800;
+  white-space:nowrap;opacity:0;transform:translateX(5px);
+  pointer-events:none;transition:.18s;
+}
+.direct-contact-item{position:relative;display:flex;align-items:center}
+.direct-contact-item:hover .direct-contact-label{opacity:1;transform:translateX(0)}
+@media(max-width:600px){
+  .direct-contact{right:12px;bottom:14px;gap:10px}
+  .direct-contact-btn{width:55px;height:55px}
+  .direct-contact-label{display:none}
+}
+</style>
+
 </head>
 <body>
 
@@ -473,6 +511,26 @@ renderProducts();
   <a class="call-btn" href="tel:+917407792138" aria-label="Call" title="Call">
     <img src="pngtree-call-sign-png-image_6539421.png" alt="Call">
   </a>
+</div>
+
+
+<div class="direct-contact" aria-label="Direct Contact">
+  <div class="direct-contact-item">
+    <span class="direct-contact-label">WhatsApp</span>
+    <a class="direct-contact-btn whatsapp"
+       href="https://wa.me/917407792138?text=Hello%20Gro%20Extender%2C%20I%20need%20help."
+       target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="#fff" d="M16 3.2A12.8 12.8 0 0 0 5 22.5L3.2 28.8l6.5-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.3c-2 0-4-.5-5.7-1.5l-.4-.2-3.8 1 1-3.7-.2-.4A10.3 10.3 0 1 1 16 26.5Zm5.8-7.7c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.3-.6.1-1.6-.8-2.7-1.5-3.8-3.3-.3-.5.3-.5.8-1.7.1-.2.1-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2 2.2 1 3 1.1 4 1 .7-.1 1.8-.7 2.1-1.3.3-.6.3-1.1.2-1.3-.1-.2-.3-.3-.6-.4Z"/>
+      </svg>
+    </a>
+  </div>
+  <div class="direct-contact-item">
+    <span class="direct-contact-label">Call</span>
+    <a class="direct-contact-btn call" href="tel:+917407792138" aria-label="Call 7407792138">
+      <img src="data:image/png;base64,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" alt="Call">
+    </a>
+  </div>
 </div>
 
 </body>
