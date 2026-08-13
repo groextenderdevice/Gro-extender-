@@ -14,7 +14,13 @@ a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text
 .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:35px}
 .product-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 25px rgba(0,0,0,0.05);display:flex;flex-direction:column;justify-content:space-between;transition:0.3s}
 .product-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.1)}
-.product-img{width:100%;height:260px;object-fit:cover;border-radius:12px;background:#f0f4f8}
+.product-img{width:100%;height:260px;object-fit:contain;border-radius:12px;background:#f0f4f8}
+
+/* Thumbnail Gallery Style */
+.thumb-gallery{display:flex;gap:8px;justify-content:center;margin:10px 0}
+.thumb-gallery img{width:55px;height:55px;object-fit:cover;border-radius:6px;border:1px solid var(--line);cursor:pointer;transition:0.2s}
+.thumb-gallery img:hover,.thumb-gallery img.active{border-color:var(--blue);transform:scale(1.05)}
+
 .product-title{font-size:20px;font-weight:700;margin:15px 0 8px}
 .product-desc{font-size:13px;color:var(--muted);margin-bottom:15px;flex-grow:1;text-align:left}
 .product-desc ol{padding-left:18px;margin:8px 0}
@@ -75,7 +81,12 @@ a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text
   <div class="product-grid">
     <!-- Product 1 -->
     <div class="product-card">
-      <img class="product-img" src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png" alt="Grow Extender Standard Edition">
+      <img id="p-img-1" class="product-img" src="1-771x1024.jpeg" alt="Grow Extender Standard Edition">
+      <div class="thumb-gallery">
+        <img src="1-771x1024.jpeg" onclick="switchImage('p-img-1', this)" class="active" alt="Standard View 1">
+        <img src="41vPiGys9FL._AC_UF700,760_QL80_FMwebp_.webp" onclick="switchImage('p-img-1', this)" alt="Standard View 2">
+        <img src="51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif" onclick="switchImage('p-img-1', this)" alt="Standard View 3">
+      </div>
       <h3 class="product-title">Grow Extender Standard</h3>
       <div class="product-desc">
         <b>Features & Use:</b>
@@ -99,7 +110,12 @@ a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text
 
     <!-- Product 2 -->
     <div class="product-card">
-      <img class="product-img" src="Gemini_Generated_Image_unscx2unscx2unsc.png" alt="Grow Extender Pro Edition">
+      <img id="p-img-2" class="product-img" src="ProExtender-Ultimate002 (1).png" alt="Grow Extender Pro Edition">
+      <div class="thumb-gallery">
+        <img src="ProExtender-Ultimate002 (1).png" onclick="switchImage('p-img-2', this)" class="active" alt="Pro View 1">
+        <img src="ProExtender-Ultimate-Straps-260x134.jpg" onclick="switchImage('p-img-2', this)" alt="Pro View 2">
+        <img src="pro-extender-silicone-tube.webp" onclick="switchImage('p-img-2', this)" alt="Pro View 3">
+      </div>
       <h3 class="product-title">Grow Extender Pro</h3>
       <div class="product-desc">
         <b>Features & Use:</b>
@@ -124,7 +140,12 @@ a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text
 
     <!-- Product 3 -->
     <div class="product-card">
-      <img class="product-img" src="Gemini_Generated_Image_bezw1nbezw1nbezw.png" alt="Grow Extender Supreme Plus">
+      <img id="p-img-3" class="product-img" src="pro-extender-penis-500x500.jpg" alt="Grow Extender Supreme Plus">
+      <div class="thumb-gallery">
+        <img src="pro-extender-penis-500x500.jpg" onclick="switchImage('p-img-3', this)" class="active" alt="Supreme View 1">
+        <img src="prod_69d5588979548.jpg" onclick="switchImage('p-img-3', this)" alt="Supreme View 2">
+        <img src="Gemini_Generated_Image_rdccbrdc.png" onclick="switchImage('p-img-3', this)" alt="Supreme View 3">
+      </div>
       <h3 class="product-title">Grow Extender Supreme+</h3>
       <div class="product-desc">
         <b>Features & Use:</b>
@@ -260,6 +281,15 @@ let unitPrice = 0;
 let currentQty = 1;
 let totalPrice = 0;
 
+function switchImage(mainImgId, thumbElement) {
+  document.getElementById(mainImgId).src = thumbElement.src;
+  let thumbnails = thumbElement.parentElement.getElementsByTagName('img');
+  for (let i = 0; i < thumbnails.length; i++) {
+    thumbnails[i].classList.remove('active');
+  }
+  thumbElement.classList.add('active');
+}
+
 function updateQty(id, change) {
   const el = document.getElementById(id);
   let val = parseInt(el.innerText) + change;
@@ -337,7 +367,7 @@ function submitOrder(e) {
   
   <img src="qr-code.png" alt="PhonePe QR Code" style="width: 220px; height: auto; border: 1px solid #ddd; border-radius: 8px;">
   
-  <p style="font-size: 12 px; color: #666; margin-top: 10px;">*পেমেন্ট সফল হওয়ার পর UTR / Transaction ID ফর্মে লিখে Submit করুন।</p>
+  <p style="font-size: 12px; color: #666; margin-top: 10px;">*পেমেন্ট সফল হওয়ার পর UTR / Transaction ID ফর্মে লিখে Submit করুন।</p>
 </div>
 
 <script>
@@ -348,4 +378,4 @@ function submitOrder(e) {
   }
 </script>
 </body>
-  </html>
+</html>
