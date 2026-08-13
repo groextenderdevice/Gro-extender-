@@ -128,6 +128,41 @@ footer h3{color:#fff;margin-top:0}footer p,footer li{font-size:14px;line-height:
 }
 </style>
 
+
+
+<style id="sequential-ecommerce-flow">
+.seq-page{display:none;position:fixed;inset:0;z-index:200000;background:#f7faff;overflow:auto}
+.seq-page.active{display:block}
+.seq-top{position:sticky;top:0;z-index:4;background:#fff;border-bottom:1px solid #dfe7f1;padding:13px 16px;display:flex;align-items:center;gap:12px}
+.seq-back{border:0;background:#071a36;color:#fff;padding:10px 14px;border-radius:10px;font-weight:800}
+.seq-title{font-weight:900;color:#071a36;font-size:19px}
+.seq-wrap{max-width:1000px;margin:auto;padding:20px}
+.seq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.seq-card{background:#fff;border:1px solid #dfe7f1;border-radius:18px;overflow:hidden;box-shadow:0 7px 22px rgba(0,0,0,.07);cursor:pointer}
+.seq-card img{display:block;width:100%;height:280px;object-fit:contain;background:#f1f4f8}
+.seq-card-body{padding:16px}
+.seq-card-body h3{margin:0 0 6px}
+.seq-card-body p{margin:5px 0;color:#617089;font-size:13px}
+.seq-price{font-size:24px;font-weight:900;color:#071a36;margin:8px 0}
+.seq-detail{display:none;background:#fff;border-radius:20px;padding:20px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.seq-detail.active{display:block}
+.seq-detail img{width:100%;height:380px;object-fit:contain;background:#f1f4f8;border-radius:15px}
+.seq-detail li{margin:7px 0}
+.seq-qty{display:flex;justify-content:center;align-items:center;gap:14px;margin:18px 0}
+.seq-qty button{width:42px;height:42px;border:1px solid #dfe7f1;background:#eaf4ff;border-radius:9px;font-size:22px;font-weight:900}
+.seq-qty span{font-size:20px;font-weight:900;min-width:30px;text-align:center}
+.seq-btn{width:100%;border:0;background:#ffd33d;color:#071a36;padding:15px;border-radius:12px;font-weight:900;font-size:17px}
+.seq-form{background:#fff;padding:20px;border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.seq-form label{display:block;font-weight:800;font-size:13px;margin:13px 0 6px}
+.seq-form input,.seq-form textarea,.seq-form select{width:100%;padding:12px;border:1px solid #dfe7f1;border-radius:9px;font-size:14px}
+.seq-pay-card{background:#eaf4ff;border:1px solid #b3d7ff;border-radius:14px;padding:16px;margin-top:16px}
+.seq-pay-option{display:block;background:#fff;padding:13px;border-radius:10px;margin:8px 0;border:1px solid #dfe7f1;cursor:pointer}
+.seq-pay-option input{width:auto;margin-right:7px}
+.seq-sub{color:#617089;font-size:13px}
+.seq-success{text-align:center;background:#fff;padding:35px;border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.seq-success h2{color:#28a745}
+@media(max-width:600px){.seq-grid{grid-template-columns:1fr}.seq-card img{height:250px}.seq-detail img{height:300px}}
+</style>
 </head>
 <body>
 
@@ -533,5 +568,448 @@ renderProducts();
   </div>
 </div>
 
+
+</div>
+  <div class="flow-inner">
+    <div id="flowDetailContent" class="flow-detail active"></div>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     SEQUENTIAL E-COMMERCE FLOW
+     Home → Models → Product → Quantity → Address → Payment
+     → Payment Status → Order Confirmation
+========================================================= -->
+
+<div id="seqModels" class="seq-page">
+  <div class="seq-top">
+    <button class="seq-back" onclick="seqClose()">← Home</button>
+    <div class="seq-title">Choose Your Model</div>
+  </div>
+  <div class="seq-wrap">
+    <p class="seq-sub">Select a model to continue.</p>
+    <div id="seqModelGrid" class="seq-grid"></div>
+  </div>
+</div>
+
+<div id="seqProduct" class="seq-page">
+  <div class="seq-top">
+    <button class="seq-back" onclick="seqShow('seqModels')">← Models</button>
+    <div class="seq-title">Product Details</div>
+  </div>
+  <div class="seq-wrap">
+    <div id="seqProductContent" class="seq-detail active"></div>
+  </div>
+</div>
+
+<div id="seqAddress" class="seq-page">
+  <div class="seq-top">
+    <button class="seq-back" onclick="seqShow('seqProduct')">← Product</button>
+    <div class="seq-title">Delivery Address</div>
+  </div>
+  <div class="seq-wrap">
+    <div class="seq-form">
+      <h2>Customer Details</h2>
+      <p class="seq-sub">Enter the delivery details to continue to payment.</p>
+
+      <label>Full Name *</label>
+      <input id="seqName" required placeholder="Enter full name">
+
+      <label>Phone Number *</label>
+      <input id="seqPhone" required inputmode="numeric" maxlength="10" placeholder="10-digit mobile number">
+
+      <label>Full Address *</label>
+      <textarea id="seqAddressText" required rows="3" placeholder="House no, street, area, landmark"></textarea>
+
+      <label>State *</label>
+      <select id="seqState" onchange="seqPopulateDistricts()" required>
+        <option value="">Select State</option>
+      </select>
+
+      <label>District *</label>
+      <select id="seqDistrict" required>
+        <option value="">Select District</option>
+      </select>
+
+      <label>Pincode *</label>
+      <input id="seqPin" required inputmode="numeric" maxlength="6" placeholder="6-digit pincode">
+
+      <label>Country *</label>
+      <select id="seqCountry">
+        <option selected>India</option>
+        <option>Bangladesh</option>
+        <option>Nepal</option>
+      </select>
+
+      <button class="seq-btn" style="margin-top:18px" onclick="seqToPayment()">
+        CONTINUE TO PAYMENT →
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="seqPayment" class="seq-page">
+  <div class="seq-top">
+    <button class="seq-back" onclick="seqShow('seqAddress')">← Address</button>
+    <div class="seq-title">Payment</div>
+  </div>
+
+  <div class="seq-wrap">
+    <div class="seq-form">
+      <h2>Order Summary</h2>
+      <div id="seqSummary"></div>
+
+      <div class="seq-pay-card">
+        <h3 style="margin-top:0">Choose Payment Method</h3>
+
+        <label class="seq-pay-option">
+          <input type="radio" name="seqPayment" value="online" checked onchange="seqPaymentChanged()">
+          <b>Full Online Payment</b><br>
+          <span class="seq-sub">UPI / Net Banking / Card</span>
+        </label>
+
+        <label class="seq-pay-option">
+          <input type="radio" name="seqPayment" value="cod" onchange="seqPaymentChanged()">
+          <b>Cash on Delivery</b><br>
+          <span class="seq-sub">Advance online payment required to unlock COD</span>
+        </label>
+      </div>
+
+      <div id="seqOnlineBox"></div>
+
+      <button class="seq-btn" style="margin-top:18px" onclick="seqSubmitPayment()">
+        CONTINUE
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="seqStatus" class="seq-page">
+  <div class="seq-top">
+    <div class="seq-title">Payment Status</div>
+  </div>
+  <div class="seq-wrap">
+    <div class="seq-success">
+      <h2 id="seqStatusTitle">Payment Processing</h2>
+      <p id="seqStatusText" class="seq-sub"></p>
+      <button class="seq-btn" onclick="seqFinishOrder()">CONTINUE TO ORDER</button>
+    </div>
+  </div>
+</div>
+
+<div id="seqConfirm" class="seq-page">
+  <div class="seq-top">
+    <div class="seq-title">Order Confirmation</div>
+  </div>
+  <div class="seq-wrap">
+    <div class="seq-success">
+      <h2>✓ Order Submitted</h2>
+      <p id="seqConfirmText"></p>
+      <button class="seq-btn" onclick="seqSendWhatsApp()">SEND ORDER TO WHATSAPP</button>
+      <br><br>
+      <button class="seq-back" onclick="seqClose()">BACK TO STORE</button>
+    </div>
+  </div>
+</div>
+
+<script id="sequential-ecommerce-flow-script">
+(function(){
+  const products=[
+    {
+      id:"ultimate",
+      name:"ProExtender® Ultimate Model",
+      price:3249,
+      imgs:[
+        "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
+        "ProExtender-Ultimate-Straps-260x134.jpg",
+        "ProExtender-Ultimate002 (1).png"
+      ],
+      desc:[
+        "A reliable enlargement device designed for consistent, everyday use.",
+        "Supports traction-based use and curvature-related applications.",
+        "Includes 4 stainless steel rods + 3 straps.",
+        "Strong, durable construction.",
+        "Made from body-safe materials."
+      ]
+    },
+    {
+      id:"supreme",
+      name:"ProExtender® Supreme+ Model (Advanced Version)",
+      price:4780,
+      imgs:[
+        "Gemini_Generated_Image_unscx2unscx2unsc.png",
+        "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
+        "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
+      ],
+      desc:[
+        "The most advanced and upgraded model in the range.",
+        "Supports traction-based use and curvature-related applications.",
+        "Comes with 10 lightweight aluminium rods + 3 reinforced straps.",
+        "Lighter, stronger and durable construction.",
+        "Built with high-strength polycarbonate components."
+      ]
+    },
+    {
+      id:"doubledeck",
+      name:"ProExtender® DoubleDeck/Micropenis Model",
+      price:5950,
+      imgs:[
+        "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
+        "pro-extender-penis-enlargement-system-500x500.jpg",
+        "pro-extender-silicone-tube.webp"
+      ],
+      desc:[
+        "Designed for users looking for a compact-size compatible configuration.",
+        "Includes 4 stainless steel rods + 4 straps.",
+        "Supports traction-based use and curvature-related applications.",
+        "Extended plate design allows multiple straps for improved grip.",
+        "Made from body-safe materials."
+      ]
+    }
+  ];
+
+  const states={
+    "West Bengal":["Purba Medinipur","Paschim Medinipur","Kolkata","Howrah","Hooghly","North 24 Parganas","South 24 Parganas","Nadia","Murshidabad","Malda","Darjeeling"],
+    "Maharashtra":["Mumbai City","Mumbai Suburban","Pune","Nagpur","Nashik","Thane"],
+    "Delhi":["New Delhi","North Delhi","South Delhi","East Delhi","West Delhi"],
+    "Uttar Pradesh":["Lucknow","Kanpur Nagar","Agra","Varanasi","Prayagraj","Noida","Ghaziabad"],
+    "Bihar":["Patna","Gaya","Muzaffarpur","Bhagalpur"],
+    "Odisha":["Khordha","Cuttack","Puri","Balasore","Mayurbhanj"],
+    "Jharkhand":["Ranchi","Dhanbad","Jamshedpur","Bokaro"],
+    "Gujarat":["Ahmedabad","Surat","Vadodara","Rajkot"],
+    "Karnataka":["Bengaluru Urban","Mysuru","Mangaluru","Hubballi-Dharwad"],
+    "Tamil Nadu":["Chennai","Coimbatore","Madurai","Salem"],
+    "Telangana":["Hyderabad","Warangal","Nizamabad"],
+    "Andhra Pradesh":["Visakhapatnam","Vijayawada","Guntur","Tirupati"],
+    "Kerala":["Thiruvananthapuram","Kochi","Kozhikode","Thrissur"],
+    "Punjab":["Amritsar","Ludhiana","Jalandhar","Patiala"],
+    "Haryana":["Gurugram","Faridabad","Panipat","Hisar"],
+    "Rajasthan":["Jaipur","Jodhpur","Udaipur","Kota"],
+    "Madhya Pradesh":["Bhopal","Indore","Gwalior","Jabalpur"],
+    "Chhattisgarh":["Raipur","Bilaspur","Durg"],
+    "Assam":["Kamrup Metropolitan","Dibrugarh","Jorhat","Cachar"],
+    "Goa":["North Goa","South Goa"],
+    "Punjab":["Amritsar","Ludhiana","Jalandhar","Patiala"],
+    "Uttarakhand":["Dehradun","Haridwar","Nainital"],
+    "Himachal Pradesh":["Shimla","Kangra","Mandi"],
+    "Jammu and Kashmir":["Jammu","Srinagar","Anantnag"],
+    "Sikkim":["Gangtok"],
+    "Tripura":["West Tripura","South Tripura"],
+    "Meghalaya":["East Khasi Hills","West Garo Hills"],
+    "Manipur":["Imphal West","Imphal East"],
+    "Mizoram":["Aizawl"],
+    "Nagaland":["Kohima","Dimapur"],
+    "Arunachal Pradesh":["Papum Pare","Tawang"],
+    "Maharashtra":["Mumbai City","Mumbai Suburban","Pune","Nagpur","Nashik","Thane"],
+    "Goa":["North Goa","South Goa"]
+  };
+
+  let product=null, qty=1, order={};
+
+  function show(id){
+    document.querySelectorAll(".seq-page").forEach(p=>p.classList.remove("active"));
+    const el=document.getElementById(id);
+    if(el){el.classList.add("active");window.scrollTo(0,0);}
+  }
+  window.seqShow=show;
+
+  window.seqClose=function(){
+    document.querySelectorAll(".seq-page").forEach(p=>p.classList.remove("active"));
+    window.scrollTo(0,0);
+  };
+
+  window.seqOpenModels=function(){show("seqModels");};
+
+  window.seqPopulateDistricts=function(){
+    const state=document.getElementById("seqState").value;
+    const d=document.getElementById("seqDistrict");
+    d.innerHTML='<option value="">Select District</option>';
+    (states[state]||[]).forEach(x=>{
+      const o=document.createElement("option");o.value=x;o.textContent=x;d.appendChild(o);
+    });
+  };
+
+  function safeImg(src,alt){
+    return '<img src="'+encodeURI(src)+'" alt="'+alt+'" onerror="this.style.opacity=.15">';
+  }
+
+  function renderModels(){
+    document.getElementById("seqModelGrid").innerHTML=products.map(p=>`
+      <article class="seq-card" onclick="seqProduct('${p.id}')">
+        ${safeImg(p.imgs[0],p.name)}
+        <div class="seq-card-body">
+          <h3>${p.name}</h3>
+          <div class="seq-price">₹${p.price.toLocaleString("en-IN")}</div>
+          <p>Touch to view product →</p>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  window.seqProduct=function(id){
+    product=products.find(p=>p.id===id);
+    qty=1;
+    document.getElementById("seqProductContent").innerHTML=`
+      ${safeImg(product.imgs[0],product.name)}
+      <h2>${product.name}</h2>
+      <div class="seq-price">₹${product.price.toLocaleString("en-IN")}</div>
+      <ol>${product.desc.map(x=>"<li>"+x+"</li>").join("")}</ol>
+      <div class="seq-qty">
+        <button onclick="seqChangeQty(-1)">−</button>
+        <span id="seqQty">1</span>
+        <button onclick="seqChangeQty(1)">+</button>
+      </div>
+      <button class="seq-btn" onclick="seqToAddress()">BUY NOW</button>
+    `;
+    show("seqProduct");
+  };
+
+  window.seqChangeQty=function(n){
+    qty=Math.max(1,Math.min(99,qty+n));
+    document.getElementById("seqQty").textContent=qty;
+  };
+
+  window.seqToAddress=function(){
+    if(!product)return;
+    show("seqAddress");
+  };
+
+  function loadStates(){
+    const s=document.getElementById("seqState");
+    s.innerHTML='<option value="">Select State</option>';
+    Object.keys(states).forEach(x=>{
+      if([...s.options].some(o=>o.value===x))return;
+      const o=document.createElement("option");o.value=x;o.textContent=x;s.appendChild(o);
+    });
+  }
+
+  function validAddress(){
+    const fields=["seqName","seqPhone","seqAddressText","seqState","seqDistrict","seqPin"];
+    if(fields.some(id=>!document.getElementById(id).value.trim())){
+      alert("Please complete all required delivery details.");
+      return false;
+    }
+    const phone=document.getElementById("seqPhone").value.trim();
+    const pin=document.getElementById("seqPin").value.trim();
+    if(!/^[0-9]{10}$/.test(phone)){alert("Enter a valid 10-digit phone number.");return false;}
+    if(!/^[0-9]{6}$/.test(pin)){alert("Enter a valid 6-digit pincode.");return false;}
+    return true;
+  }
+
+  window.seqToPayment=function(){
+    if(!validAddress())return;
+    order.name=document.getElementById("seqName").value.trim();
+    order.phone=document.getElementById("seqPhone").value.trim();
+    order.address=document.getElementById("seqAddressText").value.trim();
+    order.state=document.getElementById("seqState").value;
+    order.district=document.getElementById("seqDistrict").value;
+    order.pin=document.getElementById("seqPin").value.trim();
+    order.country=document.getElementById("seqCountry").value;
+    order.total=product.price*qty;
+    renderSummary();
+    seqPaymentChanged();
+    show("seqPayment");
+  };
+
+  function renderSummary(){
+    document.getElementById("seqSummary").innerHTML=`
+      <p><b>Product:</b> ${product.name}</p>
+      <p><b>Quantity:</b> ${qty}</p>
+      <p><b>Total:</b> ₹${order.total.toLocaleString("en-IN")}</p>
+    `;
+  }
+
+  window.seqPaymentChanged=function(){
+    const type=document.querySelector('input[name="seqPayment"]:checked').value;
+    const box=document.getElementById("seqOnlineBox");
+    if(type==="cod"){
+      const advance=249;
+      const remaining=Math.max(0,order.total-advance);
+      box.innerHTML=`
+        <div class="seq-pay-card">
+          <b>COD Unlock Requirement</b>
+          <p class="seq-sub">Pay ₹249 online first. After successful verification, COD is unlocked for the remaining ₹${remaining.toLocaleString("en-IN")}.</p>
+          <label class="seq-pay-option"><input type="radio" name="seqGateway" value="upi" checked> UPI — PhonePe / G Pay / Paytm / MobiKwik / Amazon Pay</label>
+          <label class="seq-pay-option"><input type="radio" name="seqGateway" value="netbanking"> Net Banking — All supported banks</label>
+          <p class="seq-sub">QR/UPI payment and UTR can be collected here. A real payment gateway is required for automatic success/failure verification.</p>
+        </div>`;
+    }else{
+      box.innerHTML=`
+        <div class="seq-pay-card">
+          <b>Full Online Payment</b>
+          <label class="seq-pay-option"><input type="radio" name="seqGateway" value="upi" checked> UPI — PhonePe / G Pay / Paytm / MobiKwik / Amazon Pay</label>
+          <label class="seq-pay-option"><input type="radio" name="seqGateway" value="netbanking"> Net Banking — All supported banks</label>
+          <label class="seq-pay-option"><input type="radio" name="seqGateway" value="card"> Debit / Credit Card</label>
+          <p class="seq-sub">For automatic success/failed/pending status, connect an approved payment gateway to this button.</p>
+        </div>`;
+    }
+  };
+
+  window.seqSubmitPayment=function(){
+    const type=document.querySelector('input[name="seqPayment"]:checked').value;
+    order.method=type==="cod"?"COD + ₹249 Advance":"Full Online";
+    order.status="Pending";
+    order.gateway=(document.querySelector('input[name="seqGateway"]:checked')||{}).value||"upi";
+
+    // This demo does NOT falsely mark a QR/UPI payment as successful.
+    // A real gateway/webhook must confirm payment before changing status to Success.
+    document.getElementById("seqStatusTitle").textContent="Payment Pending";
+    document.getElementById("seqStatusText").textContent=
+      type==="cod"
+      ? "Pay the ₹249 advance through your connected payment gateway. COD unlocks only after the gateway confirms a successful payment."
+      : "Complete payment through the connected payment gateway. The order status will be updated from the gateway result.";
+    show("seqStatus");
+  };
+
+  window.seqFinishOrder=function(){
+    const type=document.querySelector('input[name="seqPayment"]:checked').value;
+    // Demo confirmation page; real gateway success should call this after webhook confirmation.
+    order.status="Submitted";
+    document.getElementById("seqConfirmText").innerHTML=
+      "<b>"+product.name+"</b><br>Quantity: "+qty+
+      "<br>Total: ₹"+order.total.toLocaleString("en-IN")+
+      "<br>Payment: "+order.method+
+      "<br>Status: "+order.status;
+    show("seqConfirm");
+  };
+
+  window.seqSendWhatsApp=function(){
+    const msg=
+      "New Order%0A%0A"+
+      "Product: "+encodeURIComponent(product.name)+"%0A"+
+      "Quantity: "+qty+"%0A"+
+      "Total: ₹"+order.total+"%0A"+
+      "Payment: "+encodeURIComponent(order.method)+"%0A"+
+      "Status: "+encodeURIComponent(order.status)+"%0A%0A"+
+      "Customer: "+encodeURIComponent(order.name)+"%0A"+
+      "Phone: "+order.phone+"%0A"+
+      "Address: "+encodeURIComponent(order.address)+
+      ", "+encodeURIComponent(order.district)+
+      ", "+encodeURIComponent(order.state)+
+      ", "+order.pin+
+      ", "+encodeURIComponent(order.country);
+    window.open("https://wa.me/917407792138?text="+msg,"_blank");
+  };
+
+  document.addEventListener("DOMContentLoaded",function(){
+    renderModels();
+    loadStates();
+
+    // Open the new second page from the existing hero/main product area.
+    document.querySelectorAll(".hero img").forEach(img=>{
+      img.style.cursor="pointer";
+      img.addEventListener("click",seqOpenModels);
+    });
+    const hero=document.querySelector(".hero");
+    if(hero){
+      const b=hero.querySelector("button,.btn");
+      if(b){
+        b.addEventListener("click",function(e){e.preventDefault();seqOpenModels();});
+      }
+    }
+  });
+})();
+</script>
 </body>
-</html>
+  </html>
