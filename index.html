@@ -337,8 +337,13 @@ function paymentMethodChanged(){
   if(method==="cod"){
     document.getElementById("paymentArea").innerHTML=`
       <div class="payment-box">
-        <h3>COD — ₹${COD_ADVANCE} Advance Payment</h3>
-        <p>Pay the advance first. COD is treated as unlocked only after the receiving account verifies the payment.</p>
+        <h3>COD — Advance Online Payment First</h3>
+        <p><b>First pay online:</b> ${money(COD_ADVANCE)} advance. After the advance payment is successfully verified, COD will be unlocked.</p>
+        <div class="summary">
+          <div class="summary-row"><span>Advance Online</span><b>${money(COD_ADVANCE)}</b></div>
+          <div class="summary-row"><span>Remaining COD After Delivery</span><b>${money(Math.max(0,(selectedProduct.price*selectedQty)-COD_ADVANCE))}</b></div>
+          <div class="summary-row summary-total"><span>Total Order</span><b>${money(selectedProduct.price*selectedQty)}</b></div>
+        </div>
         <img class="qr" src="qr-code.png" alt="UPI QR Code">
         <div class="upi-id">${UPI_ID}</div>
         <div class="note">After paying ₹${COD_ADVANCE}, enter the UTR / Transaction ID below. Entering a UTR does not itself prove payment.</div>
@@ -367,7 +372,12 @@ function onlineTypeChanged(){
   if(type==="upi"){
     document.getElementById("onlineArea").innerHTML=`
       <div class="note">On compatible phones, the UPI button can open the installed UPI-app chooser. The QR works with supported UPI apps.</div>
-      <button class="btn btn-primary full" onclick="startUPI(${total})">Pay ${money(total)} with UPI</button>
+      <label style="display:block;font-weight:900;font-size:13px;margin:12px 0 6px">Choose UPI App</label>
+      <select id="upiApp">
+        <option>PhonePe</option><option>G Pay</option><option>Paytm</option>
+        <option>MobiKwik</option><option>Amazon Pay</option>
+      </select>
+      <button class="btn btn-primary full" style="margin-top:10px" onclick="startUPI(${total})">Pay ${money(total)} with UPI</button>
       <img class="qr" src="qr-code.png" alt="UPI QR Code">
       <div class="upi-id">${UPI_ID}</div>
       <label>UTR / Transaction ID *</label>
@@ -376,7 +386,14 @@ function onlineTypeChanged(){
   }else{
     document.getElementById("onlineArea").innerHTML=`
       <div class="note"><b>Live Net Banking:</b> a static GitHub page cannot securely connect directly to every bank. Use a payment gateway checkout here for real-time Success / Failed / Pending verification.</div>
-      <button class="btn btn-primary full" onclick="startBankGateway()">Continue to Secure Net Banking</button>`;
+      <label style="display:block;font-weight:900;font-size:13px;margin-top:12px">Bank</label>
+      <select id="bankChoice">
+        <option>All Bank — choose from payment gateway</option>
+        <option>State Bank of India</option><option>HDFC Bank</option><option>ICICI Bank</option>
+        <option>Axis Bank</option><option>Punjab National Bank</option><option>Bank of Baroda</option>
+        <option>Canara Bank</option><option>Union Bank of India</option><option>Other Bank</option>
+      </select>
+      <button class="btn btn-primary full" style="margin-top:10px" onclick="startBankGateway()">Continue to Secure Net Banking</button>`;
   }
 }
 
@@ -400,9 +417,10 @@ function setStatus(text,type="pending"){
 
 function startUPI(total){
   const c=validateCustomer(); if(!c)return;
+  const app=document.getElementById("upiApp")?.value || "UPI";
   const url=`upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent("Gro Extender")}&am=${encodeURIComponent(total)}&cu=INR`;
   window.location.href=url;
-  setStatus("Pending — complete payment in your UPI app.");
+  setStatus("Pending — complete payment using "+app+".");
   toast("UPI payment started. Complete it, then enter the UTR.");
 }
 
@@ -454,4 +472,4 @@ function closeImage(){document.getElementById("imageModal").style.display="none"
 renderProducts();
 </script>
 </body>
-  </html>
+</html>
