@@ -1,343 +1,474 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GRO Extender | Official Store</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GRO Extender — Official Store</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f3f5f8;
-    color:#172033;
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f6f8;
+color:#172033;
+line-height:1.6
 }
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-header{
-    background:#071a36;
-    color:#fff;
-    position:sticky;
-    top:0;
-    z-index:1000;
+a{text-decoration:none;color:inherit}
+
+.header{
+background:#071a36;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 15px #0003
 }
 .nav{
-    max-width:1200px;
-    margin:auto;
-    padding:14px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+max-width:1250px;
+margin:auto;
+padding:13px 18px;
+display:flex;
+align-items:center;
+gap:20px
 }
 .logo{
-    font-size:26px;
-    font-weight:900;
+font-size:25px;
+font-weight:900;
+white-space:nowrap
 }
 .logo span{color:#ffd43b}
+.search{
+flex:1;
+display:flex;
+background:white;
+border-radius:8px;
+overflow:hidden
+}
+.search input{
+border:0;
+padding:12px;
+width:100%;
+outline:0
+}
+.search button{
+border:0;
+background:#ffd43b;
+padding:0 18px
+}
+.navbtn{
+border:0;
+background:transparent;
+color:white;
+font-weight:bold
+}
+
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:20px 15px;
+max-width:1250px;
+margin:auto;
+padding:20px 15px
 }
-.btn{
-    border:0;
-    padding:13px 20px;
-    border-radius:10px;
-    font-weight:800;
-}
-.yellow{background:#ffd43b;color:#111}
-.blue{background:#1266f1;color:#fff}
-.dark{background:#071a36;color:#fff}
-.green{background:#19a463;color:#fff}
 
 .hero{
-    background:#fff;
-    border-radius:20px;
-    overflow:hidden;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
+display:grid;
+grid-template-columns:1.05fr .95fr;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 4px 25px #00000012
 }
 .hero img{
-    width:100%;
-    height:450px;
-    object-fit:contain;
-    background:#eef1f5;
+width:100%;
+height:480px;
+object-fit:contain;
+background:#eef1f5
 }
-.heroText{
-    padding:40px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.hero-content{
+padding:45px;
+display:flex;
+justify-content:center;
+flex-direction:column
 }
-.heroText h1{
-    font-size:43px;
-    margin-bottom:15px;
+.hero h1{
+font-size:48px;
+line-height:1.1;
+margin-bottom:18px
 }
-.heroText p{
-    color:#667085;
-    line-height:1.8;
-    margin-bottom:20px;
+.hero p{
+color:#667085;
+font-size:17px;
+margin-bottom:25px
 }
-.sectionTitle{
-    text-align:center;
-    margin:35px 0 20px;
+
+.btn{
+border:0;
+border-radius:9px;
+padding:13px 22px;
+font-weight:800;
+transition:.2s
 }
+.btn:hover{transform:translateY(-1px)}
+.yellow{background:#ffd43b;color:#111}
+.blue{background:#1266f1;color:#fff}
+.green{background:#18a464;color:#fff}
+.dark{background:#071a36;color:#fff}
+.red{background:#d92d20;color:#fff}
+
+.section-title{
+text-align:center;
+margin:40px 0 20px;
+font-size:30px
+}
+
 .products{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px
 }
-.product{
-    background:#fff;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+.card{
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 4px 20px #00000010;
+transition:.2s
 }
-.product img{
-    width:100%;
-    height:290px;
-    object-fit:contain;
-    background:#f0f2f5;
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 8px 25px #00000018
 }
-.productBody{padding:18px}
-.productBody h3{margin-bottom:10px}
+.card-image{
+height:310px;
+background:#f0f2f5;
+display:flex;
+align-items:center;
+justify-content:center
+}
+.card-image img{
+width:100%;
+height:100%;
+object-fit:contain
+}
+.card-body{padding:18px}
+.card-body h3{font-size:19px}
 .price{
-    font-size:23px;
-    font-weight:900;
-    margin:12px 0;
+font-size:24px;
+font-weight:900;
+margin:10px 0
 }
-.oldprice{
-    text-decoration:line-through;
-    color:#888;
-    margin-right:8px;
+.old{
+text-decoration:line-through;
+color:#888;
+font-size:15px;
+margin-right:8px
 }
-.offer{
-    color:#159447;
-    font-weight:bold;
+.discount{
+color:#16864b;
+font-weight:bold
 }
-.info{
-    margin-top:20px;
-    padding:18px;
-    border-radius:12px;
-    background:#edf5ff;
-    line-height:1.8;
+
+.badges{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin:10px 0
 }
+.badge{
+background:#edf5ff;
+color:#1266f1;
+padding:5px 9px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-top:25px
+}
+.info-card{
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 3px 15px #0000000d
+}
+
+.policy{
+background:#fff;
+padding:25px;
+border-radius:16px;
+margin-top:25px;
+box-shadow:0 3px 15px #0000000d
+}
+.policy h3{margin-bottom:8px}
+.policy p{color:#596273}
+
+footer{
+background:#071a36;
+color:#fff;
+padding:40px 20px;
+margin-top:50px;
+text-align:center
+}
+
+/* PAGES */
+
 .page{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:5000;
-    background:#f3f5f8;
-    overflow-y:auto;
+display:none;
+position:fixed;
+inset:0;
+z-index:4000;
+background:#f4f6f8;
+overflow:auto
 }
 .page.active{display:block}
-.pageHeader{
-    background:#fff;
-    position:sticky;
-    top:0;
-    z-index:10;
-    padding:12px 16px;
-    display:flex;
-    gap:12px;
-    align-items:center;
-    border-bottom:1px solid #ddd;
+
+.page-head{
+position:sticky;
+top:0;
+z-index:20;
+background:white;
+border-bottom:1px solid #ddd;
+padding:12px 15px;
+display:flex;
+align-items:center;
+gap:15px
 }
-.detail{
-    background:#fff;
-    padding:20px;
-    border-radius:18px;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
+
+.detail-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px
 }
-.mainImage{
-    width:100%;
-    height:430px;
-    object-fit:contain;
-    background:#f0f2f5;
-    border-radius:15px;
+
+.detail-box{
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 4px 20px #00000010
 }
+
+.main-photo{
+height:450px;
+width:100%;
+object-fit:contain;
+background:#f0f2f5;
+border-radius:15px
+}
+
 .gallery{
-    display:flex;
-    gap:10px;
-    margin-top:12px;
-    overflow-x:auto;
+display:flex;
+gap:10px;
+overflow:auto;
+margin-top:12px
 }
 .gallery img{
-    width:80px;
-    height:80px;
-    object-fit:contain;
-    background:#eee;
-    border-radius:8px;
-    border:2px solid transparent;
+width:80px;
+height:80px;
+object-fit:contain;
+background:#eee;
+border-radius:8px;
+border:2px solid transparent
 }
 .gallery img:hover{border-color:#1266f1}
-.description{
-    margin:20px 0;
-    line-height:1.8;
+
+.detail-description{
+margin-top:20px;
+color:#4d5767
 }
+.detail-description ul{
+padding-left:22px;
+margin:10px 0
+}
+
 .quantity{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:20px;
-    margin:20px 0;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:20px;
+margin:20px 0
 }
 .quantity button{
-    width:45px;
-    height:45px;
-    border:0;
-    border-radius:8px;
-    background:#e6ebf2;
-    font-size:25px;
-    font-weight:bold;
+width:45px;
+height:45px;
+border:0;
+border-radius:8px;
+background:#e6ebf2;
+font-size:25px;
+font-weight:bold
 }
 .quantity span{
-    font-size:23px;
-    font-weight:bold;
+font-size:23px;
+font-weight:bold
 }
-.formBox{
-    background:#fff;
-    max-width:760px;
-    margin:20px auto;
-    padding:24px;
-    border-radius:18px;
-    box-shadow:0 5px 20px rgba(0,0,0,.07);
+
+/* CHECKOUT */
+
+.form-box{
+background:white;
+max-width:800px;
+margin:20px auto;
+padding:25px;
+border-radius:18px;
+box-shadow:0 4px 20px #00000010
 }
 label{
-    display:block;
-    font-weight:bold;
-    margin:14px 0 6px;
+font-weight:bold;
+display:block;
+margin:14px 0 6px
 }
 input,select,textarea{
-    width:100%;
-    padding:13px;
-    border:1px solid #d5dbe5;
-    border-radius:9px;
-    outline:none;
+width:100%;
+padding:13px;
+border:1px solid #d5dbe5;
+border-radius:8px;
+outline:0
 }
 textarea{resize:vertical}
-.paymentOption{
-    padding:16px;
-    background:#fff;
-    border:1px solid #d9dfe8;
-    border-radius:12px;
-    margin:10px 0;
+
+.summary{
+background:#edf5ff;
+padding:18px;
+border-radius:12px;
+margin-bottom:20px
 }
-.paymentOption.active{
-    border:2px solid #1266f1;
-    background:#f0f6ff;
+
+/* PAYMENT */
+
+.payment-method{
+background:white;
+border:1px solid #d8dee8;
+border-radius:12px;
+padding:17px;
+margin:10px 0;
+cursor:pointer
 }
-.upiBox{
-    margin-top:15px;
-    padding:18px;
-    background:#fff;
-    border-radius:14px;
-    border:1px solid #dce2ea;
+.payment-method.selected{
+border:2px solid #1266f1;
+background:#f0f6ff
 }
-.upiApps{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    margin-top:15px;
-}
-.upiApp{
-    border:1px solid #d4dbe6;
-    background:#fff;
-    padding:14px;
-    border-radius:10px;
-    font-weight:bold;
-}
-.upiApp.active{
-    border:2px solid #1266f1;
-    background:#eef5ff;
+.upi-box{
+background:#f8fafc;
+border:1px solid #dde3eb;
+padding:20px;
+border-radius:14px;
+margin-top:15px
 }
 .qr{
-    text-align:center;
-    background:#f7f9fc;
-    border-radius:14px;
-    padding:18px;
-    margin-top:15px;
+background:white;
+border-radius:12px;
+padding:20px;
+text-align:center;
+margin-top:15px
 }
 .qr img{
-    width:230px;
-    max-width:100%;
-    background:#fff;
-    margin:12px;
+width:230px;
+max-width:100%;
+margin:10px
 }
-.small{
-    color:#667085;
-    font-size:13px;
-    line-height:1.6;
+.payment-note{
+font-size:13px;
+color:#667085
 }
-.status{
-    max-width:650px;
-    margin:50px auto;
-    background:#fff;
-    border-radius:20px;
-    padding:35px;
-    text-align:center;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
+.status-box{
+max-width:650px;
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+margin:60px auto;
+box-shadow:0 5px 25px #00000012
 }
-.statusIcon{
-    font-size:65px;
-    margin-bottom:15px;
+.status-icon{
+font-size:65px;
+margin-bottom:15px
 }
-.success{color:#159447}
-.pending{color:#a56a00}
-.failed{color:#c62828}
+.status-success{color:#159447}
+.status-pending{color:#a56a00}
+.status-failed{color:#d92d20}
+
+/* CONTACT */
+
 .contact{
-    position:fixed;
-    right:15px;
-    bottom:15px;
-    z-index:9000;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+position:fixed;
+right:16px;
+bottom:16px;
+z-index:9000;
+display:flex;
+flex-direction:column;
+gap:10px
 }
-.contact button{
-    width:56px;
-    height:56px;
-    border:0;
-    border-radius:50%;
-    color:#fff;
-    font-size:25px;
-    box-shadow:0 4px 15px rgba(0,0,0,.25);
+.contact a{
+width:58px;
+height:58px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:27px;
+box-shadow:0 5px 18px #0005
 }
 .whatsapp{background:#25d366}
 .call{background:#1266f1}
-footer{
-    margin-top:40px;
-    padding:35px;
-    text-align:center;
-    color:#fff;
-    background:#071a36;
-    line-height:1.8;
+
+/* MOBILE */
+
+@media(max-width:850px){
+.nav{flex-wrap:wrap}
+.search{order:3;flex-basis:100%}
+.hero{grid-template-columns:1fr}
+.hero img{height:320px}
+.hero-content{padding:28px}
+.hero h1{font-size:34px}
+.products{grid-template-columns:1fr 1fr}
+.info-grid{grid-template-columns:1fr}
+.detail-grid{grid-template-columns:1fr}
+.main-photo{height:330px}
 }
-@media(max-width:800px){
-    .hero{grid-template-columns:1fr}
-    .hero img{height:320px}
-    .heroText h1{font-size:32px}
-    .products{grid-template-columns:1fr}
-    .upiApps{grid-template-columns:1fr}
+
+@media(max-width:550px){
+.products{grid-template-columns:1fr}
+.navbtn{display:none}
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- HEADER -->
+
+<header class="header">
 <div class="nav">
-<div class="logo">GRO <span>Extender®</span></div>
-<button class="btn yellow" onclick="openPage('productsPage')">
-SHOP NOW
+
+<div class="logo">
+GRO <span>Extender®</span>
+</div>
+
+<div class="search">
+<input id="searchInput" placeholder="Search products..."
+oninput="searchProducts()">
+<button>🔍</button>
+</div>
+
+<button class="navbtn" onclick="showPage('home')">
+Home
 </button>
+
+<button class="navbtn" onclick="showPage('products')">
+Products
+</button>
+
 </div>
 </header>
 
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 
-<main>
+<main id="home">
 
 <div class="container">
 
@@ -346,19 +477,24 @@ SHOP NOW
 <img src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png"
 alt="GRO Extender">
 
-<div class="heroText">
+<div class="hero-content">
+
+<div class="badges">
+<span class="badge">Premium Product</span>
+<span class="badge">Secure Checkout</span>
+</div>
 
 <h1>GRO Extender®</h1>
 
 <p>
-Premium extender products with multiple models available.
-Choose your model, select quantity, enter your complete
-delivery address and proceed to payment.
+Premium extender collection with multiple models.
+Choose your preferred product, check the complete
+details and place your order securely.
 </p>
 
 <button class="btn yellow"
-onclick="openPage('productsPage')">
-VIEW PRODUCTS →
+onclick="showPage('products')">
+SHOP NOW →
 </button>
 
 </div>
@@ -366,103 +502,69 @@ VIEW PRODUCTS →
 </section>
 
 
-<h2 class="sectionTitle">
+<h2 class="section-title">
 Featured Products
 </h2>
 
+<div id="homeProducts" class="products"></div>
 
-<div class="products">
 
-<!-- PRODUCT 1 -->
+<div class="info-grid">
 
-<div class="product">
-
-<img src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png">
-
-<div class="productBody">
-
-<h3>ProExtender® Ultimate Model</h3>
-
-<div>
-<span class="oldprice">₹4,499</span>
-<span class="offer">22% OFF</span>
+<div class="info-card">
+<h3>🚚 Delivery</h3>
+<p>Delivery across available Indian locations.</p>
 </div>
 
-<div class="price">₹3,249</div>
-
-<button class="btn yellow"
-style="width:100%"
-onclick="openProduct('ultimate')">
-BUY NOW
-</button>
-
-</div>
+<div class="info-card">
+<h3>🔐 Secure Payment</h3>
+<p>UPI, QR and approved online payment options.</p>
 </div>
 
-
-<!-- PRODUCT 2 -->
-
-<div class="product">
-
-<img src="Gemini_Generated_Image_unscx2unscx2unsc.png">
-
-<div class="productBody">
-
-<h3>ProExtender® Supreme+ Model</h3>
-
-<div class="price">₹4,780</div>
-
-<button class="btn yellow"
-style="width:100%"
-onclick="openProduct('supreme')">
-BUY NOW
-</button>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 3 -->
-
-<div class="product">
-
-<img src="Gemini_Generated_Image_bezw1nbezw1nbezw.png">
-
-<div class="productBody">
-
-<h3>ProExtender® DoubleDeck Model</h3>
-
-<div class="price">₹5,950</div>
-
-<button class="btn yellow"
-style="width:100%"
-onclick="openProduct('doubledeck')">
-BUY NOW
-</button>
-
-</div>
+<div class="info-card">
+<h3>💬 Support</h3>
+<p>Direct WhatsApp and Call support.</p>
 </div>
 
 </div>
 
 
-<div class="info">
+<div class="policy">
 
-<b>Delivery Condition</b><br>
-Please enter your complete name, mobile number,
-full address, state, district and pincode correctly
-before placing the order.
+<h3>Delivery Condition</h3>
+<p>
+Customer must provide correct name, mobile number,
+complete address, state, district and pincode.
+Incorrect address or contact details may delay delivery.
+</p>
 
-<br><br>
+<br>
 
-<b>Return Policy</b><br>
-No Return Policy. Please verify your product selection
-and delivery details before placing the order.
+<h3>Return Policy</h3>
+<p>
+No Return Policy. Please carefully check the selected
+product, quantity and delivery details before placing
+the order.
+</p>
 
-<br><br>
+<br>
 
-<b>Customer Support</b><br>
-WhatsApp / Call: 7407792138
+<h3>Payment Condition</h3>
+<p>
+For COD orders, the required advance amount must be
+paid online first. The remaining eligible amount is
+payable after delivery.
+</p>
+
+<br>
+
+<h3>Important</h3>
+<p>
+Payment success/failure should be verified through an
+approved payment gateway. A UPI deep-link by itself
+cannot reliably confirm whether money was actually
+received by the merchant.
+</p>
 
 </div>
 
@@ -471,223 +573,171 @@ WhatsApp / Call: 7407792138
 </main>
 
 
-<footer>
-<b>GRO Extender®</b><br>
-Customer Support: 7407792138<br>
-UPI ID: mr.manna@ptyes
-</footer>
-
-
-<!-- FLOATING CONTACT -->
-
-<div class="contact">
-
-<button class="whatsapp"
-onclick="openWhatsApp()"
-title="WhatsApp">●</button>
-
-<button class="call"
-onclick="location.href='tel:7407792138'"
-title="Call">☎</button>
-
-</div>
-
-
-
-<!-- ================= PRODUCTS PAGE ================= -->
+<!-- PRODUCTS PAGE -->
 
 <div id="productsPage" class="page">
 
-<div class="pageHeader">
-
-<button class="btn dark" onclick="closePages()">
-← Home
-</button>
-
-<h2>Select Product</h2>
-
+<div class="page-head">
+<button class="btn dark" onclick="showPage('home')">← Home</button>
+<h2>All Products</h2>
 </div>
 
 <div class="container">
-
-<div class="products">
-
-<div class="product">
-<img src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png">
-<div class="productBody">
-<h3>ProExtender® Ultimate Model</h3>
-<div class="price">₹3,249</div>
-<button class="btn yellow"
-style="width:100%"
-onclick="openProduct('ultimate')">
-BUY NOW
-</button>
-</div>
-</div>
-
-
-<div class="product">
-<img src="Gemini_Generated_Image_unscx2unscx2unsc.png">
-<div class="productBody">
-<h3>ProExtender® Supreme+ Model</h3>
-<div class="price">₹4,780</div>
-<button class="btn yellow"
-style="width:100%"
-onclick="openProduct('supreme')">
-BUY NOW
-</button>
-</div>
-</div>
-
-
-<div class="product">
-<img src="Gemini_Generated_Image_bezw1nbezw1nbezw.png">
-<div class="productBody">
-<h3>ProExtender® DoubleDeck Model</h3>
-<div class="price">₹5,950</div>
-<button class="btn yellow"
-style="width:100%"
-onclick="openProduct('doubledeck')">
-BUY NOW
-</button>
-</div>
+<div id="allProducts" class="products"></div>
 </div>
 
 </div>
 
-</div>
-</div>
 
+<!-- PRODUCT DETAIL -->
 
+<div id="detailPage" class="page">
 
-<!-- ================= PRODUCT DETAIL ================= -->
-
-<div id="productPage" class="page">
-
-<div class="pageHeader">
-
-<button class="btn dark"
-onclick="openPage('productsPage')">
+<div class="page-head">
+<button class="btn dark" onclick="showPage('products')">
 ← Products
 </button>
-
 <h2>Product Details</h2>
-
 </div>
 
 <div class="container">
 
-<div class="detail">
+<div class="detail-grid">
 
-<img id="mainProductImage"
-class="mainImage">
+<div class="detail-box">
 
-<div id="gallery" class="gallery"></div>
+<img id="detailMainPhoto"
+class="main-photo">
 
-<h2 id="productName" style="margin-top:20px"></h2>
+<div id="detailGallery" class="gallery"></div>
 
-<div id="productPrice" class="price"></div>
+</div>
 
-<div id="productDescription"
-class="description"></div>
+<div class="detail-box">
 
-<h3 style="text-align:center">
-Quantity
-</h3>
+<h1 id="detailName"></h1>
+
+<div id="detailPrice" class="price"></div>
+
+<div id="detailBadges" class="badges"></div>
+
+<div id="detailDescription"
+class="detail-description"></div>
+
+<hr style="margin:20px 0">
+
+<h3>Quantity</h3>
 
 <div class="quantity">
 
-<button onclick="changeQuantity(-1)">−</button>
+<button onclick="changeQty(-1)">−</button>
 
-<span id="quantity">1</span>
+<span id="qty">1</span>
 
-<button onclick="changeQuantity(1)">+</button>
+<button onclick="changeQty(1)">+</button>
 
 </div>
 
 <button class="btn yellow"
 style="width:100%"
-onclick="openAddress()">
+onclick="goCheckout()">
 BUY NOW
 </button>
 
 </div>
 
 </div>
+
+
+<div class="policy">
+
+<h2>Delivery Condition</h2>
+<p>
+Orders are processed using the information supplied
+during checkout. Please ensure your phone number,
+address, state, district and pincode are correct.
+</p>
+
+<br>
+
+<h2>Return Policy</h2>
+<p>
+No Return Policy. Verify the product and order details
+before placing your order.
+</p>
+
+<br>
+
+<h2>Product Condition</h2>
+<p>
+Use the product only according to the manufacturer's
+instructions. Stop using it if discomfort occurs and
+consult an appropriate healthcare professional where
+necessary.
+</p>
+
+</div>
+
+</div>
 </div>
 
 
+<!-- CHECKOUT -->
 
-<!-- ================= ADDRESS ================= -->
+<div id="checkoutPage" class="page">
 
-<div id="addressPage" class="page">
-
-<div class="pageHeader">
-
-<button class="btn dark"
-onclick="openPage('productPage')">
+<div class="page-head">
+<button class="btn dark" onclick="showPage('detail')">
 ← Product
 </button>
-
-<h2>Delivery Address</h2>
-
+<h2>Checkout</h2>
 </div>
 
 <div class="container">
 
-<div class="formBox">
+<div class="form-box">
 
-<h2>Customer Details</h2>
+<h2>Order Summary</h2>
+
+<div id="checkoutSummary" class="summary"></div>
 
 <label>Full Name *</label>
-<input id="customerName"
-placeholder="Enter full name">
+<input id="name" placeholder="Enter full name">
 
 <label>Mobile Number *</label>
-<input id="customerPhone"
+<input id="phone"
 maxlength="10"
 inputmode="numeric"
 placeholder="10 digit mobile number">
 
 <label>Full Address *</label>
-<textarea id="customerAddress"
-rows="4"
-placeholder="House / Street / Area / Landmark"></textarea>
+<textarea id="address" rows="4"
+placeholder="House / Road / Area / Landmark"></textarea>
 
 <label>State *</label>
-
-<select id="customerState"
-onchange="loadDistricts()">
-
+<select id="state" onchange="districts()">
 <option value="">Select State</option>
-
 </select>
 
 <label>District *</label>
-
-<select id="customerDistrict">
-
+<select id="district">
 <option value="">Select District</option>
-
 </select>
 
 <label>Pincode *</label>
-
-<input id="customerPincode"
+<input id="pincode"
 maxlength="6"
 inputmode="numeric"
 placeholder="6 digit pincode">
 
 <label>Country *</label>
-
 <select>
 <option>India</option>
 </select>
 
-
 <button class="btn yellow"
 style="width:100%;margin-top:20px"
-onclick="goPayment()">
+onclick="openPayment()">
 CONTINUE TO PAYMENT →
 </button>
 
@@ -697,49 +747,39 @@ CONTINUE TO PAYMENT →
 </div>
 
 
-
-<!-- ================= PAYMENT ================= -->
+<!-- PAYMENT -->
 
 <div id="paymentPage" class="page">
 
-<div class="pageHeader">
-
-<button class="btn dark"
-onclick="openPage('addressPage')">
-← Address
+<div class="page-head">
+<button class="btn dark" onclick="showPage('checkout')">
+← Checkout
 </button>
-
 <h2>Payment</h2>
-
 </div>
 
 <div class="container">
 
-<div class="formBox">
+<div class="form-box">
 
-<h2>Order Summary</h2>
+<div id="paymentSummary" class="summary"></div>
 
-<div id="orderSummary"
-class="info"></div>
+<h2>Choose Payment Method</h2>
 
 
-<!-- FULL ONLINE -->
+<!-- UPI ONLY -->
 
-<div id="onlineMethod"
-class="paymentOption active"
-onclick="selectPaymentMethod('online')">
+<div id="upiMethod"
+class="payment-method selected"
+onclick="choosePayment('upi')">
 
-<input type="radio"
-name="paymethod"
-checked>
+<b>◉ UPI</b>
 
-<b>Full Online Payment</b>
-
-<br>
-
-<span class="small">
-Pay the complete order amount online.
-</span>
+<p class="payment-note">
+Touch UPI and your device's available UPI apps can
+handle the payment, such as PhonePe, Google Pay,
+Paytm, MobiKwik or Amazon Pay.
+</p>
 
 </div>
 
@@ -747,20 +787,15 @@ Pay the complete order amount online.
 <!-- COD -->
 
 <div id="codMethod"
-class="paymentOption"
-onclick="selectPaymentMethod('cod')">
+class="payment-method"
+onclick="choosePayment('cod')">
 
-<input type="radio"
-name="paymethod">
+<b>◉ Cash On Delivery</b>
 
-<b>Cash On Delivery</b>
-
-<br>
-
-<span class="small">
-First pay ₹239 online. After payment verification,
-COD will be unlocked.
-</span>
+<p class="payment-note">
+First online advance ₹239. After successful verification,
+the remaining eligible amount is payable after delivery.
+</p>
 
 </div>
 
@@ -773,35 +808,29 @@ COD will be unlocked.
 </div>
 
 
-
-<!-- ================= STATUS ================= -->
+<!-- STATUS -->
 
 <div id="statusPage" class="page">
 
-<div class="pageHeader">
+<div class="page-head">
 <h2>Payment Status</h2>
 </div>
 
 <div class="container">
 
-<div class="status">
+<div class="status-box">
 
-<div id="statusIcon"
-class="statusIcon pending">
+<div id="statusIcon" class="status-icon status-pending">
 ⏳
 </div>
 
-<h2 id="statusTitle">
-Payment Pending
-</h2>
+<h2 id="statusTitle">Payment Pending</h2>
 
-<p id="statusMessage"
-style="margin-top:15px;line-height:1.8">
-</p>
+<p id="statusText" style="margin-top:15px"></p>
 
 <button class="btn yellow"
-style="margin-top:20px"
-onclick="finishOrder()">
+style="margin-top:25px"
+onclick="completeOrder()">
 CONTINUE
 </button>
 
@@ -811,38 +840,34 @@ CONTINUE
 </div>
 
 
+<!-- CONFIRMATION -->
 
-<!-- ================= CONFIRM ================= -->
+<div id="confirmationPage" class="page">
 
-<div id="confirmPage" class="page">
-
-<div class="pageHeader">
+<div class="page-head">
 <h2>Order Confirmation</h2>
 </div>
 
 <div class="container">
 
-<div class="status">
+<div class="status-box">
 
-<div class="statusIcon success">
-✓
-</div>
+<div class="status-icon status-success">✓</div>
 
 <h2>Order Submitted</h2>
 
-<div id="confirmation"
-style="line-height:1.9;margin-top:20px">
-</div>
+<div id="orderConfirmation"
+style="text-align:left;margin-top:20px"></div>
 
 <button class="btn green"
 style="width:100%;margin-top:20px"
-onclick="sendOrderWhatsApp()">
-💬 SEND ORDER TO WHATSAPP
+onclick="sendWhatsApp()">
+💬 SEND ORDER ON WHATSAPP
 </button>
 
 <button class="btn dark"
 style="width:100%;margin-top:10px"
-onclick="closePages()">
+onclick="showPage('home')">
 BACK TO STORE
 </button>
 
@@ -852,25 +877,55 @@ BACK TO STORE
 </div>
 
 
+<!-- CONTACT -->
+
+<div class="contact">
+
+<a class="whatsapp"
+href="https://wa.me/917407792138"
+target="_blank"
+title="WhatsApp">
+◉
+</a>
+
+<a class="call"
+href="tel:7407792138"
+title="Call">
+☎
+</a>
+
+</div>
+
+
+<footer>
+
+<b>GRO Extender®</b>
+
+<br><br>
+
+Delivery Condition • Payment • Customer Support
+
+<br>
+
+WhatsApp / Call: 7407792138
+
+<br><br>
+
+© 2026 GRO Extender. All Rights Reserved.
+
+</footer>
+
 
 <script>
 
-/* ================= SETTINGS ================= */
+/* ================= PRODUCT DATA ================= */
 
-const UPI_ID = "mr.manna@ptyes";
-
-const SUPPORT_NUMBER = "917407792138";
-
-const COD_ADVANCE = 239;
-
-
-/* ================= PRODUCTS ================= */
-
-const products = {
+const PRODUCTS={
 
 ultimate:{
 name:"ProExtender® Ultimate Model",
 price:3249,
+old:4499,
 images:[
 "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
 "ProExtender-Ultimate-Straps-260x134.jpg",
@@ -878,19 +933,52 @@ images:[
 ],
 description:`
 <h3>ProExtender® Ultimate Model</h3>
+
+<p>
+A premium adjustable extender configuration designed
+with a focus on a structured and adjustable traction
+system.
+</p>
+
 <br>
-• Includes 4 stainless steel rods + 3 straps.<br>
-• Strong and durable construction.<br>
-• Traction-based extender system.<br>
-• Compact and adjustable design.<br>
-• Please follow the manufacturer's instructions.<br>
-• Consult a qualified healthcare professional if you have any medical concerns.
+
+<h3>Features</h3>
+
+<ul>
+<li>Stainless steel rod configuration</li>
+<li>Adjustable straps</li>
+<li>Compact construction</li>
+<li>Adjustable fitting system</li>
+<li>Portable design</li>
+</ul>
+
+<br>
+
+<h3>Package Contents</h3>
+
+<ul>
+<li>Extender unit</li>
+<li>Rods</li>
+<li>Straps</li>
+<li>Adjustment components</li>
+</ul>
+
+<br>
+
+<h3>Important Condition</h3>
+
+<p>
+Follow the manufacturer's instructions. Do not use the
+device in a way that causes pain, injury or significant
+discomfort.
+</p>
 `
 },
 
 supreme:{
 name:"ProExtender® Supreme+ Model",
 price:4780,
+old:5999,
 images:[
 "Gemini_Generated_Image_unscx2unscx2unsc.png",
 "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
@@ -898,19 +986,50 @@ images:[
 ],
 description:`
 <h3>ProExtender® Supreme+ Model</h3>
+
+<p>
+Premium lightweight configuration with an adjustable
+traction structure and multiple components.
+</p>
+
 <br>
-• Includes 10 lightweight aluminium rods + 3 reinforced straps.<br>
-• Lightweight configuration.<br>
-• Strong construction.<br>
-• Adjustable traction system.<br>
-• Please follow the manufacturer's instructions.<br>
-• Consult a qualified healthcare professional if you have any medical concerns.
+
+<h3>Features</h3>
+
+<ul>
+<li>Lightweight rod configuration</li>
+<li>Multiple adjustment positions</li>
+<li>Reinforced straps</li>
+<li>Compact design</li>
+<li>Adjustable fitting</li>
+</ul>
+
+<br>
+
+<h3>Package Contents</h3>
+
+<ul>
+<li>Extender unit</li>
+<li>Rods</li>
+<li>Straps</li>
+<li>Adjustment components</li>
+</ul>
+
+<br>
+
+<h3>Important Condition</h3>
+
+<p>
+Use only according to manufacturer instructions and
+discontinue use if pain or significant discomfort occurs.
+</p>
 `
 },
 
 doubledeck:{
 name:"ProExtender® DoubleDeck Model",
 price:5950,
+old:6999,
 images:[
 "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
 "pro-extender-penis-enlargement-system-500x500.jpg",
@@ -918,14 +1037,45 @@ images:[
 ],
 description:`
 <h3>ProExtender® DoubleDeck Model</h3>
+
+<p>
+A premium adjustable configuration featuring a
+multi-component structure and reinforced fitting system.
+</p>
+
 <br>
-• Includes 4 stainless steel rods + 4 straps.<br>
-• Compact configuration.<br>
-• Adjustable traction system.<br>
-• Strong construction.<br>
-• Please follow the manufacturer's instructions.<br>
-• Consult a qualified healthcare professional if you have any medical concerns.
+
+<h3>Features</h3>
+
+<ul>
+<li>Stainless steel components</li>
+<li>Adjustable traction system</li>
+<li>Reinforced straps</li>
+<li>Compact configuration</li>
+<li>Multiple fitting adjustments</li>
+</ul>
+
+<br>
+
+<h3>Package Contents</h3>
+
+<ul>
+<li>Extender unit</li>
+<li>Rods</li>
+<li>Straps</li>
+<li>Adjustment components</li>
+</ul>
+
+<br>
+
+<h3>Important Condition</h3>
+
+<p>
+Always follow the manufacturer's instructions and avoid
+use that causes pain, injury or significant discomfort.
+</p>
 `
+
 }
 
 };
@@ -933,34 +1083,42 @@ description:`
 
 /* ================= STATES ================= */
 
-const states = {
-
+const STATES={
 "West Bengal":[
-"Purba Medinipur","Paschim Medinipur","Kolkata",
-"Howrah","Hooghly","North 24 Parganas",
-"South 24 Parganas","Nadia","Murshidabad","Malda"
+"Alipurduar","Bankura","Paschim Bardhaman",
+"Purba Bardhaman","Birbhum","Cooch Behar",
+"Darjeeling","Hooghly","Howrah","Jalpaiguri",
+"Jhargram","Kalimpong","Kolkata",
+"Maldah","Murshidabad","Nadia",
+"North 24 Parganas","South 24 Parganas",
+"Paschim Medinipur","Purba Medinipur",
+"Purulia","Uttar Dinajpur","Dakshin Dinajpur"
 ],
 
 "Maharashtra":[
 "Mumbai City","Mumbai Suburban","Pune",
-"Nagpur","Nashik","Thane"
+"Thane","Nagpur","Nashik","Nanded"
 ],
 
 "Uttar Pradesh":[
-"Lucknow","Kanpur Nagar","Agra","Varanasi",
-"Prayagraj","Ghaziabad","Gautam Buddha Nagar"
+"Lucknow","Agra","Kanpur Nagar",
+"Varanasi","Prayagraj","Ghaziabad",
+"Gautam Buddha Nagar"
 ],
 
 "Bihar":[
-"Patna","Gaya","Muzaffarpur","Bhagalpur"
+"Patna","Gaya","Muzaffarpur",
+"Bhagalpur","Nalanda"
 ],
 
 "Odisha":[
-"Khordha","Cuttack","Puri","Balasore"
+"Khordha","Cuttack","Puri",
+"Balasore","Ganjam"
 ],
 
 "Jharkhand":[
-"Ranchi","Dhanbad","Bokaro","East Singhbhum"
+"Ranchi","Dhanbad","Bokaro",
+"East Singhbhum"
 ],
 
 "Delhi":[
@@ -973,7 +1131,7 @@ const states = {
 ],
 
 "Karnataka":[
-"Bengaluru Urban","Mysuru","Mangaluru"
+"Bengaluru Urban","Mysuru","Dakshina Kannada"
 ],
 
 "Tamil Nadu":[
@@ -989,7 +1147,7 @@ const states = {
 ],
 
 "Kerala":[
-"Thiruvananthapuram","Kochi","Kozhikode"
+"Thiruvananthapuram","Ernakulam","Kozhikode"
 ],
 
 "Punjab":[
@@ -997,7 +1155,7 @@ const states = {
 ],
 
 "Haryana":[
-"Gurugram","Faridabad","Panipat","Hisar"
+"Gurugram","Faridabad","Panipat"
 ],
 
 "Rajasthan":[
@@ -1013,7 +1171,8 @@ const states = {
 ],
 
 "Assam":[
-"Kamrup Metropolitan","Dibrugarh","Jorhat","Cachar"
+"Kamrup Metropolitan","Dibrugarh",
+"Jorhat","Cachar"
 ],
 
 "Goa":[
@@ -1043,7 +1202,7 @@ const states = {
 ],
 
 "Manipur":[
-"Imphal West","Imphal East"
+"Imphal East","Imphal West"
 ],
 
 "Mizoram":["Aizawl"],
@@ -1059,57 +1218,189 @@ const states = {
 };
 
 
-/* ================= VARIABLES ================= */
+/* ================= SETTINGS ================= */
+
+const UPI_ID="mr.manna@ptyes";
+const MERCHANT_NAME="GRO Extender";
+const COD_ADVANCE=239;
+const SUPPORT="917407792138";
+
 
 let currentProduct=null;
 let quantity=1;
-let paymentMethod="online";
-let selectedUPIApp="";
+let selectedPayment="upi";
 let order={};
 
 
-/* ================= PAGE ================= */
+/* ================= PAGE SYSTEM ================= */
 
-function openPage(id){
+function hidePages(){
 
 document.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
+.forEach(x=>x.classList.remove("active"));
 
-document.getElementById(id)
-.classList.add("active");
+}
+
+function showPage(page){
+
+hidePages();
+
+if(page==="home"){
+window.scrollTo(0,0);
+return;
+}
+
+const map={
+products:"productsPage",
+detail:"detailPage",
+checkout:"checkoutPage",
+payment:"paymentPage",
+status:"statusPage",
+confirmation:"confirmationPage"
+};
+
+document.getElementById(map[page]).classList.add("active");
 
 window.scrollTo(0,0);
 }
 
-function closePages(){
 
-document.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
+/* ================= PRODUCT CARD ================= */
 
-window.scrollTo(0,0);
+function productHTML(key,p){
+
+return`
+
+<div class="card">
+
+<div class="card-image">
+
+<img src="${p.images[0]}"
+alt="${p.name}">
+
+</div>
+
+<div class="card-body">
+
+<div class="badges">
+<span class="badge">Premium</span>
+<span class="badge">Available</span>
+</div>
+
+<h3>${p.name}</h3>
+
+<div class="price">
+
+<span class="old">₹${p.old.toLocaleString("en-IN")}</span>
+
+₹${p.price.toLocaleString("en-IN")}
+
+</div>
+
+<p style="color:#667085">
+Premium adjustable product configuration with
+detailed product information.
+</p>
+
+<br>
+
+<button class="btn yellow"
+style="width:100%"
+onclick="openProduct('${key}')">
+
+BUY NOW
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
 }
 
 
-/* ================= PRODUCT ================= */
+function renderProducts(list=null){
 
-function openProduct(id){
+const target1=document.getElementById("homeProducts");
+const target2=document.getElementById("allProducts");
 
-currentProduct=products[id];
+let html="";
+
+Object.entries(PRODUCTS).forEach(([key,p])=>{
+
+if(!list || list.includes(key)){
+html+=productHTML(key,p);
+}
+
+});
+
+if(target1)target1.innerHTML=html;
+if(target2)target2.innerHTML=html;
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchProducts(){
+
+const value=
+document.getElementById("searchInput")
+.value.toLowerCase();
+
+const matching=[];
+
+Object.entries(PRODUCTS).forEach(([key,p])=>{
+
+if(p.name.toLowerCase().includes(value)){
+matching.push(key);
+}
+
+});
+
+renderProducts(matching);
+
+if(value){
+showPage("products");
+}
+
+}
+
+
+/* ================= DETAIL ================= */
+
+function openProduct(key){
+
+currentProduct=PRODUCTS[key];
+
 quantity=1;
 
-document.getElementById("quantity").innerText=quantity;
+document.getElementById("qty").innerText=quantity;
 
-document.getElementById("productName")
+document.getElementById("detailName")
 .innerText=currentProduct.name;
 
-document.getElementById("productPrice")
-.innerText=
-"₹"+currentProduct.price.toLocaleString("en-IN");
+document.getElementById("detailPrice")
+.innerHTML=`
 
-document.getElementById("mainProductImage")
+<span class="old">
+₹${currentProduct.old.toLocaleString("en-IN")}
+</span>
+
+₹${currentProduct.price.toLocaleString("en-IN")}
+
+`;
+
+document.getElementById("detailDescription")
+.innerHTML=currentProduct.description;
+
+document.getElementById("detailMainPhoto")
 .src=currentProduct.images[0];
 
-const gallery=document.getElementById("gallery");
+const gallery=
+document.getElementById("detailGallery");
+
 gallery.innerHTML="";
 
 currentProduct.images.forEach(src=>{
@@ -1119,28 +1410,63 @@ const img=document.createElement("img");
 img.src=src;
 
 img.onclick=()=>{
-document.getElementById("mainProductImage").src=src;
+document.getElementById("detailMainPhoto").src=src;
 };
 
 gallery.appendChild(img);
 
 });
 
-document.getElementById("productDescription")
-.innerHTML=currentProduct.description;
+document.getElementById("detailBadges").innerHTML=`
+<span class="badge">Premium Product</span>
+<span class="badge">Secure Checkout</span>
+<span class="badge">Multiple Payment Options</span>
+`;
 
-openPage("productPage");
+showPage("detail");
+
 }
 
 
-function changeQuantity(n){
+/* ================= QUANTITY ================= */
 
-quantity+=n;
+function changeQty(amount){
+
+quantity+=amount;
 
 if(quantity<1)quantity=1;
 if(quantity>99)quantity=99;
 
-document.getElementById("quantity").innerText=quantity;
+document.getElementById("qty").innerText=quantity;
+
+}
+
+
+/* ================= CHECKOUT ================= */
+
+function goCheckout(){
+
+document.getElementById("checkoutSummary")
+.innerHTML=`
+
+<b>${currentProduct.name}</b>
+
+<br>
+
+Quantity:
+<b>${quantity}</b>
+
+<br>
+
+Product Total:
+<b>₹${(
+currentProduct.price*quantity
+).toLocaleString("en-IN")}</b>
+
+`;
+
+showPage("checkout");
+
 }
 
 
@@ -1148,35 +1474,32 @@ document.getElementById("quantity").innerText=quantity;
 
 function loadStates(){
 
-const select=document.getElementById("customerState");
+const state=document.getElementById("state");
 
-Object.keys(states).forEach(state=>{
+Object.keys(STATES).forEach(s=>{
 
 const option=document.createElement("option");
 
-option.value=state;
-option.textContent=state;
+option.value=s;
+option.textContent=s;
 
-select.appendChild(option);
+state.appendChild(option);
 
 });
+
 }
 
 
-function loadDistricts(){
+function districts(){
 
-const state=
-document.getElementById("customerState").value;
+const state=document.getElementById("state").value;
 
-const district=
-document.getElementById("customerDistrict");
+const district=document.getElementById("district");
 
 district.innerHTML=
 '<option value="">Select District</option>';
 
-if(states[state]){
-
-states[state].forEach(d=>{
+(STATES[state]||[]).forEach(d=>{
 
 const option=document.createElement("option");
 
@@ -1188,188 +1511,137 @@ district.appendChild(option);
 });
 
 }
-}
 
 
-/* ================= ADDRESS ================= */
+/* ================= OPEN PAYMENT ================= */
 
-function openAddress(){
-openPage("addressPage");
-}
+function openPayment(){
 
+const name=document.getElementById("name").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const address=document.getElementById("address").value.trim();
+const state=document.getElementById("state").value;
+const district=document.getElementById("district").value;
+const pincode=document.getElementById("pincode").value.trim();
 
-function goPayment(){
+if(!name||
+!/^[0-9]{10}$/.test(phone)||
+!address||
+!state||
+!district||
+!/^[0-9]{6}$/.test(pincode)){
 
-const name=
-document.getElementById("customerName").value.trim();
-
-const phone=
-document.getElementById("customerPhone").value.trim();
-
-const address=
-document.getElementById("customerAddress").value.trim();
-
-const state=
-document.getElementById("customerState").value;
-
-const district=
-document.getElementById("customerDistrict").value;
-
-const pincode=
-document.getElementById("customerPincode").value.trim();
-
-
-if(
-!name ||
-!/^[0-9]{10}$/.test(phone) ||
-!address ||
-!state ||
-!district ||
-!/^[0-9]{6}$/.test(pincode)
-){
-
-alert("Please enter all details correctly.");
+alert("সব customer এবং delivery details সঠিকভাবে পূরণ করুন।");
 return;
-}
 
+}
 
 order={
-
 id:"GRO-"+Date.now(),
-
 name,
 phone,
 address,
 state,
 district,
 pincode,
-
 product:currentProduct.name,
 quantity,
-
 total:currentProduct.price*quantity,
-
 paymentMethod:"",
 paymentStatus:"Pending",
 utr:"",
 upiApp:""
-
 };
 
+renderPayment();
 
-renderSummary();
-selectPaymentMethod("online");
-openPage("paymentPage");
+showPage("payment");
+
 }
 
 
-/* ================= SUMMARY ================= */
+/* ================= PAYMENT UI ================= */
 
-function renderSummary(){
+function choosePayment(type){
 
-document.getElementById("orderSummary")
-.innerHTML=`
+selectedPayment=type;
 
-<b>Product:</b>
-${order.product}
-
-<br>
-
-<b>Quantity:</b>
-${order.quantity}
-
-<br>
-
-<b>Total:</b>
-₹${order.total.toLocaleString("en-IN")}
-
-`;
-}
-
-
-/* ================= PAYMENT ================= */
-
-function selectPaymentMethod(method){
-
-paymentMethod=method;
-selectedUPIApp="";
-
-document.getElementById("onlineMethod")
-.classList.toggle("active",method==="online");
+document.getElementById("upiMethod")
+.classList.toggle("selected",type==="upi");
 
 document.getElementById("codMethod")
-.classList.toggle("active",method==="cod");
-
-document.querySelectorAll(
-'input[name="paymethod"]'
-)[0].checked=method==="online";
-
-document.querySelectorAll(
-'input[name="paymethod"]'
-)[1].checked=method==="cod";
+.classList.toggle("selected",type==="cod");
 
 renderPayment();
+
 }
 
 
 function renderPayment(){
 
 const amount=
-paymentMethod==="cod"
+selectedPayment==="cod"
 ?COD_ADVANCE
 :order.total;
 
-const apps=[
-"PhonePe",
-"Google Pay",
-"Paytm",
-"MobiKwik",
-"Amazon Pay"
-];
+document.getElementById("paymentSummary")
+.innerHTML=`
 
-let appHTML="";
+<b>Product:</b> ${order.product}
 
-apps.forEach(app=>{
+<br>
 
-appHTML+=`
+<b>Quantity:</b> ${order.quantity}
 
-<button class="upiApp ${
-selectedUPIApp===app?"active":""
-}"
-onclick="startUPI('${app}',${amount})">
+<br>
 
-${app}
+<b>Order Total:</b>
+₹${order.total.toLocaleString("en-IN")}
 
-</button>
+<br>
+
+${
+selectedPayment==="cod"
+?
+`
+<b>Pay Now:</b> ₹239<br>
+<b>Pay After Delivery:</b>
+₹${Math.max(0,order.total-COD_ADVANCE).toLocaleString("en-IN")}
+`
+:
+`
+<b>Pay Now:</b>
+₹${order.total.toLocaleString("en-IN")}
+`
+}
 
 `;
-});
-
 
 document.getElementById("paymentArea")
 .innerHTML=`
 
-<div class="upiBox">
+<div class="upi-box">
 
 <h3>
-${
-paymentMethod==="cod"
+${selectedPayment==="cod"
 ?"COD — ₹239 Advance"
-:"Full Online Payment"
-}
+:"UPI Payment"}
 </h3>
 
-<p class="small" style="margin-top:8px">
-UPI সিলেক্ট করে নিচের পছন্দের payment app নির্বাচন করুন।
+<p class="payment-note">
+
+Tap the UPI button below. On Android, your available
+UPI apps can be offered by the device/UPI system.
+
 </p>
 
-<div class="upiApps">
-${appHTML}
-</div>
+<button class="btn blue"
+style="width:100%;margin-top:15px"
+onclick="payWithUPI(${amount})">
 
-<p style="margin-top:15px">
-<b>UPI ID:</b> ${UPI_ID}
-</p>
+PAY ₹${amount.toLocaleString("en-IN")} WITH UPI
+
+</button>
 
 </div>
 
@@ -1384,244 +1656,238 @@ ${appHTML}
 alt="UPI QR Code">
 
 <p>
-Payment Amount:
+UPI ID:
+<b>${UPI_ID}</b>
+</p>
+
+<p>
+Amount:
 <b>₹${amount.toLocaleString("en-IN")}</b>
 </p>
+
+</div>
+
+
+<div class="payment-method"
+style="cursor:default">
+
+<b>🏦 Net Banking — All Banks</b>
+
+<p class="payment-note">
+For real-time all-bank Net Banking and automatic
+success/failure verification, connect an approved
+payment gateway to this checkout.
+</p>
+
+<button class="btn dark"
+style="margin-top:10px;width:100%"
+onclick="gatewayPlaceholder()">
+
+CONTINUE TO NET BANKING
+
+</button>
+
+</div>
+
 
 <label>UTR / Transaction ID</label>
 
 <input id="utr"
-placeholder="Payment করার পরে UTR লিখুন">
+placeholder="Enter UTR after payment">
 
-</div>
+<button class="btn yellow"
+style="width:100%;margin-top:18px"
+onclick="submitPayment()">
 
+SUBMIT PAYMENT DETAILS
 
-<div class="paymentOption">
+</button>
 
-<b>🏦 Net Banking — All Banks</b>
+${selectedPayment==="cod"
+?
+`
+<div class="policy">
 
-<p class="small">
-All-bank Net Banking-এর জন্য approved payment
-gateway checkout integration প্রয়োজন।
+<h3>COD Payment Condition</h3>
+
+<p>
+First online advance:
+<b>₹239</b>
 </p>
 
-</div>
-
-
-${
-paymentMethod==="cod"
-?
-
-`
-
-<div class="info">
-
-<b>COD Payment Breakdown</b>
-
-<br><br>
-
-Product Total:
-₹${order.total.toLocaleString("en-IN")}
-
-<br>
-
-First Online Advance:
-<b>₹239</b>
-
-<br>
-
-After Delivery COD:
+<p>
+Remaining COD:
 <b>
 ₹${Math.max(
 0,
 order.total-COD_ADVANCE
 ).toLocaleString("en-IN")}
 </b>
+</p>
 
-<br><br>
-
-প্রথমে ₹239 UPI payment করতে হবে।
-Payment verification-এর পরে COD order unlock হবে।
+<p>
+COD is only treated as eligible after the required
+advance payment is successfully verified.
+</p>
 
 </div>
-
 `
-
-:""
-}
-
-
-<button class="btn yellow"
-style="width:100%;margin-top:18px"
-onclick="submitPayment()">
-
-SUBMIT PAYMENT
-
-</button>
+:""}
 
 `;
+
 }
 
 
 /* ================= UPI ================= */
 
-function startUPI(app,amount){
-
-selectedUPIApp=app;
-
-order.upiApp=app;
+function payWithUPI(amount){
 
 order.paymentMethod=
-paymentMethod==="cod"
-?
-"COD + ₹239 UPI Advance"
-:
-"Full Online UPI";
+selectedPayment==="cod"
+?"COD + ₹239 UPI Advance"
+:"Full Online UPI";
 
-
-renderPayment();
-
-
-const url=
+const upi=
 "upi://pay"+
 "?pa="+encodeURIComponent(UPI_ID)+
-"&pn="+encodeURIComponent("GRO Extender")+
-"&am="+Number(amount).toFixed(2)+
-"&cu=INR";
+"&pn="+encodeURIComponent(MERCHANT_NAME)+
+"&am="+encodeURIComponent(Number(amount).toFixed(2))+
+"&cu=INR"+
+"&tn="+encodeURIComponent(order.id);
 
+window.location.href=upi;
 
-window.location.href=url;
 }
 
 
-/* ================= PAYMENT SUBMIT ================= */
+/* ================= NET BANKING ================= */
+
+function gatewayPlaceholder(){
+
+alert(
+"Net Banking / All Banks-এর real payment-এর জন্য approved payment gateway integration প্রয়োজন। এই static HTML নিজে bank transaction process করতে পারে না."
+);
+
+}
+
+
+/* ================= SUBMIT ================= */
 
 function submitPayment(){
 
-const utr=
-document.getElementById("utr");
+const utr=document.getElementById("utr").value.trim();
 
-order.utr=
-utr ? utr.value.trim() : "";
+order.utr=utr;
+
+if(!utr){
+
+if(!confirm(
+"UTR/Transaction ID দেওয়া হয়নি। Payment details verify করার জন্য UTR দেওয়া recommended. Continue?"
+))return;
+
+}
 
 order.paymentStatus="Pending";
 
-showStatus(
-"pending",
-"Payment Pending",
-"Your payment details have been submitted. UTR is recorded for verification."
-);
-}
+document.getElementById("statusIcon")
+.className="status-icon status-pending";
 
-
-/* ================= STATUS ================= */
-
-function showStatus(type,title,message){
-
-const icon=document.getElementById("statusIcon");
-
-icon.className="statusIcon "+type;
-
-if(type==="success")
-icon.innerText="✓";
-
-else if(type==="failed")
-icon.innerText="✕";
-
-else
-icon.innerText="⏳";
+document.getElementById("statusIcon")
+.innerText="⏳";
 
 document.getElementById("statusTitle")
-.innerText=title;
+.innerText="Payment Pending";
 
-document.getElementById("statusMessage")
-.innerText=message;
+document.getElementById("statusText")
+.innerText=
+"Payment information received. Actual payment success/failure must be verified by the merchant/payment gateway.";
 
-openPage("statusPage");
+showPage("status");
+
 }
 
 
-/* ================= ORDER ================= */
+/* ================= ORDER COMPLETE ================= */
 
-function finishOrder(){
+function completeOrder(){
 
-let remaining=
-Math.max(
-0,
-order.total-COD_ADVANCE
-);
-
-document.getElementById("confirmation")
+document.getElementById("orderConfirmation")
 .innerHTML=`
 
-<p>
-<b>Order ID:</b> ${order.id}
-</p>
+<p><b>Order ID:</b> ${order.id}</p>
 
 <p>
 <b>Product:</b> ${order.product}<br>
 <b>Quantity:</b> ${order.quantity}<br>
-<b>Total:</b> ₹${order.total.toLocaleString("en-IN")}
+<b>Total:</b>
+₹${order.total.toLocaleString("en-IN")}
 </p>
 
 <p>
-<b>Payment Method:</b> ${order.paymentMethod}<br>
-<b>UPI App:</b> ${order.upiApp||"Not selected"}<br>
-<b>Payment Status:</b> ${order.paymentStatus}<br>
-<b>UTR:</b> ${order.utr||"Not entered"}
+<b>Payment Method:</b>
+${order.paymentMethod}<br>
+
+<b>Payment Status:</b>
+${order.paymentStatus}<br>
+
+<b>UTR:</b>
+${order.utr||"Not entered"}
 </p>
 
 ${
-paymentMethod==="cod"
+selectedPayment==="cod"
 ?
 `
 <p>
-<b>COD Advance:</b> ₹239<br>
-<b>Remaining COD:</b> ₹${remaining.toLocaleString("en-IN")}
+<b>Advance Paid:</b> ₹239<br>
+<b>Remaining COD:</b>
+₹${Math.max(
+0,
+order.total-COD_ADVANCE
+).toLocaleString("en-IN")}
 </p>
 `
 :""
 }
-
-<p>
-<b>Delivery Address:</b><br>
-${order.address}<br>
-${order.district}, ${order.state}<br>
-${order.pincode}<br>
-India
-</p>
 
 <p>
 <b>Customer:</b> ${order.name}<br>
 <b>Mobile:</b> ${order.phone}
 </p>
 
+<p>
+<b>Delivery Address:</b><br>
+${order.address}<br>
+${order.district}, ${order.state}<br>
+${order.pincode}, India
+</p>
+
+<p style="margin-top:15px">
+<b>Delivery Condition:</b>
+Please ensure that the submitted delivery information
+is correct.
+</p>
+
+<p>
+<b>Return Policy:</b>
+No Return Policy.
+</p>
+
 `;
 
-openPage("confirmPage");
+showPage("confirmation");
+
 }
 
 
 /* ================= WHATSAPP ================= */
 
-function openWhatsApp(){
-
-const message=
-"Hello GRO Extender, I want information about your products.";
-
-window.open(
-"https://wa.me/"+SUPPORT_NUMBER+
-"?text="+encodeURIComponent(message),
-"_blank"
-);
-}
-
-
-function sendOrderWhatsApp(){
+function sendWhatsApp(){
 
 const message=`
 
-NEW GRO EXTENDER ORDER
+GRO EXTENDER ORDER
 
 Order ID: ${order.id}
 
@@ -1633,8 +1899,6 @@ Total: ₹${order.total}
 
 Payment Method: ${order.paymentMethod}
 
-UPI App: ${order.upiApp||"Not selected"}
-
 Payment Status: ${order.paymentStatus}
 
 UTR: ${order.utr||"Not entered"}
@@ -1643,29 +1907,35 @@ Customer: ${order.name}
 
 Mobile: ${order.phone}
 
-Address: ${order.address}
+Address:
+${order.address}
 
-District: ${order.district}
+District:
+${order.district}
 
-State: ${order.state}
+State:
+${order.state}
 
-Pincode: ${order.pincode}
+Pincode:
+${order.pincode}
 
 `;
 
 window.open(
-"https://wa.me/"+SUPPORT_NUMBER+
+"https://wa.me/"+SUPPORT+
 "?text="+encodeURIComponent(message),
 "_blank"
 );
+
 }
 
 
 /* ================= INIT ================= */
 
 loadStates();
+renderProducts();
 
 </script>
 
 </body>
-  </html>
+    </html>
