@@ -3,63 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0b1220">
-<meta name="description" content="GRO Premium Wellness Store">
-<title>GRO — Premium Wellness Store</title>
+<meta name="theme-color" content="#08111f">
+
+<title>GRO — Official Premium Wellness Store</title>
 
 <style>
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0
+}
+
 :root{
- --nav:#07111f;
- --nav2:#0d1a2d;
+ --nav:#07101e;
+ --nav2:#0c1829;
  --blue:#1769e8;
- --blue2:#0b56c7;
- --yellow:#ffb000;
+ --blue2:#0d55c7;
+ --yellow:#ffb900;
  --green:#16a34a;
  --red:#dc2626;
- --purple:#6d28d9;
+ --orange:#f97316;
  --bg:#f4f6f9;
  --white:#fff;
  --text:#172033;
  --muted:#667085;
- --line:#e3e8ef;
- --shadow:0 8px 30px rgba(16,24,40,.08);
- --shadow2:0 18px 55px rgba(16,24,40,.12);
- --radius:14px;
+ --border:#e3e7ed;
+ --shadow:0 7px 28px rgba(15,23,42,.08);
+ --radius:14px
 }
 
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
+html{
+ scroll-behavior:smooth
+}
 
 body{
- margin:0;
+ font-family:Arial,Helvetica,sans-serif;
  background:var(--bg);
  color:var(--text);
- font-family:Arial,Helvetica,sans-serif
+ line-height:1.5
 }
 
-button,input,select,textarea{font:inherit}
+button,input,select,textarea{
+ font-family:inherit
+}
 
-button{cursor:pointer}
-
-a{
- text-decoration:none;
- color:inherit
+button{
+ cursor:pointer
 }
 
 img{
  max-width:100%
 }
 
+a{
+ color:inherit;
+ text-decoration:none
+}
+
 /* ================= TOP ================= */
 
 .topbar{
- background:#050b14;
- color:#dbe5f2;
+ background:#030812;
+ color:#dbe5f3;
  text-align:center;
- padding:7px 12px;
- font-size:12px
+ font-size:12px;
+ padding:7px 10px
 }
+
+.topbar span{
+ margin:0 8px
+}
+
+/* ================= HEADER ================= */
 
 .header{
  background:var(--nav);
@@ -67,106 +82,112 @@ img{
  position:sticky;
  top:0;
  z-index:1000;
- box-shadow:0 2px 15px rgba(0,0,0,.2)
+ box-shadow:0 3px 15px rgba(0,0,0,.2)
 }
 
 .header-main{
  max-width:1500px;
  margin:auto;
  min-height:68px;
- padding:10px 22px;
+ padding:10px 20px;
  display:flex;
  align-items:center;
  gap:18px
 }
 
 .logo{
+ min-width:190px;
  font-size:29px;
- font-weight:1000;
- white-space:nowrap;
+ font-weight:900;
  letter-spacing:-1px
 }
 
-.logo span{color:var(--yellow)}
-
-.search{
- height:44px;
- flex:1;
- max-width:720px;
- display:flex;
- background:#fff;
- border-radius:8px;
- overflow:hidden
+.logo span{
+ color:var(--yellow)
 }
 
-.search input{
+.logo small{
+ display:block;
+ font-size:9px;
+ letter-spacing:2px;
+ color:#aab7c8
+}
+
+.search-box{
+ flex:1;
+ max-width:720px;
+ height:44px;
+ background:#fff;
+ border-radius:8px;
+ overflow:hidden;
+ display:flex
+}
+
+.search-box input{
  flex:1;
  border:0;
  outline:0;
  padding:0 15px;
- color:#111
+ font-size:14px;
+ color:#172033
 }
 
-.search button{
- width:55px;
+.search-box button{
+ width:54px;
  border:0;
- background:var(--yellow)
+ background:var(--yellow);
+ font-size:18px
 }
 
-.header-tools{
- margin-left:auto;
+.header-links{
  display:flex;
  align-items:center;
- gap:4px
+ gap:5px
 }
 
-.header-tool{
- color:#fff;
+.header-btn{
  background:transparent;
  border:0;
- padding:8px 10px;
+ color:#fff;
+ padding:9px 11px;
  border-radius:8px
 }
 
-.header-tool:hover{
- background:#17263c
+.header-btn:hover{
+ background:#16263d
 }
 
 .cart-count{
- display:inline-flex;
- align-items:center;
- justify-content:center;
- min-width:20px;
- height:20px;
- background:#ef4444;
- border-radius:50%;
- font-size:11px;
- margin-left:3px
+ background:#ffb900;
+ color:#111;
+ padding:1px 5px;
+ border-radius:20px;
+ font-size:10px;
+ font-weight:900
 }
 
-.mainnav{
+/* ================= NAV ================= */
+
+.nav{
  background:var(--nav2);
- border-top:1px solid #1b2a40
+ border-top:1px solid #1c2a3e
 }
 
-.mainnav-inner{
+.nav-inner{
  max-width:1500px;
  margin:auto;
- padding:9px 22px;
+ padding:9px 20px;
  display:flex;
  gap:27px;
  overflow:auto
 }
 
-.mainnav button{
+.nav button{
  border:0;
  background:none;
- color:#edf2f7;
- white-space:nowrap
-}
-
-.mainnav button:hover{
- color:#ffca38
+ color:#e5eaf1;
+ white-space:nowrap;
+ font-size:13px
 }
 
 /* ================= GENERAL ================= */
@@ -174,16 +195,27 @@ img{
 .container{
  max-width:1500px;
  margin:auto;
- padding:24px 22px
+ padding:25px 20px
 }
 
-.screen{display:none}
+.screen{
+ display:none
+}
 
-.screen.active{display:block}
+.screen.active{
+ display:block
+}
+
+.card{
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:var(--radius);
+ box-shadow:var(--shadow)
+}
 
 .btn{
  border:0;
- border-radius:9px;
+ border-radius:8px;
  padding:12px 18px;
  font-weight:800;
  transition:.15s
@@ -193,140 +225,118 @@ img{
  transform:translateY(-1px)
 }
 
-.primary{
+.btn-blue{
  background:var(--blue);
  color:#fff
 }
 
-.primary:hover{background:var(--blue2)}
+.btn-blue:hover{
+ background:var(--blue2)
+}
 
-.yellow{
+.btn-yellow{
  background:var(--yellow);
  color:#111
 }
 
-.green{
+.btn-green{
  background:var(--green);
  color:#fff
 }
 
-.dark{
+.btn-dark{
  background:#111827;
  color:#fff
 }
 
-.outline{
+.btn-outline{
  background:#fff;
- color:var(--text);
- border:1px solid #d7dee8
+ color:#172033;
+ border:1px solid #d5dce5
 }
 
-.danger{
- background:var(--red);
- color:#fff
+.full{
+ width:100%
 }
 
-.full{width:100%}
-
-.card{
- background:#fff;
- border:1px solid #e7ebf0;
- border-radius:var(--radius);
- box-shadow:var(--shadow)
+.page-title{
+ margin:10px 0 20px;
+ font-size:29px
 }
 
 .muted{
  color:var(--muted)
 }
 
-.page-title{
- margin:0;
- font-size:30px
-}
-
 .breadcrumb{
- color:var(--muted);
- font-size:13px;
- margin-bottom:15px
-}
-
-.section-head{
- margin:35px 0 17px;
- display:flex;
- align-items:end;
- justify-content:space-between;
- gap:15px
-}
-
-.section-head h2{
- margin:0;
- font-size:25px
+ color:#667085;
+ font-size:12px;
+ margin-bottom:18px
 }
 
 /* ================= HERO ================= */
 
 .hero{
- min-height:490px;
  display:grid;
  grid-template-columns:1.1fr .9fr;
- border-radius:22px;
+ min-height:510px;
  overflow:hidden;
+ border-radius:22px;
  background:
- radial-gradient(circle at 75% 30%,#27466e 0,#12253f 28%,#07111f 65%);
+ linear-gradient(125deg,#07101e,#162b4a);
  color:#fff;
- box-shadow:var(--shadow2)
+ box-shadow:0 18px 50px rgba(0,0,0,.18)
 }
 
 .hero-content{
- padding:60px;
+ padding:65px;
  display:flex;
- flex-direction:column;
- justify-content:center
+ justify-content:center;
+ flex-direction:column
 }
 
-.badge{
- display:inline-block;
+.hero-badge{
  width:max-content;
- padding:7px 12px;
+ padding:7px 13px;
+ border:1px solid rgba(255,255,255,.18);
  border-radius:30px;
- background:rgba(255,255,255,.09);
- border:1px solid rgba(255,255,255,.14);
+ background:rgba(255,255,255,.08);
  font-size:11px;
  font-weight:900;
  letter-spacing:.5px
 }
 
 .hero h1{
- font-size:56px;
+ font-size:57px;
  line-height:1.02;
- letter-spacing:-2px;
- margin:18px 0
+ letter-spacing:-2.5px;
+ margin:20px 0 16px
 }
 
 .hero p{
- max-width:620px;
- color:#c8d4e3;
- line-height:1.8;
- font-size:16px
+ color:#c5d0df;
+ max-width:610px;
+ font-size:16px;
+ line-height:1.8
 }
 
 .hero-actions{
  display:flex;
- gap:10px;
- margin-top:23px
+ gap:12px;
+ margin-top:28px
 }
 
 .hero-image{
  display:flex;
- align-items:center;
  justify-content:center;
+ align-items:center;
  padding:25px;
- background:linear-gradient(135deg,#142b4b,#07101c)
+ background:linear-gradient(145deg,#152a49,#060e1a)
 }
 
 .hero-image img{
  width:100%;
- height:430px;
+ height:450px;
  object-fit:contain
 }
 
@@ -334,71 +344,113 @@ img{
 
 .trust-grid{
  display:grid;
- grid-template-columns:repeat(5,1fr);
- gap:13px;
+ grid-template-columns:repeat(4,1fr);
+ gap:14px;
  margin-top:18px
 }
 
 .trust{
- padding:17px;
  background:#fff;
- border:1px solid var(--line);
- border-radius:13px;
+ border:1px solid var(--border);
+ border-radius:12px;
+ padding:18px;
  display:flex;
- gap:12px;
+ gap:13px;
  align-items:center
 }
 
 .trust-icon{
- font-size:25px
+ font-size:27px
 }
 
 .trust strong{
  display:block;
- font-size:13px
+ font-size:14px
 }
 
 .trust small{
- display:block;
  color:var(--muted);
- margin-top:3px
- }
+ font-size:11px
+}
+
+/* ================= SECTION ================= */
+
+.section-head{
+ margin:36px 0 17px;
+ display:flex;
+ justify-content:space-between;
+ align-items:end;
+ gap:10px
+}
+
+.section-head h2{
+ font-size:25px
+}
 
 /* ================= CATEGORY ================= */
 
 .category-grid{
  display:grid;
- grid-template-columns:repeat(6,1fr);
- gap:14px
+ grid-template-columns:repeat(4,1fr);
+ gap:16px
 }
 
 .category{
- padding:25px 12px;
- text-align:center;
+ min-height:145px;
+ padding:24px;
  background:#fff;
- border:1px solid var(--line);
+ border:1px solid var(--border);
  border-radius:14px;
- transition:.2s
+ box-shadow:var(--shadow);
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ cursor:pointer
 }
 
 .category:hover{
- transform:translateY(-3px);
- box-shadow:var(--shadow)
+ border-color:#9dbcf2;
+ transform:translateY(-2px)
 }
 
 .category-icon{
- font-size:33px;
- margin-bottom:10px
+ font-size:32px;
+ margin-bottom:9px
 }
 
 .category strong{
- display:block;
- font-size:13px
+ font-size:16px
 }
 
-/* ================= PRODUCT ================= */
+.category span{
+ color:var(--muted);
+ font-size:12px
+}
 
-.products{
+/* ================= PRODUCTS ================= */
+
+.toolbar{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:10px;
+ margin-bottom:18px
+}
+
+.toolbar-right{
+ display:flex;
+ gap:8px
+}
+
+.toolbar select{
+ border:1px solid var(--border);
+ background:#fff;
+ padding:10px 13px;
+ border-radius:8px;
+ outline:0
+}
+
+.product-grid{
  display:grid;
  grid-template-columns:repeat(4,1fr);
  gap:18px
@@ -410,11 +462,11 @@ img{
 }
 
 .product-img{
- height:285px;
- background:#f0f2f5;
+ height:295px;
+ background:#f1f3f6;
  display:flex;
- align-items:center;
  justify-content:center;
+ align-items:center;
  position:relative
 }
 
@@ -426,62 +478,49 @@ img{
 
 .sale{
  position:absolute;
- top:10px;
  left:10px;
+ top:10px;
  background:#e11d48;
  color:#fff;
- padding:6px 8px;
+ font-size:10px;
+ font-weight:900;
+ padding:5px 8px;
  border-radius:5px;
- font-size:11px;
- font-weight:900
+ z-index:2
 }
 
-.wishlist{
- position:absolute;
- right:10px;
- top:10px;
- width:35px;
- height:35px;
- border:0;
- border-radius:50%;
- background:#fff;
- box-shadow:0 3px 12px #0002
-}
-
-.product-body{
+.product-info{
  padding:17px
 }
 
 .stars{
  color:#f59e0b;
- font-size:13px
+ font-size:13px;
+ margin-bottom:6px
 }
 
 .product-name{
- margin-top:7px;
  font-size:16px;
- font-weight:850;
- line-height:1.4;
+ font-weight:800;
  min-height:45px
 }
 
 .product-price{
- margin-top:10px;
  font-size:23px;
- font-weight:950
+ font-weight:900;
+ margin-top:8px
 }
 
 .old{
- color:#8993a3;
+ color:#8b95a5;
  text-decoration:line-through;
- font-size:13px;
- margin-right:6px;
- font-weight:normal
+ font-size:12px;
+ margin-right:5px
 }
 
-.product-meta{
- font-size:12px;
- color:var(--muted);
+.delivery{
+ color:#667085;
+ font-size:11px;
  margin-top:7px
 }
 
@@ -489,285 +528,249 @@ img{
  display:grid;
  grid-template-columns:1fr 1fr;
  gap:8px;
- margin-top:14px
+ margin-top:15px
 }
 
-/* ================= FILTER ================= */
-
-.shop-toolbar{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:15px;
- margin-bottom:18px;
- flex-wrap:wrap
-}
-
-.filters{
- display:flex;
- gap:8px;
- flex-wrap:wrap
-}
-
-.filter{
- padding:9px 14px;
- border:1px solid var(--line);
- background:#fff;
- border-radius:20px
-}
-
-.filter.active{
- background:#eaf2ff;
- color:var(--blue);
- border-color:#bcd4ff
-}
-
-.sort{
- padding:10px;
- border:1px solid var(--line);
- border-radius:8px;
- background:#fff
-}
-
-/* ================= PRODUCT DETAIL ================= */
+/* ================= DETAIL ================= */
 
 .detail-grid{
  display:grid;
- grid-template-columns:1.05fr .95fr;
- gap:25px
+ grid-template-columns:1fr 1fr;
+ gap:22px
 }
 
 .gallery{
  padding:16px
 }
 
-.main-image{
- height:535px;
- border-radius:13px;
+.main-gallery{
+ height:550px;
  background:#f1f3f6;
+ border-radius:12px;
  display:flex;
- align-items:center;
- justify-content:center
+ justify-content:center;
+ align-items:center
 }
 
-.main-image img{
+.main-gallery img{
  width:100%;
  height:100%;
  object-fit:contain
 }
 
-.thumbs{
+.thumbnail-row{
  display:flex;
- gap:8px;
- overflow:auto;
- margin-top:12px
+ gap:9px;
+ margin-top:12px;
+ overflow:auto
 }
 
-.thumb{
- flex:0 0 80px;
+.thumbnail{
+ width:80px;
  height:80px;
+ flex:0 0 80px;
  padding:3px;
- border-radius:8px;
  border:2px solid transparent;
+ border-radius:8px;
  background:#f1f3f6
 }
 
-.thumb.active{
+.thumbnail.active{
  border-color:var(--blue)
 }
 
-.thumb img{
+.thumbnail img{
  width:100%;
  height:100%;
  object-fit:contain
 }
 
 .detail-info{
- padding:28px
+ padding:30px
 }
 
-.detail-title{
- font-size:32px;
+.detail-info h1{
+ font-size:33px;
  line-height:1.2;
+ margin:9px 0
+}
+
+.detail-rating{
+ color:#f59e0b;
  margin:10px 0
 }
 
 .detail-price{
- font-size:35px;
- font-weight:950;
- margin:14px 0
+ font-size:36px;
+ font-weight:900;
+ margin:10px 0
 }
 
-.detail-rating{
- display:flex;
- gap:10px;
- align-items:center;
- margin:12px 0
-}
-
-.feature-list{
- line-height:1.9;
- color:#475467
+.highlights{
+ padding-left:20px;
+ line-height:2;
+ color:#475467;
+ margin:15px 0
 }
 
 .quantity{
  display:flex;
- align-items:center;
  width:max-content;
- border:1px solid var(--line);
- border-radius:9px;
+ border:1px solid var(--border);
+ border-radius:8px;
  overflow:hidden;
- margin:20px 0
+ margin:17px 0
 }
 
 .quantity button{
- width:44px;
- height:44px;
  border:0;
- background:#f2f4f7;
+ width:44px;
+ height:43px;
+ background:#f1f3f6;
  font-size:20px
 }
 
 .quantity span{
  width:48px;
- text-align:center;
+ display:flex;
+ justify-content:center;
+ align-items:center;
  font-weight:900
 }
 
-.detail-buttons{
+.buy-actions{
  display:grid;
  grid-template-columns:1fr 1fr;
  gap:10px
 }
 
-.info-box{
- border-top:1px solid var(--line);
- padding-top:17px;
- margin-top:18px
+.info-strip{
+ margin-top:18px;
+ border-top:1px solid var(--border);
+ padding-top:17px
+}
+
+.info-row{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ padding:9px 0;
+ border-bottom:1px solid #eef1f4;
+ font-size:13px
 }
 
 .claim{
+ margin-top:18px;
  background:#fff8df;
- border:1px solid #eed26b;
- padding:16px;
+ border:1px solid #efd46a;
  border-radius:10px;
- line-height:1.7;
- font-size:13px;
- margin-top:20px
+ padding:16px;
+ font-size:12px;
+ line-height:1.7
 }
 
-/* ================= REVIEWS ================= */
+/* ================= TABS ================= */
 
-.review-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:15px
+.tabs{
+ margin-top:25px
+}
+
+.tab-buttons{
+ display:flex;
+ gap:5px;
+ border-bottom:1px solid var(--border);
+ overflow:auto
+}
+
+.tab-buttons button{
+ border:0;
+ background:#fff;
+ padding:13px 18px;
+ white-space:nowrap
+}
+
+.tab-buttons button.active{
+ color:var(--blue);
+ border-bottom:3px solid var(--blue)
+}
+
+.tab-content{
+ padding:24px;
+ min-height:200px
 }
 
 .review{
- padding:20px
+ padding:16px 0;
+ border-bottom:1px solid var(--border)
 }
 
-.review-top{
- display:flex;
- justify-content:space-between;
- margin-bottom:10px
-}
-
-.verified{
- color:var(--green);
- font-size:11px
-}
-
-/* ================= FAQ ================= */
-
-.faq{
- border-bottom:1px solid var(--line)
-}
-
-.faq button{
- width:100%;
- padding:18px 0;
- background:none;
- border:0;
- display:flex;
- justify-content:space-between;
- text-align:left;
- font-weight:800
-}
-
-.faq-content{
- display:none;
- padding:0 0 17px;
- color:var(--muted);
- line-height:1.7
+.review:last-child{
+ border-bottom:0
 }
 
 /* ================= CART ================= */
 
 .cart-layout{
  display:grid;
- grid-template-columns:1fr 370px;
- gap:22px
-}
-
-.cart-list{
- padding:20px
+ grid-template-columns:1fr 380px;
+ gap:20px
 }
 
 .cart-item{
  display:grid;
- grid-template-columns:100px 1fr auto;
- gap:15px;
- padding:15px 0;
- border-bottom:1px solid var(--line)
+ grid-template-columns:120px 1fr auto;
+ gap:18px;
+ padding:18px;
+ align-items:center
 }
 
 .cart-item img{
- width:100px;
- height:100px;
+ width:120px;
+ height:110px;
  object-fit:contain;
- background:#f3f4f6;
- border-radius:8px
+ background:#f2f3f5;
+ border-radius:9px
 }
 
-.cart-item h3{
- margin:5px 0
+.cart-price{
+ font-size:20px;
+ font-weight:900
 }
 
 .cart-summary{
  padding:22px;
- height:max-content
+ position:sticky;
+ top:145px
 }
 
 .summary-row{
  display:flex;
  justify-content:space-between;
  gap:15px;
- padding:10px 0;
+ padding:11px 0;
  border-bottom:1px solid #edf0f3;
  font-size:14px
 }
 
-.total{
+.summary-total{
  font-size:21px;
- font-weight:950
+ font-weight:900
 }
 
 /* ================= CHECKOUT ================= */
 
-.checkout{
+.checkout-grid{
  display:grid;
  grid-template-columns:1fr 390px;
- gap:22px
+ gap:20px
 }
 
 .form-card{
- padding:25px
+ padding:27px
 }
 
-.form-title{
- margin:0 0 20px
+.form-card h2{
+ margin-bottom:20px
 }
 
 .form-grid{
@@ -776,43 +779,36 @@ img{
  gap:15px
 }
 
-.form-group{
+.field{
  margin-bottom:15px
 }
 
-.form-group.full-row{
+.field.full-row{
  grid-column:1/-1
 }
 
-.form-group label{
+.field label{
  display:block;
  font-size:13px;
  font-weight:800;
  margin-bottom:6px
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea{
+.field input,
+.field select,
+.field textarea{
  width:100%;
- border:1px solid #d5dce6;
- border-radius:8px;
  padding:12px;
+ border:1px solid #d6dce5;
+ border-radius:8px;
  outline:0;
  background:#fff
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
  border-color:var(--blue)
-}
-
-.summary-card{
- padding:22px;
- height:max-content;
- position:sticky;
- top:140px
 }
 
 /* ================= PAYMENT ================= */
@@ -820,176 +816,166 @@ img{
 .payment-grid{
  display:grid;
  grid-template-columns:1fr 400px;
- gap:22px
+ gap:20px
 }
 
-.payment-box{
- padding:25px
+.payment-card{
+ padding:27px
 }
 
 .payment-option{
- padding:17px;
- border:2px solid #e0e5ec;
+ border:2px solid #e0e5eb;
  border-radius:12px;
- margin-bottom:12px
+ padding:17px;
+ margin-bottom:12px;
+ background:#fff
 }
 
-.payment-option.active{
+.payment-option.selected{
  border-color:var(--blue);
  background:#f5f9ff
 }
 
 .payment-option label{
  display:flex;
- align-items:center;
  gap:10px;
+ align-items:center;
  font-weight:900
 }
 
-.payment-help{
- color:var(--muted);
- font-size:13px;
- line-height:1.7;
- margin:8px 0 0 26px
+.payment-option p{
+ margin:7px 0 0 26px;
+ font-size:12px;
+ color:var(--muted)
 }
 
 .upi-box{
- padding:16px;
- background:#ecfdf3;
- color:#166534;
- border-radius:10px;
  margin-top:15px;
- font-size:13px;
+ background:#eefbf2;
+ border:1px solid #bce5c8;
+ padding:16px;
+ border-radius:10px;
+ font-size:12px;
  line-height:1.7
 }
 
-.payment-note{
- padding:14px;
- background:#fff8db;
- color:#665500;
- border-radius:10px;
- font-size:13px;
- line-height:1.7;
- margin-top:15px
-}
-
 .qr{
- text-align:center;
  background:#f7f8fa;
- padding:18px;
+ padding:20px;
+ text-align:center;
  border-radius:12px;
  margin-top:15px
 }
 
 .qr img{
- width:200px;
- height:200px;
+ width:210px;
+ height:210px;
  object-fit:contain;
  background:#fff
 }
 
-/* ================= TRACKING ================= */
+/* ================= ORDER STATUS ================= */
 
-.track-card{
- max-width:800px;
- margin:20px auto;
- padding:30px
+.status{
+ max-width:720px;
+ margin:45px auto
 }
 
-.track-input{
- display:flex;
- gap:10px
+.status-card{
+ text-align:center;
+ padding:45px 25px
 }
 
-.track-input input{
- flex:1;
- padding:13px;
- border:1px solid var(--line);
- border-radius:8px
-}
-
-.timeline{
- margin-top:35px
-}
-
-.step{
- display:flex;
- gap:15px;
- margin-bottom:24px
-}
-
-.step-icon{
- width:40px;
- height:40px;
+.status-icon{
+ width:82px;
+ height:82px;
  border-radius:50%;
+ margin:auto;
  display:flex;
- justify-content:center;
- align-items:center;
- background:#e9edf3;
- flex:0 0 40px
-}
-
-.step.done .step-icon{
- background:#dcfce7;
- color:#15803d
-}
-
-.step h4{
- margin:2px 0 5px
-}
-
-.step p{
- margin:0;
- color:var(--muted);
- font-size:13px
-}
-
-/* ================= MODAL ================= */
-
-.modal{
- display:none;
- position:fixed;
- inset:0;
- background:#0008;
- z-index:2000;
  align-items:center;
  justify-content:center;
- padding:15px
+ background:#fff2c7;
+ font-size:40px
 }
 
-.modal.show{
- display:flex
+.status-card h1{
+ margin:18px 0 7px
 }
 
-.modal-box{
- width:min(600px,100%);
- max-height:90vh;
- overflow:auto;
+/* ================= FAQ ================= */
+
+.faq{
+ max-width:900px
+}
+
+.faq-item{
  background:#fff;
- border-radius:15px;
- padding:25px
+ border:1px solid var(--border);
+ border-radius:10px;
+ margin-bottom:10px;
+ overflow:hidden
 }
 
-.modal-head{
- display:flex;
- justify-content:space-between;
- align-items:center
-}
-
-.close{
+.faq-question{
+ width:100%;
+ background:#fff;
  border:0;
- background:#f1f3f5;
- width:35px;
- height:35px;
- border-radius:50%
+ padding:17px;
+ text-align:left;
+ font-weight:800;
+ display:flex;
+ justify-content:space-between
 }
 
-/* ================= FLOAT ================= */
+.faq-answer{
+ display:none;
+ padding:0 17px 17px;
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.7
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+ background:#070e1a;
+ color:#b9c5d5;
+ margin-top:55px
+}
+
+.footer-grid{
+ max-width:1500px;
+ margin:auto;
+ padding:50px 20px;
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr 1fr;
+ gap:30px
+}
+
+.footer h3{
+ color:#fff;
+ margin-bottom:15px
+}
+
+.footer p{
+ font-size:12px;
+ line-height:1.8;
+ margin-bottom:6px
+}
+
+.footer-bottom{
+ border-top:1px solid #1c293b;
+ padding:16px;
+ text-align:center;
+ font-size:11px
+}
+
+/* ================= FLOATING ================= */
 
 .floating{
  position:fixed;
- right:17px;
- bottom:17px;
+ right:18px;
+ bottom:18px;
  z-index:1500;
  display:flex;
  flex-direction:column;
@@ -999,91 +985,29 @@ img{
 .float{
  width:56px;
  height:56px;
- display:flex;
- align-items:center;
- justify-content:center;
  border-radius:50%;
  color:#fff;
- font-size:25px;
- box-shadow:0 7px 25px #0004
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ font-size:24px;
+ box-shadow:0 8px 25px rgba(0,0,0,.25)
 }
 
-.float.whatsapp{background:#22c55e}
-.float.call{background:#1769e8}
-
-/* ================= FOOTER ================= */
-
-footer{
- background:#070e1a;
- color:#c9d3df;
- margin-top:60px
+.float-wa{
+ background:#22c55e
 }
 
-.footer{
- max-width:1500px;
- margin:auto;
- padding:50px 22px;
- display:grid;
- grid-template-columns:2fr repeat(4,1fr);
- gap:30px
-}
-
-.footer h3{
- color:#fff;
- margin-top:0
-}
-
-.footer p{
- font-size:13px;
- line-height:1.8
-}
-
-.footer a{
- display:block;
- font-size:13px;
- margin:11px 0;
- color:#c9d3df
-}
-
-.footer-bottom{
- text-align:center;
- border-top:1px solid #1d2a3d;
- padding:17px;
- font-size:12px
+.float-call{
+ background:#1769e8
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:1100px){
 
-.trust-grid{
+.product-grid{
  grid-template-columns:repeat(3,1fr)
-}
-
-.category-grid{
- grid-template-columns:repeat(3,1fr)
-}
-
-.products{
- grid-template-columns:repeat(3,1fr)
-}
-
-.footer{
- grid-template-columns:2fr 1fr 1fr
-}
-
-}
-
-@media(max-width:800px){
-
-.header-main{
- flex-wrap:wrap;
- padding:10px 13px
-}
-
-.search{
- order:3;
- flex-basis:100%
 }
 
 .hero{
@@ -1094,19 +1018,69 @@ footer{
  display:none
 }
 
+.checkout-grid,
+.payment-grid,
+.cart-layout{
+ grid-template-columns:1fr
+}
+
+.cart-summary{
+ position:static
+}
+
+.footer-grid{
+ grid-template-columns:1fr 1fr
+}
+
+}
+
+@media(max-width:750px){
+
+.header-main{
+ flex-wrap:wrap;
+ padding:10px 12px
+}
+
+.logo{
+ min-width:auto;
+ font-size:23px
+}
+
+.header-links{
+ margin-left:auto
+}
+
+.search-box{
+ order:3;
+ flex-basis:100%;
+ max-width:none
+}
+
+.nav-inner{
+ padding:9px 12px
+}
+
+.container{
+ padding:17px 12px
+}
+
 .hero-content{
- padding:40px 25px
+ padding:38px 25px
 }
 
 .hero h1{
- font-size:43px
+ font-size:39px
 }
 
 .trust-grid{
  grid-template-columns:1fr 1fr
 }
 
-.products{
+.category-grid{
+ grid-template-columns:1fr 1fr
+}
+
+.product-grid{
  grid-template-columns:1fr 1fr
 }
 
@@ -1114,166 +1088,157 @@ footer{
  grid-template-columns:1fr
 }
 
-.main-image{
+.main-gallery{
  height:390px
-}
-
-.checkout,
-.payment-grid,
-.cart-layout{
- grid-template-columns:1fr
-}
-
-.summary-card{
- position:static
-}
-
-.review-grid{
- grid-template-columns:1fr
-}
-
-.footer{
- grid-template-columns:1fr 1fr
-}
-
-}
-
-@media(max-width:520px){
-
-.container{
- padding:16px 12px
-}
-
-.logo{
- font-size:23px
-}
-
-.header-tools .header-tool:nth-child(1),
-.header-tools .header-tool:nth-child(2){
- display:none
-}
-
-.hero h1{
- font-size:35px
-}
-
-.hero-actions{
- flex-direction:column
-}
-
-.trust-grid,
-.category-grid,
-.products{
- grid-template-columns:1fr 1fr
-}
-
-.product-img{
- height:245px
-}
-
-.detail-title{
- font-size:27px
-}
-
-.detail-price{
- font-size:29px
-}
-
-.detail-buttons{
- grid-template-columns:1fr
 }
 
 .form-grid{
  grid-template-columns:1fr
 }
 
-.form-group.full-row{
+.field.full-row{
  grid-column:auto
 }
 
-.footer{
+}
+
+@media(max-width:500px){
+
+.header-btn span{
+ display:none
+}
+
+.trust-grid,
+.category-grid,
+.product-grid{
+ grid-template-columns:1fr
+}
+
+.product-img{
+ height:310px
+}
+
+.hero h1{
+ font-size:34px
+}
+
+.hero-actions{
+ flex-direction:column
+}
+
+.buy-actions{
  grid-template-columns:1fr
 }
 
 .cart-item{
- grid-template-columns:75px 1fr
+ grid-template-columns:80px 1fr
 }
 
 .cart-item img{
- width:75px;
- height:75px
+ width:80px;
+ height:80px
 }
 
-.cart-item > div:last-child{
- grid-column:2
+.cart-item .cart-actions{
+ grid-column:1/-1
 }
 
-.track-input{
- flex-direction:column
+.footer-grid{
+ grid-template-columns:1fr
 }
 
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- TOP BAR -->
+
+<!-- ================= TOPBAR ================= -->
+
 <div class="topbar">
-🔒 Secure Checkout &nbsp; • &nbsp; 🚚 Serviceable Delivery &nbsp; • &nbsp; 🔞 18+ Only
+🔒 Secure checkout
+<span>•</span>
+🚚 Delivery across serviceable locations
+<span>•</span>
+18+ Adult Wellness Store
 </div>
 
-<!-- HEADER -->
+
+<!-- ================= HEADER ================= -->
+
 <header class="header">
 
 <div class="header-main">
 
-<div class="logo">
+<div class="logo" onclick="go('home')">
 GRO <span>Extender</span>
+<small>PREMIUM WELLNESS STORE</small>
 </div>
 
-<div class="search">
+<div class="search-box">
+
 <input
 id="search"
-placeholder="Search products..."
+placeholder="Search products, models and categories..."
 oninput="searchProducts()">
+
 <button onclick="searchProducts()">🔍</button>
-</div>
-
-<div class="header-tools">
-
-<button class="header-tool" onclick="show('home')">
-⌂ Home
-</button>
-
-<button class="header-tool" onclick="show('shop')">
-Shop
-</button>
-
-<button class="header-tool" onclick="show('tracking')">
-Track
-</button>
-
-<button class="header-tool" onclick="showCart()">
-🛒 <span id="cartCount" class="cart-count">0</span>
-</button>
 
 </div>
 
+<div class="header-links">
+
+<button class="header-btn" onclick="go('home')">
+🏠 <span>Home</span>
+</button>
+
+<button class="header-btn" onclick="go('products')">
+🛍️ <span>Shop</span>
+</button>
+
+<button class="header-btn" onclick="go('cart')">
+🛒 <span>Cart</span>
+<b id="cartCount" class="cart-count">0</b>
+</button>
+
 </div>
 
-<div class="mainnav">
+</div>
 
-<div class="mainnav-inner">
 
-<button onclick="show('shop')">All Products</button>
-<button onclick="category('ultimate')">Ultimate</button>
-<button onclick="category('supreme')">Supreme+</button>
-<button onclick="category('doubledeck')">DoubleDeck</button>
-<button onclick="scrollInfo()">Why GRO?</button>
-<button onclick="show('tracking')">Order Tracking</button>
-<button onclick="openPolicy('shipping')">Shipping</button>
-<button onclick="openPolicy('return')">Return Policy</button>
+<div class="nav">
+
+<div class="nav-inner">
+
+<button onclick="go('products')">
+All Products
+</button>
+
+<button onclick="filter('ultimate')">
+Ultimate
+</button>
+
+<button onclick="filter('supreme')">
+Supreme+
+</button>
+
+<button onclick="filter('double')">
+DoubleDeck
+</button>
+
+<button onclick="go('faq')">
+FAQ
+</button>
+
+<button onclick="go('policies')">
+Policies
+</button>
+
+<button onclick="go('contact')">
+Contact
+</button>
 
 </div>
 
@@ -1282,50 +1247,51 @@ Track
 </header>
 
 
-<!-- ================= HOME ================= -->
+<!-- =========================================================
+HOME
+========================================================= -->
 
 <section id="home" class="screen active">
 
 <div class="container">
 
+
 <div class="hero">
 
 <div class="hero-content">
 
-<span class="badge">
-PREMIUM ADULT WELLNESS COLLECTION
-</span>
+<div class="hero-badge">
+OFFICIAL PREMIUM COLLECTION
+</div>
 
 <h1>
-Premium Design.<br>
-Smart Shopping.<br>
+Premium design.<br>
+Private shopping.<br>
 GRO.
 </h1>
 
 <p>
-Discover the GRO collection with premium
-components, adjustable configurations and
-a professional shopping experience designed
-for adult customers.
+Discover the GRO premium adult wellness collection.
+Designed for adult users with adjustable configurations,
+multiple product options and discreet shopping.
 </p>
 
 <div class="hero-actions">
 
-<button
-class="btn yellow"
-onclick="show('shop')">
+<button class="btn btn-yellow"
+onclick="go('products')">
 SHOP NOW
 </button>
 
-<button
-class="btn outline"
-onclick="scrollInfo()">
+<button class="btn btn-outline"
+onclick="document.getElementById('why').scrollIntoView()">
 EXPLORE
 </button>
 
 </div>
 
 </div>
+
 
 <div class="hero-image">
 
@@ -1343,126 +1309,18 @@ alt="GRO Extender">
 <div class="trust-grid">
 
 <div class="trust">
-<div class="trust-icon">🚚</div>
-<div>
-<strong>Secure Delivery</strong>
-<small>Serviceable locations</small>
-</div>
-</div>
-
-<div class="trust">
 <div class="trust-icon">🔐</div>
 <div>
-<strong>UPI Checkout</strong>
-<small>UPI app chooser</small>
+<strong>Secure Checkout</strong>
+<small>UPI payment flow</small>
 </div>
 </div>
 
 <div class="trust">
-<div class="trust-icon">💳</div>
+<div class="trust-icon">🚚</div>
 <div>
-<strong>COD Available</strong>
-<small>₹239 advance</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">📞</div>
-<div>
-<strong>Direct Support</strong>
-<small>Call & WhatsApp</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">🔞</div>
-<div>
-<strong>18+ Product</strong>
-<small>Adults only</small>
-</div>
-</div>
-
-</div>
-
-
-<!-- CATEGORIES -->
-
-<div class="section-head">
-<h2>Shop by Category</h2>
-</div>
-
-<div class="category-grid">
-
-<div class="category" onclick="category('ultimate')">
-<div class="category-icon">⭐</div>
-<strong>Ultimate</strong>
-</div>
-
-<div class="category" onclick="category('supreme')">
-<div class="category-icon">👑</div>
-<strong>Supreme+</strong>
-</div>
-
-<div class="category" onclick="category('doubledeck')">
-<div class="category-icon">⚙️</div>
-<strong>DoubleDeck</strong>
-</div>
-
-<div class="category" onclick="show('shop')">
-<div class="category-icon">🔥</div>
-<strong>Best Sellers</strong>
-</div>
-
-<div class="category" onclick="show('shop')">
-<div class="category-icon">✨</div>
-<strong>Premium</strong>
-</div>
-
-<div class="category" onclick="show('shop')">
-<div class="category-icon">🛍️</div>
-<strong>All Products</strong>
-</div>
-
-</div>
-
-
-<!-- FEATURED -->
-
-<div class="section-head">
-<h2>Featured Products</h2>
-
-<button class="btn outline" onclick="show('shop')">
-View All →
-</button>
-
-</div>
-
-<div id="homeProducts" class="products"></div>
-
-
-<!-- INFO -->
-
-<div id="info">
-
-<div class="section-head">
-<h2>Why Choose GRO?</h2>
-</div>
-
-<div class="trust-grid">
-
-<div class="trust">
-<div class="trust-icon">⚙️</div>
-<div>
-<strong>Adjustable Design</strong>
-<small>Multiple configurations</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">📱</div>
-<div>
-<strong>Mobile Friendly</strong>
-<small>Easy shopping anywhere</small>
+<strong>Discreet Delivery</strong>
+<small>Serviceable locations</small>
 </div>
 </div>
 
@@ -1477,150 +1335,148 @@ View All →
 <div class="trust">
 <div class="trust-icon">💬</div>
 <div>
-<strong>Customer Support</strong>
-<small>Direct contact</small>
+<strong>Direct Support</strong>
+<small>WhatsApp / Call</small>
+</div>
+</div>
+
+</div>
+
+
+<!-- CATEGORY -->
+
+<div class="section-head">
+<h2>Shop by Collection</h2>
+</div>
+
+<div class="category-grid">
+
+<div class="category" onclick="filter('ultimate')">
+<div class="category-icon">⚙️</div>
+<strong>Ultimate</strong>
+<span>Premium adjustable model</span>
+</div>
+
+<div class="category" onclick="filter('supreme')">
+<div class="category-icon">⭐</div>
+<strong>Supreme+</strong>
+<span>Advanced configuration</span>
+</div>
+
+<div class="category" onclick="filter('double')">
+<div class="category-icon">🔧</div>
+<strong>DoubleDeck</strong>
+<span>Multi-component model</span>
+</div>
+
+<div class="category" onclick="go('products')">
+<div class="category-icon">🛍️</div>
+<strong>All Products</strong>
+<span>Explore entire collection</span>
+</div>
+
+</div>
+
+
+<!-- FEATURED -->
+
+<div class="section-head">
+
+<h2>Featured Products</h2>
+
+<button class="btn btn-outline"
+onclick="go('products')">
+View All →
+</button>
+
+</div>
+
+<div id="featured" class="product-grid"></div>
+
+
+<!-- WHY -->
+
+<div id="why">
+
+<div class="section-head">
+<h2>Why GRO?</h2>
+</div>
+
+<div class="trust-grid">
+
+<div class="trust">
+<div class="trust-icon">⚙️</div>
+<div>
+<strong>Adjustable Design</strong>
+<small>Multiple fitting configurations</small>
 </div>
 </div>
 
 <div class="trust">
 <div class="trust-icon">📦</div>
 <div>
-<strong>Order Tracking</strong>
-<small>Track your order</small>
+<strong>Product Selection</strong>
+<small>Multiple models available</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">📱</div>
+<div>
+<strong>Mobile Shopping</strong>
+<small>Optimized checkout</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">☎️</div>
+<div>
+<strong>Customer Support</strong>
+<small>Direct communication</small>
 </div>
 </div>
 
 </div>
 
+</div>
+
+
+<!-- INFORMATION -->
 
 <div class="section-head">
-<h2>Customer Reviews</h2>
+<h2>Shopping Information</h2>
 </div>
 
-<div class="review-grid">
+<div class="card" style="padding:25px">
 
-<div class="card review">
+<h3>Delivery</h3>
 
-<div class="review-top">
-<strong>Verified Customer</strong>
-<span class="verified">✓ Verified</span>
-</div>
-
-<div class="stars">★★★★★</div>
-
-<p class="muted">
-"Product presentation and ordering process
-were straightforward."
+<p class="muted" style="margin:7px 0 22px">
+Orders are processed after payment verification.
+Delivery depends on courier serviceability and
+the address/pincode supplied by the customer.
 </p>
 
-</div>
+<h3>COD</h3>
 
-<div class="card review">
-
-<div class="review-top">
-<strong>Verified Customer</strong>
-<span class="verified">✓ Verified</span>
-</div>
-
-<div class="stars">★★★★★</div>
-
-<p class="muted">
-"Easy mobile checkout and clear product
-information."
+<p class="muted" style="margin:7px 0 22px">
+COD orders require ₹239 advance payment through UPI.
+The eligible remaining amount is payable after delivery.
 </p>
 
-</div>
+<h3>Return Policy</h3>
 
-<div class="card review">
-
-<div class="review-top">
-<strong>Verified Customer</strong>
-<span class="verified">✓ Verified</span>
-</div>
-
-<div class="stars">★★★★★</div>
-
-<p class="muted">
-"Support contact was easy to find."
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- FAQ -->
-
-<div class="section-head">
-<h2>Frequently Asked Questions</h2>
-</div>
-
-<div class="card" style="padding:0 20px">
-
-<div class="faq">
-
-<button onclick="faq(this)">
-What payment methods are available?
-<span>＋</span>
-</button>
-
-<div class="faq-content">
-UPI is available through one UPI button.
-On compatible Android devices it may open
-the installed UPI app chooser. COD requires
-₹239 advance online payment.
-</div>
-
-</div>
-
-<div class="faq">
-
-<button onclick="faq(this)">
-Is payment automatically verified?
-<span>＋</span>
-</button>
-
-<div class="faq-content">
-A static HTML page cannot independently verify
-whether money was actually received. Real
-automatic success/failure requires an approved
-payment gateway and server-side webhook.
-</div>
-
-</div>
-
-<div class="faq">
-
-<button onclick="faq(this)">
-What is the COD condition?
-<span>＋</span>
-</button>
-
-<div class="faq-content">
-₹239 is payable online as advance. The remaining
-eligible amount is payable after delivery.
-</div>
-
-</div>
-
-<div class="faq">
-
-<button onclick="faq(this)">
-What is the return policy?
-<span>＋</span>
-</button>
-
-<div class="faq-content">
-No Return Policy. Please verify the product,
-quantity, address and payment information
+<p class="muted" style="margin:7px 0 22px">
+No Return Policy. Customers should carefully verify
+the product, quantity, address and payment details
 before placing an order.
-</div>
+</p>
 
-</div>
+<h3>Age Requirement</h3>
 
-</div>
+<p class="muted">
+Products are intended for adults aged 18 years and above.
+</p>
 
 </div>
 
@@ -1629,167 +1485,155 @@ before placing an order.
 </section>
 
 
-<!-- ================= SHOP ================= -->
+<!-- =========================================================
+PRODUCTS
+========================================================= -->
 
-<section id="shop" class="screen">
+<section id="products" class="screen">
 
 <div class="container">
 
 <div class="breadcrumb">
-Home / Shop
+Home / Products
 </div>
 
-<div class="shop-toolbar">
+<div class="toolbar">
 
 <div>
 <h1 class="page-title">All Products</h1>
-<p class="muted">Premium GRO collection</p>
 </div>
 
-<select id="sort" class="sort" onchange="sortProducts()">
-<option value="default">Sort by</option>
-<option value="low">Price: Low to High</option>
-<option value="high">Price: High to Low</option>
+<div class="toolbar-right">
+
+<select id="sort" onchange="sortProducts()">
+<option value="default">Sort By</option>
+<option value="low">Price Low → High</option>
+<option value="high">Price High → Low</option>
 </select>
 
 </div>
 
-<div class="filters">
-
-<button class="filter active"
-onclick="category('all',this)">
-All
-</button>
-
-<button class="filter"
-onclick="category('ultimate',this)">
-Ultimate
-</button>
-
-<button class="filter"
-onclick="category('supreme',this)">
-Supreme+
-</button>
-
-<button class="filter"
-onclick="category('doubledeck',this)">
-DoubleDeck
-</button>
-
 </div>
 
-<div style="height:18px"></div>
-
-<div id="shopProducts" class="products"></div>
+<div id="productsGrid" class="product-grid"></div>
 
 </div>
 
 </section>
 
 
-<!-- ================= DETAIL ================= -->
+<!-- =========================================================
+DETAIL
+========================================================= -->
 
 <section id="detail" class="screen">
 
 <div class="container">
 
 <div class="breadcrumb">
-Home / Shop / Product
+Home / Products / Product Details
 </div>
 
 <div class="detail-grid">
 
+
 <div class="card gallery">
 
-<div class="main-image">
-<img id="detailImage">
+<div class="main-gallery">
+<img id="mainProductImage">
 </div>
 
-<div id="thumbs" class="thumbs"></div>
+<div id="thumbnails" class="thumbnail-row"></div>
 
 </div>
 
 
 <div class="card detail-info">
 
-<span class="badge"
-style="background:#edf4ff;color:#1769e8;border-color:#d4e3ff">
-PREMIUM PRODUCT
-</span>
+<div class="hero-badge"
+style="color:#1769e8;background:#edf4ff;border-color:#d7e5ff">
+PREMIUM COLLECTION
+</div>
 
-<h1 id="detailName" class="detail-title"></h1>
+<h1 id="detailName"></h1>
 
 <div class="detail-rating">
-<span class="stars">★★★★★</span>
-<span class="muted">Premium Collection</span>
+★★★★★
+<span class="muted"> Premium Product</span>
 </div>
 
 <div id="detailPrice" class="detail-price"></div>
 
-<p id="detailShort"
-class="muted"
-style="line-height:1.8">
-</p>
+<p id="detailShort" class="muted"></p>
 
-<h3>Product Features</h3>
+<h3 style="margin-top:20px">
+Key Features
+</h3>
 
-<ul id="detailFeatures" class="feature-list"></ul>
+<ul id="features" class="highlights"></ul>
+
 
 <h3>Quantity</h3>
 
 <div class="quantity">
+
 <button onclick="qty(-1)">−</button>
+
 <span id="quantity">1</span>
+
 <button onclick="qty(1)">+</button>
+
 </div>
 
-<div class="detail-buttons">
 
-<button class="btn yellow"
-onclick="buyNow()">
+<div class="buy-actions">
+
+<button class="btn btn-yellow"
+onclick="buyProduct()">
 BUY NOW
 </button>
 
-<button class="btn primary"
-onclick="addCart()">
-🛒 ADD TO CART
+<button class="btn btn-blue"
+onclick="addToCart()">
+ADD TO CART
 </button>
 
 </div>
 
-<div class="info-box">
 
-<div class="summary-row">
+<div class="info-strip">
+
+<div class="info-row">
 <span>🚚 Delivery</span>
-<strong>Check pincode</strong>
+<strong>Serviceability based</strong>
 </div>
 
-<div class="summary-row">
+<div class="info-row">
 <span>💳 Payment</span>
 <strong>UPI / COD Advance</strong>
 </div>
 
-<div class="summary-row">
-<span>🔞 Age</span>
-<strong>18+ only</strong>
-</div>
-
-<div class="summary-row">
-<span>↩ Return</span>
+<div class="info-row">
+<span>📦 Return</span>
 <strong>No Return Policy</strong>
 </div>
 
+<div class="info-row">
+<span>🔞 Age</span>
+<strong>18+</strong>
 </div>
+
+</div>
+
 
 <div class="claim">
 
-<strong>Important product information</strong>
+<strong>Product information</strong>
 
 <p>
-Any enlargement, curvature correction or
-performance-related results mentioned in
-promotional material should be understood
-as manufacturer/product claims and are not
+Any product-performance, enlargement or
+curvature-related statements should be understood
+as manufacturer/promotional claims and are not
 guaranteed medical outcomes.
 </p>
 
@@ -1800,41 +1644,100 @@ guaranteed medical outcomes.
 </div>
 
 
-<div class="section-head">
-<h2>Product Information</h2>
+<!-- TABS -->
+
+<div class="tabs card">
+
+<div class="tab-buttons">
+
+<button class="active"
+onclick="tab(this,'description')">
+Description
+</button>
+
+<button onclick="tab(this,'reviews')">
+Reviews
+</button>
+
+<button onclick="tab(this,'delivery')">
+Delivery
+</button>
+
+<button onclick="tab(this,'returns')">
+Returns
+</button>
+
 </div>
 
-<div class="card" style="padding:25px;line-height:1.8">
+
+<div id="description" class="tab-content">
 
 <h3>Product Description</h3>
 
-<p class="muted">
-GRO products are designed as adult wellness
-devices with adjustable components and
-multiple fitting configurations.
+<p id="longDescription"
+class="muted"
+style="margin-top:10px;line-height:1.8">
 </p>
 
-<h3>Usage</h3>
+</div>
+
+
+<div id="reviews"
+class="tab-content"
+style="display:none">
+
+<div class="review">
+
+<strong>★★★★★ Verified Customer</strong>
 
 <p class="muted">
-Follow the manufacturer's supplied instructions.
-Do not exceed recommended usage or force.
-Stop use if discomfort or injury occurs.
+Product arrived properly packed. Configuration
+was as shown.
 </p>
 
-<h3>Delivery</h3>
+</div>
+
+<div class="review">
+
+<strong>★★★★☆ Customer Review</strong>
 
 <p class="muted">
-Delivery depends on courier serviceability,
-correct address and pincode information.
+Good packaging and product presentation.
 </p>
+
+</div>
+
+</div>
+
+
+<div id="delivery"
+class="tab-content"
+style="display:none">
+
+<h3>Delivery Information</h3>
+
+<p class="muted">
+Enter your complete address and pincode during
+checkout. Courier availability is dependent on
+serviceability.
+</p>
+
+</div>
+
+
+<div id="returns"
+class="tab-content"
+style="display:none">
 
 <h3>Return Policy</h3>
 
 <p class="muted">
-No Return Policy. Confirm your product and
-order details before payment.
+No Return Policy.
+Please verify product selection and address
+before placing your order.
 </p>
+
+</div>
 
 </div>
 
@@ -1843,7 +1746,9 @@ order details before payment.
 </section>
 
 
-<!-- ================= CART ================= -->
+<!-- =========================================================
+CART
+========================================================= -->
 
 <section id="cart" class="screen">
 
@@ -1853,13 +1758,17 @@ order details before payment.
 Home / Cart
 </div>
 
-<h1 class="page-title">Shopping Cart</h1>
+<h1 class="page-title">
+Shopping Cart
+</h1>
 
-<div class="cart-layout" style="margin-top:20px">
+<div class="cart-layout">
 
-<div class="card cart-list" id="cartList"></div>
+<div id="cartItems"></div>
 
-<div class="card cart-summary" id="cartSummary"></div>
+<div id="cartSummary"
+class="card cart-summary">
+</div>
 
 </div>
 
@@ -1868,101 +1777,128 @@ Home / Cart
 </section>
 
 
-<!-- ================= CHECKOUT ================= -->
+<!-- =========================================================
+CHECKOUT
+========================================================= -->
 
 <section id="checkout" class="screen">
 
 <div class="container">
 
 <div class="breadcrumb">
-Home / Cart / Checkout
+Home / Checkout
 </div>
 
-<div class="checkout">
+<div class="checkout-grid">
 
 <div class="card form-card">
 
-<h2 class="form-title">
-Delivery Address
-</h2>
+<h2>Delivery Address</h2>
 
 <div class="form-grid">
 
-<div class="form-group">
+<div class="field">
+
 <label>Full Name *</label>
-<input id="name" placeholder="Full name">
+
+<input id="name"
+placeholder="Full Name">
+
 </div>
 
-<div class="form-group">
+
+<div class="field">
+
 <label>Mobile Number *</label>
-<input
-id="mobile"
+
+<input id="mobile"
 maxlength="10"
 inputmode="numeric"
 placeholder="10 digit mobile">
+
 </div>
 
-<div class="form-group full-row">
+
+<div class="field full-row">
+
 <label>Complete Address *</label>
-<textarea
-id="address"
+
+<textarea id="address"
 rows="4"
-placeholder="House / Street / Village / Area"></textarea>
+placeholder="House / Street / Area / Village"></textarea>
+
 </div>
 
-<div class="form-group">
+
+<div class="field">
+
 <label>State *</label>
-<select id="state" onchange="districts()">
-<option value="">Select State</option>
+
+<select id="state"
+onchange="districts()">
+
+<option value="">
+Select State
+</option>
+
 </select>
+
 </div>
 
-<div class="form-group">
+
+<div class="field">
+
 <label>District *</label>
+
 <select id="district">
-<option value="">Select District</option>
+
+<option value="">
+Select District
+</option>
+
 </select>
+
 </div>
 
-<div class="form-group">
+
+<div class="field">
+
 <label>Pincode *</label>
-<input
-id="pin"
+
+<input id="pin"
 maxlength="6"
 inputmode="numeric"
 placeholder="6 digit pincode">
+
 </div>
 
-<div class="form-group">
+
+<div class="field">
+
 <label>Country</label>
+
 <select>
 <option>India</option>
 </select>
-</div>
 
 </div>
 
-<h3>Delivery Preference</h3>
-
-<div class="payment-option active">
-<label>
-<input type="radio" name="delivery" checked>
-Standard Delivery
-</label>
-<p class="payment-help">
-Delivery time depends on location and courier serviceability.
-</p>
 </div>
 
-<button
-class="btn primary full"
-onclick="goPayment()">
+
+<button class="btn btn-blue full"
+onclick="checkoutContinue()">
+
 CONTINUE TO PAYMENT →
+
 </button>
 
 </div>
 
-<div class="card summary-card" id="checkoutSummary"></div>
+
+<div id="checkoutSummary"
+class="card cart-summary">
+</div>
 
 </div>
 
@@ -1971,7 +1907,9 @@ CONTINUE TO PAYMENT →
 </section>
 
 
-<!-- ================= PAYMENT ================= -->
+<!-- =========================================================
+PAYMENT
+========================================================= -->
 
 <section id="payment" class="screen">
 
@@ -1983,55 +1921,50 @@ Home / Checkout / Payment
 
 <div class="payment-grid">
 
-<div class="card payment-box">
+<div class="card payment-card">
 
-<h2>Choose Payment Method</h2>
+<h2>Payment Method</h2>
 
-<div
-id="onlineOption"
-class="payment-option active">
+<br>
+
+
+<div class="payment-option selected">
 
 <label>
 
 <input
 type="radio"
 name="paytype"
-value="online"
 checked
-onchange="paymentType('online')">
+onchange="paymentMode('online')">
 
-Full Online Payment
+UPI — Full Online Payment
 
 </label>
 
-<p class="payment-help">
-Pay the complete order amount through one UPI button.
+<p>
+Pay complete order amount through UPI.
 </p>
 
 </div>
 
 
-<div
-id="codOption"
-class="payment-option">
+<div class="payment-option">
 
 <label>
 
 <input
 type="radio"
 name="paytype"
-value="cod"
-onchange="paymentType('cod')">
+onchange="paymentMode('cod')">
 
 Cash on Delivery
 
 </label>
 
-<p class="payment-help">
-
-₹239 advance payment online.
-Remaining eligible amount after delivery.
-
+<p>
+Pay ₹239 advance online and remaining
+eligible amount after delivery.
 </p>
 
 </div>
@@ -2041,9 +1974,9 @@ Remaining eligible amount after delivery.
 
 </div>
 
-<div
-class="card summary-card"
-id="paymentSummary">
+
+<div id="paymentSummary"
+class="card cart-summary">
 </div>
 
 </div>
@@ -2053,34 +1986,51 @@ id="paymentSummary">
 </section>
 
 
-<!-- ================= TRACKING ================= -->
+<!-- =========================================================
+STATUS
+========================================================= -->
 
-<section id="tracking" class="screen">
+<section id="status" class="screen">
 
 <div class="container">
 
-<div class="track-card card">
+<div class="status">
 
-<h1>Track Your Order</h1>
+<div class="card status-card">
 
-<p class="muted">
-Enter your GRO order ID.
+<div id="statusIcon"
+class="status-icon">
+⏳
+</div>
+
+<h1 id="statusTitle">
+Payment Verification Pending
+</h1>
+
+<p id="statusText"
+class="muted">
+Waiting for payment verification.
 </p>
 
-<div class="track-input">
+<div id="statusBox"
+style="margin-top:20px"
+class="upi-box">
+</div>
 
-<input id="trackId"
-placeholder="Example: GRO-1234567890">
+<button class="btn btn-blue full"
+style="margin-top:20px"
+onclick="go('payment')">
+BACK TO PAYMENT
+</button>
 
-<button class="btn primary"
-onclick="trackOrder()">
-TRACK
+<button class="btn btn-dark full"
+style="margin-top:10px"
+onclick="go('home')">
+HOME
 </button>
 
 </div>
 
-<div id="trackingResult"></div>
-
 </div>
 
 </div>
@@ -2088,49 +2038,42 @@ TRACK
 </section>
 
 
-<!-- ================= SUCCESS ================= -->
+<!-- =========================================================
+ORDER
+========================================================= -->
 
-<section id="success" class="screen">
+<section id="order" class="screen">
 
 <div class="container">
 
-<div class="track-card card"
-style="text-align:center;padding:50px 25px">
+<div class="status">
 
-<div style="
-width:80px;height:80px;
-border-radius:50%;
-background:#dcfce7;
-color:#15803d;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:40px;
-margin:auto">
+<div class="card status-card">
+
+<div class="status-icon"
+style="background:#dcfce7">
 ✓
 </div>
 
-<h1>Order Confirmed</h1>
+<h1>Order Received</h1>
 
 <p class="muted">
-Your payment/order information has been recorded.
+Your order information has been recorded.
 </p>
 
-<div id="successDetails"
+<div id="orderInfo"
 style="text-align:left;margin-top:25px">
 </div>
 
-<button
-class="btn green full"
+<button class="btn btn-green full"
 style="margin-top:20px"
 onclick="whatsappOrder()">
-💬 SEND ORDER ON WHATSAPP
+💬 SEND ORDER VIA WHATSAPP
 </button>
 
-<button
-class="btn dark full"
+<button class="btn btn-dark full"
 style="margin-top:10px"
-onclick="show('home')">
+onclick="go('home')">
 CONTINUE SHOPPING
 </button>
 
@@ -2138,46 +2081,274 @@ CONTINUE SHOPPING
 
 </div>
 
+</div>
+
 </section>
 
 
-<!-- ================= MODAL ================= -->
+<!-- =========================================================
+FAQ
+========================================================= -->
 
-<div id="modal" class="modal">
+<section id="faq" class="screen">
 
-<div class="modal-box">
+<div class="container">
 
-<div class="modal-head">
+<div class="breadcrumb">
+Home / FAQ
+</div>
 
-<h2 id="modalTitle">Information</h2>
+<h1 class="page-title">
+Frequently Asked Questions
+</h1>
 
-<button class="close"
-onclick="closeModal()">
-×
+<div class="faq">
+
+<div class="faq-item">
+<button class="faq-question" onclick="faq(this)">
+How do I place an order?
+<span>+</span>
 </button>
+<div class="faq-answer">
+Select a product, open the product details,
+choose quantity, click BUY NOW, enter your
+address and continue to payment.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question" onclick="faq(this)">
+How does UPI payment work?
+<span>+</span>
+</button>
+<div class="faq-answer">
+The UPI button opens the UPI payment URI.
+On compatible Android devices the system can
+offer installed UPI applications. Actual payment
+verification requires a payment gateway/webhook.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question" onclick="faq(this)">
+What is COD advance?
+<span>+</span>
+</button>
+<div class="faq-answer">
+COD requires ₹239 advance payment through UPI.
+The eligible remaining amount is payable after
+delivery.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question" onclick="faq(this)">
+Is payment success automatic?
+<span>+</span>
+</button>
+<div class="faq-answer">
+A static HTML website cannot independently verify
+a bank transaction. Real success/failure status
+should be connected to an approved payment gateway
+and server-side webhook.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question" onclick="faq(this)">
+What is the return policy?
+<span>+</span>
+</button>
+<div class="faq-answer">
+No Return Policy. Verify the product, quantity,
+address and payment details before ordering.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question" onclick="faq(this)">
+Who can purchase?
+<span>+</span>
+</button>
+<div class="faq-answer">
+The store is intended for adults aged 18 years
+and above.
+</div>
+</div>
 
 </div>
 
-<div id="modalBody"></div>
+</div>
+
+</section>
+
+
+<!-- =========================================================
+POLICIES
+========================================================= -->
+
+<section id="policies" class="screen">
+
+<div class="container">
+
+<h1 class="page-title">
+Store Policies
+</h1>
+
+<div class="card"
+style="padding:25px;line-height:1.8">
+
+<h3>Delivery Policy</h3>
+
+<p class="muted">
+Orders are processed after the required payment
+step has been verified. Delivery time depends on
+courier serviceability and destination.
+</p>
+
+<br>
+
+<h3>Payment Policy</h3>
+
+<p class="muted">
+UPI payment is initiated using a UPI payment URI.
+The website should not claim successful payment
+until the payment gateway/server confirms it.
+</p>
+
+<br>
+
+<h3>COD Policy</h3>
+
+<p class="muted">
+COD requires ₹239 advance payment through UPI.
+Remaining eligible amount is payable after delivery.
+</p>
+
+<br>
+
+<h3>Return Policy</h3>
+
+<p class="muted">
+No Return Policy.
+</p>
+
+<br>
+
+<h3>Privacy</h3>
+
+<p class="muted">
+Customer information should only be collected
+for order processing, delivery and customer support.
+</p>
+
+<br>
+
+<h3>Age Restriction</h3>
+
+<p class="muted">
+18+ only.
+</p>
 
 </div>
 
 </div>
 
+</section>
 
-<!-- FLOATING CONTACT -->
+
+<!-- =========================================================
+CONTACT
+========================================================= -->
+
+<section id="contact" class="screen">
+
+<div class="container">
+
+<h1 class="page-title">
+Contact & Support
+</h1>
+
+<div class="trust-grid">
+
+<div class="trust"
+onclick="openWhatsApp()"
+style="cursor:pointer">
+
+<div class="trust-icon">💬</div>
+
+<div>
+<strong>WhatsApp</strong>
+<small>Chat with support</small>
+</div>
+
+</div>
+
+
+<div class="trust"
+onclick="callNow()"
+style="cursor:pointer">
+
+<div class="trust-icon">☎️</div>
+
+<div>
+<strong>Phone</strong>
+<small>Direct call</small>
+</div>
+
+</div>
+
+
+<div class="trust">
+
+<div class="trust-icon">📦</div>
+
+<div>
+<strong>Order Support</strong>
+<small>Order related help</small>
+</div>
+
+</div>
+
+
+<div class="trust">
+
+<div class="trust-icon">🔐</div>
+
+<div>
+<strong>Payment Support</strong>
+<small>Payment information</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+FLOATING BUTTONS
+========================================================= -->
 
 <div class="floating">
 
 <a
-class="float whatsapp"
+class="float float-wa"
 href="https://wa.me/917407792138"
 target="_blank">
 💬
 </a>
 
 <a
-class="float call"
+class="float float-call"
 href="tel:+917407792138">
 ☎
 </a>
@@ -2185,24 +2356,26 @@ href="tel:+917407792138">
 </div>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+FOOTER
+========================================================= -->
 
-<footer>
+<footer class="footer">
 
-<div class="footer">
+<div class="footer-grid">
 
 <div>
 
 <h3>GRO Extender</h3>
 
 <p>
-Premium adult wellness shopping experience
-with product information, flexible checkout
-and direct customer support.
+Premium adult wellness store with
+mobile-friendly shopping and direct
+customer support.
 </p>
 
 <p>
-🔞 Intended for adults 18 years and above.
+18+ only.
 </p>
 
 </div>
@@ -2212,62 +2385,44 @@ and direct customer support.
 
 <h3>Shop</h3>
 
-<a onclick="show('shop')">All Products</a>
-<a onclick="category('ultimate')">Ultimate</a>
-<a onclick="category('supreme')">Supreme+</a>
-<a onclick="category('doubledeck')">DoubleDeck</a>
+<p onclick="go('products')">All Products</p>
+<p onclick="filter('ultimate')">Ultimate</p>
+<p onclick="filter('supreme')">Supreme+</p>
+<p onclick="filter('double')">DoubleDeck</p>
 
 </div>
 
 
 <div>
 
-<h3>Customer Service</h3>
+<h3>Customer Care</h3>
 
-<a onclick="show('tracking')">Track Order</a>
-<a onclick="openPolicy('shipping')">Shipping</a>
-<a onclick="openPolicy('return')">Return Policy</a>
-<a onclick="openPolicy('payment')">Payment</a>
-
-</div>
-
-
-<div>
-
-<h3>Policies</h3>
-
-<a onclick="openPolicy('privacy')">Privacy Policy</a>
-<a onclick="openPolicy('terms')">Terms</a>
-<a onclick="openPolicy('refund')">Refund</a>
-<a onclick="openPolicy('contact')">Contact</a>
+<p onclick="go('faq')">FAQ</p>
+<p onclick="go('policies')">Policies</p>
+<p onclick="go('contact')">Contact</p>
+<p>Delivery Information</p>
 
 </div>
 
 
 <div>
 
-<h3>Contact</h3>
+<h3>Payment</h3>
 
-<a href="tel:+917407792138">
-☎ Call Support
-</a>
-
-<a
-href="https://wa.me/917407792138"
-target="_blank">
-💬 WhatsApp
-</a>
-
-<p>
-India
-</p>
+<p>UPI Checkout</p>
+<p>COD ₹239 Advance</p>
+<p>Payment Verification</p>
+<p>Secure Checkout</p>
 
 </div>
 
 </div>
 
 <div class="footer-bottom">
-© 2026 GRO Extender — All Rights Reserved.
+
+© 2026 GRO Extender — Official Store Interface.
+All Rights Reserved.
+
 </div>
 
 </footer>
@@ -2275,132 +2430,156 @@ India
 
 <script>
 
-/* =====================================================
+/* =========================================================
 CONFIG
-===================================================== */
+========================================================= */
 
 const CONFIG={
- upi:"mr.manna@ptyes",
- merchant:"GRO Extender",
- whatsapp:"917407792138",
- phone:"+917407792138",
- codAdvance:239
+
+upi:"mr.manna@ptyes",
+
+merchant:"GRO Extender",
+
+whatsapp:"917407792138",
+
+phone:"+917407792138",
+
+codAdvance:239
+
 };
 
 
-/* =====================================================
+/* =========================================================
 PRODUCTS
-===================================================== */
+========================================================= */
 
 const PRODUCTS={
 
 ultimate:{
  id:"ultimate",
  name:"GRO Extender® Ultimate",
- category:"ultimate",
  price:3249,
  old:4499,
  images:[
- "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
- "ProExtender-Ultimate-Straps-260x134.jpg",
- "ProExtender-Ultimate002 (1).png"
+  "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
+  "ProExtender-Ultimate-Straps-260x134.jpg",
+  "ProExtender-Ultimate002 (1).png"
  ],
- description:
+ short:
  "Premium adjustable configuration with multiple fitting components.",
  features:[
- "Adjustable fitting configuration",
- "Multiple adjustment positions",
- "Reinforced straps",
- "Compact component design",
- "Adult product — 18+"
- ]
+  "Adjustable fitting configuration",
+  "Multiple adjustment positions",
+  "Reinforced components",
+  "Compact design",
+  "Adult product — 18+"
+ ],
+ description:
+ "GRO Extender Ultimate is presented as a premium adjustable adult wellness product. Product configuration, components and usage instructions should be followed according to the manufacturer's instructions."
 },
 
 supreme:{
  id:"supreme",
  name:"GRO Extender® Supreme+",
- category:"supreme",
  price:4780,
  old:5999,
  images:[
- "Gemini_Generated_Image_unscx2unscx2unsc.png",
- "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
- "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
+  "Gemini_Generated_Image_unscx2unscx2unsc.png",
+  "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
+  "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
  ],
- description:
+ short:
  "Premium lightweight adjustable configuration.",
  features:[
- "Lightweight configuration",
- "Adjustable fitting",
- "Reinforced components",
- "Compact design",
- "Adult product — 18+"
- ]
+  "Lightweight configuration",
+  "Adjustable fitting",
+  "Reinforced components",
+  "Compact design",
+  "Adult product — 18+"
+ ],
+ description:
+ "GRO Extender Supreme+ is designed as an adjustable adult wellness product. Follow all manufacturer instructions and safety guidance."
 },
 
-doubledeck:{
- id:"doubledeck",
+double:{
+ id:"double",
  name:"GRO Extender® DoubleDeck",
- category:"doubledeck",
  price:5950,
  old:6999,
  images:[
- "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
- "pro-extender-penis-enlargement-system-500x500.jpg",
- "pro-extender-silicone-tube.webp"
+  "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
+  "pro-extender-penis-enlargement-system-500x500.jpg",
+  "pro-extender-silicone-tube.webp"
  ],
- description:
+ short:
  "Multi-component premium adjustable configuration.",
  features:[
- "Multi-component configuration",
- "Adjustable fitting positions",
- "Reinforced straps",
- "Compact structure",
- "Adult product — 18+"
- ]
-
+  "Multi-component configuration",
+  "Adjustable fitting positions",
+  "Reinforced straps",
+  "Compact structure",
+  "Adult product — 18+"
+ ],
+ description:
+ "GRO Extender DoubleDeck is presented as a multi-component adult wellness product with adjustable configuration."
 }
 
 };
 
 
-/* =====================================================
+/* =========================================================
 STATE
-===================================================== */
+========================================================= */
 
 let current=null;
+
 let quantity=1;
-let payMode="online";
 
 let cart=[];
 
+let mode="online";
+
 let order={
- id:"",
- total:0,
- payable:0,
- product:"",
- quantity:0,
- name:"",
- mobile:"",
- address:"",
- state:"",
- district:"",
- pin:"",
- payment:"",
- utr:"",
- status:"Pending"
+
+id:"",
+
+product:"",
+
+quantity:1,
+
+total:0,
+
+payable:0,
+
+name:"",
+
+mobile:"",
+
+address:"",
+
+state:"",
+
+district:"",
+
+pin:"",
+
+payment:"",
+
+status:"PENDING",
+
+utr:""
+
 };
 
 
-/* =====================================================
+/* =========================================================
 NAVIGATION
-===================================================== */
+========================================================= */
 
-function show(id){
+function go(id){
 
-document
-.querySelectorAll(".screen")
-.forEach(x=>x.classList.remove("active"));
+document.querySelectorAll(".screen")
+.forEach(s=>s.classList.remove("active"));
 
 document.getElementById(id)
 .classList.add("active");
@@ -2410,18 +2589,20 @@ window.scrollTo({
  behavior:"smooth"
 });
 
+if(id==="cart")
+renderCart();
+
 }
 
 
-/* =====================================================
+/* =========================================================
 PRODUCT CARD
-===================================================== */
+========================================================= */
 
 function card(p){
 
-let discount=Math.round(
-(1-p.price/p.old)*100
-);
+let discount=
+Math.round((1-p.price/p.old)*100);
 
 return `
 
@@ -2429,15 +2610,9 @@ return `
 
 <div class="product-img">
 
-<span class="sale">
+<div class="sale">
 -${discount}%
-</span>
-
-<button
-class="wishlist"
-onclick="event.stopPropagation();wishlist('${p.id}')">
-♡
-</button>
+</div>
 
 <img
 src="${p.images[0]}"
@@ -2445,7 +2620,7 @@ alt="${p.name}">
 
 </div>
 
-<div class="product-body">
+<div class="product-info">
 
 <div class="stars">
 ★★★★★
@@ -2465,21 +2640,21 @@ ${p.name}
 
 </div>
 
-<div class="product-meta">
-🚚 Serviceable delivery
+<div class="delivery">
+🚚 Serviceability based delivery
 </div>
 
 <div class="product-actions">
 
 <button
-class="btn outline"
+class="btn btn-outline"
 onclick="openProduct('${p.id}')">
 VIEW
 </button>
 
 <button
-class="btn yellow"
-onclick="quickBuy('${p.id}')">
+class="btn btn-yellow"
+onclick="buyDirect('${p.id}')">
 BUY NOW
 </button>
 
@@ -2494,29 +2669,32 @@ BUY NOW
 }
 
 
-/* =====================================================
+/* =========================================================
 RENDER
-===================================================== */
+========================================================= */
 
-function render(list=Object.values(PRODUCTS)){
+function renderProducts(list){
 
-document.getElementById("homeProducts").innerHTML=
+document.getElementById("featured").innerHTML=
 list.map(card).join("");
 
-document.getElementById("shopProducts").innerHTML=
+document.getElementById("productsGrid").innerHTML=
 list.map(card).join("");
 
 }
 
 
-/* =====================================================
+/* =========================================================
 OPEN PRODUCT
-===================================================== */
+========================================================= */
 
 function openProduct(id){
 
 current=PRODUCTS[id];
+
 quantity=1;
+
+document.getElementById("quantity").textContent=1;
 
 document.getElementById("detailName").textContent=
 current.name;
@@ -2531,25 +2709,27 @@ document.getElementById("detailPrice").innerHTML=`
 
 `;
 
-document.getElementById("detailShort").textContent=
-current.description;
+document.getElementById("detailShort")
+.textContent=current.short;
 
-document.getElementById("detailFeatures").innerHTML=
-current.features
+document.getElementById("longDescription")
+.textContent=current.description;
+
+document.getElementById("features")
+.innerHTML=current.features
 .map(x=>`<li>${x}</li>`)
 .join("");
 
-document.getElementById("quantity").textContent=1;
+document.getElementById("mainProductImage")
+.src=current.images[0];
 
-document.getElementById("detailImage").src=
-current.images[0];
-
-document.getElementById("thumbs").innerHTML=
-current.images.map((img,i)=>`
+document.getElementById("thumbnails")
+.innerHTML=current.images
+.map((img,i)=>`
 
 <button
-class="thumb ${i===0?"active":""}"
-onclick="changeImage('${img}',this)">
+class="thumbnail ${i===0?"active":""}"
+onclick="imageChange('${img}',this)">
 
 <img src="${img}">
 
@@ -2557,21 +2737,21 @@ onclick="changeImage('${img}',this)">
 
 `).join("");
 
-show("detail");
+go("detail");
 
 }
 
 
-/* =====================================================
+/* =========================================================
 IMAGE
-===================================================== */
+========================================================= */
 
-function changeImage(src,el){
+function imageChange(src,el){
 
-document.getElementById("detailImage").src=src;
+document.getElementById("mainProductImage")
+.src=src;
 
-document
-.querySelectorAll(".thumb")
+document.querySelectorAll(".thumbnail")
 .forEach(x=>x.classList.remove("active"));
 
 el.classList.add("active");
@@ -2579,74 +2759,49 @@ el.classList.add("active");
 }
 
 
-/* =====================================================
+/* =========================================================
 QUANTITY
-===================================================== */
+========================================================= */
 
 function qty(n){
 
 quantity+=n;
 
-if(quantity<1)quantity=1;
-if(quantity>20)quantity=20;
+if(quantity<1)
+quantity=1;
 
-document.getElementById("quantity").textContent=
-quantity;
+if(quantity>20)
+quantity=20;
 
-}
-
-
-/* =====================================================
-BUY
-===================================================== */
-
-function quickBuy(id){
-
-openProduct(id);
-
-setTimeout(()=>{
- buyNow();
-},100);
+document.getElementById("quantity")
+.textContent=quantity;
 
 }
 
 
-function buyNow(){
+/* =========================================================
+ADD CART
+========================================================= */
+
+function addToCart(){
 
 if(!current)return;
 
-cart=[
- {
-  product:current,
-  qty:quantity
- }
-];
+let existing=
+cart.find(x=>x.id===current.id);
 
-prepareCheckout();
+if(existing){
 
-show("checkout");
+existing.qty+=quantity;
 
-}
+}else{
 
-
-/* =====================================================
-CART
-===================================================== */
-
-function addCart(){
-
-if(!current)return;
-
-let item=
-cart.find(x=>x.product.id===current.id);
-
-if(item)
-item.qty+=quantity;
-else
 cart.push({
- product:current,
+ id:current.id,
  qty:quantity
 });
+
+}
 
 updateCartCount();
 
@@ -2655,210 +2810,244 @@ alert("Product added to cart.");
 }
 
 
+/* =========================================================
+CART COUNT
+========================================================= */
+
 function updateCartCount(){
 
-let total=
-cart.reduce((sum,x)=>sum+x.qty,0);
-
 document.getElementById("cartCount")
-.textContent=total;
+.textContent=
+cart.reduce((a,b)=>a+b.qty,0);
 
 }
 
 
-function showCart(){
+/* =========================================================
+BUY
+========================================================= */
 
-renderCart();
+function buyProduct(){
 
-show("cart");
+if(!current)return;
+
+order.id=
+"GRO-"+Date.now().toString().slice(-9);
+
+order.product=current.name;
+
+order.quantity=quantity;
+
+order.total=current.price*quantity;
+
+checkoutSummary();
+
+go("checkout");
 
 }
 
+
+function buyDirect(id){
+
+openProduct(id);
+
+setTimeout(()=>{
+ buyProduct();
+},100);
+
+}
+
+
+/* =========================================================
+CART
+========================================================= */
 
 function renderCart(){
 
-let list=
-document.getElementById("cartList");
+let box=document.getElementById("cartItems");
 
 if(cart.length===0){
 
-list.innerHTML=`
+box.innerHTML=`
 
-<div style="text-align:center;padding:50px 15px">
+<div class="card"
+style="padding:50px;text-align:center">
 
 <h2>Your cart is empty</h2>
 
-<p class="muted">
-Add a product to continue.
+<p class="muted"
+style="margin:10px 0 20px">
+Add a product to continue shopping.
 </p>
 
-<button
-class="btn primary"
-onclick="show('shop')">
-SHOP NOW
+<button class="btn btn-blue"
+onclick="go('products')">
+SHOP PRODUCTS
 </button>
 
 </div>
 
 `;
 
-document.getElementById("cartSummary").innerHTML="";
+document.getElementById("cartSummary")
+.innerHTML="";
 
 return;
 
 }
 
-list.innerHTML=cart.map((x,i)=>`
 
-<div class="cart-item">
+let total=0;
 
-<img src="${x.product.images[0]}">
+box.innerHTML=cart.map(item=>{
+
+let p=PRODUCTS[item.id];
+
+let amount=p.price*item.qty;
+
+total+=amount;
+
+return `
+
+<div class="card cart-item"
+style="margin-bottom:12px">
+
+<img src="${p.images[0]}">
 
 <div>
 
-<h3>${x.product.name}</h3>
+<strong>${p.name}</strong>
 
 <p class="muted">
-₹${x.product.price.toLocaleString("en-IN")}
+Quantity: ${item.qty}
 </p>
 
-<div class="quantity">
-
-<button onclick="cartQty(${i},-1)">−</button>
-
-<span>${x.qty}</span>
-
-<button onclick="cartQty(${i},1)">+</button>
-
+<div class="cart-price">
+₹${amount.toLocaleString("en-IN")}
 </div>
 
 </div>
 
-<div>
-
-<strong>
-₹${(x.product.price*x.qty).toLocaleString("en-IN")}
-</strong>
-
-<br><br>
+<div class="cart-actions">
 
 <button
-class="btn danger"
-onclick="removeCart(${i})">
-Remove
+class="btn btn-outline"
+onclick="removeCart('${p.id}')">
+REMOVE
 </button>
 
 </div>
 
 </div>
 
-`).join("");
+`;
 
-let total=
-cart.reduce(
-(sum,x)=>sum+x.product.price*x.qty,
-0
-);
+}).join("");
 
-document.getElementById("cartSummary").innerHTML=`
 
-<h2>Order Summary</h2>
+document.getElementById("cartSummary")
+.innerHTML=`
+
+<h3>Cart Summary</h3>
 
 <div class="summary-row">
-<span>Subtotal</span>
-<strong>₹${total.toLocaleString("en-IN")}</strong>
+<span>Items</span>
+<strong>${cart.length}</strong>
 </div>
 
-<div class="summary-row">
-<span>Delivery</span>
-<strong>Calculated</strong>
-</div>
-
-<div class="summary-row total">
+<div class="summary-row summary-total">
 <span>Total</span>
-<strong>₹${total.toLocaleString("en-IN")}</strong>
+<strong>
+₹${total.toLocaleString("en-IN")}
+</strong>
 </div>
 
 <button
-class="btn yellow full"
+class="btn btn-yellow full"
 style="margin-top:15px"
-onclick="prepareCheckout();show('checkout')">
-CHECKOUT
+onclick="cartCheckout()">
+
+PROCEED TO CHECKOUT
+
 </button>
 
 `;
 
-
 }
 
 
-function cartQty(i,n){
+function removeCart(id){
 
-cart[i].qty+=n;
-
-if(cart[i].qty<1)
-cart.splice(i,1);
+cart=
+cart.filter(x=>x.id!==id);
 
 updateCartCount();
+
 renderCart();
 
 }
 
 
-function removeCart(i){
+function cartCheckout(){
 
-cart.splice(i,1);
+if(cart.length===0)
+return;
 
-updateCartCount();
-renderCart();
+let item=cart[0];
+
+current=PRODUCTS[item.id];
+
+quantity=item.qty;
+
+order.id=
+"GRO-"+Date.now().toString().slice(-9);
+
+order.product=current.name;
+
+order.quantity=quantity;
+
+order.total=current.price*quantity;
+
+checkoutSummary();
+
+go("checkout");
 
 }
 
 
-/* =====================================================
-CHECKOUT
-===================================================== */
+/* =========================================================
+CHECKOUT SUMMARY
+========================================================= */
 
-function prepareCheckout(){
-
-let total=
-cart.reduce(
-(sum,x)=>sum+x.product.price*x.qty,
-0
-);
-
-order.total=total;
+function checkoutSummary(){
 
 document.getElementById("checkoutSummary")
 .innerHTML=`
 
-<h2>Order Summary</h2>
-
-${cart.map(x=>`
+<h3>Order Summary</h3>
 
 <div class="summary-row">
-
-<span>
-${x.product.name} × ${x.qty}
-</span>
-
-<strong>
-₹${(x.product.price*x.qty)
-.toLocaleString("en-IN")}
-</strong>
-
+<span>Product</span>
+<strong>${order.product}</strong>
 </div>
 
-`).join("")}
+<div class="summary-row">
+<span>Quantity</span>
+<strong>${order.quantity}</strong>
+</div>
 
-<div class="summary-row total">
-
-<span>Total</span>
-
+<div class="summary-row">
+<span>Order Total</span>
 <strong>
-₹${total.toLocaleString("en-IN")}
+₹${order.total.toLocaleString("en-IN")}
 </strong>
+</div>
 
+<div class="summary-row summary-total">
+<span>Total</span>
+<strong>
+₹${order.total.toLocaleString("en-IN")}
+</strong>
 </div>
 
 `;
@@ -2866,57 +3055,114 @@ ${x.product.name} × ${x.qty}
 }
 
 
-/* =====================================================
+/* =========================================================
 STATES
-===================================================== */
+========================================================= */
 
 const STATES={
+
 "West Bengal":[
-"Kolkata","Howrah","Hooghly",
-"Purba Medinipur","Paschim Medinipur",
-"Purba Bardhaman","Paschim Bardhaman",
-"Nadia","Murshidabad","North 24 Parganas",
-"South 24 Parganas","Bankura","Purulia",
-"Birbhum","Malda","Jalpaiguri","Darjeeling"
+"Kolkata",
+"Howrah",
+"Hooghly",
+"Purba Medinipur",
+"Paschim Medinipur",
+"Purba Bardhaman",
+"Paschim Bardhaman",
+"Nadia",
+"Murshidabad",
+"North 24 Parganas",
+"South 24 Parganas",
+"Bankura",
+"Purulia",
+"Birbhum",
+"Malda",
+"Jalpaiguri",
+"Darjeeling"
 ],
+
 "Maharashtra":[
-"Mumbai City","Mumbai Suburban",
-"Pune","Thane","Nashik"
+"Mumbai",
+"Pune",
+"Thane",
+"Nashik",
+"Nagpur"
 ],
+
 "Uttar Pradesh":[
-"Lucknow","Agra","Kanpur Nagar",
-"Varanasi","Prayagraj","Ghaziabad"
+"Lucknow",
+"Agra",
+"Kanpur",
+"Varanasi",
+"Prayagraj"
 ],
+
 "Bihar":[
-"Patna","Gaya","Muzaffarpur","Bhagalpur"
+"Patna",
+"Gaya",
+"Muzaffarpur",
+"Bhagalpur"
 ],
+
 "Odisha":[
-"Khordha","Cuttack","Puri","Balasore","Ganjam"
+"Khordha",
+"Cuttack",
+"Puri",
+"Balasore",
+"Ganjam"
 ],
+
 "Jharkhand":[
-"Ranchi","Dhanbad","Bokaro","Jamshedpur"
+"Ranchi",
+"Dhanbad",
+"Bokaro",
+"Jamshedpur"
 ],
+
 "Delhi":[
-"New Delhi","North Delhi","South Delhi",
-"East Delhi","West Delhi"
+"New Delhi",
+"North Delhi",
+"South Delhi",
+"East Delhi",
+"West Delhi"
 ],
+
 "Gujarat":[
-"Ahmedabad","Surat","Vadodara","Rajkot"
+"Ahmedabad",
+"Surat",
+"Vadodara",
+"Rajkot"
 ],
+
 "Karnataka":[
-"Bengaluru Urban","Mysuru","Mangaluru"
+"Bengaluru",
+"Mysuru",
+"Mangaluru"
 ],
+
 "Tamil Nadu":[
-"Chennai","Coimbatore","Madurai"
+"Chennai",
+"Coimbatore",
+"Madurai"
 ],
+
 "Telangana":[
-"Hyderabad","Warangal"
+"Hyderabad",
+"Warangal"
 ],
+
 "Kerala":[
-"Thiruvananthapuram","Ernakulam","Kozhikode"
+"Thiruvananthapuram",
+"Ernakulam",
+"Kozhikode"
 ]
+
 };
 
+
+/* =========================================================
+LOAD STATES
+========================================================= */
 
 function loadStates(){
 
@@ -2927,6 +3173,7 @@ Object.keys(STATES).forEach(x=>{
 let o=document.createElement("option");
 
 o.value=x;
+
 o.textContent=x;
 
 s.appendChild(o);
@@ -2952,6 +3199,7 @@ d.innerHTML=
 let o=document.createElement("option");
 
 o.value=x;
+
 o.textContent=x;
 
 d.appendChild(o);
@@ -2961,11 +3209,11 @@ d.appendChild(o);
 }
 
 
-/* =====================================================
-PAYMENT
-===================================================== */
+/* =========================================================
+CHECKOUT CONTINUE
+========================================================= */
 
-function goPayment(){
+function checkoutContinue(){
 
 let name=
 document.getElementById("name").value.trim();
@@ -2985,6 +3233,7 @@ document.getElementById("district").value;
 let pin=
 document.getElementById("pin").value.trim();
 
+
 if(!name)
 return alert("Full Name দিন।");
 
@@ -2995,10 +3244,11 @@ if(!address)
 return alert("Complete Address দিন।");
 
 if(!state||!district)
-return alert("State ও District select করুন।");
+return alert("State এবং District select করুন।");
 
 if(!/^[0-9]{6}$/.test(pin))
 return alert("সঠিক 6 digit pincode দিন।");
+
 
 order.name=name;
 order.mobile=mobile;
@@ -3007,112 +3257,81 @@ order.state=state;
 order.district=district;
 order.pin=pin;
 
-order.id=
-"GRO-"+Date.now().toString().slice(-10);
-
-payMode="online";
+mode="online";
 
 renderPayment();
 
-show("payment");
+go("payment");
 
 }
 
 
-/* =====================================================
+/* =========================================================
 PAYMENT MODE
-===================================================== */
+========================================================= */
 
-function paymentType(type){
+function paymentMode(x){
 
-payMode=type;
-
-document
-.getElementById("onlineOption")
-.classList.toggle(
-"active",
-type==="online"
-);
-
-document
-.getElementById("codOption")
-.classList.toggle(
-"active",
-type==="cod"
-);
+mode=x;
 
 renderPayment();
 
 }
 
 
-/* =====================================================
-PAYMENT UI
-===================================================== */
+/* =========================================================
+PAYMENT RENDER
+========================================================= */
 
 function renderPayment(){
 
-let amount=
-payMode==="cod"
+let payable=
+mode==="cod"
 ?CONFIG.codAdvance
 :order.total;
 
-let remaining=
-Math.max(
-0,
-order.total-CONFIG.codAdvance
-);
+order.payable=payable;
 
-order.payable=amount;
 
 document.getElementById("paymentSummary")
 .innerHTML=`
 
-<h2>Order Summary</h2>
-
-${cart.map(x=>`
+<h3>Payment Summary</h3>
 
 <div class="summary-row">
-
-<span>
-${x.product.name} × ${x.qty}
-</span>
-
-<strong>
-₹${(x.product.price*x.qty)
-.toLocaleString("en-IN")}
-</strong>
-
+<span>Product</span>
+<strong>${order.product}</strong>
 </div>
 
-`).join("")}
+<div class="summary-row">
+<span>Quantity</span>
+<strong>${order.quantity}</strong>
+</div>
 
 <div class="summary-row">
 <span>Order Total</span>
-<strong>
-₹${order.total.toLocaleString("en-IN")}
-</strong>
+<strong>₹${order.total.toLocaleString("en-IN")}</strong>
 </div>
 
-<div class="summary-row total">
+<div class="summary-row summary-total">
 <span>Pay Now</span>
-<strong>
-₹${amount.toLocaleString("en-IN")}
-</strong>
+<strong>₹${payable.toLocaleString("en-IN")}</strong>
 </div>
 
-${payMode==="cod"?`
+${mode==="cod"?`
 
 <div class="summary-row">
 <span>After Delivery</span>
 <strong>
-₹${remaining.toLocaleString("en-IN")}
+₹${Math.max(0,order.total-CONFIG.codAdvance)
+.toLocaleString("en-IN")}
 </strong>
 </div>
 
 `:""}
 
 `;
+
 
 document.getElementById("paymentArea")
 .innerHTML=`
@@ -3121,39 +3340,43 @@ document.getElementById("paymentArea")
 
 <strong>UPI PAYMENT</strong>
 
+<br>
+
+একটাই UPI button রাখা হয়েছে।
+
+Android/UPI-compatible device-এ button
+চাপলে available UPI apps থেকে
+PhonePe / Google Pay / Paytm / MobiKwik /
+Amazon Pay ইত্যাদি বেছে নেওয়ার সুযোগ
+থাকতে পারে।
+
 <br><br>
 
-একটি UPI button-ই রাখা হয়েছে।
-
-Android/UPI-enabled device-এ চাপলে
-available compatible UPI app নির্বাচন
-করার সুযোগ পাওয়া যেতে পারে।
-
-<br><br>
-
-PhonePe • Google Pay • Paytm • MobiKwik
-• Amazon Pay • Other UPI Apps
+UPI ID:
+<strong>${CONFIG.upi}</strong>
 
 </div>
 
 
 <button
-class="btn primary full"
+class="btn btn-blue full"
 style="margin-top:15px"
-onclick="openUPI(${amount})">
+onclick="startUPI(${payable})">
 
-PAY ₹${amount.toLocaleString("en-IN")} WITH UPI
+PAY ₹${payable.toLocaleString("en-IN")} WITH UPI
 
 </button>
 
 
 <div class="qr">
 
-<h3>Scan & Pay</h3>
+<h3>UPI QR</h3>
 
-<img src="qr-code.png">
+<img
+src="qr-code.png"
+alt="UPI QR Code">
 
-<p>
+<p style="margin-top:10px">
 UPI ID:
 <strong>${CONFIG.upi}</strong>
 </p>
@@ -3161,53 +3384,61 @@ UPI ID:
 </div>
 
 
-<div class="payment-note">
+<div class="card"
+style="padding:18px;margin-top:15px">
 
-<strong>COD:</strong>
+<h3>🏦 Net Banking</h3>
 
-₹239 advance payment is required online.
-The remaining eligible amount is payable
-after delivery.
+<p class="muted"
+style="font-size:12px;margin-top:7px">
+
+All-bank Net Banking-এর real checkout
+চালাতে approved payment gateway
+connect করতে হবে।
+
+</p>
+
+<button
+class="btn btn-dark"
+style="margin-top:12px"
+onclick="netBanking()">
+
+CONTINUE TO NET BANKING
+
+</button>
 
 </div>
 
 
-<div style="margin-top:18px">
+<div class="field"
+style="margin-top:18px">
 
-<label style="font-weight:800;font-size:13px">
-Payment UTR / Transaction ID
+<label>
+UTR / Transaction ID
 </label>
 
 <input
 id="utr"
-style="
-width:100%;
-padding:12px;
-margin-top:6px;
-border:1px solid #d5dce6;
-border-radius:8px
-"
-placeholder="Enter UTR after payment">
+placeholder="Payment করার পর UTR দিন">
 
 </div>
 
 
 <button
-class="btn outline full"
-style="margin-top:10px"
-onclick="submitPayment()">
+class="btn btn-outline full"
+onclick="submitUTR()">
 
 SUBMIT PAYMENT DETAILS
 
 </button>
 
 
-<div class="payment-note">
+<div class="upi-box"
+style="margin-top:15px;background:#fff8df;border-color:#efd46a;color:#624f00">
 
-Static HTML নিজে bank account-এ টাকা এসেছে কিনা
-নিশ্চিত করতে পারে না। Automatic payment
-success/failure-এর জন্য approved payment
-gateway + server-side webhook/API প্রয়োজন।
+⚠️ UPI app খুলে যাওয়া মানেই payment successful
+নয়। Bank/gateway verification ছাড়া success
+দেখানো উচিত নয়।
 
 </div>
 
@@ -3216,18 +3447,20 @@ gateway + server-side webhook/API প্রয়োজন।
 }
 
 
-/* =====================================================
+/* =========================================================
 UPI
-===================================================== */
+========================================================= */
 
-function openUPI(amount){
+function startUPI(amount){
 
 order.payment=
-payMode==="cod"
+mode==="cod"
 ?"COD — ₹239 Advance"
-:"FULL ONLINE";
+:"FULL ONLINE UPI";
 
-const url=
+order.payable=amount;
+
+let url=
 "upi://pay"+
 "?pa="+encodeURIComponent(CONFIG.upi)+
 "&pn="+encodeURIComponent(CONFIG.merchant)+
@@ -3242,21 +3475,19 @@ window.location.href=url;
 }
 
 
-/* =====================================================
-SUBMIT PAYMENT
-===================================================== */
+/* =========================================================
+UTR
+========================================================= */
 
-function submitPayment(){
+function submitUTR(){
 
 let utr=
 document.getElementById("utr").value.trim();
 
 if(!utr)
-return alert("Payment করার পর UTR / Transaction ID দিন।");
+return alert("UTR / Transaction ID দিন।");
 
 order.utr=utr;
-
-order.status="Payment verification pending";
 
 showPending();
 
@@ -3265,89 +3496,132 @@ showPending();
 
 function showPending(){
 
-openModal(
-"Payment Verification",
-`
+order.status="PENDING";
 
-<div style="line-height:1.8">
+document.getElementById("statusIcon")
+.textContent="⏳";
 
-<p>
-Your payment details have been submitted.
-</p>
+document.getElementById("statusIcon")
+.style.background="#fff2c7";
 
-<div class="payment-note">
+document.getElementById("statusTitle")
+.textContent="Payment Verification Pending";
 
-<strong>Verification Pending</strong><br>
+document.getElementById("statusText")
+.textContent=
+"Payment details received.";
 
-UPI app open হওয়া বা UTR দেওয়া মাত্র
-payment successful ধরা যাবে না।
+document.getElementById("statusBox")
+.innerHTML=`
 
-Real verification-এর জন্য payment gateway
-webhook/API connect করতে হবে।
+<strong>Verification required</strong><br><br>
 
-</div>
+Order ID: ${order.id}<br>
 
-<button
-class="btn primary full"
-style="margin-top:15px"
-onclick="closeModal()">
-OK
-</button>
+UTR: ${order.utr}<br>
 
-</div>
+Amount submitted:
+₹${order.payable.toLocaleString("en-IN")}
 
-`
-);
+<br><br>
 
-}
+Real payment success/failure should be
+confirmed by the connected payment gateway
+or server-side webhook.
 
+`;
 
-/* =====================================================
-GATEWAY HOOKS
-===================================================== */
-
-function paymentSuccess(transactionId){
-
-order.utr=transactionId||order.utr;
-order.status="Payment Successful";
-
-showSuccess();
+go("status");
 
 }
 
 
-function paymentFailed(){
+/* =========================================================
+GATEWAY CALLBACK HOOK
+========================================================= */
 
-order.status="Payment Failed";
+/*
+Real gateway integration-এর পরে backend থেকে
+এই function call করা যাবে।
 
-openModal(
-"Payment Failed",
-`
+Example:
 
-<p>
-Payment could not be verified.
-Please try again.
-</p>
+gatewayPaymentSuccess("TXN123456");
 
-<button
-class="btn primary full"
-onclick="closeModal()">
-TRY AGAIN
-</button>
+*/
 
-`
-);
+function gatewayPaymentSuccess(transactionId){
+
+order.status="SUCCESS";
+
+order.utr=
+transactionId||order.utr;
+
+document.getElementById("statusIcon")
+.textContent="✓";
+
+document.getElementById("statusIcon")
+.style.background="#dcfce7";
+
+document.getElementById("statusTitle")
+.textContent="Payment Successful";
+
+document.getElementById("statusText")
+.textContent=
+"Payment verified successfully.";
+
+document.getElementById("statusBox")
+.innerHTML=`
+
+<strong>Payment Verified</strong><br><br>
+
+Transaction:
+${order.utr}
+
+`;
+
+setTimeout(orderComplete,800);
 
 }
 
 
-/* =====================================================
-SUCCESS
-===================================================== */
+/* =========================================================
+FAILED
+========================================================= */
 
-function showSuccess(){
+function gatewayPaymentFailed(){
 
-document.getElementById("successDetails")
+order.status="FAILED";
+
+document.getElementById("statusIcon")
+.textContent="!";
+
+document.getElementById("statusIcon")
+.style.background="#fee2e2";
+
+document.getElementById("statusTitle")
+.textContent="Payment Failed";
+
+document.getElementById("statusText")
+.textContent=
+"Payment could not be verified.";
+
+document.getElementById("statusBox")
+.innerHTML=
+"Please return to payment and try again.";
+
+go("status");
+
+}
+
+
+/* =========================================================
+ORDER COMPLETE
+========================================================= */
+
+function orderComplete(){
+
+document.getElementById("orderInfo")
 .innerHTML=`
 
 <div class="summary-row">
@@ -3356,8 +3630,27 @@ document.getElementById("successDetails")
 </div>
 
 <div class="summary-row">
-<span>Order Total</span>
-<strong>₹${order.total.toLocaleString("en-IN")}</strong>
+<span>Product</span>
+<strong>${order.product}</strong>
+</div>
+
+<div class="summary-row">
+<span>Quantity</span>
+<strong>${order.quantity}</strong>
+</div>
+
+<div class="summary-row">
+<span>Total</span>
+<strong>
+₹${order.total.toLocaleString("en-IN")}
+</strong>
+</div>
+
+<div class="summary-row">
+<span>Payable Now</span>
+<strong>
+₹${order.payable.toLocaleString("en-IN")}
+</strong>
 </div>
 
 <div class="summary-row">
@@ -3392,14 +3685,27 @@ ${order.pin}
 
 `;
 
-show("success");
+go("order");
 
 }
 
 
-/* =====================================================
+/* =========================================================
+NET BANKING
+========================================================= */
+
+function netBanking(){
+
+alert(
+"Real Net Banking চালাতে approved payment gateway merchant checkout connect করতে হবে। Static HTML নিজে bank transaction process বা verify করতে পারে না."
+);
+
+}
+
+
+/* =========================================================
 WHATSAPP
-===================================================== */
+========================================================= */
 
 function whatsappOrder(){
 
@@ -3407,15 +3713,29 @@ let text=`
 
 GRO EXTENDER ORDER
 
-Order ID: ${order.id}
+Order ID:
+${order.id}
 
-Order Total: ₹${order.total}
+Product:
+${order.product}
 
-Payment: ${order.payment}
+Quantity:
+${order.quantity}
 
-Payment Status: ${order.status}
+Total:
+₹${order.total}
 
-UTR: ${order.utr||"Not provided"}
+Payable:
+₹${order.payable}
+
+Payment:
+${order.payment}
+
+Status:
+${order.status}
+
+UTR:
+${order.utr||"Not entered"}
 
 Customer:
 ${order.name}
@@ -3446,74 +3766,27 @@ window.open(
 }
 
 
-/* =====================================================
-TRACKING
-===================================================== */
+function openWhatsApp(){
 
-function trackOrder(){
-
-let id=
-document.getElementById("trackId")
-.value.trim();
-
-if(!id)
-return alert("Order ID দিন।");
-
-document.getElementById("trackingResult")
-.innerHTML=`
-
-<div class="timeline">
-
-<div class="step done">
-<div class="step-icon">✓</div>
-<div>
-<h4>Order Placed</h4>
-<p>Order ID ${id}</p>
-</div>
-</div>
-
-<div class="step">
-<div class="step-icon">2</div>
-<div>
-<h4>Payment Verification</h4>
-<p>Waiting for verified payment status.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="step-icon">3</div>
-<div>
-<h4>Processing</h4>
-<p>Order processing after confirmation.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="step-icon">4</div>
-<div>
-<h4>Shipped</h4>
-<p>Courier handover.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="step-icon">5</div>
-<div>
-<h4>Delivered</h4>
-<p>Order delivered.</p>
-</div>
-</div>
-
-</div>
-
-`;
+window.open(
+"https://wa.me/"+CONFIG.whatsapp,
+"_blank"
+);
 
 }
 
 
-/* =====================================================
+function callNow(){
+
+window.location.href=
+"tel:"+CONFIG.phone;
+
+}
+
+
+/* =========================================================
 SEARCH
-===================================================== */
+========================================================= */
 
 function searchProducts(){
 
@@ -3526,57 +3799,43 @@ document.getElementById("search")
 let list=
 Object.values(PRODUCTS)
 .filter(p=>
-p.name.toLowerCase().includes(q) ||
-p.description.toLowerCase().includes(q)
+p.name.toLowerCase().includes(q)||
+p.short.toLowerCase().includes(q)
 );
 
-document.getElementById("shopProducts")
+document.getElementById("productsGrid")
 .innerHTML=
 list.map(card).join("");
 
-show("shop");
+go("products");
 
 }
 
 
-/* =====================================================
-CATEGORY
-===================================================== */
+/* =========================================================
+FILTER
+========================================================= */
 
-function category(id,button){
+function filter(id){
 
-let list;
+let p=PRODUCTS[id];
 
-if(id==="all")
-list=Object.values(PRODUCTS);
-else
-list=Object.values(PRODUCTS)
-.filter(p=>p.category===id);
+document.getElementById("productsGrid")
+.innerHTML=card(p);
 
-render(list);
-
-show("shop");
-
-if(button){
-
-document
-.querySelectorAll(".filter")
-.forEach(x=>x.classList.remove("active"));
-
-button.classList.add("active");
-
-}
+go("products");
 
 }
 
 
-/* =====================================================
+/* =========================================================
 SORT
-===================================================== */
+========================================================= */
 
 function sortProducts(){
 
-let list=Object.values(PRODUCTS);
+let list=
+Object.values(PRODUCTS);
 
 let value=
 document.getElementById("sort").value;
@@ -3587,246 +3846,66 @@ list.sort((a,b)=>a.price-b.price);
 if(value==="high")
 list.sort((a,b)=>b.price-a.price);
 
-document.getElementById("shopProducts")
+document.getElementById("productsGrid")
 .innerHTML=
 list.map(card).join("");
 
 }
 
 
-/* =====================================================
-WISHLIST
-===================================================== */
+/* =========================================================
+TABS
+========================================================= */
 
-function wishlist(id){
+function tab(button,id){
 
-let saved=
-JSON.parse(
-localStorage.getItem("groWishlist")||"[]"
-);
+document.querySelectorAll(".tab-content")
+.forEach(x=>x.style.display="none");
 
-if(saved.includes(id))
-saved=saved.filter(x=>x!==id);
-else
-saved.push(id);
+document.querySelectorAll(".tab-buttons button")
+.forEach(x=>x.classList.remove("active"));
 
-localStorage.setItem(
-"groWishlist",
-JSON.stringify(saved)
-);
+document.getElementById(id)
+.style.display="block";
 
-alert("Wishlist updated.");
+button.classList.add("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
 FAQ
-===================================================== */
+========================================================= */
 
 function faq(button){
 
-let content=
+let answer=
 button.nextElementSibling;
 
 let open=
-content.style.display==="block";
+answer.style.display==="block";
 
-document
-.querySelectorAll(".faq-content")
-.forEach(x=>x.style.display="none");
-
-document
-.querySelectorAll(".faq button span")
-.forEach(x=>x.textContent="＋");
-
-if(!open){
-
-content.style.display="block";
+answer.style.display=
+open?"none":"block";
 
 button.querySelector("span")
-.textContent="−";
-
-}
-
-}
-
-
-/* =====================================================
-POLICY MODAL
-===================================================== */
-
-function openPolicy(type){
-
-let data={
-
-shipping:[
-"Shipping Policy",
-`
-<p>
-Orders are shipped only to serviceable locations.
-Delivery time depends on pincode, courier
-availability and operational conditions.
-</p>
-
-<p>
-Customer must provide accurate name, mobile,
-address, state, district and pincode.
-</p>
-`
-],
-
-return:[
-"Return Policy",
-`
-<p>
-No Return Policy.
-Please verify product selection and address
-before placing an order.
-</p>
-`
-],
-
-refund:[
-"Refund Policy",
-`
-<p>
-Refunds, where applicable, are processed only
-after verification according to the applicable
-order/payment terms.
-</p>
-`
-],
-
-privacy:[
-"Privacy Policy",
-`
-<p>
-Customer information such as name, mobile,
-address and order details should be used only
-for order processing, delivery, customer support
-and legally required purposes.
-</p>
-`
-],
-
-terms:[
-"Terms & Conditions",
-`
-<p>
-This website is intended for customers aged
-18 years and above.
-</p>
-
-<p>
-Product information should not be interpreted
-as guaranteed medical outcomes.
-</p>
-`
-],
-
-payment:[
-"Payment Information",
-`
-<p>
-UPI checkout uses a standard UPI deep-link.
-Compatible devices may display installed UPI apps.
-</p>
-
-<p>
-Automatic payment verification requires a
-proper payment gateway and server-side webhook.
-</p>
-`
-],
-
-contact:[
-"Contact",
-`
-<p>
-Call:
-<a href="tel:+917407792138">
-+91 74077 92138
-</a>
-</p>
-
-<p>
-WhatsApp:
-<a href="https://wa.me/917407792138"
-target="_blank">
-Chat on WhatsApp
-</a>
-</p>
-`
-]
-
-};
-
-openModal(
-data[type][0],
-data[type][1]
-);
+.textContent=
+open?"+":"−";
 
 }
 
 
-/* =====================================================
-MODAL
-===================================================== */
-
-function openModal(title,body){
-
-document.getElementById("modalTitle")
-.textContent=title;
-
-document.getElementById("modalBody")
-.innerHTML=body;
-
-document.getElementById("modal")
-.classList.add("show");
-
-}
-
-
-function closeModal(){
-
-document.getElementById("modal")
-.classList.remove("show");
-
-}
-
-
-/* =====================================================
-INFO SCROLL
-===================================================== */
-
-function scrollInfo(){
-
-show("home");
-
-setTimeout(()=>{
-
-document.getElementById("info")
-.scrollIntoView({
- behavior:"smooth"
-});
-
-},100);
-
-}
-
-
-/* =====================================================
-INIT
-===================================================== */
+/* =========================================================
+INITIALIZE
+========================================================= */
 
 loadStates();
 
-render();
+renderProducts(Object.values(PRODUCTS));
 
 updateCartCount();
 
 </script>
 
 </body>
-    </html>
+ </html>
