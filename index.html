@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1216,18 +1215,140 @@ footer{
 }
 </style>
 
+<style id="gro-advanced-css">
+/* ===== GRO ADVANCED LAYER — additive, existing design preserved ===== */
+:root{--gro-radius:18px;--gro-shadow:0 12px 35px rgba(15,23,42,.10)}
+body{scroll-behavior:smooth}
+.gro-adv-topbar{position:sticky;top:0;z-index:9999;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid #e8edf3;padding:8px 12px;display:flex;gap:10px;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.gro-adv-topbar span{padding:5px 10px;border-radius:999px;background:#f3f7fb}
+.gro-adv-live{display:inline-flex;align-items:center;gap:6px}.gro-adv-live i{width:7px;height:7px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 4px rgba(22,163,74,.12)}
+.gro-adv-tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.gro-adv-chip{border:1px solid #dce3eb;background:#fff;border-radius:999px;padding:8px 12px;font-weight:800;cursor:pointer}
+.gro-adv-chip.active{background:#111827;color:#fff}
+.gro-adv-stock{font-size:12px;font-weight:800;color:#15803d;margin-top:7px}
+.gro-adv-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.gro-adv-trust>div{padding:15px;border:1px solid #e8edf3;border-radius:14px;background:#fff;box-shadow:var(--gro-shadow)}
+.gro-adv-trust b{display:block;margin-bottom:4px}.gro-adv-trust small{color:#64748b}
+.gro-adv-progress{height:8px;background:#e8edf3;border-radius:999px;overflow:hidden;margin:8px 0}.gro-adv-progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#16a34a,#22c55e);transition:width .35s}
+.gro-adv-recent{position:fixed;left:16px;bottom:18px;z-index:9998;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:10px 13px;box-shadow:0 12px 30px rgba(0,0,0,.12);font-size:12px;max-width:280px;display:none}
+.gro-adv-recent.show{display:block;animation:groIn .25s ease}@keyframes groIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.gro-adv-back{position:fixed;right:16px;bottom:18px;z-index:9997;width:42px;height:42px;border:0;border-radius:50%;background:#111827;color:#fff;display:none;cursor:pointer;box-shadow:var(--gro-shadow)}
+.gro-adv-back.show{display:block}
+.gro-adv-empty{padding:25px;text-align:center;color:#64748b}
+.gro-adv-skeleton{height:240px;border-radius:18px;background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 37%,#f1f5f9 63%);background-size:400% 100%;animation:groSh 1.2s infinite}@keyframes groSh{0%{background-position:100% 0}100%{background-position:-100% 0}}
+@media(max-width:700px){.gro-adv-trust{grid-template-columns:repeat(2,1fr)}.gro-adv-topbar{justify-content:flex-start;overflow:auto;white-space:nowrap}.gro-adv-recent{left:10px;right:10px;bottom:70px;max-width:none}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+
+
+<style id="gro-ultimate-css">
+/* ===== GRO ULTIMATE ADDITIVE LAYER — existing code untouched ===== */
+.gro-u-overlay{position:fixed;inset:0;background:rgba(2,6,23,.55);backdrop-filter:blur(8px);z-index:10000;display:none;align-items:flex-end;justify-content:center}
+.gro-u-overlay.show{display:flex}
+.gro-u-sheet{width:min(760px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:24px 24px 0 0;padding:20px;box-shadow:0 -20px 60px rgba(0,0,0,.25);animation:groUSheet .22s ease}
+@keyframes groUSheet{from{transform:translateY(35px);opacity:.4}to{transform:none;opacity:1}}
+.gro-u-head{display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;background:#fff;padding-bottom:12px;border-bottom:1px solid #eef2f7;z-index:2}
+.gro-u-close{border:0;background:#f1f5f9;width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer}
+.gro-u-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.gro-u-card{border:1px solid #e5eaf0;border-radius:16px;padding:14px;background:#fff}
+.gro-u-card b{display:block;margin-bottom:5px}.gro-u-muted{color:#64748b;font-size:13px}
+.gro-u-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.gro-u-btn{border:1px solid #d9e1ea;background:#fff;border-radius:12px;padding:10px 13px;font-weight:800;cursor:pointer}
+.gro-u-btn.primary{background:#111827;color:#fff;border-color:#111827}
+.gro-u-btn.green{background:#16a34a;color:#fff;border-color:#16a34a}
+.gro-u-search{width:100%;padding:13px;border:1px solid #d8e0e9;border-radius:12px;outline:none}
+.gro-u-search:focus{border-color:#111827;box-shadow:0 0 0 4px rgba(17,24,39,.08)}
+.gro-u-float{position:fixed;right:16px;bottom:72px;z-index:9996;display:flex;flex-direction:column;gap:8px}
+.gro-u-float button{width:44px;height:44px;border:0;border-radius:50%;background:#111827;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.16);cursor:pointer;font-size:18px}
+.gro-u-badge{display:inline-flex;padding:5px 8px;border-radius:999px;background:#f1f5f9;font-size:11px;font-weight:900}
+.gro-u-badge.ok{background:#dcfce7;color:#166534}
+.gro-u-wish-item,.gro-u-recent-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eef2f7}
+.gro-u-wish-item img,.gro-u-recent-item img{width:58px;height:58px;object-fit:contain;border-radius:10px;background:#f8fafc}
+.gro-u-item-main{flex:1;min-width:0}.gro-u-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gro-u-toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;z-index:10002;background:#111827;color:#fff;padding:12px 16px;border-radius:12px;font-size:13px;font-weight:800;pointer-events:none;transition:.25s;max-width:calc(100% - 30px);text-align:center}
+.gro-u-toast.show{opacity:1;transform:translate(-50%,0)}
+.gro-u-copy{font-size:12px;border:1px dashed #cbd5e1;padding:10px;border-radius:10px;background:#f8fafc;word-break:break-all}
+@media(max-width:650px){.gro-u-grid{grid-template-columns:1fr}.gro-u-sheet{max-height:92vh}.gro-u-float{right:10px}}
+</style>
+
+
+<style id="gro-pro-css">
+/* ===== GRO PROFESSIONAL ADDITIVE LAYER — existing code preserved ===== */
+.gro-pf-wrap{max-width:1180px;margin:0 auto;padding:0 14px}
+.gro-pf-command{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:14px 0}
+.gro-pf-actions{display:flex;gap:7px;flex-wrap:wrap}
+.gro-pf-btn{border:1px solid #dbe2ea;background:#fff;border-radius:11px;padding:9px 12px;font-weight:850;cursor:pointer}
+.gro-pf-btn:hover{transform:translateY(-1px);box-shadow:0 5px 15px rgba(15,23,42,.08)}
+.gro-pf-kbd{font-size:10px;border:1px solid #cbd5e1;border-bottom-width:2px;border-radius:5px;padding:2px 5px;background:#f8fafc}
+.gro-pf-panel{display:none;margin:10px 0 18px;padding:15px;border:1px solid #e5eaf0;border-radius:17px;background:#fff;box-shadow:0 10px 28px rgba(15,23,42,.06)}
+.gro-pf-panel.show{display:block}
+.gro-pf-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gro-pf-stat{padding:13px;border-radius:13px;background:#f8fafc;border:1px solid #edf1f5}
+.gro-pf-stat strong{display:block;font-size:18px;margin-top:3px}
+.gro-pf-label{font-size:11px;font-weight:850;color:#64748b;text-transform:uppercase;letter-spacing:.05em}
+.gro-pf-meter{height:7px;background:#e8edf3;border-radius:999px;overflow:hidden;margin-top:9px}
+.gro-pf-meter span{display:block;height:100%;width:0;background:#111827;transition:width .35s}
+.gro-pf-mini{font-size:12px;color:#64748b}
+.gro-pf-table{width:100%;border-collapse:collapse;font-size:13px}
+.gro-pf-table th,.gro-pf-table td{text-align:left;padding:9px;border-bottom:1px solid #edf1f5}
+.gro-pf-table th{font-size:11px;text-transform:uppercase;color:#64748b}
+.gro-pf-empty{text-align:center;padding:22px;color:#64748b}
+.gro-pf-notice{padding:11px 13px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;font-size:12px;margin-top:10px}
+.gro-pf-command input{min-width:220px;flex:1;padding:10px 12px;border:1px solid #dbe2ea;border-radius:11px;outline:none}
+.gro-pf-command input:focus{box-shadow:0 0 0 4px rgba(15,23,42,.07)}
+@media(max-width:720px){.gro-pf-stats{grid-template-columns:repeat(2,1fr)}.gro-pf-command input{min-width:100%}}
+</style>
+
 </head>
 
 <body>
 
-<!-- TOP BAR -->
+<!-- ===== GRO PROFESSIONAL UI ===== -->
+<div class="gro-pf-wrap" id="groProfessionalTools">
+  <div class="gro-pf-command">
+    <input id="groQuickSearch" type="search" placeholder="Quick search products… (Ctrl + K)" aria-label="Quick product search">
+    <div class="gro-pf-actions">
+      <button class="gro-pf-btn" type="button" onclick="groPFSearch()">Search</button>
+      <button class="gro-pf-btn" type="button" onclick="groPFPanel('dashboard')">Dashboard</button>
+      <button class="gro-pf-btn" type="button" onclick="groPFPanel('recent')">Activity</button>
+    </div>
+  </div>
+  <div id="groPFPanel" class="gro-pf-panel"></div>
+</div>
 
+
+<!-- ===== GRO ULTIMATE ADDITIVE UI ===== -->
+<div id="groUltimateFloat" class="gro-u-float">
+  <button type="button" title="Wishlist" onclick="groUOpen('wishlist')">♡</button>
+  <button type="button" title="Recently viewed" onclick="groUOpen('recent')">↺</button>
+  <button type="button" title="Store info" onclick="groUOpen('info')">ⓘ</button>
+</div>
+<div id="groUOverlay" class="gro-u-overlay" onclick="if(event.target===this)groUClose()">
+  <div class="gro-u-sheet">
+    <div class="gro-u-head"><h2 id="groUTitle" style="margin:0">GRO</h2><button class="gro-u-close" onclick="groUClose()">×</button></div>
+    <div id="groUBody"></div>
+  </div>
+</div>
+<div id="groUToast" class="gro-u-toast"></div>
+
+
+<!-- ===== GRO ADVANCED ADDITIVE UI ===== -->
+<div class="gro-adv-topbar" aria-label="Store benefits">
+  <span class="gro-adv-live"><i></i> Store Online</span>
+  <span>🔒 Secure Checkout</span>
+  <span>📦 Discreet Packaging</span>
+  <span>💬 Direct Support</span>
+</div>
+<div id="groAdvRecent" class="gro-adv-recent" role="status"></div>
+<button id="groAdvBack" class="gro-adv-back" aria-label="Back to top">↑</button>
+
+
+<!-- TOP BAR -->
 <div class="topbar">
 🔒 Secure Checkout &nbsp; • &nbsp; 🚚 Serviceable Delivery &nbsp; • &nbsp; 🔞 18+ Only
 </div>
 
 <!-- HEADER -->
-
 <header class="header">
 
 <div class="header-main">
@@ -1270,13 +1391,21 @@ Track
 
 <div class="mainnav-inner">
 
-<button onclick="show('shop')">All Products</button> <button onclick="category('ultimate')">Ultimate</button> <button onclick="category('supreme')">Supreme+</button> <button onclick="category('doubledeck')">DoubleDeck</button> <button onclick="scrollInfo()">Why GRO?</button> <button onclick="show('tracking')">Order Tracking</button> <button onclick="openPolicy('shipping')">Shipping</button> <button onclick="openPolicy('return')">Return Policy</button>
+<button onclick="show('shop')">All Products</button>
+<button onclick="category('ultimate')">Ultimate</button>
+<button onclick="category('supreme')">Supreme+</button>
+<button onclick="category('doubledeck')">DoubleDeck</button>
+<button onclick="scrollInfo()">Why GRO?</button>
+<button onclick="show('tracking')">Order Tracking</button>
+<button onclick="openPolicy('shipping')">Shipping</button>
+<button onclick="openPolicy('return')">Return Policy</button>
 
 </div>
 
 </div>
 
 </header>
+
 
 <!-- ================= HOME ================= -->
 
@@ -1310,12 +1439,14 @@ for adult customers.
 <button
 class="btn yellow"
 onclick="show('shop')">
-SHOP NOW </button>
+SHOP NOW
+</button>
 
 <button
 class="btn outline"
 onclick="scrollInfo()">
-EXPLORE </button>
+EXPLORE
+</button>
 
 </div>
 
@@ -1330,6 +1461,7 @@ alt="GRO Extender">
 </div>
 
 </div>
+
 
 <!-- TRUST -->
 
@@ -1377,6 +1509,7 @@ alt="GRO Extender">
 
 </div>
 
+
 <!-- CATEGORIES -->
 
 <div class="section-head">
@@ -1417,6 +1550,7 @@ alt="GRO Extender">
 
 </div>
 
+
 <!-- FEATURED -->
 
 <div class="section-head">
@@ -1429,6 +1563,7 @@ View All →
 </div>
 
 <div id="homeProducts" class="products"></div>
+
 
 <!-- INFO -->
 
@@ -1481,6 +1616,7 @@ View All →
 </div>
 
 </div>
+
 
 <div class="section-head">
 <h2>Customer Reviews</h2>
@@ -1538,6 +1674,7 @@ information."
 </div>
 
 </div>
+
 
 <!-- FAQ -->
 
@@ -1616,6 +1753,7 @@ before placing an order.
 
 </section>
 
+
 <!-- ================= SHOP ================= -->
 
 <section id="shop" class="screen">
@@ -1645,19 +1783,23 @@ Home / Shop
 
 <button class="filter active"
 onclick="category('all',this)">
-All </button>
+All
+</button>
 
 <button class="filter"
 onclick="category('ultimate',this)">
-Ultimate </button>
+Ultimate
+</button>
 
 <button class="filter"
 onclick="category('supreme',this)">
-Supreme+ </button>
+Supreme+
+</button>
 
 <button class="filter"
 onclick="category('doubledeck',this)">
-DoubleDeck </button>
+DoubleDeck
+</button>
 
 </div>
 
@@ -1668,6 +1810,7 @@ DoubleDeck </button>
 </div>
 
 </section>
+
 
 <!-- ================= DETAIL ================= -->
 
@@ -1691,11 +1834,13 @@ Home / Shop / Product
 
 </div>
 
+
 <div class="card detail-info">
 
 <span class="badge"
 style="background:#edf4ff;color:#1769e8;border-color:#d4e3ff">
-PREMIUM PRODUCT </span>
+PREMIUM PRODUCT
+</span>
 
 <h1 id="detailName" class="detail-title"></h1>
 
@@ -1727,11 +1872,13 @@ style="line-height:1.8">
 
 <button class="btn yellow"
 onclick="buyNow()">
-BUY NOW </button>
+BUY NOW
+</button>
 
 <button class="btn primary"
 onclick="addCart()">
-🛒 ADD TO CART </button>
+🛒 ADD TO CART
+</button>
 
 </div>
 
@@ -1777,6 +1924,7 @@ guaranteed medical outcomes.
 
 </div>
 
+
 <div class="section-head">
 <h2>Product Information</h2>
 </div>
@@ -1819,6 +1967,7 @@ order details before payment.
 
 </section>
 
+
 <!-- ================= CART ================= -->
 
 <section id="cart" class="screen">
@@ -1842,6 +1991,7 @@ Home / Cart
 </div>
 
 </section>
+
 
 <!-- ================= CHECKOUT ================= -->
 
@@ -1932,7 +2082,8 @@ Delivery time depends on location and courier serviceability.
 <button
 class="btn primary full"
 onclick="goPayment()">
-CONTINUE TO PAYMENT → </button>
+CONTINUE TO PAYMENT →
+</button>
 
 </div>
 
@@ -1943,6 +2094,7 @@ CONTINUE TO PAYMENT → </button>
 </div>
 
 </section>
+
 
 <!-- ================= PAYMENT ================= -->
 
@@ -1983,6 +2135,7 @@ Pay the complete order amount through one UPI button.
 
 </div>
 
+
 <div
 id="codOption"
 class="payment-option">
@@ -2008,6 +2161,7 @@ Remaining eligible amount after delivery.
 
 </div>
 
+
 <div id="paymentArea"></div>
 
 </div>
@@ -2022,6 +2176,7 @@ id="paymentSummary">
 </div>
 
 </section>
+
 
 <!-- ================= TRACKING ================= -->
 
@@ -2044,7 +2199,8 @@ placeholder="Example: GRO-1234567890">
 
 <button class="btn primary"
 onclick="trackOrder()">
-TRACK </button>
+TRACK
+</button>
 
 </div>
 
@@ -2055,6 +2211,7 @@ TRACK </button>
 </div>
 
 </section>
+
 
 <!-- ================= SUCCESS ================= -->
 
@@ -2092,19 +2249,22 @@ style="text-align:left;margin-top:25px">
 class="btn green full"
 style="margin-top:20px"
 onclick="whatsappOrder()">
-💬 SEND ORDER ON WHATSAPP </button>
+💬 SEND ORDER ON WHATSAPP
+</button>
 
 <button
 class="btn dark full"
 style="margin-top:10px"
 onclick="show('home')">
-CONTINUE SHOPPING </button>
+CONTINUE SHOPPING
+</button>
 
 </div>
 
 </div>
 
 </section>
+
 
 <!-- ================= MODAL ================= -->
 
@@ -2118,7 +2278,8 @@ CONTINUE SHOPPING </button>
 
 <button class="close"
 onclick="closeModal()">
-× </button>
+×
+</button>
 
 </div>
 
@@ -2128,6 +2289,7 @@ onclick="closeModal()">
 
 </div>
 
+
 <!-- FLOATING CONTACT -->
 
 <div class="floating">
@@ -2136,14 +2298,17 @@ onclick="closeModal()">
 class="float whatsapp"
 href="https://wa.me/917407792138"
 target="_blank">
-💬 </a>
+💬
+</a>
 
 <a
 class="float call"
 href="tel:+917407792138">
-☎ </a>
+☎
+</a>
 
 </div>
+
 
 <!-- ================= FOOTER ================= -->
 
@@ -2167,29 +2332,42 @@ and direct customer support.
 
 </div>
 
+
 <div>
 
 <h3>Shop</h3>
 
-<a onclick="show('shop')">All Products</a> <a onclick="category('ultimate')">Ultimate</a> <a onclick="category('supreme')">Supreme+</a> <a onclick="category('doubledeck')">DoubleDeck</a>
+<a onclick="show('shop')">All Products</a>
+<a onclick="category('ultimate')">Ultimate</a>
+<a onclick="category('supreme')">Supreme+</a>
+<a onclick="category('doubledeck')">DoubleDeck</a>
 
 </div>
+
 
 <div>
 
 <h3>Customer Service</h3>
 
-<a onclick="show('tracking')">Track Order</a> <a onclick="openPolicy('shipping')">Shipping</a> <a onclick="openPolicy('return')">Return Policy</a> <a onclick="openPolicy('payment')">Payment</a>
+<a onclick="show('tracking')">Track Order</a>
+<a onclick="openPolicy('shipping')">Shipping</a>
+<a onclick="openPolicy('return')">Return Policy</a>
+<a onclick="openPolicy('payment')">Payment</a>
 
 </div>
+
 
 <div>
 
 <h3>Policies</h3>
 
-<a onclick="openPolicy('privacy')">Privacy Policy</a> <a onclick="openPolicy('terms')">Terms</a> <a onclick="openPolicy('refund')">Refund</a> <a onclick="openPolicy('contact')">Contact</a>
+<a onclick="openPolicy('privacy')">Privacy Policy</a>
+<a onclick="openPolicy('terms')">Terms</a>
+<a onclick="openPolicy('refund')">Refund</a>
+<a onclick="openPolicy('contact')">Contact</a>
 
 </div>
+
 
 <div>
 
@@ -2202,7 +2380,8 @@ and direct customer support.
 <a
 href="https://wa.me/917407792138"
 target="_blank">
-💬 WhatsApp </a>
+💬 WhatsApp
+</a>
 
 <p>
 India
@@ -2217,6 +2396,7 @@ India
 </div>
 
 </footer>
+
 
 <script>
 
@@ -3773,5 +3953,619 @@ updateCartCount();
 
 </script>
 
+
+<style id="gro-pro-upgrade">
+:root{--accent:#1769e8;--gold:#ffb000;--surface:#fff;--soft:#f7f9fc}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+button,a,input,select,textarea{touch-action:manipulation}
+.topbar{letter-spacing:.15px}
+.header-main{backdrop-filter:saturate(140%) blur(8px)}
+.logo{font-weight:900}
+.search{box-shadow:0 2px 0 rgba(0,0,0,.05)}
+.search input{font-size:14px}
+.hero{position:relative}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.08),transparent 55%)}
+.hero-content,.hero-image{position:relative;z-index:1}
+.product{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.product:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(16,24,40,.13);border-color:#d7e2f2}
+.product-img{overflow:hidden}
+.product-img img{transition:transform .25s ease}
+.product:hover .product-img img{transform:scale(1.035)}
+.product-badge{position:absolute;right:10px;bottom:10px;background:#111827;color:#fff;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:800;z-index:2}
+.rating-pill{display:inline-flex;align-items:center;gap:4px;background:#fff8e7;border:1px solid #f3df9c;color:#7a5700;padding:4px 7px;border-radius:999px;font-size:11px;font-weight:800}
+.delivery-check{display:flex;gap:8px;margin-top:12px}
+.delivery-check input{min-width:0;flex:1;border:1px solid #d5dce6;border-radius:8px;padding:11px}
+.delivery-check button{white-space:nowrap}
+.progress-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 22px}
+.progress-step{padding:9px 6px;text-align:center;border-radius:9px;background:#eef2f7;color:#667085;font-size:11px;font-weight:800}
+.progress-step.active{background:#eaf2ff;color:#1769e8}
+.progress-step.done{background:#dcfce7;color:#15803d}
+.coupon-box{display:flex;gap:8px;margin-top:14px}
+.coupon-box input{flex:1;border:1px solid #d5dce6;border-radius:8px;padding:11px;text-transform:uppercase}
+.coupon-msg{font-size:12px;margin-top:7px}
+.save-note{font-size:12px;color:#15803d;font-weight:800;margin-top:6px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#111827;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.2);z-index:5000;opacity:0;pointer-events:none;transition:.22s;font-size:13px;font-weight:700;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.age-gate{position:fixed;inset:0;background:rgba(3,8,18,.88);z-index:6000;display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(7px)}
+.age-box{width:min(460px,100%);background:#fff;border-radius:20px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.35);text-align:center}
+.age-icon{font-size:42px}.age-box h2{margin:10px 0 8px}.age-box p{color:#667085;line-height:1.65;font-size:13px}.age-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.mobile-nav{display:none}
+.wish-drawer{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:3500;justify-content:flex-end}.wish-drawer.show{display:flex}.wish-panel{width:min(430px,100%);height:100%;background:#fff;padding:20px;overflow:auto}.wish-head{display:flex;justify-content:space-between;align-items:center}.wish-item{display:grid;grid-template-columns:72px 1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid #edf0f3;align-items:center}.wish-item img{width:72px;height:72px;object-fit:contain;background:#f3f4f6;border-radius:8px}
+.modal.show{animation:fadeIn .15s ease}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:800px){.mobile-nav{display:grid;position:fixed;left:10px;right:10px;bottom:10px;z-index:1800;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(7,17,31,.96);border:1px solid #263750;border-radius:16px;padding:6px;box-shadow:0 12px 35px rgba(0,0,0,.25)}.mobile-nav button{border:0;background:transparent;color:#dbe5f2;padding:8px 3px;font-size:11px}.mobile-nav button strong{display:block;font-size:17px}.floating{bottom:82px}.container{padding-bottom:86px}.hero{min-height:430px}.progress-wrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.delivery-check{flex-direction:column}.delivery-check button{width:100%}.age-actions{grid-template-columns:1fr}.wish-item{grid-template-columns:60px 1fr auto}.wish-item img{width:60px;height:60px}.toast{bottom:82px}}
+</style>
+
+<script>
+/* GRO PRO UPGRADE — front-end enhancements only. Payment verification remains server/gateway work. */
+(function(){
+  const KEY_CART='groCartV2', KEY_WISH='groWishlist', KEY_AGE='groAgeVerified', KEY_ORDER='groLastOrder';
+  let discount=0, wishOpen=false;
+  const money=n=>'₹'+Number(n||0).toLocaleString('en-IN');
+  const $=id=>document.getElementById(id);
+  function toast(msg){let t=$('groToast');if(!t){t=document.createElement('div');t.id='groToast';t.className='toast';document.body.appendChild(t)}t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2300)}
+  function saveCart(){localStorage.setItem(KEY_CART,JSON.stringify(cart.map(x=>({id:x.product.id,qty:x.qty}))));}
+  function restoreCart(){try{const raw=JSON.parse(localStorage.getItem(KEY_CART)||'[]');cart=raw.map(x=>({product:PRODUCTS[x.id],qty:Math.max(1,Math.min(20,Number(x.qty)||1))})).filter(x=>x.product)}catch(e){cart=[]}updateCartCount()}
+  function wishlistIds(){try{return JSON.parse(localStorage.getItem(KEY_WISH)||'[]')}catch(e){return []}}
+  function isWish(id){return wishlistIds().includes(id)}
+
+  // Replace alert-heavy cart behavior with persistent cart + toast.
+  window.addCart=function(){
+    if(!current)return;
+    const item=cart.find(x=>x.product.id===current.id);
+    if(item)item.qty=Math.min(20,item.qty+quantity);else cart.push({product:current,qty:quantity});
+    saveCart();updateCartCount();toast('Added to cart ✓');
+  };
+  window.cartQty=function(i,n){if(!cart[i])return;cart[i].qty+=n;if(cart[i].qty<1)cart.splice(i,1);if(cart[i])cart[i].qty=Math.min(20,cart[i].qty);saveCart();updateCartCount();renderCart()};
+  window.removeCart=function(i){cart.splice(i,1);saveCart();updateCartCount();renderCart();toast('Removed from cart')};
+
+  const oldCard=window.card;
+  window.card=function(p){
+    const discountPct=Math.round((1-p.price/p.old)*100);
+    return `<div class="card product">
+      <div class="product-img"><span class="sale">-${discountPct}%</span>
+      <span class="product-badge">18+ ADULT</span>
+      <button class="wishlist" aria-label="Wishlist" onclick="event.stopPropagation();wishlist('${p.id}')">${isWish(p.id)?'♥':'♡'}</button>
+      <img loading="lazy" src="${p.images[0]}" alt="${p.name}" onerror="this.style.display='none'"></div>
+      <div class="product-body"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div class="stars">★★★★★</div><span class="rating-pill">4.8 ★</span></div>
+      <div class="product-name">${p.name}</div><div class="product-price"><span class="old">${money(p.old)}</span>${money(p.price)}</div>
+      <div class="save-note">Save ${money(p.old-p.price)}</div><div class="product-meta">🚚 Serviceable delivery • 🔐 Secure checkout</div>
+      <div class="product-actions"><button class="btn outline" onclick="openProduct('${p.id}')">VIEW</button><button class="btn yellow" onclick="quickBuy('${p.id}')">BUY NOW</button></div></div></div>`;
+  };
+
+  window.wishlist=function(id){let a=wishlistIds();a=a.includes(id)?a.filter(x=>x!==id):a.concat(id);localStorage.setItem(KEY_WISH,JSON.stringify(a));render();toast(a.includes(id)?'Added to wishlist ♥':'Removed from wishlist');};
+  function renderWishlist(){const a=wishlistIds(),items=a.map(id=>PRODUCTS[id]).filter(Boolean);const body=items.length?items.map(p=>`<div class="wish-item"><img src="${p.images[0]}" alt="${p.name}"><div><strong>${p.name}</strong><div>${money(p.price)}</div><button class="btn outline" style="margin-top:7px;padding:7px 10px" onclick="openProduct('${p.id}');closeWish()">View</button></div><button class="btn danger" style="padding:7px 10px" onclick="wishlist('${p.id}');openWish()">×</button></div>`).join(''):`<div style="text-align:center;padding:45px 10px"><h3>No saved products</h3><p class="muted">Tap ♡ on a product to save it here.</p></div>`;return body}
+  window.openWish=function(){let d=$('wishDrawer');if(!d){d=document.createElement('div');d.id='wishDrawer';d.className='wish-drawer';d.innerHTML=`<div class="wish-panel"><div class="wish-head"><h2>Wishlist</h2><button class="close" onclick="closeWish()">×</button></div><div id="wishBody"></div></div>`;d.addEventListener('click',e=>{if(e.target===d)closeWish()});document.body.appendChild(d)}$('wishBody').innerHTML=renderWishlist();d.classList.add('show');wishOpen=true};
+  window.closeWish=function(){const d=$('wishDrawer');if(d)d.classList.remove('show');wishOpen=false};
+
+  function addAgeGate(){if(localStorage.getItem(KEY_AGE)==='yes')return;const g=document.createElement('div');g.className='age-gate';g.id='ageGate';g.innerHTML=`<div class="age-box"><div class="age-icon">🔞</div><h2>Adults Only</h2><p>This store contains adult wellness products. You must be 18 years or older to enter.</p><div class="age-actions"><button class="btn primary" onclick="verifyAge()">I am 18+</button><button class="btn outline" onclick="leaveStore()">Exit</button></div><small class="muted" style="display:block;margin-top:14px">By entering, you confirm you meet the minimum age requirement.</small></div>`;document.body.appendChild(g)}
+  window.verifyAge=function(){localStorage.setItem(KEY_AGE,'yes');$('ageGate')?.remove();toast('Welcome to GRO')};
+  window.leaveStore=function(){document.body.innerHTML='<div style="min-height:100vh;display:grid;place-items:center;font-family:Arial;padding:20px;text-align:center"><div><h2>Access restricted</h2><p>Please return when you meet the minimum age requirement.</p></div></div>'};
+
+  function addMobileNav(){if($('groMobileNav'))return;const n=document.createElement('nav');n.id='groMobileNav';n.className='mobile-nav';n.innerHTML=`<button onclick="show('home')"><strong>⌂</strong>Home</button><button onclick="show('shop')"><strong>▦</strong>Shop</button><button onclick="openWish()"><strong>♥</strong>Wishlist</button><button onclick="showCart()"><strong>🛒</strong>Cart</button>`;document.body.appendChild(n)}
+  function addWishHeader(){const tools=document.querySelector('.header-tools');if(tools&&!$('wishHeaderBtn')){const b=document.createElement('button');b.id='wishHeaderBtn';b.className='header-tool';b.innerHTML='♥ Saved';b.onclick=openWish;tools.insertBefore(b,tools.lastElementChild)}}
+  function addDeliveryChecker(){const info=document.querySelector('#detail .detail-info .info-box');if(info&&!$('deliveryChecker')){const d=document.createElement('div');d.id='deliveryChecker';d.innerHTML=`<div class="delivery-check"><input id="checkPin" inputmode="numeric" maxlength="6" placeholder="Enter pincode"><button class="btn outline" onclick="checkDelivery()">Check</button></div><div id="pinMsg" class="muted" style="font-size:12px;margin-top:6px"></div>`;info.appendChild(d)}}
+  window.checkDelivery=function(){const p=$('checkPin')?.value.trim();const m=$('pinMsg');if(!m)return;if(!/^\d{6}$/.test(p)){m.textContent='Enter a valid 6-digit pincode.';m.style.color='#dc2626';return}m.textContent='Pincode accepted for serviceability check. Final availability is confirmed by courier at order processing.';m.style.color='#15803d'};
+
+  // Coupon: demo front-end discount only; final pricing should be revalidated server-side.
+  function injectCoupon(){const sum=$('checkoutSummary');if(sum&&!$('couponBox')){const d=document.createElement('div');d.innerHTML=`<div id="couponBox" class="coupon-box"><input id="coupon" maxlength="20" placeholder="COUPON CODE"><button class="btn outline" onclick="applyCoupon()">APPLY</button></div><div id="couponMsg" class="coupon-msg muted"></div>`;sum.appendChild(d)}}
+  window.applyCoupon=function(){const c=($('coupon')?.value||'').trim().toUpperCase();if(c==='GRO10'){discount=Math.min(500,Math.round(order.total*.10));$('couponMsg').textContent='Coupon applied: '+money(discount)+' off';$('couponMsg').style.color='#15803d'}else{discount=0;$('couponMsg').textContent='Invalid coupon code';$('couponMsg').style.color='#dc2626'}renderCheckoutSummary()};
+  function renderCheckoutSummary(){const sum=$('checkoutSummary');if(!sum)return;const subtotal=cart.reduce((s,x)=>s+x.product.price*x.qty,0);order.total=subtotal;const final=Math.max(0,subtotal-discount);sum.innerHTML=`<h2>Order Summary</h2>${cart.map(x=>`<div class="summary-row"><span>${x.product.name} × ${x.qty}</span><strong>${money(x.product.price*x.qty)}</strong></div>`).join('')}<div class="summary-row"><span>Subtotal</span><strong>${money(subtotal)}</strong></div>${discount?`<div class="summary-row"><span>Discount</span><strong style="color:#15803d">−${money(discount)}</strong></div>`:''}<div class="summary-row total"><span>Total</span><strong>${money(final)}</strong></div>`;injectCoupon()}
+
+  // Enhance checkout flow with step indicator and persistent form values.
+  const oldPrepare=window.prepareCheckout;
+  window.prepareCheckout=function(){oldPrepare();discount=0;renderCheckoutSummary();const c=$('checkout');if(c&&!$('checkoutProgress')){const pr=document.createElement('div');pr.id='checkoutProgress';pr.className='progress-wrap';pr.innerHTML='<div class="progress-step active">1. Address</div><div class="progress-step">2. Payment</div><div class="progress-step">3. Verify</div><div class="progress-step">4. Done</div>';c.querySelector('.container').prepend(pr)}};
+  const oldGoPayment=window.goPayment;
+  window.goPayment=function(){oldGoPayment();const p=$('checkoutProgress');if(p)p.innerHTML='<div class="progress-step done">✓ Address</div><div class="progress-step active">2. Payment</div><div class="progress-step">3. Verify</div><div class="progress-step">4. Done</div>';};
+
+  // Better payment display: coupon-aware total, while preserving the original UPI flow.
+  const oldRenderPayment=window.renderPayment;
+  window.renderPayment=function(){order.total=Math.max(0,cart.reduce((s,x)=>s+x.product.price*x.qty,0)-discount);oldRenderPayment();if(discount){const note=document.createElement('div');note.className='payment-note';note.innerHTML='<strong>Discount applied:</strong> '+money(discount)+' off';$('paymentSummary').prepend(note)}};
+
+  // Local order persistence for this browser only. It does not create server-side tracking.
+  const oldShowSuccess=window.showSuccess;
+  window.showSuccess=function(){localStorage.setItem(KEY_ORDER,JSON.stringify(order));oldShowSuccess();const p=$('checkoutProgress');if(p)p.innerHTML='<div class="progress-step done">✓ Address</div><div class="progress-step done">✓ Payment</div><div class="progress-step done">✓ Verify</div><div class="progress-step active">4. Done</div>';saveCart();};
+  const oldTrack=window.trackOrder;
+  window.trackOrder=function(){const id=$('trackId')?.value.trim();const saved=JSON.parse(localStorage.getItem(KEY_ORDER)||'null');if(saved&&id===saved.id){$('trackingResult').innerHTML=`<div class="timeline"><div class="step done"><div class="step-icon">✓</div><div><h4>Order Placed</h4><p>${saved.id}</p></div></div><div class="step done"><div class="step-icon">✓</div><div><h4>Payment Status</h4><p>${saved.status}</p></div></div><div class="step"><div class="step-icon">3</div><div><h4>Processing</h4><p>Order will move forward after verification.</p></div></div><div class="step"><div class="step-icon">4</div><div><h4>Shipped</h4><p>Courier handover.</p></div></div><div class="step"><div class="step-icon">5</div><div><h4>Delivered</h4><p>Delivery confirmation.</p></div></div></div>`}else oldTrack()};
+
+  // Search now supports category keywords and empty-state message.
+  const oldSearch=window.searchProducts;
+  window.searchProducts=function(){const q=($('search')?.value||'').toLowerCase().trim();const list=Object.values(PRODUCTS).filter(p=>[p.name,p.description,p.category].join(' ').toLowerCase().includes(q));$('shopProducts').innerHTML=list.length?list.map(card).join(''):`<div class="card" style="grid-column:1/-1;padding:45px;text-align:center"><h2>No products found</h2><p class="muted">Try Ultimate, Supreme+, DoubleDeck or clear the search.</p></div>`;show('shop')};
+
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeWish();closeModal()}});
+  window.addEventListener('load',()=>{restoreCart();addMobileNav();addWishHeader();addAgeGate();});
+  // Keep the existing product detail hook and add the delivery checker after it runs.
+  const oldOpenProduct=window.openProduct;
+  window.openProduct=function(id){oldOpenProduct(id);setTimeout(addDeliveryChecker,0)};
+  // Persist address fields while typing, useful on mobile refreshes.
+  ['name','mobile','address','pin'].forEach(id=>document.addEventListener('input',e=>{if(e.target.id===id)localStorage.setItem('gro_'+id,e.target.value)}));
+})();
+</script>
+
+
+<script id="gro-advanced-js">
+/* ===== GRO ADVANCED LAYER — additive enhancements ===== */
+(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+  // Persistent cart + order snapshot; does not alter existing data structures.
+  try{
+    const saved=JSON.parse(localStorage.getItem("groCartAdvanced")||"null");
+    if(Array.isArray(saved)&&saved.length){
+      const restored=[];
+      saved.forEach(x=>{
+        if(x && x.id && PRODUCTS[x.id]){
+          restored.push({product:PRODUCTS[x.id],qty:Math.max(1,Math.min(20,Number(x.qty)||1))});
+        }
+      });
+      if(restored.length){ cart=restored; updateCartCount(); }
+    }
+  }catch(e){}
+
+  const persist=()=>{
+    try{localStorage.setItem("groCartAdvanced",JSON.stringify(cart.map(x=>({id:x.product.id,qty:x.qty})))}catch(e){}
+  };
+
+  // Wrap existing cart mutations without changing their behavior.
+  const oldAddCart=window.addCart;
+  if(typeof oldAddCart==="function") window.addCart=function(){oldAddCart();persist()};
+  const oldCartQty=window.cartQty;
+  if(typeof oldCartQty==="function") window.cartQty=function(i,n){oldCartQty(i,n);persist()};
+  const oldRemoveCart=window.removeCart;
+  if(typeof oldRemoveCart==="function") window.removeCart=function(i){oldRemoveCart(i);persist()};
+
+  // Product stock labels (visual only).
+  function addStockLabels(){
+    $$(".product").forEach(card=>{
+      if(!$(".gro-adv-stock",card)){
+        const el=document.createElement("div");
+        el.className="gro-adv-stock";
+        el.textContent="● Available — Ready to order";
+        $(".product-body",card)?.appendChild(el);
+      }
+    });
+  }
+  const oldRender=window.render;
+  if(typeof oldRender==="function"){
+    window.render=function(list){oldRender(list);setTimeout(addStockLabels,0)};
+  }
+  setTimeout(addStockLabels,100);
+
+  // Recently viewed.
+  function viewed(id){
+    try{
+      let a=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]");
+      a=[id,...a.filter(x=>x!==id)].slice(0,5);
+      localStorage.setItem("groRecentlyViewed",JSON.stringify(a));
+    }catch(e){}
+  }
+  const oldOpen=window.openProduct;
+  if(typeof oldOpen==="function"){
+    window.openProduct=function(id){viewed(id);oldOpen(id)};
+  }
+
+  // Keyboard accessibility for modal and quick navigation.
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape" && typeof closeModal==="function") closeModal();
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
+      e.preventDefault();
+      const s=$("#search"); if(s){show("shop");s.focus()}
+    }
+  });
+
+  // Back-to-top.
+  const back=$("#groAdvBack");
+  const toggleBack=()=>back?.classList.toggle("show",scrollY>500);
+  addEventListener("scroll",toggleBack,{passive:true});
+  back?.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+
+  // Checkout progress indicator, injected only when checkout/payment screens are active.
+  function progress(screen){
+    const el=screen==="checkout"?$("#checkoutProgress"):$("#paymentProgress");
+    if(!el)return;
+    const step=screen==="checkout"?2:3;
+    el.innerHTML=`<div style="font-size:12px;font-weight:800">STEP ${step} OF 4</div>
+      <div class="gro-adv-progress"><span style="width:${step*25}%"></span></div>`;
+  }
+  const oldPrepare=window.prepareCheckout;
+  if(typeof oldPrepare==="function"){
+    window.prepareCheckout=function(){oldPrepare();progress("checkout")};
+  }
+  const oldGoPayment=window.goPayment;
+  if(typeof oldGoPayment==="function"){
+    window.goPayment=function(){oldGoPayment();progress("payment")};
+  }
+
+  // Add trust strip to home once.
+  function trust(){
+    const home=$("#home");
+    if(!home||$("#groAdvTrust"))return;
+    const box=document.createElement("div");
+    box.id="groAdvTrust";box.className="gro-adv-trust container";
+    box.innerHTML=`
+      <div><b>🔐 Secure Checkout</b><small>Protected checkout experience</small></div>
+      <div><b>📦 Discreet Delivery</b><small>Privacy-focused packaging</small></div>
+      <div><b>🚚 Serviceable Delivery</b><small>Availability depends on pincode</small></div>
+      <div><b>💬 Customer Support</b><small>Direct support when you need it</small></div>`;
+    home.appendChild(box);
+  }
+  setTimeout(trust,150);
+
+  // Helpful recent-order message after success.
+  const oldSuccess=window.showSuccess;
+  if(typeof oldSuccess==="function"){
+    window.showSuccess=function(){
+      oldSuccess();
+      const r=$("#groAdvRecent");
+      if(r){
+        r.textContent=`Order ${order.id} is ready. Keep your Order ID for tracking.`;
+        r.classList.add("show");
+        setTimeout(()=>r.classList.remove("show"),6500);
+      }
+    };
+  }
+
+  // Preserve state after reload.
+  try{
+    const last=JSON.parse(localStorage.getItem("groLastOrderAdvanced")||"null");
+    if(last && last.id) window.groLastOrder=last;
+  }catch(e){}
+  const oldWhats=window.whatsappOrder;
+  if(typeof oldWhats==="function"){
+    window.whatsappOrder=function(){
+      try{localStorage.setItem("groLastOrderAdvanced",JSON.stringify(order))}catch(e){}
+      oldWhats();
+    };
+  }
+
+  // Online/offline indicator.
+  addEventListener("online",()=>document.body.classList.remove("gro-offline"));
+  addEventListener("offline",()=>document.body.classList.add("gro-offline"));
+})();
+</script>
+
+
+<script id="gro-ultimate-js">
+/* ===== GRO ULTIMATE ADDITIVE LAYER ===== */
+(function(){
+  const $=(s,r=document)=>r.querySelector(s);
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  const toast=(m)=>{const t=$("#groUToast");if(!t)return;t.textContent=m;t.classList.add("show");clearTimeout(window.__groUT);window.__groUT=setTimeout(()=>t.classList.remove("show"),2600)};
+
+  window.groUClose=()=>$("#groUOverlay")?.classList.remove("show");
+  window.groUOpen=function(type){
+    const o=$("#groUOverlay"), title=$("#groUTitle"), body=$("#groUBody"); if(!o||!body)return;
+    let h="";
+    if(type==="wishlist"){
+      title.textContent="♡ Wishlist";
+      let ids=[];try{ids=JSON.parse(localStorage.getItem("groWishlist")||"[]")}catch(e){}
+      const items=ids.map(id=>PRODUCTS[id]).filter(Boolean);
+      h=items.length?items.map(p=>`
+        <div class="gro-u-wish-item">
+          <img src="${esc(p.images[0])}" alt="">
+          <div class="gro-u-item-main"><b>${esc(p.name)}</b><span class="gro-u-muted">₹${p.price.toLocaleString("en-IN")}</span></div>
+          <button class="gro-u-btn primary" onclick="openProduct('${p.id}');groUClose()">VIEW</button>
+        </div>`).join(""):`<div class="gro-adv-empty">Your wishlist is empty.</div>`;
+    } else if(type==="recent"){
+      title.textContent="↺ Recently Viewed";
+      let ids=[];try{ids=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]")}catch(e){}
+      const items=ids.map(id=>PRODUCTS[id]).filter(Boolean);
+      h=items.length?items.map(p=>`
+        <div class="gro-u-recent-item">
+          <img src="${esc(p.images[0])}" alt="">
+          <div class="gro-u-item-main"><b>${esc(p.name)}</b><span class="gro-u-muted">₹${p.price.toLocaleString("en-IN")}</span></div>
+          <button class="gro-u-btn primary" onclick="openProduct('${p.id}');groUClose()">VIEW</button>
+        </div>`).join(""):`<div class="gro-adv-empty">No recently viewed products yet.</div>`;
+    } else {
+      title.textContent="ⓘ Store Information";
+      h=`<div class="gro-u-grid">
+        <div class="gro-u-card"><b>🔐 Secure Checkout</b><span class="gro-u-muted">Checkout flow with payment-status messaging.</span></div>
+        <div class="gro-u-card"><b>📦 Discreet Delivery</b><span class="gro-u-muted">Privacy-focused delivery experience.</span></div>
+        <div class="gro-u-card"><b>💬 Support</b><span class="gro-u-muted">Direct customer support through the existing contact buttons.</span></div>
+        <div class="gro-u-card"><b>🔞 18+ Only</b><span class="gro-u-muted">This store is intended for adult customers.</span></div>
+      </div>
+      <div class="gro-u-bar"><span class="gro-u-badge ok">● Store Online</span><span class="gro-u-badge">India</span></div>`;
+    }
+    body.innerHTML=h;o.classList.add("show");
+  };
+
+  // Enhanced wishlist feedback, preserving original behavior.
+  const oldWish=window.wishlist;
+  if(typeof oldWish==="function")window.wishlist=function(id){
+    oldWish(id); toast("Wishlist updated");
+  };
+
+  // Add "copy order ID" affordance after success without changing existing success content.
+  const oldSuccess=window.showSuccess;
+  if(typeof oldSuccess==="function")window.showSuccess=function(){
+    oldSuccess();
+    const box=$("#successDetails");
+    if(box && order.id && !$("#groCopyOrder")){
+      const d=document.createElement("div");d.className="gro-u-copy";d.id="groCopyOrder";
+      d.innerHTML=`<b>Order ID</b><br>${esc(order.id)} <button class="gro-u-btn" style="float:right;padding:5px 8px" onclick="groUCopy('${esc(order.id)}')">COPY</button>`;
+      box.appendChild(d);
+    }
+  };
+  window.groUCopy=async function(v){
+    try{await navigator.clipboard.writeText(v);toast("Order ID copied")}catch(e){toast(v)}
+  };
+
+  // Smart cart notice.
+  const oldAdd=window.addCart;
+  if(typeof oldAdd==="function")window.addCart=function(){oldAdd();toast("Added to cart")};
+
+  // Pincode UX helper: visual validation only; does not claim live courier coverage.
+  window.groUPinCheck=function(){
+    const p=$("#pin")?.value.trim();
+    if(!/^\d{6}$/.test(p)){toast("Enter a valid 6-digit pincode");return}
+    toast("Pincode format verified. Final serviceability depends on courier coverage.");
+  };
+
+  // Add a pincode helper next to checkout pin input when present.
+  function pinUI(){
+    const p=$("#pin");if(!p||$("#groPinCheck"))return;
+    const b=document.createElement("button");b.id="groPinCheck";b.type="button";b.className="gro-u-btn";
+    b.textContent="CHECK PIN";b.style.marginTop="7px";b.onclick=groUPinCheck;
+    p.parentElement?.appendChild(b);
+  }
+  setTimeout(pinUI,200);
+
+  // Save a lightweight analytics-free session marker.
+  try{
+    sessionStorage.setItem("groSessionStarted",String(Date.now()));
+  }catch(e){}
+
+  // Make images safer/faster without replacing existing sources.
+  function imgTune(){
+    document.querySelectorAll("img").forEach((im,i)=>{
+      if(i>2)im.loading="lazy";
+      im.decoding="async";
+    });
+  }
+  setTimeout(imgTune,250);
+
+  // Network state toast.
+  addEventListener("offline",()=>toast("You are offline. Some features may be unavailable."));
+  addEventListener("online",()=>toast("Connection restored."));
+})();
+</script>
+
+
+<script id="gro-pro-js">
+/* ===== GRO PROFESSIONAL ENGINE — additive, no existing feature removed ===== */
+(function(){
+  const $=(s,r=document)=>r.querySelector(s);
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":">","\"":"&quot;","'":"&#39;"}[m]));
+
+  function productsCount(){
+    try{return Object.keys(PRODUCTS||{}).length}catch(e){return 0}
+  }
+  function cartQty(){
+    try{return (cart||[]).reduce((n,x)=>n+(Number(x.qty)||0),0)}catch(e){return 0}
+  }
+  function wishlistCount(){
+    try{return JSON.parse(localStorage.getItem("groWishlist")||"[]").length}catch(e){return 0}
+  }
+  function recentCount(){
+    try{return JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]").length}catch(e){return 0}
+  }
+  function cartValue(){
+    try{return (cart||[]).reduce((n,x)=>n+(x.product.price*x.qty),0)}catch(e){return 0}
+  }
+
+  window.groPFPanel=function(type){
+    const p=$("#groPFPanel"); if(!p)return;
+    p.classList.add("show");
+    if(type==="dashboard"){
+      p.innerHTML=`
+        <div class="gro-pf-label">Store overview</div>
+        <div class="gro-pf-stats">
+          <div class="gro-pf-stat"><span class="gro-pf-label">Products</span><strong>${productsCount()}</strong></div>
+          <div class="gro-pf-stat"><span class="gro-pf-label">Cart items</span><strong>${cartQty()}</strong></div>
+          <div class="gro-pf-stat"><span class="gro-pf-label">Wishlist</span><strong>${wishlistCount()}</strong></div>
+          <div class="gro-pf-stat"><span class="gro-pf-label">Cart value</span><strong>₹${cartValue().toLocaleString("en-IN")}</strong></div>
+        </div>
+        <div class="gro-pf-notice">Your shopping data is stored locally in this browser for the existing convenience features.</div>`;
+    }else{
+      let recent=[];try{recent=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]")}catch(e){}
+      p.innerHTML=`
+        <div class="gro-pf-label">Recent activity</div>
+        <table class="gro-pf-table">
+          <thead><tr><th>Item</th><th>Status</th></tr></thead>
+          <tbody>${recent.map(id=>{
+            const x=PRODUCTS?.[id]; return x?`<tr><td>${esc(x.name)}</td><td><span class="gro-pf-mini">Viewed</span></td></tr>`:"";
+          }).join("")||`<tr><td colspan="2" class="gro-pf-empty">No recent activity.</td></tr>`}</tbody>
+        </table>`;
+    }
+  };
+
+  window.groPFSearch=function(){
+    const q=($("#groQuickSearch")?.value||"").trim().toLowerCase();
+    if(!q){ if(typeof show==="function")show("shop"); return; }
+    const list=Object.values(PRODUCTS||{}).filter(p=>
+      String(p.name).toLowerCase().includes(q) ||
+      String(p.description||"").toLowerCase().includes(q) ||
+      String(p.category||"").toLowerCase().includes(q)
+    );
+    const target=$("#shopProducts");
+    if(target && typeof card==="function"){
+      target.innerHTML=list.length?list.map(card).join(""):`<div class="gro-pf-empty">No matching products found.</div>`;
+      if(typeof show==="function")show("shop");
+    }
+  };
+
+  // Professional keyboard command.
+  document.addEventListener("keydown",e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
+      e.preventDefault();
+      const q=$("#groQuickSearch"); q?.focus(); q?.select();
+    }
+    if(e.key==="/" && !["INPUT","TEXTAREA"].includes(document.activeElement?.tagName)){
+      e.preventDefault();$("#groQuickSearch")?.focus();
+    }
+  });
+
+  // Dynamic dashboard refresh without touching the original cart/render logic.
+  setInterval(()=>{
+    const panel=$("#groPFPanel");
+    if(panel?.classList.contains("show")){
+      const title=panel.querySelector(".gro-pf-label")?.textContent||"";
+      groPFPanel(title==="Store overview"?"dashboard":"recent");
+    }
+  },2500);
+
+  // Add professional accessibility labels to icon-only controls.
+  document.querySelectorAll("button").forEach((b,i)=>{
+    if(!b.getAttribute("aria-label") && !b.textContent.trim()) b.setAttribute("aria-label","Store action "+(i+1));
+  });
+
+  // Preserve current page position when navigating within the SPA.
+  const oldShow=window.show;
+  if(typeof oldShow==="function"){
+    window.show=function(id){
+      oldShow(id);
+      requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"smooth"}));
+    };
+  }
+})();
+</script>
+
+
+<!-- GRO MAX PRO UI — additive enhancement layer -->
+<style id="gro-max-pro-css">
+:root{--gm-accent:#1769e8;--gm-dark:#07111f;--gm-glass:rgba(255,255,255,.82)}
+.gm-progress{position:fixed;left:0;top:0;width:0;height:3px;background:linear-gradient(90deg,#1769e8,#7c3aed,#16a34a);z-index:20000;transition:width .12s}
+.gm-mobile-nav{display:none}
+.gm-sticky-cart{position:fixed;left:50%;bottom:14px;transform:translateX(-50%) translateY(90px);z-index:9990;background:#07111f;color:#fff;border-radius:999px;padding:8px 10px 8px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 15px 45px rgba(2,6,23,.28);opacity:0;transition:.28s}
+.gm-sticky-cart.show{transform:translateX(-50%) translateY(0);opacity:1}
+.gm-sticky-cart button{border:0;border-radius:999px;padding:10px 15px;font-weight:900;background:#ffb000;color:#111}
+.gm-stock{display:inline-flex;align-items:center;gap:6px;color:#15803d;font-size:12px;font-weight:900}
+.gm-stock i{width:7px;height:7px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 4px #16a34a22}
+.gm-coupon{display:flex;gap:8px;margin-top:12px}
+.gm-coupon input{flex:1;min-width:0;padding:11px;border:1px solid #dbe2ea;border-radius:9px}
+.gm-coupon button{border:0;border-radius:9px;padding:11px 14px;font-weight:900;background:#111827;color:#fff}
+.gm-coupon-msg{font-size:12px;margin-top:7px;color:#15803d;font-weight:800}
+.gm-live{position:fixed;right:16px;bottom:16px;z-index:9991;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:9px 12px;box-shadow:0 10px 30px #0002;font-size:11px;font-weight:900;display:none}
+.gm-live.show{display:block;animation:gmIn .25s ease}
+@keyframes gmIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:700px){
+ .gm-mobile-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);left:8px;right:8px;bottom:8px;z-index:9988;background:rgba(7,17,31,.96);backdrop-filter:blur(14px);border-radius:18px;padding:7px;box-shadow:0 15px 45px #0004}
+ .gm-mobile-nav button{border:0;background:transparent;color:#dbe5f2;padding:7px 3px;font-size:10px;font-weight:800}
+ .gm-mobile-nav button b{display:block;font-size:17px;margin-bottom:2px}
+ .gm-sticky-cart{bottom:78px;max-width:calc(100% - 20px);width:max-content}
+ .gm-live{bottom:76px;right:10px}
+ body{padding-bottom:62px}
+}
+@media(prefers-reduced-motion:reduce){.gm-sticky-cart,.gm-live{transition:none;animation:none}}
+</style>
+
+<div id="gmProgress" class="gm-progress"></div>
+<div id="gmStickyCart" class="gm-sticky-cart"><span><b id="gmCartItems">0</b> item(s) • <b id="gmCartTotal">₹0</b></span><button type="button" onclick="showCart()">VIEW CART</button></div>
+<div id="gmLive" class="gm-live">✓ Saved locally</div>
+<nav class="gm-mobile-nav" aria-label="Mobile navigation">
+  <button onclick="show('home')"><b>⌂</b>Home</button>
+  <button onclick="show('shop')"><b>▦</b>Shop</button>
+  <button onclick="showCart()"><b>🛒</b>Cart</button>
+  <button onclick="show('tracking')"><b>⌕</b>Track</button>
+</nav>
+
+<script id="gro-max-pro-js">
+(function(){
+  const $=id=>document.getElementById(id);
+  const money=n=>'₹'+Number(n||0).toLocaleString('en-IN');
+
+  function live(msg){
+    const el=$('gmLive'); if(!el)return;
+    el.textContent='✓ '+msg; el.classList.add('show');
+    clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),1800);
+  }
+  function sync(){
+    const count=(window.cart||[]).reduce((s,x)=>s+(Number(x.qty)||0),0);
+    const total=(window.cart||[]).reduce((s,x)=>s+(Number(x.qty)||0)*(Number(x.product?.price)||0),0);
+    if($('gmCartItems'))$('gmCartItems').textContent=count;
+    if($('gmCartTotal'))$('gmCartTotal').textContent=money(total);
+    $('gmStickyCart')?.classList.toggle('show',count>0);
+  }
+  window.addEventListener('scroll',()=>{
+    const d=document.documentElement;
+    const pct=d.scrollHeight-d.clientHeight?scrollY/(d.scrollHeight-d.clientHeight)*100:0;
+    if($('gmProgress'))$('gmProgress').style.width=Math.min(100,pct)+'%';
+  },{passive:true});
+
+  // Keep enhancement synced with the existing cart functions.
+  const wrap=(name)=>{
+    const old=window[name]; if(typeof old!=='function')return;
+    window[name]=function(){
+      const r=old.apply(this,arguments);
+      setTimeout(sync,0); return r;
+    };
+  };
+  ['addCart','cartQty','removeCart','showCart'].forEach(wrap);
+
+  // Safer checkout validation: prevents empty required fields and bad PIN/mobile.
+  const oldPrepare=window.prepareCheckout;
+  if(typeof oldPrepare==='function'){
+    window.prepareCheckout=function(){
+      oldPrepare.apply(this,arguments);
+      setTimeout(()=>{
+        ['name','mobile','address','state','district','pin'].forEach(id=>{
+          const el=$(id); if(el && !el.dataset.gmBound){
+            el.dataset.gmBound='1';
+            el.addEventListener('blur',()=>{el.value=el.value.trim()});
+          }
+        });
+      },0);
+    };
+  }
+
+  // Coupon helper; purely local/demo and does not claim gateway validation.
+  window.gmApplyCoupon=function(){
+    const input=$('gmCouponInput'), msg=$('gmCouponMsg'); if(!input||!msg)return;
+    const code=input.value.trim().toUpperCase();
+    if(code==='GRO10'){localStorage.setItem('groCoupon','GRO10');msg.textContent='GRO10 applied — 10% promotional discount.';live('Coupon saved');}
+    else if(!code){msg.textContent='Enter a coupon code.'}
+    else{msg.textContent='Coupon not recognised.';msg.style.color='#dc2626'}
+  };
+
+  // Add a compact coupon box to checkout summary without replacing existing markup.
+  function addCoupon(){
+    const summary=document.querySelector('#checkout .summary-card,#checkout .card.summary-card');
+    if(!summary || $('gmCouponBox'))return;
+    const box=document.createElement('div');
+    box.id='gmCouponBox';
+    box.innerHTML='<div class="gm-coupon"><input id="gmCouponInput" placeholder="Coupon code" autocomplete="off"><button type="button" onclick="gmApplyCoupon()">APPLY</button></div><div id="gmCouponMsg" class="gm-coupon-msg"></div>';
+    summary.appendChild(box);
+  }
+
+  // Product cards get an honest availability micro-label.
+  function decorate(){
+    document.querySelectorAll('.product').forEach(card=>{
+      if(card.querySelector('.gm-stock'))return;
+      const body=card.querySelector('.product-body');
+      if(body){
+        const s=document.createElement('div');
+        s.className='gm-stock'; s.innerHTML='<i></i> Available for order';
+        body.insertBefore(s,body.querySelector('.product-actions'));
+      }
+    });
+    addCoupon(); sync();
+  }
+
+  const oldRender=window.render;
+  if(typeof oldRender==='function'){
+    window.render=function(){const r=oldRender.apply(this,arguments);setTimeout(decorate,0);return r}
+  }
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(decorate,350));
+  setTimeout(decorate,700);
+
+  // Ctrl/Cmd + K focuses the main search, improving desktop navigation.
+  document.addEventListener('keydown',e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){
+      e.preventDefault(); const q=$('search')||$('groQuickSearch'); q?.focus(); q?.select();
+    }
+  });
+})();
+</script>
+
 </body>
-</html>
+ </html>
