@@ -3828,5 +3828,134 @@ updateCartCount();
 
 </script>
 
+
+<style id="gro-pro-upgrade">
+:root{--accent:#1769e8;--gold:#ffb000;--surface:#fff;--soft:#f7f9fc}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+button,a,input,select,textarea{touch-action:manipulation}
+.topbar{letter-spacing:.15px}
+.header-main{backdrop-filter:saturate(140%) blur(8px)}
+.logo{font-weight:900}
+.search{box-shadow:0 2px 0 rgba(0,0,0,.05)}
+.search input{font-size:14px}
+.hero{position:relative}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.08),transparent 55%)}
+.hero-content,.hero-image{position:relative;z-index:1}
+.product{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.product:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(16,24,40,.13);border-color:#d7e2f2}
+.product-img{overflow:hidden}
+.product-img img{transition:transform .25s ease}
+.product:hover .product-img img{transform:scale(1.035)}
+.product-badge{position:absolute;right:10px;bottom:10px;background:#111827;color:#fff;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:800;z-index:2}
+.rating-pill{display:inline-flex;align-items:center;gap:4px;background:#fff8e7;border:1px solid #f3df9c;color:#7a5700;padding:4px 7px;border-radius:999px;font-size:11px;font-weight:800}
+.delivery-check{display:flex;gap:8px;margin-top:12px}
+.delivery-check input{min-width:0;flex:1;border:1px solid #d5dce6;border-radius:8px;padding:11px}
+.delivery-check button{white-space:nowrap}
+.progress-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 22px}
+.progress-step{padding:9px 6px;text-align:center;border-radius:9px;background:#eef2f7;color:#667085;font-size:11px;font-weight:800}
+.progress-step.active{background:#eaf2ff;color:#1769e8}
+.progress-step.done{background:#dcfce7;color:#15803d}
+.coupon-box{display:flex;gap:8px;margin-top:14px}
+.coupon-box input{flex:1;border:1px solid #d5dce6;border-radius:8px;padding:11px;text-transform:uppercase}
+.coupon-msg{font-size:12px;margin-top:7px}
+.save-note{font-size:12px;color:#15803d;font-weight:800;margin-top:6px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#111827;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.2);z-index:5000;opacity:0;pointer-events:none;transition:.22s;font-size:13px;font-weight:700;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.age-gate{position:fixed;inset:0;background:rgba(3,8,18,.88);z-index:6000;display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(7px)}
+.age-box{width:min(460px,100%);background:#fff;border-radius:20px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.35);text-align:center}
+.age-icon{font-size:42px}.age-box h2{margin:10px 0 8px}.age-box p{color:#667085;line-height:1.65;font-size:13px}.age-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.mobile-nav{display:none}
+.wish-drawer{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:3500;justify-content:flex-end}.wish-drawer.show{display:flex}.wish-panel{width:min(430px,100%);height:100%;background:#fff;padding:20px;overflow:auto}.wish-head{display:flex;justify-content:space-between;align-items:center}.wish-item{display:grid;grid-template-columns:72px 1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid #edf0f3;align-items:center}.wish-item img{width:72px;height:72px;object-fit:contain;background:#f3f4f6;border-radius:8px}
+.modal.show{animation:fadeIn .15s ease}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:800px){.mobile-nav{display:grid;position:fixed;left:10px;right:10px;bottom:10px;z-index:1800;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(7,17,31,.96);border:1px solid #263750;border-radius:16px;padding:6px;box-shadow:0 12px 35px rgba(0,0,0,.25)}.mobile-nav button{border:0;background:transparent;color:#dbe5f2;padding:8px 3px;font-size:11px}.mobile-nav button strong{display:block;font-size:17px}.floating{bottom:82px}.container{padding-bottom:86px}.hero{min-height:430px}.progress-wrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.delivery-check{flex-direction:column}.delivery-check button{width:100%}.age-actions{grid-template-columns:1fr}.wish-item{grid-template-columns:60px 1fr auto}.wish-item img{width:60px;height:60px}.toast{bottom:82px}}
+</style>
+
+<script>
+/* GRO PRO UPGRADE — front-end enhancements only. Payment verification remains server/gateway work. */
+(function(){
+  const KEY_CART='groCartV2', KEY_WISH='groWishlist', KEY_AGE='groAgeVerified', KEY_ORDER='groLastOrder';
+  let discount=0, wishOpen=false;
+  const money=n=>'₹'+Number(n||0).toLocaleString('en-IN');
+  const $=id=>document.getElementById(id);
+  function toast(msg){let t=$('groToast');if(!t){t=document.createElement('div');t.id='groToast';t.className='toast';document.body.appendChild(t)}t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2300)}
+  function saveCart(){localStorage.setItem(KEY_CART,JSON.stringify(cart.map(x=>({id:x.product.id,qty:x.qty}))));}
+  function restoreCart(){try{const raw=JSON.parse(localStorage.getItem(KEY_CART)||'[]');cart=raw.map(x=>({product:PRODUCTS[x.id],qty:Math.max(1,Math.min(20,Number(x.qty)||1))})).filter(x=>x.product)}catch(e){cart=[]}updateCartCount()}
+  function wishlistIds(){try{return JSON.parse(localStorage.getItem(KEY_WISH)||'[]')}catch(e){return []}}
+  function isWish(id){return wishlistIds().includes(id)}
+
+  // Replace alert-heavy cart behavior with persistent cart + toast.
+  window.addCart=function(){
+    if(!current)return;
+    const item=cart.find(x=>x.product.id===current.id);
+    if(item)item.qty=Math.min(20,item.qty+quantity);else cart.push({product:current,qty:quantity});
+    saveCart();updateCartCount();toast('Added to cart ✓');
+  };
+  window.cartQty=function(i,n){if(!cart[i])return;cart[i].qty+=n;if(cart[i].qty<1)cart.splice(i,1);if(cart[i])cart[i].qty=Math.min(20,cart[i].qty);saveCart();updateCartCount();renderCart()};
+  window.removeCart=function(i){cart.splice(i,1);saveCart();updateCartCount();renderCart();toast('Removed from cart')};
+
+  const oldCard=window.card;
+  window.card=function(p){
+    const discountPct=Math.round((1-p.price/p.old)*100);
+    return `<div class="card product">
+      <div class="product-img"><span class="sale">-${discountPct}%</span>
+      <span class="product-badge">18+ ADULT</span>
+      <button class="wishlist" aria-label="Wishlist" onclick="event.stopPropagation();wishlist('${p.id}')">${isWish(p.id)?'♥':'♡'}</button>
+      <img loading="lazy" src="${p.images[0]}" alt="${p.name}" onerror="this.style.display='none'"></div>
+      <div class="product-body"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div class="stars">★★★★★</div><span class="rating-pill">4.8 ★</span></div>
+      <div class="product-name">${p.name}</div><div class="product-price"><span class="old">${money(p.old)}</span>${money(p.price)}</div>
+      <div class="save-note">Save ${money(p.old-p.price)}</div><div class="product-meta">🚚 Serviceable delivery • 🔐 Secure checkout</div>
+      <div class="product-actions"><button class="btn outline" onclick="openProduct('${p.id}')">VIEW</button><button class="btn yellow" onclick="quickBuy('${p.id}')">BUY NOW</button></div></div></div>`;
+  };
+
+  window.wishlist=function(id){let a=wishlistIds();a=a.includes(id)?a.filter(x=>x!==id):a.concat(id);localStorage.setItem(KEY_WISH,JSON.stringify(a));render();toast(a.includes(id)?'Added to wishlist ♥':'Removed from wishlist');};
+  function renderWishlist(){const a=wishlistIds(),items=a.map(id=>PRODUCTS[id]).filter(Boolean);const body=items.length?items.map(p=>`<div class="wish-item"><img src="${p.images[0]}" alt="${p.name}"><div><strong>${p.name}</strong><div>${money(p.price)}</div><button class="btn outline" style="margin-top:7px;padding:7px 10px" onclick="openProduct('${p.id}');closeWish()">View</button></div><button class="btn danger" style="padding:7px 10px" onclick="wishlist('${p.id}');openWish()">×</button></div>`).join(''):`<div style="text-align:center;padding:45px 10px"><h3>No saved products</h3><p class="muted">Tap ♡ on a product to save it here.</p></div>`;return body}
+  window.openWish=function(){let d=$('wishDrawer');if(!d){d=document.createElement('div');d.id='wishDrawer';d.className='wish-drawer';d.innerHTML=`<div class="wish-panel"><div class="wish-head"><h2>Wishlist</h2><button class="close" onclick="closeWish()">×</button></div><div id="wishBody"></div></div>`;d.addEventListener('click',e=>{if(e.target===d)closeWish()});document.body.appendChild(d)}$('wishBody').innerHTML=renderWishlist();d.classList.add('show');wishOpen=true};
+  window.closeWish=function(){const d=$('wishDrawer');if(d)d.classList.remove('show');wishOpen=false};
+
+  function addAgeGate(){if(localStorage.getItem(KEY_AGE)==='yes')return;const g=document.createElement('div');g.className='age-gate';g.id='ageGate';g.innerHTML=`<div class="age-box"><div class="age-icon">🔞</div><h2>Adults Only</h2><p>This store contains adult wellness products. You must be 18 years or older to enter.</p><div class="age-actions"><button class="btn primary" onclick="verifyAge()">I am 18+</button><button class="btn outline" onclick="leaveStore()">Exit</button></div><small class="muted" style="display:block;margin-top:14px">By entering, you confirm you meet the minimum age requirement.</small></div>`;document.body.appendChild(g)}
+  window.verifyAge=function(){localStorage.setItem(KEY_AGE,'yes');$('ageGate')?.remove();toast('Welcome to GRO')};
+  window.leaveStore=function(){document.body.innerHTML='<div style="min-height:100vh;display:grid;place-items:center;font-family:Arial;padding:20px;text-align:center"><div><h2>Access restricted</h2><p>Please return when you meet the minimum age requirement.</p></div></div>'};
+
+  function addMobileNav(){if($('groMobileNav'))return;const n=document.createElement('nav');n.id='groMobileNav';n.className='mobile-nav';n.innerHTML=`<button onclick="show('home')"><strong>⌂</strong>Home</button><button onclick="show('shop')"><strong>▦</strong>Shop</button><button onclick="openWish()"><strong>♥</strong>Wishlist</button><button onclick="showCart()"><strong>🛒</strong>Cart</button>`;document.body.appendChild(n)}
+  function addWishHeader(){const tools=document.querySelector('.header-tools');if(tools&&!$('wishHeaderBtn')){const b=document.createElement('button');b.id='wishHeaderBtn';b.className='header-tool';b.innerHTML='♥ Saved';b.onclick=openWish;tools.insertBefore(b,tools.lastElementChild)}}
+  function addDeliveryChecker(){const info=document.querySelector('#detail .detail-info .info-box');if(info&&!$('deliveryChecker')){const d=document.createElement('div');d.id='deliveryChecker';d.innerHTML=`<div class="delivery-check"><input id="checkPin" inputmode="numeric" maxlength="6" placeholder="Enter pincode"><button class="btn outline" onclick="checkDelivery()">Check</button></div><div id="pinMsg" class="muted" style="font-size:12px;margin-top:6px"></div>`;info.appendChild(d)}}
+  window.checkDelivery=function(){const p=$('checkPin')?.value.trim();const m=$('pinMsg');if(!m)return;if(!/^\d{6}$/.test(p)){m.textContent='Enter a valid 6-digit pincode.';m.style.color='#dc2626';return}m.textContent='Pincode accepted for serviceability check. Final availability is confirmed by courier at order processing.';m.style.color='#15803d'};
+
+  // Coupon: demo front-end discount only; final pricing should be revalidated server-side.
+  function injectCoupon(){const sum=$('checkoutSummary');if(sum&&!$('couponBox')){const d=document.createElement('div');d.innerHTML=`<div id="couponBox" class="coupon-box"><input id="coupon" maxlength="20" placeholder="COUPON CODE"><button class="btn outline" onclick="applyCoupon()">APPLY</button></div><div id="couponMsg" class="coupon-msg muted"></div>`;sum.appendChild(d)}}
+  window.applyCoupon=function(){const c=($('coupon')?.value||'').trim().toUpperCase();if(c==='GRO10'){discount=Math.min(500,Math.round(order.total*.10));$('couponMsg').textContent='Coupon applied: '+money(discount)+' off';$('couponMsg').style.color='#15803d'}else{discount=0;$('couponMsg').textContent='Invalid coupon code';$('couponMsg').style.color='#dc2626'}renderCheckoutSummary()};
+  function renderCheckoutSummary(){const sum=$('checkoutSummary');if(!sum)return;const subtotal=cart.reduce((s,x)=>s+x.product.price*x.qty,0);order.total=subtotal;const final=Math.max(0,subtotal-discount);sum.innerHTML=`<h2>Order Summary</h2>${cart.map(x=>`<div class="summary-row"><span>${x.product.name} × ${x.qty}</span><strong>${money(x.product.price*x.qty)}</strong></div>`).join('')}<div class="summary-row"><span>Subtotal</span><strong>${money(subtotal)}</strong></div>${discount?`<div class="summary-row"><span>Discount</span><strong style="color:#15803d">−${money(discount)}</strong></div>`:''}<div class="summary-row total"><span>Total</span><strong>${money(final)}</strong></div>`;injectCoupon()}
+
+  // Enhance checkout flow with step indicator and persistent form values.
+  const oldPrepare=window.prepareCheckout;
+  window.prepareCheckout=function(){oldPrepare();discount=0;renderCheckoutSummary();const c=$('checkout');if(c&&!$('checkoutProgress')){const pr=document.createElement('div');pr.id='checkoutProgress';pr.className='progress-wrap';pr.innerHTML='<div class="progress-step active">1. Address</div><div class="progress-step">2. Payment</div><div class="progress-step">3. Verify</div><div class="progress-step">4. Done</div>';c.querySelector('.container').prepend(pr)}};
+  const oldGoPayment=window.goPayment;
+  window.goPayment=function(){oldGoPayment();const p=$('checkoutProgress');if(p)p.innerHTML='<div class="progress-step done">✓ Address</div><div class="progress-step active">2. Payment</div><div class="progress-step">3. Verify</div><div class="progress-step">4. Done</div>';};
+
+  // Better payment display: coupon-aware total, while preserving the original UPI flow.
+  const oldRenderPayment=window.renderPayment;
+  window.renderPayment=function(){order.total=Math.max(0,cart.reduce((s,x)=>s+x.product.price*x.qty,0)-discount);oldRenderPayment();if(discount){const note=document.createElement('div');note.className='payment-note';note.innerHTML='<strong>Discount applied:</strong> '+money(discount)+' off';$('paymentSummary').prepend(note)}};
+
+  // Local order persistence for this browser only. It does not create server-side tracking.
+  const oldShowSuccess=window.showSuccess;
+  window.showSuccess=function(){localStorage.setItem(KEY_ORDER,JSON.stringify(order));oldShowSuccess();const p=$('checkoutProgress');if(p)p.innerHTML='<div class="progress-step done">✓ Address</div><div class="progress-step done">✓ Payment</div><div class="progress-step done">✓ Verify</div><div class="progress-step active">4. Done</div>';saveCart();};
+  const oldTrack=window.trackOrder;
+  window.trackOrder=function(){const id=$('trackId')?.value.trim();const saved=JSON.parse(localStorage.getItem(KEY_ORDER)||'null');if(saved&&id===saved.id){$('trackingResult').innerHTML=`<div class="timeline"><div class="step done"><div class="step-icon">✓</div><div><h4>Order Placed</h4><p>${saved.id}</p></div></div><div class="step done"><div class="step-icon">✓</div><div><h4>Payment Status</h4><p>${saved.status}</p></div></div><div class="step"><div class="step-icon">3</div><div><h4>Processing</h4><p>Order will move forward after verification.</p></div></div><div class="step"><div class="step-icon">4</div><div><h4>Shipped</h4><p>Courier handover.</p></div></div><div class="step"><div class="step-icon">5</div><div><h4>Delivered</h4><p>Delivery confirmation.</p></div></div></div>`}else oldTrack()};
+
+  // Search now supports category keywords and empty-state message.
+  const oldSearch=window.searchProducts;
+  window.searchProducts=function(){const q=($('search')?.value||'').toLowerCase().trim();const list=Object.values(PRODUCTS).filter(p=>[p.name,p.description,p.category].join(' ').toLowerCase().includes(q));$('shopProducts').innerHTML=list.length?list.map(card).join(''):`<div class="card" style="grid-column:1/-1;padding:45px;text-align:center"><h2>No products found</h2><p class="muted">Try Ultimate, Supreme+, DoubleDeck or clear the search.</p></div>`;show('shop')};
+
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeWish();closeModal()}});
+  window.addEventListener('load',()=>{restoreCart();addMobileNav();addWishHeader();addAgeGate();});
+  // Keep the existing product detail hook and add the delivery checker after it runs.
+  const oldOpenProduct=window.openProduct;
+  window.openProduct=function(id){oldOpenProduct(id);setTimeout(addDeliveryChecker,0)};
+  // Persist address fields while typing, useful on mobile refreshes.
+  ['name','mobile','address','pin'].forEach(id=>document.addEventListener('input',e=>{if(e.target.id===id)localStorage.setItem('gro_'+id,e.target.value)}));
+})();
+</script>
+
 </body>
-  </html>
+ </html>
