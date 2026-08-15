@@ -1,370 +1,3832 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Grow Extender — Premium Traction Device Models">
-<title>Grow Extender | Choose Your Model</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="GRO Premium Wellness Store">
+<title>GRO — Premium Wellness Store</title>
+
 <style>
-:root{--navy:#071a36;--blue:#1457a6;--sky:#eaf4ff;--ink:#0c1930;--muted:#617089;--line:#dfe7f1;--yellow:#ffd33d;--green:#28a745;--red:#dc3545;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#f7faff;line-height:1.5}
-a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;text-align:center;padding:10px;font-size:13px}.nav{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:20}.logo{font-size:25px;font-weight:800;letter-spacing:-.7px}.logo span{display:block;font-size:11px;letter-spacing:3px;color:#718099;font-weight:500}.links{display:flex;gap:28px;font-size:15px}.links a:hover{color:var(--blue)}.btn{display:inline-block;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;border:0;cursor:pointer;text-align:center;width:100%}.btn.gold{background:var(--yellow);color:#081a35}.btn.green{background:var(--green)}.btn.red{background:var(--red)}.hero{background:linear-gradient(115deg,#06152c,#0d3768 60%,#09213f);color:#fff;padding:60px 7%;text-align:center}.hero h1{font-size:clamp(32px,4vw,52px);margin:10px 0}.hero p{font-size:18px;color:#d9e7f7;max-width:700px;margin:auto}.section{padding:50px 7%;max-width:1250px;margin:auto}.center{text-align:center}.center h2{font-size:36px;margin:0 0 10px}.muted{color:var(--muted)}
-.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:35px}.product-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 25px rgba(0,0,0,.05);display:flex;flex-direction:column;justify-content:space-between;transition:.3s}.product-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.1)}.product-img{width:100%;height:260px;object-fit:cover;border-radius:12px;background:#f0f4f8}.product-title{font-size:20px;font-weight:700;margin:15px 0 8px}.product-desc{font-size:13px;color:var(--muted);margin-bottom:15px;flex-grow:1;text-align:left}.product-desc ol{padding-left:18px;margin:8px 0}.product-desc li{margin-bottom:5px}.price-tag{font-size:28px;font-weight:800;color:var(--navy);margin-bottom:10px}
-.qty-control{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:15px}.qty-btn{background:var(--sky);border:1px solid var(--line);width:32px;height:32px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:16px;color:var(--navy)}.qty-value{font-size:16px;font-weight:bold;width:25px;text-align:center}
-.policy-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}.policy-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}.policy-card h3{margin-top:0;color:var(--navy)}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:100;justify-content:center;align-items:center;padding:20px}.modal-content{background:#fff;padding:30px;border-radius:20px;max-width:560px;width:100%;position:relative;max-height:92vh;overflow-y:auto}.close-btn{position:absolute;top:15px;right:20px;font-size:24px;cursor:pointer;color:#888}.form-group{margin-bottom:15px;text-align:left}.form-group label{display:block;font-size:13px;font-weight:700;margin-bottom:5px;color:var(--ink)}.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-size:14px;outline:none}
-.payment-box{background:var(--sky);border:1px solid #b3d7ff;padding:15px;border-radius:10px;margin-top:15px}.payment-option{padding:12px;background:#fff;border:1px solid var(--line);border-radius:9px;margin-top:8px;cursor:pointer}.payment-option.active{border:2px solid var(--blue);background:#f7fbff}.cod-warning{background:#fff3cd;border:1px solid #ffe8a1;color:#856404;padding:10px;border-radius:8px;font-size:12px;margin-top:8px}.qr-box{display:none;margin-top:15px;text-align:center;background:#fff;border:1px dashed #5f259f;padding:15px;border-radius:10px}.qr-box img{width:220px;max-width:100%;border:1px solid #ddd;border-radius:8px}.utr-help{font-size:12px;color:#617089}.status-box{margin-top:15px;padding:13px;border-radius:9px;display:none}.status-success{display:block;background:#eaf8ee;color:#176b31;border:1px solid #bce5c7}.status-failed{display:block;background:#fff0f0;color:#9e2222;border:1px solid #efb4b4}.status-pending{display:block;background:#fff8e6;color:#805d00;border:1px solid #f0d48a}.order-summary{background:#f8fafc;border:1px solid var(--line);padding:13px;border-radius:9px;margin:10px 0}.summary-row{display:flex;justify-content:space-between;gap:10px;margin:5px 0}.footer{background:#06142a;color:#cbd7e6;padding:40px 7%;font-size:14px;text-align:center;margin-top:50px}.footer a{color:#8fd0ff;text-decoration:underline;font-weight:bold}.footer-contact{margin-top:15px;padding-top:15px;border-top:1px solid #1a2f4c;display:flex;flex-direction:column;gap:8px;align-items:center}
-@media(max-width:900px){.product-grid,.policy-grid{grid-template-columns:1fr}.links{display:none}}
-</style>
+:root{
+ --nav:#07111f;
+ --nav2:#0d1a2d;
+ --blue:#1769e8;
+ --blue2:#0b56c7;
+ --yellow:#ffb000;
+ --green:#16a34a;
+ --red:#dc2626;
+ --purple:#6d28d9;
+ --bg:#f4f6f9;
+ --white:#fff;
+ --text:#172033;
+ --muted:#667085;
+ --line:#e3e8ef;
+ --shadow:0 8px 30px rgba(16,24,40,.08);
+ --shadow2:0 18px 55px rgba(16,24,40,.12);
+ --radius:14px;
+}
 
-<style id="product-navigation-css">
-#productExplorer{max-width:1120px;margin:24px auto;padding:0 16px}
-.pe-card{background:#fff;border:1px solid #dfe7f1;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(7,26,54,.10)}
-.pe-cover{position:relative;cursor:pointer}
-.pe-cover img{display:block;width:100%;height:330px;object-fit:cover}
-.pe-cover-overlay{position:absolute;inset:auto 0 0;padding:34px 22px 20px;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#fff}
-.pe-cover-overlay h2{margin:0 0 5px;font-size:26px}
-.pe-cover-overlay p{margin:0;font-size:14px}
-.pe-page{display:none;padding:22px}
-.pe-page.active{display:block}
-.pe-back{border:0;border-radius:10px;padding:10px 15px;background:#eef4ff;color:#071a36;font-weight:800;cursor:pointer;margin-bottom:16px}
-.pe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pe-product{border:1px solid #dfe7f1;border-radius:17px;overflow:hidden;background:#fff;box-shadow:0 5px 18px rgba(7,26,54,.07);cursor:pointer;transition:.2s}
-.pe-product:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(7,26,54,.13)}
-.pe-product img{display:block;width:100%;height:190px;object-fit:cover}
-.pe-product-info{padding:14px}
-.pe-product-info h3{margin:0 0 6px;font-size:17px;color:#071a36}
-.pe-price{font-weight:900;font-size:19px;color:#1457a6}
-.pe-detail{display:none}
-.pe-detail.active{display:block}
-.pe-detail-img{width:100%;max-height:380px;object-fit:contain;border-radius:15px;background:#f7faff}
-.pe-detail h2{color:#071a36;margin:16px 0 8px}
-.pe-detail p{color:#617089;line-height:1.6}
-.pe-buy{border:0;border-radius:12px;background:#1457a6;color:#fff;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer}
-@media(max-width:750px){.pe-grid{grid-template-columns:1fr 1fr}.pe-cover img{height:250px}}
-@media(max-width:520px){.pe-grid{grid-template-columns:1fr}.pe-cover img{height:220px}.pe-cover-overlay h2{font-size:21px}}
-</style>
+*{box-sizing:border-box}
 
+html{scroll-behavior:smooth}
+
+body{
+ margin:0;
+ background:var(--bg);
+ color:var(--text);
+ font-family:Arial,Helvetica,sans-serif
+}
+
+button,input,select,textarea{font:inherit}
+
+button{cursor:pointer}
+
+a{
+ text-decoration:none;
+ color:inherit
+}
+
+img{
+ max-width:100%
+}
+
+/* ================= TOP ================= */
+
+.topbar{
+ background:#050b14;
+ color:#dbe5f2;
+ text-align:center;
+ padding:7px 12px;
+ font-size:12px
+}
+
+.header{
+ background:var(--nav);
+ color:#fff;
+ position:sticky;
+ top:0;
+ z-index:1000;
+ box-shadow:0 2px 15px rgba(0,0,0,.2)
+}
+
+.header-main{
+ max-width:1500px;
+ margin:auto;
+ min-height:68px;
+ padding:10px 22px;
+ display:flex;
+ align-items:center;
+ gap:18px
+}
+
+.logo{
+ font-size:29px;
+ font-weight:1000;
+ white-space:nowrap;
+ letter-spacing:-1px
+}
+
+.logo span{color:var(--yellow)}
+
+.search{
+ height:44px;
+ flex:1;
+ max-width:720px;
+ display:flex;
+ background:#fff;
+ border-radius:8px;
+ overflow:hidden
+}
+
+.search input{
+ flex:1;
+ border:0;
+ outline:0;
+ padding:0 15px;
+ color:#111
+}
+
+.search button{
+ width:55px;
+ border:0;
+ background:var(--yellow)
+}
+
+.header-tools{
+ margin-left:auto;
+ display:flex;
+ align-items:center;
+ gap:4px
+}
+
+.header-tool{
+ color:#fff;
+ background:transparent;
+ border:0;
+ padding:8px 10px;
+ border-radius:8px
+}
+
+.header-tool:hover{
+ background:#17263c
+}
+
+.cart-count{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ min-width:20px;
+ height:20px;
+ background:#ef4444;
+ border-radius:50%;
+ font-size:11px;
+ margin-left:3px
+}
+
+.mainnav{
+ background:var(--nav2);
+ border-top:1px solid #1b2a40
+}
+
+.mainnav-inner{
+ max-width:1500px;
+ margin:auto;
+ padding:9px 22px;
+ display:flex;
+ gap:27px;
+ overflow:auto
+}
+
+.mainnav button{
+ border:0;
+ background:none;
+ color:#edf2f7;
+ white-space:nowrap
+}
+
+.mainnav button:hover{
+ color:#ffca38
+}
+
+/* ================= GENERAL ================= */
+
+.container{
+ max-width:1500px;
+ margin:auto;
+ padding:24px 22px
+}
+
+.screen{display:none}
+
+.screen.active{display:block}
+
+.btn{
+ border:0;
+ border-radius:9px;
+ padding:12px 18px;
+ font-weight:800;
+ transition:.15s
+}
+
+.btn:hover{
+ transform:translateY(-1px)
+}
+
+.primary{
+ background:var(--blue);
+ color:#fff
+}
+
+.primary:hover{background:var(--blue2)}
+
+.yellow{
+ background:var(--yellow);
+ color:#111
+}
+
+.green{
+ background:var(--green);
+ color:#fff
+}
+
+.dark{
+ background:#111827;
+ color:#fff
+}
+
+.outline{
+ background:#fff;
+ color:var(--text);
+ border:1px solid #d7dee8
+}
+
+.danger{
+ background:var(--red);
+ color:#fff
+}
+
+.full{width:100%}
+
+.card{
+ background:#fff;
+ border:1px solid #e7ebf0;
+ border-radius:var(--radius);
+ box-shadow:var(--shadow)
+}
+
+.muted{
+ color:var(--muted)
+}
+
+.page-title{
+ margin:0;
+ font-size:30px
+}
+
+.breadcrumb{
+ color:var(--muted);
+ font-size:13px;
+ margin-bottom:15px
+}
+
+.section-head{
+ margin:35px 0 17px;
+ display:flex;
+ align-items:end;
+ justify-content:space-between;
+ gap:15px
+}
+
+.section-head h2{
+ margin:0;
+ font-size:25px
+}
+
+/* ================= HERO ================= */
+
+.hero{
+ min-height:490px;
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ border-radius:22px;
+ overflow:hidden;
+ background:
+ radial-gradient(circle at 75% 30%,#27466e 0,#12253f 28%,#07111f 65%);
+ color:#fff;
+ box-shadow:var(--shadow2)
+}
+
+.hero-content{
+ padding:60px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center
+}
+
+.badge{
+ display:inline-block;
+ width:max-content;
+ padding:7px 12px;
+ border-radius:30px;
+ background:rgba(255,255,255,.09);
+ border:1px solid rgba(255,255,255,.14);
+ font-size:11px;
+ font-weight:900;
+ letter-spacing:.5px
+}
+
+.hero h1{
+ font-size:56px;
+ line-height:1.02;
+ letter-spacing:-2px;
+ margin:18px 0
+}
+
+.hero p{
+ max-width:620px;
+ color:#c8d4e3;
+ line-height:1.8;
+ font-size:16px
+}
+
+.hero-actions{
+ display:flex;
+ gap:10px;
+ margin-top:23px
+}
+
+.hero-image{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:25px;
+ background:linear-gradient(135deg,#142b4b,#07101c)
+}
+
+.hero-image img{
+ width:100%;
+ height:430px;
+ object-fit:contain
+}
+
+/* ================= TRUST ================= */
+
+.trust-grid{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:13px;
+ margin-top:18px
+}
+
+.trust{
+ padding:17px;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:13px;
+ display:flex;
+ gap:12px;
+ align-items:center
+}
+
+.trust-icon{
+ font-size:25px
+}
+
+.trust strong{
+ display:block;
+ font-size:13px
+}
+
+.trust small{
+ display:block;
+ color:var(--muted);
+ margin-top:3px
+ }
+
+/* ================= CATEGORY ================= */
+
+.category-grid{
+ display:grid;
+ grid-template-columns:repeat(6,1fr);
+ gap:14px
+}
+
+.category{
+ padding:25px 12px;
+ text-align:center;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:14px;
+ transition:.2s
+}
+
+.category:hover{
+ transform:translateY(-3px);
+ box-shadow:var(--shadow)
+}
+
+.category-icon{
+ font-size:33px;
+ margin-bottom:10px
+}
+
+.category strong{
+ display:block;
+ font-size:13px
+}
+
+/* ================= PRODUCT ================= */
+
+.products{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:18px
+}
+
+.product{
+ overflow:hidden;
+ position:relative
+}
+
+.product-img{
+ height:285px;
+ background:#f0f2f5;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ position:relative
+}
+
+.product-img img{
+ width:100%;
+ height:100%;
+ object-fit:contain
+}
+
+.sale{
+ position:absolute;
+ top:10px;
+ left:10px;
+ background:#e11d48;
+ color:#fff;
+ padding:6px 8px;
+ border-radius:5px;
+ font-size:11px;
+ font-weight:900
+}
+
+.wishlist{
+ position:absolute;
+ right:10px;
+ top:10px;
+ width:35px;
+ height:35px;
+ border:0;
+ border-radius:50%;
+ background:#fff;
+ box-shadow:0 3px 12px #0002
+}
+
+.product-body{
+ padding:17px
+}
+
+.stars{
+ color:#f59e0b;
+ font-size:13px
+}
+
+.product-name{
+ margin-top:7px;
+ font-size:16px;
+ font-weight:850;
+ line-height:1.4;
+ min-height:45px
+}
+
+.product-price{
+ margin-top:10px;
+ font-size:23px;
+ font-weight:950
+}
+
+.old{
+ color:#8993a3;
+ text-decoration:line-through;
+ font-size:13px;
+ margin-right:6px;
+ font-weight:normal
+}
+
+.product-meta{
+ font-size:12px;
+ color:var(--muted);
+ margin-top:7px
+}
+
+.product-actions{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:8px;
+ margin-top:14px
+}
+
+/* ================= FILTER ================= */
+
+.shop-toolbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:15px;
+ margin-bottom:18px;
+ flex-wrap:wrap
+}
+
+.filters{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap
+}
+
+.filter{
+ padding:9px 14px;
+ border:1px solid var(--line);
+ background:#fff;
+ border-radius:20px
+}
+
+.filter.active{
+ background:#eaf2ff;
+ color:var(--blue);
+ border-color:#bcd4ff
+}
+
+.sort{
+ padding:10px;
+ border:1px solid var(--line);
+ border-radius:8px;
+ background:#fff
+}
+
+/* ================= PRODUCT DETAIL ================= */
+
+.detail-grid{
+ display:grid;
+ grid-template-columns:1.05fr .95fr;
+ gap:25px
+}
+
+.gallery{
+ padding:16px
+}
+
+.main-image{
+ height:535px;
+ border-radius:13px;
+ background:#f1f3f6;
+ display:flex;
+ align-items:center;
+ justify-content:center
+}
+
+.main-image img{
+ width:100%;
+ height:100%;
+ object-fit:contain
+}
+
+.thumbs{
+ display:flex;
+ gap:8px;
+ overflow:auto;
+ margin-top:12px
+}
+
+.thumb{
+ flex:0 0 80px;
+ height:80px;
+ padding:3px;
+ border-radius:8px;
+ border:2px solid transparent;
+ background:#f1f3f6
+}
+
+.thumb.active{
+ border-color:var(--blue)
+}
+
+.thumb img{
+ width:100%;
+ height:100%;
+ object-fit:contain
+}
+
+.detail-info{
+ padding:28px
+}
+
+.detail-title{
+ font-size:32px;
+ line-height:1.2;
+ margin:10px 0
+}
+
+.detail-price{
+ font-size:35px;
+ font-weight:950;
+ margin:14px 0
+}
+
+.detail-rating{
+ display:flex;
+ gap:10px;
+ align-items:center;
+ margin:12px 0
+}
+
+.feature-list{
+ line-height:1.9;
+ color:#475467
+}
+
+.quantity{
+ display:flex;
+ align-items:center;
+ width:max-content;
+ border:1px solid var(--line);
+ border-radius:9px;
+ overflow:hidden;
+ margin:20px 0
+}
+
+.quantity button{
+ width:44px;
+ height:44px;
+ border:0;
+ background:#f2f4f7;
+ font-size:20px
+}
+
+.quantity span{
+ width:48px;
+ text-align:center;
+ font-weight:900
+}
+
+.detail-buttons{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px
+}
+
+.info-box{
+ border-top:1px solid var(--line);
+ padding-top:17px;
+ margin-top:18px
+}
+
+.claim{
+ background:#fff8df;
+ border:1px solid #eed26b;
+ padding:16px;
+ border-radius:10px;
+ line-height:1.7;
+ font-size:13px;
+ margin-top:20px
+}
+
+/* ================= REVIEWS ================= */
+
+.review-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px
+}
+
+.review{
+ padding:20px
+}
+
+.review-top{
+ display:flex;
+ justify-content:space-between;
+ margin-bottom:10px
+}
+
+.verified{
+ color:var(--green);
+ font-size:11px
+}
+
+/* ================= FAQ ================= */
+
+.faq{
+ border-bottom:1px solid var(--line)
+}
+
+.faq button{
+ width:100%;
+ padding:18px 0;
+ background:none;
+ border:0;
+ display:flex;
+ justify-content:space-between;
+ text-align:left;
+ font-weight:800
+}
+
+.faq-content{
+ display:none;
+ padding:0 0 17px;
+ color:var(--muted);
+ line-height:1.7
+}
+
+/* ================= CART ================= */
+
+.cart-layout{
+ display:grid;
+ grid-template-columns:1fr 370px;
+ gap:22px
+}
+
+.cart-list{
+ padding:20px
+}
+
+.cart-item{
+ display:grid;
+ grid-template-columns:100px 1fr auto;
+ gap:15px;
+ padding:15px 0;
+ border-bottom:1px solid var(--line)
+}
+
+.cart-item img{
+ width:100px;
+ height:100px;
+ object-fit:contain;
+ background:#f3f4f6;
+ border-radius:8px
+}
+
+.cart-item h3{
+ margin:5px 0
+}
+
+.cart-summary{
+ padding:22px;
+ height:max-content
+}
+
+.summary-row{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ padding:10px 0;
+ border-bottom:1px solid #edf0f3;
+ font-size:14px
+}
+
+.total{
+ font-size:21px;
+ font-weight:950
+}
+
+/* ================= CHECKOUT ================= */
+
+.checkout{
+ display:grid;
+ grid-template-columns:1fr 390px;
+ gap:22px
+}
+
+.form-card{
+ padding:25px
+}
+
+.form-title{
+ margin:0 0 20px
+}
+
+.form-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px
+}
+
+.form-group{
+ margin-bottom:15px
+}
+
+.form-group.full-row{
+ grid-column:1/-1
+}
+
+.form-group label{
+ display:block;
+ font-size:13px;
+ font-weight:800;
+ margin-bottom:6px
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+ width:100%;
+ border:1px solid #d5dce6;
+ border-radius:8px;
+ padding:12px;
+ outline:0;
+ background:#fff
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+ border-color:var(--blue)
+}
+
+.summary-card{
+ padding:22px;
+ height:max-content;
+ position:sticky;
+ top:140px
+}
+
+/* ================= PAYMENT ================= */
+
+.payment-grid{
+ display:grid;
+ grid-template-columns:1fr 400px;
+ gap:22px
+}
+
+.payment-box{
+ padding:25px
+}
+
+.payment-option{
+ padding:17px;
+ border:2px solid #e0e5ec;
+ border-radius:12px;
+ margin-bottom:12px
+}
+
+.payment-option.active{
+ border-color:var(--blue);
+ background:#f5f9ff
+}
+
+.payment-option label{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ font-weight:900
+}
+
+.payment-help{
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.7;
+ margin:8px 0 0 26px
+}
+
+.upi-box{
+ padding:16px;
+ background:#ecfdf3;
+ color:#166534;
+ border-radius:10px;
+ margin-top:15px;
+ font-size:13px;
+ line-height:1.7
+}
+
+.payment-note{
+ padding:14px;
+ background:#fff8db;
+ color:#665500;
+ border-radius:10px;
+ font-size:13px;
+ line-height:1.7;
+ margin-top:15px
+}
+
+.qr{
+ text-align:center;
+ background:#f7f8fa;
+ padding:18px;
+ border-radius:12px;
+ margin-top:15px
+}
+
+.qr img{
+ width:200px;
+ height:200px;
+ object-fit:contain;
+ background:#fff
+}
+
+/* ================= TRACKING ================= */
+
+.track-card{
+ max-width:800px;
+ margin:20px auto;
+ padding:30px
+}
+
+.track-input{
+ display:flex;
+ gap:10px
+}
+
+.track-input input{
+ flex:1;
+ padding:13px;
+ border:1px solid var(--line);
+ border-radius:8px
+}
+
+.timeline{
+ margin-top:35px
+}
+
+.step{
+ display:flex;
+ gap:15px;
+ margin-bottom:24px
+}
+
+.step-icon{
+ width:40px;
+ height:40px;
+ border-radius:50%;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ background:#e9edf3;
+ flex:0 0 40px
+}
+
+.step.done .step-icon{
+ background:#dcfce7;
+ color:#15803d
+}
+
+.step h4{
+ margin:2px 0 5px
+}
+
+.step p{
+ margin:0;
+ color:var(--muted);
+ font-size:13px
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+ display:none;
+ position:fixed;
+ inset:0;
+ background:#0008;
+ z-index:2000;
+ align-items:center;
+ justify-content:center;
+ padding:15px
+}
+
+.modal.show{
+ display:flex
+}
+
+.modal-box{
+ width:min(600px,100%);
+ max-height:90vh;
+ overflow:auto;
+ background:#fff;
+ border-radius:15px;
+ padding:25px
+}
+
+.modal-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center
+}
+
+.close{
+ border:0;
+ background:#f1f3f5;
+ width:35px;
+ height:35px;
+ border-radius:50%
+}
+
+/* ================= FLOAT ================= */
+
+.floating{
+ position:fixed;
+ right:17px;
+ bottom:17px;
+ z-index:1500;
+ display:flex;
+ flex-direction:column;
+ gap:10px
+}
+
+.float{
+ width:56px;
+ height:56px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:50%;
+ color:#fff;
+ font-size:25px;
+ box-shadow:0 7px 25px #0004
+}
+
+.float.whatsapp{background:#22c55e}
+.float.call{background:#1769e8}
+
+/* ================= FOOTER ================= */
+
+footer{
+ background:#070e1a;
+ color:#c9d3df;
+ margin-top:60px
+}
+
+.footer{
+ max-width:1500px;
+ margin:auto;
+ padding:50px 22px;
+ display:grid;
+ grid-template-columns:2fr repeat(4,1fr);
+ gap:30px
+}
+
+.footer h3{
+ color:#fff;
+ margin-top:0
+}
+
+.footer p{
+ font-size:13px;
+ line-height:1.8
+}
+
+.footer a{
+ display:block;
+ font-size:13px;
+ margin:11px 0;
+ color:#c9d3df
+}
+
+.footer-bottom{
+ text-align:center;
+ border-top:1px solid #1d2a3d;
+ padding:17px;
+ font-size:12px
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1100px){
+
+.trust-grid{
+ grid-template-columns:repeat(3,1fr)
+}
+
+.category-grid{
+ grid-template-columns:repeat(3,1fr)
+}
+
+.products{
+ grid-template-columns:repeat(3,1fr)
+}
+
+.footer{
+ grid-template-columns:2fr 1fr 1fr
+}
+
+}
+
+@media(max-width:800px){
+
+.header-main{
+ flex-wrap:wrap;
+ padding:10px 13px
+}
+
+.search{
+ order:3;
+ flex-basis:100%
+}
+
+.hero{
+ grid-template-columns:1fr
+}
+
+.hero-image{
+ display:none
+}
+
+.hero-content{
+ padding:40px 25px
+}
+
+.hero h1{
+ font-size:43px
+}
+
+.trust-grid{
+ grid-template-columns:1fr 1fr
+}
+
+.products{
+ grid-template-columns:1fr 1fr
+}
+
+.detail-grid{
+ grid-template-columns:1fr
+}
+
+.main-image{
+ height:390px
+}
+
+.checkout,
+.payment-grid,
+.cart-layout{
+ grid-template-columns:1fr
+}
+
+.summary-card{
+ position:static
+}
+
+.review-grid{
+ grid-template-columns:1fr
+}
+
+.footer{
+ grid-template-columns:1fr 1fr
+}
+
+}
+
+@media(max-width:520px){
+
+.container{
+ padding:16px 12px
+}
+
+.logo{
+ font-size:23px
+}
+
+.header-tools .header-tool:nth-child(1),
+.header-tools .header-tool:nth-child(2){
+ display:none
+}
+
+.hero h1{
+ font-size:35px
+}
+
+.hero-actions{
+ flex-direction:column
+}
+
+.trust-grid,
+.category-grid,
+.products{
+ grid-template-columns:1fr 1fr
+}
+
+.product-img{
+ height:245px
+}
+
+.detail-title{
+ font-size:27px
+}
+
+.detail-price{
+ font-size:29px
+}
+
+.detail-buttons{
+ grid-template-columns:1fr
+}
+
+.form-grid{
+ grid-template-columns:1fr
+}
+
+.form-group.full-row{
+ grid-column:auto
+}
+
+.footer{
+ grid-template-columns:1fr
+}
+
+.cart-item{
+ grid-template-columns:75px 1fr
+}
+
+.cart-item img{
+ width:75px;
+ height:75px
+}
+
+.cart-item > div:last-child{
+ grid-column:2
+}
+
+.track-input{
+ flex-direction:column
+}
+
+}
+</style>
 </head>
+
 <body>
-<div class="top">🔒 100% Discreet Packaging &nbsp; • &nbsp; 🚚 Fast Shipping Across India &nbsp; • &nbsp; 🛡️ Safe & Secure</div>
 
-<nav class="nav">
-<a class="logo" href="#">Grow Extender<span>PENILE TRACTION DEVICE</span></a>
-<div class="links"><a href="#products">Products</a><a href="#policy">Policies</a><a href="#faq">FAQ</a></div>
-</nav>
+<!-- TOP BAR -->
+<div class="topbar">
+🔒 Secure Checkout &nbsp; • &nbsp; 🚚 Serviceable Delivery &nbsp; • &nbsp; 🔞 18+ Only
+</div>
+
+<!-- HEADER -->
+<header class="header">
+
+<div class="header-main">
+
+<div class="logo">
+GRO <span>Extender</span>
+</div>
+
+<div class="search">
+<input
+id="search"
+placeholder="Search products..."
+oninput="searchProducts()">
+<button onclick="searchProducts()">🔍</button>
+</div>
+
+<div class="header-tools">
+
+<button class="header-tool" onclick="show('home')">
+⌂ Home
+</button>
+
+<button class="header-tool" onclick="show('shop')">
+Shop
+</button>
+
+<button class="header-tool" onclick="show('tracking')">
+Track
+</button>
+
+<button class="header-tool" onclick="showCart()">
+🛒 <span id="cartCount" class="cart-count">0</span>
+</button>
+
+</div>
+
+</div>
+
+<div class="mainnav">
+
+<div class="mainnav-inner">
+
+<button onclick="show('shop')">All Products</button>
+<button onclick="category('ultimate')">Ultimate</button>
+<button onclick="category('supreme')">Supreme+</button>
+<button onclick="category('doubledeck')">DoubleDeck</button>
+<button onclick="scrollInfo()">Why GRO?</button>
+<button onclick="show('tracking')">Order Tracking</button>
+<button onclick="openPolicy('shipping')">Shipping</button>
+<button onclick="openPolicy('return')">Return Policy</button>
+
+</div>
+
+</div>
+
+</header>
 
 
-<section id="productExplorer">
-  <div class="pe-card">
-    <!-- FIRST PHOTO: tap this to open the SECOND PAGE -->
-    <div class="pe-cover" onclick="peOpenPage('peProducts')" role="button" tabindex="0"
-         onkeydown="if(event.key==='Enter'||event.key===' '){peOpenPage('peProducts')}">
-      <img src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png" alt="Gro Extender Collection">
-      <div class="pe-cover-overlay">
-        <h2>Gro Extender Collection</h2>
-        <p>Tap the photo to explore products →</p>
-      </div>
-    </div>
+<!-- ================= HOME ================= -->
 
-    <!-- SECOND PAGE: separate products -->
-    <div id="peProducts" class="pe-page">
-      <button class="pe-back" type="button" onclick="peHome()">← Back</button>
-      <h2 style="margin:0 0 5px;color:#071a36">Choose Your Product</h2>
-      <p style="color:#617089;margin-top:0">Tap any product to open its details.</p>
+<section id="home" class="screen active">
 
-      <div class="pe-grid">
-        <article class="pe-product" onclick="peOpenDetail(0)">
-          <img src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png" alt="ProExtender Ultimate Model">
-          <div class="pe-product-info"><h3>ProExtender® Ultimate Model</h3><div class="pe-price">₹3,499</div></div>
-        </article>
-        <article class="pe-product" onclick="peOpenDetail(1)">
-          <img src="Gemini_Generated_Image_unscx2unscx2unsc.png" alt="ProExtender Supreme Plus Model">
-          <div class="pe-product-info"><h3>ProExtender® Supreme+ Model</h3><div class="pe-price">₹4,499</div></div>
-        </article>
-        <article class="pe-product" onclick="peOpenDetail(2)">
-          <img src="Gemini_Generated_Image_bezw1nbezw1nbezw.png" alt="ProExtender DoubleDeck Model">
-          <div class="pe-product-info"><h3>ProExtender® DoubleDeck Model</h3><div class="pe-price">₹5,950</div></div>
-        </article>
-      </div>
-    </div>
+<div class="container">
 
-    <!-- THIRD LEVEL: product details -->
-    <div id="peDetail" class="pe-page pe-detail">
-      <button class="pe-back" type="button" onclick="peProducts()">← Back to Products</button>
-      <img id="peDetailImg" class="pe-detail-img" src="" alt="Product">
-      <h2 id="peDetailTitle"></h2>
-      <p id="peDetailText"></p>
-      <div id="peDetailPrice" class="pe-price" style="margin:10px 0 16px"></div>
-      <button id="peBuyButton" class="pe-buy" type="button">Buy Now</button>
-    </div>
-  </div>
+<div class="hero">
+
+<div class="hero-content">
+
+<span class="badge">
+PREMIUM ADULT WELLNESS COLLECTION
+</span>
+
+<h1>
+Premium Design.<br>
+Smart Shopping.<br>
+GRO.
+</h1>
+
+<p>
+Discover the GRO collection with premium
+components, adjustable configurations and
+a professional shopping experience designed
+for adult customers.
+</p>
+
+<div class="hero-actions">
+
+<button
+class="btn yellow"
+onclick="show('shop')">
+SHOP NOW
+</button>
+
+<button
+class="btn outline"
+onclick="scrollInfo()">
+EXPLORE
+</button>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img
+src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png"
+alt="GRO Extender">
+
+</div>
+
+</div>
+
+
+<!-- TRUST -->
+
+<div class="trust-grid">
+
+<div class="trust">
+<div class="trust-icon">🚚</div>
+<div>
+<strong>Secure Delivery</strong>
+<small>Serviceable locations</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">🔐</div>
+<div>
+<strong>UPI Checkout</strong>
+<small>UPI app chooser</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">💳</div>
+<div>
+<strong>COD Available</strong>
+<small>₹239 advance</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">📞</div>
+<div>
+<strong>Direct Support</strong>
+<small>Call & WhatsApp</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">🔞</div>
+<div>
+<strong>18+ Product</strong>
+<small>Adults only</small>
+</div>
+</div>
+
+</div>
+
+
+<!-- CATEGORIES -->
+
+<div class="section-head">
+<h2>Shop by Category</h2>
+</div>
+
+<div class="category-grid">
+
+<div class="category" onclick="category('ultimate')">
+<div class="category-icon">⭐</div>
+<strong>Ultimate</strong>
+</div>
+
+<div class="category" onclick="category('supreme')">
+<div class="category-icon">👑</div>
+<strong>Supreme+</strong>
+</div>
+
+<div class="category" onclick="category('doubledeck')">
+<div class="category-icon">⚙️</div>
+<strong>DoubleDeck</strong>
+</div>
+
+<div class="category" onclick="show('shop')">
+<div class="category-icon">🔥</div>
+<strong>Best Sellers</strong>
+</div>
+
+<div class="category" onclick="show('shop')">
+<div class="category-icon">✨</div>
+<strong>Premium</strong>
+</div>
+
+<div class="category" onclick="show('shop')">
+<div class="category-icon">🛍️</div>
+<strong>All Products</strong>
+</div>
+
+</div>
+
+
+<!-- FEATURED -->
+
+<div class="section-head">
+<h2>Featured Products</h2>
+
+<button class="btn outline" onclick="show('shop')">
+View All →
+</button>
+
+</div>
+
+<div id="homeProducts" class="products"></div>
+
+
+<!-- INFO -->
+
+<div id="info">
+
+<div class="section-head">
+<h2>Why Choose GRO?</h2>
+</div>
+
+<div class="trust-grid">
+
+<div class="trust">
+<div class="trust-icon">⚙️</div>
+<div>
+<strong>Adjustable Design</strong>
+<small>Multiple configurations</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">📱</div>
+<div>
+<strong>Mobile Friendly</strong>
+<small>Easy shopping anywhere</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">💳</div>
+<div>
+<strong>Flexible Payment</strong>
+<small>UPI / COD advance</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">💬</div>
+<div>
+<strong>Customer Support</strong>
+<small>Direct contact</small>
+</div>
+</div>
+
+<div class="trust">
+<div class="trust-icon">📦</div>
+<div>
+<strong>Order Tracking</strong>
+<small>Track your order</small>
+</div>
+</div>
+
+</div>
+
+
+<div class="section-head">
+<h2>Customer Reviews</h2>
+</div>
+
+<div class="review-grid">
+
+<div class="card review">
+
+<div class="review-top">
+<strong>Verified Customer</strong>
+<span class="verified">✓ Verified</span>
+</div>
+
+<div class="stars">★★★★★</div>
+
+<p class="muted">
+"Product presentation and ordering process
+were straightforward."
+</p>
+
+</div>
+
+<div class="card review">
+
+<div class="review-top">
+<strong>Verified Customer</strong>
+<span class="verified">✓ Verified</span>
+</div>
+
+<div class="stars">★★★★★</div>
+
+<p class="muted">
+"Easy mobile checkout and clear product
+information."
+</p>
+
+</div>
+
+<div class="card review">
+
+<div class="review-top">
+<strong>Verified Customer</strong>
+<span class="verified">✓ Verified</span>
+</div>
+
+<div class="stars">★★★★★</div>
+
+<p class="muted">
+"Support contact was easy to find."
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FAQ -->
+
+<div class="section-head">
+<h2>Frequently Asked Questions</h2>
+</div>
+
+<div class="card" style="padding:0 20px">
+
+<div class="faq">
+
+<button onclick="faq(this)">
+What payment methods are available?
+<span>＋</span>
+</button>
+
+<div class="faq-content">
+UPI is available through one UPI button.
+On compatible Android devices it may open
+the installed UPI app chooser. COD requires
+₹239 advance online payment.
+</div>
+
+</div>
+
+<div class="faq">
+
+<button onclick="faq(this)">
+Is payment automatically verified?
+<span>＋</span>
+</button>
+
+<div class="faq-content">
+A static HTML page cannot independently verify
+whether money was actually received. Real
+automatic success/failure requires an approved
+payment gateway and server-side webhook.
+</div>
+
+</div>
+
+<div class="faq">
+
+<button onclick="faq(this)">
+What is the COD condition?
+<span>＋</span>
+</button>
+
+<div class="faq-content">
+₹239 is payable online as advance. The remaining
+eligible amount is payable after delivery.
+</div>
+
+</div>
+
+<div class="faq">
+
+<button onclick="faq(this)">
+What is the return policy?
+<span>＋</span>
+</button>
+
+<div class="faq-content">
+No Return Policy. Please verify the product,
+quantity, address and payment information
+before placing an order.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="hero">
-<h1>Choose Your Grow Extender Kit</h1>
-<p>Select the right variant for your needs. Shipped in completely neutral outer packaging for privacy.</p>
+
+<!-- ================= SHOP ================= -->
+
+<section id="shop" class="screen">
+
+<div class="container">
+
+<div class="breadcrumb">
+Home / Shop
+</div>
+
+<div class="shop-toolbar">
+
+<div>
+<h1 class="page-title">All Products</h1>
+<p class="muted">Premium GRO collection</p>
+</div>
+
+<select id="sort" class="sort" onchange="sortProducts()">
+<option value="default">Sort by</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+</select>
+
+</div>
+
+<div class="filters">
+
+<button class="filter active"
+onclick="category('all',this)">
+All
+</button>
+
+<button class="filter"
+onclick="category('ultimate',this)">
+Ultimate
+</button>
+
+<button class="filter"
+onclick="category('supreme',this)">
+Supreme+
+</button>
+
+<button class="filter"
+onclick="category('doubledeck',this)">
+DoubleDeck
+</button>
+
+</div>
+
+<div style="height:18px"></div>
+
+<div id="shopProducts" class="products"></div>
+
+</div>
+
 </section>
 
-<section class="section" id="products">
-<div class="center"><h2>Available Product Models</h2><p class="muted">Detailed Specifications & Features</p></div>
-<div class="product-grid">
 
-<div class="product-card">
-<img class="product-img" src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png" alt="ProExtender Ultimate Model">
-<h3 class="product-title">ProExtender® Ultimate Model</h3>
-<div class="product-desc"><b>Features & Use:</b><ol>
-<li>A reliable enlargement device designed for consistent, everyday use.</li>
-<li>Supports both curvature correction and size enhancement.</li>
-<li>Includes 4 stainless steel rods + 3 straps.</li>
-<li>Strong, durable, and suitable for most average sizes.</li>
-<li>Made from body-safe materials with no artificial colours for comfort.</li>
-<li>For traction-style use; people with Peyronie's disease should consult a qualified clinician.</li>
-</ol></div>
-<div class="price-tag">₹3,499</div>
-<div class="qty-control"><button class="qty-btn" onclick="updateQty('qty1',-1)">-</button><span class="qty-value" id="qty1">1</span><button class="qty-btn" onclick="updateQty('qty1',1)">+</button></div>
-<button class="btn gold" onclick="openOrderModal('ProExtender® Ultimate Model',3499,'qty1')">Buy Now</button>
+<!-- ================= DETAIL ================= -->
+
+<section id="detail" class="screen">
+
+<div class="container">
+
+<div class="breadcrumb">
+Home / Shop / Product
 </div>
 
-<div class="product-card">
-<img class="product-img" src="Gemini_Generated_Image_unscx2unscx2unsc.png" alt="ProExtender Supreme Plus Model">
-<h3 class="product-title">ProExtender® Supreme+ Model (Advanced Version)</h3>
-<div class="product-desc"><b>Features & Use:</b><ol>
-<li>The most advanced and upgraded model in the range.</li>
-<li>Supports both curvature correction and size enhancement.</li>
-<li>Comes with 10 lightweight aluminium rods + 3 reinforced straps.</li>
-<li>Lighter, stronger, and more durable than the Ultimate Model.</li>
-<li>Crafted using body-safe materials with no artificial colours.</li>
-<li>Built with high-strength polycarbonate for enhanced durability and performance.</li>
-<li>For traction-style use; people with Peyronie's disease should consult a qualified clinician.</li>
-</ol></div>
-<div class="price-tag">₹4,499</div>
-<div class="qty-control"><button class="qty-btn" onclick="updateQty('qty2',-1)">-</button><span class="qty-value" id="qty2">1</span><button class="qty-btn" onclick="updateQty('qty2',1)">+</button></div>
-<button class="btn gold" onclick="openOrderModal('ProExtender® Supreme+ Model (Advanced Version)',4499,'qty2')">Buy Now</button>
+<div class="detail-grid">
+
+<div class="card gallery">
+
+<div class="main-image">
+<img id="detailImage">
 </div>
 
-<div class="product-card">
-<img class="product-img" src="Gemini_Generated_Image_bezw1nbezw1nbezw.png" alt="ProExtender DoubleDeck Micropenis Model">
-<h3 class="product-title">ProExtender® DoubleDeck/Micropenis Model</h3>
-<div class="product-desc"><b>Features & Use:</b><ol>
-<li>Specially designed for users with smaller sizes.</li>
-<li>Includes 4 stainless steel rods + 4 straps.</li>
-<li>Supports both curvature correction and size enhancement.</li>
-<li>Features an extended plate design allowing multiple straps for improved grip.</li>
-<li>Ideal for very small sizes and curvature-related conditions.</li>
-<li>Made from body-safe plastic, free from artificial colours for long-term safety.</li>
-<li>For traction-style use; people with Peyronie's disease should consult a qualified clinician.</li>
-</ol></div>
-<div class="price-tag">₹5,950</div>
-<div class="qty-control"><button class="qty-btn" onclick="updateQty('qty3',-1)">-</button><span class="qty-value" id="qty3">1</span><button class="qty-btn" onclick="updateQty('qty3',1)">+</button></div>
-<button class="btn gold" onclick="openOrderModal('ProExtender® DoubleDeck/Micropenis Model',5950,'qty3')">Buy Now</button>
+<div id="thumbs" class="thumbs"></div>
+
 </div>
+
+
+<div class="card detail-info">
+
+<span class="badge"
+style="background:#edf4ff;color:#1769e8;border-color:#d4e3ff">
+PREMIUM PRODUCT
+</span>
+
+<h1 id="detailName" class="detail-title"></h1>
+
+<div class="detail-rating">
+<span class="stars">★★★★★</span>
+<span class="muted">Premium Collection</span>
 </div>
+
+<div id="detailPrice" class="detail-price"></div>
+
+<p id="detailShort"
+class="muted"
+style="line-height:1.8">
+</p>
+
+<h3>Product Features</h3>
+
+<ul id="detailFeatures" class="feature-list"></ul>
+
+<h3>Quantity</h3>
+
+<div class="quantity">
+<button onclick="qty(-1)">−</button>
+<span id="quantity">1</span>
+<button onclick="qty(1)">+</button>
+</div>
+
+<div class="detail-buttons">
+
+<button class="btn yellow"
+onclick="buyNow()">
+BUY NOW
+</button>
+
+<button class="btn primary"
+onclick="addCart()">
+🛒 ADD TO CART
+</button>
+
+</div>
+
+<div class="info-box">
+
+<div class="summary-row">
+<span>🚚 Delivery</span>
+<strong>Check pincode</strong>
+</div>
+
+<div class="summary-row">
+<span>💳 Payment</span>
+<strong>UPI / COD Advance</strong>
+</div>
+
+<div class="summary-row">
+<span>🔞 Age</span>
+<strong>18+ only</strong>
+</div>
+
+<div class="summary-row">
+<span>↩ Return</span>
+<strong>No Return Policy</strong>
+</div>
+
+</div>
+
+<div class="claim">
+
+<strong>Important product information</strong>
+
+<p>
+Any enlargement, curvature correction or
+performance-related results mentioned in
+promotional material should be understood
+as manufacturer/product claims and are not
+guaranteed medical outcomes.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section-head">
+<h2>Product Information</h2>
+</div>
+
+<div class="card" style="padding:25px;line-height:1.8">
+
+<h3>Product Description</h3>
+
+<p class="muted">
+GRO products are designed as adult wellness
+devices with adjustable components and
+multiple fitting configurations.
+</p>
+
+<h3>Usage</h3>
+
+<p class="muted">
+Follow the manufacturer's supplied instructions.
+Do not exceed recommended usage or force.
+Stop use if discomfort or injury occurs.
+</p>
+
+<h3>Delivery</h3>
+
+<p class="muted">
+Delivery depends on courier serviceability,
+correct address and pincode information.
+</p>
+
+<h3>Return Policy</h3>
+
+<p class="muted">
+No Return Policy. Confirm your product and
+order details before payment.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" id="policy" style="padding-top:0">
-<div class="policy-grid">
-<div class="policy-card"><h3>🚚 Delivery Rules & Privacy</h3><p class="muted" style="font-size:14px">• <b>Discreet Delivery:</b> Neutral outer packaging with no product name or logo printed on the box.<br>• <b>Shipping Time:</b> Orders are processed and delivered within 3 to 5 working days.</p></div>
-<div class="policy-card"><h3>🚫 Return & Refund Policy</h3><p class="muted" style="font-size:14px">• <b>No Returns Policy:</b> As a personal health and hygiene product, all sales are final and <b>non-returnable / non-refundable</b>.<br>• In case of damaged parts upon arrival, contact us within 24 hours of delivery for a replacement.</p></div>
+
+<!-- ================= CART ================= -->
+
+<section id="cart" class="screen">
+
+<div class="container">
+
+<div class="breadcrumb">
+Home / Cart
 </div>
+
+<h1 class="page-title">Shopping Cart</h1>
+
+<div class="cart-layout" style="margin-top:20px">
+
+<div class="card cart-list" id="cartList"></div>
+
+<div class="card cart-summary" id="cartSummary"></div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" id="faq" style="padding-top:0">
-<div class="policy-card"><h3>FAQ</h3><p><b>Is payment status automatically checked?</b><br>Gateway payments are verified server-side. Manual QR payments are kept pending until the UTR is verified.</p><p><b>When is COD unlocked?</b><br>After the required advance payment is successfully verified.</p></div>
+
+<!-- ================= CHECKOUT ================= -->
+
+<section id="checkout" class="screen">
+
+<div class="container">
+
+<div class="breadcrumb">
+Home / Cart / Checkout
+</div>
+
+<div class="checkout">
+
+<div class="card form-card">
+
+<h2 class="form-title">
+Delivery Address
+</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Full Name *</label>
+<input id="name" placeholder="Full name">
+</div>
+
+<div class="form-group">
+<label>Mobile Number *</label>
+<input
+id="mobile"
+maxlength="10"
+inputmode="numeric"
+placeholder="10 digit mobile">
+</div>
+
+<div class="form-group full-row">
+<label>Complete Address *</label>
+<textarea
+id="address"
+rows="4"
+placeholder="House / Street / Village / Area"></textarea>
+</div>
+
+<div class="form-group">
+<label>State *</label>
+<select id="state" onchange="districts()">
+<option value="">Select State</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>District *</label>
+<select id="district">
+<option value="">Select District</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Pincode *</label>
+<input
+id="pin"
+maxlength="6"
+inputmode="numeric"
+placeholder="6 digit pincode">
+</div>
+
+<div class="form-group">
+<label>Country</label>
+<select>
+<option>India</option>
+</select>
+</div>
+
+</div>
+
+<h3>Delivery Preference</h3>
+
+<div class="payment-option active">
+<label>
+<input type="radio" name="delivery" checked>
+Standard Delivery
+</label>
+<p class="payment-help">
+Delivery time depends on location and courier serviceability.
+</p>
+</div>
+
+<button
+class="btn primary full"
+onclick="goPayment()">
+CONTINUE TO PAYMENT →
+</button>
+
+</div>
+
+<div class="card summary-card" id="checkoutSummary"></div>
+
+</div>
+
+</div>
+
 </section>
 
-<div class="modal" id="orderModal">
-<div class="modal-content">
-<span class="close-btn" onclick="closeOrderModal()">&times;</span>
-<h3 style="margin-top:0">Order & Payment Details</h3>
-<p class="muted" id="selectedProductText" style="font-size:14px;margin-bottom:15px;font-weight:bold"></p>
 
-<form id="orderForm" onsubmit="submitOrder(event)">
-<input type="hidden" id="formProduct" name="Product_Ordered">
-<input type="hidden" id="formQuantity" name="Quantity">
-<input type="hidden" id="formTotalPrice" name="Total_Price">
-<input type="hidden" id="formOrderId" name="Order_ID">
-<input type="hidden" id="formPaymentStatus" name="Payment_Status">
+<!-- ================= PAYMENT ================= -->
 
-<div class="form-group"><label>Full Name *</label><input type="text" name="Customer_Name" id="custName" placeholder="Enter your full name" required></div>
-<div class="form-group"><label>Phone Number *</label><input type="tel" name="Phone_Number" id="custPhone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" required></div>
-<div class="form-group"><label>Full Address *</label><textarea name="Shipping_Address" id="custAddress" rows="2" placeholder="House no, Street, Area, Landmark" required></textarea></div>
+<section id="payment" class="screen">
 
-<div class="form-group"><label>State *</label><select name="State" id="custState" required><option value="">Select State / UT</option></select></div>
-<div class="form-group"><label>District *</label><select name="District" id="custDistrict" required disabled><option value="">Select District</option></select></div>
-<div class="form-group"><label>Area / Locality *</label><input type="text" name="Area" id="custArea" placeholder="Area / Locality" required></div>
-<div class="form-group"><label>Pincode / Postal Code *</label><input type="text" name="Pincode" id="custPincode" maxlength="6" inputmode="numeric" placeholder="6-digit pincode" required></div>
+<div class="container">
 
-<div class="form-group"><label>Country *</label><select name="Country" id="custCountry" required><option value="India" selected>India</option><option value="Bangladesh">Bangladesh</option><option value="Nepal">Nepal</option></select></div>
-
-<div class="payment-box">
-<label style="font-size:14px;font-weight:bold">Select Payment Method:</label>
-<div id="onlineOption" class="payment-option active" onclick="choosePayment('online')"><input type="radio" id="payOnline" name="Payment_Method" value="Full Online" checked> <label for="payOnline" style="display:inline;font-weight:normal">Full Online Payment (UPI / QR / NetBanking / Card)</label></div>
-<div id="codOption" class="payment-option" onclick="choosePayment('cod')"><input type="radio" id="payCOD" name="Payment_Method" value="Cash on Delivery (COD)"> <label for="payCOD" style="display:inline;font-weight:normal">Cash on Delivery (COD)</label></div>
-
-<div class="cod-warning" id="codNotice" style="display:none"><b>🔒 COD Unlocking Requirement:</b><br>To prevent fake orders, pay an advance of <b>₹249</b> online to unlock Cash on Delivery. Pay the remaining balance upon delivery.</div>
+<div class="breadcrumb">
+Home / Checkout / Payment
 </div>
 
-<div style="margin-top:15px" id="priceBreakdown"></div>
+<div class="payment-grid">
 
-<div id="qrPayment" class="qr-box">
-<h4 style="color:#5f259f;margin-bottom:8px">অনলাইন পেমেন্ট (UPI QR Code)</h4>
-<p style="font-size:13px;color:#555">PhonePe, GPay, Paytm বা যেকোনো UPI অ্যাপ দিয়ে স্ক্যান করে পেমেন্ট করুন:</p>
-<img src="qr-code.png" alt="UPI QR Code">
-<p style="font-size:13px;color:#666"><b>UPI ID:</b> mr.manna@ptyes</p>
-<p class="utr-help">পেমেন্ট সফল হওয়ার পর UTR / Transaction ID লিখে Submit করুন। Manual QR payments are not automatically verified.</p>
-<input type="text" id="utr" placeholder="UTR / Transaction ID">
-<button type="button" class="btn" style="margin-top:10px;background:#5f259f" onclick="submitManualQR()">Submit UTR</button>
+<div class="card payment-box">
+
+<h2>Choose Payment Method</h2>
+
+<div
+id="onlineOption"
+class="payment-option active">
+
+<label>
+
+<input
+type="radio"
+name="paytype"
+value="online"
+checked
+onchange="paymentType('online')">
+
+Full Online Payment
+
+</label>
+
+<p class="payment-help">
+Pay the complete order amount through one UPI button.
+</p>
+
 </div>
 
-<div id="paymentStatus" class="status-box"></div>
-<button type="submit" class="btn green" style="margin-top:15px" id="submitBtn">Confirm & Place Order</button>
-</form>
-</div>
+
+<div
+id="codOption"
+class="payment-option">
+
+<label>
+
+<input
+type="radio"
+name="paytype"
+value="cod"
+onchange="paymentType('cod')">
+
+Cash on Delivery
+
+</label>
+
+<p class="payment-help">
+
+₹239 advance payment online.
+Remaining eligible amount after delivery.
+
+</p>
+
 </div>
 
-<footer class="footer">
-<b>Grow Extender India</b>
-<p>Discreet Packaging • Confidential Delivery • No Returns Accepted</p>
-<div class="footer-contact">
-<span>📧 Email Support: <a href="mailto:groextenderdevice@gmail.com">groextenderdevice@gmail.com</a></span>
-<span>📞 Emergency 24h Contact: <a href="tel:7407792138">7407792138</a></span>
-<span>💬 WhatsApp Support: <a href="https://wa.me/917407792138" target="_blank">7407792138</a></span>
+
+<div id="paymentArea"></div>
+
 </div>
+
+<div
+class="card summary-card"
+id="paymentSummary">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TRACKING ================= -->
+
+<section id="tracking" class="screen">
+
+<div class="container">
+
+<div class="track-card card">
+
+<h1>Track Your Order</h1>
+
+<p class="muted">
+Enter your GRO order ID.
+</p>
+
+<div class="track-input">
+
+<input id="trackId"
+placeholder="Example: GRO-1234567890">
+
+<button class="btn primary"
+onclick="trackOrder()">
+TRACK
+</button>
+
+</div>
+
+<div id="trackingResult"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SUCCESS ================= -->
+
+<section id="success" class="screen">
+
+<div class="container">
+
+<div class="track-card card"
+style="text-align:center;padding:50px 25px">
+
+<div style="
+width:80px;height:80px;
+border-radius:50%;
+background:#dcfce7;
+color:#15803d;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+margin:auto">
+✓
+</div>
+
+<h1>Order Confirmed</h1>
+
+<p class="muted">
+Your payment/order information has been recorded.
+</p>
+
+<div id="successDetails"
+style="text-align:left;margin-top:25px">
+</div>
+
+<button
+class="btn green full"
+style="margin-top:20px"
+onclick="whatsappOrder()">
+💬 SEND ORDER ON WHATSAPP
+</button>
+
+<button
+class="btn dark full"
+style="margin-top:10px"
+onclick="show('home')">
+CONTINUE SHOPPING
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div id="modal" class="modal">
+
+<div class="modal-box">
+
+<div class="modal-head">
+
+<h2 id="modalTitle">Information</h2>
+
+<button class="close"
+onclick="closeModal()">
+×
+</button>
+
+</div>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+
+<!-- FLOATING CONTACT -->
+
+<div class="floating">
+
+<a
+class="float whatsapp"
+href="https://wa.me/917407792138"
+target="_blank">
+💬
+</a>
+
+<a
+class="float call"
+href="tel:+917407792138">
+☎
+</a>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer">
+
+<div>
+
+<h3>GRO Extender</h3>
+
+<p>
+Premium adult wellness shopping experience
+with product information, flexible checkout
+and direct customer support.
+</p>
+
+<p>
+🔞 Intended for adults 18 years and above.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>Shop</h3>
+
+<a onclick="show('shop')">All Products</a>
+<a onclick="category('ultimate')">Ultimate</a>
+<a onclick="category('supreme')">Supreme+</a>
+<a onclick="category('doubledeck')">DoubleDeck</a>
+
+</div>
+
+
+<div>
+
+<h3>Customer Service</h3>
+
+<a onclick="show('tracking')">Track Order</a>
+<a onclick="openPolicy('shipping')">Shipping</a>
+<a onclick="openPolicy('return')">Return Policy</a>
+<a onclick="openPolicy('payment')">Payment</a>
+
+</div>
+
+
+<div>
+
+<h3>Policies</h3>
+
+<a onclick="openPolicy('privacy')">Privacy Policy</a>
+<a onclick="openPolicy('terms')">Terms</a>
+<a onclick="openPolicy('refund')">Refund</a>
+<a onclick="openPolicy('contact')">Contact</a>
+
+</div>
+
+
+<div>
+
+<h3>Contact</h3>
+
+<a href="tel:+917407792138">
+☎ Call Support
+</a>
+
+<a
+href="https://wa.me/917407792138"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<p>
+India
+</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 GRO Extender — All Rights Reserved.
+</div>
+
 </footer>
 
+
 <script>
-/* ===== CONFIG: ONLY PUBLIC KEY + WORKER URL GO HERE ===== */
+
+/* =====================================================
+CONFIG
+===================================================== */
+
 const CONFIG={
-  API_BASE:"https://YOUR-CLOUDFLARE-WORKER.workers.dev",
-  RAZORPAY_KEY_ID:"YOUR_RAZORPAY_KEY_ID",
-  COD_ADVANCE:249
+ upi:"mr.manna@ptyes",
+ merchant:"GRO Extender",
+ whatsapp:"917407792138",
+ phone:"+917407792138",
+ codAdvance:239
 };
 
-let pName="",unitPrice=0,currentQty=1,totalPrice=0,currentMode="online",storeOrderId="",paymentStatus="pending";
-const statesDistricts={
-"Andhra Pradesh":["Alluri Sitharama Raju","Anakapalli","Anantapur","Bapatla","Chittoor","East Godavari","Eluru","Guntur","Kakinada","Konaseema","Krishna","Kurnool","Nandyal","Nellore","Palnadu","Prakasam","Srikakulam","Tirupati","Visakhapatnam","Vizianagaram","West Godavari"],
-"Arunachal Pradesh":["Anjaw","Changlang","Dibang Valley","East Kameng","East Siang","Itanagar Capital Complex","Kamle","Kra Daadi","Kurung Kumey","Lepa Rada","Lohit","Longding","Lower Dibang Valley","Lower Siang","Lower Subansiri","Namsai","Pakke Kessang","Papum Pare","Shi Yomi","Siang","Tawang","Tirap","Upper Siang","Upper Subansiri","West Kameng","West Siang"],
-"Assam":["Baksa","Barpeta","Biswanath","Bongaigaon","Cachar","Charaideo","Darrang","Dhemaji","Dhubri","Dibrugarh","Dima Hasao","Goalpara","Golaghat","Hailakandi","Hojai","Jorhat","Kamrup","Kamrup Metropolitan","Karbi Anglong","Karimganj","Kokrajhar","Lakhimpur","Majuli","Morigaon","Nagaon","Nalbari","Sivasagar","Sonitpur","South Salmara-Mankachar","Tinsukia","Udalguri","West Karbi Anglong"],
-"Bihar":["Araria","Arwal","Aurangabad","Banka","Begusarai","Bhagalpur","Bhojpur","Buxar","Darbhanga","East Champaran","Gaya","Gopalganj","Jamui","Jehanabad","Kaimur","Katihar","Khagaria","Kishanganj","Lakhisarai","Madhepura","Madhubani","Munger","Muzaffarpur","Nalanda","Nawada","Patna","Purnia","Rohtas","Saharsa","Samastipur","Saran","Sheikhpura","Sheohar","Sitamarhi","Siwan","Supaul","Vaishali","West Champaran"],
-"Chhattisgarh":["Balod","Baloda Bazar","Balrampur-Ramanujganj","Bastar","Bemetara","Bijapur","Bilaspur","Dantewada","Dhamtari","Durg","Gariaband","Gaurela-Pendra-Marwahi","Janjgir-Champa","Jashpur","Kabirdham","Kanker","Kondagaon","Korba","Korea","Mahasamund","Mungeli","Narayanpur","Raigarh","Rajnandgaon","Sukma","Surajpur","Surguja"],
-"Goa":["North Goa","South Goa"],
-"Gujarat":["Ahmedabad","Amreli","Anand","Aravalli","Banaskantha","Bharuch","Bhavnagar","Botad","Chhota Udaipur","Dahod","Dang","Devbhoomi Dwarka","Gandhinagar","Gir Somnath","Jamnagar","Junagadh","Kheda","Kutch","Mahisagar","Mehsana","Morbi","Narmada","Navsari","Panchmahal","Patan","Porbandar","Rajkot","Sabarkantha","Surat","Surendranagar","Tapi","Vadodara","Valsad"],
-"Haryana":["Ambala","Bhiwani","Charkhi Dadri","Faridabad","Fatehabad","Gurugram","Hisar","Jhajjar","Jind","Kaithal","Karnal","Kurukshetra","Mahendragarh","Nuh","Palwal","Panchkula","Panipat","Rewari","Rohtak","Sirsa","Sonipat","Yamunanagar"],
-"Himachal Pradesh":["Bilaspur","Chamba","Hamirpur","Kangra","Kinnaur","Kullu","Lahaul and Spiti","Mandi","Shimla","Sirmaur","Solan","Una"],
-"Jharkhand":["Bokaro","Chatra","Deoghar","Dhanbad","Dumka","East Singhbhum","Garhwa","Giridih","Godda","Gumla","Hazaribagh","Jamtara","Khunti","Koderma","Latehar","Lohardaga","Pakur","Palamu","Ramgarh","Ranchi","Sahebganj","Seraikela Kharsawan","Simdega","West Singhbhum"],
-"Karnataka":["Bagalkot","Ballari","Belagavi","Bengaluru Rural","Bengaluru Urban","Bidar","Chamarajanagar","Chikkaballapur","Chikkamagaluru","Chitradurga","Dakshina Kannada","Davanagere","Dharwad","Gadag","Hassan","Haveri","Kalaburagi","Kodagu","Kolar","Koppal","Mandya","Mysuru","Raichur","Ramanagara","Shivamogga","Tumakuru","Udupi","Uttara Kannada","Vijayapura","Yadgir"],
-"Kerala":["Alappuzha","Ernakulam","Idukki","Kannur","Kasaragod","Kollam","Kottayam","Kozhikode","Malappuram","Palakkad","Pathanamthitta","Thiruvananthapuram","Thrissur","Wayanad"],
-"Madhya Pradesh":["Agar Malwa","Alirajpur","Anuppur","Ashoknagar","Balaghat","Barwani","Betul","Bhind","Bhopal","Burhanpur","Chhatarpur","Chhindwara","Damoh","Datia","Dewas","Dhar","Dindori","Guna","Gwalior","Harda","Hoshangabad","Indore","Jabalpur","Jhabua","Katni","Khandwa","Khargone","Mandla","Mandsaur","Morena","Narmadapuram","Narsinghpur","Neemuch","Panna","Raisen","Rajgarh","Ratlam","Rewa","Sagar","Satna","Sehore","Seoni","Shahdol","Shajapur","Sheopur","Shivpuri","Sidhi","Singrauli","Tikamgarh","Ujjain","Umaria","Vidisha"],
-"Maharashtra":["Ahmednagar","Akola","Amravati","Aurangabad","Beed","Bhandara","Buldhana","Chandrapur","Dhule","Gadchiroli","Gondia","Hingoli","Jalgaon","Jalna","Kolhapur","Latur","Mumbai City","Mumbai Suburban","Nagpur","Nanded","Nandurbar","Nashik","Osmanabad","Palghar","Parbhani","Pune","Raigad","Ratnagiri","Sangli","Satara","Sindhudurg","Solapur","Thane","Wardha","Washim","Yavatmal"],
-"Manipur":["Bishnupur","Chandel","Churachandpur","Imphal East","Imphal West","Jiribam","Kakching","Kamjong","Kangpokpi","Noney","Pherzawl","Senapati","Tamenglong","Tengnoupal","Thoubal","Ukhrul"],
-"Meghalaya":["East Garo Hills","East Jaintia Hills","East Khasi Hills","North Garo Hills","Ri-Bhoi","South Garo Hills","South West Garo Hills","South West Khasi Hills","West Garo Hills","West Jaintia Hills","West Khasi Hills"],
-"Mizoram":["Aizawl","Champhai","Hnahthial","Khawzawl","Kolasib","Lawngtlai","Lunglei","Mamit","Saiha","Saitual","Serchhip"],
-"Nagaland":["Chumoukedima","Dimapur","Kiphire","Kohima","Longleng","Mokokchung","Mon","Niuland","Noklak","Peren","Phek","Shamator","Tuensang","Wokha","Zunheboto"],
-"Odisha":["Angul","Balangir","Balasore","Bargarh","Bhadrak","Boudh","Cuttack","Deogarh","Dhenkanal","Gajapati","Ganjam","Jagatsinghpur","Jajpur","Jharsuguda","Kalahandi","Kandhamal","Kendrapara","Keonjhar","Khordha","Koraput","Malkangiri","Mayurbhanj","Nabarangpur","Nayagarh","Nuapada","Puri","Rayagada","Sambalpur","Subarnapur","Sundargarh"],
-"Punjab":["Amritsar","Barnala","Bathinda","Faridkot","Fatehgarh Sahib","Fazilka","Ferozepur","Firozpur","Gurdaspur","Hoshiarpur","Jalandhar","Kapurthala","Ludhiana","Malerkotla","Mansa","Moga","Muktsar","Pathankot","Patiala","Rupnagar","Sahibzada Ajit Singh Nagar","Sangrur","Shaheed Bhagat Singh Nagar","Tarn Taran"],
-"Rajasthan":["Ajmer","Alwar","Anupgarh","Balotra","Banswara","Baran","Barmer","Beawar","Bharatpur","Bhilwara","Bikaner","Bundi","Chittorgarh","Churu","Dausa","Deeg","Dholpur","Didwana-Kuchamana","Dudu","Dungarpur","Ganganagar","Gangapur City","Hanumangarh","Jaipur","Jaipur Rural","Jaisalmer","Jalore","Jhalawar","Jhunjhunu","Jodhpur","Jodhpur Rural","Karauli","Khairthal-Tijara","Kota","Kotputli-Behror","Nagaur","Neem Ka Thana","Pali","Phalodi","Pratapgarh","Rajsamand","Salumbar","Sawai Madhopur","Shahpura","Sikar","Sirohi","Tonk","Udaipur"],
-"Sikkim":["Gangtok","Gyalshing","Mangan","Namchi","Pakyong","Soreng"],
-"Tamil Nadu":["Ariyalur","Chengalpattu","Chennai","Coimbatore","Cuddalore","Dharmapuri","Dindigul","Erode","Kallakurichi","Kancheepuram","Karur","Krishnagiri","Madurai","Mayiladuthurai","Nagapattinam","Namakkal","Nilgiris","Perambalur","Pudukkottai","Ramanathapuram","Ranipet","Salem","Sivaganga","Tenkasi","Thanjavur","Theni","Thoothukudi","Tiruchirappalli","Tirunelveli","Tirupathur","Tiruppur","Tiruvallur","Tiruvannamalai","Tiruvarur","Vellore","Viluppuram","Virudhunagar"],
-"Telangana":["Adilabad","Bhadradri Kothagudem","Hyderabad","Jagtial","Jangaon","Jayashankar Bhupalpally","Jogulamba Gadwal","Kamareddy","Karimnagar","Khammam","Komaram Bheem","Mahabubabad","Mahbubnagar","Mancherial","Medak","Medchal-Malkajgiri","Mulugu","Nagarkurnool","Nalgonda","Narayanpet","Nirmal","Nizamabad","Peddapalli","Rajanna Sircilla","Rangareddy","Sangareddy","Siddipet","Suryapet","Vikarabad","Wanaparthy","Warangal","Yadadri Bhuvanagiri"],
-"Tripura":["Dhalai","Gomati","Khowai","North Tripura","Sepahijala","South Tripura","Unakoti","West Tripura"],
-"Uttar Pradesh":["Agra","Aligarh","Ambedkar Nagar","Amethi","Amroha","Auraiya","Ayodhya","Azamgarh","Baghpat","Bahraich","Ballia","Balrampur","Banda","Barabanki","Bareilly","Basti","Bhadohi","Bijnor","Budaun","Bulandshahr","Chandauli","Chitrakoot","Deoria","Etah","Etawah","Farrukhabad","Fatehpur","Firozabad","Gautam Buddha Nagar","Ghaziabad","Ghazipur","Gonda","Gorakhpur","Hamirpur","Hapur","Hardoi","Hathras","Jalaun","Jaunpur","Jhansi","Kannauj","Kanpur Dehat","Kanpur Nagar","Kasganj","Kaushambi","Kheri","Kushinagar","Lalitpur","Lucknow","Maharajganj","Mahoba","Mainpuri","Mathura","Mau","Meerut","Mirzapur","Moradabad","Muzaffarnagar","Pilibhit","Pratapgarh","Prayagraj","Raebareli","Rampur","Saharanpur","Sambhal","Sant Kabir Nagar","Shahjahanpur","Shamli","Shravasti","Siddharthnagar","Sitapur","Sonbhadra","Sultanpur","Unnao","Varanasi"],
-"Uttarakhand":["Almora","Bageshwar","Chamoli","Champawat","Dehradun","Haridwar","Nainital","Pauri Garhwal","Pithoragarh","Rudraprayag","Tehri Garhwal","Udham Singh Nagar","Uttarkashi"],
-"West Bengal":["Alipurduar","Bankura","Paschim Bardhaman","Purba Bardhaman","Birbhum","Cooch Behar","Dakshin Dinajpur","Darjeeling","Hooghly","Howrah","Jalpaiguri","Jhargram","Kalimpong","Kolkata","Maldah","Murshidabad","Nadia","North 24 Parganas","South 24 Parganas","Paschim Medinipur","Purba Medinipur","Uttar Dinajpur"],
-"Andaman and Nicobar Islands":["Nicobar","North and Middle Andaman","South Andaman"],"Chandigarh":["Chandigarh"],"Dadra and Nagar Haveli and Daman and Diu":["Dadra and Nagar Haveli","Daman","Diu"],"Delhi":["Central Delhi","East Delhi","New Delhi","North Delhi","North East Delhi","North West Delhi","Shahdara","South Delhi","South East Delhi","South West Delhi","West Delhi"],"Jammu and Kashmir":["Anantnag","Bandipora","Baramulla","Budgam","Doda","Ganderbal","Jammu","Kathua","Kishtwar","Kulgam","Kupwara","Poonch","Pulwama","Rajouri","Ramban","Reasi","Samba","Shopian","Srinagar","Udhampur"],"Ladakh":["Kargil","Leh"],"Lakshadweep":["Lakshadweep"],"Puducherry":["Karaikal","Mahe","Puducherry","Yanam"]
+
+/* =====================================================
+PRODUCTS
+===================================================== */
+
+const PRODUCTS={
+
+ultimate:{
+ id:"ultimate",
+ name:"GRO Extender® Ultimate",
+ category:"ultimate",
+ price:3249,
+ old:4499,
+ images:[
+ "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
+ "ProExtender-Ultimate-Straps-260x134.jpg",
+ "ProExtender-Ultimate002 (1).png"
+ ],
+ description:
+ "Premium adjustable configuration with multiple fitting components.",
+ features:[
+ "Adjustable fitting configuration",
+ "Multiple adjustment positions",
+ "Reinforced straps",
+ "Compact component design",
+ "Adult product — 18+"
+ ]
+},
+
+supreme:{
+ id:"supreme",
+ name:"GRO Extender® Supreme+",
+ category:"supreme",
+ price:4780,
+ old:5999,
+ images:[
+ "Gemini_Generated_Image_unscx2unscx2unsc.png",
+ "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
+ "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
+ ],
+ description:
+ "Premium lightweight adjustable configuration.",
+ features:[
+ "Lightweight configuration",
+ "Adjustable fitting",
+ "Reinforced components",
+ "Compact design",
+ "Adult product — 18+"
+ ]
+},
+
+doubledeck:{
+ id:"doubledeck",
+ name:"GRO Extender® DoubleDeck",
+ category:"doubledeck",
+ price:5950,
+ old:6999,
+ images:[
+ "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
+ "pro-extender-penis-enlargement-system-500x500.jpg",
+ "pro-extender-silicone-tube.webp"
+ ],
+ description:
+ "Multi-component premium adjustable configuration.",
+ features:[
+ "Multi-component configuration",
+ "Adjustable fitting positions",
+ "Reinforced straps",
+ "Compact structure",
+ "Adult product — 18+"
+ ]
+
+}
+
 };
-function $(id){return document.getElementById(id)}
-function updateQty(id,change){let el=$(id),v=parseInt(el.innerText)+change;if(v<1)v=1;el.innerText=v}
-function openOrderModal(name,price,qtyId){pName=name;unitPrice=price;currentQty=parseInt($(qtyId).innerText);totalPrice=unitPrice*currentQty;$("formProduct").value=pName;$("formQuantity").value=currentQty;$("formTotalPrice").value="₹"+totalPrice;$("selectedProductText").innerText="Selected: "+name+" (Qty: "+currentQty+") — Total: ₹"+totalPrice;$("orderModal").style.display="flex";choosePayment("online")}
-function closeOrderModal(){$("orderModal").style.display="none"}
-function populateStates(){$("custState").innerHTML='<option value="">Select State / UT</option>'+Object.keys(statesDistricts).sort().map(s=>`<option value="${s}">${s}</option>`).join("");$("custState").onchange=()=>{let s=$("custState").value,ds=statesDistricts[s]||[];$("custDistrict").disabled=!ds.length;$("custDistrict").innerHTML='<option value="">Select District</option>'+ds.map(d=>`<option value="${d}">${d}</option>`).join("")}}
-function choosePayment(mode){currentMode=mode;document.querySelectorAll(".payment-option").forEach(x=>x.classList.remove("active"));$(mode==="online"?"onlineOption":"codOption").classList.add("active");$("payOnline").checked=mode==="online";$("payCOD").checked=mode==="cod";$("codNotice").style.display=mode==="cod"?"block":"none";$("qrPayment").style.display=mode==="cod"?"block":"none";if(mode==="cod"){let rem=totalPrice-CONFIG.COD_ADVANCE;$("priceBreakdown").innerHTML=`<small>Online Advance: <b>₹${CONFIG.COD_ADVANCE}</b><br>Cash on Delivery: <b>₹${rem}</b></small>`;$("submitBtn").innerText="Pay ₹"+CONFIG.COD_ADVANCE+" Advance & Unlock COD"}else{$("priceBreakdown").innerHTML=`<small>Total Payable Amount: <b>₹${totalPrice}</b></small>`;$("submitBtn").innerText="Pay Online & Place Order"}}
-function formData(){return{name:$("custName").value.trim(),phone:$("custPhone").value.trim(),address:$("custAddress").value.trim(),state:$("custState").value,district:$("custDistrict").value,area:$("custArea").value.trim(),pincode:$("custPincode").value.trim(),country:$("custCountry").value,product:pName,quantity:currentQty,totalPrice,paymentMethod:currentMode}}
-function validate(){let d=formData();if(!d.name||!/^\d{10}$/.test(d.phone)||!d.address||!d.state||!d.district||!d.area||!/^\d{6}$/.test(d.pincode)){alert("Please fill all details correctly.");return false}return true}
-function showStatus(type,msg){let e=$("paymentStatus");e.className="status-box status-"+type;e.style.display="block";e.innerHTML="<b>"+type.toUpperCase()+"</b><br>"+msg}
-async function startGatewayPayment(amount,purpose){
- if(!validate())return;
- if(CONFIG.API_BASE.includes("YOUR-")){alert("Payment backend is not configured yet. Replace API_BASE and RAZORPAY_KEY_ID in this file.");return}
- try{
-  let r=await fetch(CONFIG.API_BASE+"/api/create-order",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...formData(),amount,purpose})});
-  let d=await r.json();if(!r.ok)throw new Error(d.error||"Could not create payment");
-  storeOrderId=d.storeOrderId;
-  let options={key:CONFIG.RAZORPAY_KEY_ID,amount:d.amount,currency:"INR",name:"Grow Extender",description:purpose==="cod_advance"?"COD Advance":pName,order_id:d.orderId,prefill:{name:$("custName").value,contact:$("custPhone").value},notes:{storeOrderId:d.storeOrderId},
-  handler:async response=>{await verifyPayment(response,purpose)};
-  let rz=new Razorpay(options);rz.on("payment.failed",e=>{paymentStatus="failed";$("formPaymentStatus").value="failed";showStatus("failed",e.error?.description||"Payment failed.");notifyWhatsApp("PAYMENT FAILED",e.error?.description||"Gateway reported failure.")});rz.open();
- }catch(e){showStatus("failed",e.message)}
+
+
+/* =====================================================
+STATE
+===================================================== */
+
+let current=null;
+let quantity=1;
+let payMode="online";
+
+let cart=[];
+
+let order={
+ id:"",
+ total:0,
+ payable:0,
+ product:"",
+ quantity:0,
+ name:"",
+ mobile:"",
+ address:"",
+ state:"",
+ district:"",
+ pin:"",
+ payment:"",
+ utr:"",
+ status:"Pending"
+};
+
+
+/* =====================================================
+NAVIGATION
+===================================================== */
+
+function show(id){
+
+document
+.querySelectorAll(".screen")
+.forEach(x=>x.classList.remove("active"));
+
+document.getElementById(id)
+.classList.add("active");
+
+window.scrollTo({
+ top:0,
+ behavior:"smooth"
+});
+
 }
-async function verifyPayment(response,purpose){
- try{let r=await fetch(CONFIG.API_BASE+"/api/verify-payment",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...response,storeOrderId,purpose,customer:formData()})});let d=await r.json();paymentStatus=d.status||"pending";$("formOrderId").value=storeOrderId;$("formPaymentStatus").value=paymentStatus;
- if(paymentStatus==="success"){showStatus("success",purpose==="cod_advance"?"Advance payment successful. COD is now unlocked.":"Payment successful. Your order has been placed.");notifyWhatsApp("PAYMENT SUCCESS",d.message||"Payment verified");if(purpose==="cod_advance"){currentMode="cod";$("codNotice").innerHTML="<b>✅ COD Unlocked</b><br>Advance payment verified. Remaining amount will be collected on delivery.";choosePayment("cod");}}
- else if(paymentStatus==="failed"){showStatus("failed",d.message||"Payment failed.");notifyWhatsApp("PAYMENT FAILED",d.message||"Payment failed")}
- else {showStatus("pending",d.message||"Payment is pending.");notifyWhatsApp("PAYMENT PENDING",d.message||"Payment pending")}
- }catch(e){showStatus("pending","Payment was submitted, but status confirmation is pending. Please check your order status.");}
+
+
+/* =====================================================
+PRODUCT CARD
+===================================================== */
+
+function card(p){
+
+let discount=Math.round(
+(1-p.price/p.old)*100
+);
+
+return `
+
+<div class="card product">
+
+<div class="product-img">
+
+<span class="sale">
+-${discount}%
+</span>
+
+<button
+class="wishlist"
+onclick="event.stopPropagation();wishlist('${p.id}')">
+♡
+</button>
+
+<img
+src="${p.images[0]}"
+alt="${p.name}">
+
+</div>
+
+<div class="product-body">
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="product-name">
+${p.name}
+</div>
+
+<div class="product-price">
+
+<span class="old">
+₹${p.old.toLocaleString("en-IN")}
+</span>
+
+₹${p.price.toLocaleString("en-IN")}
+
+</div>
+
+<div class="product-meta">
+🚚 Serviceable delivery
+</div>
+
+<div class="product-actions">
+
+<button
+class="btn outline"
+onclick="openProduct('${p.id}')">
+VIEW
+</button>
+
+<button
+class="btn yellow"
+onclick="quickBuy('${p.id}')">
+BUY NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
 }
-function submitOrder(e){e.preventDefault();if(currentMode==="online"){startGatewayPayment(totalPrice,"full_online");return false}if(currentMode==="cod"){if(paymentStatus!=="success"){startGatewayPayment(CONFIG.COD_ADVANCE,"cod_advance");return false}submitFinalCOD()}return false}
-async function submitFinalCOD(){if(!validate())return;try{let r=await fetch(CONFIG.API_BASE+"/api/final-cod",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...formData(),storeOrderId,paymentStatus})});let d=await r.json();if(!r.ok)throw new Error(d.error);showStatus("success","COD order confirmed. Order ID: "+d.orderId);notifyWhatsApp("COD ORDER CONFIRMED","Order ID: "+d.orderId);$("submitBtn").disabled=true}catch(e){showStatus("failed",e.message)}}
-async function submitManualQR(){if(!validate())return;let utr=$("utr").value.trim();if(!utr){alert("Enter UTR / Transaction ID.");return}try{let r=await fetch(CONFIG.API_BASE+"/api/manual-qr",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...formData(),utr})});let d=await r.json();if(!r.ok)throw new Error(d.error);storeOrderId=d.orderId;paymentStatus="pending";showStatus("pending","UTR submitted. Payment will remain PENDING until verified.");notifyWhatsApp("MANUAL QR PAYMENT PENDING","UTR: "+utr)}catch(e){showStatus("failed",e.message)}}
-function notifyWhatsApp(status,extra){let d=formData();let msg=`*Grow Extender Order Update*%0A%0A*Status:* ${encodeURIComponent(status)}%0A*Product:* ${encodeURIComponent(d.product)}%0A*Qty:* ${d.quantity}%0A*Amount:* ₹${d.totalPrice}%0A*Payment:* ${encodeURIComponent(d.paymentMethod)}%0A*Customer:* ${encodeURIComponent(d.name)}%0A*Phone:* ${d.phone}%0A*Address:* ${encodeURIComponent(d.address+", "+d.area+", "+d.district+", "+d.state+" - "+d.pincode)}%0A%0A${encodeURIComponent(extra||"")}`;window.lastWhatsApp="https://wa.me/917407792138?text="+msg}
-populateStates();
+
+
+/* =====================================================
+RENDER
+===================================================== */
+
+function render(list=Object.values(PRODUCTS)){
+
+document.getElementById("homeProducts").innerHTML=
+list.map(card).join("");
+
+document.getElementById("shopProducts").innerHTML=
+list.map(card).join("");
+
+}
+
+
+/* =====================================================
+OPEN PRODUCT
+===================================================== */
+
+function openProduct(id){
+
+current=PRODUCTS[id];
+quantity=1;
+
+document.getElementById("detailName").textContent=
+current.name;
+
+document.getElementById("detailPrice").innerHTML=`
+
+<span class="old">
+₹${current.old.toLocaleString("en-IN")}
+</span>
+
+₹${current.price.toLocaleString("en-IN")}
+
+`;
+
+document.getElementById("detailShort").textContent=
+current.description;
+
+document.getElementById("detailFeatures").innerHTML=
+current.features
+.map(x=>`<li>${x}</li>`)
+.join("");
+
+document.getElementById("quantity").textContent=1;
+
+document.getElementById("detailImage").src=
+current.images[0];
+
+document.getElementById("thumbs").innerHTML=
+current.images.map((img,i)=>`
+
+<button
+class="thumb ${i===0?"active":""}"
+onclick="changeImage('${img}',this)">
+
+<img src="${img}">
+
+</button>
+
+`).join("");
+
+show("detail");
+
+}
+
+
+/* =====================================================
+IMAGE
+===================================================== */
+
+function changeImage(src,el){
+
+document.getElementById("detailImage").src=src;
+
+document
+.querySelectorAll(".thumb")
+.forEach(x=>x.classList.remove("active"));
+
+el.classList.add("active");
+
+}
+
+
+/* =====================================================
+QUANTITY
+===================================================== */
+
+function qty(n){
+
+quantity+=n;
+
+if(quantity<1)quantity=1;
+if(quantity>20)quantity=20;
+
+document.getElementById("quantity").textContent=
+quantity;
+
+}
+
+
+/* =====================================================
+BUY
+===================================================== */
+
+function quickBuy(id){
+
+openProduct(id);
+
+setTimeout(()=>{
+ buyNow();
+},100);
+
+}
+
+
+function buyNow(){
+
+if(!current)return;
+
+cart=[
+ {
+  product:current,
+  qty:quantity
+ }
+];
+
+prepareCheckout();
+
+show("checkout");
+
+}
+
+
+/* =====================================================
+CART
+===================================================== */
+
+function addCart(){
+
+if(!current)return;
+
+let item=
+cart.find(x=>x.product.id===current.id);
+
+if(item)
+item.qty+=quantity;
+else
+cart.push({
+ product:current,
+ qty:quantity
+});
+
+updateCartCount();
+
+alert("Product added to cart.");
+
+}
+
+
+function updateCartCount(){
+
+let total=
+cart.reduce((sum,x)=>sum+x.qty,0);
+
+document.getElementById("cartCount")
+.textContent=total;
+
+}
+
+
+function showCart(){
+
+renderCart();
+
+show("cart");
+
+}
+
+
+function renderCart(){
+
+let list=
+document.getElementById("cartList");
+
+if(cart.length===0){
+
+list.innerHTML=`
+
+<div style="text-align:center;padding:50px 15px">
+
+<h2>Your cart is empty</h2>
+
+<p class="muted">
+Add a product to continue.
+</p>
+
+<button
+class="btn primary"
+onclick="show('shop')">
+SHOP NOW
+</button>
+
+</div>
+
+`;
+
+document.getElementById("cartSummary").innerHTML="";
+
+return;
+
+}
+
+list.innerHTML=cart.map((x,i)=>`
+
+<div class="cart-item">
+
+<img src="${x.product.images[0]}">
+
+<div>
+
+<h3>${x.product.name}</h3>
+
+<p class="muted">
+₹${x.product.price.toLocaleString("en-IN")}
+</p>
+
+<div class="quantity">
+
+<button onclick="cartQty(${i},-1)">−</button>
+
+<span>${x.qty}</span>
+
+<button onclick="cartQty(${i},1)">+</button>
+
+</div>
+
+</div>
+
+<div>
+
+<strong>
+₹${(x.product.price*x.qty).toLocaleString("en-IN")}
+</strong>
+
+<br><br>
+
+<button
+class="btn danger"
+onclick="removeCart(${i})">
+Remove
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+let total=
+cart.reduce(
+(sum,x)=>sum+x.product.price*x.qty,
+0
+);
+
+document.getElementById("cartSummary").innerHTML=`
+
+<h2>Order Summary</h2>
+
+<div class="summary-row">
+<span>Subtotal</span>
+<strong>₹${total.toLocaleString("en-IN")}</strong>
+</div>
+
+<div class="summary-row">
+<span>Delivery</span>
+<strong>Calculated</strong>
+</div>
+
+<div class="summary-row total">
+<span>Total</span>
+<strong>₹${total.toLocaleString("en-IN")}</strong>
+</div>
+
+<button
+class="btn yellow full"
+style="margin-top:15px"
+onclick="prepareCheckout();show('checkout')">
+CHECKOUT
+</button>
+
+`;
+
+
+}
+
+
+function cartQty(i,n){
+
+cart[i].qty+=n;
+
+if(cart[i].qty<1)
+cart.splice(i,1);
+
+updateCartCount();
+renderCart();
+
+}
+
+
+function removeCart(i){
+
+cart.splice(i,1);
+
+updateCartCount();
+renderCart();
+
+}
+
+
+/* =====================================================
+CHECKOUT
+===================================================== */
+
+function prepareCheckout(){
+
+let total=
+cart.reduce(
+(sum,x)=>sum+x.product.price*x.qty,
+0
+);
+
+order.total=total;
+
+document.getElementById("checkoutSummary")
+.innerHTML=`
+
+<h2>Order Summary</h2>
+
+${cart.map(x=>`
+
+<div class="summary-row">
+
+<span>
+${x.product.name} × ${x.qty}
+</span>
+
+<strong>
+₹${(x.product.price*x.qty)
+.toLocaleString("en-IN")}
+</strong>
+
+</div>
+
+`).join("")}
+
+<div class="summary-row total">
+
+<span>Total</span>
+
+<strong>
+₹${total.toLocaleString("en-IN")}
+</strong>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+STATES
+===================================================== */
+
+const STATES={
+"West Bengal":[
+"Kolkata","Howrah","Hooghly",
+"Purba Medinipur","Paschim Medinipur",
+"Purba Bardhaman","Paschim Bardhaman",
+"Nadia","Murshidabad","North 24 Parganas",
+"South 24 Parganas","Bankura","Purulia",
+"Birbhum","Malda","Jalpaiguri","Darjeeling"
+],
+"Maharashtra":[
+"Mumbai City","Mumbai Suburban",
+"Pune","Thane","Nashik"
+],
+"Uttar Pradesh":[
+"Lucknow","Agra","Kanpur Nagar",
+"Varanasi","Prayagraj","Ghaziabad"
+],
+"Bihar":[
+"Patna","Gaya","Muzaffarpur","Bhagalpur"
+],
+"Odisha":[
+"Khordha","Cuttack","Puri","Balasore","Ganjam"
+],
+"Jharkhand":[
+"Ranchi","Dhanbad","Bokaro","Jamshedpur"
+],
+"Delhi":[
+"New Delhi","North Delhi","South Delhi",
+"East Delhi","West Delhi"
+],
+"Gujarat":[
+"Ahmedabad","Surat","Vadodara","Rajkot"
+],
+"Karnataka":[
+"Bengaluru Urban","Mysuru","Mangaluru"
+],
+"Tamil Nadu":[
+"Chennai","Coimbatore","Madurai"
+],
+"Telangana":[
+"Hyderabad","Warangal"
+],
+"Kerala":[
+"Thiruvananthapuram","Ernakulam","Kozhikode"
+]
+};
+
+
+function loadStates(){
+
+let s=document.getElementById("state");
+
+Object.keys(STATES).forEach(x=>{
+
+let o=document.createElement("option");
+
+o.value=x;
+o.textContent=x;
+
+s.appendChild(o);
+
+});
+
+}
+
+
+function districts(){
+
+let state=
+document.getElementById("state").value;
+
+let d=
+document.getElementById("district");
+
+d.innerHTML=
+'<option value="">Select District</option>';
+
+(STATES[state]||[]).forEach(x=>{
+
+let o=document.createElement("option");
+
+o.value=x;
+o.textContent=x;
+
+d.appendChild(o);
+
+});
+
+}
+
+
+/* =====================================================
+PAYMENT
+===================================================== */
+
+function goPayment(){
+
+let name=
+document.getElementById("name").value.trim();
+
+let mobile=
+document.getElementById("mobile").value.trim();
+
+let address=
+document.getElementById("address").value.trim();
+
+let state=
+document.getElementById("state").value;
+
+let district=
+document.getElementById("district").value;
+
+let pin=
+document.getElementById("pin").value.trim();
+
+if(!name)
+return alert("Full Name দিন।");
+
+if(!/^[0-9]{10}$/.test(mobile))
+return alert("সঠিক 10 digit mobile number দিন।");
+
+if(!address)
+return alert("Complete Address দিন।");
+
+if(!state||!district)
+return alert("State ও District select করুন।");
+
+if(!/^[0-9]{6}$/.test(pin))
+return alert("সঠিক 6 digit pincode দিন।");
+
+order.name=name;
+order.mobile=mobile;
+order.address=address;
+order.state=state;
+order.district=district;
+order.pin=pin;
+
+order.id=
+"GRO-"+Date.now().toString().slice(-10);
+
+payMode="online";
+
+renderPayment();
+
+show("payment");
+
+}
+
+
+/* =====================================================
+PAYMENT MODE
+===================================================== */
+
+function paymentType(type){
+
+payMode=type;
+
+document
+.getElementById("onlineOption")
+.classList.toggle(
+"active",
+type==="online"
+);
+
+document
+.getElementById("codOption")
+.classList.toggle(
+"active",
+type==="cod"
+);
+
+renderPayment();
+
+}
+
+
+/* =====================================================
+PAYMENT UI
+===================================================== */
+
+function renderPayment(){
+
+let amount=
+payMode==="cod"
+?CONFIG.codAdvance
+:order.total;
+
+let remaining=
+Math.max(
+0,
+order.total-CONFIG.codAdvance
+);
+
+order.payable=amount;
+
+document.getElementById("paymentSummary")
+.innerHTML=`
+
+<h2>Order Summary</h2>
+
+${cart.map(x=>`
+
+<div class="summary-row">
+
+<span>
+${x.product.name} × ${x.qty}
+</span>
+
+<strong>
+₹${(x.product.price*x.qty)
+.toLocaleString("en-IN")}
+</strong>
+
+</div>
+
+`).join("")}
+
+<div class="summary-row">
+<span>Order Total</span>
+<strong>
+₹${order.total.toLocaleString("en-IN")}
+</strong>
+</div>
+
+<div class="summary-row total">
+<span>Pay Now</span>
+<strong>
+₹${amount.toLocaleString("en-IN")}
+</strong>
+</div>
+
+${payMode==="cod"?`
+
+<div class="summary-row">
+<span>After Delivery</span>
+<strong>
+₹${remaining.toLocaleString("en-IN")}
+</strong>
+</div>
+
+`:""}
+
+`;
+
+document.getElementById("paymentArea")
+.innerHTML=`
+
+<div class="upi-box">
+
+<strong>UPI PAYMENT</strong>
+
+<br><br>
+
+একটি UPI button-ই রাখা হয়েছে।
+
+Android/UPI-enabled device-এ চাপলে
+available compatible UPI app নির্বাচন
+করার সুযোগ পাওয়া যেতে পারে।
+
+<br><br>
+
+PhonePe • Google Pay • Paytm • MobiKwik
+• Amazon Pay • Other UPI Apps
+
+</div>
+
+
+<button
+class="btn primary full"
+style="margin-top:15px"
+onclick="openUPI(${amount})">
+
+PAY ₹${amount.toLocaleString("en-IN")} WITH UPI
+
+</button>
+
+
+<div class="qr">
+
+<h3>Scan & Pay</h3>
+
+<img src="qr-code.png">
+
+<p>
+UPI ID:
+<strong>${CONFIG.upi}</strong>
+</p>
+
+</div>
+
+
+<div class="payment-note">
+
+<strong>COD:</strong>
+
+₹239 advance payment is required online.
+The remaining eligible amount is payable
+after delivery.
+
+</div>
+
+
+<div style="margin-top:18px">
+
+<label style="font-weight:800;font-size:13px">
+Payment UTR / Transaction ID
+</label>
+
+<input
+id="utr"
+style="
+width:100%;
+padding:12px;
+margin-top:6px;
+border:1px solid #d5dce6;
+border-radius:8px
+"
+placeholder="Enter UTR after payment">
+
+</div>
+
+
+<button
+class="btn outline full"
+style="margin-top:10px"
+onclick="submitPayment()">
+
+SUBMIT PAYMENT DETAILS
+
+</button>
+
+
+<div class="payment-note">
+
+Static HTML নিজে bank account-এ টাকা এসেছে কিনা
+নিশ্চিত করতে পারে না। Automatic payment
+success/failure-এর জন্য approved payment
+gateway + server-side webhook/API প্রয়োজন।
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+UPI
+===================================================== */
+
+function openUPI(amount){
+
+order.payment=
+payMode==="cod"
+?"COD — ₹239 Advance"
+:"FULL ONLINE";
+
+const url=
+"upi://pay"+
+"?pa="+encodeURIComponent(CONFIG.upi)+
+"&pn="+encodeURIComponent(CONFIG.merchant)+
+"&am="+Number(amount).toFixed(2)+
+"&cu=INR"+
+"&tn="+encodeURIComponent(
+"GRO Order "+order.id
+);
+
+window.location.href=url;
+
+}
+
+
+/* =====================================================
+SUBMIT PAYMENT
+===================================================== */
+
+function submitPayment(){
+
+let utr=
+document.getElementById("utr").value.trim();
+
+if(!utr)
+return alert("Payment করার পর UTR / Transaction ID দিন।");
+
+order.utr=utr;
+
+order.status="Payment verification pending";
+
+showPending();
+
+}
+
+
+function showPending(){
+
+openModal(
+"Payment Verification",
+`
+
+<div style="line-height:1.8">
+
+<p>
+Your payment details have been submitted.
+</p>
+
+<div class="payment-note">
+
+<strong>Verification Pending</strong><br>
+
+UPI app open হওয়া বা UTR দেওয়া মাত্র
+payment successful ধরা যাবে না।
+
+Real verification-এর জন্য payment gateway
+webhook/API connect করতে হবে।
+
+</div>
+
+<button
+class="btn primary full"
+style="margin-top:15px"
+onclick="closeModal()">
+OK
+</button>
+
+</div>
+
+`
+);
+
+}
+
+
+/* =====================================================
+GATEWAY HOOKS
+===================================================== */
+
+function paymentSuccess(transactionId){
+
+order.utr=transactionId||order.utr;
+order.status="Payment Successful";
+
+showSuccess();
+
+}
+
+
+function paymentFailed(){
+
+order.status="Payment Failed";
+
+openModal(
+"Payment Failed",
+`
+
+<p>
+Payment could not be verified.
+Please try again.
+</p>
+
+<button
+class="btn primary full"
+onclick="closeModal()">
+TRY AGAIN
+</button>
+
+`
+);
+
+}
+
+
+/* =====================================================
+SUCCESS
+===================================================== */
+
+function showSuccess(){
+
+document.getElementById("successDetails")
+.innerHTML=`
+
+<div class="summary-row">
+<span>Order ID</span>
+<strong>${order.id}</strong>
+</div>
+
+<div class="summary-row">
+<span>Order Total</span>
+<strong>₹${order.total.toLocaleString("en-IN")}</strong>
+</div>
+
+<div class="summary-row">
+<span>Payment</span>
+<strong>${order.payment}</strong>
+</div>
+
+<div class="summary-row">
+<span>Status</span>
+<strong>${order.status}</strong>
+</div>
+
+<div class="summary-row">
+<span>Customer</span>
+<strong>${order.name}</strong>
+</div>
+
+<div class="summary-row">
+<span>Mobile</span>
+<strong>${order.mobile}</strong>
+</div>
+
+<div class="summary-row">
+<span>Address</span>
+<strong>
+${order.address},
+${order.district},
+${order.state},
+${order.pin}
+</strong>
+</div>
+
+`;
+
+show("success");
+
+}
+
+
+/* =====================================================
+WHATSAPP
+===================================================== */
+
+function whatsappOrder(){
+
+let text=`
+
+GRO EXTENDER ORDER
+
+Order ID: ${order.id}
+
+Order Total: ₹${order.total}
+
+Payment: ${order.payment}
+
+Payment Status: ${order.status}
+
+UTR: ${order.utr||"Not provided"}
+
+Customer:
+${order.name}
+
+Mobile:
+${order.mobile}
+
+Address:
+${order.address}
+
+District:
+${order.district}
+
+State:
+${order.state}
+
+Pincode:
+${order.pin}
+
+`;
+
+window.open(
+"https://wa.me/"+CONFIG.whatsapp+
+"?text="+encodeURIComponent(text),
+"_blank"
+);
+
+}
+
+
+/* =====================================================
+TRACKING
+===================================================== */
+
+function trackOrder(){
+
+let id=
+document.getElementById("trackId")
+.value.trim();
+
+if(!id)
+return alert("Order ID দিন।");
+
+document.getElementById("trackingResult")
+.innerHTML=`
+
+<div class="timeline">
+
+<div class="step done">
+<div class="step-icon">✓</div>
+<div>
+<h4>Order Placed</h4>
+<p>Order ID ${id}</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-icon">2</div>
+<div>
+<h4>Payment Verification</h4>
+<p>Waiting for verified payment status.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-icon">3</div>
+<div>
+<h4>Processing</h4>
+<p>Order processing after confirmation.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-icon">4</div>
+<div>
+<h4>Shipped</h4>
+<p>Courier handover.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-icon">5</div>
+<div>
+<h4>Delivered</h4>
+<p>Order delivered.</p>
+</div>
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+SEARCH
+===================================================== */
+
+function searchProducts(){
+
+let q=
+document.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+let list=
+Object.values(PRODUCTS)
+.filter(p=>
+p.name.toLowerCase().includes(q) ||
+p.description.toLowerCase().includes(q)
+);
+
+document.getElementById("shopProducts")
+.innerHTML=
+list.map(card).join("");
+
+show("shop");
+
+}
+
+
+/* =====================================================
+CATEGORY
+===================================================== */
+
+function category(id,button){
+
+let list;
+
+if(id==="all")
+list=Object.values(PRODUCTS);
+else
+list=Object.values(PRODUCTS)
+.filter(p=>p.category===id);
+
+render(list);
+
+show("shop");
+
+if(button){
+
+document
+.querySelectorAll(".filter")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+}
+
+}
+
+
+/* =====================================================
+SORT
+===================================================== */
+
+function sortProducts(){
+
+let list=Object.values(PRODUCTS);
+
+let value=
+document.getElementById("sort").value;
+
+if(value==="low")
+list.sort((a,b)=>a.price-b.price);
+
+if(value==="high")
+list.sort((a,b)=>b.price-a.price);
+
+document.getElementById("shopProducts")
+.innerHTML=
+list.map(card).join("");
+
+}
+
+
+/* =====================================================
+WISHLIST
+===================================================== */
+
+function wishlist(id){
+
+let saved=
+JSON.parse(
+localStorage.getItem("groWishlist")||"[]"
+);
+
+if(saved.includes(id))
+saved=saved.filter(x=>x!==id);
+else
+saved.push(id);
+
+localStorage.setItem(
+"groWishlist",
+JSON.stringify(saved)
+);
+
+alert("Wishlist updated.");
+
+}
+
+
+/* =====================================================
+FAQ
+===================================================== */
+
+function faq(button){
+
+let content=
+button.nextElementSibling;
+
+let open=
+content.style.display==="block";
+
+document
+.querySelectorAll(".faq-content")
+.forEach(x=>x.style.display="none");
+
+document
+.querySelectorAll(".faq button span")
+.forEach(x=>x.textContent="＋");
+
+if(!open){
+
+content.style.display="block";
+
+button.querySelector("span")
+.textContent="−";
+
+}
+
+}
+
+
+/* =====================================================
+POLICY MODAL
+===================================================== */
+
+function openPolicy(type){
+
+let data={
+
+shipping:[
+"Shipping Policy",
+`
+<p>
+Orders are shipped only to serviceable locations.
+Delivery time depends on pincode, courier
+availability and operational conditions.
+</p>
+
+<p>
+Customer must provide accurate name, mobile,
+address, state, district and pincode.
+</p>
+`
+],
+
+return:[
+"Return Policy",
+`
+<p>
+No Return Policy.
+Please verify product selection and address
+before placing an order.
+</p>
+`
+],
+
+refund:[
+"Refund Policy",
+`
+<p>
+Refunds, where applicable, are processed only
+after verification according to the applicable
+order/payment terms.
+</p>
+`
+],
+
+privacy:[
+"Privacy Policy",
+`
+<p>
+Customer information such as name, mobile,
+address and order details should be used only
+for order processing, delivery, customer support
+and legally required purposes.
+</p>
+`
+],
+
+terms:[
+"Terms & Conditions",
+`
+<p>
+This website is intended for customers aged
+18 years and above.
+</p>
+
+<p>
+Product information should not be interpreted
+as guaranteed medical outcomes.
+</p>
+`
+],
+
+payment:[
+"Payment Information",
+`
+<p>
+UPI checkout uses a standard UPI deep-link.
+Compatible devices may display installed UPI apps.
+</p>
+
+<p>
+Automatic payment verification requires a
+proper payment gateway and server-side webhook.
+</p>
+`
+],
+
+contact:[
+"Contact",
+`
+<p>
+Call:
+<a href="tel:+917407792138">
++91 74077 92138
+</a>
+</p>
+
+<p>
+WhatsApp:
+<a href="https://wa.me/917407792138"
+target="_blank">
+Chat on WhatsApp
+</a>
+</p>
+`
+]
+
+};
+
+openModal(
+data[type][0],
+data[type][1]
+);
+
+}
+
+
+/* =====================================================
+MODAL
+===================================================== */
+
+function openModal(title,body){
+
+document.getElementById("modalTitle")
+.textContent=title;
+
+document.getElementById("modalBody")
+.innerHTML=body;
+
+document.getElementById("modal")
+.classList.add("show");
+
+}
+
+
+function closeModal(){
+
+document.getElementById("modal")
+.classList.remove("show");
+
+}
+
+
+/* =====================================================
+INFO SCROLL
+===================================================== */
+
+function scrollInfo(){
+
+show("home");
+
+setTimeout(()=>{
+
+document.getElementById("info")
+.scrollIntoView({
+ behavior:"smooth"
+});
+
+},100);
+
+}
+
+
+/* =====================================================
+INIT
+===================================================== */
+
+loadStates();
+
+render();
+
+updateCartCount();
+
 </script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-<script id="product-navigation-script">
-(function(){
-  const PE_PRODUCTS=[
-    {
-      name:"ProExtender® Ultimate Model", price:3499,
-      img:"Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
-      text:"Reliable traction-style model with stainless-steel rods and reinforced straps. Discreet packaging and the existing checkout/payment flow are used."
-    },
-    {
-      name:"ProExtender® Supreme+ Model (Advanced Version)", price:4499,
-      img:"Gemini_Generated_Image_unscx2unscx2unsc.png",
-      text:"Advanced model with lightweight rods and reinforced straps. Tap Buy Now to continue to the existing quantity, customer-details, payment and COD flow."
-    },
-    {
-      name:"ProExtender® DoubleDeck/Micropenis Model", price:5950,
-      img:"Gemini_Generated_Image_bezw1nbezw1nbezw.png",
-      text:"Specialized model with an extended plate and multiple straps. Tap Buy Now to continue to the existing checkout flow."
-    }
-  ];
-
-  window.peHome=function(){
-    document.getElementById("peProducts").classList.remove("active");
-    document.getElementById("peDetail").classList.remove("active");
-    window.scrollTo({top:document.getElementById("productExplorer").offsetTop-10,behavior:"smooth"});
-  };
-
-  window.peOpenPage=function(id){
-    document.getElementById("peDetail").classList.remove("active");
-    document.getElementById("peProducts").classList.add("active");
-    window.scrollTo({top:document.getElementById("productExplorer").offsetTop-10,behavior:"smooth"});
-  };
-
-  window.peProducts=function(){
-    document.getElementById("peDetail").classList.remove("active");
-    document.getElementById("peProducts").classList.add("active");
-    window.scrollTo({top:document.getElementById("productExplorer").offsetTop-10,behavior:"smooth"});
-  };
-
-  window.peOpenDetail=function(i){
-    const p=PE_PRODUCTS[i];
-    document.getElementById("peProducts").classList.remove("active");
-    document.getElementById("peDetail").classList.add("active");
-    document.getElementById("peDetailImg").src=p.img;
-    document.getElementById("peDetailTitle").textContent=p.name;
-    document.getElementById("peDetailText").textContent=p.text;
-    document.getElementById("peDetailPrice").textContent="₹"+p.price.toLocaleString("en-IN");
-    document.getElementById("peBuyButton").onclick=function(){
-      if(typeof openOrderModal==="function"){
-        openOrderModal(p.name,p.price,"qty1");
-      }else{
-        document.getElementById("products")?.scrollIntoView({behavior:"smooth"});
-      }
-    };
-    window.scrollTo({top:document.getElementById("productExplorer").offsetTop-10,behavior:"smooth"});
-  };
-})();
-</script>
-
-</body></html>
+</body>
+  </html>
