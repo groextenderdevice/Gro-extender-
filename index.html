@@ -2,39 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0b0b0d">
-<meta name="description" content="GRO — Premium Personal Wellness Store">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
 
-<title>GRO — Premium Wellness</title>
+<title>GRO Extender — Premium Wellness</title>
 
 <style>
-/* =========================================================
-   GRO — PRO D2C COMMERCE ENGINE
-========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-:root{
-  --bg:#f5f5f7;
-  --surface:#fff;
-  --surface2:#f0f0f3;
-  --text:#101014;
-  --muted:#74747c;
-  --line:#e5e5e9;
-  --black:#0b0b0d;
-  --accent:#d9ff38;
-  --accent2:#b8df20;
-  --danger:#ff4545;
-  --success:#22a06b;
-  --radius:22px;
-  --shadow:0 20px 60px rgba(0,0,0,.08);
-}
 
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+}
+
+:root{
+  --black:#090909;
+  --dark:#111;
+  --lime:#d9ff35;
+  --white:#fff;
+  --bg:#f5f5f2;
+  --card:#fff;
+  --text:#111;
+  --muted:#777;
+  --border:#e7e7e2;
+  --radius:24px;
 }
 
 html{
@@ -48,44 +40,43 @@ body{
   overflow-x:hidden;
 }
 
-button,
-input,
-select,
-textarea{
-  font:inherit;
+button,input,textarea,select{
+  font-family:inherit;
 }
 
 button{
   cursor:pointer;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+img{
+  max-width:100%;
+  display:block;
 }
 
-/* ================= HEADER ================= */
+/* ================= TOP ================= */
 
-.topbar{
+.top{
   height:34px;
-  background:var(--black);
+  background:#000;
   color:#fff;
   display:flex;
-  align-items:center;
   justify-content:center;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.4px;
+  align-items:center;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.7px;
 }
+
+/* ================= NAV ================= */
 
 .nav{
   position:sticky;
   top:0;
-  z-index:5000;
-  height:74px;
-  background:rgba(255,255,255,.9);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+  z-index:1000;
+  height:76px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
 }
 
 .nav-inner{
@@ -95,67 +86,66 @@ a{
   padding:0 22px;
   display:flex;
   align-items:center;
-  gap:35px;
 }
 
 .logo{
-  font-size:27px;
+  font-size:30px;
   font-weight:900;
-  letter-spacing:-1.8px;
+  letter-spacing:-2px;
 }
 
-.logo i{
-  color:#8bad00;
-  font-style:normal;
+.logo span{
+  color:#8eaa00;
 }
 
-.nav-links{
+.links{
   display:flex;
-  gap:26px;
+  gap:28px;
   margin-left:auto;
+  margin-right:25px;
 }
 
-.nav-links button{
+.links button{
   border:0;
   background:none;
-  font-size:13px;
+  font-size:12px;
   font-weight:700;
-  color:#555;
+  color:#666;
 }
 
-.nav-links button:hover{
+.links button:hover{
   color:#000;
 }
 
-.nav-actions{
+.nav-icons{
   display:flex;
-  gap:9px;
+  gap:8px;
 }
 
-.icon-btn{
-  width:43px;
-  height:43px;
-  border:1px solid var(--line);
-  background:#fff;
+.circle{
+  width:42px;
+  height:42px;
   border-radius:50%;
+  border:1px solid var(--border);
+  background:#fff;
   display:grid;
   place-items:center;
-  font-size:17px;
   position:relative;
+  font-size:17px;
 }
 
-.badge{
+.count{
   position:absolute;
   top:-3px;
   right:-2px;
+  background:#000;
+  color:#fff;
   min-width:17px;
   height:17px;
   border-radius:50%;
-  background:#000;
-  color:#fff;
-  font-size:9px;
   display:grid;
   place-items:center;
+  font-size:9px;
   font-weight:900;
 }
 
@@ -163,91 +153,92 @@ a{
 
 .hero{
   max-width:1250px;
-  margin:22px auto;
+  margin:20px auto;
   padding:0 22px;
 }
 
 .hero-box{
-  min-height:590px;
-  background:#0b0b0d;
+  min-height:650px;
+  background:#090909;
   border-radius:32px;
   overflow:hidden;
   position:relative;
   color:#fff;
-  display:flex;
-  align-items:center;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
 }
 
-.hero-grid{
+.grid{
   position:absolute;
   inset:0;
-  opacity:.14;
+  opacity:.09;
   background-image:
-    linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);
-  background-size:50px 50px;
+    linear-gradient(#fff 1px,transparent 1px),
+    linear-gradient(90deg,#fff 1px,transparent 1px);
+  background-size:55px 55px;
 }
 
-.hero-glow{
+.glow{
   position:absolute;
   width:500px;
   height:500px;
-  right:-100px;
-  top:-120px;
-  background:#d9ff38;
-  filter:blur(130px);
-  opacity:.25;
+  background:var(--lime);
+  filter:blur(150px);
+  opacity:.18;
+  right:-120px;
+  top:-100px;
 }
 
-.hero-content{
+.hero-text{
   position:relative;
   z-index:2;
-  max-width:720px;
-  padding:70px;
+  padding:80px 65px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
-.hero-tag{
-  display:inline-flex;
-  padding:8px 13px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.07);
+.pill{
+  width:max-content;
+  padding:9px 14px;
+  border:1px solid #333;
   border-radius:50px;
-  font-size:11px;
+  color:#ddd;
+  font-size:10px;
   font-weight:800;
-  margin-bottom:22px;
+  margin-bottom:25px;
 }
 
 .hero h1{
-  font-size:clamp(46px,7vw,88px);
+  font-size:clamp(50px,7vw,82px);
   line-height:.91;
   letter-spacing:-5px;
-  max-width:700px;
 }
 
 .hero h1 span{
-  color:var(--accent);
+  color:var(--lime);
 }
 
-.hero p{
+.hero-desc{
+  color:#999;
+  max-width:510px;
+  font-size:14px;
+  line-height:1.8;
   margin-top:25px;
-  max-width:540px;
-  color:#aaa;
-  line-height:1.7;
-  font-size:15px;
 }
 
-.hero-buttons{
+.buttons{
   display:flex;
-  gap:12px;
-  margin-top:32px;
+  gap:10px;
+  margin-top:30px;
 }
 
 .btn{
   border:0;
+  padding:15px 22px;
   border-radius:13px;
-  padding:14px 21px;
-  font-weight:800;
-  font-size:13px;
+  font-size:12px;
+  font-weight:900;
   transition:.2s;
 }
 
@@ -255,77 +246,79 @@ a{
   transform:translateY(-2px);
 }
 
-.btn-primary{
-  background:var(--accent);
-  color:#080808;
+.primary{
+  background:var(--lime);
+  color:#000;
 }
 
-.btn-dark{
+.secondary{
   background:#fff;
-  color:#111;
+  color:#000;
 }
 
-.hero-stat{
-  position:absolute;
-  right:50px;
-  bottom:45px;
-  z-index:3;
+.hero-product{
+  position:relative;
+  z-index:2;
   display:flex;
-  gap:10px;
+  justify-content:center;
+  align-items:center;
 }
 
-.stat{
-  min-width:120px;
-  padding:16px;
-  border-radius:17px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.1);
-  backdrop-filter:blur(12px);
+.product-orb{
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%,#444,#151515 55%,#050505);
+  box-shadow:
+    0 0 100px rgba(217,255,53,.12),
+    inset 0 0 70px rgba(255,255,255,.05);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.stat strong{
-  display:block;
-  font-size:19px;
-}
-
-.stat small{
-  color:#999;
-  font-size:10px;
+.product-orb img{
+  width:76%;
+  max-height:330px;
+  object-fit:contain;
+  filter:drop-shadow(0 30px 30px rgba(0,0,0,.6));
 }
 
 /* ================= TRUST ================= */
 
 .trust{
   max-width:1200px;
-  margin:25px auto 55px;
+  margin:25px auto 70px;
   padding:0 22px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:12px;
 }
 
-.trust-item{
+.trust-card{
   background:#fff;
-  border:1px solid var(--line);
-  padding:18px;
-  border-radius:17px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:19px;
   display:flex;
+  gap:12px;
   align-items:center;
-  gap:13px;
 }
 
-.trust-item b{
-  font-size:13px;
-}
-
-.trust-item small{
+.trust-card b{
   display:block;
-  color:var(--muted);
-  font-size:10px;
-  margin-top:3px;
+  font-size:12px;
 }
 
-/* ================= SECTION ================= */
+.trust-card small{
+  color:#888;
+  font-size:9px;
+  display:block;
+  margin-top:4px;
+}
+
+/* ================= PRODUCT ================= */
 
 .section{
   max-width:1200px;
@@ -333,300 +326,311 @@ a{
   padding:0 22px;
 }
 
-.section-head{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  margin-bottom:25px;
-}
-
 .eyebrow{
-  color:#789100;
   font-size:10px;
   font-weight:900;
-  text-transform:uppercase;
   letter-spacing:1.4px;
+  color:#799000;
+  text-transform:uppercase;
 }
 
-.section-title{
-  font-size:34px;
-  letter-spacing:-1.7px;
-  margin-top:5px;
+.title{
+  font-size:38px;
+  letter-spacing:-2px;
+  margin-top:6px;
 }
 
-.section-link{
-  border:0;
-  background:none;
-  font-weight:800;
+.main-product{
+  margin-top:25px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.product-visual{
+  min-height:600px;
+  background:#eeeeeb;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.product-visual::before{
+  content:"GRO";
+  position:absolute;
+  font-size:190px;
+  font-weight:900;
+  color:#e5e5e0;
+  letter-spacing:-15px;
+}
+
+.product-visual img{
+  width:78%;
+  max-height:500px;
+  object-fit:contain;
+  position:relative;
+  z-index:2;
+  filter:drop-shadow(0 35px 30px rgba(0,0,0,.2));
+}
+
+.sale{
+  position:absolute;
+  top:20px;
+  left:20px;
+  background:#000;
+  color:#fff;
+  padding:9px 13px;
+  border-radius:50px;
+  font-size:10px;
+  font-weight:900;
+  z-index:3;
+}
+
+.product-details{
+  padding:55px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.product-details h2{
+  font-size:44px;
+  letter-spacing:-2.5px;
+  margin-top:8px;
+}
+
+.rating{
+  margin-top:15px;
   font-size:12px;
 }
 
-/* ================= PRODUCTS ================= */
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.product{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:23px;
-  overflow:hidden;
-  transition:.3s;
-}
-
-.product:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow);
-}
-
-.product-image{
-  height:350px;
-  background:#f1f1f3;
-  position:relative;
-  overflow:hidden;
-}
-
-.product-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.5s;
-}
-
-.product:hover img{
-  transform:scale(1.05);
-}
-
-.product-badge{
-  position:absolute;
-  top:14px;
-  left:14px;
-  background:#fff;
-  padding:7px 10px;
-  border-radius:30px;
-  font-size:9px;
-  font-weight:900;
-  z-index:2;
-}
-
-.wish{
-  position:absolute;
-  top:13px;
-  right:13px;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  border:0;
-  background:rgba(255,255,255,.9);
-  z-index:2;
-  font-size:17px;
-}
-
-.product-info{
-  padding:19px;
-}
-
-.product-category{
-  color:#888;
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-}
-
-.product-name{
-  margin-top:6px;
-  font-size:17px;
-  font-weight:900;
-  letter-spacing:-.5px;
-}
-
-.product-desc{
-  margin-top:7px;
-  color:#777;
-  font-size:11px;
-  line-height:1.6;
-}
-
-.price-row{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:14px;
+.rating span{
+  color:#e1a800;
+  letter-spacing:2px;
 }
 
 .price{
-  font-size:21px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:22px;
+}
+
+.current{
+  font-size:32px;
   font-weight:900;
 }
 
-.old-price{
+.old{
   color:#999;
   text-decoration:line-through;
-  font-size:12px;
+  font-size:14px;
 }
 
-.discount{
-  color:#168552;
-  font-size:10px;
+.off{
+  color:#168653;
+  font-size:11px;
   font-weight:900;
 }
 
-.product-actions{
+.description{
+  color:#777;
+  line-height:1.8;
+  font-size:13px;
+  margin-top:20px;
+}
+
+.highlights{
+  margin-top:22px;
   display:grid;
-  grid-template-columns:1fr 48px;
-  gap:8px;
-  margin-top:16px;
+  gap:10px;
 }
 
-.add-btn{
+.highlight{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.check{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#eff6d5;
+  display:grid;
+  place-items:center;
+}
+
+.qty-row{
+  display:flex;
+  gap:10px;
+  margin-top:25px;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.qty button{
+  width:40px;
+  height:48px;
   border:0;
-  background:#0b0b0d;
-  color:#fff;
-  border-radius:12px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.quick-btn{
-  border:1px solid var(--line);
   background:#fff;
-  border-radius:12px;
 }
 
-/* ================= PROMO ================= */
+.qty strong{
+  width:35px;
+  text-align:center;
+}
 
-.promo{
+.buy{
+  flex:1;
+}
+
+/* ================= OFFER ================= */
+
+.offer{
   max-width:1200px;
   margin:0 auto 80px;
   padding:0 22px;
 }
 
-.promo-box{
-  background:var(--accent);
+.offer-box{
+  background:var(--lime);
   border-radius:25px;
-  padding:40px;
+  padding:38px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:30px;
+  align-items:center;
+  gap:20px;
 }
 
-.promo-box h2{
-  font-size:36px;
+.offer-box h2{
+  font-size:34px;
   letter-spacing:-2px;
 }
 
-.promo-box p{
+.offer-box p{
   margin-top:7px;
-  font-size:12px;
+  font-size:11px;
 }
 
 /* ================= FEATURES ================= */
 
 .features{
+  margin-top:25px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:16px;
 }
 
 .feature{
-  padding:28px;
   background:#fff;
-  border:1px solid var(--line);
-  border-radius:22px;
+  border:1px solid var(--border);
+  border-radius:21px;
+  padding:28px;
 }
 
 .feature-icon{
-  width:46px;
-  height:46px;
-  background:#f0f1f2;
-  border-radius:14px;
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  background:#f0f0ec;
   display:grid;
   place-items:center;
   font-size:20px;
 }
 
 .feature h3{
-  margin-top:17px;
-  font-size:17px;
+  margin-top:18px;
+  font-size:16px;
 }
 
 .feature p{
-  margin-top:8px;
   color:#777;
-  font-size:12px;
-  line-height:1.7;
+  font-size:11px;
+  line-height:1.8;
+  margin-top:8px;
 }
 
 /* ================= REVIEWS ================= */
 
 .reviews{
+  margin-top:25px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:15px;
 }
 
 .review{
   background:#fff;
-  border:1px solid var(--line);
-  padding:23px;
+  border:1px solid var(--border);
   border-radius:20px;
+  padding:24px;
 }
 
 .stars{
-  color:#e1ad00;
+  color:#e2ad00;
   letter-spacing:2px;
 }
 
 .review p{
   margin-top:14px;
-  color:#555;
+  color:#666;
   font-size:12px;
-  line-height:1.7;
+  line-height:1.8;
 }
 
-.reviewer{
+.user{
   margin-top:18px;
-  font-weight:800;
-  font-size:11px;
+  font-size:10px;
+  font-weight:900;
 }
 
 /* ================= FAQ ================= */
 
 .faq{
   max-width:850px;
-  margin:auto;
+  margin:25px auto 0;
 }
 
 .faq-item{
   background:#fff;
-  border:1px solid var(--line);
+  border:1px solid var(--border);
   border-radius:15px;
-  margin-bottom:9px;
+  margin-bottom:8px;
   overflow:hidden;
 }
 
 .faq-q{
   width:100%;
-  padding:19px;
-  border:0;
   background:#fff;
+  border:0;
+  padding:19px;
   display:flex;
   justify-content:space-between;
-  text-align:left;
+  font-size:12px;
   font-weight:800;
-  font-size:13px;
+  text-align:left;
 }
 
 .faq-a{
   display:none;
-  padding:0 19px 19px;
+  padding:0 19px 18px;
   color:#777;
-  line-height:1.7;
-  font-size:12px;
+  font-size:11px;
+  line-height:1.8;
 }
 
 .faq-item.open .faq-a{
@@ -636,12 +640,12 @@ a{
 /* ================= FOOTER ================= */
 
 footer{
-  background:#0b0b0d;
+  background:#090909;
   color:#fff;
-  padding:65px 22px 35px;
+  padding:65px 22px 30px;
 }
 
-.footer-grid{
+.footer-inner{
   max-width:1200px;
   margin:auto;
   display:grid;
@@ -650,41 +654,40 @@ footer{
 }
 
 .footer-logo{
-  font-size:28px;
+  font-size:30px;
   font-weight:900;
 }
 
 footer p,
 footer button{
-  color:#999;
+  color:#888;
   font-size:11px;
   line-height:1.8;
 }
 
 footer button{
+  display:block;
   border:0;
   background:none;
   margin-top:7px;
-  display:block;
 }
 
-.footer-bottom{
+.copy{
   max-width:1200px;
-  margin:45px auto 0;
+  margin:40px auto 0;
+  border-top:1px solid #242424;
   padding-top:20px;
-  border-top:1px solid #242428;
-  color:#777;
-  font-size:10px;
+  color:#666;
+  font-size:9px;
 }
 
-/* ================= DRAWER ================= */
+/* ================= CART ================= */
 
 .overlay{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.5);
-  backdrop-filter:blur(4px);
-  z-index:9000;
+  z-index:3000;
   opacity:0;
   visibility:hidden;
   transition:.25s;
@@ -695,200 +698,104 @@ footer button{
   visibility:visible;
 }
 
-.drawer{
+.cart{
   position:fixed;
   top:0;
-  right:-500px;
-  height:100%;
+  right:-470px;
   width:min(470px,100%);
+  height:100%;
   background:#fff;
-  z-index:9500;
-  transition:.35s cubic-bezier(.2,.8,.2,1);
-  box-shadow:-20px 0 60px rgba(0,0,0,.15);
+  z-index:4000;
+  transition:.35s;
   display:flex;
   flex-direction:column;
 }
 
-.drawer.open{
+.cart.open{
   right:0;
 }
 
-.drawer-head{
-  padding:23px;
-  border-bottom:1px solid var(--line);
+.cart-head{
+  padding:22px;
+  border-bottom:1px solid var(--border);
   display:flex;
-  align-items:center;
   justify-content:space-between;
-}
-
-.drawer-head h2{
-  font-size:19px;
 }
 
 .close{
   width:38px;
   height:38px;
   border:0;
-  background:#f2f2f4;
+  background:#f2f2ef;
   border-radius:50%;
 }
 
-.drawer-body{
+.cart-body{
   flex:1;
   overflow:auto;
-  padding:22px;
+  padding:20px;
 }
 
 .cart-item{
   display:grid;
-  grid-template-columns:72px 1fr auto;
+  grid-template-columns:70px 1fr auto;
   gap:12px;
-  padding:15px 0;
-  border-bottom:1px solid var(--line);
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
 }
 
 .cart-item img{
-  width:72px;
-  height:72px;
-  border-radius:13px;
-  object-fit:cover;
+  width:70px;
+  height:70px;
+  object-fit:contain;
+  background:#f2f2ef;
+  border-radius:12px;
 }
 
 .cart-item h4{
   font-size:12px;
 }
 
-.cart-item p{
-  margin-top:5px;
+.cart-item small{
   color:#777;
-  font-size:10px;
 }
 
-.qty{
+.cart-controls{
   display:flex;
-  align-items:center;
   gap:7px;
-  margin-top:9px;
+  align-items:center;
+  margin-top:8px;
 }
 
-.qty button{
-  width:25px;
-  height:25px;
-  border:1px solid var(--line);
+.cart-controls button{
+  width:24px;
+  height:24px;
+  border:1px solid var(--border);
   background:#fff;
-  border-radius:7px;
+  border-radius:6px;
 }
 
-.drawer-foot{
+.cart-foot{
+  border-top:1px solid var(--border);
   padding:20px;
-  border-top:1px solid var(--line);
 }
 
-.total-line{
+.total{
   display:flex;
   justify-content:space-between;
   margin-bottom:15px;
 }
 
-.total-line strong{
-  font-size:21px;
-}
-
-.full{
-  width:100%;
-}
-
-/* ================= PRODUCT MODAL ================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:10000;
-  display:none;
-  place-items:center;
-  padding:20px;
-  background:rgba(0,0,0,.65);
-}
-
-.modal.show{
-  display:grid;
-}
-
-.modal-card{
-  width:min(900px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:#fff;
-  border-radius:25px;
-  position:relative;
-}
-
-.modal-close{
-  position:absolute;
-  right:15px;
-  top:15px;
-  z-index:3;
-}
-
-.modal-product{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-}
-
-.modal-product-image{
-  min-height:500px;
-  background:#f3f3f5;
-}
-
-.modal-product-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.modal-product-info{
-  padding:45px;
-}
-
-.modal-product-info h2{
-  font-size:36px;
-  letter-spacing:-2px;
-}
-
-.modal-price{
-  font-size:28px;
-  font-weight:900;
-  margin-top:15px;
-}
-
-.modal-description{
-  color:#777;
-  line-height:1.8;
-  font-size:13px;
-  margin-top:17px;
-}
-
-.qty-big{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin:25px 0;
-}
-
-.qty-big button{
-  width:42px;
-  height:42px;
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:10px;
+.total strong{
+  font-size:23px;
 }
 
 /* ================= CHECKOUT ================= */
 
 .checkout{
   display:none;
-  max-width:800px;
-  margin:30px auto 80px;
+  max-width:850px;
+  margin:20px auto 80px;
   padding:0 22px;
 }
 
@@ -896,31 +803,24 @@ footer button{
   display:block;
 }
 
-.checkout-box{
+.checkout-card{
   background:#fff;
-  border:1px solid var(--line);
-  border-radius:23px;
-  padding:25px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:28px;
 }
 
-.checkout-grid{
+.form-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
-}
-
-.field{
-  margin-bottom:13px;
-}
-
-.field.full-field{
-  grid-column:1/-1;
+  margin-top:25px;
 }
 
 .field label{
   display:block;
-  font-size:10px;
-  font-weight:800;
+  font-size:9px;
+  font-weight:900;
   margin-bottom:6px;
 }
 
@@ -928,16 +828,19 @@ footer button{
 .field textarea,
 .field select{
   width:100%;
-  border:1px solid var(--line);
-  background:#fafafa;
   padding:13px;
+  border:1px solid var(--border);
   border-radius:11px;
   outline:none;
+  background:#fafaf8;
+}
+
+.field.full{
+  grid-column:1/-1;
 }
 
 .field textarea{
   min-height:90px;
-  resize:vertical;
 }
 
 /* ================= TOAST ================= */
@@ -947,12 +850,12 @@ footer button{
   left:50%;
   bottom:25px;
   transform:translate(-50%,100px);
-  z-index:20000;
-  background:#0b0b0d;
+  background:#090909;
   color:#fff;
-  padding:13px 19px;
+  padding:13px 18px;
   border-radius:12px;
-  font-size:12px;
+  z-index:9999;
+  font-size:11px;
   font-weight:800;
   opacity:0;
   transition:.3s;
@@ -965,113 +868,101 @@ footer button{
 
 /* ================= MOBILE ================= */
 
-.mobile-nav{
+.mobile{
   display:none;
 }
 
 @media(max-width:800px){
 
-  .nav-links{
+  .links{
     display:none;
   }
 
-  .nav-inner{
-    gap:10px;
-    justify-content:space-between;
-  }
-
   .hero-box{
-    min-height:610px;
-    border-radius:24px;
+    grid-template-columns:1fr;
+    min-height:700px;
   }
 
-  .hero-content{
-    padding:35px;
+  .hero-text{
+    padding:50px 30px 15px;
+  }
+
+  .hero-product{
+    min-height:300px;
+  }
+
+  .product-orb{
+    width:290px;
+    height:290px;
+  }
+
+  .product-orb img{
+    max-height:230px;
   }
 
   .hero h1{
-    font-size:55px;
-    letter-spacing:-4px;
-  }
-
-  .hero-stat{
-    left:25px;
-    right:25px;
-    bottom:25px;
-  }
-
-  .stat{
-    flex:1;
-    min-width:0;
+    font-size:54px;
   }
 
   .trust{
     grid-template-columns:1fr 1fr;
   }
 
-  .products,
-  .reviews,
-  .features{
+  .main-product{
     grid-template-columns:1fr;
   }
 
-  .product-image{
-    height:380px;
+  .product-visual{
+    min-height:390px;
   }
 
-  .promo-box{
-    display:block;
+  .product-details{
     padding:30px;
   }
 
-  .promo-box h2{
-    font-size:30px;
+  .product-details h2{
+    font-size:35px;
   }
 
-  .promo-box .btn{
-    margin-top:20px;
+  .features,
+  .reviews{
+    grid-template-columns:1fr;
   }
 
-  .footer-grid{
+  .offer-box{
+    display:block;
+  }
+
+  .offer-box .btn{
+    margin-top:18px;
+  }
+
+  .footer-inner{
     grid-template-columns:1fr 1fr;
   }
 
-  .modal-product{
+  .form-grid{
     grid-template-columns:1fr;
   }
 
-  .modal-product-image{
-    min-height:330px;
-  }
-
-  .modal-product-info{
-    padding:28px;
-  }
-
-  .checkout-grid{
-    grid-template-columns:1fr;
-  }
-
-  .field.full-field{
+  .field.full{
     grid-column:auto;
   }
 
-  .mobile-nav{
-    display:grid;
+  .mobile{
     position:fixed;
+    bottom:10px;
     left:10px;
     right:10px;
-    bottom:10px;
-    height:65px;
-    background:rgba(10,10,12,.94);
-    backdrop-filter:blur(20px);
+    height:64px;
+    background:rgba(10,10,10,.95);
     border-radius:20px;
-    z-index:7000;
+    z-index:2000;
+    display:grid;
     grid-template-columns:repeat(4,1fr);
-    padding:6px;
   }
 
-  .mobile-nav button{
+  .mobile button{
     border:0;
     background:none;
     color:#aaa;
@@ -1079,198 +970,108 @@ footer button{
     font-weight:800;
   }
 
-  .mobile-nav span{
+  .mobile span{
     display:block;
-    font-size:20px;
+    font-size:19px;
     margin-bottom:3px;
   }
 
   body{
-    padding-bottom:85px;
+    padding-bottom:80px;
   }
-
-}
-
-/* ================= LOADING ================= */
-
-.loader{
-  position:fixed;
-  inset:0;
-  background:#0b0b0d;
-  z-index:99999;
-  display:grid;
-  place-items:center;
-  transition:.5s;
-}
-
-.loader.hide{
-  opacity:0;
-  visibility:hidden;
-}
-
-.loader-logo{
-  color:#fff;
-  font-size:42px;
-  font-weight:900;
-  letter-spacing:-3px;
-}
-
-.loader-logo span{
-  color:var(--accent);
-}
-
-.loader-line{
-  width:150px;
-  height:3px;
-  background:#252529;
-  margin:20px auto;
-  overflow:hidden;
-}
-
-.loader-line i{
-  display:block;
-  width:50%;
-  height:100%;
-  background:var(--accent);
-  animation:load 1s infinite;
-}
-
-@keyframes load{
-  from{transform:translateX(-100%)}
-  to{transform:translateX(300%)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-
-<div class="loader" id="loader">
-  <div>
-    <div class="loader-logo">
-      GRO<span>.</span>
-    </div>
-    <div class="loader-line"><i></i></div>
-  </div>
+<div class="top">
+  GRO EXTENDER • PREMIUM WELLNESS • DISCREET DELIVERY
 </div>
-
-<!-- TOPBAR -->
-
-<div class="topbar">
-  PREMIUM PERSONAL WELLNESS • DISCREET PACKAGING • SECURE CHECKOUT
-</div>
-
-<!-- NAV -->
 
 <header class="nav">
-
   <div class="nav-inner">
 
     <div class="logo">
-      GRO<i>.</i>
+      GRO<span>.</span>
     </div>
 
-    <div class="nav-links">
-
-      <button onclick="go('home')">Home</button>
-      <button onclick="go('products')">Shop</button>
-      <button onclick="go('why')">Why GRO</button>
-      <button onclick="go('reviews')">Reviews</button>
-      <button onclick="go('faq')">FAQ</button>
-
+    <div class="links">
+      <button onclick="scrollToId('home')">HOME</button>
+      <button onclick="scrollToId('product')">PRODUCT</button>
+      <button onclick="scrollToId('why')">WHY GRO</button>
+      <button onclick="scrollToId('reviews')">REVIEWS</button>
+      <button onclick="scrollToId('faq')">FAQ</button>
     </div>
 
-    <div class="nav-actions">
+    <div class="nav-icons">
 
-      <button
-        class="icon-btn"
-        onclick="openSearch()">
-        ⌕
-      </button>
-
-      <button
-        class="icon-btn"
-        onclick="openWishlist()">
-        ♡
-        <span class="badge" id="wishCount">0</span>
-      </button>
-
-      <button
-        class="icon-btn"
-        onclick="openCart()">
+      <button class="circle" onclick="openCart()">
         🛒
-        <span class="badge" id="cartCount">0</span>
+        <span class="count" id="cartCount">0</span>
       </button>
 
     </div>
 
   </div>
-
 </header>
 
 
-<!-- HERO -->
-
 <main id="home">
+
+<!-- HERO -->
 
 <section class="hero">
 
   <div class="hero-box">
 
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
+    <div class="grid"></div>
+    <div class="glow"></div>
 
-    <div class="hero-content">
+    <div class="hero-text">
 
-      <div class="hero-tag">
-        ● NEW GENERATION WELLNESS
+      <div class="pill">
+        ● GRO EXTENDER — PREMIUM COLLECTION
       </div>
 
       <h1>
-        Better design.<br>
-        Better <span>confidence.</span>
+        Upgrade your<br>
+        <span>confidence.</span>
       </h1>
 
-      <p>
-        Premium personal wellness products designed
-        with simplicity, discretion and everyday comfort
-        in mind.
+      <p class="hero-desc">
+        Meet GRO Extender — a modern personal wellness
+        product presented with a premium, discreet and
+        customer-first shopping experience.
       </p>
 
-      <div class="hero-buttons">
+      <div class="buttons">
 
         <button
-          class="btn btn-primary"
-          onclick="go('products')">
-          EXPLORE COLLECTION →
+          class="btn primary"
+          onclick="scrollToId('product')">
+          SHOP GRO EXTENDER →
         </button>
 
         <button
-          class="btn btn-dark"
-          onclick="go('why')">
-          WHY GRO
+          class="btn secondary"
+          onclick="scrollToId('why')">
+          EXPLORE
         </button>
 
       </div>
 
     </div>
 
-    <div class="hero-stat">
+    <div class="hero-product">
 
-      <div class="stat">
-        <strong>4.8/5</strong>
-        <small>Customer rating</small>
-      </div>
+      <div class="product-orb">
 
-      <div class="stat">
-        <strong>10K+</strong>
-        <small>Orders delivered</small>
-      </div>
+        <!-- Replace this image with your actual GRO Extender image -->
+        <img
+          src="gro-extender.png"
+          alt="GRO Extender">
 
-      <div class="stat">
-        <strong>100%</strong>
-        <small>Discreet packaging</small>
       </div>
 
     </div>
@@ -1284,102 +1085,204 @@ footer button{
 
 <section class="trust">
 
-  <div class="trust-item">
+  <div class="trust-card">
     <span>📦</span>
     <div>
-      <b>Discreet Delivery</b>
+      <b>Discreet Packaging</b>
       <small>Private outer packaging</small>
     </div>
   </div>
 
-  <div class="trust-item">
+  <div class="trust-card">
     <span>🔒</span>
     <div>
       <b>Secure Checkout</b>
-      <small>Protected order process</small>
+      <small>Protected ordering</small>
     </div>
   </div>
 
-  <div class="trust-item">
+  <div class="trust-card">
     <span>🚚</span>
     <div>
       <b>Fast Dispatch</b>
-      <small>Quick processing</small>
+      <small>Quick order processing</small>
     </div>
   </div>
 
-  <div class="trust-item">
+  <div class="trust-card">
     <span>💬</span>
     <div>
-      <b>Support</b>
-      <small>Customer assistance</small>
+      <b>Customer Support</b>
+      <small>Help when you need it</small>
     </div>
   </div>
 
 </section>
 
 
-<!-- PRODUCTS -->
+<!-- MAIN PRODUCT -->
 
 <section
   class="section"
-  id="products">
+  id="product">
 
-  <div class="section-head">
-
-    <div>
-      <div class="eyebrow">
-        SHOP COLLECTION
-      </div>
-
-      <h2 class="section-title">
-        Featured products
-      </h2>
-    </div>
-
-    <button
-      class="section-link"
-      onclick="filterProducts('all')">
-      VIEW ALL →
-    </button>
-
+  <div class="eyebrow">
+    THE MAIN PRODUCT
   </div>
 
-  <div
-    class="products"
-    id="productGrid">
+  <h2 class="title">
+    GRO Extender
+  </h2>
+
+  <div class="main-product">
+
+    <div class="product-visual">
+
+      <div class="sale">
+        22% OFF
+      </div>
+
+      <!-- MAIN GRO EXTENDER IMAGE -->
+      <img
+        src="gro-extender.png"
+        alt="GRO Extender">
+
+    </div>
+
+    <div class="product-details">
+
+      <div class="eyebrow">
+        GRO EXTENDER
+      </div>
+
+      <h2>
+        GRO Extender
+      </h2>
+
+      <div class="rating">
+        <span>★★★★★</span>
+        &nbsp; 4.8/5 • Customer Rated
+      </div>
+
+      <div class="price">
+
+        <span class="current">
+          ₹3,499
+        </span>
+
+        <span class="old">
+          ₹4,499
+        </span>
+
+        <span class="off">
+          22% OFF
+        </span>
+
+      </div>
+
+      <p class="description">
+        Premium personal wellness product with a
+        discreet design and simple user experience.
+        Designed for customers who prefer a modern
+        and private wellness shopping experience.
+      </p>
+
+      <div class="highlights">
+
+        <div class="highlight">
+          <span class="check">✓</span>
+          Premium GRO Extender design
+        </div>
+
+        <div class="highlight">
+          <span class="check">✓</span>
+          Discreet delivery packaging
+        </div>
+
+        <div class="highlight">
+          <span class="check">✓</span>
+          Secure order process
+        </div>
+
+        <div class="highlight">
+          <span class="check">✓</span>
+          Customer support available
+        </div>
+
+      </div>
+
+      <div class="qty-row">
+
+        <div class="qty">
+
+          <button onclick="changeQty(-1)">
+            −
+          </button>
+
+          <strong id="qty">
+            1
+          </strong>
+
+          <button onclick="changeQty(1)">
+            +
+          </button>
+
+        </div>
+
+        <button
+          class="btn primary buy"
+          onclick="addToCart()">
+          ADD TO CART
+        </button>
+
+      </div>
+
+      <button
+        class="btn"
+        style="
+          margin-top:10px;
+          width:100%;
+          background:#090909;
+          color:#fff
+        "
+        onclick="buyNow()">
+        BUY GRO EXTENDER NOW →
+      </button>
+
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- PROMO -->
+<!-- OFFER -->
 
-<section class="promo">
+<section class="offer">
 
-  <div class="promo-box">
+  <div class="offer-box">
 
     <div>
 
       <div class="eyebrow">
-        LIMITED OFFER
+        SPECIAL OFFER
       </div>
 
       <h2>
-        Save more with GRO.
+        GRO Extender — ₹3,499
       </h2>
 
       <p>
-        Use code <b>GRO10</b> at checkout.
+        Regular price ₹4,499 • Save 22%
       </p>
 
     </div>
 
     <button
       class="btn"
-      style="background:#0b0b0d;color:#fff"
-      onclick="copyCoupon()">
-      COPY COUPON
+      style="background:#000;color:#fff"
+      onclick="copyCode()">
+      COPY GRO22
     </button>
 
   </div>
@@ -1387,25 +1290,19 @@ footer button{
 </section>
 
 
-<!-- WHY GRO -->
+<!-- WHY -->
 
 <section
   class="section"
   id="why">
 
-  <div class="section-head">
-
-    <div>
-      <div class="eyebrow">
-        THE GRO STANDARD
-      </div>
-
-      <h2 class="section-title">
-        Built differently.
-      </h2>
-    </div>
-
+  <div class="eyebrow">
+    WHY GRO EXTENDER
   </div>
+
+  <h2 class="title">
+    A better shopping experience.
+  </h2>
 
   <div class="features">
 
@@ -1415,12 +1312,13 @@ footer button{
         ✦
       </div>
 
-      <h3>Premium-first design</h3>
+      <h3>
+        Premium Presentation
+      </h3>
 
       <p>
-        Every product is presented with a
-        modern, clean and customer-focused
-        experience.
+        Clean, modern product presentation
+        built around GRO Extender.
       </p>
 
     </div>
@@ -1431,11 +1329,13 @@ footer button{
         ◈
       </div>
 
-      <h3>Discreet experience</h3>
+      <h3>
+        Privacy First
+      </h3>
 
       <p>
-        Privacy remains central throughout
-        the shopping and delivery journey.
+        Discreet packaging and a private
+        customer journey.
       </p>
 
     </div>
@@ -1446,11 +1346,13 @@ footer button{
         ✓
       </div>
 
-      <h3>Simple shopping</h3>
+      <h3>
+        Simple Ordering
+      </h3>
 
       <p>
-        Fast product discovery, clear pricing
-        and a frictionless checkout flow.
+        Select GRO Extender, add your
+        details and complete your order.
       </p>
 
     </div>
@@ -1466,72 +1368,41 @@ footer button{
   class="section"
   id="reviews">
 
-  <div class="section-head">
-
-    <div>
-      <div class="eyebrow">
-        CUSTOMER VOICE
-      </div>
-
-      <h2 class="section-title">
-        Loved by customers.
-      </h2>
-
-    </div>
-
+  <div class="eyebrow">
+    CUSTOMER EXPERIENCE
   </div>
+
+  <h2 class="title">
+    What customers say.
+  </h2>
 
   <div class="reviews">
 
     <div class="review">
-
-      <div class="stars">
-        ★★★★★
-      </div>
-
+      <div class="stars">★★★★★</div>
       <p>
-        “The ordering experience was extremely
-        simple and the packaging was discreet.”
+        Clean website, simple ordering process
+        and discreet delivery experience.
       </p>
-
-      <div class="reviewer">
-        Verified Customer
-      </div>
-
+      <div class="user">Verified Customer</div>
     </div>
 
     <div class="review">
-
-      <div class="stars">
-        ★★★★★
-      </div>
-
+      <div class="stars">★★★★★</div>
       <p>
-        “Very clean website and quick delivery.
-        Product information was easy to understand.”
+        Product information was easy to understand
+        and the ordering process was smooth.
       </p>
-
-      <div class="reviewer">
-        Verified Customer
-      </div>
-
+      <div class="user">Verified Customer</div>
     </div>
 
     <div class="review">
-
-      <div class="stars">
-        ★★★★★
-      </div>
-
+      <div class="stars">★★★★★</div>
       <p>
-        “Professional experience from checkout
-        to delivery.”
+        Professional presentation and private
+        packaging experience.
       </p>
-
-      <div class="reviewer">
-        Verified Customer
-      </div>
-
+      <div class="user">Verified Customer</div>
     </div>
 
   </div>
@@ -1545,19 +1416,13 @@ footer button{
   class="section"
   id="faq">
 
-  <div class="section-head">
-
-    <div>
-      <div class="eyebrow">
-        HELP CENTER
-      </div>
-
-      <h2 class="section-title">
-        Frequently asked.
-      </h2>
-    </div>
-
+  <div class="eyebrow">
+    SUPPORT
   </div>
+
+  <h2 class="title">
+    Frequently asked.
+  </h2>
 
   <div class="faq">
 
@@ -1566,14 +1431,13 @@ footer button{
       <button
         class="faq-q"
         onclick="faq(this)">
-        Is packaging discreet?
+        What product does GRO sell?
         <span>+</span>
       </button>
 
       <div class="faq-a">
-        Orders are designed to use discreet
-        outer packaging without unnecessary
-        product branding.
+        GRO Extender is the main product featured
+        on this website.
       </div>
 
     </div>
@@ -1583,14 +1447,13 @@ footer button{
       <button
         class="faq-q"
         onclick="faq(this)">
-        How long does delivery take?
+        Is the package discreet?
         <span>+</span>
       </button>
 
       <div class="faq-a">
-        Delivery timing depends on destination
-        and courier service. The checkout page
-        will show the available delivery details.
+        The store is designed for discreet outer
+        packaging and a private delivery experience.
       </div>
 
     </div>
@@ -1600,13 +1463,13 @@ footer button{
       <button
         class="faq-q"
         onclick="faq(this)">
-        How can I track my order?
+        What is the price?
         <span>+</span>
       </button>
 
       <div class="faq-a">
-        Use your order ID and registered mobile
-        number through the order support channel.
+        The current displayed offer is ₹3,499,
+        reduced from ₹4,499.
       </div>
 
     </div>
@@ -1616,15 +1479,14 @@ footer button{
       <button
         class="faq-q"
         onclick="faq(this)">
-        Is my information private?
+        How do I place an order?
         <span>+</span>
       </button>
 
       <div class="faq-a">
-        Customer information should be handled
-        according to your privacy policy and the
-        security practices of your payment and
-        delivery providers.
+        Click BUY GRO EXTENDER NOW or ADD TO CART,
+        enter your delivery details and continue
+        through your configured checkout system.
       </div>
 
     </div>
@@ -1642,38 +1504,39 @@ footer button{
   class="checkout"
   id="checkout">
 
-  <div class="checkout-box">
+  <div class="checkout-card">
 
     <div class="eyebrow">
-      SECURE CHECKOUT
+      GRO CHECKOUT
     </div>
 
-    <h2 class="section-title">
+    <h2 class="title">
       Complete your order
     </h2>
 
-    <br>
-
-    <div class="checkout-grid">
+    <div class="form-grid">
 
       <div class="field">
         <label>FULL NAME</label>
-        <input id="name" placeholder="Your name">
+        <input
+          id="name"
+          placeholder="Your full name">
       </div>
 
       <div class="field">
-        <label>MOBILE</label>
+        <label>MOBILE NUMBER</label>
         <input
           id="mobile"
-          inputmode="tel"
+          maxlength="10"
+          inputmode="numeric"
           placeholder="10 digit mobile">
       </div>
 
-      <div class="field full-field">
-        <label>ADDRESS</label>
+      <div class="field full">
+        <label>FULL ADDRESS</label>
         <textarea
           id="address"
-          placeholder="Complete delivery address"></textarea>
+          placeholder="House / Road / Area"></textarea>
       </div>
 
       <div class="field">
@@ -1682,7 +1545,7 @@ footer button{
       </div>
 
       <div class="field">
-        <label>PINCODE</label>
+        <label>PIN CODE</label>
         <input
           id="pin"
           maxlength="6"
@@ -1691,37 +1554,25 @@ footer button{
 
       <div class="field">
         <label>STATE</label>
+
         <select id="state">
 
           <option value="">
-            Select state
+            Select State
           </option>
 
-          <option>
-            West Bengal
-          </option>
-
-          <option>
-            Odisha
-          </option>
-
-          <option>
-            Bihar
-          </option>
-
-          <option>
-            Jharkhand
-          </option>
-
-          <option>
-            Other
-          </option>
+          <option>West Bengal</option>
+          <option>Odisha</option>
+          <option>Bihar</option>
+          <option>Jharkhand</option>
+          <option>Other</option>
 
         </select>
+
       </div>
 
       <div class="field">
-        <label>PAYMENT</label>
+        <label>PAYMENT METHOD</label>
 
         <select id="payment">
 
@@ -1741,30 +1592,36 @@ footer button{
 
     <div
       style="
-        background:#f5f5f7;
-        padding:17px;
+        margin-top:22px;
+        padding:18px;
         border-radius:14px;
-        margin:10px 0 18px;
+        background:#f4f4f0;
       ">
 
-      <div class="total-line">
-        <span>Subtotal</span>
+      <div class="total">
+
+        <span>
+          GRO Extender
+        </span>
+
         <strong id="checkoutTotal">
-          ₹0
+          ₹3,499
         </strong>
+
       </div>
 
       <small style="color:#777">
-        Final payment availability depends
-        on your configured payment provider.
+        Payment confirmation should be handled
+        by your approved payment gateway.
       </small>
 
     </div>
 
     <button
-      class="btn btn-primary full"
+      class="btn primary"
+      style="width:100%;margin-top:15px"
       onclick="placeOrder()">
-      PLACE ORDER →
+      PLACE GRO EXTENDER ORDER →
     </button>
 
   </div>
@@ -1776,7 +1633,7 @@ footer button{
 
 <footer>
 
-  <div class="footer-grid">
+  <div class="footer-inner">
 
     <div>
 
@@ -1784,10 +1641,9 @@ footer button{
         GRO.
       </div>
 
-      <p style="margin-top:14px;max-width:330px">
-        Premium personal wellness,
-        thoughtfully designed for modern
-        everyday life.
+      <p style="margin-top:12px;max-width:330px">
+        Premium personal wellness with a
+        modern, discreet customer experience.
       </p>
 
     </div>
@@ -1796,8 +1652,8 @@ footer button{
 
       <b>SHOP</b>
 
-      <button onclick="go('products')">
-        All Products
+      <button onclick="scrollToId('product')">
+        GRO Extender
       </button>
 
       <button onclick="openCart()">
@@ -1810,11 +1666,11 @@ footer button{
 
       <b>SUPPORT</b>
 
-      <button onclick="go('faq')">
+      <button onclick="scrollToId('faq')">
         FAQ
       </button>
 
-      <button onclick="contact()">
+      <button onclick="whatsapp()">
         WhatsApp
       </button>
 
@@ -1824,89 +1680,58 @@ footer button{
 
       <b>LEGAL</b>
 
-      <button>
-        Privacy Policy
-      </button>
-
-      <button>
-        Terms
-      </button>
+      <button>Privacy Policy</button>
+      <button>Terms & Conditions</button>
 
     </div>
 
   </div>
 
-  <div class="footer-bottom">
-    © 2026 GRO. All rights reserved.
+  <div class="copy">
+    © 2026 GRO. All Rights Reserved.
   </div>
 
 </footer>
 
 
-<!-- MOBILE NAV -->
-
-<nav class="mobile-nav">
-
-  <button onclick="go('home')">
-    <span>⌂</span>
-    HOME
-  </button>
-
-  <button onclick="go('products')">
-    <span>◈</span>
-    SHOP
-  </button>
-
-  <button onclick="openWishlist()">
-    <span>♡</span>
-    SAVED
-  </button>
-
-  <button onclick="openCart()">
-    <span>🛒</span>
-    CART
-  </button>
-
-</nav>
-
-
-<!-- OVERLAY -->
+<!-- CART -->
 
 <div
   class="overlay"
   id="overlay"
-  onclick="closeAll()">
+  onclick="closeCart()">
 </div>
 
-
-<!-- CART DRAWER -->
-
 <aside
-  class="drawer"
-  id="cartDrawer">
+  class="cart"
+  id="cart">
 
-  <div class="drawer-head">
+  <div class="cart-head">
 
-    <h2>Your cart</h2>
+    <h3>
+      GRO Cart
+    </h3>
 
     <button
       class="close"
-      onclick="closeAll()">
+      onclick="closeCart()">
       ×
     </button>
 
   </div>
 
   <div
-    class="drawer-body"
+    class="cart-body"
     id="cartBody">
   </div>
 
-  <div class="drawer-foot">
+  <div class="cart-foot">
 
-    <div class="total-line">
+    <div class="total">
 
-      <span>Total</span>
+      <span>
+        Total
+      </span>
 
       <strong id="cartTotal">
         ₹0
@@ -1915,7 +1740,8 @@ footer button{
     </div>
 
     <button
-      class="btn btn-primary full"
+      class="btn primary"
+      style="width:100%"
       onclick="checkout()">
       PROCEED TO CHECKOUT
     </button>
@@ -1925,170 +1751,32 @@ footer button{
 </aside>
 
 
-<!-- PRODUCT MODAL -->
+<!-- MOBILE NAV -->
 
-<div
-  class="modal"
-  id="productModal">
+<div class="mobile">
 
-  <div class="modal-card">
+  <button onclick="scrollToId('home')">
+    <span>⌂</span>
+    HOME
+  </button>
 
-    <button
-      class="close modal-close"
-      onclick="closeProduct()">
-      ×
-    </button>
+  <button onclick="scrollToId('product')">
+    <span>◈</span>
+    SHOP
+  </button>
 
-    <div class="modal-product">
+  <button onclick="scrollToId('reviews')">
+    <span>★</span>
+    REVIEWS
+  </button>
 
-      <div class="modal-product-image">
-
-        <img
-          id="modalImg"
-          src=""
-          alt="Product">
-
-      </div>
-
-      <div class="modal-product-info">
-
-        <div
-          class="eyebrow"
-          id="modalCategory">
-        </div>
-
-        <h2 id="modalName"></h2>
-
-        <div
-          class="modal-price"
-          id="modalPrice">
-        </div>
-
-        <p
-          class="modal-description"
-          id="modalDescription">
-        </p>
-
-        <div class="qty-big">
-
-          <button onclick="changeModalQty(-1)">
-            −
-          </button>
-
-          <strong id="modalQty">
-            1
-          </strong>
-
-          <button onclick="changeModalQty(1)">
-            +
-          </button>
-
-        </div>
-
-        <button
-          class="btn btn-primary full"
-          onclick="addModalCart()">
-          ADD TO CART
-        </button>
-
-        <button
-          class="btn full"
-          style="margin-top:8px;background:#0b0b0d;color:#fff"
-          onclick="buyNow()">
-          BUY NOW
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
+  <button onclick="openCart()">
+    <span>🛒</span>
+    CART
+  </button>
 
 </div>
 
-
-<!-- SEARCH MODAL -->
-
-<div
-  class="modal"
-  id="searchModal">
-
-  <div
-    class="modal-card"
-    style="max-width:600px;padding:30px">
-
-    <button
-      class="close modal-close"
-      onclick="closeSearch()">
-      ×
-    </button>
-
-    <div class="eyebrow">
-      SEARCH
-    </div>
-
-    <h2 class="section-title">
-      Find your product
-    </h2>
-
-    <input
-      id="searchInput"
-      oninput="searchProducts()"
-      placeholder="Search products..."
-      style="
-        width:100%;
-        padding:16px;
-        margin-top:20px;
-        border:1px solid #ddd;
-        border-radius:13px;
-        outline:none;
-      ">
-
-    <div
-      id="searchResults"
-      style="margin-top:18px">
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- WISHLIST MODAL -->
-
-<div
-  class="modal"
-  id="wishlistModal">
-
-  <div
-    class="modal-card"
-    style="max-width:600px;padding:30px">
-
-    <button
-      class="close modal-close"
-      onclick="closeWishlist()">
-      ×
-    </button>
-
-    <div class="eyebrow">
-      SAVED ITEMS
-    </div>
-
-    <h2 class="section-title">
-      Wishlist
-    </h2>
-
-    <div
-      id="wishlistBody"
-      style="margin-top:20px">
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- TOAST -->
 
 <div
   class="toast"
@@ -2097,711 +1785,290 @@ footer button{
 
 
 <script>
-/* =========================================================
-   GRO PRO COMMERCE ENGINE
-========================================================= */
 
-const PRODUCTS = [
+/* ======================================================
+   GRO EXTENDER — MAIN PRODUCT ENGINE
+====================================================== */
 
-{
- id:"gro01",
- name:"GRO Core",
- category:"Essential",
- price:3499,
- old:4499,
- image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85",
- desc:"A premium personal wellness essential with a clean, modern experience."
-},
+const PRODUCT = {
+  id:"gro-extender",
+  name:"GRO Extender",
+  price:3499,
+  oldPrice:4499,
+  image:"gro-extender.png"
+};
 
-{
- id:"gro02",
- name:"GRO Pro",
- category:"Premium",
- price:4999,
- old:5999,
- image:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85",
- desc:"Designed for customers looking for a premium wellness experience."
-},
-
-{
- id:"gro03",
- name:"GRO Max",
- category:"Advanced",
- price:6499,
- old:7999,
- image:"https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=85",
- desc:"A premium collection option with an elevated product presentation."
-}
-
-];
+let quantity=1;
 
 let cart =
-JSON.parse(localStorage.getItem("groCartPro")||"[]");
-
-let wishlist =
-JSON.parse(localStorage.getItem("groWishPro")||"[]");
-
-let modalProduct=null;
-
-let modalQty=1;
-
-
-/* ================= UTILS ================= */
-
-function money(n){
- return "₹"+Number(n).toLocaleString("en-IN");
-}
-
-function save(){
- localStorage.setItem(
-   "groCartPro",
-   JSON.stringify(cart)
- );
-
- localStorage.setItem(
-   "groWishPro",
-   JSON.stringify(wishlist)
+JSON.parse(
+  localStorage.getItem("groExtenderCart") || "[]"
 );
+
+
+/* ================= HELPERS ================= */
+
+function money(value){
+  return "₹"+value.toLocaleString("en-IN");
 }
 
-function toast(msg){
+function toast(message){
 
- const el=document.getElementById("toast");
+  const t=
+  document.getElementById("toast");
 
- el.textContent=msg;
+  t.textContent=message;
 
- el.classList.add("show");
+  t.classList.add("show");
 
- clearTimeout(window.toastTimer);
+  clearTimeout(window.toastTimer);
 
- window.toastTimer=setTimeout(()=>{
-   el.classList.remove("show");
- },2200);
-
-}
-
-
-/* ================= NAVIGATION ================= */
-
-function go(id){
-
- document.getElementById(id)?.scrollIntoView({
-   behavior:"smooth"
- });
+  window.toastTimer=
+  setTimeout(()=>{
+    t.classList.remove("show");
+  },2200);
 
 }
 
+function scrollToId(id){
 
-/* ================= PRODUCT RENDER ================= */
+  document
+  .getElementById(id)
+  ?.scrollIntoView({
+    behavior:"smooth"
+  });
 
-function renderProducts(list=PRODUCTS){
+}
 
- const grid=
- document.getElementById("productGrid");
 
- grid.innerHTML=list.map(p=>{
+/* ================= QUANTITY ================= */
 
- const discount=
- Math.round((1-p.price/p.old)*100);
+function changeQty(n){
 
- const liked=
- wishlist.includes(p.id);
+  quantity=
+  Math.max(1,quantity+n);
 
- return `
+  document
+  .getElementById("qty")
+  .textContent=quantity;
 
- <article class="product">
+}
 
-   <div class="product-image">
 
-     <div class="product-badge">
-       ${discount}% OFF
-     </div>
+/* ================= ADD CART ================= */
 
-     <button
-       class="wish"
-       onclick="toggleWish('${p.id}',event)">
-       ${liked?"♥":"♡"}
-     </button>
+function addToCart(){
 
-     <img
-       src="${p.image}"
-       loading="lazy"
-       onclick="openProduct('${p.id}')"
-       alt="${p.name}">
+  const item=
+  cart.find(x=>x.id===PRODUCT.id);
 
-   </div>
+  if(item){
+    item.qty+=quantity;
+  }else{
+    cart.push({
+      id:PRODUCT.id,
+      qty:quantity
+    });
+  }
 
-   <div class="product-info">
+  saveCart();
 
-     <div class="product-category">
-       ${p.category}
-     </div>
+  renderCart();
 
-     <div class="product-name">
-       ${p.name}
-     </div>
+  toast("✓ GRO Extender added to cart");
 
-     <div class="product-desc">
-       ${p.desc}
-     </div>
+  quantity=1;
 
-     <div class="price-row">
+  document
+  .getElementById("qty")
+  .textContent="1";
 
-       <span class="price">
-         ${money(p.price)}
-       </span>
+}
 
-       <span class="old-price">
-         ${money(p.old)}
-       </span>
+function saveCart(){
 
-       <span class="discount">
-         SAVE ${discount}%
-       </span>
-
-     </div>
-
-     <div class="product-actions">
-
-       <button
-         class="add-btn"
-         onclick="addCart('${p.id}')">
-         ADD TO CART
-       </button>
-
-       <button
-         class="quick-btn"
-         onclick="openProduct('${p.id}')">
-         ↗
-       </button>
-
-     </div>
-
-   </div>
-
- </article>
-
- `;
-
- }).join("");
+  localStorage.setItem(
+    "groExtenderCart",
+    JSON.stringify(cart)
+  );
 
 }
 
 
 /* ================= CART ================= */
 
-function addCart(id){
-
- const product=
- PRODUCTS.find(x=>x.id===id);
-
- if(!product)return;
-
- const item=
- cart.find(x=>x.id===id);
-
- if(item){
-   item.qty++;
- }else{
-   cart.push({
-     id,
-     qty:1
-   });
- }
-
- save();
-
- renderCart();
-
- updateCounts();
-
- toast("✓ Added to cart");
-
-}
-
-function removeCart(id){
-
- cart=
- cart.filter(x=>x.id!==id);
-
- save();
-
- renderCart();
-
- updateCounts();
-
-}
-
-function changeQty(id,n){
-
- const item=
- cart.find(x=>x.id===id);
-
- if(!item)return;
-
- item.qty+=n;
-
- if(item.qty<=0){
-   removeCart(id);
-   return;
- }
-
- save();
-
- renderCart();
-
- updateCounts();
-
-}
-
-function cartTotal(){
-
- return cart.reduce((sum,item)=>{
-
- const p=
- PRODUCTS.find(x=>x.id===item.id);
-
- return sum+
- (p?p.price*item.qty:0);
-
- },0);
-
-}
-
 function renderCart(){
 
- const body=
- document.getElementById("cartBody");
+  const body=
+  document.getElementById("cartBody");
 
- if(!cart.length){
+  if(!cart.length){
 
- body.innerHTML=`
+    body.innerHTML=`
 
- <div style="
-   text-align:center;
-   padding:70px 20px;
- ">
+      <div style="
+        text-align:center;
+        padding:70px 15px;
+        color:#777
+      ">
 
-   <div style="font-size:45px">
-     🛒
-   </div>
+        <div style="font-size:45px">
+          🛒
+        </div>
 
-   <h3 style="margin-top:15px">
-     Your cart is empty
-   </h3>
+        <h3 style="margin-top:12px;color:#111">
+          Your cart is empty
+        </h3>
 
-   <p style="
-     margin-top:8px;
-     color:#777;
-     font-size:12px
-   ">
-     Add something you love.
-   </p>
+        <p style="font-size:11px;margin-top:6px">
+          Add GRO Extender to continue.
+        </p>
 
- </div>
+      </div>
 
- `;
+    `;
 
- }else{
+  }else{
 
- body.innerHTML=
- cart.map(item=>{
+    body.innerHTML=
+    cart.map(item=>`
 
- const p=
- PRODUCTS.find(x=>x.id===item.id);
+      <div class="cart-item">
 
- return `
+        <img
+          src="${PRODUCT.image}"
+          alt="GRO Extender">
 
- <div class="cart-item">
+        <div>
 
-   <img src="${p.image}">
+          <h4>
+            ${PRODUCT.name}
+          </h4>
 
-   <div>
+          <small>
+            ${money(PRODUCT.price)}
+          </small>
 
-     <h4>
-       ${p.name}
-     </h4>
+          <div class="cart-controls">
 
-     <p>
-       ${money(p.price)}
-     </p>
+            <button
+              onclick="cartQty(-1)">
+              −
+            </button>
 
-     <div class="qty">
+            <b>
+              ${item.qty}
+            </b>
 
-       <button
-         onclick="changeQty('${p.id}',-1)">
-         −
-       </button>
+            <button
+              onclick="cartQty(1)">
+              +
+            </button>
 
-       <strong>
-         ${item.qty}
-       </strong>
+          </div>
 
-       <button
-         onclick="changeQty('${p.id}',1)">
-         +
-       </button>
+        </div>
 
-     </div>
+        <button
+          style="
+            border:0;
+            background:none;
+            color:#999
+          "
+          onclick="removeCart()">
+          ×
+        </button>
 
-   </div>
+      </div>
 
-   <button
-     style="
-       border:0;
-       background:none;
-       color:#999
-     "
-     onclick="removeCart('${p.id}')">
-     ×
-   </button>
+    `).join("");
 
- </div>
+  }
 
- `;
+  const total=
+  cart.reduce(
+    (sum,item)=>
+      sum+(PRODUCT.price*item.qty),
+    0
+  );
 
- }).join("");
+  document
+  .getElementById("cartTotal")
+  .textContent=money(total);
 
- }
+  document
+  .getElementById("cartCount")
+  .textContent=
+  cart.reduce(
+    (sum,item)=>sum+item.qty,
+    0
+  );
 
- document.getElementById("cartTotal").textContent=
- money(cartTotal());
+}
+
+function cartQty(n){
+
+  if(!cart.length)return;
+
+  cart[0].qty+=n;
+
+  if(cart[0].qty<=0){
+    cart=[];
+  }
+
+  saveCart();
+
+  renderCart();
+
+}
+
+function removeCart(){
+
+  cart=[];
+
+  saveCart();
+
+  renderCart();
 
 }
 
 
-/* ================= COUNTS ================= */
-
-function updateCounts(){
-
- document.getElementById("cartCount").textContent=
- cart.reduce((a,b)=>a+b.qty,0);
-
- document.getElementById("wishCount").textContent=
- wishlist.length;
-
-}
-
-
-/* ================= CART DRAWER ================= */
+/* ================= CART OPEN ================= */
 
 function openCart(){
 
- renderCart();
+  renderCart();
 
- document
- .getElementById("cartDrawer")
- .classList.add("open");
+  document
+  .getElementById("cart")
+  .classList.add("open");
 
- document
- .getElementById("overlay")
- .classList.add("show");
-
-}
-
-function closeAll(){
-
- document
- .getElementById("cartDrawer")
- .classList.remove("open");
-
- document
- .getElementById("overlay")
- .classList.remove("show");
+  document
+  .getElementById("overlay")
+  .classList.add("show");
 
 }
 
+function closeCart(){
 
-/* ================= PRODUCT MODAL ================= */
+  document
+  .getElementById("cart")
+  .classList.remove("open");
 
-function openProduct(id){
-
- modalProduct=
- PRODUCTS.find(x=>x.id===id);
-
- if(!modalProduct)return;
-
- modalQty=1;
-
- document.getElementById("modalImg").src=
- modalProduct.image;
-
- document.getElementById("modalCategory").textContent=
- modalProduct.category;
-
- document.getElementById("modalName").textContent=
- modalProduct.name;
-
- document.getElementById("modalPrice").textContent=
- money(modalProduct.price);
-
- document.getElementById("modalDescription").textContent=
- modalProduct.desc;
-
- document.getElementById("modalQty").textContent=
- modalQty;
-
- document
- .getElementById("productModal")
- .classList.add("show");
+  document
+  .getElementById("overlay")
+  .classList.remove("show");
 
 }
 
-function closeProduct(){
 
- document
- .getElementById("productModal")
- .classList.remove("show");
-
-}
-
-function changeModalQty(n){
-
- modalQty=
- Math.max(1,modalQty+n);
-
- document.getElementById("modalQty").textContent=
- modalQty;
-
-}
-
-function addModalCart(){
-
- if(!modalProduct)return;
-
- for(let i=0;i<modalQty;i++){
-   addCart(modalProduct.id);
- }
-
- closeProduct();
-
-}
+/* ================= BUY NOW ================= */
 
 function buyNow(){
 
- if(!modalProduct)return;
+  addToCart();
 
- addModalCart();
-
- checkout();
-
-}
-
-
-/* ================= WISHLIST ================= */
-
-function toggleWish(id,e){
-
- if(e)e.stopPropagation();
-
- if(wishlist.includes(id)){
-
-   wishlist=
-   wishlist.filter(x=>x!==id);
-
-   toast("Removed from wishlist");
-
- }else{
-
-   wishlist.push(id);
-
-   toast("♡ Saved to wishlist");
-
- }
-
- save();
-
- renderProducts();
-
- updateCounts();
-
-}
-
-function openWishlist(){
-
- const body=
- document.getElementById("wishlistBody");
-
- const items=
- wishlist
- .map(id=>PRODUCTS.find(x=>x.id===id))
- .filter(Boolean);
-
- if(!items.length){
-
-   body.innerHTML=`
-   <div style="
-     text-align:center;
-     padding:50px 10px;
-     color:#777
-   ">
-     Your wishlist is empty.
-   </div>
-   `;
-
- }else{
-
-   body.innerHTML=
-   items.map(p=>`
-
-   <div style="
-     display:flex;
-     gap:13px;
-     align-items:center;
-     padding:13px 0;
-     border-bottom:1px solid #eee
-   ">
-
-     <img
-       src="${p.image}"
-       style="
-         width:65px;
-         height:65px;
-         object-fit:cover;
-         border-radius:12px
-       ">
-
-     <div style="flex:1">
-
-       <b style="font-size:13px">
-         ${p.name}
-       </b>
-
-       <div style="
-         margin-top:5px;
-         font-weight:900
-       ">
-         ${money(p.price)}
-       </div>
-
-     </div>
-
-     <button
-       class="btn"
-       style="
-         background:#0b0b0d;
-         color:#fff;
-         padding:10px
-       "
-       onclick="
-         addCart('${p.id}');
-         closeWishlist();
-       ">
-       ADD
-     </button>
-
-   </div>
-
-   `).join("");
-
- }
-
- document
- .getElementById("wishlistModal")
- .classList.add("show");
-
-}
-
-function closeWishlist(){
-
- document
- .getElementById("wishlistModal")
- .classList.remove("show");
-
-}
-
-
-/* ================= SEARCH ================= */
-
-function openSearch(){
-
- document
- .getElementById("searchModal")
- .classList.add("show");
-
- setTimeout(()=>{
-   document.getElementById("searchInput").focus();
- },100);
-
-}
-
-function closeSearch(){
-
- document
- .getElementById("searchModal")
- .classList.remove("show");
-
-}
-
-function searchProducts(){
-
- const q=
- document.getElementById("searchInput")
- .value
- .toLowerCase()
- .trim();
-
- const result=
- PRODUCTS.filter(p=>
-   p.name.toLowerCase().includes(q) ||
-   p.category.toLowerCase().includes(q) ||
-   p.desc.toLowerCase().includes(q)
- );
-
- document.getElementById("searchResults").innerHTML=
- result.length?
-
- result.map(p=>`
-
- <div
-   onclick="
-     closeSearch();
-     openProduct('${p.id}')
-   "
-   style="
-     display:flex;
-     gap:12px;
-     padding:12px 0;
-     border-bottom:1px solid #eee;
-     cursor:pointer
-   ">
-
-   <img
-     src="${p.image}"
-     style="
-       width:55px;
-       height:55px;
-       object-fit:cover;
-       border-radius:10px
-     ">
-
-   <div>
-
-     <b>${p.name}</b>
-
-     <div style="
-       margin-top:5px;
-       font-size:12px;
-       font-weight:800
-     ">
-       ${money(p.price)}
-     </div>
-
-   </div>
-
- </div>
-
- `).join("")
-
- :
-
- `<p style="
-   color:#777;
-   font-size:12px;
-   padding:20px 0
- ">
-   No products found.
- </p>`;
+  checkout();
 
 }
 
@@ -2810,295 +2077,232 @@ function searchProducts(){
 
 function checkout(){
 
- if(!cart.length){
+  if(!cart.length){
 
-   toast("Your cart is empty");
+    addToCart();
 
-   return;
+  }
 
- }
+  closeCart();
 
- closeAll();
+  const total=
+  cart.reduce(
+    (sum,item)=>
+      sum+(PRODUCT.price*item.qty),
+    0
+  );
 
- document
- .getElementById("checkout")
- .classList.add("show");
+  document
+  .getElementById("checkoutTotal")
+  .textContent=
+  money(total);
 
- document.getElementById("checkoutTotal")
- .textContent=
- money(cartTotal());
+  document
+  .getElementById("checkout")
+  .classList.add("show");
 
- setTimeout(()=>{
-   document
-   .getElementById("checkout")
-   .scrollIntoView({
-     behavior:"smooth"
-   });
- },100);
+  setTimeout(()=>{
+
+    document
+    .getElementById("checkout")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+  },100);
 
 }
 
+
+/* ================= ORDER ================= */
+
 function placeOrder(){
 
- const name=
- document.getElementById("name").value.trim();
+  const name=
+  document.getElementById("name").value.trim();
 
- const mobile=
- document.getElementById("mobile").value.trim();
+  const mobile=
+  document.getElementById("mobile").value.trim();
 
- const address=
- document.getElementById("address").value.trim();
+  const address=
+  document.getElementById("address").value.trim();
 
- const pin=
- document.getElementById("pin").value.trim();
+  const pin=
+  document.getElementById("pin").value.trim();
 
- const state=
- document.getElementById("state").value;
+  const state=
+  document.getElementById("state").value;
 
- const payment=
- document.getElementById("payment").value;
+  const payment=
+  document.getElementById("payment").value;
 
- if(!name||
+  if(
+    !name||
     !mobile||
     !address||
     !pin||
-    !state){
+    !state
+  ){
 
-   toast("Please complete all required fields");
+    toast("Please fill all required details");
 
-   return;
+    return;
 
- }
+  }
 
- if(!/^[0-9]{10}$/.test(mobile)){
+  if(!/^[0-9]{10}$/.test(mobile)){
 
-   toast("Enter a valid 10 digit mobile");
+    toast("Enter valid 10 digit mobile");
 
-   return;
+    return;
 
- }
+  }
 
- if(!/^[0-9]{6}$/.test(pin)){
+  if(!/^[0-9]{6}$/.test(pin)){
 
-   toast("Enter a valid 6 digit pincode");
+    toast("Enter valid 6 digit PIN code");
 
-   return;
+    return;
 
- }
+  }
 
- const order={
+  const orderId=
+  "GRO"+Date.now().toString().slice(-8);
 
-   id:
-   "GRO"+Date.now().toString().slice(-8),
+  const order={
 
-   name,
-   mobile,
-   address,
-   pin,
-   state,
-   payment,
+    orderId,
 
-   items:
-   cart.map(x=>({
-     id:x.id,
-     qty:x.qty
-   })),
+    product:"GRO Extender",
 
-   total:
-   cartTotal(),
+    quantity:
+    cart.length
+    ? cart[0].qty
+    : 1,
 
-   created:
-   new Date().toISOString(),
+    price:PRODUCT.price,
 
-   status:
-   "Order Received"
+    name,
+    mobile,
+    address,
+    pin,
+    state,
+    payment,
 
- };
+    createdAt:
+    new Date().toISOString(),
 
- localStorage.setItem(
-   "groLastOrder",
-   JSON.stringify(order)
- );
+    status:
+    "Order Received"
 
- let orders=
- JSON.parse(
-   localStorage.getItem("groOrders")||"[]"
- );
+  };
 
- orders.unshift(order);
+  localStorage.setItem(
+    "groLastOrder",
+    JSON.stringify(order)
+  );
 
- localStorage.setItem(
-   "groOrders",
-   JSON.stringify(orders.slice(0,20))
- );
+  let orders=
+  JSON.parse(
+    localStorage.getItem("groOrders")||"[]"
+  );
 
- /*
-   IMPORTANT:
-   This demo records the order locally.
-   Real payment confirmation must come
-   from a payment gateway/server webhook.
- */
+  orders.unshift(order);
 
- if(payment==="online"){
+  localStorage.setItem(
+    "groOrders",
+    JSON.stringify(orders.slice(0,30))
+  );
 
-   toast(
-     "Order created — connect your approved gateway here."
-   );
+  if(payment==="online"){
 
- }else{
+    toast(
+      "Order created. Connect your approved payment gateway."
+    );
 
-   toast(
-     "Order received successfully."
-   );
+  }else{
 
- }
+    toast(
+      "GRO Extender order received successfully."
+    );
 
- setTimeout(()=>{
+  }
 
-   cart=[];
+  cart=[];
 
-   save();
+  saveCart();
 
-   renderCart();
-
-   updateCounts();
-
- },600);
+  renderCart();
 
 }
 
 
 /* ================= COUPON ================= */
 
-function copyCoupon(){
+function copyCode(){
 
- navigator.clipboard?.writeText("GRO10");
+  navigator.clipboard
+  ?.writeText("GRO22");
 
- toast("Coupon GRO10 copied");
+  toast("✓ GRO22 coupon copied");
 
 }
 
 
 /* ================= FAQ ================= */
 
-function faq(btn){
+function faq(button){
 
- const item=
- btn.parentElement;
+  const item=
+  button.parentElement;
 
- item.classList.toggle("open");
+  item.classList.toggle("open");
 
- const sign=
- btn.querySelector("span");
+  const span=
+  button.querySelector("span");
 
- sign.textContent=
- item.classList.contains("open")
- ? "−"
- : "+";
-
-}
-
-
-/* ================= CONTACT ================= */
-
-function contact(){
-
- const phone="919999999999";
-
- window.open(
-   "https://wa.me/"+phone,
-   "_blank"
- );
+  span.textContent=
+  item.classList.contains("open")
+  ? "−"
+  : "+";
 
 }
 
 
-/* ================= FILTER ================= */
+/* ================= WHATSAPP ================= */
 
-function filterProducts(type){
+function whatsapp(){
 
- if(type==="all"){
+  const phone=
+  "919999999999";
 
-   renderProducts(PRODUCTS);
-
- }
+  window.open(
+    "https://wa.me/"+phone,
+    "_blank"
+  );
 
 }
 
 
-/* ================= INITIALIZE ================= */
-
-renderProducts();
+/* ================= INIT ================= */
 
 renderCart();
-
-updateCounts();
-
-
-/* ================= LOADER ================= */
-
-window.addEventListener("load",()=>{
-
- setTimeout(()=>{
-
-   document
-   .getElementById("loader")
-   .classList.add("hide");
-
- },650);
-
-});
 
 
 /* ================= ESCAPE ================= */
 
-document.addEventListener("keydown",e=>{
+document.addEventListener(
+  "keydown",
+  function(e){
 
- if(e.key==="Escape"){
+    if(e.key==="Escape"){
+      closeCart();
+    }
 
-   closeAll();
-   closeProduct();
-   closeSearch();
-   closeWishlist();
-
- }
-
-});
-
-
-/* ================= OUTSIDE MODAL ================= */
-
-document
-.getElementById("productModal")
-.addEventListener("click",e=>{
-
- if(e.target.id==="productModal"){
-   closeProduct();
- }
-
-});
-
-document
-.getElementById("searchModal")
-.addEventListener("click",e=>{
-
- if(e.target.id==="searchModal"){
-   closeSearch();
- }
-
-});
-
-document
-.getElementById("wishlistModal")
-.addEventListener("click",e=>{
-
- if(e.target.id==="wishlistModal"){
-   closeWishlist();
- }
-
-});
+  }
+);
 
 </script>
 
 </body>
-</html>
+         </html>
