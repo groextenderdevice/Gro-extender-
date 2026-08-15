@@ -3,29 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090909">
+<meta name="theme-color" content="#08090b">
 
-<title>GRO Extender — Premium Wellness</title>
+<title>GRO Extender — Premium Store</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
 :root{
-  --black:#090909;
-  --dark:#111;
-  --lime:#d9ff35;
-  --white:#fff;
-  --bg:#f5f5f2;
+  --bg:#f5f6f8;
   --card:#fff;
-  --text:#111;
-  --muted:#777;
-  --border:#e7e7e2;
+  --dark:#08090b;
+  --text:#111216;
+  --muted:#70747c;
+  --line:#e6e7ea;
+  --green:#dfff35;
+  --green2:#b8d928;
   --radius:24px;
 }
 
@@ -37,197 +34,211 @@ body{
   font-family:Inter,Arial,sans-serif;
   background:var(--bg);
   color:var(--text);
-  overflow-x:hidden;
 }
 
-button,input,textarea,select{
-  font-family:inherit;
+button,input,select,textarea{
+  font:inherit;
 }
 
 button{
   cursor:pointer;
 }
 
-img{
-  max-width:100%;
-  display:block;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
 /* ================= TOP ================= */
 
-.top{
+.top-strip{
   height:34px;
-  background:#000;
-  color:#fff;
+  background:#08090b;
+  color:white;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   font-size:10px;
   font-weight:800;
-  letter-spacing:.7px;
+  letter-spacing:.8px;
 }
 
 /* ================= NAV ================= */
 
 .nav{
+  height:76px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
   position:sticky;
   top:0;
-  z-index:1000;
-  height:76px;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
+  z-index:5000;
 }
 
 .nav-inner{
-  max-width:1250px;
+  max-width:1240px;
   height:100%;
   margin:auto;
   padding:0 22px;
   display:flex;
   align-items:center;
+  gap:35px;
 }
 
 .logo{
-  font-size:30px;
-  font-weight:900;
-  letter-spacing:-2px;
+  font-size:29px;
+  font-weight:950;
+  letter-spacing:-2.5px;
 }
 
 .logo span{
-  color:#8eaa00;
+  color:#92aa00;
 }
 
-.links{
+.nav-links{
   display:flex;
   gap:28px;
   margin-left:auto;
-  margin-right:25px;
 }
 
-.links button{
+.nav-links button{
   border:0;
   background:none;
   font-size:12px;
-  font-weight:700;
-  color:#666;
+  font-weight:800;
+  color:#555;
 }
 
-.links button:hover{
+.nav-links button:hover{
   color:#000;
 }
 
-.nav-icons{
+.nav-actions{
   display:flex;
   gap:8px;
 }
 
-.circle{
-  width:42px;
-  height:42px;
+.circle-btn{
+  width:43px;
+  height:43px;
+  border:1px solid var(--line);
+  background:white;
   border-radius:50%;
-  border:1px solid var(--border);
-  background:#fff;
   display:grid;
   place-items:center;
   position:relative;
-  font-size:17px;
 }
 
 .count{
   position:absolute;
-  top:-3px;
   right:-2px;
-  background:#000;
-  color:#fff;
+  top:-2px;
   min-width:17px;
   height:17px;
   border-radius:50%;
+  background:#08090b;
+  color:white;
+  font-size:9px;
   display:grid;
   place-items:center;
-  font-size:9px;
   font-weight:900;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-  max-width:1250px;
-  margin:20px auto;
+  max-width:1240px;
+  margin:22px auto;
   padding:0 22px;
 }
 
 .hero-box{
-  min-height:650px;
-  background:#090909;
-  border-radius:32px;
+  min-height:640px;
+  border-radius:34px;
   overflow:hidden;
+  background:#08090b;
   position:relative;
-  color:#fff;
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
+  color:white;
 }
 
-.grid{
+.hero-grid{
   position:absolute;
   inset:0;
-  opacity:.09;
+  opacity:.13;
   background-image:
     linear-gradient(#fff 1px,transparent 1px),
     linear-gradient(90deg,#fff 1px,transparent 1px);
   background-size:55px 55px;
 }
 
-.glow{
+.hero-glow{
   position:absolute;
-  width:500px;
-  height:500px;
-  background:var(--lime);
-  filter:blur(150px);
-  opacity:.18;
+  width:560px;
+  height:560px;
   right:-120px;
   top:-100px;
+  background:var(--green);
+  filter:blur(150px);
+  opacity:.25;
 }
 
-.hero-text{
-  position:relative;
+.hero-product{
+  position:absolute;
+  right:65px;
+  bottom:45px;
+  width:430px;
+  height:500px;
   z-index:2;
-  padding:80px 65px;
   display:flex;
-  flex-direction:column;
+  align-items:center;
   justify-content:center;
 }
 
-.pill{
-  width:max-content;
-  padding:9px 14px;
-  border:1px solid #333;
+.hero-product img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 35px 50px rgba(0,0,0,.5));
+}
+
+.hero-content{
+  position:relative;
+  z-index:4;
+  max-width:650px;
+  padding:85px 65px;
+}
+
+.hero-label{
+  display:inline-flex;
+  padding:8px 13px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
   border-radius:50px;
-  color:#ddd;
   font-size:10px;
-  font-weight:800;
-  margin-bottom:25px;
+  font-weight:900;
+  letter-spacing:.7px;
 }
 
 .hero h1{
-  font-size:clamp(50px,7vw,82px);
+  margin-top:22px;
+  font-size:clamp(48px,7vw,83px);
   line-height:.91;
   letter-spacing:-5px;
 }
 
 .hero h1 span{
-  color:var(--lime);
+  color:var(--green);
 }
 
-.hero-desc{
-  color:#999;
-  max-width:510px;
+.hero-text{
+  margin-top:25px;
+  color:#a9abb1;
   font-size:14px;
   line-height:1.8;
-  margin-top:25px;
+  max-width:500px;
 }
 
-.buttons{
+.hero-buttons{
   display:flex;
   gap:10px;
   margin-top:30px;
@@ -235,8 +246,8 @@ img{
 
 .btn{
   border:0;
-  padding:15px 22px;
   border-radius:13px;
+  padding:14px 20px;
   font-size:12px;
   font-weight:900;
   transition:.2s;
@@ -246,50 +257,42 @@ img{
   transform:translateY(-2px);
 }
 
-.primary{
-  background:var(--lime);
-  color:#000;
+.btn-green{
+  background:var(--green);
+  color:#08090b;
 }
 
-.secondary{
-  background:#fff;
-  color:#000;
+.btn-white{
+  background:white;
+  color:#08090b;
 }
 
-.hero-product{
-  position:relative;
-  z-index:2;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.product-orb{
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 35% 30%,#444,#151515 55%,#050505);
-  box-shadow:
-    0 0 100px rgba(217,255,53,.12),
-    inset 0 0 70px rgba(255,255,255,.05);
+.hero-price{
+  margin-top:25px;
   display:flex;
   align-items:center;
-  justify-content:center;
+  gap:10px;
 }
 
-.product-orb img{
-  width:76%;
-  max-height:330px;
-  object-fit:contain;
-  filter:drop-shadow(0 30px 30px rgba(0,0,0,.6));
+.hero-price strong{
+  font-size:26px;
+}
+
+.hero-price del{
+  color:#777;
+  font-size:12px;
+}
+
+.hero-price b{
+  color:var(--green);
+  font-size:11px;
 }
 
 /* ================= TRUST ================= */
 
 .trust{
   max-width:1200px;
-  margin:25px auto 70px;
+  margin:30px auto 70px;
   padding:0 22px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -297,28 +300,36 @@ img{
 }
 
 .trust-card{
-  background:#fff;
-  border:1px solid var(--border);
+  background:white;
+  border:1px solid var(--line);
   border-radius:18px;
-  padding:19px;
+  padding:18px;
   display:flex;
-  gap:12px;
   align-items:center;
+  gap:12px;
+}
+
+.trust-icon{
+  width:42px;
+  height:42px;
+  background:#f1f2f4;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
 }
 
 .trust-card b{
-  display:block;
-  font-size:12px;
+  font-size:11px;
 }
 
 .trust-card small{
-  color:#888;
-  font-size:9px;
   display:block;
   margin-top:4px;
+  color:#777;
+  font-size:9px;
 }
 
-/* ================= PRODUCT ================= */
+/* ================= SECTION ================= */
 
 .section{
   max-width:1200px;
@@ -327,272 +338,296 @@ img{
 }
 
 .eyebrow{
+  color:#7f9600;
   font-size:10px;
-  font-weight:900;
-  letter-spacing:1.4px;
-  color:#799000;
-  text-transform:uppercase;
+  font-weight:950;
+  letter-spacing:1.5px;
 }
 
 .title{
-  font-size:38px;
+  font-size:37px;
   letter-spacing:-2px;
-  margin-top:6px;
+  margin-top:5px;
 }
 
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:25px;
+}
+
+/* ================= MAIN PRODUCT ================= */
+
 .main-product{
-  margin-top:25px;
-  background:#fff;
-  border:1px solid var(--border);
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  background:white;
+  border:1px solid var(--line);
   border-radius:28px;
   overflow:hidden;
-  display:grid;
-  grid-template-columns:1fr 1fr;
 }
 
 .product-visual{
-  min-height:600px;
-  background:#eeeeeb;
-  position:relative;
+  min-height:610px;
+  background:
+    radial-gradient(circle at 50% 50%,#ffffff 0,#eeeeef 60%,#e0e1e4 100%);
   display:flex;
-  justify-content:center;
   align-items:center;
-  overflow:hidden;
-}
-
-.product-visual::before{
-  content:"GRO";
-  position:absolute;
-  font-size:190px;
-  font-weight:900;
-  color:#e5e5e0;
-  letter-spacing:-15px;
+  justify-content:center;
+  position:relative;
 }
 
 .product-visual img{
-  width:78%;
-  max-height:500px;
+  width:88%;
+  height:88%;
   object-fit:contain;
-  position:relative;
-  z-index:2;
-  filter:drop-shadow(0 35px 30px rgba(0,0,0,.2));
+  filter:drop-shadow(0 30px 30px rgba(0,0,0,.18));
+  transition:.5s;
 }
 
-.sale{
+.product-visual:hover img{
+  transform:scale(1.04);
+}
+
+.sale-tag{
   position:absolute;
-  top:20px;
   left:20px;
-  background:#000;
-  color:#fff;
+  top:20px;
   padding:9px 13px;
-  border-radius:50px;
-  font-size:10px;
+  border-radius:30px;
+  background:#08090b;
+  color:white;
+  font-size:9px;
   font-weight:900;
-  z-index:3;
 }
 
 .product-details{
-  padding:55px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+  padding:55px 50px;
+}
+
+.product-category{
+  color:#777;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
 }
 
 .product-details h2{
-  font-size:44px;
-  letter-spacing:-2.5px;
-  margin-top:8px;
+  margin-top:10px;
+  font-size:47px;
+  line-height:.98;
+  letter-spacing:-3px;
 }
 
-.rating{
-  margin-top:15px;
-  font-size:12px;
+.product-rating{
+  margin-top:17px;
+  display:flex;
+  gap:8px;
+  align-items:center;
 }
 
-.rating span{
-  color:#e1a800;
+.stars{
+  color:#e3a900;
   letter-spacing:2px;
 }
 
-.price{
+.rating-text{
+  color:#777;
+  font-size:10px;
+}
+
+.product-details > p{
+  margin-top:20px;
+  color:#70747c;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.price-box{
+  margin-top:25px;
   display:flex;
   align-items:center;
   gap:10px;
-  margin-top:22px;
 }
 
-.current{
-  font-size:32px;
-  font-weight:900;
+.current-price{
+  font-size:30px;
+  font-weight:950;
 }
 
-.old{
+.old-price{
   color:#999;
   text-decoration:line-through;
-  font-size:14px;
+  font-size:13px;
 }
 
-.off{
-  color:#168653;
-  font-size:11px;
+.save{
+  color:#168550;
+  font-size:10px;
   font-weight:900;
 }
 
-.description{
-  color:#777;
-  line-height:1.8;
-  font-size:13px;
-  margin-top:20px;
+.option-title{
+  margin-top:25px;
+  font-size:10px;
+  font-weight:900;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:9px;
+}
+
+.quantity button{
+  width:37px;
+  height:37px;
+  border:1px solid var(--line);
+  background:white;
+  border-radius:9px;
+}
+
+.quantity strong{
+  min-width:25px;
+  text-align:center;
+}
+
+.buy-row{
+  display:grid;
+  grid-template-columns:1fr 52px;
+  gap:8px;
+  margin-top:23px;
+}
+
+.buy-btn{
+  border:0;
+  background:#08090b;
+  color:white;
+  border-radius:13px;
+  font-weight:900;
+}
+
+.wishlist-btn{
+  border:1px solid var(--line);
+  background:white;
+  border-radius:13px;
+  font-size:19px;
 }
 
 .highlights{
-  margin-top:22px;
-  display:grid;
-  gap:10px;
+  margin-top:28px;
+  border-top:1px solid var(--line);
 }
 
 .highlight{
   display:flex;
-  align-items:center;
-  gap:10px;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.highlight b{
   font-size:11px;
-  font-weight:700;
 }
 
-.check{
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  background:#eff6d5;
-  display:grid;
-  place-items:center;
+.highlight span{
+  color:#777;
+  font-size:10px;
+  display:block;
+  margin-top:3px;
 }
 
-.qty-row{
-  display:flex;
-  gap:10px;
-  margin-top:25px;
-}
+/* ================= BANNER ================= */
 
-.qty{
-  display:flex;
-  align-items:center;
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
-}
-
-.qty button{
-  width:40px;
-  height:48px;
-  border:0;
-  background:#fff;
-}
-
-.qty strong{
-  width:35px;
-  text-align:center;
-}
-
-.buy{
-  flex:1;
-}
-
-/* ================= OFFER ================= */
-
-.offer{
+.banner{
   max-width:1200px;
   margin:0 auto 80px;
   padding:0 22px;
 }
 
-.offer-box{
-  background:var(--lime);
-  border-radius:25px;
-  padding:38px;
+.banner-box{
+  min-height:220px;
+  background:var(--green);
+  border-radius:26px;
+  padding:40px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:20px;
+  justify-content:space-between;
 }
 
-.offer-box h2{
-  font-size:34px;
+.banner h2{
+  font-size:39px;
   letter-spacing:-2px;
 }
 
-.offer-box p{
-  margin-top:7px;
+.banner p{
+  margin-top:8px;
   font-size:11px;
 }
 
 /* ================= FEATURES ================= */
 
 .features{
-  margin-top:25px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:15px;
 }
 
 .feature{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:21px;
+  background:white;
+  border:1px solid var(--line);
   padding:28px;
+  border-radius:21px;
 }
 
 .feature-icon{
-  width:48px;
-  height:48px;
-  border-radius:15px;
-  background:#f0f0ec;
+  width:45px;
+  height:45px;
+  border-radius:14px;
+  background:#f1f2f4;
   display:grid;
   place-items:center;
   font-size:20px;
 }
 
 .feature h3{
-  margin-top:18px;
+  margin-top:17px;
   font-size:16px;
 }
 
 .feature p{
+  margin-top:8px;
   color:#777;
   font-size:11px;
   line-height:1.8;
-  margin-top:8px;
 }
 
 /* ================= REVIEWS ================= */
 
 .reviews{
-  margin-top:25px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:15px;
 }
 
 .review{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:24px;
-}
-
-.stars{
-  color:#e2ad00;
-  letter-spacing:2px;
+  background:white;
+  border:1px solid var(--line);
+  padding:25px;
+  border-radius:21px;
 }
 
 .review p{
-  margin-top:14px;
-  color:#666;
+  margin-top:13px;
   font-size:12px;
+  color:#555;
   line-height:1.8;
 }
 
-.user{
+.reviewer{
   margin-top:18px;
   font-size:10px;
   font-weight:900;
@@ -602,50 +637,50 @@ img{
 
 .faq{
   max-width:850px;
-  margin:25px auto 0;
+  margin:auto;
 }
 
 .faq-item{
-  background:#fff;
-  border:1px solid var(--border);
+  background:white;
+  border:1px solid var(--line);
   border-radius:15px;
   margin-bottom:8px;
   overflow:hidden;
 }
 
-.faq-q{
+.faq-question{
   width:100%;
-  background:#fff;
+  background:white;
   border:0;
   padding:19px;
   display:flex;
   justify-content:space-between;
-  font-size:12px;
-  font-weight:800;
   text-align:left;
+  font-size:12px;
+  font-weight:900;
 }
 
-.faq-a{
+.faq-answer{
   display:none;
-  padding:0 19px 18px;
+  padding:0 19px 19px;
   color:#777;
   font-size:11px;
   line-height:1.8;
 }
 
-.faq-item.open .faq-a{
+.faq-item.active .faq-answer{
   display:block;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-  background:#090909;
-  color:#fff;
-  padding:65px 22px 30px;
+  background:#08090b;
+  color:white;
+  padding:65px 22px 35px;
 }
 
-.footer-inner{
+.footer{
   max-width:1200px;
   margin:auto;
   display:grid;
@@ -655,28 +690,29 @@ footer{
 
 .footer-logo{
   font-size:30px;
-  font-weight:900;
+  font-weight:950;
+  letter-spacing:-2px;
 }
 
-footer p,
-footer button{
-  color:#888;
-  font-size:11px;
+.footer p,
+.footer button{
+  color:#92959c;
+  font-size:10px;
   line-height:1.8;
 }
 
-footer button{
-  display:block;
+.footer button{
   border:0;
   background:none;
-  margin-top:7px;
+  display:block;
+  margin-top:8px;
 }
 
-.copy{
+.footer-bottom{
   max-width:1200px;
-  margin:40px auto 0;
-  border-top:1px solid #242424;
+  margin:45px auto 0;
   padding-top:20px;
+  border-top:1px solid #242529;
   color:#666;
   font-size:9px;
 }
@@ -686,8 +722,9 @@ footer button{
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.5);
-  z-index:3000;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(5px);
+  z-index:8000;
   opacity:0;
   visibility:hidden;
   transition:.25s;
@@ -700,12 +737,12 @@ footer button{
 
 .cart{
   position:fixed;
+  right:-480px;
   top:0;
-  right:-470px;
-  width:min(470px,100%);
+  width:min(460px,100%);
   height:100%;
-  background:#fff;
-  z-index:4000;
+  background:white;
+  z-index:9000;
   transition:.35s;
   display:flex;
   flex-direction:column;
@@ -717,17 +754,22 @@ footer button{
 
 .cart-head{
   padding:22px;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--line);
   display:flex;
   justify-content:space-between;
+  align-items:center;
+}
+
+.cart-head h2{
+  font-size:19px;
 }
 
 .close{
-  width:38px;
-  height:38px;
+  width:37px;
+  height:37px;
   border:0;
-  background:#f2f2ef;
   border-radius:50%;
+  background:#f1f2f4;
 }
 
 .cart-body{
@@ -738,64 +780,55 @@ footer button{
 
 .cart-item{
   display:grid;
-  grid-template-columns:70px 1fr auto;
+  grid-template-columns:72px 1fr auto;
   gap:12px;
   padding:14px 0;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--line);
 }
 
 .cart-item img{
-  width:70px;
-  height:70px;
+  width:72px;
+  height:72px;
   object-fit:contain;
-  background:#f2f2ef;
-  border-radius:12px;
+  background:#f1f2f4;
+  border-radius:13px;
 }
 
 .cart-item h4{
   font-size:12px;
 }
 
-.cart-item small{
+.cart-item p{
+  margin-top:5px;
+  font-size:11px;
   color:#777;
 }
 
-.cart-controls{
-  display:flex;
-  gap:7px;
-  align-items:center;
-  margin-top:8px;
-}
-
-.cart-controls button{
-  width:24px;
-  height:24px;
-  border:1px solid var(--border);
-  background:#fff;
-  border-radius:6px;
-}
-
 .cart-foot{
-  border-top:1px solid var(--border);
+  border-top:1px solid var(--line);
   padding:20px;
 }
 
 .total{
   display:flex;
   justify-content:space-between;
-  margin-bottom:15px;
+  margin-bottom:14px;
 }
 
 .total strong{
-  font-size:23px;
+  font-size:21px;
+}
+
+.full{
+  width:100%;
 }
 
 /* ================= CHECKOUT ================= */
 
 .checkout{
   display:none;
-  max-width:850px;
-  margin:20px auto 80px;
+  max-width:820px;
+  margin:35px auto 80px;
   padding:0 22px;
 }
 
@@ -803,10 +836,10 @@ footer button{
   display:block;
 }
 
-.checkout-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:24px;
+.checkout-box{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:25px;
   padding:28px;
 }
 
@@ -814,7 +847,7 @@ footer button{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
-  margin-top:25px;
+  margin-top:22px;
 }
 
 .field label{
@@ -825,22 +858,22 @@ footer button{
 }
 
 .field input,
-.field textarea,
-.field select{
+.field select,
+.field textarea{
   width:100%;
+  border:1px solid var(--line);
+  background:#fafafa;
   padding:13px;
-  border:1px solid var(--border);
-  border-radius:11px;
+  border-radius:10px;
   outline:none;
-  background:#fafaf8;
-}
-
-.field.full{
-  grid-column:1/-1;
 }
 
 .field textarea{
   min-height:90px;
+}
+
+.full-field{
+  grid-column:1/-1;
 }
 
 /* ================= TOAST ================= */
@@ -850,11 +883,11 @@ footer button{
   left:50%;
   bottom:25px;
   transform:translate(-50%,100px);
-  background:#090909;
-  color:#fff;
+  background:#08090b;
+  color:white;
   padding:13px 18px;
   border-radius:12px;
-  z-index:9999;
+  z-index:15000;
   font-size:11px;
   font-weight:800;
   opacity:0;
@@ -868,40 +901,43 @@ footer button{
 
 /* ================= MOBILE ================= */
 
-.mobile{
+.mobile-bar{
   display:none;
 }
 
-@media(max-width:800px){
+@media(max-width:850px){
 
-  .links{
+  .nav-links{
     display:none;
   }
 
+  .nav-inner{
+    justify-content:space-between;
+  }
+
   .hero-box{
-    grid-template-columns:1fr;
-    min-height:700px;
+    min-height:720px;
   }
 
-  .hero-text{
-    padding:50px 30px 15px;
-  }
-
-  .hero-product{
-    min-height:300px;
-  }
-
-  .product-orb{
-    width:290px;
-    height:290px;
-  }
-
-  .product-orb img{
-    max-height:230px;
+  .hero-content{
+    padding:40px 30px;
   }
 
   .hero h1{
-    font-size:54px;
+    font-size:57px;
+    letter-spacing:-4px;
+  }
+
+  .hero-product{
+    width:280px;
+    height:300px;
+    right:50%;
+    transform:translateX(50%);
+    bottom:25px;
+  }
+
+  .hero-price{
+    display:none;
   }
 
   .trust{
@@ -913,15 +949,15 @@ footer button{
   }
 
   .product-visual{
-    min-height:390px;
+    min-height:430px;
   }
 
   .product-details{
-    padding:30px;
+    padding:35px 27px;
   }
 
   .product-details h2{
-    font-size:35px;
+    font-size:38px;
   }
 
   .features,
@@ -929,15 +965,20 @@ footer button{
     grid-template-columns:1fr;
   }
 
-  .offer-box{
+  .banner-box{
     display:block;
+    padding:30px;
   }
 
-  .offer-box .btn{
-    margin-top:18px;
+  .banner h2{
+    font-size:30px;
   }
 
-  .footer-inner{
+  .banner .btn{
+    margin-top:20px;
+  }
+
+  .footer{
     grid-template-columns:1fr 1fr;
   }
 
@@ -945,75 +986,85 @@ footer button{
     grid-template-columns:1fr;
   }
 
-  .field.full{
+  .full-field{
     grid-column:auto;
   }
 
-  .mobile{
+  .mobile-bar{
+    display:grid;
     position:fixed;
     bottom:10px;
     left:10px;
     right:10px;
-    height:64px;
-    background:rgba(10,10,10,.95);
+    height:65px;
+    background:rgba(8,9,11,.95);
     border-radius:20px;
-    z-index:2000;
-    display:grid;
+    z-index:7000;
     grid-template-columns:repeat(4,1fr);
+    padding:5px;
   }
 
-  .mobile button{
+  .mobile-bar button{
     border:0;
     background:none;
     color:#aaa;
-    font-size:9px;
-    font-weight:800;
+    font-size:8px;
+    font-weight:900;
   }
 
-  .mobile span{
+  .mobile-bar span{
     display:block;
-    font-size:19px;
+    font-size:20px;
     margin-bottom:3px;
   }
 
   body{
     padding-bottom:80px;
   }
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="top">
-  GRO EXTENDER • PREMIUM WELLNESS • DISCREET DELIVERY
+<div class="top-strip">
+  GRO EXTENDER • PREMIUM WELLNESS STORE • DISCREET DELIVERY
 </div>
 
 <header class="nav">
-  <div class="nav-inner">
 
-    <div class="logo">
-      GRO<span>.</span>
-    </div>
+<div class="nav-inner">
 
-    <div class="links">
-      <button onclick="scrollToId('home')">HOME</button>
-      <button onclick="scrollToId('product')">PRODUCT</button>
-      <button onclick="scrollToId('why')">WHY GRO</button>
-      <button onclick="scrollToId('reviews')">REVIEWS</button>
-      <button onclick="scrollToId('faq')">FAQ</button>
-    </div>
+  <div class="logo">
+    GRO<span>.</span>
+  </div>
 
-    <div class="nav-icons">
+  <div class="nav-links">
+    <button onclick="scrollToId('home')">HOME</button>
+    <button onclick="scrollToId('product')">GRO EXTENDER</button>
+    <button onclick="scrollToId('why')">WHY GRO</button>
+    <button onclick="scrollToId('reviews')">REVIEWS</button>
+    <button onclick="scrollToId('faq')">FAQ</button>
+  </div>
 
-      <button class="circle" onclick="openCart()">
-        🛒
-        <span class="count" id="cartCount">0</span>
-      </button>
+  <div class="nav-actions">
 
-    </div>
+    <button
+      class="circle-btn"
+      onclick="openCart()">
+      🛒
+      <span
+        class="count"
+        id="cartCount">
+        0
+      </span>
+    </button>
 
   </div>
+
+</div>
+
 </header>
 
 
@@ -1023,60 +1074,63 @@ footer button{
 
 <section class="hero">
 
-  <div class="hero-box">
+<div class="hero-box">
 
-    <div class="grid"></div>
-    <div class="glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
 
-    <div class="hero-text">
+  <div class="hero-content">
 
-      <div class="pill">
-        ● GRO EXTENDER — PREMIUM COLLECTION
-      </div>
+    <div class="hero-label">
+      GRO EXTENDER • SIGNATURE PRODUCT
+    </div>
 
-      <h1>
-        Upgrade your<br>
-        <span>confidence.</span>
-      </h1>
+    <h1>
+      Upgrade your<br>
+      <span>confidence.</span>
+    </h1>
 
-      <p class="hero-desc">
-        Meet GRO Extender — a modern personal wellness
-        product presented with a premium, discreet and
-        customer-first shopping experience.
-      </p>
+    <p class="hero-text">
+      Meet GRO Extender — the signature GRO
+      personal wellness device presented through
+      a premium, discreet and modern shopping
+      experience.
+    </p>
 
-      <div class="buttons">
+    <div class="hero-buttons">
 
-        <button
-          class="btn primary"
-          onclick="scrollToId('product')">
-          SHOP GRO EXTENDER →
-        </button>
+      <button
+        class="btn btn-green"
+        onclick="scrollToId('product')">
+        SHOP GRO EXTENDER →
+      </button>
 
-        <button
-          class="btn secondary"
-          onclick="scrollToId('why')">
-          EXPLORE
-        </button>
-
-      </div>
+      <button
+        class="btn btn-white"
+        onclick="scrollToId('why')">
+        EXPLORE FEATURES
+      </button>
 
     </div>
 
-    <div class="hero-product">
-
-      <div class="product-orb">
-
-        <!-- Replace this image with your actual GRO Extender image -->
-        <img
-          src="gro-extender.png"
-          alt="GRO Extender">
-
-      </div>
-
+    <div class="hero-price">
+      <strong>₹3,499</strong>
+      <del>₹4,499</del>
+      <b>22% OFF</b>
     </div>
 
   </div>
+
+  <div class="hero-product">
+
+    <!-- GRO EXTENDER MAIN PRODUCT IMAGE -->
+    <img
+      src="gro-extender.png"
+      alt="GRO Extender">
+
+  </div>
+
+</div>
 
 </section>
 
@@ -1086,34 +1140,34 @@ footer button{
 <section class="trust">
 
   <div class="trust-card">
-    <span>📦</span>
+    <div class="trust-icon">📦</div>
     <div>
-      <b>Discreet Packaging</b>
+      <b>DISCREET PACKAGING</b>
       <small>Private outer packaging</small>
     </div>
   </div>
 
   <div class="trust-card">
-    <span>🔒</span>
+    <div class="trust-icon">🔒</div>
     <div>
-      <b>Secure Checkout</b>
-      <small>Protected ordering</small>
+      <b>SECURE CHECKOUT</b>
+      <small>Protected payment flow</small>
     </div>
   </div>
 
   <div class="trust-card">
-    <span>🚚</span>
+    <div class="trust-icon">🚚</div>
     <div>
-      <b>Fast Dispatch</b>
+      <b>FAST DISPATCH</b>
       <small>Quick order processing</small>
     </div>
   </div>
 
   <div class="trust-card">
-    <span>💬</span>
+    <div class="trust-icon">💬</div>
     <div>
-      <b>Customer Support</b>
-      <small>Help when you need it</small>
+      <b>SUPPORT</b>
+      <small>Customer assistance</small>
     </div>
   </div>
 
@@ -1126,238 +1180,282 @@ footer button{
   class="section"
   id="product">
 
-  <div class="eyebrow">
-    THE MAIN PRODUCT
+<div class="section-head">
+
+  <div>
+    <div class="eyebrow">
+      SIGNATURE PRODUCT
+    </div>
+
+    <h2 class="title">
+      GRO Extender
+    </h2>
   </div>
 
-  <h2 class="title">
-    GRO Extender
-  </h2>
+</div>
 
-  <div class="main-product">
 
-    <div class="product-visual">
+<div class="main-product">
 
-      <div class="sale">
-        22% OFF
-      </div>
+  <div class="product-visual">
 
-      <!-- MAIN GRO EXTENDER IMAGE -->
-      <img
-        src="gro-extender.png"
-        alt="GRO Extender">
+    <div class="sale-tag">
+      22% OFF
+    </div>
+
+    <!-- SAME GRO EXTENDER IMAGE -->
+    <img
+      src="gro-extender.png"
+      alt="GRO Extender">
+
+  </div>
+
+
+  <div class="product-details">
+
+    <div class="product-category">
+      GRO EXTENDER
+    </div>
+
+    <h2>
+      GRO Extender
+    </h2>
+
+    <div class="product-rating">
+
+      <span class="stars">
+        ★★★★★
+      </span>
+
+      <span class="rating-text">
+        4.8 • 1,200+ customer ratings
+      </span>
 
     </div>
 
-    <div class="product-details">
+    <p>
+      Premium personal wellness device with a
+      modern design, adjustable construction and
+      discreet presentation.
+    </p>
 
-      <div class="eyebrow">
-        GRO EXTENDER
-      </div>
+    <div class="price-box">
 
-      <h2>
-        GRO Extender
-      </h2>
+      <span class="current-price">
+        ₹3,499
+      </span>
 
-      <div class="rating">
-        <span>★★★★★</span>
-        &nbsp; 4.8/5 • Customer Rated
-      </div>
+      <span class="old-price">
+        ₹4,499
+      </span>
 
-      <div class="price">
+      <span class="save">
+        SAVE ₹1,000
+      </span>
 
-        <span class="current">
-          ₹3,499
-        </span>
+    </div>
 
-        <span class="old">
-          ₹4,499
-        </span>
 
-        <span class="off">
-          22% OFF
-        </span>
+    <div class="option-title">
+      QUANTITY
+    </div>
 
-      </div>
+    <div class="quantity">
 
-      <p class="description">
-        Premium personal wellness product with a
-        discreet design and simple user experience.
-        Designed for customers who prefer a modern
-        and private wellness shopping experience.
-      </p>
+      <button onclick="changeMainQty(-1)">
+        −
+      </button>
 
-      <div class="highlights">
+      <strong id="mainQty">
+        1
+      </strong>
 
-        <div class="highlight">
-          <span class="check">✓</span>
-          Premium GRO Extender design
-        </div>
-
-        <div class="highlight">
-          <span class="check">✓</span>
-          Discreet delivery packaging
-        </div>
-
-        <div class="highlight">
-          <span class="check">✓</span>
-          Secure order process
-        </div>
-
-        <div class="highlight">
-          <span class="check">✓</span>
-          Customer support available
-        </div>
-
-      </div>
-
-      <div class="qty-row">
-
-        <div class="qty">
-
-          <button onclick="changeQty(-1)">
-            −
-          </button>
-
-          <strong id="qty">
-            1
-          </strong>
-
-          <button onclick="changeQty(1)">
-            +
-          </button>
-
-        </div>
-
-        <button
-          class="btn primary buy"
-          onclick="addToCart()">
-          ADD TO CART
-        </button>
-
-      </div>
-
-      <button
-        class="btn"
-        style="
-          margin-top:10px;
-          width:100%;
-          background:#090909;
-          color:#fff
-        "
-        onclick="buyNow()">
-        BUY GRO EXTENDER NOW →
+      <button onclick="changeMainQty(1)">
+        +
       </button>
 
     </div>
 
-  </div>
 
-</section>
+    <div class="buy-row">
 
+      <button
+        class="buy-btn"
+        onclick="addMainProduct()">
+        ADD GRO EXTENDER TO CART
+      </button>
 
-<!-- OFFER -->
-
-<section class="offer">
-
-  <div class="offer-box">
-
-    <div>
-
-      <div class="eyebrow">
-        SPECIAL OFFER
-      </div>
-
-      <h2>
-        GRO Extender — ₹3,499
-      </h2>
-
-      <p>
-        Regular price ₹4,499 • Save 22%
-      </p>
+      <button
+        class="wishlist-btn"
+        onclick="toggleMainWish()">
+        ♡
+      </button>
 
     </div>
 
-    <button
-      class="btn"
-      style="background:#000;color:#fff"
-      onclick="copyCode()">
-      COPY GRO22
-    </button>
+
+    <div class="highlights">
+
+      <div class="highlight">
+
+        <div>✓</div>
+
+        <div>
+          <b>Premium presentation</b>
+          <span>
+            Clean and professional GRO experience.
+          </span>
+        </div>
+
+      </div>
+
+      <div class="highlight">
+
+        <div>✓</div>
+
+        <div>
+          <b>Discreet experience</b>
+          <span>
+            Designed around customer privacy.
+          </span>
+        </div>
+
+      </div>
+
+      <div class="highlight">
+
+        <div>✓</div>
+
+        <div>
+          <b>Easy ordering</b>
+          <span>
+            Simple cart and checkout process.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
+
+</div>
 
 </section>
 
 
-<!-- WHY -->
+<!-- PROMO -->
+
+<section class="banner">
+
+<div class="banner-box">
+
+  <div>
+
+    <div class="eyebrow">
+      GRO SPECIAL
+    </div>
+
+    <h2>
+      GRO Extender at ₹3,499.
+    </h2>
+
+    <p>
+      Regular price ₹4,499 • Limited promotional offer
+    </p>
+
+  </div>
+
+  <button
+    class="btn"
+    style="background:#08090b;color:white"
+    onclick="addMainProduct()">
+    GET GRO EXTENDER →
+  </button>
+
+</div>
+
+</section>
+
+
+<!-- WHY GRO -->
 
 <section
   class="section"
   id="why">
 
-  <div class="eyebrow">
-    WHY GRO EXTENDER
+<div class="section-head">
+
+  <div>
+
+    <div class="eyebrow">
+      THE GRO EXPERIENCE
+    </div>
+
+    <h2 class="title">
+      Why GRO Extender?
+    </h2>
+
   </div>
 
-  <h2 class="title">
-    A better shopping experience.
-  </h2>
+</div>
 
-  <div class="features">
+<div class="features">
 
-    <div class="feature">
+  <div class="feature">
 
-      <div class="feature-icon">
-        ✦
-      </div>
-
-      <h3>
-        Premium Presentation
-      </h3>
-
-      <p>
-        Clean, modern product presentation
-        built around GRO Extender.
-      </p>
-
+    <div class="feature-icon">
+      ◈
     </div>
 
-    <div class="feature">
+    <h3>
+      Adjustable design
+    </h3>
 
-      <div class="feature-icon">
-        ◈
-      </div>
-
-      <h3>
-        Privacy First
-      </h3>
-
-      <p>
-        Discreet packaging and a private
-        customer journey.
-      </p>
-
-    </div>
-
-    <div class="feature">
-
-      <div class="feature-icon">
-        ✓
-      </div>
-
-      <h3>
-        Simple Ordering
-      </h3>
-
-      <p>
-        Select GRO Extender, add your
-        details and complete your order.
-      </p>
-
-    </div>
+    <p>
+      Designed with an adjustable construction
+      for a more personalized experience.
+    </p>
 
   </div>
+
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      ✦
+    </div>
+
+    <h3>
+      Premium build
+    </h3>
+
+    <p>
+      A modern product presentation focused
+      on simplicity and everyday usability.
+    </p>
+
+  </div>
+
+
+  <div class="feature">
+
+    <div class="feature-icon">
+      ◎
+    </div>
+
+    <h3>
+      Discreet experience
+    </h3>
+
+    <p>
+      GRO keeps privacy and discreet shopping
+      central to the customer journey.
+    </p>
+
+  </div>
+
+</div>
 
 </section>
 
@@ -1368,44 +1466,78 @@ footer button{
   class="section"
   id="reviews">
 
-  <div class="eyebrow">
-    CUSTOMER EXPERIENCE
+<div class="section-head">
+
+  <div>
+
+    <div class="eyebrow">
+      CUSTOMER REVIEWS
+    </div>
+
+    <h2 class="title">
+      What customers say.
+    </h2>
+
   </div>
 
-  <h2 class="title">
-    What customers say.
-  </h2>
+</div>
 
-  <div class="reviews">
+<div class="reviews">
 
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>
-        Clean website, simple ordering process
-        and discreet delivery experience.
-      </p>
-      <div class="user">Verified Customer</div>
+  <div class="review">
+
+    <div class="stars">
+      ★★★★★
     </div>
 
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>
-        Product information was easy to understand
-        and the ordering process was smooth.
-      </p>
-      <div class="user">Verified Customer</div>
-    </div>
+    <p>
+      “The GRO website experience is very
+      clean and the packaging was discreet.”
+    </p>
 
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>
-        Professional presentation and private
-        packaging experience.
-      </p>
-      <div class="user">Verified Customer</div>
+    <div class="reviewer">
+      VERIFIED CUSTOMER
     </div>
 
   </div>
+
+
+  <div class="review">
+
+    <div class="stars">
+      ★★★★★
+    </div>
+
+    <p>
+      “Ordering was simple and the product
+      arrived properly packed.”
+    </p>
+
+    <div class="reviewer">
+      VERIFIED CUSTOMER
+    </div>
+
+  </div>
+
+
+  <div class="review">
+
+    <div class="stars">
+      ★★★★★
+    </div>
+
+    <p>
+      “Professional presentation and easy
+      checkout experience.”
+    </p>
+
+    <div class="reviewer">
+      VERIFIED CUSTOMER
+    </div>
+
+  </div>
+
+</div>
 
 </section>
 
@@ -1416,82 +1548,97 @@ footer button{
   class="section"
   id="faq">
 
-  <div class="eyebrow">
-    SUPPORT
+<div class="section-head">
+
+  <div>
+
+    <div class="eyebrow">
+      SUPPORT
+    </div>
+
+    <h2 class="title">
+      Frequently asked.
+    </h2>
+
   </div>
 
-  <h2 class="title">
-    Frequently asked.
-  </h2>
+</div>
 
-  <div class="faq">
+<div class="faq">
 
-    <div class="faq-item">
+  <div class="faq-item">
 
-      <button
-        class="faq-q"
-        onclick="faq(this)">
-        What product does GRO sell?
-        <span>+</span>
-      </button>
+    <button
+      class="faq-question"
+      onclick="faq(this)">
+      Is the delivery discreet?
+      <span>+</span>
+    </button>
 
-      <div class="faq-a">
-        GRO Extender is the main product featured
-        on this website.
-      </div>
-
-    </div>
-
-    <div class="faq-item">
-
-      <button
-        class="faq-q"
-        onclick="faq(this)">
-        Is the package discreet?
-        <span>+</span>
-      </button>
-
-      <div class="faq-a">
-        The store is designed for discreet outer
-        packaging and a private delivery experience.
-      </div>
-
-    </div>
-
-    <div class="faq-item">
-
-      <button
-        class="faq-q"
-        onclick="faq(this)">
-        What is the price?
-        <span>+</span>
-      </button>
-
-      <div class="faq-a">
-        The current displayed offer is ₹3,499,
-        reduced from ₹4,499.
-      </div>
-
-    </div>
-
-    <div class="faq-item">
-
-      <button
-        class="faq-q"
-        onclick="faq(this)">
-        How do I place an order?
-        <span>+</span>
-      </button>
-
-      <div class="faq-a">
-        Click BUY GRO EXTENDER NOW or ADD TO CART,
-        enter your delivery details and continue
-        through your configured checkout system.
-      </div>
-
+    <div class="faq-answer">
+      Orders can be shipped in discreet outer
+      packaging. Configure your actual courier
+      packaging policy before launch.
     </div>
 
   </div>
+
+
+  <div class="faq-item">
+
+    <button
+      class="faq-question"
+      onclick="faq(this)">
+      What is the price of GRO Extender?
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+      The current promotional website price is
+      ₹3,499 compared with the displayed MRP
+      of ₹4,499.
+    </div>
+
+  </div>
+
+
+  <div class="faq-item">
+
+    <button
+      class="faq-question"
+      onclick="faq(this)">
+      How can I place an order?
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+      Add GRO Extender to the cart, enter your
+      delivery details and continue through
+      checkout.
+    </div>
+
+  </div>
+
+
+  <div class="faq-item">
+
+    <button
+      class="faq-question"
+      onclick="faq(this)">
+      Can I pay online?
+      <span>+</span>
+    </button>
+
+    <div class="faq-answer">
+      The frontend supports an online-payment
+      option. For real transactions, connect an
+      approved payment gateway and server-side
+      payment verification.
+    </div>
+
+  </div>
+
+</div>
 
 </section>
 
@@ -1504,127 +1651,178 @@ footer button{
   class="checkout"
   id="checkout">
 
-  <div class="checkout-card">
+<div class="checkout-box">
 
-    <div class="eyebrow">
-      GRO CHECKOUT
-    </div>
+  <div class="eyebrow">
+    GRO CHECKOUT
+  </div>
 
-    <h2 class="title">
-      Complete your order
-    </h2>
+  <h2 class="title">
+    Complete your order
+  </h2>
 
-    <div class="form-grid">
+  <div class="form-grid">
 
-      <div class="field">
-        <label>FULL NAME</label>
-        <input
-          id="name"
-          placeholder="Your full name">
-      </div>
+    <div class="field">
 
-      <div class="field">
-        <label>MOBILE NUMBER</label>
-        <input
-          id="mobile"
-          maxlength="10"
-          inputmode="numeric"
-          placeholder="10 digit mobile">
-      </div>
+      <label>
+        FULL NAME
+      </label>
 
-      <div class="field full">
-        <label>FULL ADDRESS</label>
-        <textarea
-          id="address"
-          placeholder="House / Road / Area"></textarea>
-      </div>
-
-      <div class="field">
-        <label>CITY / AREA</label>
-        <input id="city">
-      </div>
-
-      <div class="field">
-        <label>PIN CODE</label>
-        <input
-          id="pin"
-          maxlength="6"
-          inputmode="numeric">
-      </div>
-
-      <div class="field">
-        <label>STATE</label>
-
-        <select id="state">
-
-          <option value="">
-            Select State
-          </option>
-
-          <option>West Bengal</option>
-          <option>Odisha</option>
-          <option>Bihar</option>
-          <option>Jharkhand</option>
-          <option>Other</option>
-
-        </select>
-
-      </div>
-
-      <div class="field">
-        <label>PAYMENT METHOD</label>
-
-        <select id="payment">
-
-          <option value="online">
-            Online Payment
-          </option>
-
-          <option value="cod">
-            Cash on Delivery
-          </option>
-
-        </select>
-
-      </div>
+      <input
+        id="name"
+        placeholder="Your full name">
 
     </div>
+
+
+    <div class="field">
+
+      <label>
+        MOBILE
+      </label>
+
+      <input
+        id="mobile"
+        inputmode="numeric"
+        maxlength="10"
+        placeholder="10 digit mobile">
+
+    </div>
+
 
     <div
-      style="
-        margin-top:22px;
-        padding:18px;
-        border-radius:14px;
-        background:#f4f4f0;
-      ">
+      class="field full-field">
 
-      <div class="total">
+      <label>
+        COMPLETE ADDRESS
+      </label>
 
-        <span>
-          GRO Extender
-        </span>
-
-        <strong id="checkoutTotal">
-          ₹3,499
-        </strong>
-
-      </div>
-
-      <small style="color:#777">
-        Payment confirmation should be handled
-        by your approved payment gateway.
-      </small>
+      <textarea
+        id="address"
+        placeholder="House / street / locality"></textarea>
 
     </div>
 
-    <button
-      class="btn primary"
-      style="width:100%;margin-top:15px"
-      onclick="placeOrder()">
-      PLACE GRO EXTENDER ORDER →
-    </button>
+
+    <div class="field">
+
+      <label>
+        AREA / CITY
+      </label>
+
+      <input
+        id="city"
+        placeholder="Area / city">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        PINCODE
+      </label>
+
+      <input
+        id="pin"
+        maxlength="6"
+        inputmode="numeric"
+        placeholder="Pincode">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        STATE
+      </label>
+
+      <select id="state">
+
+        <option value="">
+          Select state
+        </option>
+
+        <option>
+          West Bengal
+        </option>
+
+        <option>
+          Odisha
+        </option>
+
+        <option>
+          Bihar
+        </option>
+
+        <option>
+          Jharkhand
+        </option>
+
+        <option>
+          Other
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        PAYMENT METHOD
+      </label>
+
+      <select id="payment">
+
+        <option value="online">
+          Online Payment
+        </option>
+
+        <option value="cod">
+          Cash on Delivery
+        </option>
+
+      </select>
+
+    </div>
 
   </div>
+
+
+  <div
+    style="
+      background:#f4f5f6;
+      padding:17px;
+      border-radius:13px;
+      margin:20px 0;
+    ">
+
+    <div class="total">
+
+      <span>
+        GRO Extender Total
+      </span>
+
+      <strong id="checkoutTotal">
+        ₹0
+      </strong>
+
+    </div>
+
+  </div>
+
+
+  <button
+    class="btn btn-green full"
+    onclick="placeOrder()">
+    PLACE ORDER →
+  </button>
+
+</div>
 
 </section>
 
@@ -1633,68 +1831,105 @@ footer button{
 
 <footer>
 
-  <div class="footer-inner">
+<div class="footer">
 
-    <div>
+  <div>
 
-      <div class="footer-logo">
-        GRO.
-      </div>
-
-      <p style="margin-top:12px;max-width:330px">
-        Premium personal wellness with a
-        modern, discreet customer experience.
-      </p>
-
+    <div class="footer-logo">
+      GRO.
     </div>
 
-    <div>
-
-      <b>SHOP</b>
-
-      <button onclick="scrollToId('product')">
-        GRO Extender
-      </button>
-
-      <button onclick="openCart()">
-        Cart
-      </button>
-
-    </div>
-
-    <div>
-
-      <b>SUPPORT</b>
-
-      <button onclick="scrollToId('faq')">
-        FAQ
-      </button>
-
-      <button onclick="whatsapp()">
-        WhatsApp
-      </button>
-
-    </div>
-
-    <div>
-
-      <b>LEGAL</b>
-
-      <button>Privacy Policy</button>
-      <button>Terms & Conditions</button>
-
-    </div>
+    <p style="margin-top:15px;max-width:340px">
+      GRO Extender — premium personal wellness
+      shopping experience with modern design
+      and discreet customer journey.
+    </p>
 
   </div>
 
-  <div class="copy">
-    © 2026 GRO. All Rights Reserved.
+
+  <div>
+
+    <b>SHOP</b>
+
+    <button onclick="scrollToId('product')">
+      GRO Extender
+    </button>
+
+    <button onclick="openCart()">
+      Cart
+    </button>
+
   </div>
+
+
+  <div>
+
+    <b>SUPPORT</b>
+
+    <button onclick="scrollToId('faq')">
+      FAQ
+    </button>
+
+    <button onclick="contact()">
+      Customer Support
+    </button>
+
+  </div>
+
+
+  <div>
+
+    <b>LEGAL</b>
+
+    <button>
+      Privacy Policy
+    </button>
+
+    <button>
+      Terms & Conditions
+    </button>
+
+  </div>
+
+</div>
+
+
+<div class="footer-bottom">
+  © 2026 GRO. All rights reserved.
+</div>
 
 </footer>
 
 
-<!-- CART -->
+<!-- MOBILE -->
+
+<div class="mobile-bar">
+
+  <button onclick="scrollToId('home')">
+    <span>⌂</span>
+    HOME
+  </button>
+
+  <button onclick="scrollToId('product')">
+    <span>◈</span>
+    PRODUCT
+  </button>
+
+  <button onclick="scrollToId('reviews')">
+    <span>★</span>
+    REVIEWS
+  </button>
+
+  <button onclick="openCart()">
+    <span>🛒</span>
+    CART
+  </button>
+
+</div>
+
+
+<!-- OVERLAY -->
 
 <div
   class="overlay"
@@ -1702,15 +1937,18 @@ footer button{
   onclick="closeCart()">
 </div>
 
+
+<!-- CART -->
+
 <aside
   class="cart"
   id="cart">
 
   <div class="cart-head">
 
-    <h3>
-      GRO Cart
-    </h3>
+    <h2>
+      Your Cart
+    </h2>
 
     <button
       class="close"
@@ -1720,10 +1958,12 @@ footer button{
 
   </div>
 
+
   <div
     class="cart-body"
     id="cartBody">
   </div>
+
 
   <div class="cart-foot">
 
@@ -1740,8 +1980,7 @@ footer button{
     </div>
 
     <button
-      class="btn primary"
-      style="width:100%"
+      class="btn btn-green full"
       onclick="checkout()">
       PROCEED TO CHECKOUT
     </button>
@@ -1751,32 +1990,7 @@ footer button{
 </aside>
 
 
-<!-- MOBILE NAV -->
-
-<div class="mobile">
-
-  <button onclick="scrollToId('home')">
-    <span>⌂</span>
-    HOME
-  </button>
-
-  <button onclick="scrollToId('product')">
-    <span>◈</span>
-    SHOP
-  </button>
-
-  <button onclick="scrollToId('reviews')">
-    <span>★</span>
-    REVIEWS
-  </button>
-
-  <button onclick="openCart()">
-    <span>🛒</span>
-    CART
-  </button>
-
-</div>
-
+<!-- TOAST -->
 
 <div
   class="toast"
@@ -1786,9 +2000,9 @@ footer button{
 
 <script>
 
-/* ======================================================
-   GRO EXTENDER — MAIN PRODUCT ENGINE
-====================================================== */
+/* =====================================================
+   GRO EXTENDER — STORE ENGINE
+===================================================== */
 
 const PRODUCT = {
   id:"gro-extender",
@@ -1798,18 +2012,30 @@ const PRODUCT = {
   image:"gro-extender.png"
 };
 
-let quantity=1;
+let mainQty=1;
 
 let cart =
 JSON.parse(
-  localStorage.getItem("groExtenderCart") || "[]"
+  localStorage.getItem("gro_extender_cart") || "[]"
 );
 
 
 /* ================= HELPERS ================= */
 
 function money(value){
-  return "₹"+value.toLocaleString("en-IN");
+
+  return "₹"+Number(value)
+  .toLocaleString("en-IN");
+
+}
+
+function saveCart(){
+
+  localStorage.setItem(
+    "gro_extender_cart",
+    JSON.stringify(cart)
+  );
+
 }
 
 function toast(message){
@@ -1821,14 +2047,16 @@ function toast(message){
 
   t.classList.add("show");
 
-  clearTimeout(window.toastTimer);
+  clearTimeout(window.tt);
 
-  window.toastTimer=
-  setTimeout(()=>{
+  window.tt=setTimeout(()=>{
     t.classList.remove("show");
   },2200);
 
 }
+
+
+/* ================= NAV ================= */
 
 function scrollToId(id){
 
@@ -1841,66 +2069,76 @@ function scrollToId(id){
 }
 
 
-/* ================= QUANTITY ================= */
+/* ================= MAIN QTY ================= */
 
-function changeQty(n){
+function changeMainQty(n){
 
-  quantity=
-  Math.max(1,quantity+n);
+  mainQty=
+  Math.max(
+    1,
+    mainQty+n
+  );
 
   document
-  .getElementById("qty")
-  .textContent=quantity;
+  .getElementById("mainQty")
+  .textContent=mainQty;
 
 }
 
 
-/* ================= ADD CART ================= */
+/* ================= ADD PRODUCT ================= */
 
-function addToCart(){
+function addMainProduct(){
 
   const item=
   cart.find(x=>x.id===PRODUCT.id);
 
   if(item){
-    item.qty+=quantity;
+
+    item.qty+=mainQty;
+
   }else{
+
     cart.push({
       id:PRODUCT.id,
-      qty:quantity
+      qty:mainQty
     });
+
   }
+
+  mainQty=1;
+
+  document
+  .getElementById("mainQty")
+  .textContent="1";
 
   saveCart();
 
-  renderCart();
+  updateCart();
 
   toast("✓ GRO Extender added to cart");
-
-  quantity=1;
-
-  document
-  .getElementById("qty")
-  .textContent="1";
-
-}
-
-function saveCart(){
-
-  localStorage.setItem(
-    "groExtenderCart",
-    JSON.stringify(cart)
-  );
 
 }
 
 
 /* ================= CART ================= */
 
-function renderCart(){
+function updateCart(){
+
+  const totalQty=
+  cart.reduce(
+    (sum,item)=>sum+item.qty,
+    0
+  );
+
+  document
+  .getElementById("cartCount")
+  .textContent=totalQty;
+
 
   const body=
   document.getElementById("cartBody");
+
 
   if(!cart.length){
 
@@ -1908,19 +2146,22 @@ function renderCart(){
 
       <div style="
         text-align:center;
-        padding:70px 15px;
-        color:#777
+        padding:70px 10px;
       ">
 
         <div style="font-size:45px">
           🛒
         </div>
 
-        <h3 style="margin-top:12px;color:#111">
+        <h3 style="margin-top:15px">
           Your cart is empty
         </h3>
 
-        <p style="font-size:11px;margin-top:6px">
+        <p style="
+          margin-top:8px;
+          color:#777;
+          font-size:11px
+        ">
           Add GRO Extender to continue.
         </p>
 
@@ -1942,17 +2183,29 @@ function renderCart(){
         <div>
 
           <h4>
-            ${PRODUCT.name}
+            GRO Extender
           </h4>
 
-          <small>
+          <p>
             ${money(PRODUCT.price)}
-          </small>
+          </p>
 
-          <div class="cart-controls">
+          <div style="
+            display:flex;
+            align-items:center;
+            gap:8px;
+            margin-top:9px;
+          ">
 
             <button
-              onclick="cartQty(-1)">
+              onclick="changeCartQty(-1)"
+              style="
+                width:25px;
+                height:25px;
+                border:1px solid #ddd;
+                background:white;
+                border-radius:7px;
+              ">
               −
             </button>
 
@@ -1961,7 +2214,14 @@ function renderCart(){
             </b>
 
             <button
-              onclick="cartQty(1)">
+              onclick="changeCartQty(1)"
+              style="
+                width:25px;
+                height:25px;
+                border:1px solid #ddd;
+                background:white;
+                border-radius:7px;
+              ">
               +
             </button>
 
@@ -1970,12 +2230,13 @@ function renderCart(){
         </div>
 
         <button
+          onclick="removeProduct()"
           style="
             border:0;
             background:none;
-            color:#999
-          "
-          onclick="removeCart()">
+            color:#999;
+            font-size:18px;
+          ">
           ×
         </button>
 
@@ -1985,10 +2246,11 @@ function renderCart(){
 
   }
 
+
   const total=
   cart.reduce(
     (sum,item)=>
-      sum+(PRODUCT.price*item.qty),
+    sum+(PRODUCT.price*item.qty),
     0
   );
 
@@ -1996,48 +2258,50 @@ function renderCart(){
   .getElementById("cartTotal")
   .textContent=money(total);
 
-  document
-  .getElementById("cartCount")
-  .textContent=
-  cart.reduce(
-    (sum,item)=>sum+item.qty,
-    0
-  );
-
 }
 
-function cartQty(n){
+
+/* ================= CART QTY ================= */
+
+function changeCartQty(n){
 
   if(!cart.length)return;
 
   cart[0].qty+=n;
 
   if(cart[0].qty<=0){
+
     cart=[];
+
   }
 
   saveCart();
 
-  renderCart();
+  updateCart();
 
 }
 
-function removeCart(){
+
+/* ================= REMOVE ================= */
+
+function removeProduct(){
 
   cart=[];
 
   saveCart();
 
-  renderCart();
+  updateCart();
+
+  toast("Product removed");
 
 }
 
 
-/* ================= CART OPEN ================= */
+/* ================= OPEN CART ================= */
 
 function openCart(){
 
-  renderCart();
+  updateCart();
 
   document
   .getElementById("cart")
@@ -2048,6 +2312,9 @@ function openCart(){
   .classList.add("show");
 
 }
+
+
+/* ================= CLOSE CART ================= */
 
 function closeCart(){
 
@@ -2062,13 +2329,31 @@ function closeCart(){
 }
 
 
-/* ================= BUY NOW ================= */
+/* ================= WISHLIST ================= */
 
-function buyNow(){
+function toggleMainWish(){
 
-  addToCart();
+  const saved=
+  localStorage.getItem("gro_extender_saved");
 
-  checkout();
+  if(saved){
+
+    localStorage.removeItem(
+      "gro_extender_saved"
+    );
+
+    toast("Removed from wishlist");
+
+  }else{
+
+    localStorage.setItem(
+      "gro_extender_saved",
+      "1"
+    );
+
+    toast("♡ GRO Extender saved");
+
+  }
 
 }
 
@@ -2079,23 +2364,20 @@ function checkout(){
 
   if(!cart.length){
 
-    addToCart();
+    toast("Your cart is empty");
+
+    return;
 
   }
 
   closeCart();
 
   const total=
-  cart.reduce(
-    (sum,item)=>
-      sum+(PRODUCT.price*item.qty),
-    0
-  );
+  PRODUCT.price*cart[0].qty;
 
   document
   .getElementById("checkoutTotal")
-  .textContent=
-  money(total);
+  .textContent=money(total);
 
   document
   .getElementById("checkout")
@@ -2114,41 +2396,55 @@ function checkout(){
 }
 
 
-/* ================= ORDER ================= */
+/* ================= PLACE ORDER ================= */
 
 function placeOrder(){
 
   const name=
-  document.getElementById("name").value.trim();
+  document
+  .getElementById("name")
+  .value.trim();
 
   const mobile=
-  document.getElementById("mobile").value.trim();
+  document
+  .getElementById("mobile")
+  .value.trim();
 
   const address=
-  document.getElementById("address").value.trim();
+  document
+  .getElementById("address")
+  .value.trim();
 
   const pin=
-  document.getElementById("pin").value.trim();
+  document
+  .getElementById("pin")
+  .value.trim();
 
   const state=
-  document.getElementById("state").value;
+  document
+  .getElementById("state")
+  .value;
 
   const payment=
-  document.getElementById("payment").value;
+  document
+  .getElementById("payment")
+  .value;
+
 
   if(
-    !name||
-    !mobile||
-    !address||
-    !pin||
+    !name ||
+    !mobile ||
+    !address ||
+    !pin ||
     !state
   ){
 
-    toast("Please fill all required details");
+    toast("Please complete all details");
 
     return;
 
   }
+
 
   if(!/^[0-9]{10}$/.test(mobile)){
 
@@ -2158,35 +2454,38 @@ function placeOrder(){
 
   }
 
+
   if(!/^[0-9]{6}$/.test(pin)){
 
-    toast("Enter valid 6 digit PIN code");
+    toast("Enter valid 6 digit pincode");
 
     return;
 
   }
 
-  const orderId=
-  "GRO"+Date.now().toString().slice(-8);
 
   const order={
 
-    orderId,
+    orderId:
+    "GRO"+Date.now()
+    .toString()
+    .slice(-8),
 
     product:"GRO Extender",
 
-    quantity:
-    cart.length
-    ? cart[0].qty
-    : 1,
+    quantity:cart[0].qty,
 
-    price:PRODUCT.price,
+    amount:
+    PRODUCT.price*cart[0].qty,
 
-    name,
-    mobile,
-    address,
-    pin,
-    state,
+    customer:{
+      name,
+      mobile,
+      address,
+      pin,
+      state
+    },
+
     payment,
 
     createdAt:
@@ -2197,54 +2496,42 @@ function placeOrder(){
 
   };
 
+
   localStorage.setItem(
-    "groLastOrder",
+    "gro_last_order",
     JSON.stringify(order)
   );
 
-  let orders=
-  JSON.parse(
-    localStorage.getItem("groOrders")||"[]"
-  );
 
-  orders.unshift(order);
+  /*
+    DEMO FRONTEND ORDER CREATION.
 
-  localStorage.setItem(
-    "groOrders",
-    JSON.stringify(orders.slice(0,30))
-  );
+    Real online payment must be connected
+    to an approved payment gateway and
+    server-side webhook verification.
+  */
+
 
   if(payment==="online"){
 
     toast(
-      "Order created. Connect your approved payment gateway."
+      "Order created — connect payment gateway"
     );
 
   }else{
 
     toast(
-      "GRO Extender order received successfully."
+      "GRO Extender order received ✓"
     );
 
   }
+
 
   cart=[];
 
   saveCart();
 
-  renderCart();
-
-}
-
-
-/* ================= COUPON ================= */
-
-function copyCode(){
-
-  navigator.clipboard
-  ?.writeText("GRO22");
-
-  toast("✓ GRO22 coupon copied");
+  updateCart();
 
 }
 
@@ -2256,28 +2543,25 @@ function faq(button){
   const item=
   button.parentElement;
 
-  item.classList.toggle("open");
+  item.classList.toggle("active");
 
   const span=
   button.querySelector("span");
 
   span.textContent=
-  item.classList.contains("open")
+  item.classList.contains("active")
   ? "−"
   : "+";
 
 }
 
 
-/* ================= WHATSAPP ================= */
+/* ================= SUPPORT ================= */
 
-function whatsapp(){
-
-  const phone=
-  "919999999999";
+function contact(){
 
   window.open(
-    "https://wa.me/"+phone,
+    "https://wa.me/919999999999",
     "_blank"
   );
 
@@ -2286,10 +2570,8 @@ function whatsapp(){
 
 /* ================= INIT ================= */
 
-renderCart();
+updateCart();
 
-
-/* ================= ESCAPE ================= */
 
 document.addEventListener(
   "keydown",
@@ -2305,4 +2587,4 @@ document.addEventListener(
 </script>
 
 </body>
-         </html>
+      </html>
