@@ -1299,9 +1299,53 @@ body{scroll-behavior:smooth}
 @media(max-width:720px){.gro-pf-stats{grid-template-columns:repeat(2,1fr)}.gro-pf-command input{min-width:100%}}
 </style>
 
+
+<style id="gro-elite-css">
+/* ===== GRO ELITE ADDITIVE LAYER — existing code preserved ===== */
+.gro-e-shell{max-width:1180px;margin:0 auto;padding:0 14px}
+.gro-e-hub{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0}
+.gro-e-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border:1px solid #e1e7ee;background:#fff;border-radius:999px;font-size:11px;font-weight:900}
+.gro-e-dot{width:7px;height:7px;border-radius:50%;background:#16a34a}
+.gro-e-btn{border:1px solid #dbe3eb;background:#fff;border-radius:10px;padding:9px 11px;font-weight:850;cursor:pointer}
+.gro-e-btn.primary{background:#111827;color:#fff;border-color:#111827}
+.gro-e-drawer{position:fixed;inset:0;z-index:10003;background:rgba(2,6,23,.48);backdrop-filter:blur(7px);display:none}
+.gro-e-drawer.show{display:block}
+.gro-e-drawer-card{position:absolute;right:0;top:0;height:100%;width:min(420px,94vw);background:#fff;padding:18px;overflow:auto;box-shadow:-18px 0 55px rgba(0,0,0,.18);animation:groEliteIn .2s ease}
+@keyframes groEliteIn{from{transform:translateX(30px);opacity:.5}to{transform:none;opacity:1}}
+.gro-e-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #edf1f5;padding-bottom:12px}
+.gro-e-close{border:0;background:#f1f5f9;border-radius:50%;width:38px;height:38px;font-size:21px;cursor:pointer}
+.gro-e-section{margin-top:16px}
+.gro-e-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #eef2f6}
+.gro-e-label{font-size:11px;color:#64748b;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.gro-e-value{font-size:14px;font-weight:900}
+.gro-e-card{border:1px solid #e5eaf0;border-radius:14px;padding:13px;margin-top:10px;background:#fff}
+.gro-e-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:#f8fafc;border:1px dashed #cbd5e1;padding:10px;border-radius:9px;word-break:break-all}
+.gro-e-meter{height:8px;background:#e9eef4;border-radius:999px;overflow:hidden;margin-top:7px}.gro-e-meter span{display:block;height:100%;background:#111827;width:0;transition:.4s}
+.gro-e-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.gro-e-note{font-size:12px;color:#64748b;line-height:1.55}
+@media(max-width:650px){.gro-e-shell{padding:0 10px}}
+</style>
+
 </head>
 
 <body>
+
+<!-- ===== GRO ELITE UI ===== -->
+<div class="gro-e-shell" id="groEliteHub">
+  <div class="gro-e-hub">
+    <span class="gro-e-pill"><i class="gro-e-dot"></i> Live Store</span>
+    <span class="gro-e-pill">🔐 Secure Session</span>
+    <span class="gro-e-pill" id="groEliteCartPill">🛒 Cart 0</span>
+    <button class="gro-e-btn" type="button" onclick="groEliteOpen()">Store Hub</button>
+  </div>
+</div>
+<div id="groEliteDrawer" class="gro-e-drawer" onclick="if(event.target===this)groEliteClose()">
+  <div class="gro-e-drawer-card">
+    <div class="gro-e-head"><strong>GRO Store Hub</strong><button class="gro-e-close" onclick="groEliteClose()">×</button></div>
+    <div id="groEliteBody"></div>
+  </div>
+</div>
+
 
 <!-- ===== GRO PROFESSIONAL UI ===== -->
 <div class="gro-pf-wrap" id="groProfessionalTools">
@@ -4427,6 +4471,111 @@ button,a,input,select,textarea{touch-action:manipulation}
       requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"smooth"}));
     };
   }
+})();
+</script>
+
+
+<script id="gro-elite-js">
+/* ===== GRO ELITE ENGINE — additive enhancements only ===== */
+(function(){
+  const $=(s,r=document)=>r.querySelector(s);
+  const money=n=>"₹"+Number(n||0).toLocaleString("en-IN");
+
+  function getRecent(){try{return JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]")}catch(e){return[]}}
+  function getWish(){try{return JSON.parse(localStorage.getItem("groWishlist")||"[]")}catch(e){return[]}}
+  function refreshPill(){
+    const el=$("#groEliteCartPill");
+    if(el){
+      const q=(window.cart||[]).reduce((n,x)=>n+(Number(x.qty)||0),0);
+      el.textContent="🛒 Cart "+q;
+    }
+  }
+
+  window.groEliteClose=()=>$("#groEliteDrawer")?.classList.remove("show");
+  window.groEliteOpen=function(){
+    const d=$("#groEliteDrawer"),b=$("#groEliteBody");if(!d||!b)return;
+    const q=(window.cart||[]).reduce((n,x)=>n+(Number(x.qty)||0),0);
+    const val=(window.cart||[]).reduce((n,x)=>n+(Number(x.product?.price||0)*Number(x.qty||0)),0);
+    const wish=getWish(),recent=getRecent();
+    const totalProducts=Object.keys(window.PRODUCTS||{}).length;
+    const percent=totalProducts?Math.min(100,Math.round((q/10)*100)):0;
+    b.innerHTML=`
+      <div class="gro-e-section">
+        <div class="gro-e-label">Shopping session</div>
+        <div class="gro-e-row"><span>Products available</span><strong>${totalProducts}</strong></div>
+        <div class="gro-e-row"><span>Cart quantity</span><strong>${q}</strong></div>
+        <div class="gro-e-row"><span>Cart value</span><strong>${money(val)}</strong></div>
+        <div class="gro-e-row"><span>Wishlist items</span><strong>${wish.length}</strong></div>
+        <div class="gro-e-row"><span>Recently viewed</span><strong>${recent.length}</strong></div>
+      </div>
+      <div class="gro-e-section">
+        <div class="gro-e-label">Cart activity</div>
+        <div class="gro-e-meter"><span style="width:${percent}%"></span></div>
+        <p class="gro-e-note">Your current cart activity is shown locally in this browser.</p>
+      </div>
+      <div class="gro-e-section">
+        <div class="gro-e-label">Quick actions</div>
+        <div class="gro-e-actions">
+          <button class="gro-e-btn primary" onclick="show('shop');groEliteClose()">Shop Now</button>
+          <button class="gro-e-btn" onclick="show('cart');groEliteClose()">Open Cart</button>
+          <button class="gro-e-btn" onclick="groEliteExport()">Session Summary</button>
+        </div>
+      </div>
+      <div class="gro-e-card">
+        <strong>Privacy-first session</strong>
+        <p class="gro-e-note">The enhancement layer does not send analytics or customer data to a third-party service.</p>
+      </div>`;
+    d.classList.add("show");
+  };
+
+  window.groEliteExport=function(){
+    const data={
+      generatedAt:new Date().toISOString(),
+      cart:(window.cart||[]).map(x=>({id:x.product?.id,name:x.product?.name,qty:x.qty})),
+      wishlist:getWish(),
+      recentlyViewed:getRecent()
+    };
+    const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+    const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+    a.download="gro-session-summary.json";a.click();URL.revokeObjectURL(a.href);
+  };
+
+  // Keep the hub synchronized with existing cart functions.
+  ["addCart","cartQty","removeCart"].forEach(name=>{
+    const fn=window[name];
+    if(typeof fn==="function"){
+      window[name]=function(){
+        const r=fn.apply(this,arguments);refreshPill();return r;
+      };
+    }
+  });
+
+  // Lightweight order history stored locally after successful existing flow.
+  const oldSuccess=window.showSuccess;
+  if(typeof oldSuccess==="function"){
+    window.showSuccess=function(){
+      oldSuccess();
+      try{
+        const history=JSON.parse(localStorage.getItem("groOrderHistory")||"[]");
+        const copy={...window.order};
+        history.unshift({id:copy.id,total:copy.total,status:copy.status,createdAt:new Date().toISOString()});
+        localStorage.setItem("groOrderHistory",JSON.stringify(history.slice(0,20)));
+      }catch(e){}
+    };
+  }
+
+  // Improve form usability without changing validation rules.
+  document.addEventListener("input",e=>{
+    if(e.target.matches("input,textarea,select")) e.target.setAttribute("aria-invalid","false");
+  });
+
+  // Safe focus handling for dynamically rendered checkout.
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape")groEliteClose();
+  });
+
+  refreshPill();
+  setTimeout(refreshPill,500);
 })();
 </script>
 
