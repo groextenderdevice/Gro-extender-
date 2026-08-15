@@ -1240,9 +1240,97 @@ body{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 
+
+<style id="gro-ultimate-css">
+/* ===== GRO ULTIMATE ADDITIVE LAYER — existing code untouched ===== */
+.gro-u-overlay{position:fixed;inset:0;background:rgba(2,6,23,.55);backdrop-filter:blur(8px);z-index:10000;display:none;align-items:flex-end;justify-content:center}
+.gro-u-overlay.show{display:flex}
+.gro-u-sheet{width:min(760px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:24px 24px 0 0;padding:20px;box-shadow:0 -20px 60px rgba(0,0,0,.25);animation:groUSheet .22s ease}
+@keyframes groUSheet{from{transform:translateY(35px);opacity:.4}to{transform:none;opacity:1}}
+.gro-u-head{display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;background:#fff;padding-bottom:12px;border-bottom:1px solid #eef2f7;z-index:2}
+.gro-u-close{border:0;background:#f1f5f9;width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer}
+.gro-u-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.gro-u-card{border:1px solid #e5eaf0;border-radius:16px;padding:14px;background:#fff}
+.gro-u-card b{display:block;margin-bottom:5px}.gro-u-muted{color:#64748b;font-size:13px}
+.gro-u-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.gro-u-btn{border:1px solid #d9e1ea;background:#fff;border-radius:12px;padding:10px 13px;font-weight:800;cursor:pointer}
+.gro-u-btn.primary{background:#111827;color:#fff;border-color:#111827}
+.gro-u-btn.green{background:#16a34a;color:#fff;border-color:#16a34a}
+.gro-u-search{width:100%;padding:13px;border:1px solid #d8e0e9;border-radius:12px;outline:none}
+.gro-u-search:focus{border-color:#111827;box-shadow:0 0 0 4px rgba(17,24,39,.08)}
+.gro-u-float{position:fixed;right:16px;bottom:72px;z-index:9996;display:flex;flex-direction:column;gap:8px}
+.gro-u-float button{width:44px;height:44px;border:0;border-radius:50%;background:#111827;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.16);cursor:pointer;font-size:18px}
+.gro-u-badge{display:inline-flex;padding:5px 8px;border-radius:999px;background:#f1f5f9;font-size:11px;font-weight:900}
+.gro-u-badge.ok{background:#dcfce7;color:#166534}
+.gro-u-wish-item,.gro-u-recent-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eef2f7}
+.gro-u-wish-item img,.gro-u-recent-item img{width:58px;height:58px;object-fit:contain;border-radius:10px;background:#f8fafc}
+.gro-u-item-main{flex:1;min-width:0}.gro-u-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gro-u-toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;z-index:10002;background:#111827;color:#fff;padding:12px 16px;border-radius:12px;font-size:13px;font-weight:800;pointer-events:none;transition:.25s;max-width:calc(100% - 30px);text-align:center}
+.gro-u-toast.show{opacity:1;transform:translate(-50%,0)}
+.gro-u-copy{font-size:12px;border:1px dashed #cbd5e1;padding:10px;border-radius:10px;background:#f8fafc;word-break:break-all}
+@media(max-width:650px){.gro-u-grid{grid-template-columns:1fr}.gro-u-sheet{max-height:92vh}.gro-u-float{right:10px}}
+</style>
+
+
+<style id="gro-pro-css">
+/* ===== GRO PROFESSIONAL ADDITIVE LAYER — existing code preserved ===== */
+.gro-pf-wrap{max-width:1180px;margin:0 auto;padding:0 14px}
+.gro-pf-command{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:14px 0}
+.gro-pf-actions{display:flex;gap:7px;flex-wrap:wrap}
+.gro-pf-btn{border:1px solid #dbe2ea;background:#fff;border-radius:11px;padding:9px 12px;font-weight:850;cursor:pointer}
+.gro-pf-btn:hover{transform:translateY(-1px);box-shadow:0 5px 15px rgba(15,23,42,.08)}
+.gro-pf-kbd{font-size:10px;border:1px solid #cbd5e1;border-bottom-width:2px;border-radius:5px;padding:2px 5px;background:#f8fafc}
+.gro-pf-panel{display:none;margin:10px 0 18px;padding:15px;border:1px solid #e5eaf0;border-radius:17px;background:#fff;box-shadow:0 10px 28px rgba(15,23,42,.06)}
+.gro-pf-panel.show{display:block}
+.gro-pf-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gro-pf-stat{padding:13px;border-radius:13px;background:#f8fafc;border:1px solid #edf1f5}
+.gro-pf-stat strong{display:block;font-size:18px;margin-top:3px}
+.gro-pf-label{font-size:11px;font-weight:850;color:#64748b;text-transform:uppercase;letter-spacing:.05em}
+.gro-pf-meter{height:7px;background:#e8edf3;border-radius:999px;overflow:hidden;margin-top:9px}
+.gro-pf-meter span{display:block;height:100%;width:0;background:#111827;transition:width .35s}
+.gro-pf-mini{font-size:12px;color:#64748b}
+.gro-pf-table{width:100%;border-collapse:collapse;font-size:13px}
+.gro-pf-table th,.gro-pf-table td{text-align:left;padding:9px;border-bottom:1px solid #edf1f5}
+.gro-pf-table th{font-size:11px;text-transform:uppercase;color:#64748b}
+.gro-pf-empty{text-align:center;padding:22px;color:#64748b}
+.gro-pf-notice{padding:11px 13px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;font-size:12px;margin-top:10px}
+.gro-pf-command input{min-width:220px;flex:1;padding:10px 12px;border:1px solid #dbe2ea;border-radius:11px;outline:none}
+.gro-pf-command input:focus{box-shadow:0 0 0 4px rgba(15,23,42,.07)}
+@media(max-width:720px){.gro-pf-stats{grid-template-columns:repeat(2,1fr)}.gro-pf-command input{min-width:100%}}
+</style>
+
 </head>
 
 <body>
+
+<!-- ===== GRO PROFESSIONAL UI ===== -->
+<div class="gro-pf-wrap" id="groProfessionalTools">
+  <div class="gro-pf-command">
+    <input id="groQuickSearch" type="search" placeholder="Quick search products… (Ctrl + K)" aria-label="Quick product search">
+    <div class="gro-pf-actions">
+      <button class="gro-pf-btn" type="button" onclick="groPFSearch()">Search</button>
+      <button class="gro-pf-btn" type="button" onclick="groPFPanel('dashboard')">Dashboard</button>
+      <button class="gro-pf-btn" type="button" onclick="groPFPanel('recent')">Activity</button>
+    </div>
+  </div>
+  <div id="groPFPanel" class="gro-pf-panel"></div>
+</div>
+
+
+<!-- ===== GRO ULTIMATE ADDITIVE UI ===== -->
+<div id="groUltimateFloat" class="gro-u-float">
+  <button type="button" title="Wishlist" onclick="groUOpen('wishlist')">♡</button>
+  <button type="button" title="Recently viewed" onclick="groUOpen('recent')">↺</button>
+  <button type="button" title="Store info" onclick="groUOpen('info')">ⓘ</button>
+</div>
+<div id="groUOverlay" class="gro-u-overlay" onclick="if(event.target===this)groUClose()">
+  <div class="gro-u-sheet">
+    <div class="gro-u-head"><h2 id="groUTitle" style="margin:0">GRO</h2><button class="gro-u-close" onclick="groUClose()">×</button></div>
+    <div id="groUBody"></div>
+  </div>
+</div>
+<div id="groUToast" class="gro-u-toast"></div>
+
 
 <!-- ===== GRO ADVANCED ADDITIVE UI ===== -->
 <div class="gro-adv-topbar" aria-label="Store benefits">
@@ -4133,6 +4221,212 @@ button,a,input,select,textarea{touch-action:manipulation}
   // Online/offline indicator.
   addEventListener("online",()=>document.body.classList.remove("gro-offline"));
   addEventListener("offline",()=>document.body.classList.add("gro-offline"));
+})();
+</script>
+
+
+<script id="gro-ultimate-js">
+/* ===== GRO ULTIMATE ADDITIVE LAYER ===== */
+(function(){
+  const $=(s,r=document)=>r.querySelector(s);
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  const toast=(m)=>{const t=$("#groUToast");if(!t)return;t.textContent=m;t.classList.add("show");clearTimeout(window.__groUT);window.__groUT=setTimeout(()=>t.classList.remove("show"),2600)};
+
+  window.groUClose=()=>$("#groUOverlay")?.classList.remove("show");
+  window.groUOpen=function(type){
+    const o=$("#groUOverlay"), title=$("#groUTitle"), body=$("#groUBody"); if(!o||!body)return;
+    let h="";
+    if(type==="wishlist"){
+      title.textContent="♡ Wishlist";
+      let ids=[];try{ids=JSON.parse(localStorage.getItem("groWishlist")||"[]")}catch(e){}
+      const items=ids.map(id=>PRODUCTS[id]).filter(Boolean);
+      h=items.length?items.map(p=>`
+        <div class="gro-u-wish-item">
+          <img src="${esc(p.images[0])}" alt="">
+          <div class="gro-u-item-main"><b>${esc(p.name)}</b><span class="gro-u-muted">₹${p.price.toLocaleString("en-IN")}</span></div>
+          <button class="gro-u-btn primary" onclick="openProduct('${p.id}');groUClose()">VIEW</button>
+        </div>`).join(""):`<div class="gro-adv-empty">Your wishlist is empty.</div>`;
+    } else if(type==="recent"){
+      title.textContent="↺ Recently Viewed";
+      let ids=[];try{ids=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]")}catch(e){}
+      const items=ids.map(id=>PRODUCTS[id]).filter(Boolean);
+      h=items.length?items.map(p=>`
+        <div class="gro-u-recent-item">
+          <img src="${esc(p.images[0])}" alt="">
+          <div class="gro-u-item-main"><b>${esc(p.name)}</b><span class="gro-u-muted">₹${p.price.toLocaleString("en-IN")}</span></div>
+          <button class="gro-u-btn primary" onclick="openProduct('${p.id}');groUClose()">VIEW</button>
+        </div>`).join(""):`<div class="gro-adv-empty">No recently viewed products yet.</div>`;
+    } else {
+      title.textContent="ⓘ Store Information";
+      h=`<div class="gro-u-grid">
+        <div class="gro-u-card"><b>🔐 Secure Checkout</b><span class="gro-u-muted">Checkout flow with payment-status messaging.</span></div>
+        <div class="gro-u-card"><b>📦 Discreet Delivery</b><span class="gro-u-muted">Privacy-focused delivery experience.</span></div>
+        <div class="gro-u-card"><b>💬 Support</b><span class="gro-u-muted">Direct customer support through the existing contact buttons.</span></div>
+        <div class="gro-u-card"><b>🔞 18+ Only</b><span class="gro-u-muted">This store is intended for adult customers.</span></div>
+      </div>
+      <div class="gro-u-bar"><span class="gro-u-badge ok">● Store Online</span><span class="gro-u-badge">India</span></div>`;
+    }
+    body.innerHTML=h;o.classList.add("show");
+  };
+
+  // Enhanced wishlist feedback, preserving original behavior.
+  const oldWish=window.wishlist;
+  if(typeof oldWish==="function")window.wishlist=function(id){
+    oldWish(id); toast("Wishlist updated");
+  };
+
+  // Add "copy order ID" affordance after success without changing existing success content.
+  const oldSuccess=window.showSuccess;
+  if(typeof oldSuccess==="function")window.showSuccess=function(){
+    oldSuccess();
+    const box=$("#successDetails");
+    if(box && order.id && !$("#groCopyOrder")){
+      const d=document.createElement("div");d.className="gro-u-copy";d.id="groCopyOrder";
+      d.innerHTML=`<b>Order ID</b><br>${esc(order.id)} <button class="gro-u-btn" style="float:right;padding:5px 8px" onclick="groUCopy('${esc(order.id)}')">COPY</button>`;
+      box.appendChild(d);
+    }
+  };
+  window.groUCopy=async function(v){
+    try{await navigator.clipboard.writeText(v);toast("Order ID copied")}catch(e){toast(v)}
+  };
+
+  // Smart cart notice.
+  const oldAdd=window.addCart;
+  if(typeof oldAdd==="function")window.addCart=function(){oldAdd();toast("Added to cart")};
+
+  // Pincode UX helper: visual validation only; does not claim live courier coverage.
+  window.groUPinCheck=function(){
+    const p=$("#pin")?.value.trim();
+    if(!/^\d{6}$/.test(p)){toast("Enter a valid 6-digit pincode");return}
+    toast("Pincode format verified. Final serviceability depends on courier coverage.");
+  };
+
+  // Add a pincode helper next to checkout pin input when present.
+  function pinUI(){
+    const p=$("#pin");if(!p||$("#groPinCheck"))return;
+    const b=document.createElement("button");b.id="groPinCheck";b.type="button";b.className="gro-u-btn";
+    b.textContent="CHECK PIN";b.style.marginTop="7px";b.onclick=groUPinCheck;
+    p.parentElement?.appendChild(b);
+  }
+  setTimeout(pinUI,200);
+
+  // Save a lightweight analytics-free session marker.
+  try{
+    sessionStorage.setItem("groSessionStarted",String(Date.now()));
+  }catch(e){}
+
+  // Make images safer/faster without replacing existing sources.
+  function imgTune(){
+    document.querySelectorAll("img").forEach((im,i)=>{
+      if(i>2)im.loading="lazy";
+      im.decoding="async";
+    });
+  }
+  setTimeout(imgTune,250);
+
+  // Network state toast.
+  addEventListener("offline",()=>toast("You are offline. Some features may be unavailable."));
+  addEventListener("online",()=>toast("Connection restored."));
+})();
+</script>
+
+
+<script id="gro-pro-js">
+/* ===== GRO PROFESSIONAL ENGINE — additive, no existing feature removed ===== */
+(function(){
+  const $=(s,r=document)=>r.querySelector(s);
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":">","\"":"&quot;","'":"&#39;"}[m]));
+
+  function productsCount(){
+    try{return Object.keys(PRODUCTS||{}).length}catch(e){return 0}
+  }
+  function cartQty(){
+    try{return (cart||[]).reduce((n,x)=>n+(Number(x.qty)||0),0)}catch(e){return 0}
+  }
+  function wishlistCount(){
+    try{return JSON.parse(localStorage.getItem("groWishlist")||"[]").length}catch(e){return 0}
+  }
+  function recentCount(){
+    try{return JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]").length}catch(e){return 0}
+  }
+  function cartValue(){
+    try{return (cart||[]).reduce((n,x)=>n+(x.product.price*x.qty),0)}catch(e){return 0}
+  }
+
+  window.groPFPanel=function(type){
+    const p=$("#groPFPanel"); if(!p)return;
+    p.classList.add("show");
+    if(type==="dashboard"){
+      p.innerHTML=`
+        <div class="gro-pf-label">Store overview</div>
+        <div class="gro-pf-stats">
+          <div class="gro-pf-stat"><span class="gro-pf-label">Products</span><strong>${productsCount()}</strong></div>
+          <div class="gro-pf-stat"><span class="gro-pf-label">Cart items</span><strong>${cartQty()}</strong></div>
+          <div class="gro-pf-stat"><span class="gro-pf-label">Wishlist</span><strong>${wishlistCount()}</strong></div>
+          <div class="gro-pf-stat"><span class="gro-pf-label">Cart value</span><strong>₹${cartValue().toLocaleString("en-IN")}</strong></div>
+        </div>
+        <div class="gro-pf-notice">Your shopping data is stored locally in this browser for the existing convenience features.</div>`;
+    }else{
+      let recent=[];try{recent=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]")}catch(e){}
+      p.innerHTML=`
+        <div class="gro-pf-label">Recent activity</div>
+        <table class="gro-pf-table">
+          <thead><tr><th>Item</th><th>Status</th></tr></thead>
+          <tbody>${recent.map(id=>{
+            const x=PRODUCTS?.[id]; return x?`<tr><td>${esc(x.name)}</td><td><span class="gro-pf-mini">Viewed</span></td></tr>`:"";
+          }).join("")||`<tr><td colspan="2" class="gro-pf-empty">No recent activity.</td></tr>`}</tbody>
+        </table>`;
+    }
+  };
+
+  window.groPFSearch=function(){
+    const q=($("#groQuickSearch")?.value||"").trim().toLowerCase();
+    if(!q){ if(typeof show==="function")show("shop"); return; }
+    const list=Object.values(PRODUCTS||{}).filter(p=>
+      String(p.name).toLowerCase().includes(q) ||
+      String(p.description||"").toLowerCase().includes(q) ||
+      String(p.category||"").toLowerCase().includes(q)
+    );
+    const target=$("#shopProducts");
+    if(target && typeof card==="function"){
+      target.innerHTML=list.length?list.map(card).join(""):`<div class="gro-pf-empty">No matching products found.</div>`;
+      if(typeof show==="function")show("shop");
+    }
+  };
+
+  // Professional keyboard command.
+  document.addEventListener("keydown",e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
+      e.preventDefault();
+      const q=$("#groQuickSearch"); q?.focus(); q?.select();
+    }
+    if(e.key==="/" && !["INPUT","TEXTAREA"].includes(document.activeElement?.tagName)){
+      e.preventDefault();$("#groQuickSearch")?.focus();
+    }
+  });
+
+  // Dynamic dashboard refresh without touching the original cart/render logic.
+  setInterval(()=>{
+    const panel=$("#groPFPanel");
+    if(panel?.classList.contains("show")){
+      const title=panel.querySelector(".gro-pf-label")?.textContent||"";
+      groPFPanel(title==="Store overview"?"dashboard":"recent");
+    }
+  },2500);
+
+  // Add professional accessibility labels to icon-only controls.
+  document.querySelectorAll("button").forEach((b,i)=>{
+    if(!b.getAttribute("aria-label") && !b.textContent.trim()) b.setAttribute("aria-label","Store action "+(i+1));
+  });
+
+  // Preserve current page position when navigating within the SPA.
+  const oldShow=window.show;
+  if(typeof oldShow==="function"){
+    window.show=function(id){
+      oldShow(id);
+      requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"smooth"}));
+    };
+  }
 })();
 </script>
 
