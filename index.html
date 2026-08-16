@@ -545,7 +545,7 @@ img{
   top:16px;
   left:16px;
   padding:7px 10px;
-  border-radius:9px;
+  border-radius:99px;
   background:var(--gold);
   color:#111;
   font-size:10px;
@@ -898,201 +898,8 @@ img{
 }
 
 /* =========================
-   SEARCH OVERLAY
-========================= */
-
-.search-overlay{
-  position:fixed;
-  inset:0;
-  z-index:5000;
-  background:rgba(0,0,0,.78);
-  backdrop-filter:blur(15px);
-  opacity:0;
-  visibility:hidden;
-  transition:.3s;
-}
-
-.search-overlay.show{
-  opacity:1;
-  visibility:visible;
-}
-
-.search-box{
-  max-width:700px;
-  margin:100px auto;
-  padding:20px;
-}
-
-.search-input{
-  width:100%;
-  height:62px;
-  border:1px solid var(--line);
-  background:#121722;
-  color:#fff;
-  border-radius:18px;
-  padding:0 20px;
-  outline:none;
-  font-size:17px;
-}
-
-.search-results{
-  margin-top:12px;
-  background:#11151e;
-  border:1px solid var(--line);
-  border-radius:18px;
-  overflow:hidden;
-}
-
-.search-result{
-  padding:16px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  gap:15px;
-  cursor:pointer;
-}
-
-.search-result img{
-  width:55px;
-  height:55px;
-  object-fit:contain;
-  background:#0a0d12;
-  border-radius:10px;
-}
-
-.search-result strong{
-  font-size:13px;
-}
-
-.search-result small{
-  display:block;
-  color:var(--muted);
-  margin-top:4px;
-}
-
-/* =========================
-   CART DRAWER
-========================= */
-
-.drawer-bg{
-  position:fixed;
-  inset:0;
-  z-index:6000;
-  background:rgba(0,0,0,.6);
-  opacity:0;
-  visibility:hidden;
-  transition:.3s;
-}
-
-.drawer-bg.show{
-  opacity:1;
-  visibility:visible;
-}
-
-.drawer{
-  position:absolute;
-  right:0;
-  top:0;
-  bottom:0;
-  width:min(440px,94%);
-  background:#0d1118;
-  border-left:1px solid var(--line);
-  padding:25px;
-  transform:translateX(100%);
-  transition:.35s;
-  display:flex;
-  flex-direction:column;
-}
-
-.drawer-bg.show .drawer{
-  transform:translateX(0);
-}
-
-.drawer-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.drawer-body{
-  flex:1;
-  overflow:auto;
-  margin-top:20px;
-}
-
-.cart-item{
-  display:grid;
-  grid-template-columns:70px 1fr auto;
-  gap:12px;
-  padding:15px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.cart-item img{
-  width:70px;
-  height:70px;
-  object-fit:contain;
-  background:#11151e;
-  border-radius:12px;
-}
-
-.cart-name{
-  font-weight:850;
-  font-size:13px;
-}
-
-.cart-price{
-  margin-top:6px;
-  color:var(--gold);
-  font-size:12px;
-  font-weight:900;
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:10px;
-}
-
-.qty button{
-  width:27px;
-  height:27px;
-  border:1px solid var(--line);
-  background:#161b25;
-  color:#fff;
-  border-radius:7px;
-}
-
-.drawer-footer{
-  border-top:1px solid var(--line);
-  padding-top:18px;
-}
-
-.total-row{
-  display:flex;
-  justify-content:space-between;
-  font-weight:900;
-  margin-bottom:15px;
-}
-
-.checkout{
-  width:100%;
-  height:52px;
-  border:0;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  color:#111;
-  font-weight:1000;
-}
-
-/* =========================
    MOBILE
 ========================= */
-
-.mobile-nav{
-  display:none;
-}
 
 @media(max-width:900px){
 
@@ -1225,38 +1032,6 @@ img{
     grid-template-columns:1fr;
   }
 
-  .mobile-nav{
-    position:fixed;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    left:0;
-    right:0;
-    bottom:0;
-    height:67px;
-    background:rgba(10,12,17,.95);
-    backdrop-filter:blur(20px);
-    border-top:1px solid var(--line);
-    z-index:4000;
-  }
-
-  .mobile-nav button{
-    border:0;
-    background:none;
-    color:#8d95a5;
-    font-size:10px;
-    font-weight:900;
-  }
-
-  .mobile-nav button span{
-    display:block;
-    font-size:20px;
-    margin-bottom:3px;
-  }
-
-  body{
-    padding-bottom:70px;
-  }
-
 }
 
 /* =========================
@@ -1296,23 +1071,15 @@ img{
 ========================= -->
 
 <div class="loader" id="loader">
-
   <div class="loader-box">
-
     <div class="loader-logo">
       GRO <span>Extender</span>
     </div>
-
     <div class="loader-line">
       <i></i>
     </div>
-
-    <small style="color:#747c8c">
-      PREMIUM WELLNESS
-    </small>
-
+    <small style="color:#747c8c">PREMIUM WELLNESS</small>
   </div>
-
 </div>
 
 
@@ -1321,49 +1088,27 @@ img{
 ========================= -->
 
 <header class="header">
-
   <nav class="nav">
-
     <a href="#home" class="logo">
       GRO<span>.</span>
     </a>
 
     <div class="nav-links">
-
       <a href="#home">Home</a>
       <a href="#shop">Shop</a>
       <a href="#why">Why GRO</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
-
     </div>
 
     <div class="nav-actions">
-
-      <button
-        class="icon-btn"
-        onclick="openSearch()">
-        ⌕
-      </button>
-
-      <button
-        class="icon-btn"
-        onclick="openCart()">
-
+      <button class="icon-btn">⌕</button>
+      <button class="icon-btn">
         🛒
-
-        <span
-          class="cart-count"
-          id="cartCount">
-          0
-        </span>
-
+        <span class="cart-count" id="cartCount">0</span>
       </button>
-
     </div>
-
   </nav>
-
 </header>
 
 
@@ -1374,9 +1119,7 @@ img{
 <main id="home">
 
 <section class="hero">
-
   <div>
-
     <span class="eyebrow">
       ✦ PREMIUM WELLNESS COLLECTION
     </span>
@@ -1393,61 +1136,29 @@ img{
     </p>
 
     <div class="hero-buttons">
-
-      <a
-        href="#shop"
-        class="btn gold">
+      <a href="#shop" class="btn gold">
         Explore Collection →
       </a>
-
-      <button
-        class="btn"
-        onclick="openSearch()">
+      <button class="btn">
         Find Your Product
       </button>
-
     </div>
 
     <div class="hero-proof">
-
-      <div class="proof">
-        <b>✓</b>
-        Discreet Packaging
-      </div>
-
-      <div class="proof">
-        <b>✓</b>
-        Secure Checkout
-      </div>
-
-      <div class="proof">
-        <b>✓</b>
-        Premium Support
-      </div>
-
+      <div class="proof"><b>✓</b> Discreet Packaging</div>
+      <div class="proof"><b>✓</b> Secure Checkout</div>
+      <div class="proof"><b>✓</b> Premium Support</div>
     </div>
-
   </div>
-
 
   <div class="hero-visual">
-
     <div class="hero-orbit"></div>
-
     <div class="product-stage">
-
-      <span class="floating-tag">
-        PREMIUM EDITION
-      </span>
-
-      <img
-        src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=85"
-        alt="GRO Premium Product">
-
+      <span class="floating-tag">PREMIUM EDITION</span>
+      <!-- আপনার ফোল্ডারের ছবি যুক্ত করা হয়েছে -->
+      <img src="ProExtender-Ultimate.jpg" alt="GRO Premium Product">
     </div>
-
   </div>
-
 </section>
 
 
@@ -1456,43 +1167,20 @@ img{
 ========================= -->
 
 <div class="trust">
-
   <div class="trust-inner">
-
     <div class="trust-item">
-      🔒
-      <span>
-        <strong>Secure</strong><br>
-        Checkout
-      </span>
+      🔒 <span><strong>Secure</strong><br>Checkout</span>
     </div>
-
     <div class="trust-item">
-      📦
-      <span>
-        <strong>Discreet</strong><br>
-        Packaging
-      </span>
+      📦 <span><strong>Discreet</strong><br>Packaging</span>
     </div>
-
     <div class="trust-item">
-      ⚡
-      <span>
-        <strong>Fast</strong><br>
-        Processing
-      </span>
+      ⚡ <span><strong>Fast</strong><br>Processing</span>
     </div>
-
     <div class="trust-item">
-      💬
-      <span>
-        <strong>Premium</strong><br>
-        Support
-      </span>
+      💬 <span><strong>Premium</strong><br>Support</span>
     </div>
-
   </div>
-
 </div>
 
 
@@ -1500,302 +1188,129 @@ img{
      SHOP
 ========================= -->
 
-<section
-  class="section"
-  id="shop">
+<section class="section" id="shop">
 
   <div class="section-head">
-
     <div>
-
-      <div class="section-kicker">
-        THE COLLECTION
-      </div>
-
-      <h2 class="section-title">
-        Choose Your GRO.
-      </h2>
-
+      <div class="section-kicker">THE COLLECTION</div>
+      <h2 class="section-title">Choose Your GRO.</h2>
     </div>
-
     <p class="section-description">
       Explore our premium wellness collection.
       Select the edition that fits your preference.
     </p>
-
   </div>
-
 
   <div class="products">
 
-
     <!-- PRODUCT 1 -->
-
     <article class="product-card">
-
       <div class="product-image">
-
-        <span class="badge">
-          BESTSELLER
-        </span>
-
-        <button
-          class="heart"
-          onclick="toggleWish(this)">
-          ♡
-        </button>
-
-        <img
-          src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=85"
-          alt="GRO Classic">
-
+        <span class="badge">BESTSELLER</span>
+        <button class="heart" onclick="toggleWish(this)">♡</button>
+        <!-- আপনার ফোল্ডারের ছবি ১ -->
+        <img src="pro-extender-penis-enlargement.jpg" alt="GRO Classic">
       </div>
 
       <div class="product-info">
-
-        <div class="product-category">
-          GRO COLLECTION
-        </div>
-
-        <div class="product-name">
-          GRO Classic
-        </div>
-
+        <div class="product-category">GRO COLLECTION</div>
+        <div class="product-name">GRO Classic</div>
         <div class="product-desc">
-          Premium entry edition with a
-          clean and refined design.
+          Premium entry edition with a clean and refined design.
         </div>
 
         <div class="rating">
-
-          <span class="stars">
-            ★★★★★
-          </span>
-
-          <span>
-            4.9 · 128 reviews
-          </span>
-
+          <span class="stars">★★★★★</span>
+          <span>4.9 · 128 reviews</span>
         </div>
 
         <div class="price-row">
-
           <div>
-
-            <span class="price">
-              ₹2,999
-            </span>
-
-            <span class="old-price">
-              ₹3,999
-            </span>
-
+            <span class="price">₹2,999</span>
+            <span class="old-price">₹3,999</span>
           </div>
-
-          <span class="save">
-            SAVE 25%
-          </span>
-
+          <span class="save">SAVE 25%</span>
         </div>
 
         <div class="buy-row">
-
-          <button
-            class="buy"
-            onclick="addProduct('GRO Classic',2999)">
-            Add to Cart
-          </button>
-
-          <button
-            class="quick"
-            onclick="quickBuy('GRO Classic',2999)">
-            ⚡
-          </button>
-
+          <button class="buy" onclick="addProduct('GRO Classic',2999)">Add to Cart</button>
+          <button class="quick" onclick="addProduct('GRO Classic',2999)">⚡</button>
         </div>
-
       </div>
-
     </article>
 
 
     <!-- PRODUCT 2 -->
-
     <article class="product-card">
-
       <div class="product-image">
-
-        <span class="badge">
-          PREMIUM
-        </span>
-
-        <button
-          class="heart"
-          onclick="toggleWish(this)">
-          ♡
-        </button>
-
-        <img
-          src="https://images.unsplash.com/photo-1616628182508-28f2f0d6b7ef?auto=format&fit=crop&w=900&q=85"
-          alt="GRO Pro">
-
+        <span class="badge">PREMIUM</span>
+        <button class="heart" onclick="toggleWish(this)">♡</button>
+        <!-- আপনার ফোল্ডারের ছবি ২ -->
+        <img src="41vPiGys9FL.._AC_.jpg" alt="GRO Pro">
       </div>
 
       <div class="product-info">
-
-        <div class="product-category">
-          GRO COLLECTION
-        </div>
-
-        <div class="product-name">
-          GRO Pro
-        </div>
-
+        <div class="product-category">GRO COLLECTION</div>
+        <div class="product-name">GRO Pro</div>
         <div class="product-desc">
-          Premium edition with an upgraded
-          experience and refined finish.
+          Premium edition with an upgraded experience and refined finish.
         </div>
 
         <div class="rating">
-
-          <span class="stars">
-            ★★★★★
-          </span>
-
-          <span>
-            4.9 · 86 reviews
-          </span>
-
+          <span class="stars">★★★★★</span>
+          <span>4.9 · 86 reviews</span>
         </div>
 
         <div class="price-row">
-
           <div>
-
-            <span class="price">
-              ₹3,499
-            </span>
-
-            <span class="old-price">
-              ₹4,499
-            </span>
-
+            <span class="price">₹3,499</span>
+            <span class="old-price">₹4,499</span>
           </div>
-
-          <span class="save">
-            SAVE 22%
-          </span>
-
+          <span class="save">SAVE 22%</span>
         </div>
 
         <div class="buy-row">
-
-          <button
-            class="buy"
-            onclick="addProduct('GRO Pro',3499)">
-            Add to Cart
-          </button>
-
-          <button
-            class="quick"
-            onclick="quickBuy('GRO Pro',3499)">
-            ⚡
-          </button>
-
+          <button class="buy" onclick="addProduct('GRO Pro',3499)">Add to Cart</button>
+          <button class="quick" onclick="addProduct('GRO Pro',3499)">⚡</button>
         </div>
-
       </div>
-
     </article>
 
 
     <!-- PRODUCT 3 -->
-
     <article class="product-card">
-
       <div class="product-image">
-
-        <span class="badge">
-          NEW
-        </span>
-
-        <button
-          class="heart"
-          onclick="toggleWish(this)">
-          ♡
-        </button>
-
-        <img
-          src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85"
-          alt="GRO Max">
-
+        <span class="badge">NEW</span>
+        <button class="heart" onclick="toggleWish(this)">♡</button>
+        <!-- আপনার ফোল্ডারের ছবি ৩ -->
+        <img src="51QvTFiepcL.._AC_.jpg" alt="GRO Max">
       </div>
 
       <div class="product-info">
-
-        <div class="product-category">
-          GRO COLLECTION
-        </div>
-
-        <div class="product-name">
-          GRO Max
-        </div>
-
+        <div class="product-category">GRO COLLECTION</div>
+        <div class="product-name">GRO Max</div>
         <div class="product-desc">
-          Our flagship edition for customers
-          looking for the premium collection.
+          Our flagship edition for customers looking for the premium collection.
         </div>
 
         <div class="rating">
-
-          <span class="stars">
-            ★★★★★
-          </span>
-
-          <span>
-            5.0 · 54 reviews
-          </span>
-
+          <span class="stars">★★★★★</span>
+          <span>5.0 · 54 reviews</span>
         </div>
 
         <div class="price-row">
-
           <div>
-
-            <span class="price">
-              ₹4,499
-            </span>
-
-            <span class="old-price">
-              ₹5,499
-            </span>
-
+            <span class="price">₹4,499</span>
+            <span class="old-price">₹5,499</span>
           </div>
-
-          <span class="save">
-            SAVE 18%
-          </span>
-
+          <span class="save">SAVE 18%</span>
         </div>
 
         <div class="buy-row">
-
-          <button
-            class="buy"
-            onclick="addProduct('GRO Max',4499)">
-            Add to Cart
-          </button>
-
-          <button
-            class="quick"
-            onclick="quickBuy('GRO Max',4499)">
-            ⚡
-          </button>
-
+          <button class="buy" onclick="addProduct('GRO Max',4499)">Add to Cart</button>
+          <button class="quick" onclick="addProduct('GRO Max',4499)">⚡</button>
         </div>
-
       </div>
-
     </article>
 
   </div>
@@ -1807,66 +1322,29 @@ img{
      FEATURE
 ========================= -->
 
-<section
-  class="feature"
-  id="why">
-
+<section class="feature" id="why">
   <div class="feature-box">
-
     <div class="feature-content">
-
-      <div class="section-kicker">
-        WHY GRO
-      </div>
-
-      <h2>
-        Designed for a
-        premium experience.
-      </h2>
-
+      <div class="section-kicker">WHY GRO</div>
+      <h2>Designed for a premium experience.</h2>
       <p>
-        GRO combines a modern aesthetic,
-        discreet shopping experience and
-        customer-focused service in one
-        premium storefront.
+        GRO combines a modern aesthetic, discreet shopping experience and
+        customer-focused service in one premium storefront.
       </p>
 
       <div class="feature-points">
-
-        <div class="feature-point">
-          <i>✓</i>
-          Discreet delivery experience
-        </div>
-
-        <div class="feature-point">
-          <i>✓</i>
-          Secure checkout experience
-        </div>
-
-        <div class="feature-point">
-          <i>✓</i>
-          Mobile-first shopping
-        </div>
-
-        <div class="feature-point">
-          <i>✓</i>
-          Dedicated customer support
-        </div>
-
+        <div class="feature-point"><i>✓</i> Discreet delivery experience</div>
+        <div class="feature-point"><i>✓</i> Secure checkout experience</div>
+        <div class="feature-point"><i>✓</i> Mobile-first shopping</div>
+        <div class="feature-point"><i>✓</i> Dedicated customer support</div>
       </div>
-
     </div>
 
     <div class="feature-image">
-
-      <img
-        src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85"
-        alt="Premium GRO">
-
+      <!-- আপনার ফোল্ডারের ছবি ৪ -->
+      <img src="pro-extender-silicone.jpg" alt="Premium GRO">
     </div>
-
   </div>
-
 </section>
 
 
@@ -1875,99 +1353,38 @@ img{
 ========================= -->
 
 <section class="section">
-
   <div class="section-head">
-
     <div>
-
-      <div class="section-kicker">
-        THE GRO STANDARD
-      </div>
-
-      <h2 class="section-title">
-        Built around you.
-      </h2>
-
+      <div class="section-kicker">THE GRO STANDARD</div>
+      <h2 class="section-title">Built around you.</h2>
     </div>
-
   </div>
-
 
   <div class="benefits">
-
     <div class="benefit">
-
-      <div class="benefit-icon">
-        🔐
-      </div>
-
-      <h3>
-        Privacy First
-      </h3>
-
-      <p>
-        A discreet shopping experience
-        from browsing to delivery.
-      </p>
-
+      <div class="benefit-icon">🔐</div>
+      <h3>Privacy First</h3>
+      <p>A discreet shopping experience from browsing to delivery.</p>
     </div>
 
-
     <div class="benefit">
-
-      <div class="benefit-icon">
-        📦
-      </div>
-
-      <h3>
-        Discreet Delivery
-      </h3>
-
-      <p>
-        Customer-focused packaging
-        and delivery experience.
-      </p>
-
+      <div class="benefit-icon">📦</div>
+      <h3>Discreet Delivery</h3>
+      <p>Customer-focused packaging and delivery experience.</p>
     </div>
 
-
     <div class="benefit">
-
-      <div class="benefit-icon">
-        ⚡
-      </div>
-
-      <h3>
-        Easy Shopping
-      </h3>
-
-      <p>
-        Fast product discovery and
-        simple checkout flow.
-      </p>
-
+      <div class="benefit-icon">⚡</div>
+      <h3>Easy Shopping</h3>
+      <p>Fast product discovery and simple checkout flow.</p>
     </div>
 
-
     <div class="benefit">
-
-      <div class="benefit-icon">
-        💬
-      </div>
-
-      <h3>
-        Human Support
-      </h3>
-
-      <p>
-        Get help whenever you need
-        assistance with your order.
-      </p>
-
+      <div class="benefit-icon">💬</div>
+      <h3>Human Support</h3>
+      <p>Get help whenever you need assistance with your order.</p>
     </div>
-
   </div>
-
 </section>
 
 
@@ -1975,85 +1392,39 @@ img{
      REVIEWS
 ========================= -->
 
-<section
-  class="section"
-  id="reviews">
-
+<section class="section" id="reviews">
   <div class="section-head">
-
     <div>
-
-      <div class="section-kicker">
-        CUSTOMER EXPERIENCE
-      </div>
-
-      <h2 class="section-title">
-        Loved by customers.
-      </h2>
-
+      <div class="section-kicker">CUSTOMER EXPERIENCE</div>
+      <h2 class="section-title">Loved by customers.</h2>
     </div>
-
   </div>
-
 
   <div class="reviews">
-
     <div class="review">
-
-      <div class="review-stars">
-        ★★★★★
-      </div>
-
+      <div class="review-stars">★★★★★</div>
       <p class="review-text">
-        “The website was very easy to use
-        and the whole ordering experience
-        felt private and professional.”
+        “The website was very easy to use and the whole ordering experience felt private and professional.”
       </p>
-
-      <div class="reviewer">
-        Verified Customer
-      </div>
-
+      <div class="reviewer">Verified Customer</div>
     </div>
 
-
     <div class="review">
-
-      <div class="review-stars">
-        ★★★★★
-      </div>
-
+      <div class="review-stars">★★★★★</div>
       <p class="review-text">
-        “Clean packaging, smooth ordering
-        and good customer communication.”
+        “Clean packaging, smooth ordering and good customer communication.”
       </p>
-
-      <div class="reviewer">
-        Verified Customer
-      </div>
-
+      <div class="reviewer">Verified Customer</div>
     </div>
 
-
     <div class="review">
-
-      <div class="review-stars">
-        ★★★★★
-      </div>
-
+      <div class="review-stars">★★★★★</div>
       <p class="review-text">
-        “The mobile experience is excellent.
-        Everything was simple and clear.”
+        “The mobile experience is excellent. Everything was simple and clear.”
       </p>
-
-      <div class="reviewer">
-        Verified Customer
-      </div>
-
+      <div class="reviewer">Verified Customer</div>
     </div>
-
   </div>
-
 </section>
 
 
@@ -2061,100 +1432,33 @@ img{
      FAQ
 ========================= -->
 
-<section
-  class="section"
-  id="faq">
-
+<section class="section" id="faq">
   <div class="section-head">
-
     <div>
-
-      <div class="section-kicker">
-        SUPPORT
-      </div>
-
-      <h2 class="section-title">
-        Frequently asked.
-      </h2>
-
+      <div class="section-kicker">SUPPORT</div>
+      <h2 class="section-title">Frequently asked.</h2>
     </div>
-
   </div>
-
 
   <div class="faq">
-
     <div class="faq-item">
-
-      <button
-        class="faq-q"
-        onclick="faq(this)">
-        Is the packaging discreet?
-        <span>＋</span>
+      <button class="faq-q" onclick="faq(this)">
+        Is the packaging discreet? <span>＋</span>
       </button>
-
       <div class="faq-a">
-        Orders can be prepared with a
-        discreet delivery experience.
+        Orders can be prepared with a discreet delivery experience.
       </div>
-
     </div>
 
-
     <div class="faq-item">
-
-      <button
-        class="faq-q"
-        onclick="faq(this)">
-        What payment options are available?
-        <span>＋</span>
+      <button class="faq-q" onclick="faq(this)">
+        What payment options are available? <span>＋</span>
       </button>
-
       <div class="faq-a">
-        Payment methods can be configured
-        according to the payment provider
-        connected to the store.
+        Payment methods can be configured according to the payment provider connected to the store.
       </div>
-
     </div>
-
-
-    <div class="faq-item">
-
-      <button
-        class="faq-q"
-        onclick="faq(this)">
-        How can I track my order?
-        <span>＋</span>
-      </button>
-
-      <div class="faq-a">
-        After an order is created, the store
-        can provide an order reference for
-        tracking and customer support.
-      </div>
-
-    </div>
-
-
-    <div class="faq-item">
-
-      <button
-        class="faq-q"
-        onclick="faq(this)">
-        How can I contact support?
-        <span>＋</span>
-      </button>
-
-      <div class="faq-a">
-        Use the customer support channel
-        configured for your store.
-      </div>
-
-    </div>
-
   </div>
-
 </section>
 
 </main>
@@ -2165,887 +1469,84 @@ img{
 ========================= -->
 
 <footer class="footer">
-
   <div class="footer-inner">
-
     <div>
-
-      <div class="logo">
-        GRO<span>.</span>
-      </div>
-
-      <p>
-        Premium personal wellness shopping
-        with a modern, discreet and
-        customer-first experience.
-      </p>
-
+      <a href="#home" class="logo">GRO<span>.</span></a>
+      <p>Premium Wellness Collection for modern lifestyle and personal growth.</p>
     </div>
 
-
     <div>
-
       <h4>Shop</h4>
-
-      <a href="#shop">
-        GRO Classic
-      </a>
-
-      <a href="#shop">
-        GRO Pro
-      </a>
-
-      <a href="#shop">
-        GRO Max
-      </a>
-
+      <a href="#shop">GRO Classic</a>
+      <a href="#shop">GRO Pro</a>
+      <a href="#shop">GRO Max</a>
     </div>
 
-
     <div>
-
       <h4>Company</h4>
-
-      <a href="#why">
-        Why GRO
-      </a>
-
-      <a href="#reviews">
-        Reviews
-      </a>
-
-      <a href="#faq">
-        FAQ
-      </a>
-
+      <a href="#why">Why GRO</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
     </div>
-
 
     <div>
-
-      <h4>Support</h4>
-
-      <a href="#">
-        Privacy
-      </a>
-
-      <a href="#">
-        Terms
-      </a>
-
-      <a href="#">
-        Contact
-      </a>
-
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Shipping Policy</a>
     </div>
-
   </div>
-
 
   <div class="copyright">
-
-    © 2026 GRO. All rights reserved.
-
+    &copy; GRO Extender Store. All rights reserved.
   </div>
-
 </footer>
 
-
 <!-- =========================
-     MOBILE NAV
+     JAVASCRIPT
 ========================= -->
-
-<nav class="mobile-nav">
-
-  <button onclick="location.href='#home'">
-    <span>⌂</span>
-    Home
-  </button>
-
-  <button onclick="location.href='#shop'">
-    <span>◫</span>
-    Shop
-  </button>
-
-  <button onclick="openSearch()">
-    <span>⌕</span>
-    Search
-  </button>
-
-  <button onclick="openCart()">
-    <span>🛒</span>
-    Cart
-  </button>
-
-</nav>
-
-
-<!-- =========================
-     SEARCH
-========================= -->
-
-<div
-  class="search-overlay"
-  id="searchOverlay"
-  onclick="closeSearch(event)">
-
-  <div
-    class="search-box"
-    onclick="event.stopPropagation()">
-
-    <input
-      class="search-input"
-      id="searchInput"
-      placeholder="Search GRO products..."
-      oninput="searchProducts(this.value)">
-
-    <div
-      class="search-results"
-      id="searchResults">
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =========================
-     CART DRAWER
-========================= -->
-
-<div
-  class="drawer-bg"
-  id="drawerBg"
-  onclick="closeCart(event)">
-
-  <aside
-    class="drawer"
-    onclick="event.stopPropagation()">
-
-    <div class="drawer-head">
-
-      <h2>
-        Your Cart
-      </h2>
-
-      <button
-        class="icon-btn"
-        onclick="closeCart()">
-        ×
-      </button>
-
-    </div>
-
-
-    <div
-      class="drawer-body"
-      id="cartItems">
-    </div>
-
-
-    <div class="drawer-footer">
-
-      <div class="total-row">
-
-        <span>
-          Total
-        </span>
-
-        <span id="cartTotal">
-          ₹0
-        </span>
-
-      </div>
-
-      <button
-        class="checkout"
-        onclick="checkout()">
-
-        Continue to Checkout →
-
-      </button>
-
-    </div>
-
-  </aside>
-
-</div>
-
-
-<!-- =========================
-     TOAST
-========================= -->
-
-<div
-  class="toast"
-  id="toast">
-</div>
-
-
 <script>
-
-/* =========================================================
-   GRO — FRONTEND COMMERCE ENGINE
-========================================================= */
-
-const products=[
-  {
-    name:"GRO Classic",
-    price:2999,
-    image:"https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=85"
-  },
-  {
-    name:"GRO Pro",
-    price:3499,
-    image:"https://images.unsplash.com/photo-1616628182508-28f2f0d6b7ef?auto=format&fit=crop&w=900&q=85"
-  },
-  {
-    name:"GRO Max",
-    price:4499,
-    image:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85"
-  }
-];
-
-
-let cart=
-  JSON.parse(
-    localStorage.getItem("gro_cart")||"[]"
-  );
-
-
-/* =========================
-   LOADER
-========================= */
-
-window.addEventListener(
-  "load",
-  ()=>{
-    setTimeout(()=>{
-      document
-        .getElementById("loader")
-        .classList.add("hide");
-    },700);
-  }
-);
-
-
-/* =========================
-   TOAST
-========================= */
-
-function toast(message){
-
-  const el=
-    document.getElementById("toast");
-
-  el.textContent=message;
-
-  el.classList.add("show");
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer=
-    setTimeout(()=>{
-      el.classList.remove("show");
-    },2400);
-}
-
-
-/* =========================
-   CART SAVE
-========================= */
-
-function saveCart(){
-
-  localStorage.setItem(
-    "gro_cart",
-    JSON.stringify(cart)
-  );
-
-  updateCartCount();
-
-}
-
-
-/* =========================
-   ADD PRODUCT
-========================= */
-
-function addProduct(name,price){
-
-  const existing=
-    cart.find(
-      item=>item.name===name
-    );
-
-  if(existing){
-
-    existing.qty++;
-
-  }else{
-
-    const product=
-      products.find(
-        p=>p.name===name
-      );
-
-    cart.push({
-      name,
-      price,
-      qty:1,
-      image:product?
-        product.image:""
-    });
-
-  }
-
-  saveCart();
-
-  renderCart();
-
-  toast(
-    "✓ "+name+" added to your cart"
-  );
-
-}
-
-
-/* =========================
-   QUICK BUY
-========================= */
-
-function quickBuy(name,price){
-
-  cart=[];
-
-  addProduct(
-    name,
-    price
-  );
-
-  openCart();
-
-}
-
-
-/* =========================
-   CART COUNT
-========================= */
-
-function updateCartCount(){
-
-  const total=
-    cart.reduce(
-      (sum,item)=>sum+item.qty,
-      0
-    );
-
-  document
-    .getElementById("cartCount")
-    .textContent=total;
-
-}
-
-
-/* =========================
-   RENDER CART
-========================= */
-
-function renderCart(){
-
-  const container=
-    document.getElementById(
-      "cartItems"
-    );
-
-  if(!cart.length){
-
-    container.innerHTML=`
-
-      <div style="
-        text-align:center;
-        padding:70px 15px;
-        color:#7d8595;
-      ">
-
-        <div style="
-          font-size:50px;
-          margin-bottom:15px;
-        ">
-          🛒
-        </div>
-
-        <h3 style="
-          color:#fff;
-          margin-bottom:8px;
-        ">
-          Your cart is empty
-        </h3>
-
-        <p style="font-size:12px">
-          Add something from the collection.
-        </p>
-
-      </div>
-
-    `;
-
-    document
-      .getElementById("cartTotal")
-      .textContent="₹0";
-
-    return;
-
-  }
-
-
-  container.innerHTML=
-    cart.map(
-      (item,index)=>`
-
-      <div class="cart-item">
-
-        <img
-          src="${item.image}"
-          alt="${item.name}">
-
-        <div>
-
-          <div class="cart-name">
-            ${item.name}
-          </div>
-
-          <div class="cart-price">
-            ₹${item.price.toLocaleString("en-IN")}
-          </div>
-
-          <div class="qty">
-
-            <button
-              onclick="changeQty(${index},-1)">
-              −
-            </button>
-
-            <strong>
-              ${item.qty}
-            </strong>
-
-            <button
-              onclick="changeQty(${index},1)">
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-        <button
-          style="
-            border:0;
-            background:none;
-            color:#777f8e;
-            font-size:18px;
-          "
-          onclick="removeItem(${index})">
-
-          ×
-
-        </button>
-
-      </div>
-
-      `
-    ).join("");
-
-
-  const total=
-    cart.reduce(
-      (sum,item)=>
-        sum+(item.price*item.qty),
-      0
-    );
-
-
-  document
-    .getElementById("cartTotal")
-    .textContent=
-      "₹"+total.toLocaleString("en-IN");
-
-}
-
-
-/* =========================
-   QUANTITY
-========================= */
-
-function changeQty(index,amount){
-
-  cart[index].qty+=amount;
-
-  if(cart[index].qty<=0){
-
-    cart.splice(index,1);
-
-  }
-
-  saveCart();
-
-  renderCart();
-
-}
-
-
-/* =========================
-   REMOVE
-========================= */
-
-function removeItem(index){
-
-  const name=
-    cart[index].name;
-
-  cart.splice(index,1);
-
-  saveCart();
-
-  renderCart();
-
-  toast(
-    name+" removed"
-  );
-
-}
-
-
-/* =========================
-   CART DRAWER
-========================= */
-
-function openCart(){
-
-  renderCart();
-
-  document
-    .getElementById("drawerBg")
-    .classList.add("show");
-
-}
-
-
-function closeCart(event){
-
-  if(
-    event &&
-    event.target!==event.currentTarget
-  )return;
-
-  document
-    .getElementById("drawerBg")
-    .classList.remove("show");
-
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-function openSearch(){
-
-  document
-    .getElementById("searchOverlay")
-    .classList.add("show");
-
-  setTimeout(()=>{
-    document
-      .getElementById("searchInput")
-      .focus();
-  },100);
-
-}
-
-
-function closeSearch(event){
-
-  if(
-    event &&
-    event.target.id!=="searchOverlay"
-  )return;
-
-  document
-    .getElementById("searchOverlay")
-    .classList.remove("show");
-
-}
-
-
-function searchProducts(value){
-
-  const query=
-    value.trim().toLowerCase();
-
-  const result=
-    document.getElementById(
-      "searchResults"
-    );
-
-  if(!query){
-
-    result.innerHTML="";
-
-    return;
-
-  }
-
-
-  const matches=
-    products.filter(
-      p=>
-        p.name
-          .toLowerCase()
-          .includes(query)
-    );
-
-
-  if(!matches.length){
-
-    result.innerHTML=`
-
-      <div style="
-        padding:25px;
-        color:#858d9c;
-        text-align:center;
-      ">
-        No products found.
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  result.innerHTML=
-    matches.map(
-      p=>`
-
-      <div
-        class="search-result"
-        onclick="
-          addProduct(
-            '${p.name}',
-            ${p.price}
-          );
-          closeSearch();
-          openCart();
-        ">
-
-        <img
-          src="${p.image}"
-          alt="${p.name}">
-
-        <div>
-
-          <strong>
-            ${p.name}
-          </strong>
-
-          <small>
-            ₹${p.price.toLocaleString("en-IN")}
-          </small>
-
-        </div>
-
-      </div>
-
-      `
-    ).join("");
-
-}
-
-
-/* =========================
-   WISHLIST
-========================= */
-
-function toggleWish(button){
-
-  const active=
-    button.dataset.active==="1";
-
-  if(active){
-
-    button.dataset.active="0";
-
-    button.textContent="♡";
-
-    toast(
-      "Removed from wishlist"
-    );
-
-  }else{
-
-    button.dataset.active="1";
-
-    button.textContent="♥";
-
-    button.style.color="#fb7185";
-
-    toast(
-      "♥ Added to wishlist"
-    );
-
-  }
-
-}
-
-
-/* =========================
-   FAQ
-========================= */
-
-function faq(button){
-
-  const item=
-    button.closest(".faq-item");
-
-  const wasOpen=
-    item.classList.contains("open");
-
-
-  document
-    .querySelectorAll(".faq-item")
-    .forEach(
-      x=>x.classList.remove("open")
-    );
-
-
-  if(!wasOpen){
-
-    item.classList.add("open");
-
-  }
-
-}
-
-
-/* =========================
-   CHECKOUT
-========================= */
-
-function checkout(){
-
-  if(!cart.length){
-
-    toast(
-      "Your cart is empty"
-    );
-
-    return;
-
-  }
-
-
-  const total=
-    cart.reduce(
-      (sum,item)=>
-        sum+(item.price*item.qty),
-      0
-    );
-
-
-  const orderId=
-    "GRO-"+
-
-    Date.now()
-      .toString()
-      .slice(-8);
-
-
-  const message=
-`
-GRO ORDER REQUEST
-
-Order ID: ${orderId}
-
-${cart.map(
-  x=>
-  `${x.name} × ${x.qty} = ₹${(
-    x.price*x.qty
-  ).toLocaleString("en-IN")}`
-).join("\n")}
-
-----------------------
-
-Total:
-₹${total.toLocaleString("en-IN")}
-
-Please contact me regarding checkout.
-`;
-
-
-  /*
-    এখানে নিজের official WhatsApp number বসাবে।
-    Example:
-    919876543210
-  */
-
-  const whatsapp=
-    "919999999999";
-
-
-  const url=
-    "https://wa.me/"+
-    whatsapp+
-    "?text="+
-    encodeURIComponent(message);
-
-
-  window.open(
-    url,
-    "_blank"
-  );
-
-}
-
-
-/* =========================
-   ESCAPE
-========================= */
-
-document.addEventListener(
-  "keydown",
-  e=>{
-
-    if(e.key==="Escape"){
-
-      document
-        .getElementById(
-          "searchOverlay"
-        )
-        .classList.remove("show");
-
-      document
-        .getElementById(
-          "drawerBg"
-        )
-        .classList.remove("show");
-
+  // Hide Loader on Page Load
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) loader.classList.add('hide');
+  });
+
+  // FAQ Accordion Toggle
+  function faq(button) {
+    const item = button.parentElement;
+    item.classList.toggle('open');
+    const icon = button.querySelector('span');
+    if (icon) {
+      icon.textContent = item.classList.contains('open') ? '－' : '＋';
     }
-
   }
-);
 
+  // Wishlist Toggle
+  function toggleWish(btn) {
+    btn.style.color = btn.style.color === 'rgb(251, 113, 133)' ? '#fff' : '#fb7185';
+  }
 
-/* =========================
-   INITIALIZE
-========================= */
+  // Cart Management
+  let cartCount = 0;
+  function addProduct(name, price) {
+    cartCount++;
+    document.getElementById('cartCount').textContent = cartCount;
+    showToast(`Added ${name} to cart!`);
+  }
 
-updateCartCount();
-
-renderCart();
-
+  // Toast Notifications
+  function showToast(message) {
+    let toast = document.querySelector('.toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
 </script>
 
 </body>
