@@ -3,40 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<meta name="theme-color" content="#090b10">
-<meta name="description" content="GRO Extender — Premium Wellness Store">
+<meta name="theme-color" content="#07090d">
 
 <title>GRO — Premium Wellness Store</title>
 
 <style>
-
-/* =========================================================
-   GRO EXTENDER — PREMIUM LUXURY COMMERCE
-   SINGLE FILE / MOBILE FIRST / NO FRAMEWORK
-========================================================= */
-
 :root{
-  --bg:#080a0f;
-  --surface:#0e1118;
-  --surface2:#131720;
-  --card:#11151e;
-  --line:rgba(255,255,255,.09);
-  --text:#f7f7f8;
-  --muted:#8d95a5;
-  --gold:#f5b84b;
-  --gold2:#ffd875;
-  --green:#34d399;
-  --red:#fb7185;
+  --bg:#07090d;
+  --card:#0f131b;
+  --card2:#141923;
+  --gold:#f4b942;
+  --gold2:#ffd873;
   --white:#fff;
-  --radius:22px;
-  --shadow:0 25px 80px rgba(0,0,0,.35);
+  --muted:#8992a3;
+  --line:rgba(255,255,255,.09);
+  --green:#39d98a;
+  --danger:#ff647c;
 }
 
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 html{
@@ -45,27 +33,14 @@ html{
 
 body{
   background:
-    radial-gradient(
-      circle at 80% -10%,
-      rgba(245,184,75,.10),
-      transparent 30%
-    ),
-    var(--bg);
-  color:var(--text);
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  overflow-x:hidden;
+  radial-gradient(circle at 80% 0%,rgba(244,185,66,.10),transparent 30%),
+  var(--bg);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 button,
-input,
-select,
-textarea{
+input{
   font:inherit;
 }
 
@@ -74,37 +49,26 @@ button{
 }
 
 a{
-  color:inherit;
   text-decoration:none;
+  color:inherit;
 }
 
-img{
-  max-width:100%;
-  display:block;
-}
-
-/* =========================
-   LOADER
-========================= */
+/* LOADER */
 
 .loader{
   position:fixed;
   inset:0;
+  background:#07090d;
   z-index:99999;
-  background:#080a0f;
   display:flex;
   align-items:center;
   justify-content:center;
-  transition:.6s;
+  transition:.5s;
 }
 
 .loader.hide{
   opacity:0;
   visibility:hidden;
-}
-
-.loader-box{
-  text-align:center;
 }
 
 .loader-logo{
@@ -117,38 +81,36 @@ img{
   color:var(--gold);
 }
 
-.loader-line{
-  width:120px;
-  height:2px;
-  margin:22px auto;
+.loader-bar{
+  width:140px;
+  height:3px;
+  background:#202531;
+  margin:20px auto;
   overflow:hidden;
-  background:#242936;
 }
 
-.loader-line i{
+.loader-bar i{
   display:block;
-  width:50%;
   height:100%;
+  width:40%;
   background:var(--gold);
-  animation:loader 1s infinite;
+  animation:load 1s infinite;
 }
 
-@keyframes loader{
-  from{transform:translateX(-100%)}
-  to{transform:translateX(300%)}
+@keyframes load{
+  from{transform:translateX(-150%)}
+  to{transform:translateX(400%)}
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
-.header{
+header{
   position:sticky;
   top:0;
-  z-index:1000;
-  height:74px;
+  z-index:5000;
+  height:72px;
   border-bottom:1px solid var(--line);
-  background:rgba(8,10,15,.78);
+  background:rgba(7,9,13,.88);
   backdrop-filter:blur(20px);
 }
 
@@ -156,15 +118,14 @@ img{
   max-width:1250px;
   height:100%;
   margin:auto;
-  padding:0 20px;
+  padding:0 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
 }
 
 .logo{
-  font-size:28px;
+  font-size:29px;
   font-weight:1000;
   letter-spacing:-2px;
 }
@@ -173,44 +134,42 @@ img{
   color:var(--gold);
 }
 
-.nav-links{
+.navlinks{
   display:flex;
-  gap:30px;
-  color:#aeb5c3;
-  font-size:14px;
-  font-weight:700;
+  gap:28px;
+  color:#aeb5c2;
+  font-size:13px;
+  font-weight:bold;
 }
 
-.nav-links a:hover{
-  color:var(--white);
+.navlinks a:hover{
+  color:white;
 }
 
-.nav-actions{
+.navright{
   display:flex;
-  align-items:center;
-  gap:10px;
+  gap:9px;
 }
 
-.icon-btn{
+.icon{
   width:42px;
   height:42px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.035);
-  color:#fff;
   border-radius:50%;
+  border:1px solid var(--line);
+  background:#11151d;
+  color:white;
   display:grid;
   place-items:center;
   position:relative;
 }
 
-.cart-count{
+.count{
   position:absolute;
-  top:-3px;
   right:-3px;
-  min-width:18px;
+  top:-3px;
+  width:18px;
   height:18px;
-  padding:0 5px;
-  border-radius:20px;
+  border-radius:50%;
   background:var(--gold);
   color:#111;
   font-size:10px;
@@ -219,396 +178,287 @@ img{
   place-items:center;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
-  min-height:680px;
   max-width:1250px;
   margin:auto;
-  padding:70px 20px;
+  min-height:600px;
+  padding:65px 18px;
   display:grid;
   grid-template-columns:1fr 1fr;
+  gap:50px;
   align-items:center;
-  gap:60px;
 }
 
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 12px;
-  border:1px solid rgba(245,184,75,.25);
-  background:rgba(245,184,75,.07);
+.badge{
+  display:inline-block;
+  padding:8px 13px;
+  border-radius:50px;
   color:var(--gold2);
-  border-radius:999px;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1px;
-  text-transform:uppercase;
+  border:1px solid rgba(244,185,66,.25);
+  background:rgba(244,185,66,.07);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:1.5px;
 }
 
 .hero h1{
-  margin-top:20px;
-  max-width:650px;
-  font-size:clamp(46px,6vw,82px);
-  line-height:.94;
+  font-size:clamp(45px,6vw,78px);
+  line-height:.95;
   letter-spacing:-5px;
-  font-weight:1000;
+  margin-top:20px;
 }
 
 .hero h1 span{
   color:var(--gold);
 }
 
-.hero-text{
+.hero p{
+  max-width:550px;
   margin-top:24px;
-  max-width:520px;
   color:var(--muted);
   line-height:1.8;
-  font-size:16px;
+  font-size:15px;
 }
 
 .hero-buttons{
+  margin-top:30px;
   display:flex;
-  gap:12px;
+  gap:10px;
   flex-wrap:wrap;
-  margin-top:32px;
 }
 
 .btn{
   min-height:50px;
   padding:0 22px;
-  border-radius:14px;
+  border-radius:13px;
   border:1px solid var(--line);
-  color:#fff;
-  background:#151923;
+  background:#151a23;
+  color:white;
   font-weight:900;
-  transition:.25s;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
 }
 
 .btn.gold{
-  background:linear-gradient(
-    135deg,
-    var(--gold2),
-    var(--gold)
-  );
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
   color:#111;
   border:0;
-  box-shadow:
-    0 12px 35px rgba(245,184,75,.18);
 }
 
-.hero-proof{
+.hero-points{
   display:flex;
-  gap:25px;
-  margin-top:38px;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:28px;
+  color:#aab1be;
+  font-size:11px;
+  font-weight:bold;
 }
 
-.proof{
+.hero-points b{
+  color:var(--gold);
+}
+
+/* HERO GALLERY */
+
+.hero-gallery{
   display:flex;
-  align-items:center;
-  gap:9px;
-  color:#aeb5c3;
-  font-size:12px;
-  font-weight:700;
+  justify-content:center;
 }
 
-.proof b{
-  color:#fff;
+.gallery{
+  width:min(510px,100%);
 }
 
-/* HERO PRODUCT */
-
-.hero-visual{
-  position:relative;
-  min-height:500px;
-  display:grid;
-  place-items:center;
-}
-
-.hero-orbit{
-  position:absolute;
-  width:430px;
-  height:430px;
-  border:1px solid rgba(245,184,75,.13);
-  border-radius:50%;
-  animation:orbit 18s linear infinite;
-}
-
-.hero-orbit:before{
-  content:"";
-  position:absolute;
-  width:9px;
-  height:9px;
-  background:var(--gold);
-  border-radius:50%;
-  top:12%;
-  left:18%;
-  box-shadow:0 0 25px var(--gold);
-}
-
-@keyframes orbit{
-  to{transform:rotate(360deg)}
-}
-
-.product-stage{
-  width:min(440px,90%);
-  aspect-ratio:1;
-  border-radius:40px;
+.main-image{
+  height:440px;
   border:1px solid var(--line);
+  border-radius:30px;
   background:
-    radial-gradient(
-      circle at center,
-      rgba(245,184,75,.12),
-      transparent 55%
-    ),
-    #0e1118;
-  box-shadow:var(--shadow);
+  radial-gradient(circle,rgba(244,185,66,.12),transparent 60%),
+  #10141c;
+  position:relative;
+  overflow:hidden;
   display:grid;
   place-items:center;
-  position:relative;
+}
+
+.main-image img{
+  width:88%;
+  height:88%;
+  object-fit:contain;
+  transition:.35s;
+  filter:drop-shadow(0 30px 35px rgba(0,0,0,.55));
+}
+
+.zoom{
+  position:absolute;
+  right:15px;
+  bottom:15px;
+  width:42px;
+  height:42px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:rgba(0,0,0,.45);
+  color:white;
+}
+
+.thumbs{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:7px;
+  margin-top:10px;
+}
+
+.thumb{
+  height:70px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#10141b;
   overflow:hidden;
 }
 
-.product-stage:after{
-  content:"";
-  position:absolute;
-  inset:20px;
-  border:1px solid rgba(255,255,255,.05);
-  border-radius:30px;
+.thumb.active{
+  border-color:var(--gold);
 }
 
-.product-stage img{
-  width:78%;
-  height:78%;
+.thumb img{
+  width:100%;
+  height:100%;
   object-fit:contain;
-  position:relative;
-  z-index:2;
-  filter:drop-shadow(0 30px 35px rgba(0,0,0,.5));
-  transition:.6s;
 }
 
-.product-stage:hover img{
-  transform:scale(1.05) rotate(-2deg);
-}
-
-.floating-tag{
-  position:absolute;
-  z-index:5;
-  top:30px;
-  right:25px;
-  padding:9px 12px;
-  border-radius:12px;
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(10px);
-  border:1px solid var(--line);
-  font-size:11px;
-  font-weight:900;
-}
-
-/* =========================
-   TRUST BAR
-========================= */
+/* TRUST */
 
 .trust{
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
-  background:#0b0e14;
+  background:#0b0e13;
 }
 
-.trust-inner{
+.trustinner{
   max-width:1250px;
   margin:auto;
   padding:20px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:20px;
+  gap:15px;
 }
 
-.trust-item{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  color:#9ea6b6;
-  font-size:12px;
-  font-weight:800;
+.trustitem{
   text-align:center;
+  color:#969eac;
+  font-size:11px;
 }
 
-.trust-item strong{
-  color:#fff;
+.trustitem strong{
+  color:white;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* PRODUCT SECTION */
 
 .section{
   max-width:1250px;
   margin:auto;
-  padding:95px 20px;
+  padding:85px 18px;
 }
 
-.section-head{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:20px;
-  margin-bottom:35px;
-}
-
-.section-kicker{
+.kicker{
   color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:11px;
+  font-size:10px;
   font-weight:1000;
+  letter-spacing:2px;
 }
 
-.section-title{
+.title{
   margin-top:8px;
-  font-size:clamp(30px,4vw,48px);
-  letter-spacing:-2px;
+  font-size:clamp(30px,4vw,50px);
+  letter-spacing:-3px;
 }
-
-.section-description{
-  max-width:470px;
-  color:var(--muted);
-  line-height:1.7;
-  font-size:14px;
-}
-
-/* =========================
-   PRODUCTS
-========================= */
 
 .products{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:18px;
+  margin-top:35px;
 }
 
-.product-card{
-  position:relative;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.015)
-    );
+.product{
   border:1px solid var(--line);
-  border-radius:24px;
+  border-radius:23px;
   overflow:hidden;
-  transition:.35s;
+  background:linear-gradient(145deg,#12161e,#0c1016);
+  transition:.3s;
 }
 
-.product-card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(245,184,75,.3);
-  box-shadow:0 25px 60px rgba(0,0,0,.25);
+.product:hover{
+  transform:translateY(-7px);
+  border-color:rgba(244,185,66,.3);
 }
 
-.product-image{
-  height:330px;
+.product-photo{
+  height:310px;
   background:
-    radial-gradient(
-      circle,
-      rgba(245,184,75,.09),
-      transparent 60%
-    );
+  radial-gradient(circle,rgba(244,185,66,.10),transparent 60%);
+  position:relative;
   display:grid;
   place-items:center;
-  padding:30px;
-  position:relative;
+  padding:25px;
 }
 
-.product-image img{
+.product-photo img{
   width:100%;
   height:100%;
   object-fit:contain;
-  transition:.5s;
+  filter:drop-shadow(0 25px 25px rgba(0,0,0,.5));
 }
 
-.product-card:hover .product-image img{
-  transform:scale(1.06);
-}
-
-.badge{
+.product-label{
   position:absolute;
-  top:16px;
-  left:16px;
+  left:14px;
+  top:14px;
   padding:7px 10px;
-  border-radius:9px;
+  border-radius:8px;
   background:var(--gold);
   color:#111;
-  font-size:10px;
+  font-size:9px;
   font-weight:1000;
-  z-index:2;
 }
 
-.heart{
-  position:absolute;
-  top:14px;
-  right:14px;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:rgba(0,0,0,.35);
-  border:1px solid var(--line);
-  color:#fff;
-  z-index:3;
-}
-
-.product-info{
+.product-body{
   padding:20px;
 }
 
-.product-category{
+.category{
   color:var(--gold);
-  font-size:10px;
-  font-weight:1000;
+  font-size:9px;
   letter-spacing:1.5px;
-  text-transform:uppercase;
+  font-weight:1000;
 }
 
-.product-name{
+.product h3{
   margin-top:7px;
   font-size:20px;
-  font-weight:950;
 }
 
-.product-desc{
+.product p{
   margin-top:8px;
   color:var(--muted);
   font-size:12px;
   line-height:1.6;
 }
 
-.rating{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:13px;
-  font-size:12px;
-}
-
 .stars{
+  margin-top:12px;
   color:var(--gold);
-  letter-spacing:1px;
+  font-size:12px;
 }
 
 .price-row{
   display:flex;
-  align-items:end;
   justify-content:space-between;
-  margin-top:18px;
+  align-items:end;
+  margin-top:17px;
 }
 
 .price{
@@ -616,463 +466,306 @@ img{
   font-weight:1000;
 }
 
-.old-price{
-  color:#687080;
-  font-size:12px;
+.old{
+  color:#697181;
   text-decoration:line-through;
-  margin-left:6px;
+  font-size:11px;
+  margin-left:5px;
 }
 
 .save{
   color:var(--green);
   font-size:10px;
-  font-weight:900;
+  font-weight:1000;
 }
 
-.buy-row{
-  display:grid;
-  grid-template-columns:1fr 48px;
-  gap:8px;
-  margin-top:18px;
-}
-
-.buy{
-  height:48px;
+.add{
+  margin-top:17px;
+  width:100%;
+  height:47px;
   border:0;
-  border-radius:13px;
-  background:#fff;
+  border-radius:12px;
+  background:white;
   color:#111;
   font-weight:1000;
 }
 
-.quick{
-  border:1px solid var(--line);
-  background:#171b24;
-  color:#fff;
-  border-radius:13px;
-  font-size:18px;
-}
-
-/* =========================
-   FEATURE SPLIT
-========================= */
+/* FEATURE */
 
 .feature{
-  max-width:1250px;
+  max-width:1215px;
   margin:auto;
   padding:20px;
 }
 
-.feature-box{
-  min-height:480px;
+.featurebox{
+  min-height:450px;
   border:1px solid var(--line);
-  border-radius:32px;
+  border-radius:30px;
   overflow:hidden;
-  background:
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(245,184,75,.12),
-      transparent 35%
-    ),
-    #0d1118;
   display:grid;
   grid-template-columns:1fr 1fr;
-  align-items:center;
+  background:
+  radial-gradient(circle at 80% 20%,rgba(244,185,66,.12),transparent 35%),
+  #0e1219;
 }
 
-.feature-content{
-  padding:60px;
+.featurecontent{
+  padding:55px;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
 }
 
-.feature-content h2{
-  margin-top:12px;
-  font-size:clamp(32px,4vw,58px);
-  line-height:1;
+.featurecontent h2{
+  margin-top:10px;
+  font-size:clamp(34px,4vw,58px);
   letter-spacing:-3px;
+  line-height:1;
 }
 
-.feature-content p{
+.featurecontent p{
+  margin-top:20px;
   color:var(--muted);
   line-height:1.8;
-  margin-top:20px;
 }
 
-.feature-points{
-  display:grid;
-  gap:12px;
+.features{
   margin-top:25px;
-}
-
-.feature-point{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  color:#c5cad3;
-  font-size:13px;
-  font-weight:700;
-}
-
-.feature-point i{
-  width:28px;
-  height:28px;
   display:grid;
-  place-items:center;
-  border-radius:9px;
-  background:rgba(245,184,75,.1);
-  color:var(--gold);
-  font-style:normal;
+  gap:11px;
 }
 
-.feature-image{
-  height:100%;
-  min-height:480px;
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(
-      circle,
-      rgba(245,184,75,.13),
-      transparent 55%
-    );
-}
-
-.feature-image img{
-  width:80%;
-  height:80%;
-  object-fit:contain;
-  filter:drop-shadow(0 35px 40px rgba(0,0,0,.5));
-}
-
-/* =========================
-   BENEFITS
-========================= */
-
-.benefits{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-
-.benefit{
-  padding:25px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.025);
-  border-radius:20px;
-}
-
-.benefit-icon{
-  font-size:25px;
-}
-
-.benefit h3{
-  margin-top:18px;
-  font-size:16px;
-}
-
-.benefit p{
-  margin-top:8px;
-  color:var(--muted);
+.featureitem{
+  color:#c2c8d1;
   font-size:12px;
-  line-height:1.7;
+  font-weight:bold;
 }
 
-/* =========================
-   REVIEWS
-========================= */
+.featureitem span{
+  color:var(--gold);
+  margin-right:8px;
+}
+
+.featurevisual{
+  display:grid;
+  place-items:center;
+}
+
+.featurevisual img{
+  width:85%;
+  height:85%;
+  object-fit:contain;
+}
+
+/* REVIEWS */
 
 .reviews{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:16px;
+  margin-top:30px;
 }
 
 .review{
   padding:25px;
   border:1px solid var(--line);
-  background:#0d1118;
+  background:#0e1219;
   border-radius:20px;
 }
 
-.review-stars{
-  color:var(--gold);
-}
-
-.review-text{
-  margin-top:15px;
-  color:#c3c8d1;
+.review p{
+  margin-top:14px;
+  color:#b5bcc8;
   line-height:1.8;
   font-size:13px;
 }
 
-.reviewer{
-  margin-top:20px;
-  font-size:12px;
-  font-weight:900;
+.review small{
+  display:block;
+  margin-top:18px;
+  font-weight:bold;
 }
 
-/* =========================
-   FAQ
-========================= */
+/* FAQ */
 
 .faq{
   max-width:850px;
-  margin:auto;
+  margin:30px auto 0;
 }
 
-.faq-item{
+.faqitem{
   border-bottom:1px solid var(--line);
 }
 
-.faq-q{
+.faqq{
   width:100%;
-  padding:22px 0;
+  padding:21px 0;
   background:none;
   border:0;
-  color:#fff;
+  color:white;
   display:flex;
   justify-content:space-between;
+  font-weight:900;
   text-align:left;
-  font-weight:850;
 }
 
-.faq-a{
+.faqqa{
   display:none;
-  padding:0 0 20px;
   color:var(--muted);
   line-height:1.8;
   font-size:13px;
+  padding-bottom:20px;
 }
 
-.faq-item.open .faq-a{
+.faqitem.open .faqqa{
   display:block;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
-.footer{
+footer{
   border-top:1px solid var(--line);
-  background:#06080c;
-  padding:60px 20px 30px;
+  padding:55px 18px 30px;
+  background:#05070a;
 }
 
-.footer-inner{
+.footerinner{
   max-width:1250px;
   margin:auto;
   display:grid;
   grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:40px;
+  gap:35px;
 }
 
-.footer p{
-  margin-top:15px;
+footer p{
   color:var(--muted);
   max-width:350px;
-  font-size:13px;
+  margin-top:15px;
+  font-size:12px;
   line-height:1.8;
 }
 
-.footer h4{
-  margin-bottom:15px;
+footer h4{
+  margin-bottom:14px;
 }
 
-.footer a{
+footer a{
   display:block;
-  color:#858d9c;
-  font-size:13px;
-  margin:10px 0;
+  color:#777f8d;
+  margin:9px 0;
+  font-size:12px;
 }
 
-.footer a:hover{
-  color:#fff;
-}
-
-.copyright{
+.copy{
   max-width:1250px;
-  margin:45px auto 0;
+  margin:40px auto 0;
   padding-top:20px;
   border-top:1px solid var(--line);
-  color:#596171;
-  font-size:11px;
+  color:#555d6b;
+  font-size:10px;
 }
 
-/* =========================
-   SEARCH OVERLAY
-========================= */
+/* CART */
 
-.search-overlay{
+.overlay{
   position:fixed;
   inset:0;
-  z-index:5000;
-  background:rgba(0,0,0,.78);
-  backdrop-filter:blur(15px);
+  background:rgba(0,0,0,.68);
+  z-index:9000;
   opacity:0;
   visibility:hidden;
   transition:.3s;
 }
 
-.search-overlay.show{
+.overlay.show{
   opacity:1;
   visibility:visible;
 }
 
-.search-box{
-  max-width:700px;
-  margin:100px auto;
-  padding:20px;
-}
-
-.search-input{
-  width:100%;
-  height:62px;
-  border:1px solid var(--line);
-  background:#121722;
-  color:#fff;
-  border-radius:18px;
-  padding:0 20px;
-  outline:none;
-  font-size:17px;
-}
-
-.search-results{
-  margin-top:12px;
-  background:#11151e;
-  border:1px solid var(--line);
-  border-radius:18px;
-  overflow:hidden;
-}
-
-.search-result{
-  padding:16px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  gap:15px;
-  cursor:pointer;
-}
-
-.search-result img{
-  width:55px;
-  height:55px;
-  object-fit:contain;
-  background:#0a0d12;
-  border-radius:10px;
-}
-
-.search-result strong{
-  font-size:13px;
-}
-
-.search-result small{
-  display:block;
-  color:var(--muted);
-  margin-top:4px;
-}
-
-/* =========================
-   CART DRAWER
-========================= */
-
-.drawer-bg{
-  position:fixed;
-  inset:0;
-  z-index:6000;
-  background:rgba(0,0,0,.6);
-  opacity:0;
-  visibility:hidden;
-  transition:.3s;
-}
-
-.drawer-bg.show{
-  opacity:1;
-  visibility:visible;
-}
-
-.drawer{
+.cart{
   position:absolute;
   right:0;
   top:0;
-  bottom:0;
-  width:min(440px,94%);
+  height:100%;
+  width:min(430px,94%);
   background:#0d1118;
   border-left:1px solid var(--line);
-  padding:25px;
+  padding:22px;
   transform:translateX(100%);
   transition:.35s;
   display:flex;
   flex-direction:column;
 }
 
-.drawer-bg.show .drawer{
+.overlay.show .cart{
   transform:translateX(0);
 }
 
-.drawer-head{
+.carthead{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
-.drawer-body{
+.cartbody{
   flex:1;
   overflow:auto;
   margin-top:20px;
 }
 
-.cart-item{
+.cartitem{
   display:grid;
   grid-template-columns:70px 1fr auto;
   gap:12px;
-  padding:15px 0;
+  padding:14px 0;
   border-bottom:1px solid var(--line);
 }
 
-.cart-item img{
+.cartitem img{
   width:70px;
   height:70px;
   object-fit:contain;
-  background:#11151e;
-  border-radius:12px;
+  background:#131820;
+  border-radius:10px;
 }
 
-.cart-name{
-  font-weight:850;
+.cartname{
+  font-weight:bold;
   font-size:13px;
 }
 
-.cart-price{
+.cartprice{
   margin-top:6px;
   color:var(--gold);
   font-size:12px;
-  font-weight:900;
 }
 
 .qty{
   display:flex;
+  gap:7px;
   align-items:center;
-  gap:8px;
-  margin-top:10px;
+  margin-top:9px;
 }
 
 .qty button{
-  width:27px;
-  height:27px;
+  width:26px;
+  height:26px;
   border:1px solid var(--line);
-  background:#161b25;
-  color:#fff;
-  border-radius:7px;
+  background:#161b24;
+  color:white;
+  border-radius:6px;
 }
 
-.drawer-footer{
+.cartfooter{
   border-top:1px solid var(--line);
-  padding-top:18px;
+  padding-top:17px;
 }
 
-.total-row{
+.total{
   display:flex;
   justify-content:space-between;
-  font-weight:900;
+  font-weight:1000;
   margin-bottom:15px;
 }
 
@@ -1080,205 +773,86 @@ img{
   width:100%;
   height:52px;
   border:0;
-  border-radius:14px;
+  border-radius:13px;
   background:linear-gradient(135deg,var(--gold2),var(--gold));
   color:#111;
   font-weight:1000;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* SEARCH */
 
-.mobile-nav{
+.search{
+  position:fixed;
+  inset:0;
+  z-index:9500;
+  background:rgba(0,0,0,.8);
+  backdrop-filter:blur(12px);
   display:none;
+  padding:80px 18px;
 }
 
-@media(max-width:900px){
-
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-    padding-top:45px;
-  }
-
-  .hero-text{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero-buttons,
-  .hero-proof{
-    justify-content:center;
-  }
-
-  .hero-visual{
-    min-height:430px;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .benefits{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .reviews{
-    grid-template-columns:1fr;
-  }
-
-  .feature-box{
-    grid-template-columns:1fr;
-  }
-
-  .feature-content{
-    padding:40px 25px;
-  }
-
-  .feature-image{
-    min-height:350px;
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
+.search.show{
+  display:block;
 }
 
-@media(max-width:600px){
-
-  .header{
-    height:64px;
-  }
-
-  .nav{
-    padding:0 14px;
-  }
-
-  .logo{
-    font-size:24px;
-  }
-
-  .hero{
-    min-height:auto;
-    padding:50px 16px 65px;
-  }
-
-  .hero h1{
-    font-size:48px;
-    letter-spacing:-3px;
-  }
-
-  .hero-visual{
-    min-height:350px;
-  }
-
-  .hero-orbit{
-    width:300px;
-    height:300px;
-  }
-
-  .product-stage{
-    width:330px;
-  }
-
-  .trust-inner{
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-  }
-
-  .trust-item{
-    justify-content:flex-start;
-    text-align:left;
-  }
-
-  .section{
-    padding:65px 16px;
-  }
-
-  .section-head{
-    display:block;
-  }
-
-  .section-description{
-    margin-top:10px;
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .product-image{
-    height:350px;
-  }
-
-  .benefits{
-    grid-template-columns:1fr;
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr;
-  }
-
-  .mobile-nav{
-    position:fixed;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    left:0;
-    right:0;
-    bottom:0;
-    height:67px;
-    background:rgba(10,12,17,.95);
-    backdrop-filter:blur(20px);
-    border-top:1px solid var(--line);
-    z-index:4000;
-  }
-
-  .mobile-nav button{
-    border:0;
-    background:none;
-    color:#8d95a5;
-    font-size:10px;
-    font-weight:900;
-  }
-
-  .mobile-nav button span{
-    display:block;
-    font-size:20px;
-    margin-bottom:3px;
-  }
-
-  body{
-    padding-bottom:70px;
-  }
-
+.searchbox{
+  max-width:700px;
+  margin:auto;
 }
 
-/* =========================
-   TOAST
-========================= */
+.searchinput{
+  width:100%;
+  height:60px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:#11151e;
+  color:white;
+  padding:0 18px;
+  outline:0;
+}
+
+.searchresult{
+  margin-top:10px;
+  border:1px solid var(--line);
+  background:#10141c;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.searchrow{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px;
+  border-bottom:1px solid var(--line);
+  cursor:pointer;
+}
+
+.searchrow img{
+  width:55px;
+  height:55px;
+  object-fit:contain;
+  background:#080b10;
+  border-radius:8px;
+}
+
+/* TOAST */
 
 .toast{
   position:fixed;
-  z-index:9999;
   left:50%;
-  bottom:90px;
+  bottom:30px;
   transform:translate(-50%,30px);
-  background:#fff;
+  background:white;
   color:#111;
   padding:13px 18px;
-  border-radius:13px;
+  border-radius:12px;
+  z-index:99999;
   font-size:12px;
-  font-weight:900;
+  font-weight:1000;
   opacity:0;
   pointer-events:none;
   transition:.3s;
-  box-shadow:0 15px 50px rgba(0,0,0,.3);
 }
 
 .toast.show{
@@ -1286,244 +860,348 @@ img{
   transform:translate(-50%,0);
 }
 
+/* MOBILE NAV */
+
+.mobilebar{
+  display:none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .navlinks{
+    display:none;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons,
+  .hero-points{
+    justify-content:center;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .featurebox{
+    grid-template-columns:1fr;
+  }
+
+  .featurevisual{
+    min-height:330px;
+  }
+
+  .reviews{
+    grid-template-columns:1fr;
+  }
+
+  .footerinner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  body{
+    padding-bottom:65px;
+  }
+
+  header{
+    height:64px;
+  }
+
+  .logo{
+    font-size:25px;
+  }
+
+  .hero{
+    padding:45px 15px 60px;
+  }
+
+  .hero h1{
+    font-size:49px;
+    letter-spacing:-3px;
+  }
+
+  .main-image{
+    height:350px;
+  }
+
+  .thumbs{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .thumb{
+    height:65px;
+  }
+
+  .trustinner{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .section{
+    padding:65px 15px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .product-photo{
+    height:350px;
+  }
+
+  .featurecontent{
+    padding:35px 22px;
+  }
+
+  .footerinner{
+    grid-template-columns:1fr;
+  }
+
+  .mobilebar{
+    position:fixed;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    left:0;
+    right:0;
+    bottom:0;
+    height:65px;
+    z-index:7000;
+    background:rgba(8,10,14,.96);
+    border-top:1px solid var(--line);
+    backdrop-filter:blur(20px);
+  }
+
+  .mobilebar button{
+    border:0;
+    background:none;
+    color:#8992a3;
+    font-size:10px;
+    font-weight:bold;
+  }
+
+  .mobilebar span{
+    display:block;
+    font-size:19px;
+    margin-bottom:3px;
+  }
+}
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     LOADER
-========================= -->
+
+<!-- LOADER -->
 
 <div class="loader" id="loader">
 
-  <div class="loader-box">
+  <div>
 
     <div class="loader-logo">
-      GRO <span>Extender</span>
+      GRO<span>.</span>
     </div>
 
-    <div class="loader-line">
+    <div class="loader-bar">
       <i></i>
     </div>
 
-    <small style="color:#747c8c">
+    <div style="
+      text-align:center;
+      color:#737c8b;
+      font-size:10px;
+      letter-spacing:2px;
+    ">
       PREMIUM WELLNESS
-    </small>
+    </div>
 
   </div>
 
 </div>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
-<header class="header">
+<header>
 
-  <nav class="nav">
+<nav class="nav">
 
-    <a href="#home" class="logo">
-      GRO<span>.</span>
-    </a>
+  <a href="#home" class="logo">
+    GRO<span>.</span>
+  </a>
 
-    <div class="nav-links">
+  <div class="navlinks">
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#why">Why GRO</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </div>
 
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#why">Why GRO</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
+  <div class="navright">
 
-    </div>
+    <button class="icon" onclick="openSearch()">
+      ⌕
+    </button>
 
-    <div class="nav-actions">
+    <button class="icon" onclick="openCart()">
 
-      <button
-        class="icon-btn"
-        onclick="openSearch()">
-        ⌕
-      </button>
+      🛒
 
-      <button
-        class="icon-btn"
-        onclick="openCart()">
+      <span class="count" id="count">
+        0
+      </span>
 
-        🛒
+    </button>
 
-        <span
-          class="cart-count"
-          id="cartCount">
-          0
-        </span>
+  </div>
 
-      </button>
-
-    </div>
-
-  </nav>
+</nav>
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
-<main id="home">
+<section class="hero" id="home">
 
-<section class="hero">
+<div>
 
-  <div>
+  <span class="badge">
+    PREMIUM WELLNESS COLLECTION
+  </span>
 
-    <span class="eyebrow">
-      ✦ PREMIUM WELLNESS COLLECTION
+  <h1>
+    Upgrade Your
+    <span>Confidence.</span>
+  </h1>
+
+  <p>
+    Discover GRO's premium collection with a
+    modern, discreet and customer-focused
+    shopping experience.
+  </p>
+
+  <div class="hero-buttons">
+
+    <a
+      href="#shop"
+      class="btn gold">
+      Explore Collection →
+    </a>
+
+    <button
+      class="btn"
+      onclick="openSearch()">
+      Search Products
+    </button>
+
+  </div>
+
+  <div class="hero-points">
+
+    <span>
+      <b>✓</b> Discreet Packaging
     </span>
 
-    <h1>
-      Upgrade Your
-      <span>Confidence.</span>
-    </h1>
+    <span>
+      <b>✓</b> Secure Checkout
+    </span>
 
-    <p class="hero-text">
-      Discover the GRO premium collection —
-      designed around comfort, confidence and
-      a refined personal wellness experience.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a
-        href="#shop"
-        class="btn gold">
-        Explore Collection →
-      </a>
-
-      <button
-        class="btn"
-        onclick="openSearch()">
-        Find Your Product
-      </button>
-
-    </div>
-
-    <div class="hero-proof">
-
-      <div class="proof">
-        <b>✓</b>
-        Discreet Packaging
-      </div>
-
-      <div class="proof">
-        <b>✓</b>
-        Secure Checkout
-      </div>
-
-      <div class="proof">
-        <b>✓</b>
-        Premium Support
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="hero-visual">
-
-    <div class="hero-orbit"></div>
-
-    <div class="product-stage">
-
-      <span class="floating-tag">
-        PREMIUM EDITION
-      </span>
-
-      <img
-        src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=85"
-        alt="GRO Premium Product">
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     TRUST
-========================= -->
-
-<div class="trust">
-
-  <div class="trust-inner">
-
-    <div class="trust-item">
-      🔒
-      <span>
-        <strong>Secure</strong><br>
-        Checkout
-      </span>
-    </div>
-
-    <div class="trust-item">
-      📦
-      <span>
-        <strong>Discreet</strong><br>
-        Packaging
-      </span>
-    </div>
-
-    <div class="trust-item">
-      ⚡
-      <span>
-        <strong>Fast</strong><br>
-        Processing
-      </span>
-    </div>
-
-    <div class="trust-item">
-      💬
-      <span>
-        <strong>Premium</strong><br>
-        Support
-      </span>
-    </div>
+    <span>
+      <b>✓</b> Premium Support
+    </span>
 
   </div>
 
 </div>
 
 
-<!-- =========================
-     SHOP
-========================= -->
+<!-- HERO GALLERY -->
 
-<section
-  class="section"
-  id="shop">
+<div class="hero-gallery">
 
-  <div class="section-head">
+<div class="gallery">
 
-    <div>
+  <div class="main-image">
 
-      <div class="section-kicker">
-        THE COLLECTION
-      </div>
+    <img
+      id="mainProductImage"
+      src="1-771x1024.jpeg"
+      alt="GRO Product">
 
-      <h2 class="section-title">
-        Choose Your GRO.
-      </h2>
-
-    </div>
-
-    <p class="section-description">
-      Explore our premium wellness collection.
-      Select the edition that fits your preference.
-    </p>
+    <button
+      class="zoom"
+      onclick="zoomImage()">
+      ⛶
+    </button>
 
   </div>
+
+
+  <div class="thumbs" id="thumbs"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TRUST -->
+
+<div class="trust">
+
+<div class="trustinner">
+
+  <div class="trustitem">
+    🔒
+    <strong>Secure Checkout</strong>
+  </div>
+
+  <div class="trustitem">
+    📦
+    <strong>Discreet Delivery</strong>
+  </div>
+
+  <div class="trustitem">
+    ⚡
+    <strong>Fast Processing</strong>
+  </div>
+
+  <div class="trustitem">
+    💬
+    <strong>Customer Support</strong>
+  </div>
+
+</div>
+
+</div>
+
+
+<!-- SHOP -->
+
+<section class="section" id="shop">
+
+  <div class="kicker">
+    GRO COLLECTION
+  </div>
+
+  <h2 class="title">
+    Choose Your Edition.
+  </h2>
 
 
   <div class="products">
@@ -1531,51 +1209,40 @@ img{
 
     <!-- PRODUCT 1 -->
 
-    <article class="product-card">
+    <article class="product">
 
-      <div class="product-image">
+      <div class="product-photo">
 
-        <span class="badge">
+        <span class="product-label">
           BESTSELLER
         </span>
 
-        <button
-          class="heart"
-          onclick="toggleWish(this)">
-          ♡
-        </button>
-
         <img
-          src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=85"
+          src="1-771x1024.jpeg"
           alt="GRO Classic">
 
       </div>
 
-      <div class="product-info">
+      <div class="product-body">
 
-        <div class="product-category">
+        <div class="category">
           GRO COLLECTION
         </div>
 
-        <div class="product-name">
+        <h3>
           GRO Classic
-        </div>
+        </h3>
 
-        <div class="product-desc">
-          Premium entry edition with a
-          clean and refined design.
-        </div>
+        <p>
+          Premium collection edition with
+          a refined and discreet presentation.
+        </p>
 
-        <div class="rating">
-
-          <span class="stars">
-            ★★★★★
-          </span>
-
-          <span>
+        <div class="stars">
+          ★★★★★
+          <span style="color:#7e8796">
             4.9 · 128 reviews
           </span>
-
         </div>
 
         <div class="price-row">
@@ -1586,7 +1253,7 @@ img{
               ₹2,999
             </span>
 
-            <span class="old-price">
+            <span class="old">
               ₹3,999
             </span>
 
@@ -1598,21 +1265,13 @@ img{
 
         </div>
 
-        <div class="buy-row">
+        <button
+          class="add"
+          onclick="addToCart('GRO Classic',2999,'1-771x1024.jpeg')">
 
-          <button
-            class="buy"
-            onclick="addProduct('GRO Classic',2999)">
-            Add to Cart
-          </button>
+          Add to Cart
 
-          <button
-            class="quick"
-            onclick="quickBuy('GRO Classic',2999)">
-            ⚡
-          </button>
-
-        </div>
+        </button>
 
       </div>
 
@@ -1621,51 +1280,40 @@ img{
 
     <!-- PRODUCT 2 -->
 
-    <article class="product-card">
+    <article class="product">
 
-      <div class="product-image">
+      <div class="product-photo">
 
-        <span class="badge">
+        <span class="product-label">
           PREMIUM
         </span>
 
-        <button
-          class="heart"
-          onclick="toggleWish(this)">
-          ♡
-        </button>
-
         <img
-          src="https://images.unsplash.com/photo-1616628182508-28f2f0d6b7ef?auto=format&fit=crop&w=900&q=85"
+          src="ProExtender-Ultima....jpg"
           alt="GRO Pro">
 
       </div>
 
-      <div class="product-info">
+      <div class="product-body">
 
-        <div class="product-category">
+        <div class="category">
           GRO COLLECTION
         </div>
 
-        <div class="product-name">
+        <h3>
           GRO Pro
-        </div>
+        </h3>
 
-        <div class="product-desc">
-          Premium edition with an upgraded
-          experience and refined finish.
-        </div>
+        <p>
+          Premium edition presented with
+          a clean luxury shopping experience.
+        </p>
 
-        <div class="rating">
-
-          <span class="stars">
-            ★★★★★
-          </span>
-
-          <span>
+        <div class="stars">
+          ★★★★★
+          <span style="color:#7e8796">
             4.9 · 86 reviews
           </span>
-
         </div>
 
         <div class="price-row">
@@ -1676,7 +1324,7 @@ img{
               ₹3,499
             </span>
 
-            <span class="old-price">
+            <span class="old">
               ₹4,499
             </span>
 
@@ -1688,21 +1336,13 @@ img{
 
         </div>
 
-        <div class="buy-row">
+        <button
+          class="add"
+          onclick="addToCart('GRO Pro',3499,'ProExtender-Ultima....jpg')">
 
-          <button
-            class="buy"
-            onclick="addProduct('GRO Pro',3499)">
-            Add to Cart
-          </button>
+          Add to Cart
 
-          <button
-            class="quick"
-            onclick="quickBuy('GRO Pro',3499)">
-            ⚡
-          </button>
-
-        </div>
+        </button>
 
       </div>
 
@@ -1711,51 +1351,40 @@ img{
 
     <!-- PRODUCT 3 -->
 
-    <article class="product-card">
+    <article class="product">
 
-      <div class="product-image">
+      <div class="product-photo">
 
-        <span class="badge">
+        <span class="product-label">
           NEW
         </span>
 
-        <button
-          class="heart"
-          onclick="toggleWish(this)">
-          ♡
-        </button>
-
         <img
-          src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85"
+          src="pro-extender-silico....jpg"
           alt="GRO Max">
 
       </div>
 
-      <div class="product-info">
+      <div class="product-body">
 
-        <div class="product-category">
+        <div class="category">
           GRO COLLECTION
         </div>
 
-        <div class="product-name">
+        <h3>
           GRO Max
-        </div>
+        </h3>
 
-        <div class="product-desc">
-          Our flagship edition for customers
+        <p>
+          Flagship presentation for customers
           looking for the premium collection.
-        </div>
+        </p>
 
-        <div class="rating">
-
-          <span class="stars">
-            ★★★★★
-          </span>
-
-          <span>
+        <div class="stars">
+          ★★★★★
+          <span style="color:#7e8796">
             5.0 · 54 reviews
           </span>
-
         </div>
 
         <div class="price-row">
@@ -1766,7 +1395,7 @@ img{
               ₹4,499
             </span>
 
-            <span class="old-price">
+            <span class="old">
               ₹5,499
             </span>
 
@@ -1778,21 +1407,13 @@ img{
 
         </div>
 
-        <div class="buy-row">
+        <button
+          class="add"
+          onclick="addToCart('GRO Max',4499,'pro-extender-silico....jpg')">
 
-          <button
-            class="buy"
-            onclick="addProduct('GRO Max',4499)">
-            Add to Cart
-          </button>
+          Add to Cart
 
-          <button
-            class="quick"
-            onclick="quickBuy('GRO Max',4499)">
-            ⚡
-          </button>
-
-        </div>
+        </button>
 
       </div>
 
@@ -1803,252 +1424,155 @@ img{
 </section>
 
 
-<!-- =========================
-     FEATURE
-========================= -->
+<!-- FEATURE -->
 
-<section
-  class="feature"
-  id="why">
+<section class="feature" id="why">
 
-  <div class="feature-box">
+<div class="featurebox">
 
-    <div class="feature-content">
+  <div class="featurecontent">
 
-      <div class="section-kicker">
-        WHY GRO
-      </div>
-
-      <h2>
-        Designed for a
-        premium experience.
-      </h2>
-
-      <p>
-        GRO combines a modern aesthetic,
-        discreet shopping experience and
-        customer-focused service in one
-        premium storefront.
-      </p>
-
-      <div class="feature-points">
-
-        <div class="feature-point">
-          <i>✓</i>
-          Discreet delivery experience
-        </div>
-
-        <div class="feature-point">
-          <i>✓</i>
-          Secure checkout experience
-        </div>
-
-        <div class="feature-point">
-          <i>✓</i>
-          Mobile-first shopping
-        </div>
-
-        <div class="feature-point">
-          <i>✓</i>
-          Dedicated customer support
-        </div>
-
-      </div>
-
+    <div class="kicker">
+      THE GRO STANDARD
     </div>
 
-    <div class="feature-image">
+    <h2>
+      Premium from
+      every angle.
+    </h2>
 
-      <img
-        src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85"
-        alt="Premium GRO">
+    <p>
+      A modern storefront designed to make
+      product discovery simple, private and
+      professional.
+    </p>
+
+    <div class="features">
+
+      <div class="featureitem">
+        <span>✓</span>
+        Discreet shopping experience
+      </div>
+
+      <div class="featureitem">
+        <span>✓</span>
+        Mobile-first design
+      </div>
+
+      <div class="featureitem">
+        <span>✓</span>
+        Fast product discovery
+      </div>
+
+      <div class="featureitem">
+        <span>✓</span>
+        Simple cart experience
+      </div>
 
     </div>
 
   </div>
 
+
+  <div class="featurevisual">
+
+    <img
+      src="1786345458920.jpg"
+      alt="GRO Premium">
+
+  </div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
-     BENEFITS
-========================= -->
+<!-- PRODUCT GALLERY -->
 
 <section class="section">
 
-  <div class="section-head">
-
-    <div>
-
-      <div class="section-kicker">
-        THE GRO STANDARD
-      </div>
-
-      <h2 class="section-title">
-        Built around you.
-      </h2>
-
-    </div>
-
+  <div class="kicker">
+    PRODUCT GALLERY
   </div>
 
-
-  <div class="benefits">
-
-    <div class="benefit">
-
-      <div class="benefit-icon">
-        🔐
-      </div>
-
-      <h3>
-        Privacy First
-      </h3>
-
-      <p>
-        A discreet shopping experience
-        from browsing to delivery.
-      </p>
-
-    </div>
+  <h2 class="title">
+    Explore Every Detail.
+  </h2>
 
 
-    <div class="benefit">
-
-      <div class="benefit-icon">
-        📦
-      </div>
-
-      <h3>
-        Discreet Delivery
-      </h3>
-
-      <p>
-        Customer-focused packaging
-        and delivery experience.
-      </p>
-
-    </div>
-
-
-    <div class="benefit">
-
-      <div class="benefit-icon">
-        ⚡
-      </div>
-
-      <h3>
-        Easy Shopping
-      </h3>
-
-      <p>
-        Fast product discovery and
-        simple checkout flow.
-      </p>
-
-    </div>
-
-
-    <div class="benefit">
-
-      <div class="benefit-icon">
-        💬
-      </div>
-
-      <h3>
-        Human Support
-      </h3>
-
-      <p>
-        Get help whenever you need
-        assistance with your order.
-      </p>
-
-    </div>
-
+  <div
+    class="products"
+    id="allPhotos">
   </div>
 
 </section>
 
 
-<!-- =========================
-     REVIEWS
-========================= -->
+<!-- REVIEWS -->
 
-<section
-  class="section"
-  id="reviews">
+<section class="section" id="reviews">
 
-  <div class="section-head">
-
-    <div>
-
-      <div class="section-kicker">
-        CUSTOMER EXPERIENCE
-      </div>
-
-      <h2 class="section-title">
-        Loved by customers.
-      </h2>
-
-    </div>
-
+  <div class="kicker">
+    CUSTOMER EXPERIENCE
   </div>
+
+  <h2 class="title">
+    Loved by customers.
+  </h2>
 
 
   <div class="reviews">
 
     <div class="review">
 
-      <div class="review-stars">
+      <div class="stars">
         ★★★★★
       </div>
 
-      <p class="review-text">
-        “The website was very easy to use
-        and the whole ordering experience
-        felt private and professional.”
+      <p>
+        “Very clean website and easy
+        ordering experience.”
       </p>
 
-      <div class="reviewer">
+      <small>
         Verified Customer
-      </div>
+      </small>
 
     </div>
 
 
     <div class="review">
 
-      <div class="review-stars">
+      <div class="stars">
         ★★★★★
       </div>
 
-      <p class="review-text">
-        “Clean packaging, smooth ordering
-        and good customer communication.”
+      <p>
+        “The product gallery makes it
+        very easy to see everything.”
       </p>
 
-      <div class="reviewer">
+      <small>
         Verified Customer
-      </div>
+      </small>
 
     </div>
 
 
     <div class="review">
 
-      <div class="review-stars">
+      <div class="stars">
         ★★★★★
       </div>
 
-      <p class="review-text">
-        “The mobile experience is excellent.
-        Everything was simple and clear.”
+      <p>
+        “Smooth mobile experience and
+        discreet shopping flow.”
       </p>
 
-      <div class="reviewer">
+      <small>
         Verified Customer
-      </div>
+      </small>
 
     </div>
 
@@ -2057,98 +1581,79 @@ img{
 </section>
 
 
-<!-- =========================
-     FAQ
-========================= -->
+<!-- FAQ -->
 
-<section
-  class="section"
-  id="faq">
+<section class="section" id="faq">
 
-  <div class="section-head">
-
-    <div>
-
-      <div class="section-kicker">
-        SUPPORT
-      </div>
-
-      <h2 class="section-title">
-        Frequently asked.
-      </h2>
-
-    </div>
-
+  <div class="kicker">
+    SUPPORT
   </div>
+
+  <h2 class="title">
+    Frequently Asked.
+  </h2>
 
 
   <div class="faq">
 
-    <div class="faq-item">
+    <div class="faqitem">
 
       <button
-        class="faq-q"
-        onclick="faq(this)">
+        class="faqq"
+        onclick="toggleFaq(this)">
+
         Is the packaging discreet?
+
         <span>＋</span>
+
       </button>
 
-      <div class="faq-a">
-        Orders can be prepared with a
-        discreet delivery experience.
+      <div class="faqqa">
+        The store can use discreet packaging
+        and shipping labels according to the
+        fulfilment setup.
       </div>
 
     </div>
 
 
-    <div class="faq-item">
+    <div class="faqitem">
 
       <button
-        class="faq-q"
-        onclick="faq(this)">
-        What payment options are available?
+        class="faqq"
+        onclick="toggleFaq(this)">
+
+        How do I place an order?
+
         <span>＋</span>
+
       </button>
 
-      <div class="faq-a">
-        Payment methods can be configured
-        according to the payment provider
-        connected to the store.
+      <div class="faqqa">
+        Select a product, add it to your cart,
+        review the order and continue to the
+        configured checkout process.
       </div>
 
     </div>
 
 
-    <div class="faq-item">
+    <div class="faqitem">
 
       <button
-        class="faq-q"
-        onclick="faq(this)">
-        How can I track my order?
-        <span>＋</span>
-      </button>
+        class="faqq"
+        onclick="toggleFaq(this)">
 
-      <div class="faq-a">
-        After an order is created, the store
-        can provide an order reference for
-        tracking and customer support.
-      </div>
-
-    </div>
-
-
-    <div class="faq-item">
-
-      <button
-        class="faq-q"
-        onclick="faq(this)">
         How can I contact support?
+
         <span>＋</span>
+
       </button>
 
-      <div class="faq-a">
-        Use the customer support channel
-        configured for your store.
+      <div class="faqqa">
+        Add your official customer-support
+        WhatsApp number or support system
+        in the checkout configuration.
       </div>
 
     </div>
@@ -2157,105 +1662,97 @@ img{
 
 </section>
 
-</main>
 
+<!-- FOOTER -->
 
-<!-- =========================
-     FOOTER
-========================= -->
+<footer>
 
-<footer class="footer">
+<div class="footerinner">
 
-  <div class="footer-inner">
+  <div>
 
-    <div>
-
-      <div class="logo">
-        GRO<span>.</span>
-      </div>
-
-      <p>
-        Premium personal wellness shopping
-        with a modern, discreet and
-        customer-first experience.
-      </p>
-
+    <div class="logo">
+      GRO<span>.</span>
     </div>
 
-
-    <div>
-
-      <h4>Shop</h4>
-
-      <a href="#shop">
-        GRO Classic
-      </a>
-
-      <a href="#shop">
-        GRO Pro
-      </a>
-
-      <a href="#shop">
-        GRO Max
-      </a>
-
-    </div>
-
-
-    <div>
-
-      <h4>Company</h4>
-
-      <a href="#why">
-        Why GRO
-      </a>
-
-      <a href="#reviews">
-        Reviews
-      </a>
-
-      <a href="#faq">
-        FAQ
-      </a>
-
-    </div>
-
-
-    <div>
-
-      <h4>Support</h4>
-
-      <a href="#">
-        Privacy
-      </a>
-
-      <a href="#">
-        Terms
-      </a>
-
-      <a href="#">
-        Contact
-      </a>
-
-    </div>
+    <p>
+      Premium wellness commerce with
+      a modern, discreet and customer-first
+      shopping experience.
+    </p>
 
   </div>
 
 
-  <div class="copyright">
+  <div>
 
-    © 2026 GRO. All rights reserved.
+    <h4>Shop</h4>
+
+    <a href="#shop">
+      GRO Classic
+    </a>
+
+    <a href="#shop">
+      GRO Pro
+    </a>
+
+    <a href="#shop">
+      GRO Max
+    </a>
 
   </div>
+
+
+  <div>
+
+    <h4>Company</h4>
+
+    <a href="#why">
+      Why GRO
+    </a>
+
+    <a href="#reviews">
+      Reviews
+    </a>
+
+    <a href="#faq">
+      FAQ
+    </a>
+
+  </div>
+
+
+  <div>
+
+    <h4>Support</h4>
+
+    <a href="#">
+      Privacy
+    </a>
+
+    <a href="#">
+      Terms
+    </a>
+
+    <a href="#">
+      Contact
+    </a>
+
+  </div>
+
+</div>
+
+
+<div class="copy">
+  © 2026 GRO. All rights reserved.
+</div>
 
 </footer>
 
 
-<!-- =========================
-     MOBILE NAV
-========================= -->
+<!-- MOBILE NAV -->
 
-<nav class="mobile-nav">
+<div class="mobilebar">
 
   <button onclick="location.href='#home'">
     <span>⌂</span>
@@ -2277,31 +1774,26 @@ img{
     Cart
   </button>
 
-</nav>
+</div>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
+<!-- SEARCH -->
 
 <div
-  class="search-overlay"
-  id="searchOverlay"
-  onclick="closeSearch(event)">
+  class="search"
+  id="search">
 
-  <div
-    class="search-box"
-    onclick="event.stopPropagation()">
+  <div class="searchbox">
 
     <input
-      class="search-input"
+      class="searchinput"
       id="searchInput"
-      placeholder="Search GRO products..."
-      oninput="searchProducts(this.value)">
+      placeholder="Search GRO..."
+      oninput="searchProduct(this.value)">
 
     <div
-      class="search-results"
-      id="searchResults">
+      class="searchresult"
+      id="searchResult">
     </div>
 
   </div>
@@ -2309,27 +1801,22 @@ img{
 </div>
 
 
-<!-- =========================
-     CART DRAWER
-========================= -->
+<!-- CART -->
 
 <div
-  class="drawer-bg"
-  id="drawerBg"
-  onclick="closeCart(event)">
+  class="overlay"
+  id="cartOverlay">
 
-  <aside
-    class="drawer"
-    onclick="event.stopPropagation()">
+  <div class="cart">
 
-    <div class="drawer-head">
+    <div class="carthead">
 
       <h2>
         Your Cart
       </h2>
 
       <button
-        class="icon-btn"
+        class="icon"
         onclick="closeCart()">
         ×
       </button>
@@ -2338,20 +1825,20 @@ img{
 
 
     <div
-      class="drawer-body"
-      id="cartItems">
+      class="cartbody"
+      id="cartBody">
     </div>
 
 
-    <div class="drawer-footer">
+    <div class="cartfooter">
 
-      <div class="total-row">
+      <div class="total">
 
         <span>
           Total
         </span>
 
-        <span id="cartTotal">
+        <span id="total">
           ₹0
         </span>
 
@@ -2367,14 +1854,32 @@ img{
 
     </div>
 
-  </aside>
+  </div>
 
 </div>
 
 
-<!-- =========================
-     TOAST
-========================= -->
+<!-- ZOOM -->
+
+<div
+  class="search"
+  id="zoomLayer"
+  onclick="closeZoom()">
+
+  <img
+    id="zoomImage"
+    style="
+      max-width:92%;
+      max-height:88vh;
+      margin:auto;
+      display:block;
+      object-fit:contain;
+    ">
+
+</div>
+
+
+<!-- TOAST -->
 
 <div
   class="toast"
@@ -2384,117 +1889,215 @@ img{
 
 <script>
 
-/* =========================================================
-   GRO — FRONTEND COMMERCE ENGINE
-========================================================= */
+/* ==========================================
+   YOUR PRODUCT IMAGES
+========================================== */
 
-const products=[
-  {
-    name:"GRO Classic",
-    price:2999,
-    image:"https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=85"
-  },
-  {
-    name:"GRO Pro",
-    price:3499,
-    image:"https://images.unsplash.com/photo-1616628182508-28f2f0d6b7ef?auto=format&fit=crop&w=900&q=85"
-  },
-  {
-    name:"GRO Max",
-    price:4499,
-    image:"https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85"
-  }
+const productImages=[
+
+  "1-771x1024.jpeg",
+
+  "1786345458920.jpg",
+
+  "1786345463485.jpg",
+
+  "1786345468000.jpg",
+
+  "1786345486761.jpg",
+
+  "41vPiGys9FL._AC_....jpg",
+
+  "51QvTFiepcL._AC_....jpg",
+
+  "Gemini_Generated_....jpg",
+
+  "Gemini_Generated_....jpg",
+
+  "Gemini_Generated_....jpg",
+
+  "Gemini_Generated_....jpg",
+
+  "ProExtender-Ultima....jpg",
+
+  "ProExtender-Ultima....jpg",
+
+  "Screenshot_20260....jpg",
+
+  "pro-extender-penis-....jpg",
+
+  "pro-extender-silico....jpg"
+
 ];
 
 
-let cart=
-  JSON.parse(
-    localStorage.getItem("gro_cart")||"[]"
-  );
+/* ==========================================
+   THUMBNAILS
+========================================== */
 
+const thumbs=
+  document.getElementById("thumbs");
 
-/* =========================
-   LOADER
-========================= */
+productImages.forEach(
+  (image,index)=>{
 
-window.addEventListener(
-  "load",
-  ()=>{
-    setTimeout(()=>{
+    const button=
+      document.createElement("button");
+
+    button.className=
+      "thumb"+
+      (index===0?" active":"");
+
+    button.innerHTML=`
+      <img src="${image}">
+    `;
+
+    button.onclick=()=>{
+
       document
-        .getElementById("loader")
-        .classList.add("hide");
-    },700);
+        .querySelectorAll(".thumb")
+        .forEach(
+          x=>x.classList.remove("active")
+        );
+
+      button.classList.add("active");
+
+      document
+        .getElementById("mainProductImage")
+        .src=image;
+
+    };
+
+    thumbs.appendChild(button);
+
   }
 );
 
 
-/* =========================
-   TOAST
-========================= */
+/* ==========================================
+   FULL PRODUCT PHOTO GRID
+========================================== */
 
-function toast(message){
+const allPhotos=
+  document.getElementById("allPhotos");
 
-  const el=
-    document.getElementById("toast");
+productImages.forEach(
+  (image,index)=>{
 
-  el.textContent=message;
+    const card=
+      document.createElement("article");
 
-  el.classList.add("show");
+    card.className="product";
 
-  clearTimeout(window.toastTimer);
+    card.innerHTML=`
 
-  window.toastTimer=
-    setTimeout(()=>{
-      el.classList.remove("show");
-    },2400);
-}
+      <div class="product-photo">
+
+        <span class="product-label">
+          PHOTO ${index+1}
+        </span>
+
+        <img
+          src="${image}"
+          alt="GRO Product ${index+1}"
+          onclick="openZoom('${image}')">
+
+      </div>
+
+      <div class="product-body">
+
+        <div class="category">
+          GRO GALLERY
+        </div>
+
+        <h3>
+          GRO Product View ${index+1}
+        </h3>
+
+        <p>
+          Premium product gallery image.
+        </p>
+
+        <button
+          class="add"
+          onclick="selectImage('${image}')">
+
+          View Product
+
+        </button>
+
+      </div>
+
+    `;
+
+    allPhotos.appendChild(card);
+
+  }
+);
 
 
-/* =========================
-   CART SAVE
-========================= */
+/* ==========================================
+   LOADER
+========================================== */
+
+window.addEventListener(
+  "load",
+  ()=>{
+    setTimeout(
+      ()=>{
+        document
+          .getElementById("loader")
+          .classList.add("hide");
+      },
+      700
+    );
+  }
+);
+
+
+/* ==========================================
+   CART
+========================================== */
+
+let cart=
+  JSON.parse(
+    localStorage.getItem("GRO_CART")||"[]"
+  );
+
 
 function saveCart(){
 
   localStorage.setItem(
-    "gro_cart",
+    "GRO_CART",
     JSON.stringify(cart)
   );
 
-  updateCartCount();
+  updateCount();
 
 }
 
 
-/* =========================
-   ADD PRODUCT
-========================= */
+function addToCart(
+  name,
+  price,
+  image
+){
 
-function addProduct(name,price){
-
-  const existing=
+  const item=
     cart.find(
-      item=>item.name===name
+      x=>x.name===name
     );
 
-  if(existing){
+  if(item){
 
-    existing.qty++;
+    item.qty++;
 
   }else{
-
-    const product=
-      products.find(
-        p=>p.name===name
-      );
 
     cart.push({
       name,
       price,
-      qty:1,
-      image:product?
-        product.image:""
+      image,
+      qty:1
     });
 
   }
@@ -2504,68 +2107,43 @@ function addProduct(name,price){
   renderCart();
 
   toast(
-    "✓ "+name+" added to your cart"
+    "✓ Added to cart"
   );
 
 }
 
 
-/* =========================
-   QUICK BUY
-========================= */
+function updateCount(){
 
-function quickBuy(name,price){
-
-  cart=[];
-
-  addProduct(
-    name,
-    price
-  );
-
-  openCart();
-
-}
-
-
-/* =========================
-   CART COUNT
-========================= */
-
-function updateCartCount(){
-
-  const total=
+  const count=
     cart.reduce(
-      (sum,item)=>sum+item.qty,
+      (sum,item)=>
+        sum+item.qty,
       0
     );
 
   document
-    .getElementById("cartCount")
-    .textContent=total;
+    .getElementById("count")
+    .textContent=count;
 
 }
 
 
-/* =========================
-   RENDER CART
-========================= */
-
 function renderCart(){
 
-  const container=
+  const body=
     document.getElementById(
-      "cartItems"
+      "cartBody"
     );
 
   if(!cart.length){
 
-    container.innerHTML=`
+    body.innerHTML=`
 
       <div style="
         text-align:center;
-        padding:70px 15px;
-        color:#7d8595;
+        padding:70px 10px;
+        color:#788191;
       ">
 
         <div style="
@@ -2575,23 +2153,24 @@ function renderCart(){
           🛒
         </div>
 
-        <h3 style="
-          color:#fff;
-          margin-bottom:8px;
+        <strong style="
+          color:white;
+          display:block;
+          margin-bottom:7px;
         ">
           Your cart is empty
-        </h3>
+        </strong>
 
-        <p style="font-size:12px">
-          Add something from the collection.
-        </p>
+        <small>
+          Add products from the collection.
+        </small>
 
       </div>
 
     `;
 
     document
-      .getElementById("cartTotal")
+      .getElementById("total")
       .textContent="₹0";
 
     return;
@@ -2599,23 +2178,22 @@ function renderCart(){
   }
 
 
-  container.innerHTML=
+  body.innerHTML=
     cart.map(
       (item,index)=>`
 
-      <div class="cart-item">
+      <div class="cartitem">
 
         <img
-          src="${item.image}"
-          alt="${item.name}">
+          src="${item.image}">
 
         <div>
 
-          <div class="cart-name">
+          <div class="cartname">
             ${item.name}
           </div>
 
-          <div class="cart-price">
+          <div class="cartprice">
             ₹${item.price.toLocaleString("en-IN")}
           </div>
 
@@ -2640,16 +2218,13 @@ function renderCart(){
         </div>
 
         <button
+          onclick="removeCart(${index})"
           style="
-            border:0;
             background:none;
-            color:#777f8e;
-            font-size:18px;
-          "
-          onclick="removeItem(${index})">
-
+            border:0;
+            color:#777;
+          ">
           ×
-
         </button>
 
       </div>
@@ -2667,20 +2242,17 @@ function renderCart(){
 
 
   document
-    .getElementById("cartTotal")
+    .getElementById("total")
     .textContent=
-      "₹"+total.toLocaleString("en-IN");
+      "₹"+
+      total.toLocaleString("en-IN");
 
 }
 
 
-/* =========================
-   QUANTITY
-========================= */
+function changeQty(index,value){
 
-function changeQty(index,amount){
-
-  cart[index].qty+=amount;
+  cart[index].qty+=value;
 
   if(cart[index].qty<=0){
 
@@ -2695,14 +2267,7 @@ function changeQty(index,amount){
 }
 
 
-/* =========================
-   REMOVE
-========================= */
-
-function removeItem(index){
-
-  const name=
-    cart[index].name;
+function removeCart(index){
 
   cart.splice(index,1);
 
@@ -2710,86 +2275,98 @@ function removeItem(index){
 
   renderCart();
 
-  toast(
-    name+" removed"
-  );
-
 }
 
 
-/* =========================
-   CART DRAWER
-========================= */
+/* ==========================================
+   CART OPEN/CLOSE
+========================================== */
 
 function openCart(){
 
   renderCart();
 
   document
-    .getElementById("drawerBg")
+    .getElementById("cartOverlay")
     .classList.add("show");
 
 }
 
 
-function closeCart(event){
-
-  if(
-    event &&
-    event.target!==event.currentTarget
-  )return;
+function closeCart(){
 
   document
-    .getElementById("drawerBg")
+    .getElementById("cartOverlay")
     .classList.remove("show");
 
 }
 
 
-/* =========================
+document
+  .getElementById("cartOverlay")
+  .addEventListener(
+    "click",
+    function(e){
+
+      if(e.target===this){
+
+        closeCart();
+
+      }
+
+    }
+  );
+
+
+/* ==========================================
    SEARCH
-========================= */
+========================================== */
 
 function openSearch(){
 
   document
-    .getElementById("searchOverlay")
+    .getElementById("search")
     .classList.add("show");
 
-  setTimeout(()=>{
-    document
-      .getElementById("searchInput")
-      .focus();
-  },100);
+  setTimeout(
+    ()=>{
+      document
+        .getElementById("searchInput")
+        .focus();
+    },
+    100
+  );
 
 }
 
 
-function closeSearch(event){
+document
+  .getElementById("search")
+  .addEventListener(
+    "click",
+    function(e){
 
-  if(
-    event &&
-    event.target.id!=="searchOverlay"
-  )return;
+      if(e.target===this){
 
-  document
-    .getElementById("searchOverlay")
-    .classList.remove("show");
+        this.classList.remove("show");
 
-}
+      }
+
+    }
+  );
 
 
-function searchProducts(value){
+function searchProduct(value){
 
-  const query=
-    value.trim().toLowerCase();
+  const q=
+    value.toLowerCase().trim();
 
   const result=
     document.getElementById(
-      "searchResults"
+      "searchResult"
     );
 
-  if(!query){
+  if(!q){
 
     result.innerHTML="";
 
@@ -2797,131 +2374,109 @@ function searchProducts(value){
 
   }
 
+  result.innerHTML=`
 
-  const matches=
-    products.filter(
-      p=>
-        p.name
-          .toLowerCase()
-          .includes(query)
-    );
+    <div class="searchrow">
 
+      <img
+        src="${productImages[0]}">
 
-  if(!matches.length){
+      <div>
 
-    result.innerHTML=`
+        <strong>
+          GRO Premium Collection
+        </strong>
 
-      <div style="
-        padding:25px;
-        color:#858d9c;
-        text-align:center;
-      ">
-        No products found.
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  result.innerHTML=
-    matches.map(
-      p=>`
-
-      <div
-        class="search-result"
-        onclick="
-          addProduct(
-            '${p.name}',
-            ${p.price}
-          );
-          closeSearch();
-          openCart();
+        <div style="
+          color:#8992a3;
+          margin-top:5px;
+          font-size:11px;
         ">
-
-        <img
-          src="${p.image}"
-          alt="${p.name}">
-
-        <div>
-
-          <strong>
-            ${p.name}
-          </strong>
-
-          <small>
-            ₹${p.price.toLocaleString("en-IN")}
-          </small>
-
+          Premium product
         </div>
 
       </div>
 
-      `
-    ).join("");
+    </div>
+
+  `;
 
 }
 
 
-/* =========================
-   WISHLIST
-========================= */
+/* ==========================================
+   IMAGE ZOOM
+========================================== */
 
-function toggleWish(button){
+function zoomImage(){
 
-  const active=
-    button.dataset.active==="1";
+  const image=
+    document.getElementById(
+      "mainProductImage"
+    ).src;
 
-  if(active){
-
-    button.dataset.active="0";
-
-    button.textContent="♡";
-
-    toast(
-      "Removed from wishlist"
-    );
-
-  }else{
-
-    button.dataset.active="1";
-
-    button.textContent="♥";
-
-    button.style.color="#fb7185";
-
-    toast(
-      "♥ Added to wishlist"
-    );
-
-  }
+  openZoom(image);
 
 }
 
 
-/* =========================
-   FAQ
-========================= */
-
-function faq(button){
-
-  const item=
-    button.closest(".faq-item");
-
-  const wasOpen=
-    item.classList.contains("open");
-
+function openZoom(image){
 
   document
-    .querySelectorAll(".faq-item")
+    .getElementById("zoomImage")
+    .src=image;
+
+  document
+    .getElementById("zoomLayer")
+    .classList.add("show");
+
+}
+
+
+function closeZoom(){
+
+  document
+    .getElementById("zoomLayer")
+    .classList.remove("show");
+
+}
+
+
+function selectImage(image){
+
+  document
+    .getElementById(
+      "mainProductImage"
+    )
+    .src=image;
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ==========================================
+   FAQ
+========================================== */
+
+function toggleFaq(button){
+
+  const item=
+    button.closest(".faqitem");
+
+  const open=
+    item.classList.contains("open");
+
+  document
+    .querySelectorAll(".faqitem")
     .forEach(
       x=>x.classList.remove("open")
     );
 
-
-  if(!wasOpen){
+  if(!open){
 
     item.classList.add("open");
 
@@ -2930,9 +2485,35 @@ function faq(button){
 }
 
 
-/* =========================
+/* ==========================================
+   TOAST
+========================================== */
+
+function toast(message){
+
+  const t=
+    document.getElementById("toast");
+
+  t.textContent=message;
+
+  t.classList.add("show");
+
+  clearTimeout(window.tt);
+
+  window.tt=
+    setTimeout(
+      ()=>{
+        t.classList.remove("show");
+      },
+      2200
+    );
+
+}
+
+
+/* ==========================================
    CHECKOUT
-========================= */
+========================================== */
 
 function checkout(){
 
@@ -2956,48 +2537,55 @@ function checkout(){
 
 
   const orderId=
-    "GRO-"+
-
+    "GRO"+
     Date.now()
       .toString()
       .slice(-8);
 
 
-  const message=
-`
+  const message=`
+
 GRO ORDER REQUEST
 
 Order ID: ${orderId}
 
 ${cart.map(
   x=>
-  `${x.name} × ${x.qty} = ₹${(
-    x.price*x.qty
-  ).toLocaleString("en-IN")}`
+  x.name+
+  " × "+
+  x.qty+
+  " = ₹"+
+  (x.price*x.qty)
+    .toLocaleString("en-IN")
 ).join("\n")}
 
 ----------------------
 
-Total:
-₹${total.toLocaleString("en-IN")}
+TOTAL: ₹${total.toLocaleString("en-IN")}
 
-Please contact me regarding checkout.
+Please confirm my order.
+
 `;
 
 
   /*
-    এখানে নিজের official WhatsApp number বসাবে।
-    Example:
-    919876543210
+  =========================================
+  নিজের WhatsApp Business Number বসাও
+  =========================================
+
+  Example:
+  919876543210
+
+  =========================================
   */
 
-  const whatsapp=
+  const whatsappNumber=
     "919999999999";
 
 
   const url=
     "https://wa.me/"+
-    whatsapp+
+    whatsappNumber+
     "?text="+
     encodeURIComponent(message);
 
@@ -3010,9 +2598,9 @@ Please contact me regarding checkout.
 }
 
 
-/* =========================
-   ESCAPE
-========================= */
+/* ==========================================
+   ESC KEY
+========================================== */
 
 document.addEventListener(
   "keydown",
@@ -3021,16 +2609,14 @@ document.addEventListener(
     if(e.key==="Escape"){
 
       document
-        .getElementById(
-          "searchOverlay"
-        )
+        .getElementById("search")
         .classList.remove("show");
 
       document
-        .getElementById(
-          "drawerBg"
-        )
+        .getElementById("zoomLayer")
         .classList.remove("show");
+
+      closeCart();
 
     }
 
@@ -3038,15 +2624,15 @@ document.addEventListener(
 );
 
 
-/* =========================
-   INITIALIZE
-========================= */
+/* ==========================================
+   INIT
+========================================== */
 
-updateCartCount();
+updateCount();
 
 renderCart();
 
 </script>
 
 </body>
-  </html>
+</html>
