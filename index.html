@@ -36,16 +36,60 @@ body{
     var(--bg);
   color:var(--white);
   font-family:Inter,Arial,sans-serif;
+  position:relative;
 }
 
 button,
 input,
-textarea{
+textarea,
+select{
   font:inherit;
 }
 
 button{
   cursor:pointer;
+}
+
+/* ================= FLOATING CONTACT ICONS ================= */
+.floating-contact {
+  position: fixed;
+  bottom: 85px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.float-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+
+.float-btn:hover {
+  transform: scale(1.1);
+}
+
+.float-btn.whatsapp {
+  background: #25D366;
+}
+
+.float-btn.call {
+  background: #007bff;
+}
+
+.float-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
 }
 
 /* ================= HEADER ================= */
@@ -85,6 +129,7 @@ button{
   font-size:29px;
   font-weight:1000;
   letter-spacing:-2px;
+  cursor:pointer;
 }
 
 .logo span{
@@ -140,6 +185,14 @@ button{
   border-radius:50px;
   font-size:10px;
   font-weight:1000;
+}
+
+/* ================= PAGES ================= */
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
 }
 
 /* ================= HERO ================= */
@@ -733,7 +786,8 @@ footer{
 }
 
 .field input,
-.field textarea{
+.field textarea,
+.field select{
   width:100%;
   background:#151922;
   color:white;
@@ -741,6 +795,11 @@ footer{
   border-radius:9px;
   padding:12px;
   outline:none;
+}
+
+.field select option {
+  background: #151922;
+  color: white;
 }
 
 .field textarea{
@@ -969,6 +1028,16 @@ footer{
 
 <body>
 
+<!-- ================= FLOATING ACTION BUTTONS ================= -->
+<div class="floating-contact">
+  <a href="https://wa.me/910000000000?text=Hi,%20I%20want%20to%20know%20more%20about%20GRO%20Extender" class="float-btn whatsapp" target="_blank" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+  <a href="tel:+910000000000" class="float-btn call" title="Call Us Direct">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  </a>
+</div>
+
 <div class="top-strip">
   18+ • DISCREET PACKAGING • PREMIUM COLLECTION
 </div>
@@ -977,13 +1046,13 @@ footer{
 
   <nav class="nav">
 
-    <div class="logo">
+    <div class="logo" onclick="switchPage('home')">
       GRO<span>®</span>
     </div>
 
     <div class="nav-links">
-      <button onclick="goShop()">SHOP</button>
-      <button onclick="showFeatured()">COLLECTION</button>
+      <button onclick="switchPage('shop')">SHOP</button>
+      <button onclick="switchPage('shop')">COLLECTION</button>
       <button onclick="openTrack()">TRACK ORDER</button>
     </div>
 
@@ -1006,190 +1075,181 @@ footer{
 
 </header>
 
+<!-- ================= HOME PAGE ================= -->
+<div id="homePage" class="page active">
 
-<!-- ================= HERO ================= -->
+  <section class="hero">
 
-<section class="hero">
+    <div class="hero-box">
 
-  <div class="hero-box">
+      <div class="hero-text">
 
-    <div class="hero-text">
-
-      <div class="small-title">
-        GRO EXTENDER COLLECTION
-      </div>
-
-      <h1>
-        PREMIUM<br>
-        <span>CONFIDENCE.</span>
-      </h1>
-
-      <p>
-        Explore the GRO Extender premium collection.
-        Choose your configuration and experience
-        a private, discreet shopping experience.
-      </p>
-
-      <div class="hero-buttons">
-
-        <button
-          class="gold-btn"
-          onclick="goShop()">
-          SHOP COLLECTION →
-        </button>
-
-        <button
-          class="dark-btn"
-          onclick="openTrack()">
-          TRACK ORDER
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="hero-image">
-
-      <!-- তোর আসল Ultimate image -->
-      <img
-        src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png"
-        alt="GRO Extender Ultimate">
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= TRUST ================= -->
-
-<section class="trust">
-
-  <div class="trust-box">
-    <strong>🔒 PRIVATE SHOPPING</strong>
-    <span>Customer-focused checkout</span>
-  </div>
-
-  <div class="trust-box">
-    <strong>📦 DISCREET PACKAGING</strong>
-    <span>Privacy-focused delivery</span>
-  </div>
-
-  <div class="trust-box">
-    <strong>⚡ FAST PROCESSING</strong>
-    <span>Quick order handling</span>
-  </div>
-
-  <div class="trust-box">
-    <strong>💬 CUSTOMER SUPPORT</strong>
-    <span>Support when you need it</span>
-  </div>
-
-</section>
-
-
-<!-- ================= PRODUCTS ================= -->
-
-<section
-  class="shop"
-  id="shop">
-
-  <div class="shop-head">
-
-    <div>
-
-      <div class="small-title">
-        THE GRO COLLECTION
-      </div>
-
-      <h2>
-        Choose Your GRO
-      </h2>
-
-      <p>
-        Three premium configurations.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <div
-    class="product-grid"
-    id="productGrid">
-  </div>
-
-
-  <!-- ================= FEATURES ================= -->
-
-  <div class="feature-section">
-
-    <div class="feature-grid">
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          ◈
+        <div class="small-title">
+          GRO EXTENDER COLLECTION
         </div>
 
-        <h3>
-          Premium Configurations
-        </h3>
+        <h1>
+          PREMIUM<br>
+          <span>CONFIDENCE.</span>
+        </h1>
 
         <p>
-          Multiple GRO configurations are
-          presented clearly so customers can
-          choose according to their preference.
+          Explore the GRO Extender premium collection.
+          Choose your configuration and experience
+          a private, discreet shopping experience.
         </p>
 
-      </div>
+        <div class="hero-buttons">
 
+          <button
+            class="gold-btn"
+            onclick="switchPage('shop')">
+            SHOP COLLECTION →
+          </button>
 
-      <div class="feature">
+          <button
+            class="dark-btn"
+            onclick="openTrack()">
+            TRACK ORDER
+          </button>
 
-        <div class="feature-icon">
-          ◉
         </div>
-
-        <h3>
-          Discreet Experience
-        </h3>
-
-        <p>
-          The storefront is designed around
-          privacy and a clean premium purchase
-          experience.
-        </p>
 
       </div>
 
+      <div class="hero-image">
 
-      <div class="feature">
+        <img
+          src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png"
+          alt="GRO Extender Ultimate">
 
-        <div class="feature-icon">
-          ✓
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="trust">
+
+    <div class="trust-box">
+      <strong>🔒 PRIVATE SHOPPING</strong>
+      <span>Customer-focused checkout</span>
+    </div>
+
+    <div class="trust-box">
+      <strong>📦 DISCREET PACKAGING</strong>
+      <span>Privacy-focused delivery</span>
+    </div>
+
+    <div class="trust-box">
+      <strong>⚡ FAST PROCESSING</strong>
+      <span>Quick order handling</span>
+    </div>
+
+    <div class="trust-box">
+      <strong>💬 CUSTOMER SUPPORT</strong>
+      <span>Support when you need it</span>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- ================= SHOP PAGE ================= -->
+<div id="shopPage" class="page">
+
+  <section class="shop">
+
+    <div class="shop-head">
+
+      <div>
+
+        <div class="small-title">
+          THE GRO COLLECTION
         </div>
 
-        <h3>
-          Simple Checkout
-        </h3>
+        <h2>
+          Choose Your GRO
+        </h2>
 
         <p>
-          Product selection, quantity and
-          customer details are handled through
-          a streamlined checkout.
+          Three premium configurations.
         </p>
 
       </div>
 
     </div>
 
-  </div>
+    <div
+      class="product-grid"
+      id="productGrid">
+    </div>
 
-</section>
+    <div class="feature-section">
 
+      <div class="feature-grid">
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ◈
+          </div>
+
+          <h3>
+            Premium Configurations
+          </h3>
+
+          <p>
+            Multiple GRO configurations are
+            presented clearly so customers can
+            choose according to their preference.
+          </p>
+
+        </div>
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ◉
+          </div>
+
+          <h3>
+            Discreet Experience
+          </h3>
+
+          <p>
+            The storefront is designed around
+            privacy and a clean premium purchase
+            experience.
+          </p>
+
+        </div>
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ✓
+          </div>
+
+          <h3>
+            Simple Checkout
+          </h3>
+
+          <p>
+            Product selection, quantity and
+            customer details are handled through
+            a streamlined checkout.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
 
 <!-- ================= FOOTER ================= -->
 
@@ -1215,19 +1275,19 @@ footer{
 
       <strong>SHOP</strong>
 
-      <button onclick="goShop()">
+      <button onclick="switchPage('shop')">
         All Products
       </button>
 
-      <button onclick="goShop()">
+      <button onclick="openProduct('ultimate')">
         GRO Ultimate
       </button>
 
-      <button onclick="goShop()">
+      <button onclick="openProduct('supreme')">
         GRO Supreme+
       </button>
 
-      <button onclick="goShop()">
+      <button onclick="openProduct('doubledeck')">
         GRO DoubleDeck
       </button>
 
@@ -1433,16 +1493,12 @@ footer{
 
 <div class="mobile-nav">
 
-  <button
-    onclick="window.scrollTo({
-      top:0,
-      behavior:'smooth'
-    })">
+  <button onclick="switchPage('home')">
     <span>⌂</span>
     Home
   </button>
 
-  <button onclick="goShop()">
+  <button onclick="switchPage('shop')">
     <span>▦</span>
     Shop
   </button>
@@ -1463,1100 +1519,1032 @@ footer{
 <script>
 
 /* =========================================================
-   YOUR ACTUAL PRODUCTS
-   তোর আগের website file থেকে নেওয়া
+   INDIA STATES & DISTRICTS DATABASE
 ========================================================= */
+const INDIA_DATA = {
+  "Andhra Pradesh": ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Krishna", "Kurnool", "Prakasam", "Srikakulam", "Sri Potti Sriramulu Nellore", "Visakhapatnam", "Vizianagaram", "West Godavari", "YSR Kadapa"],
+  "Arunachal Pradesh": ["Tawang", "West Kameng", "East Kameng", "Papum Pare", "Kurung Kumey", "Kra Daadi", "Lower Subansiri", "Upper Subansiri", "West Siang", "East Siang", "Siang", "Upper Siang", "Lower Siang", "Lower Dibang Valley", "Dibang Valley", "Anjaw", "Lohit", "Namsai", "Changlang", "Tirap", "Longding"],
+  "Assam": ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup Metropolitan", "Kamrup", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Dima Hasao", "Sivasagar", "Sonitpur", "South Salmara-Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"],
+  "Bihar": ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"],
+  "Chhattisgarh": ["Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara", "Bijapur", "Bilaspur", "Dantewada", "Dhamtari", "Durg", "Gariaband", "Gaurela-Pendra-Marwahi", "Janjgir-Champa", "Jashpur", "Kabirdham", "Kanker", "Kondagaon", "Korba", "Koriya", "Mahasamund", "Mungeli", "Narayanpur", "Raigarh", "Raipur", "Rajnandgaon", "Sukma", "Surajpur", "Surguja"],
+  "Goa": ["North Goa", "South Goa"],
+  "Gujarat": ["Ahmedabad", "Amreli", "Anand", "Aravalli", "Banaskantha", "Bharuch", "Bhavnagar", "Botad", "Chhota Udaipur", "Dahod", "Dang", "Devbhoomi Dwarka", "Gandhinagar", "Gir Somnath", "Jamnagar", "Junagadh", "Kheda", "Kutch", "Mahisagar", "Mehsana", "Morbi", "Narmada", "Navsari", "Panchmahal", "Patan", "Porbandar", "Rajkot", "Sabarkantha", "Surat", "Surendranagar", "Tapi", "Vadodara", "Valsad"],
+  "Haryana": ["Ambala", "Bhiwani", "Charkhi Dadri", "Faridabad", "Fatehabad", "Gurugram", "Hisar", "Jhajjar", "Jind", "Kaithal", "Karnal", "Kurukshetra", "Mahendragarh", "Nuh", "Palwal", "Panchkula", "Panipat", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Yamunanagar"],
+  "Himachal Pradesh": ["Bilaspur", "Chamba", "Hamirpur", "Kangra", "Kinnaur", "Kullu", "Lahaul and Spiti", "Mandi", "Shimla", "Sirmaur", "Solan", "Una"],
+  "Jharkhand": ["Bokaro", "Chatra", "Deoghar", "Dhanbad", "Dumka", "East Singhbhum", "Garhwa", "Giridih", "Godda", "Gumla", "Hazaribag", "Jamtara", "Khunti", "Koderma", "Latehar", "Lohardaga", "Pakur", "Palamu", "Ramgarh", "Ranchi", "Sahebganj", "Seraikela Kharsawan", "Simdega", "West Singhbhum"],
+  "Karnataka": ["Bagalkot", "Ballari", "Belagavi", "Bengaluru Rural", "Bengaluru Urban", "Bidar", "Chamarajanagar", "Chikkaballapur", "Chikkamagaluru", "Chitradurga", "Dakshina Kannada", "Davanagere", "Dharwad", "Gadag", "Hassan", "Haveri", "Kalaburagi", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysuru", "Raichur", "Ramanagara", "Shivamogga", "Tumakuru", "Udupi", "Uttara Kannada", "Vijayapura", "Yadgir"],
+  "Kerala": ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"],
+  "Madhya Pradesh": ["Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Dindori", "Guna", "Gwalior", "Harda", "Hoshangabad", "Indore", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandla", "Mandsaur", "Morena", "Narsinghpur", "Neemuch", "Panna", "Raisen", "Rajgarh", "Ratlam", "Rewa", "Sagar", "Satna", "Sehore", "Seoni", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli", "Tikamgarh", "Ujjain", "Umaria", "Vidisha"],
+  "Maharashtra": ["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed", "Bhandara", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli", "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur", "Latur", "Mumbai City", "Mumbai Suburban", "Nagpur", "Nanded", "Nandurbar", "Nashik", "Osmanabad", "Palghar", "Parbhani", "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara", "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim", "Yavatmal"],
+  "Manipur": ["Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West", "Jiribam", "Kakching", "Kamjong", "Kangpokpi", "Noney", "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul"],
+  "Meghalaya": ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "North Garo Hills", "Ri Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jaintia Hills", "West Khasi Hills"],
+  "Mizoram": ["Aizawl", "Champhai", "Hnahthial", "Khawzawl", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Saitual", "Serchhip"],
+  "Nagaland": ["Mon", "Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Noklak", "Peren", "Phek", "Tuensang", "Wokha", "Zunheboto"],
+  "Odisha": ["Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Baudh", "Cuttack", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghapur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Kendujhar", "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri", "Rayagada", "Sambalpur", "Subarnapur", "Sundargarh"],
+  "Punjab": ["Amritsar", "Barnala", "Bathinda", "Faridkot", "Fatehgarh Sahib", "Fazilka", "Ferozepur", "Gurdaspur", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Mansa", "Moga", "Muktsar", "Pathankot", "Patiala", "Rupnagar", "Sahibzada Ajit Singh Nagar", "Sangrur", "Shahid Bhagat Singh Nagar", "Sri Muktsar Sahib", "Tarn Taran"],
+  "Rajasthan": ["Ajmer", "Alwar", "Banswara", "Baran", "Barmer", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Dholpur", "Dungarpur", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Karauli", "Kota", "Nagaur", "Pali", "Pratapgarh", "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Sri Ganganagar", "Tonk", "Udaipur"],
+  "Sikkim": ["East Sikkim", "North Sikkim", "South Sikkim", "West Sikkim"],
+  "Tamil Nadu": ["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kanchipuram", "Kanyakumari", "Karur", "Kallakurichi", "Krishnagiri", "Madurai", "Mayiladuthurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Thoothukudi", "Tiruchirappalli", "Tirunelveli", "Tirupathur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"],
+  "Telangana": ["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Kumuram Bheem Asifabad", "Mahabubabad", "Mahabubnagar", "Mancherial", "Medak", "Medchal-Malkajgiri", "Mulugu", "Nagarkurnool", "Nalgonda", "Narayanpet", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Rangareddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal Rural", "Warangal Urban", "Yadadri Bhuvanagiri"],
+  "Tripura": ["Dhalai", "Gomati", "Khowai", "North Tripura", "Sepahijala", "South Tripura", "Unakoti", "West Tripura"],
+  "Uttar Pradesh": ["Agra", "Aligarh", "Prayagraj", "Ambedkar Nagar", "Amethi", "Amroha", "Auraiya", "Azamgarh", "Baghpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bhadohi", "Bijnor", "Budaun", "Bulandshahr", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Ayodhya", "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur Dehat", "Kanpur Nagar", "Kasganj", "Kaushambi", "Kheri", "Kushinagar", "Lalitpur", "Lucknow", "Maharajganj", "Mahoba", "Mainpuri",ভারতের **২৮টি রাজ্য ও ৮টি কেন্দ্রশাসিত অঞ্চল**, তাদের **সব জেলার নাম**, **অটো-পিনকোড ডিটেকশন (Postal API)**, **মাল্টি-পেজ রাউটিং (Single Page Multi-View)**, এবং **লাইভ হোয়াটসঅ্যাপ ও কল বাটন** সহ সম্পূর্ণ আপডেট করা HTML/CSS/JS কোড নিচে তৈরি করে দেওয়া হলো। 
 
-const PRODUCTS = [
+এই কোডে আগের সব প্রোডাক্ট, ডিজাইন ও ফিচার বজায় রাখা হয়েছে। এটি একটি **Single File Complete Solution**, যা পুরোটা কপি করে একবারে আপনার ফাইলেই পেস্ট করতে পারবেন।
 
-  {
-    id:"ultimate",
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07090d">
+<title>GRO Extender — Premium Store</title>
 
-    name:"GRO Extender® Ultimate",
+<style>
+:root{
+  --bg:#07090d;
+  --card:#10131a;
+  --card2:#151922;
+  --gold:#d9a84e;
+  --gold2:#f2c76d;
+  --white:#f8fafc;
+  --muted:#8d96a6;
+  --line:rgba(255,255,255,.09);
+  --green:#39d98a;
+  --red:#ff6675;
+}
 
-    category:"ULTIMATE",
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    price:3249,
+html{
+  scroll-behavior:smooth;
+}
 
-    old:4499,
+body{
+  background:
+    radial-gradient(circle at 90% 0%,rgba(217,168,78,.10),transparent 30%),
+    var(--bg);
+  color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+  padding-bottom:20px;
+}
 
-    badge:"BESTSELLER",
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
 
-    image:
-      "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
+button{
+  cursor:pointer;
+}
 
-    gallery:[
-      "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
-      "ProExtender-Ultimate-Straps-260x134.jpg",
-      "ProExtender-Ultimate002 (1).png"
-    ],
+/* ================= PAGE ROUTING ================= */
+.page-view {
+  display: none;
+}
+.page-view.active {
+  display: block;
+}
 
-    description:
-      "Premium adjustable configuration with multiple fitting components.",
+/* ================= FLOATING CONTACT BUTTONS ================= */
+.floating-contact {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-    features:[
-      "Adjustable fitting configuration",
-      "Multiple adjustment positions",
-      "Reinforced straps",
-      "Compact component design",
-      "Adult product — 18+"
-    ]
-  },
+.float-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+  text-decoration: none;
+  font-size: 24px;
+}
 
+.float-btn:hover {
+  transform: scale(1.1);
+}
 
-  {
-    id:"supreme",
+.float-whatsapp {
+  background: #25D366;
+}
 
-    name:"GRO Extender® Supreme+",
+.float-call {
+  background: #007AFF;
+}
 
-    category:"SUPREME+",
+/* ================= HEADER ================= */
+.top-strip{
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#030406;
+  color:#aeb5c0;
+  font-size:10px;
+  letter-spacing:1.5px;
+}
 
-    price:4780,
+.header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  height:72px;
+  background:rgba(7,9,13,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
 
-    old:5999,
+.nav{
+  max-width:1250px;
+  height:100%;
+  margin:auto;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
 
-    badge:"PREMIUM",
+.logo{
+  font-size:29px;
+  font-weight:1000;
+  letter-spacing:-2px;
+  cursor: pointer;
+}
 
-    image:
-      "Gemini_Generated_Image_unscx2unscx2unsc.png",
+.logo span{
+  color:var(--gold);
+}
 
-    gallery:[
-      "Gemini_Generated_Image_unscx2unscx2unsc.png",
-      "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
-      "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
-    ],
+.nav-links{
+  display:flex;
+  gap:25px;
+  margin-left:15px;
+}
 
-    description:
-      "Premium lightweight adjustable configuration.",
+.nav-links button{
+  border:0;
+  background:none;
+  color:#aeb5c0;
+  font-size:12px;
+  font-weight:800;
+}
 
-    features:[
-      "Lightweight configuration",
-      "Adjustable fitting",
-      "Reinforced components",
-      "Compact design",
-      "Adult product — 18+"
-    ]
-  },
+.nav-links button:hover{
+  color:var(--gold2);
+}
 
+.nav-right{
+  margin-left:auto;
+  display:flex;
+  gap:8px;
+}
 
-  {
-    id:"doubledeck",
+.icon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#11141b;
+  color:white;
+  position:relative;
+}
 
-    name:"GRO Extender® DoubleDeck",
+.cart-number{
+  position:absolute;
+  right:-5px;
+  top:-5px;
+  min-width:18px;
+  height:18px;
+  padding:0 5px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:var(--gold);
+  color:#171109;
+  border-radius:50px;
+  font-size:10px;
+  font-weight:1000;
+}
 
-    category:"DOUBLEDECK",
+/* ================= HERO ================= */
+.hero{
+  max-width:1250px;
+  margin:auto;
+  padding:45px 20px 20px;
+}
 
-    price:5950,
+.hero-box{
+  min-height:560px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:
+    radial-gradient(circle at 75% 50%,rgba(217,168,78,.15),transparent 34%),
+    linear-gradient(135deg,#11151d,#080a0e);
+}
 
-    old:6999,
+.hero-text{
+  padding:70px 55px;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+}
 
-    badge:"ELITE",
+.small-title{
+  color:var(--gold2);
+  font-size:11px;
+  font-weight:1000;
+  letter-spacing:3px;
+  margin-bottom:18px;
+}
 
-    image:
-      "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
+.hero h1{
+  font-size:clamp(45px,6vw,80px);
+  line-height:.93;
+  letter-spacing:-5px;
+}
 
-    gallery:[
-      "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
-      "pro-extender-penis-enlargement-system-500x500.jpg",
-      "pro-extender-silicone-tube.webp"
-    ],
+.hero h1 span{
+  color:var(--gold2);
+}
 
-    description:
-      "Multi-component premium adjustable configuration.",
+.hero p{
+  max-width:500px;
+  margin-top:23px;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:14px;
+}
 
-    features:[
-      "Multi-component configuration",
-      "Adjustable fitting positions",
-      "Reinforced straps",
-      "Compact structure",
-      "Adult product — 18+"
-    ]
+.hero-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:30px;
+}
+
+.gold-btn{
+  border:0;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#171108;
+  border-radius:12px;
+  padding:14px 22px;
+  font-weight:1000;
+}
+
+.dark-btn{
+  border:1px solid var(--line);
+  background:#161a22;
+  color:white;
+  border-radius:12px;
+  padding:14px 22px;
+  font-weight:900;
+}
+
+.hero-image{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:35px;
+}
+
+.hero-image img{
+  width:100%;
+  max-width:500px;
+  height:450px;
+  object-fit:contain;
+  filter:drop-shadow(0 35px 50px rgba(0,0,0,.65));
+}
+
+/* ================= TRUST ================= */
+.trust{
+  max-width:1250px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.trust-box{
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#0d1016;
+}
+
+.trust-box strong{
+  display:block;
+  font-size:12px;
+}
+
+.trust-box span{
+  color:var(--muted);
+  font-size:10px;
+}
+
+/* ================= PRODUCTS ================= */
+.shop{
+  max-width:1250px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.shop-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:25px;
+}
+
+.shop-head h2{
+  font-size:35px;
+  letter-spacing:-2px;
+}
+
+.shop-head p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:7px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.product-card{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:linear-gradient(180deg,#131720,#0d1016);
+  transition:.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(217,168,78,.35);
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.product-image{
+  height:360px;
+  position:relative;
+  background:radial-gradient(circle,#242a35,#10131a 65%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:18px;
+  transition:.45s;
+}
+
+.product-card:hover .product-image img{
+  transform:scale(1.05);
+}
+
+.product-badge{
+  position:absolute;
+  left:14px;
+  top:14px;
+  z-index:2;
+  padding:7px 10px;
+  background:var(--gold);
+  color:#161008;
+  border-radius:8px;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.product-body{
+  padding:21px;
+}
+
+.product-category{
+  color:var(--gold2);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.product-name{
+  margin-top:8px;
+  font-size:21px;
+}
+
+.product-description{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.65;
+  min-height:37px;
+}
+
+.stars{
+  color:var(--gold2);
+  font-size:12px;
+  margin-top:12px;
+}
+
+.price-line{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:13px;
+}
+
+.price{
+  font-size:24px;
+  font-weight:1000;
+}
+
+.old-price{
+  color:#69717e;
+  text-decoration:line-through;
+  font-size:11px;
+}
+
+.discount{
+  color:var(--green);
+  font-size:10px;
+  font-weight:1000;
+}
+
+.card-buttons{
+  display:grid;
+  grid-template-columns:1fr 1.25fr;
+  gap:8px;
+  margin-top:17px;
+}
+
+.card-buttons button{
+  padding:12px;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:1000;
+}
+
+.view{
+  background:#191d26;
+  border:1px solid var(--line);
+  color:white;
+}
+
+.buy{
+  background:var(--gold);
+  border:0;
+  color:#171108;
+}
+
+/* ================= FEATURED ================= */
+.feature-section{
+  margin-top:70px;
+  border:1px solid var(--line);
+  border-radius:25px;
+  background:#0e1117;
+  padding:35px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.feature{
+  padding:12px;
+}
+
+.feature-icon{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.feature h3{
+  font-size:14px;
+}
+
+.feature p{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+  margin-top:7px;
+}
+
+/* ================= CHECKOUT & FORM ================= */
+.checkout-page-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #0d1016;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+.field label{
+  display:block;
+  color:#aeb5c0;
+  font-size:10px;
+  font-weight:1000;
+  margin-bottom:6px;
+  letter-spacing: 1px;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  background:#151922;
+  color:white;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:12px;
+  outline:none;
+}
+
+.field textarea{
+  min-height:90px;
+}
+
+.checkout-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-top:25px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  border-top:1px solid var(--line);
+  background:#040507;
+  padding:50px 20px;
+  margin-top: 50px;
+}
+
+.footer{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:35px;
+}
+
+.footer h3{
+  font-size:25px;
+}
+
+.footer h3 span{
+  color:var(--gold);
+}
+
+.footer p,
+.footer button{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.8;
+}
+
+.footer button{
+  display:block;
+  border:0;
+  background:none;
+  margin-top:9px;
+  text-align:left;
+}
+
+/* ================= OVERLAYS & MODALS ================= */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.76);
+  backdrop-filter:blur(8px);
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.overlay.show{
+  display:flex;
+}
+
+.modal{
+  width:min(900px,100%);
+  max-height:92vh;
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:#0d1016;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  right:16px;
+  top:16px;
+  width:40px;
+  height:40px;
+  border:1px solid var(--line);
+  background:#171a22;
+  color:white;
+  border-radius:10px;
+  z-index:5;
+}
+
+.detail{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.detail-image{
+  min-height:540px;
+  background:#10131a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.detail-image img{
+  width:100%;
+  height:540px;
+  object-fit:contain;
+  padding:25px;
+}
+
+.detail-info{
+  padding:45px 35px;
+}
+
+.detail-info h2{
+  font-size:37px;
+  letter-spacing:-2px;
+  margin-top:10px;
+}
+
+.detail-info p{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:13px;
+  margin-top:15px;
+}
+
+.detail-price{
+  color:var(--gold2);
+  font-size:31px;
+  font-weight:1000;
+  margin-top:22px;
+}
+
+.detail-old{
+  color:#68717e;
+  text-decoration:line-through;
+  font-size:12px;
+}
+
+.features{
+  margin-top:20px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+}
+
+.features h4{
+  font-size:12px;
+  margin-bottom:8px;
+}
+
+.features li{
+  list-style:none;
+  color:#aeb5c0;
+  font-size:11px;
+  padding:5px 0;
+}
+
+.features li::before{
+  content:"✓";
+  color:var(--green);
+  margin-right:7px;
+}
+
+/* ================= CART ================= */
+.cart-panel{
+  width:min(500px,100%);
+  margin-left:auto;
+  height:100%;
+  background:#0d1016;
+  border-left:1px solid var(--line);
+  padding:25px;
+  overflow:auto;
+}
+
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:70px 1fr auto;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.cart-item img{
+  width:70px;
+  height:70px;
+  object-fit:contain;
+  background:#151922;
+  border-radius:10px;
+}
+
+.cart-item h4{
+  font-size:12px;
+}
+
+.cart-item p{
+  color:var(--gold2);
+  font-size:12px;
+  font-weight:900;
+  margin-top:6px;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-top:8px;
+}
+
+.qty button{
+  width:25px;
+  height:25px;
+  border:1px solid var(--line);
+  background:#181c25;
+  color:white;
+  border-radius:6px;
+}
+
+.cart-total{
+  margin-top:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cart-total strong{
+  font-size:25px;
+}
+
+/* ================= SUCCESS ================= */
+.success{
+  padding:70px 25px;
+  text-align:center;
+}
+
+.success-icon{
+  width:70px;
+  height:70px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(57,217,138,.12);
+  color:var(--green);
+  font-size:38px;
+}
+
+.success h2{
+  margin-top:18px;
+  font-size:30px;
+}
+
+.success p{
+  color:var(--muted);
+  margin-top:8px;
+  font-size:12px;
+}
+
+/* ================= MOBILE NAV ================= */
+.mobile-nav{
+  display:none;
+}
+
+@media(max-width:850px){
+  .nav-links{ display:none; }
+  .hero-box{ grid-template-columns:1fr; }
+  .hero-text{ padding:50px 30px 25px; }
+  .hero-image{ min-height:340px; }
+  .trust{ grid-template-columns:repeat(2,1fr); }
+  .product-grid{ grid-template-columns:repeat(2,1fr); }
+  .footer{ grid-template-columns:1fr 1fr; }
+  .detail{ grid-template-columns:1fr; }
+  .detail-image, .detail-image img{ min-height:350px; height:350px; }
+  .checkout-grid{ grid-template-columns:1fr; }
+}
+
+@media(max-width:600px){
+  body{ padding-bottom:68px; }
+  .hero{ padding:20px 13px; }
+  .hero h1{ font-size:47px; letter-spacing:-3px; }
+  .hero-text{ padding:40px 22px 20px; }
+  .hero-image{ min-height:270px; padding:15px; }
+  .hero-image img{ height:260px; }
+  .trust{ padding:12px 13px; gap:7px; }
+  .trust-box{ padding:12px; }
+  .shop{ padding:55px 13px; }
+  .shop-head h2{ font-size:27px; }
+  .product-grid{ grid-template-columns:1fr; }
+  .product-image{ height:370px; }
+  .feature-grid{ grid-template-columns:1fr; }
+  .footer{ grid-template-columns:1fr; }
+  .mobile-nav{
+    display:grid;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:68px;
+    background:rgba(8,10,14,.96);
+    backdrop-filter:blur(15px);
+    border-top:1px solid var(--line);
+    z-index:1500;
+    grid-template-columns:repeat(4,1fr);
   }
-
-];
-
-
-/* =========================================================
-   CART
-========================================================= */
-
-let cart =
-  JSON.parse(
-    localStorage.getItem("groCart") || "[]"
-  );
-
-
-function saveCart(){
-
-  localStorage.setItem(
-    "groCart",
-    JSON.stringify(cart)
-  );
-
-  updateCart();
-
-}
-
-
-function updateCart(){
-
-  let count =
-    cart.reduce(
-      (a,b)=>a+b.qty,
-      0
-    );
-
-  document.getElementById(
-    "cartCount"
-  ).textContent = count;
-
-}
-
-
-function addToCart(id){
-
-  let item =
-    cart.find(
-      x=>x.id===id
-    );
-
-  if(item){
-
-    item.qty++;
-
-  }else{
-
-    cart.push({
-      id:id,
-      qty:1
-    });
-
+  .mobile-nav button{
+    border:0;
+    background:none;
+    color:#9aa2b0;
+    font-size:9px;
+    font-weight:900;
   }
-
-  saveCart();
-
-  openCart();
-
+  .mobile-nav span{
+    display:block;
+    font-size:20px;
+    margin-bottom:3px;
+  }
 }
+</style>
+</head>
 
+<body>
 
-function getTotal(){
+<!-- ================= LIVE FLOATING BUTTONS ================= -->
+<div class="floating-contact">
+  <a href="[https://wa.me/919000000000?text=Hi,%20I%20want%20to%20know%20more%20about%20GRO%20Extender](https://wa.me/919000000000?text=Hi,%20I%20want%20to%20know%20more%20about%20GRO%20Extender)" class="float-btn float-whatsapp" target="_blank" title="WhatsApp Support">
+    💬
+  </a>
+  <a href="tel:+919000000000" class="float-btn float-call" title="Direct Call">
+    📞
+  </a>
+</div>
 
-  return cart.reduce(
-    (total,item)=>{
+<div class="top-strip">
+  18+ • DISCREET PACKAGING • PREMIUM COLLECTION
+</div>
 
-      let p =
-        PRODUCTS.find(
-          x=>x.id===item.id
-        );
-
-      return total +
-        p.price * item.qty;
-
-    },
-    0
-  );
-
-}
-
-
-/* =========================================================
-   PRODUCT CARDS
-========================================================= */
-
-function renderProducts(){
-
-  document.getElementById(
-    "productGrid"
-  ).innerHTML =
-    PRODUCTS.map(productCard).join("");
-
-}
-
-
-function productCard(p){
-
-  let discount =
-    Math.round(
-      (1-p.price/p.old)*100
-    );
-
-  return `
-
-    <article class="product-card">
-
-      <div class="product-image">
-
-        <div class="product-badge">
-          ${p.badge}
-        </div>
-
-        <img
-          src="${p.image}"
-          alt="${p.name}"
-          onclick="openProduct('${p.id}')">
-
-      </div>
-
-      <div class="product-body">
-
-        <div class="product-category">
-          ${p.category}
-        </div>
-
-        <h3 class="product-name">
-          ${p.name}
-        </h3>
-
-        <div class="product-description">
-          ${p.description}
-        </div>
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
-        <div class="price-line">
-
-          <span class="price">
-            ₹${p.price.toLocaleString("en-IN")}
-          </span>
-
-          <span class="old-price">
-            ₹${p.old.toLocaleString("en-IN")}
-          </span>
-
-          <span class="discount">
-            ${discount}% OFF
-          </span>
-
-        </div>
-
-        <div class="card-buttons">
-
-          <button
-            class="view"
-            onclick="openProduct('${p.id}')">
-            VIEW
-          </button>
-
-          <button
-            class="buy"
-            onclick="addToCart('${p.id}')">
-            ADD TO CART
-          </button>
-
-        </div>
-
-      </div>
-
-    </article>
-
-  `;
-
-}
-
-
-/* =========================================================
-   PRODUCT DETAILS
-========================================================= */
-
-function openProduct(id){
-
-  let p =
-    PRODUCTS.find(
-      x=>x.id===id
-    );
-
-  document.getElementById(
-    "productDetail"
-  ).innerHTML = `
-
-    <div class="detail-image">
-
-      <img
-        src="${p.image}"
-        id="detailMainImage"
-        alt="${p.name}">
-
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <nav class="nav">
+    <div class="logo" onclick="switchPage('home')">
+      GRO<span>®</span>
     </div>
 
-    <div class="detail-info">
+    <div class="nav-links">
+      <button onclick="switchPage('shopPage')">SHOP</button>
+      <button onclick="switchPage('shopPage')">COLLECTION</button>
+      <button onclick="openTrack()">TRACK ORDER</button>
+    </div>
 
-      <div class="small-title">
-        GRO ${p.category}
-      </div>
-
-      <h2>
-        ${p.name}
-      </h2>
-
-      <div class="stars">
-        ★★★★★
-      </div>
-
-      <p>
-        ${p.description}
-      </p>
-
-      <div class="detail-price">
-        ₹${p.price.toLocaleString("en-IN")}
-      </div>
-
-      <div class="detail-old">
-        MRP ₹${p.old.toLocaleString("en-IN")}
-      </div>
-
-      <div class="features">
-
-        <h4>
-          PRODUCT DETAILS
-        </h4>
-
-        <ul>
-
-          ${p.features.map(
-            f=>`<li>${f}</li>`
-          ).join("")}
-
-        </ul>
-
-      </div>
-
-      <div
-        style="
-          display:flex;
-          gap:7px;
-          margin-top:15px;
-          overflow:auto;
-        ">
-
-        ${p.gallery.map(
-          img=>`
-
-          <img
-            src="${img}"
-            onclick="
-              document.getElementById(
-                'detailMainImage'
-              ).src='${img}'
-            "
-            style="
-              width:65px;
-              height:65px;
-              object-fit:contain;
-              background:#151922;
-              border:1px solid var(--line);
-              border-radius:8px;
-              cursor:pointer;
-            ">
-
-        `).join("")}
-
-      </div>
-
-      <button
-        class="gold-btn"
-        style="
-          width:100%;
-          margin-top:18px
-        "
-        onclick="
-          addToCart('${p.id}');
-          closeProduct();
-        ">
-        ADD TO CART
+    <div class="nav-right">
+      <button class="icon" onclick="openCart()">
+        🛒
+        <span class="cart-number" id="cartCount">0</span>
       </button>
-
-      <button
-        class="dark-btn"
-        style="
-          width:100%;
-          margin-top:8px
-        "
-        onclick="
-          addToCart('${p.id}');
-          closeProduct();
-          openCheckout();
-        ">
-        BUY NOW
-      </button>
-
     </div>
+  </nav>
+</header>
 
-  `;
-
-  document
-    .getElementById("productOverlay")
-    .classList.add("show");
-
-}
-
-
-function closeProduct(){
-
-  document
-    .getElementById("productOverlay")
-    .classList.remove("show");
-
-}
-
-
-/* =========================================================
-   CART UI
-========================================================= */
-
-function openCart(){
-
-  renderCart();
-
-  document
-    .getElementById("cartOverlay")
-    .classList.add("show");
-
-}
-
-
-function closeCart(){
-
-  document
-    .getElementById("cartOverlay")
-    .classList.remove("show");
-
-}
-
-
-function renderCart(){
-
-  let box =
-    document.getElementById(
-      "cartItems"
-    );
-
-  if(!cart.length){
-
-    box.innerHTML = `
-
-      <div style="
-        padding:70px 10px;
-        text-align:center;
-        color:var(--muted);
-      ">
-
-        <div style="
-          font-size:45px;
-        ">
-          🛒
+<!-- ================= PAGE 1: HOME PAGE ================= -->
+<div id="home" class="page-view active">
+  <section class="hero">
+    <div class="hero-box">
+      <div class="hero-text">
+        <div class="small-title">GRO EXTENDER COLLECTION</div>
+        <h1>PREMIUM<br><span>CONFIDENCE.</span></h1>
+        <p>Explore the GRO Extender premium collection. Choose your configuration and experience a private, discreet shopping experience.</p>
+        <div class="hero-buttons">
+          <button class="gold-btn" onclick="switchPage('shopPage')">SHOP COLLECTION →</button>
+          <button class="dark-btn" onclick="openTrack()">TRACK ORDER</button>
         </div>
-
-        <h3 style="
-          color:white;
-          margin-top:12px;
-        ">
-          Your cart is empty
-        </h3>
-
       </div>
-
-    `;
-
-  }else{
-
-    box.innerHTML =
-      cart.map(item=>{
-
-        let p =
-          PRODUCTS.find(
-            x=>x.id===item.id
-          );
-
-        return `
-
-          <div class="cart-item">
-
-            <img
-              src="${p.image}">
-
-            <div>
-
-              <h4>
-                ${p.name}
-              </h4>
-
-              <p>
-                ₹${p.price.toLocaleString("en-IN")}
-              </p>
-
-              <div class="qty">
-
-                <button
-                  onclick="changeQty('${p.id}',-1)">
-                  −
-                </button>
-
-                <span>
-                  ${item.qty}
-                </span>
-
-                <button
-                  onclick="changeQty('${p.id}',1)">
-                  +
-                </button>
-
-              </div>
-
-            </div>
-
-            <button
-              onclick="removeItem('${p.id}')"
-              style="
-                background:none;
-                border:0;
-                color:#777;
-                font-size:20px;
-              ">
-              ×
-            </button>
-
-          </div>
-
-        `;
-
-      }).join("");
-
-  }
-
-  document.getElementById(
-    "cartTotal"
-  ).textContent =
-    "₹"+
-    getTotal().toLocaleString("en-IN");
-
-}
-
-
-function changeQty(id,n){
-
-  let item =
-    cart.find(
-      x=>x.id===id
-    );
-
-  if(!item)return;
-
-  item.qty += n;
-
-  if(item.qty<=0){
-
-    cart =
-      cart.filter(
-        x=>x.id!==id
-      );
-
-  }
-
-  saveCart();
-  renderCart();
-
-}
-
-
-function removeItem(id){
-
-  cart =
-    cart.filter(
-      x=>x.id!==id
-    );
-
-  saveCart();
-  renderCart();
-
-}
-
-
-/* =========================================================
-   CHECKOUT
-========================================================= */
-
-function openCheckout(){
-
-  if(!cart.length){
-
-    alert("Cart is empty.");
-
-    return;
-
-  }
-
-  closeCart();
-
-  document.getElementById(
-    "checkout"
-  ).innerHTML = `
-
-    <div class="small-title">
-      SECURE CHECKOUT
+      <div class="hero-image">
+        <img src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png" alt="GRO Extender Ultimate">
+      </div>
     </div>
+  </section>
 
-    <h2>
-      Complete Your Order
-    </h2>
+  <section class="trust">
+    <div class="trust-box">
+      <strong>🔒 PRIVATE SHOPPING</strong>
+      <span>Customer-focused checkout</span>
+    </div>
+    <div class="trust-box">
+      <strong>📦 DISCREET PACKAGING</strong>
+      <span>Privacy-focused delivery</span>
+    </div>
+    <div class="trust-box">
+      <strong>⚡ FAST PROCESSING</strong>
+      <span>Quick order handling</span>
+    </div>
+    <div class="trust-box">
+      <strong>💬 CUSTOMER SUPPORT</strong>
+      <span>Support when you need it</span>
+    </div>
+  </section>
+</div>
 
-    <div class="checkout-grid">
-
+<!-- ================= PAGE 2: SHOP PAGE ================= -->
+<div id="shopPage" class="page-view">
+  <section class="shop">
+    <div class="shop-head">
       <div>
+        <div class="small-title">THE GRO COLLECTION</div>
+        <h2>Choose Your GRO</h2>
+        <p>Three premium configurations.</p>
+      </div>
+    </div>
 
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="feature-section">
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">◈</div>
+          <h3>Premium Configurations</h3>
+          <p>Multiple GRO configurations are presented clearly so customers can choose according to their preference.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">◉</div>
+          <h3>Discreet Experience</h3>
+          <p>The storefront is designed around privacy and a clean premium purchase experience.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <h3>Simple Checkout</h3>
+          <p>Product selection, quantity and customer details are handled through a streamlined checkout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= PAGE 3: CHECKOUT PAGE ================= -->
+<div id="checkoutPage" class="page-view">
+  <div class="checkout-page-container">
+    <div class="small-title">SECURE CHECKOUT</div>
+    <h2>Complete Your Order</h2>
+
+    <div class="checkout-grid" id="checkoutContainer">
+      <div>
         <div class="field">
           <label>FULL NAME</label>
-          <input
-            id="name"
-            placeholder="Your name">
+          <input id="name" placeholder="Your name">
         </div>
 
         <div class="field">
           <label>MOBILE NUMBER</label>
-          <input
-            id="mobile"
-            maxlength="10"
-            inputmode="numeric"
-            placeholder="10 digit mobile">
-        </div>
-
-        <div class="field">
-          <label>ADDRESS</label>
-          <textarea
-            id="address"
-            placeholder="Full delivery address"></textarea>
-        </div>
-
-        <div class="field">
-          <label>STATE</label>
-          <input
-            id="state"
-            value="West Bengal">
-        </div>
-
-        <div class="field">
-          <label>PINCODE</label>
-          <input
-            id="pin"
-            maxlength="6"
-            inputmode="numeric"
-            placeholder="6 digit PIN">
-        </div>
-
-      </div>
-
-      <div>
-
-        <div class="payment">
-
-          <h4>
-            PAYMENT METHOD
-          </h4>
-
-          <label>
-            <input
-              type="radio"
-              name="payment"
-              value="online"
-              checked>
-            Online Payment
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="payment"
-              value="cod">
-            Cash on Delivery
-          </label>
-
-        </div>
-
-        <div class="summary">
-
-          <div class="summary-row">
-
-            <span>
-              Items
-            </span>
-
-            <span>
-              ${cart.reduce(
-                (a,b)=>a+b.qty,
-                0
-              )}
-            </span>
-
-          </div>
-
-          <div class="summary-row">
-
-            <span>
-              Delivery
-            </span>
-
-            <span style="color:var(--green)">
-              FREE
-            </span>
-
-          </div>
-
-          <div class="summary-row total">
-
-            <strong>
-              Total
-            </strong>
-
-            <strong>
-              ₹${getTotal()
-                .toLocaleString("en-IN")}
-            </strong>
-
-          </div>
-
-        </div>
-
-        <button
-          class="gold-btn"
-          style="
-            width:100%;
-            margin-top:15px
-          "
-          onclick="placeOrder()">
-          PLACE ORDER →
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-  document
-    .getElementById("checkoutOverlay")
-    .classList.add("show");
-
-}
-
-
-function closeCheckout(){
-
-  document
-    .getElementById("checkoutOverlay")
-    .classList.remove("show");
-
-}
-
-
-/* =========================================================
-   ORDER
-========================================================= */
-
-function placeOrder(){
-
-  let name =
-    document.getElementById(
-      "name"
-    ).value.trim();
-
-  let mobile =
-    document.getElementById(
-      "mobile"
-    ).value.trim();
-
-  let address =
-    document.getElementById(
-      "address"
-    ).value.trim();
-
-  let state =
-    document.getElementById(
-      "state"
-    ).value.trim();
-
-  let pin =
-    document.getElementById(
-      "pin"
-    ).value.trim();
-
-  if(
-    !name ||
-    !/^[0-9]{10}$/.test(mobile) ||
-    !address ||
-    !state ||
-    !/^[0-9]{6}$/.test(pin)
-  ){
-
-    alert(
-      "Please fill all details correctly."
-    );
-
-    return;
-
-  }
-
-  let orderId =
-    "GRO-"+Date.now()
-      .toString()
-      .slice(-8);
-
-  let payment =
-    document.querySelector(
-      'input[name="payment"]:checked'
-    ).value;
-
-  let orders =
-    JSON.parse(
-      localStorage.getItem(
-        "groOrders"
-      ) || "[]"
-    );
-
-  orders.unshift({
-
-    id:orderId,
-    name:name,
-    mobile:mobile,
-    address:address,
-    state:state,
-    pin:pin,
-    payment:payment,
-    total:getTotal(),
-    status:"Order Received",
-    date:new Date().toLocaleString("en-IN")
-
-  });
-
-  localStorage.setItem(
-    "groOrders",
-    JSON.stringify(orders)
-  );
-
-  cart=[];
-
-  saveCart();
-
-  document.getElementById(
-    "checkout"
-  ).innerHTML = `
-
-    <div class="success">
-
-      <div class="success-icon">
-        ✓
-      </div>
-
-      <h2>
-        Order Received
-      </h2>
-
-      <p>
-        Your order has been created successfully.
-      </p>
-
-      <div style="
-        margin:25px auto;
-        padding:20px;
-        background:#151922;
-        border:1px solid var(--line);
-        border-radius:14px;
-        max-width:350px;
-      ">
-
-        <small style="
-          color:var(--muted)
-        ">
-          ORDER ID
-        </small>
-
-        <div style="
-          font-size:23px;
-          font-weight:1000;
-          color:var(--gold2);
-          margin-top:5px;
-        ">
-          ${orderId}
-        </div>
-
-      </div>
-
-      <button
-        class="gold-btn"
-        style="width:100%"
-        onclick="
-          closeCheckout();
-          openTrack();
-          document.getElementById(
-            'trackId'
-          ).value='${orderId}';
-        ">
-        TRACK ORDER
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   TRACK
-========================================================= */
-
-function openTrack(){
-
-  document
-    .getElementById("trackOverlay")
-    .classList.add("show");
-
-}
-
-
-function closeTrack(){
-
-  document
-    .getElementById("trackOverlay")
-    .classList.remove("show");
-
-}
-
-
-function trackOrder(){
-
-  let id =
-    document.getElementById(
-      "trackId"
-    ).value.trim();
-
-  let orders =
-    JSON.parse(
-      localStorage.getItem(
-        "groOrders"
-      ) || "[]"
-    );
-
-  let order =
-    orders.find(
-      x=>x.id===id
-    );
-
-  let result =
-    document.getElementById(
-      "trackResult"
-    );
-
-  if(!order){
-
-    result.innerHTML = `
-
-      <div style="
-        padding:15px;
-        border:1px solid rgba(255,102,117,.2);
-        border-radius:12px;
-        color:var(--red);
-      ">
-        Order not found.
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-  result.innerHTML = `
-
-    <div style="
-      padding:20px;
-      border:1px solid var(--line);
-      border-radius:15px;
-      background:#11141b;
-    ">
-
-      <div style="
-        display:flex;
-        justify-content:space-between;
-      ">
-
-        <strong>
-          ${order.id}
-        </strong>
-
-        <span style="
-          color:var(--green);
-          font-size:10px;
-          font-weight:1000;
-        ">
-          ${order.status}
-        </span>
-
-      </div>
-
-      <div style="
-        margin-top:18px;
-        line-height:2;
-        font-size:12px;
-      ">
-
-        <div>
-          ✓ Order Received
-        </div>
-
-        <div style="color:#596170">
-          ○ Processing
-        </div>
-
-        <div style="color:#596170">
-          ○ Dispatched
-        </div>
-
-        <div style="color:#596170">
-          ○ Delivered
-        </div>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-function goShop(){
-
-  document
-    .getElementById("shop")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-}
-
-
-function showFeatured(){
-
-  goShop();
-
-}
-
-
-/* =========================================================
-   START
-========================================================= */
-
-renderProducts();
-
-updateCart();
-
-</script>
-
-</body>
-    </html>
