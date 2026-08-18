@@ -3,710 +3,679 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#070707">
-<meta name="description" content="GRO — Premium Adult Wellness Store">
-<title>GRO — Premium Wellness</title>
+<meta name="theme-color" content="#07090d">
+<title>GRO Extender — Premium Store</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  --bg:#070707;
-  --bg2:#0d0d0d;
-  --card:#111;
-  --card2:#151515;
-  --line:#242424;
-  --text:#f7f7f7;
-  --muted:#929292;
-  --gold:#d9b36c;
-  --gold2:#f0d49a;
-  --green:#35d98b;
-  --danger:#ff5b5b;
-  --radius:22px;
+  --bg:#07090d;
+  --card:#10131a;
+  --card2:#151922;
+  --gold:#d9a84e;
+  --gold2:#f2c76d;
+  --white:#f8fafc;
+  --muted:#8d96a6;
+  --line:rgba(255,255,255,.09);
+  --green:#39d98a;
+  --red:#ff6675;
 }
 
-html{scroll-behavior:smooth}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
+  background:
+    radial-gradient(circle at 90% 0%,rgba(217,168,78,.10),transparent 30%),
+    var(--bg);
+  color:var(--white);
   font-family:Inter,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
 }
 
-button,input,select{
+button,
+input,
+textarea{
   font:inherit;
 }
 
 button{
   cursor:pointer;
-  border:0;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-.container{
-  width:min(1180px,92%);
-  margin:auto;
-}
-
-/* ================= TOP BAR ================= */
-
-.topbar{
-  background:#000;
-  border-bottom:1px solid #1c1c1c;
-  text-align:center;
-  padding:9px;
-  font-size:12px;
-  color:#aaa;
-  letter-spacing:.4px;
-}
-
-.topbar b{
-  color:var(--gold2);
 }
 
 /* ================= HEADER ================= */
 
-header{
+.top-strip{
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#030406;
+  color:#aeb5c0;
+  font-size:10px;
+  letter-spacing:1.5px;
+}
+
+.header{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(7,7,7,.88);
+  z-index:999;
+  height:72px;
+  background:rgba(7,9,13,.88);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid var(--line);
 }
 
 .nav{
-  height:76px;
+  max-width:1250px;
+  height:100%;
+  margin:auto;
+  padding:0 20px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  gap:28px;
 }
 
 .logo{
-  font-size:27px;
-  font-weight:900;
-  letter-spacing:4px;
+  font-size:29px;
+  font-weight:1000;
+  letter-spacing:-2px;
 }
 
 .logo span{
   color:var(--gold);
 }
 
-.navlinks{
+.nav-links{
   display:flex;
-  gap:28px;
-  font-size:14px;
-  color:#aaa;
+  gap:25px;
+  margin-left:15px;
 }
 
-.navlinks a:hover{
-  color:#fff;
+.nav-links button{
+  border:0;
+  background:none;
+  color:#aeb5c0;
+  font-size:12px;
+  font-weight:800;
 }
 
-.actions{
+.nav-links button:hover{
+  color:var(--gold2);
+}
+
+.nav-right{
+  margin-left:auto;
   display:flex;
-  align-items:center;
-  gap:9px;
+  gap:8px;
 }
 
-.iconbtn{
+.icon{
   width:42px;
   height:42px;
-  border-radius:50%;
-  background:#121212;
-  color:#fff;
-  border:1px solid #292929;
-  display:grid;
-  place-items:center;
-  font-size:17px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#11141b;
+  color:white;
   position:relative;
 }
 
-.badge{
+.cart-number{
   position:absolute;
-  right:-3px;
-  top:-4px;
-  width:18px;
+  right:-5px;
+  top:-5px;
+  min-width:18px;
   height:18px;
-  border-radius:50%;
+  padding:0 5px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   background:var(--gold);
-  color:#000;
+  color:#171109;
+  border-radius:50px;
   font-size:10px;
-  font-weight:900;
-  display:grid;
-  place-items:center;
+  font-weight:1000;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-  min-height:690px;
+  max-width:1250px;
+  margin:auto;
+  padding:45px 20px 20px;
+}
+
+.hero-box{
+  min-height:560px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  overflow:hidden;
   display:grid;
-  grid-template-columns:1.05fr .95fr;
-  align-items:center;
-  gap:40px;
-  padding:70px 0;
+  grid-template-columns:1fr 1fr;
+  background:
+    radial-gradient(
+      circle at 75% 50%,
+      rgba(217,168,78,.15),
+      transparent 34%
+    ),
+    linear-gradient(135deg,#11151d,#080a0e);
 }
 
-.eyebrow{
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-  border:1px solid #292929;
-  background:#101010;
-  padding:9px 14px;
-  border-radius:50px;
-  color:#cfcfcf;
-  font-size:12px;
-  margin-bottom:24px;
+.hero-text{
+  padding:70px 55px;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
 }
 
-.dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 12px var(--green);
+.small-title{
+  color:var(--gold2);
+  font-size:11px;
+  font-weight:1000;
+  letter-spacing:3px;
+  margin-bottom:18px;
 }
 
 .hero h1{
-  font-size:clamp(44px,6vw,82px);
-  line-height:.94;
-  letter-spacing:-4px;
-  max-width:700px;
+  font-size:clamp(45px,6vw,80px);
+  line-height:.93;
+  letter-spacing:-5px;
 }
 
 .hero h1 span{
-  color:var(--gold);
+  color:var(--gold2);
 }
 
 .hero p{
-  max-width:570px;
-  color:#999;
+  max-width:500px;
+  margin-top:23px;
+  color:var(--muted);
   line-height:1.8;
-  margin:26px 0;
-  font-size:16px;
+  font-size:14px;
 }
 
-.heroBtns{
+.hero-buttons{
   display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+  gap:10px;
+  margin-top:30px;
 }
 
-.btn{
-  min-height:50px;
-  padding:0 22px;
-  border-radius:14px;
-  font-weight:800;
-  transition:.2s;
+.gold-btn{
+  border:0;
+  background:linear-gradient(
+    135deg,
+    var(--gold),
+    var(--gold2)
+  );
+  color:#171108;
+  border-radius:12px;
+  padding:14px 22px;
+  font-weight:1000;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
+.dark-btn{
+  border:1px solid var(--line);
+  background:#161a22;
+  color:white;
+  border-radius:12px;
+  padding:14px 22px;
+  font-weight:900;
 }
 
-.primary{
-  background:var(--gold);
-  color:#090909;
+.hero-image{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:35px;
 }
 
-.secondary{
-  background:#151515;
-  border:1px solid #292929;
-  color:#fff;
-}
-
-.heroVisual{
-  position:relative;
-  min-height:500px;
-  border:1px solid #252525;
-  border-radius:34px;
-  background:
-    radial-gradient(circle at 50% 45%,#40331f 0%,#19140d 22%,#0b0b0b 55%,#070707 75%);
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-}
-
-.heroVisual:before{
-  content:"";
-  width:330px;
-  height:330px;
-  border-radius:50%;
-  background:rgba(217,179,108,.08);
-  box-shadow:0 0 100px rgba(217,179,108,.12);
-  position:absolute;
-}
-
-.heroProduct{
-  width:min(78%,400px);
-  aspect-ratio:1/1;
+.hero-image img{
+  width:100%;
+  max-width:500px;
+  height:450px;
   object-fit:contain;
-  position:relative;
-  z-index:2;
-  filter:drop-shadow(0 30px 35px rgba(0,0,0,.7));
+  filter:drop-shadow(0 35px 50px rgba(0,0,0,.65));
 }
-
-.floatTag{
-  position:absolute;
-  z-index:4;
-  background:rgba(10,10,10,.8);
-  backdrop-filter:blur(12px);
-  border:1px solid #303030;
-  padding:13px 16px;
-  border-radius:15px;
-  font-size:12px;
-}
-
-.tag1{top:25px;left:25px}
-.tag2{bottom:25px;right:25px}
 
 /* ================= TRUST ================= */
 
 .trust{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:18px 0;
-}
-
-.trustGrid{
+  max-width:1250px;
+  margin:auto;
+  padding:20px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:15px;
+  gap:10px;
 }
 
-.trustItem{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  color:#aaa;
+.trust-box{
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#0d1016;
+}
+
+.trust-box strong{
+  display:block;
   font-size:12px;
 }
 
-.trustIcon{
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  background:#111;
-  display:grid;
-  place-items:center;
-  border:1px solid #252525;
-  font-size:17px;
-}
-
-/* ================= SECTION ================= */
-
-section{
-  padding:90px 0;
-}
-
-.sectionHead{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:20px;
-  margin-bottom:30px;
-}
-
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:2px;
-  margin-bottom:9px;
-}
-
-.sectionHead h2{
-  font-size:clamp(30px,4vw,48px);
-  letter-spacing:-2px;
-}
-
-.sectionHead p{
-  color:#777;
-  font-size:13px;
+.trust-box span{
+  color:var(--muted);
+  font-size:10px;
 }
 
 /* ================= PRODUCTS ================= */
 
-.toolbar{
+.shop{
+  max-width:1250px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.shop-head{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:22px;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:25px;
 }
 
-.search{
-  flex:1;
-  min-width:220px;
-  background:#101010;
-  border:1px solid #292929;
-  color:#fff;
-  border-radius:13px;
-  padding:14px 16px;
-  outline:0;
+.shop-head h2{
+  font-size:35px;
+  letter-spacing:-2px;
 }
 
-.filter{
-  background:#101010;
-  color:#ddd;
-  border:1px solid #292929;
-  border-radius:13px;
-  padding:0 16px;
-  min-height:48px;
+.shop-head p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:7px;
 }
 
-.grid{
+.product-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
-.product{
-  background:linear-gradient(180deg,#121212,#0d0d0d);
-  border:1px solid #242424;
-  border-radius:24px;
+.product-card{
   overflow:hidden;
-  transition:.3s;
-  position:relative;
-}
-
-.product:hover{
-  transform:translateY(-5px);
-  border-color:#3a3a3a;
-}
-
-.productImg{
-  aspect-ratio:1/1;
+  border:1px solid var(--line);
+  border-radius:22px;
   background:
-    radial-gradient(circle at center,#282014 0,#12100c 32%,#0b0b0b 68%);
+    linear-gradient(
+      180deg,
+      #131720,
+      #0d1016
+    );
+  transition:.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(217,168,78,.35);
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.product-image{
+  height:360px;
   position:relative;
-  display:grid;
-  place-items:center;
+  background:
+    radial-gradient(
+      circle,
+      #242a35,
+      #10131a 65%
+    );
+  display:flex;
+  align-items:center;
+  justify-content:center;
   overflow:hidden;
 }
 
-.productImg img{
-  width:82%;
-  height:82%;
+.product-image img{
+  width:100%;
+  height:100%;
   object-fit:contain;
-  transition:.35s;
+  padding:18px;
+  transition:.45s;
 }
 
-.product:hover .productImg img{
-  transform:scale(1.06);
+.product-card:hover
+.product-image img{
+  transform:scale(1.05);
 }
 
-.wish{
-  position:absolute;
-  top:14px;
-  right:14px;
-  width:39px;
-  height:39px;
-  border-radius:50%;
-  background:#0b0b0bcc;
-  border:1px solid #333;
-  color:#aaa;
-  z-index:4;
-}
-
-.sale{
+.product-badge{
   position:absolute;
   left:14px;
   top:14px;
+  z-index:2;
   padding:7px 10px;
   background:var(--gold);
-  color:#000;
+  color:#161008;
   border-radius:8px;
-  font-size:10px;
-  font-weight:900;
+  font-size:9px;
+  font-weight:1000;
 }
 
-.productBody{
-  padding:20px;
+.product-body{
+  padding:21px;
 }
 
-.productBody h3{
-  font-size:17px;
-  margin-bottom:8px;
+.product-category{
+  color:var(--gold2);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:9px;
+  font-weight:1000;
+}
+
+.product-name{
+  margin-top:8px;
+  font-size:21px;
+}
+
+.product-description{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.65;
+  min-height:37px;
 }
 
 .stars{
-  color:var(--gold);
+  color:var(--gold2);
   font-size:12px;
-  margin-bottom:10px;
+  margin-top:12px;
 }
 
-.productDesc{
-  color:#777;
-  font-size:12px;
-  line-height:1.6;
-  min-height:38px;
-}
-
-.priceRow{
+.price-line{
   display:flex;
-  align-items:end;
-  gap:10px;
-  margin:16px 0;
+  align-items:center;
+  gap:9px;
+  margin-top:13px;
 }
 
 .price{
   font-size:24px;
-  font-weight:900;
+  font-weight:1000;
 }
 
-.old{
-  color:#555;
+.old-price{
+  color:#69717e;
   text-decoration:line-through;
-  font-size:13px;
+  font-size:11px;
 }
 
-.cardBtns{
+.discount{
+  color:var(--green);
+  font-size:10px;
+  font-weight:1000;
+}
+
+.card-buttons{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr 1.25fr;
   gap:8px;
+  margin-top:17px;
 }
 
-.cardBtn{
-  min-height:45px;
-  border-radius:12px;
-  background:#181818;
-  color:#fff;
-  border:1px solid #292929;
-  font-weight:700;
+.card-buttons button{
+  padding:12px;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:1000;
 }
 
-.cardBtn.buy{
+.view{
+  background:#191d26;
+  border:1px solid var(--line);
+  color:white;
+}
+
+.buy{
   background:var(--gold);
-  color:#000;
   border:0;
+  color:#171108;
 }
 
-/* ================= FEATURE ================= */
+/* ================= FEATURED ================= */
+
+.feature-section{
+  margin-top:70px;
+  border:1px solid var(--line);
+  border-radius:25px;
+  background:#0e1117;
+  padding:35px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
 
 .feature{
-  background:#0b0b0b;
-  border-top:1px solid #1d1d1d;
-  border-bottom:1px solid #1d1d1d;
+  padding:12px;
 }
 
-.featureBox{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
+.feature-icon{
+  font-size:28px;
+  margin-bottom:10px;
 }
 
-.featureImage{
-  border-radius:28px;
-  border:1px solid #252525;
-  background:radial-gradient(circle,#2a2115,#0a0a0a 65%);
-  min-height:480px;
-  display:grid;
-  place-items:center;
+.feature h3{
+  font-size:14px;
 }
 
-.featureImage img{
-  width:82%;
-  height:82%;
-  object-fit:contain;
-}
-
-.feature h2{
-  font-size:clamp(35px,5vw,62px);
-  line-height:1;
-  letter-spacing:-3px;
-  margin:10px 0 20px;
-}
-
-.featureText{
-  color:#888;
-  line-height:1.8;
-  margin-bottom:22px;
-}
-
-.points{
-  display:grid;
-  gap:12px;
-  margin-bottom:28px;
-}
-
-.point{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:13px;
-  background:#111;
-  border:1px solid #222;
-  border-radius:13px;
-  font-size:13px;
-}
-
-.check{
-  width:25px;
-  height:25px;
-  border-radius:50%;
-  background:#182a21;
-  color:var(--green);
-  display:grid;
-  place-items:center;
-}
-
-/* ================= FAQ ================= */
-
-.faqGrid{
-  max-width:800px;
-  margin:auto;
-}
-
-.faq{
-  border-bottom:1px solid #242424;
-}
-
-.faq button{
-  width:100%;
-  min-height:65px;
-  background:none;
-  color:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  text-align:left;
-  font-weight:700;
-}
-
-.answer{
-  display:none;
-  color:#777;
-  line-height:1.8;
-  padding:0 0 20px;
-  font-size:13px;
-}
-
-.faq.open .answer{
-  display:block;
+.feature p{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+  margin-top:7px;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-  background:#050505;
-  border-top:1px solid #1d1d1d;
-  padding:60px 0 25px;
+  border-top:1px solid var(--line);
+  background:#040507;
+  padding:50px 20px;
 }
 
-.footerGrid{
+.footer{
+  max-width:1250px;
+  margin:auto;
   display:grid;
-  grid-template-columns:1.5fr repeat(3,1fr);
+  grid-template-columns:2fr 1fr 1fr 1fr;
   gap:35px;
 }
 
 .footer h3{
-  margin-bottom:15px;
+  font-size:25px;
+}
+
+.footer h3 span{
+  color:var(--gold);
 }
 
 .footer p,
-.footer a{
-  color:#666;
-  font-size:13px;
-  line-height:2;
-}
-
-.footer a{
-  display:block;
-}
-
-.footer a:hover{
-  color:#fff;
-}
-
-.copyright{
-  border-top:1px solid #1c1c1c;
-  margin-top:40px;
-  padding-top:20px;
-  text-align:center;
-  color:#444;
+.footer button{
+  color:var(--muted);
   font-size:11px;
+  line-height:1.8;
 }
 
-/* ================= CART DRAWER ================= */
+.footer button{
+  display:block;
+  border:0;
+  background:none;
+  margin-top:9px;
+  text-align:left;
+}
+
+/* ================= MODAL ================= */
 
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.7);
-  backdrop-filter:blur(4px);
-  z-index:1500;
+  background:rgba(0,0,0,.76);
+  backdrop-filter:blur(8px);
+  z-index:2000;
   display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
 }
 
 .overlay.show{
-  display:block;
-}
-
-.drawer{
-  position:fixed;
-  z-index:1600;
-  top:0;
-  right:-480px;
-  width:min(450px,94%);
-  height:100%;
-  background:#0d0d0d;
-  border-left:1px solid #292929;
-  transition:.35s;
   display:flex;
-  flex-direction:column;
 }
 
-.drawer.show{
-  right:0;
+.modal{
+  width:min(900px,100%);
+  max-height:92vh;
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:#0d1016;
+  position:relative;
 }
 
-.drawerHead{
-  padding:22px;
+.close{
+  position:absolute;
+  right:16px;
+  top:16px;
+  width:40px;
+  height:40px;
+  border:1px solid var(--line);
+  background:#171a22;
+  color:white;
+  border-radius:10px;
+  z-index:5;
+}
+
+.detail{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.detail-image{
+  min-height:540px;
+  background:#10131a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.detail-image img{
+  width:100%;
+  height:540px;
+  object-fit:contain;
+  padding:25px;
+}
+
+.detail-info{
+  padding:45px 35px;
+}
+
+.detail-info h2{
+  font-size:37px;
+  letter-spacing:-2px;
+  margin-top:10px;
+}
+
+.detail-info p{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:13px;
+  margin-top:15px;
+}
+
+.detail-price{
+  color:var(--gold2);
+  font-size:31px;
+  font-weight:1000;
+  margin-top:22px;
+}
+
+.detail-old{
+  color:#68717e;
+  text-decoration:line-through;
+  font-size:12px;
+}
+
+.features{
+  margin-top:20px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+}
+
+.features h4{
+  font-size:12px;
+  margin-bottom:8px;
+}
+
+.features li{
+  list-style:none;
+  color:#aeb5c0;
+  font-size:11px;
+  padding:5px 0;
+}
+
+.features li::before{
+  content:"✓";
+  color:var(--green);
+  margin-right:7px;
+}
+
+/* ================= CART ================= */
+
+.cart-panel{
+  width:min(500px,100%);
+  margin-left:auto;
+  height:100%;
+  background:#0d1016;
+  border-left:1px solid var(--line);
+  padding:25px;
+  overflow:auto;
+}
+
+.cart-head{
   display:flex;
   justify-content:space-between;
-  border-bottom:1px solid #242424;
+  align-items:center;
+  margin-bottom:20px;
 }
 
-.drawerBody{
-  padding:18px;
-  overflow:auto;
-  flex:1;
-}
-
-.cartItem{
+.cart-item{
   display:grid;
   grid-template-columns:70px 1fr auto;
   gap:12px;
-  align-items:center;
-  padding:12px 0;
-  border-bottom:1px solid #202020;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
 }
 
-.cartItem img{
+.cart-item img{
   width:70px;
   height:70px;
-  border-radius:14px;
   object-fit:contain;
-  background:#15120e;
+  background:#151922;
+  border-radius:10px;
 }
 
-.cartName{
-  font-size:13px;
-  font-weight:800;
+.cart-item h4{
+  font-size:12px;
 }
 
-.cartPrice{
-  color:var(--gold);
+.cart-item p{
+  color:var(--gold2);
+  font-size:12px;
   font-weight:900;
   margin-top:6px;
 }
@@ -714,425 +683,378 @@ footer{
 .qty{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:7px;
   margin-top:8px;
 }
 
 .qty button{
   width:25px;
   height:25px;
-  border-radius:7px;
-  background:#202020;
-  color:#fff;
+  border:1px solid var(--line);
+  background:#181c25;
+  color:white;
+  border-radius:6px;
 }
 
-.remove{
-  color:#666;
-  background:none;
-  font-size:11px;
-}
-
-.drawerFoot{
-  padding:20px;
-  border-top:1px solid #242424;
-}
-
-.totalRow{
+.cart-total{
+  margin-top:25px;
   display:flex;
   justify-content:space-between;
-  margin-bottom:16px;
-  font-size:18px;
-  font-weight:900;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:1800;
-  display:none;
-  place-items:center;
-  background:rgba(0,0,0,.78);
-  padding:18px;
-}
-
-.modal.show{
-  display:grid;
-}
-
-.modalBox{
-  width:min(620px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:#101010;
-  border:1px solid #303030;
-  border-radius:24px;
-  padding:24px;
-  box-shadow:0 30px 100px #000;
-}
-
-.modalHead{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:20px;
-}
-
-.close{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:#1c1c1c;
-  color:#fff;
-}
-
-.form{
-  display:grid;
-  gap:12px;
-}
-
-.form input,
-.form textarea,
-.form select{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  border:1px solid #292929;
-  background:#080808;
-  color:#fff;
-  outline:0;
-}
-
-.form textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-.formGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.paymentBox{
-  padding:15px;
-  border:1px solid #292929;
-  border-radius:14px;
-  background:#0b0b0b;
-}
-
-.paymentBox label{
-  display:flex;
-  gap:10px;
   align-items:center;
-  padding:10px 0;
-  color:#bbb;
 }
 
-.note{
-  color:#666;
-  font-size:11px;
-  line-height:1.7;
+.cart-total strong{
+  font-size:25px;
 }
 
-/* ================= QUICK VIEW ================= */
+/* ================= CHECKOUT ================= */
 
-.quick{
+.checkout{
+  padding:30px;
+}
+
+.checkout-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:25px;
+  gap:20px;
+  margin-top:25px;
 }
 
-.quickImage{
-  min-height:350px;
-  border-radius:20px;
-  background:radial-gradient(circle,#292015,#0b0b0b 70%);
-  display:grid;
-  place-items:center;
+.field{
+  margin-bottom:12px;
 }
 
-.quickImage img{
-  width:90%;
-  height:90%;
-  object-fit:contain;
+.field label{
+  display:block;
+  color:#aeb5c0;
+  font-size:9px;
+  font-weight:1000;
+  margin-bottom:6px;
 }
 
-.quick h2{
-  font-size:30px;
-  margin-bottom:8px;
-}
-
-.quickDesc{
-  color:#777;
-  line-height:1.7;
-  margin:18px 0;
-}
-
-.quickPrice{
-  font-size:30px;
-  font-weight:900;
-  color:var(--gold);
-  margin-bottom:20px;
-}
-
-/* ================= MOBILE BUY BAR ================= */
-
-.mobileBuy{
-  display:none;
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:1200;
-  padding:10px;
-  background:rgba(8,8,8,.94);
-  backdrop-filter:blur(15px);
-  border-top:1px solid #292929;
-}
-
-.mobileBuy button{
+.field input,
+.field textarea{
   width:100%;
-  min-height:50px;
-  border-radius:13px;
-  background:var(--gold);
-  color:#000;
-  font-weight:900;
+  background:#151922;
+  color:white;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:12px;
+  outline:none;
 }
 
-/* ================= RESPONSIVE ================= */
+.field textarea{
+  min-height:90px;
+}
 
-@media(max-width:900px){
+.payment{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+}
 
-  .navlinks{
+.payment h4{
+  font-size:11px;
+}
+
+.payment label{
+  display:block;
+  margin-top:9px;
+  padding:12px;
+  background:#151922;
+  border:1px solid var(--line);
+  border-radius:9px;
+  font-size:11px;
+}
+
+.summary{
+  margin-top:15px;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin:9px 0;
+  font-size:12px;
+}
+
+.summary-row.total{
+  border-top:1px solid var(--line);
+  padding-top:15px;
+  margin-top:15px;
+}
+
+.summary-row.total strong{
+  font-size:22px;
+}
+
+/* ================= SUCCESS ================= */
+
+.success{
+  padding:70px 25px;
+  text-align:center;
+}
+
+.success-icon{
+  width:70px;
+  height:70px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(57,217,138,.12);
+  color:var(--green);
+  font-size:38px;
+}
+
+.success h2{
+  margin-top:18px;
+  font-size:30px;
+}
+
+.success p{
+  color:var(--muted);
+  margin-top:8px;
+  font-size:12px;
+}
+
+/* ================= MOBILE ================= */
+
+.mobile-nav{
+  display:none;
+}
+
+@media(max-width:850px){
+
+  .nav-links{
     display:none;
   }
 
-  .hero{
-    grid-template-columns:1fr;
-    padding:50px 0;
-  }
-
-  .heroVisual{
-    min-height:390px;
-  }
-
-  .trustGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .featureBox{
+  .hero-box{
     grid-template-columns:1fr;
   }
 
-  .footerGrid{
+  .hero-text{
+    padding:50px 30px 25px;
+  }
+
+  .hero-image{
+    min-height:340px;
+  }
+
+  .trust{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer{
     grid-template-columns:1fr 1fr;
   }
+
+  .detail{
+    grid-template-columns:1fr;
+  }
+
+  .detail-image,
+  .detail-image img{
+    min-height:350px;
+    height:350px;
+  }
+
 }
 
 @media(max-width:600px){
 
   body{
-    padding-bottom:70px;
-  }
-
-  .topbar{
-    font-size:10px;
-  }
-
-  .nav{
-    height:65px;
-  }
-
-  .logo{
-    font-size:22px;
+    padding-bottom:68px;
   }
 
   .hero{
-    min-height:auto;
-    padding:40px 0 50px;
+    padding:20px 13px;
   }
 
   .hero h1{
-    letter-spacing:-2.5px;
+    font-size:47px;
+    letter-spacing:-3px;
   }
 
-  .hero p{
-    font-size:14px;
+  .hero-text{
+    padding:40px 22px 20px;
   }
 
-  .heroVisual{
-    min-height:330px;
-    border-radius:24px;
-  }
-
-  section{
-    padding:60px 0;
-  }
-
-  .trustGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .trustItem{
-    font-size:10px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .sectionHead{
-    align-items:start;
-    flex-direction:column;
-  }
-
-  .featureImage{
-    min-height:330px;
-  }
-
-  .formGrid,
-  .quick{
-    grid-template-columns:1fr;
-  }
-
-  .quickImage{
+  .hero-image{
     min-height:270px;
+    padding:15px;
   }
 
-  .footerGrid{
+  .hero-image img{
+    height:260px;
+  }
+
+  .trust{
+    padding:12px 13px;
+    gap:7px;
+  }
+
+  .trust-box{
+    padding:12px;
+  }
+
+  .shop{
+    padding:55px 13px;
+  }
+
+  .shop-head h2{
+    font-size:27px;
+  }
+
+  .product-grid{
     grid-template-columns:1fr;
   }
 
-  .mobileBuy{
+  .product-image{
+    height:370px;
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer{
+    grid-template-columns:1fr;
+  }
+
+  .checkout-grid{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-nav{
+    display:grid;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:68px;
+    background:rgba(8,10,14,.96);
+    backdrop-filter:blur(15px);
+    border-top:1px solid var(--line);
+    z-index:1500;
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .mobile-nav button{
+    border:0;
+    background:none;
+    color:#9aa2b0;
+    font-size:9px;
+    font-weight:900;
+  }
+
+  .mobile-nav span{
     display:block;
+    font-size:20px;
+    margin-bottom:3px;
   }
 
-  .actions .searchIcon{
-    display:none;
-  }
-}
-
-/* ================= ANIMATION ================= */
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(18px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.heroText>*{
-  animation:fadeUp .7s ease both;
-}
-
-.heroText h1{animation-delay:.08s}
-.heroText p{animation-delay:.16s}
-.heroBtns{animation-delay:.24s}
-
-@media(prefers-reduced-motion:reduce){
-  *{
-    scroll-behavior:auto!important;
-    animation:none!important;
-    transition:none!important;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-  🔒 <b>PRIVATE & DISCREET SHOPPING</b> · 18+ ONLY · Secure checkout
+<div class="top-strip">
+  18+ • DISCREET PACKAGING • PREMIUM COLLECTION
 </div>
 
-<header>
-  <div class="container nav">
+<header class="header">
 
-    <a href="#" class="logo">GR<span>O</span></a>
+  <nav class="nav">
 
-    <nav class="navlinks">
-      <a href="#shop">Shop</a>
-      <a href="#featured">Featured</a>
-      <a href="#why">Why GRO</a>
-      <a href="#faq">FAQ</a>
-    </nav>
+    <div class="logo">
+      GRO<span>®</span>
+    </div>
 
-    <div class="actions">
+    <div class="nav-links">
+      <button onclick="goShop()">SHOP</button>
+      <button onclick="showFeatured()">COLLECTION</button>
+      <button onclick="openTrack()">TRACK ORDER</button>
+    </div>
 
-      <button class="iconbtn" onclick="focusSearch()">
-        ⌕
-      </button>
+    <div class="nav-right">
 
-      <button class="iconbtn" onclick="openCart()">
+      <button
+        class="icon"
+        onclick="openCart()">
         🛒
-        <span class="badge" id="cartCount">0</span>
+        <span
+          class="cart-number"
+          id="cartCount">
+          0
+        </span>
       </button>
 
     </div>
-  </div>
+
+  </nav>
+
 </header>
 
 
 <!-- ================= HERO ================= -->
 
-<main>
+<section class="hero">
 
-<section class="container hero">
+  <div class="hero-box">
 
-  <div class="heroText">
+    <div class="hero-text">
 
-    <div class="eyebrow">
-      <span class="dot"></span>
-      GRO PREMIUM COLLECTION
+      <div class="small-title">
+        GRO EXTENDER COLLECTION
+      </div>
+
+      <h1>
+        PREMIUM<br>
+        <span>CONFIDENCE.</span>
+      </h1>
+
+      <p>
+        Explore the GRO Extender premium collection.
+        Choose your configuration and experience
+        a private, discreet shopping experience.
+      </p>
+
+      <div class="hero-buttons">
+
+        <button
+          class="gold-btn"
+          onclick="goShop()">
+          SHOP COLLECTION →
+        </button>
+
+        <button
+          class="dark-btn"
+          onclick="openTrack()">
+          TRACK ORDER
+        </button>
+
+      </div>
+
     </div>
 
-    <h1>
-      Built for a
-      <span>better</span>
-      experience.
-    </h1>
+    <div class="hero-image">
 
-    <p>
-      Premium adult wellness products with a discreet,
-      modern shopping experience. Explore the GRO collection,
-      choose your configuration and checkout in minutes.
-    </p>
+      <!-- তোর আসল Ultimate image -->
+      <img
+        src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png"
+        alt="GRO Extender Ultimate">
 
-    <div class="heroBtns">
-      <a class="btn primary" href="#shop">
-        EXPLORE COLLECTION
-      </a>
-
-      <button class="btn secondary" onclick="openQuick('ultimate')">
-        VIEW FEATURED
-      </button>
-    </div>
-
-  </div>
-
-
-  <div class="heroVisual">
-
-    <div class="floatTag tag1">
-      ✦ Premium Collection
-    </div>
-
-    <img
-      class="heroProduct"
-      src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png"
-      alt="GRO Product"
-    >
-
-    <div class="floatTag tag2">
-      🔒 Discreet Packaging
     </div>
 
   </div>
@@ -1142,210 +1064,122 @@ footer{
 
 <!-- ================= TRUST ================= -->
 
-<div class="trust">
-  <div class="container trustGrid">
+<section class="trust">
 
-    <div class="trustItem">
-      <div class="trustIcon">🔒</div>
-      <div>
-        <b>Private</b><br>
-        <span>Discreet shopping</span>
-      </div>
-    </div>
-
-    <div class="trustItem">
-      <div class="trustIcon">📦</div>
-      <div>
-        <b>Secure Pack</b><br>
-        <span>Neutral packaging</span>
-      </div>
-    </div>
-
-    <div class="trustItem">
-      <div class="trustIcon">⚡</div>
-      <div>
-        <b>Fast Checkout</b><br>
-        <span>Mobile optimized</span>
-      </div>
-    </div>
-
-    <div class="trustItem">
-      <div class="trustIcon">💬</div>
-      <div>
-        <b>Support</b><br>
-        <span>Direct assistance</span>
-      </div>
-    </div>
-
+  <div class="trust-box">
+    <strong>🔒 PRIVATE SHOPPING</strong>
+    <span>Customer-focused checkout</span>
   </div>
-</div>
 
+  <div class="trust-box">
+    <strong>📦 DISCREET PACKAGING</strong>
+    <span>Privacy-focused delivery</span>
+  </div>
 
-<!-- ================= SHOP ================= -->
+  <div class="trust-box">
+    <strong>⚡ FAST PROCESSING</strong>
+    <span>Quick order handling</span>
+  </div>
 
-<section id="shop">
-
-  <div class="container">
-
-    <div class="sectionHead">
-
-      <div>
-        <div class="kicker">GRO COLLECTION</div>
-        <h2>Choose your setup.</h2>
-      </div>
-
-      <p>Premium configurations · 18+</p>
-
-    </div>
-
-
-    <div class="toolbar">
-
-      <input
-        id="search"
-        class="search"
-        placeholder="Search GRO products..."
-        oninput="renderProducts()"
-      >
-
-      <select id="sort" class="filter" onchange="renderProducts()">
-        <option value="featured">Featured</option>
-        <option value="low">Price: Low to High</option>
-        <option value="high">Price: High to Low</option>
-      </select>
-
-    </div>
-
-
-    <div id="productGrid" class="grid"></div>
-
+  <div class="trust-box">
+    <strong>💬 CUSTOMER SUPPORT</strong>
+    <span>Support when you need it</span>
   </div>
 
 </section>
 
 
-<!-- ================= FEATURED ================= -->
+<!-- ================= PRODUCTS ================= -->
 
-<section id="featured" class="feature">
+<section
+  class="shop"
+  id="shop">
 
-  <div class="container featureBox">
-
-    <div class="featureImage">
-
-      <img
-        src="ProExtender-Ultimate-Straps-260x134.jpg"
-        alt="GRO Ultimate"
-      >
-
-    </div>
-
+  <div class="shop-head">
 
     <div>
 
-      <div class="kicker">FEATURED</div>
+      <div class="small-title">
+        THE GRO COLLECTION
+      </div>
 
       <h2>
-        GRO Ultimate
+        Choose Your GRO
       </h2>
 
-      <p class="featureText">
-        A premium adjustable configuration designed around
-        a clean, compact and discreet product experience.
+      <p>
+        Three premium configurations.
       </p>
 
-      <div class="points">
-
-        <div class="point">
-          <span class="check">✓</span>
-          Adjustable fitting configuration
-        </div>
-
-        <div class="point">
-          <span class="check">✓</span>
-          Reinforced components
-        </div>
-
-        <div class="point">
-          <span class="check">✓</span>
-          Compact storage-friendly design
-        </div>
-
-        <div class="point">
-          <span class="check">✓</span>
-          Adult product — 18+
-        </div>
-
-      </div>
-
-      <button
-        class="btn primary"
-        onclick="buyNow('ultimate')"
-      >
-        SHOP ULTIMATE
-      </button>
-
     </div>
 
   </div>
 
-</section>
+
+  <div
+    class="product-grid"
+    id="productGrid">
+  </div>
 
 
-<!-- ================= WHY GRO ================= -->
+  <!-- ================= FEATURES ================= -->
 
-<section id="why">
+  <div class="feature-section">
 
-  <div class="container">
+    <div class="feature-grid">
 
-    <div class="sectionHead">
+      <div class="feature">
 
-      <div>
-        <div class="kicker">THE GRO STANDARD</div>
-        <h2>Simple. Premium. Private.</h2>
-      </div>
+        <div class="feature-icon">
+          ◈
+        </div>
 
-    </div>
+        <h3>
+          Premium Configurations
+        </h3>
 
-
-    <div class="grid">
-
-      <div class="product" style="padding:28px">
-
-        <div style="font-size:35px;margin-bottom:20px">◈</div>
-
-        <h3>Premium Presentation</h3>
-
-        <p class="productDesc">
-          A clean product-first experience without unnecessary
-          clutter or confusing navigation.
+        <p>
+          Multiple GRO configurations are
+          presented clearly so customers can
+          choose according to their preference.
         </p>
 
       </div>
 
 
-      <div class="product" style="padding:28px">
+      <div class="feature">
 
-        <div style="font-size:35px;margin-bottom:20px">⌁</div>
+        <div class="feature-icon">
+          ◉
+        </div>
 
-        <h3>Mobile First</h3>
+        <h3>
+          Discreet Experience
+        </h3>
 
-        <p class="productDesc">
-          Designed around smartphone shopping with large,
-          easy-to-use controls.
+        <p>
+          The storefront is designed around
+          privacy and a clean premium purchase
+          experience.
         </p>
 
       </div>
 
 
-      <div class="product" style="padding:28px">
+      <div class="feature">
 
-        <div style="font-size:35px;margin-bottom:20px">◉</div>
+        <div class="feature-icon">
+          ✓
+        </div>
 
-        <h3>Discreet Experience</h3>
+        <h3>
+          Simple Checkout
+        </h3>
 
-        <p class="productDesc">
-          Private browsing and discreet-shopping messaging
-          are placed directly into the customer journey.
+        <p>
+          Product selection, quantity and
+          customer details are handled through
+          a streamlined checkout.
         </p>
 
       </div>
@@ -1355,209 +1189,159 @@ footer{
   </div>
 
 </section>
-
-
-<!-- ================= FAQ ================= -->
-
-<section id="faq">
-
-  <div class="container">
-
-    <div class="sectionHead">
-
-      <div>
-        <div class="kicker">HELP CENTER</div>
-        <h2>Frequently asked.</h2>
-      </div>
-
-    </div>
-
-
-    <div class="faqGrid">
-
-      <div class="faq">
-
-        <button onclick="faq(this)">
-          Is GRO for adults only?
-          <span>＋</span>
-        </button>
-
-        <div class="answer">
-          Yes. GRO products shown on this website are intended
-          for adults aged 18 years and above.
-        </div>
-
-      </div>
-
-
-      <div class="faq">
-
-        <button onclick="faq(this)">
-          Is the package discreet?
-          <span>＋</span>
-        </button>
-
-        <div class="answer">
-          Orders should be shipped using neutral outer packaging.
-          Configure your actual courier policy before publishing
-          this promise commercially.
-        </div>
-
-      </div>
-
-
-      <div class="faq">
-
-        <button onclick="faq(this)">
-          Can I track my order?
-          <span>＋</span>
-        </button>
-
-        <div class="answer">
-          Yes. Your production version can connect the tracking
-          page to your actual order-management/backend system.
-        </div>
-
-      </div>
-
-
-      <div class="faq">
-
-        <button onclick="faq(this)">
-          Is online payment automatically verified?
-          <span>＋</span>
-        </button>
-
-        <div class="answer">
-          This standalone HTML demo does not independently verify
-          payment. Automatic verification requires a compatible
-          payment provider and server-side webhook/backend.
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-</main>
 
 
 <!-- ================= FOOTER ================= -->
 
 <footer>
 
-  <div class="container footerGrid">
+  <div class="footer">
 
-    <div class="footer">
-      <h3>GRO</h3>
+    <div>
+
+      <h3>
+        GRO<span>®</span>
+      </h3>
 
       <p>
-        Premium adult wellness shopping experience
-        designed around privacy, clarity and simplicity.
+        Premium men's wellness store.
+        Private shopping and discreet
+        customer experience.
       </p>
 
-      <p style="margin-top:15px">
-        🔞 18+ only
-      </p>
     </div>
 
+    <div>
 
-    <div class="footer">
-      <h3>Shop</h3>
-      <a href="#shop">All Products</a>
-      <a href="#featured">Ultimate</a>
-      <a href="#shop">Supreme+</a>
-      <a href="#shop">DoubleDeck</a>
+      <strong>SHOP</strong>
+
+      <button onclick="goShop()">
+        All Products
+      </button>
+
+      <button onclick="goShop()">
+        GRO Ultimate
+      </button>
+
+      <button onclick="goShop()">
+        GRO Supreme+
+      </button>
+
+      <button onclick="goShop()">
+        GRO DoubleDeck
+      </button>
+
     </div>
 
+    <div>
 
-    <div class="footer">
-      <h3>Support</h3>
-      <a href="#faq">FAQ</a>
-      <a href="tel:+917407792138">Call Support</a>
-      <a href="https://wa.me/917407792138" target="_blank">
-        WhatsApp
-      </a>
+      <strong>ORDER</strong>
+
+      <button onclick="openCart()">
+        Cart
+      </button>
+
+      <button onclick="openTrack()">
+        Track Order
+      </button>
+
     </div>
 
+    <div>
 
-    <div class="footer">
-      <h3>Policies</h3>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Shipping</a>
-      <a href="#">Refund</a>
+      <strong>POLICIES</strong>
+
+      <button>
+        Privacy Policy
+      </button>
+
+      <button>
+        Terms
+      </button>
+
+      <button>
+        Refund Policy
+      </button>
+
     </div>
 
-  </div>
-
-
-  <div class="container copyright">
-    © 2026 GRO — All Rights Reserved.
   </div>
 
 </footer>
 
 
-<!-- ================= CART OVERLAY ================= -->
+<!-- ================= PRODUCT MODAL ================= -->
 
-<div id="overlay" class="overlay" onclick="closeCart()"></div>
+<div
+  class="overlay"
+  id="productOverlay">
 
-
-<div id="drawer" class="drawer">
-
-  <div class="drawerHead">
-
-    <strong>Your Cart</strong>
-
-    <button class="close" onclick="closeCart()">×</button>
-
-  </div>
-
-
-  <div id="cartItems" class="drawerBody"></div>
-
-
-  <div class="drawerFoot">
-
-    <div class="totalRow">
-      <span>Total</span>
-      <span id="cartTotal">₹0</span>
-    </div>
+  <div class="modal">
 
     <button
-      class="btn primary"
-      style="width:100%"
-      onclick="openCheckout()"
-    >
-      PROCEED TO CHECKOUT
+      class="close"
+      onclick="closeProduct()">
+      ×
     </button>
+
+    <div
+      class="detail"
+      id="productDetail">
+    </div>
 
   </div>
 
 </div>
 
 
-<!-- ================= QUICK MODAL ================= -->
+<!-- ================= CART ================= -->
 
-<div id="quickModal" class="modal">
+<div
+  class="overlay"
+  id="cartOverlay">
 
-  <div class="modalBox">
+  <div class="cart-panel">
 
-    <div class="modalHead">
+    <div class="cart-head">
 
-      <strong>Product Details</strong>
+      <h2>
+        Your Cart
+      </h2>
 
-      <button class="close" onclick="closeModal('quickModal')">
+      <button
+        class="close"
+        style="position:static"
+        onclick="closeCart()">
         ×
       </button>
 
     </div>
 
-    <div id="quickContent"></div>
+    <div
+      id="cartItems">
+    </div>
+
+    <div class="cart-total">
+
+      <span>
+        Total
+      </span>
+
+      <strong id="cartTotal">
+        ₹0
+      </strong>
+
+    </div>
+
+    <button
+      class="gold-btn"
+      style="
+        width:100%;
+        margin-top:18px
+      "
+      onclick="openCheckout()">
+      CHECKOUT →
+    </button>
 
   </div>
 
@@ -1566,152 +1350,111 @@ footer{
 
 <!-- ================= CHECKOUT ================= -->
 
-<div id="checkoutModal" class="modal">
+<div
+  class="overlay"
+  id="checkoutOverlay">
 
-  <div class="modalBox">
+  <div class="modal">
 
-    <div class="modalHead">
+    <button
+      class="close"
+      onclick="closeCheckout()">
+      ×
+    </button>
 
-      <strong>Secure Checkout</strong>
-
-      <button class="close" onclick="closeModal('checkoutModal')">
-        ×
-      </button>
-
+    <div
+      class="checkout"
+      id="checkout">
     </div>
-
-
-    <form class="form" onsubmit="placeOrder(event)">
-
-      <div class="formGrid">
-
-        <input
-          id="customerName"
-          required
-          placeholder="Full name"
-        >
-
-        <input
-          id="customerMobile"
-          required
-          inputmode="tel"
-          placeholder="Mobile number"
-        >
-
-      </div>
-
-
-      <textarea
-        id="customerAddress"
-        required
-        placeholder="Complete delivery address"
-      ></textarea>
-
-
-      <div class="formGrid">
-
-        <input
-          id="customerDistrict"
-          required
-          placeholder="District"
-        >
-
-        <input
-          id="customerState"
-          required
-          value="West Bengal"
-          placeholder="State"
-        >
-
-      </div>
-
-
-      <div class="formGrid">
-
-        <input
-          id="customerPin"
-          required
-          inputmode="numeric"
-          maxlength="6"
-          placeholder="PIN code"
-        >
-
-        <select id="paymentMode">
-
-          <option value="online">
-            Online Payment
-          </option>
-
-          <option value="cod">
-            COD / Advance — if available
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="paymentBox">
-
-        <b>Payment</b>
-
-        <label>
-          <input
-            type="radio"
-            name="pay"
-            value="online"
-            checked
-          >
-          Online payment
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="pay"
-            value="cod"
-          >
-          COD / advance payment
-        </label>
-
-      </div>
-
-
-      <div class="note">
-        Payment verification is not performed by this static
-        HTML demo. Connect your approved payment provider and
-        server-side webhook before using this flow for real orders.
-      </div>
-
-
-      <div class="totalRow">
-
-        <span>Order Total</span>
-
-        <span id="checkoutTotal">
-          ₹0
-        </span>
-
-      </div>
-
-
-      <button class="btn primary" style="width:100%">
-        PLACE ORDER
-      </button>
-
-    </form>
 
   </div>
 
 </div>
 
 
-<!-- ================= MOBILE BUY BAR ================= -->
+<!-- ================= TRACK ================= -->
 
-<div class="mobileBuy">
+<div
+  class="overlay"
+  id="trackOverlay">
 
-  <button onclick="buyNow('ultimate')">
-    ⚡ BUY GRO ULTIMATE
+  <div class="modal">
+
+    <button
+      class="close"
+      onclick="closeTrack()">
+      ×
+    </button>
+
+    <div class="checkout">
+
+      <div class="small-title">
+        ORDER SERVICE
+      </div>
+
+      <h2>
+        Track Order
+      </h2>
+
+      <div
+        class="field"
+        style="margin-top:25px">
+
+        <label>
+          ORDER ID
+        </label>
+
+        <input
+          id="trackId"
+          placeholder="GRO-XXXXXXXX">
+
+      </div>
+
+      <button
+        class="gold-btn"
+        style="width:100%"
+        onclick="trackOrder()">
+        CHECK STATUS
+      </button>
+
+      <div
+        id="trackResult"
+        style="margin-top:20px">
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<div class="mobile-nav">
+
+  <button
+    onclick="window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    })">
+    <span>⌂</span>
+    Home
+  </button>
+
+  <button onclick="goShop()">
+    <span>▦</span>
+    Shop
+  </button>
+
+  <button onclick="openTrack()">
+    <span>🚚</span>
+    Track
+  </button>
+
+  <button onclick="openCart()">
+    <span>🛒</span>
+    Cart
   </button>
 
 </div>
@@ -1720,38 +1463,72 @@ footer{
 <script>
 
 /* =========================================================
-   PRODUCTS
+   YOUR ACTUAL PRODUCTS
+   তোর আগের website file থেকে নেওয়া
 ========================================================= */
 
-const PRODUCTS = {
+const PRODUCTS = [
 
-  ultimate:{
+  {
     id:"ultimate",
+
     name:"GRO Extender® Ultimate",
+
+    category:"ULTIMATE",
+
     price:3249,
+
     old:4499,
-    image:"Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
-    category:"Ultimate",
+
+    badge:"BESTSELLER",
+
+    image:
+      "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
+
+    gallery:[
+      "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
+      "ProExtender-Ultimate-Straps-260x134.jpg",
+      "ProExtender-Ultimate002 (1).png"
+    ],
+
     description:
       "Premium adjustable configuration with multiple fitting components.",
+
     features:[
       "Adjustable fitting configuration",
       "Multiple adjustment positions",
-      "Reinforced components",
+      "Reinforced straps",
       "Compact component design",
       "Adult product — 18+"
     ]
   },
 
-  supreme:{
+
+  {
     id:"supreme",
+
     name:"GRO Extender® Supreme+",
+
+    category:"SUPREME+",
+
     price:4780,
+
     old:5999,
-    image:"Gemini_Generated_Image_unscx2unscx2unsc.png",
-    category:"Supreme+",
+
+    badge:"PREMIUM",
+
+    image:
+      "Gemini_Generated_Image_unscx2unscx2unsc.png",
+
+    gallery:[
+      "Gemini_Generated_Image_unscx2unscx2unsc.png",
+      "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
+      "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
+    ],
+
     description:
       "Premium lightweight adjustable configuration.",
+
     features:[
       "Lightweight configuration",
       "Adjustable fitting",
@@ -1761,15 +1538,32 @@ const PRODUCTS = {
     ]
   },
 
-  doubledeck:{
+
+  {
     id:"doubledeck",
+
     name:"GRO Extender® DoubleDeck",
+
+    category:"DOUBLEDECK",
+
     price:5950,
+
     old:6999,
-    image:"Gemini_Generated_Image_bezw1nbezw1nbezw.png",
-    category:"DoubleDeck",
+
+    badge:"ELITE",
+
+    image:
+      "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
+
+    gallery:[
+      "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
+      "pro-extender-penis-enlargement-system-500x500.jpg",
+      "pro-extender-silicone-tube.webp"
+    ],
+
     description:
       "Multi-component premium adjustable configuration.",
+
     features:[
       "Multi-component configuration",
       "Adjustable fitting positions",
@@ -1779,175 +1573,184 @@ const PRODUCTS = {
     ]
   }
 
-};
+];
 
 
 /* =========================================================
-   STATE
+   CART
 ========================================================= */
 
 let cart =
-  JSON.parse(localStorage.getItem("gro_cart") || "[]");
-
-
-/* =========================================================
-   HELPERS
-========================================================= */
-
-const money =
-  n => "₹" + Number(n).toLocaleString("en-IN");
+  JSON.parse(
+    localStorage.getItem("groCart") || "[]"
+  );
 
 
 function saveCart(){
 
   localStorage.setItem(
-    "gro_cart",
+    "groCart",
     JSON.stringify(cart)
+  );
+
+  updateCart();
+
+}
+
+
+function updateCart(){
+
+  let count =
+    cart.reduce(
+      (a,b)=>a+b.qty,
+      0
+    );
+
+  document.getElementById(
+    "cartCount"
+  ).textContent = count;
+
+}
+
+
+function addToCart(id){
+
+  let item =
+    cart.find(
+      x=>x.id===id
+    );
+
+  if(item){
+
+    item.qty++;
+
+  }else{
+
+    cart.push({
+      id:id,
+      qty:1
+    });
+
+  }
+
+  saveCart();
+
+  openCart();
+
+}
+
+
+function getTotal(){
+
+  return cart.reduce(
+    (total,item)=>{
+
+      let p =
+        PRODUCTS.find(
+          x=>x.id===item.id
+        );
+
+      return total +
+        p.price * item.qty;
+
+    },
+    0
   );
 
 }
 
 
-function getProduct(id){
-
-  return PRODUCTS[id];
-
-}
-
-
 /* =========================================================
-   PRODUCTS
+   PRODUCT CARDS
 ========================================================= */
 
 function renderProducts(){
 
-  const q =
-    document
-      .getElementById("search")
-      .value
-      .toLowerCase()
-      .trim();
-
-  const sort =
-    document.getElementById("sort").value;
-
-  let list =
-    Object.values(PRODUCTS)
-      .filter(p =>
-        (
-          p.name +
-          " " +
-          p.category +
-          " " +
-          p.description
-        )
-        .toLowerCase()
-        .includes(q)
-      );
-
-
-  if(sort === "low")
-    list.sort((a,b)=>a.price-b.price);
-
-  if(sort === "high")
-    list.sort((a,b)=>b.price-a.price);
-
-
-  document.getElementById("productGrid").innerHTML =
-    list.length
-    ? list.map(productCard).join("")
-    : `
-      <div style="
-        grid-column:1/-1;
-        padding:60px;
-        text-align:center;
-        color:#666
-      ">
-        No products found.
-      </div>
-    `;
+  document.getElementById(
+    "productGrid"
+  ).innerHTML =
+    PRODUCTS.map(productCard).join("");
 
 }
 
 
 function productCard(p){
 
-  const discount =
-    Math.round((1-p.price/p.old)*100);
+  let discount =
+    Math.round(
+      (1-p.price/p.old)*100
+    );
 
   return `
 
-  <article class="product">
+    <article class="product-card">
 
-    <div class="productImg">
+      <div class="product-image">
 
-      <span class="sale">
-        -${discount}%
-      </span>
+        <div class="product-badge">
+          ${p.badge}
+        </div>
 
-      <button
-        class="wish"
-        onclick="wishlist('${p.id}')"
-      >
-        ♡
-      </button>
-
-      <img
-        src="${p.image}"
-        alt="${p.name}"
-        loading="lazy"
-      >
-
-    </div>
-
-
-    <div class="productBody">
-
-      <div class="stars">
-        ★★★★★
-      </div>
-
-      <h3>${p.name}</h3>
-
-      <p class="productDesc">
-        ${p.description}
-      </p>
-
-
-      <div class="priceRow">
-
-        <span class="price">
-          ${money(p.price)}
-        </span>
-
-        <span class="old">
-          ${money(p.old)}
-        </span>
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          onclick="openProduct('${p.id}')">
 
       </div>
 
+      <div class="product-body">
 
-      <div class="cardBtns">
+        <div class="product-category">
+          ${p.category}
+        </div>
 
-        <button
-          class="cardBtn"
-          onclick="openQuick('${p.id}')"
-        >
-          QUICK VIEW
-        </button>
+        <h3 class="product-name">
+          ${p.name}
+        </h3>
 
-        <button
-          class="cardBtn buy"
-          onclick="addToCart('${p.id}')"
-        >
-          ADD TO CART
-        </button>
+        <div class="product-description">
+          ${p.description}
+        </div>
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <div class="price-line">
+
+          <span class="price">
+            ₹${p.price.toLocaleString("en-IN")}
+          </span>
+
+          <span class="old-price">
+            ₹${p.old.toLocaleString("en-IN")}
+          </span>
+
+          <span class="discount">
+            ${discount}% OFF
+          </span>
+
+        </div>
+
+        <div class="card-buttons">
+
+          <button
+            class="view"
+            onclick="openProduct('${p.id}')">
+            VIEW
+          </button>
+
+          <button
+            class="buy"
+            onclick="addToCart('${p.id}')">
+            ADD TO CART
+          </button>
+
+        </div>
 
       </div>
 
-    </div>
-
-  </article>
+    </article>
 
   `;
 
@@ -1955,188 +1758,160 @@ function productCard(p){
 
 
 /* =========================================================
-   CART
+   PRODUCT DETAILS
 ========================================================= */
 
-function addToCart(id){
+function openProduct(id){
 
-  const item =
-    cart.find(x=>x.id===id);
-
-  if(item){
-    item.qty++;
-  }else{
-    cart.push({
-      id:id,
-      qty:1
-    });
-  }
-
-  saveCart();
-  updateCart();
-  openCart();
-
-}
-
-
-function removeFromCart(index){
-
-  cart.splice(index,1);
-
-  saveCart();
-  updateCart();
-
-}
-
-
-function changeQty(index,delta){
-
-  cart[index].qty += delta;
-
-  if(cart[index].qty <= 0)
-    cart.splice(index,1);
-
-  saveCart();
-  updateCart();
-
-}
-
-
-function cartTotal(){
-
-  return cart.reduce(
-    (sum,item)=>
-      sum +
-      getProduct(item.id).price *
-      item.qty,
-    0
-  );
-
-}
-
-
-function updateCart(){
-
-  const count =
-    cart.reduce(
-      (sum,item)=>sum+item.qty,
-      0
+  let p =
+    PRODUCTS.find(
+      x=>x.id===id
     );
 
-  document.getElementById("cartCount")
-    .textContent=count;
+  document.getElementById(
+    "productDetail"
+  ).innerHTML = `
 
+    <div class="detail-image">
 
-  const body =
-    document.getElementById("cartItems");
+      <img
+        src="${p.image}"
+        id="detailMainImage"
+        alt="${p.name}">
 
+    </div>
 
-  if(!cart.length){
+    <div class="detail-info">
 
-    body.innerHTML=`
+      <div class="small-title">
+        GRO ${p.category}
+      </div>
 
-      <div style="
-        text-align:center;
-        padding:70px 20px;
-        color:#666
-      ">
+      <h2>
+        ${p.name}
+      </h2>
 
-        <div style="font-size:45px">
-          🛒
-        </div>
+      <div class="stars">
+        ★★★★★
+      </div>
 
-        <h3 style="margin:15px 0;color:#fff">
-          Your cart is empty
-        </h3>
+      <p>
+        ${p.description}
+      </p>
 
-        <p>
-          Add a GRO product to continue.
-        </p>
+      <div class="detail-price">
+        ₹${p.price.toLocaleString("en-IN")}
+      </div>
+
+      <div class="detail-old">
+        MRP ₹${p.old.toLocaleString("en-IN")}
+      </div>
+
+      <div class="features">
+
+        <h4>
+          PRODUCT DETAILS
+        </h4>
+
+        <ul>
+
+          ${p.features.map(
+            f=>`<li>${f}</li>`
+          ).join("")}
+
+        </ul>
 
       </div>
 
-    `;
+      <div
+        style="
+          display:flex;
+          gap:7px;
+          margin-top:15px;
+          overflow:auto;
+        ">
 
-  }else{
-
-    body.innerHTML =
-      cart.map((item,index)=>{
-
-        const p =
-          getProduct(item.id);
-
-        return `
-
-        <div class="cartItem">
+        ${p.gallery.map(
+          img=>`
 
           <img
-            src="${p.image}"
-            alt="${p.name}"
-          >
+            src="${img}"
+            onclick="
+              document.getElementById(
+                'detailMainImage'
+              ).src='${img}'
+            "
+            style="
+              width:65px;
+              height:65px;
+              object-fit:contain;
+              background:#151922;
+              border:1px solid var(--line);
+              border-radius:8px;
+              cursor:pointer;
+            ">
 
-          <div>
+        `).join("")}
 
-            <div class="cartName">
-              ${p.name}
-            </div>
+      </div>
 
-            <div class="cartPrice">
-              ${money(p.price)}
-            </div>
+      <button
+        class="gold-btn"
+        style="
+          width:100%;
+          margin-top:18px
+        "
+        onclick="
+          addToCart('${p.id}');
+          closeProduct();
+        ">
+        ADD TO CART
+      </button>
 
-            <div class="qty">
+      <button
+        class="dark-btn"
+        style="
+          width:100%;
+          margin-top:8px
+        "
+        onclick="
+          addToCart('${p.id}');
+          closeProduct();
+          openCheckout();
+        ">
+        BUY NOW
+      </button>
 
-              <button
-                onclick="changeQty(${index},-1)"
-              >−</button>
+    </div>
 
-              <span>${item.qty}</span>
+  `;
 
-              <button
-                onclick="changeQty(${index},1)"
-              >+</button>
+  document
+    .getElementById("productOverlay")
+    .classList.add("show");
 
-            </div>
-
-          </div>
-
-          <button
-            class="remove"
-            onclick="removeFromCart(${index})"
-          >
-            Remove
-          </button>
-
-        </div>
-
-        `;
-
-      }).join("");
-
-  }
+}
 
 
-  document.getElementById("cartTotal")
-    .textContent=money(cartTotal());
+function closeProduct(){
 
-  document.getElementById("checkoutTotal")
-    .textContent=money(cartTotal());
+  document
+    .getElementById("productOverlay")
+    .classList.remove("show");
 
 }
 
 
 /* =========================================================
-   CART DRAWER
+   CART UI
 ========================================================= */
 
 function openCart(){
 
-  document
-    .getElementById("overlay")
-    .classList.add("show");
+  renderCart();
 
   document
-    .getElementById("drawer")
+    .getElementById("cartOverlay")
     .classList.add("show");
 
 }
@@ -2145,118 +1920,156 @@ function openCart(){
 function closeCart(){
 
   document
-    .getElementById("overlay")
-    .classList.remove("show");
-
-  document
-    .getElementById("drawer")
+    .getElementById("cartOverlay")
     .classList.remove("show");
 
 }
 
 
-/* =========================================================
-   QUICK VIEW
-========================================================= */
+function renderCart(){
 
-function openQuick(id){
+  let box =
+    document.getElementById(
+      "cartItems"
+    );
 
-  const p=getProduct(id);
+  if(!cart.length){
 
-  document.getElementById("quickContent")
-    .innerHTML=`
+    box.innerHTML = `
 
-      <div class="quick">
+      <div style="
+        padding:70px 10px;
+        text-align:center;
+        color:var(--muted);
+      ">
 
-        <div class="quickImage">
-
-          <img
-            src="${p.image}"
-            alt="${p.name}"
-          >
-
+        <div style="
+          font-size:45px;
+        ">
+          🛒
         </div>
 
-        <div>
-
-          <div class="kicker">
-            ${p.category}
-          </div>
-
-          <h2>${p.name}</h2>
-
-          <div class="stars">
-            ★★★★★
-          </div>
-
-          <div class="quickPrice">
-            ${money(p.price)}
-          </div>
-
-          <p class="quickDesc">
-            ${p.description}
-          </p>
-
-          <div class="points">
-
-            ${p.features.map(x=>`
-
-              <div class="point">
-                <span class="check">✓</span>
-                ${x}
-              </div>
-
-            `).join("")}
-
-          </div>
-
-          <button
-            class="btn primary"
-            style="width:100%"
-            onclick="addToCart('${id}');closeModal('quickModal')"
-          >
-            ADD TO CART
-          </button>
-
-        </div>
+        <h3 style="
+          color:white;
+          margin-top:12px;
+        ">
+          Your cart is empty
+        </h3>
 
       </div>
 
     `;
 
+  }else{
 
-  document
-    .getElementById("quickModal")
-    .classList.add("show");
+    box.innerHTML =
+      cart.map(item=>{
+
+        let p =
+          PRODUCTS.find(
+            x=>x.id===item.id
+          );
+
+        return `
+
+          <div class="cart-item">
+
+            <img
+              src="${p.image}">
+
+            <div>
+
+              <h4>
+                ${p.name}
+              </h4>
+
+              <p>
+                ₹${p.price.toLocaleString("en-IN")}
+              </p>
+
+              <div class="qty">
+
+                <button
+                  onclick="changeQty('${p.id}',-1)">
+                  −
+                </button>
+
+                <span>
+                  ${item.qty}
+                </span>
+
+                <button
+                  onclick="changeQty('${p.id}',1)">
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+            <button
+              onclick="removeItem('${p.id}')"
+              style="
+                background:none;
+                border:0;
+                color:#777;
+                font-size:20px;
+              ">
+              ×
+            </button>
+
+          </div>
+
+        `;
+
+      }).join("");
+
+  }
+
+  document.getElementById(
+    "cartTotal"
+  ).textContent =
+    "₹"+
+    getTotal().toLocaleString("en-IN");
 
 }
 
 
-function closeModal(id){
+function changeQty(id,n){
 
-  document
-    .getElementById(id)
-    .classList.remove("show");
+  let item =
+    cart.find(
+      x=>x.id===id
+    );
 
-}
+  if(!item)return;
 
+  item.qty += n;
 
-/* =========================================================
-   BUY NOW
-========================================================= */
+  if(item.qty<=0){
 
-function buyNow(id){
+    cart =
+      cart.filter(
+        x=>x.id!==id
+      );
 
-  cart=[
-    {
-      id:id,
-      qty:1
-    }
-  ];
+  }
 
   saveCart();
-  updateCart();
-  openCheckout();
+  renderCart();
+
+}
+
+
+function removeItem(id){
+
+  cart =
+    cart.filter(
+      x=>x.id!==id
+    );
+
+  saveCart();
+  renderCart();
 
 }
 
@@ -2269,106 +2082,455 @@ function openCheckout(){
 
   if(!cart.length){
 
-    alert("Your cart is empty.");
+    alert("Cart is empty.");
+
     return;
 
   }
 
   closeCart();
 
-  updateCart();
+  document.getElementById(
+    "checkout"
+  ).innerHTML = `
+
+    <div class="small-title">
+      SECURE CHECKOUT
+    </div>
+
+    <h2>
+      Complete Your Order
+    </h2>
+
+    <div class="checkout-grid">
+
+      <div>
+
+        <div class="field">
+          <label>FULL NAME</label>
+          <input
+            id="name"
+            placeholder="Your name">
+        </div>
+
+        <div class="field">
+          <label>MOBILE NUMBER</label>
+          <input
+            id="mobile"
+            maxlength="10"
+            inputmode="numeric"
+            placeholder="10 digit mobile">
+        </div>
+
+        <div class="field">
+          <label>ADDRESS</label>
+          <textarea
+            id="address"
+            placeholder="Full delivery address"></textarea>
+        </div>
+
+        <div class="field">
+          <label>STATE</label>
+          <input
+            id="state"
+            value="West Bengal">
+        </div>
+
+        <div class="field">
+          <label>PINCODE</label>
+          <input
+            id="pin"
+            maxlength="6"
+            inputmode="numeric"
+            placeholder="6 digit PIN">
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="payment">
+
+          <h4>
+            PAYMENT METHOD
+          </h4>
+
+          <label>
+            <input
+              type="radio"
+              name="payment"
+              value="online"
+              checked>
+            Online Payment
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="payment"
+              value="cod">
+            Cash on Delivery
+          </label>
+
+        </div>
+
+        <div class="summary">
+
+          <div class="summary-row">
+
+            <span>
+              Items
+            </span>
+
+            <span>
+              ${cart.reduce(
+                (a,b)=>a+b.qty,
+                0
+              )}
+            </span>
+
+          </div>
+
+          <div class="summary-row">
+
+            <span>
+              Delivery
+            </span>
+
+            <span style="color:var(--green)">
+              FREE
+            </span>
+
+          </div>
+
+          <div class="summary-row total">
+
+            <strong>
+              Total
+            </strong>
+
+            <strong>
+              ₹${getTotal()
+                .toLocaleString("en-IN")}
+            </strong>
+
+          </div>
+
+        </div>
+
+        <button
+          class="gold-btn"
+          style="
+            width:100%;
+            margin-top:15px
+          "
+          onclick="placeOrder()">
+          PLACE ORDER →
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
 
   document
-    .getElementById("checkoutModal")
+    .getElementById("checkoutOverlay")
     .classList.add("show");
 
 }
 
 
-function placeOrder(e){
+function closeCheckout(){
 
-  e.preventDefault();
-
-
-  const order={
-
-    id:
-      "GRO-" +
-      Date.now()
-        .toString()
-        .slice(-8),
-
-    date:
-      new Date().toLocaleString("en-IN"),
-
-    customer:{
-      name:
-        document.getElementById("customerName").value,
-
-      mobile:
-        document.getElementById("customerMobile").value,
-
-      address:
-        document.getElementById("customerAddress").value,
-
-      district:
-        document.getElementById("customerDistrict").value,
-
-      state:
-        document.getElementById("customerState").value,
-
-      pin:
-        document.getElementById("customerPin").value
-    },
-
-    payment:
-      document.querySelector(
-        'input[name="pay"]:checked'
-      ).value,
-
-    items:cart,
-
-    total:cartTotal(),
-
-    status:"Order Received"
-
-  };
-
-
-  localStorage.setItem(
-    "gro_last_order",
-    JSON.stringify(order)
-  );
-
-
-  cart=[];
-
-  saveCart();
-  updateCart();
-
-
-  document.getElementById("checkoutModal")
+  document
+    .getElementById("checkoutOverlay")
     .classList.remove("show");
-
-
-  alert(
-    "Order received successfully!\n\n" +
-    "Order ID: " +
-    order.id
-  );
 
 }
 
 
 /* =========================================================
-   SEARCH
+   ORDER
 ========================================================= */
 
-function focusSearch(){
+function placeOrder(){
+
+  let name =
+    document.getElementById(
+      "name"
+    ).value.trim();
+
+  let mobile =
+    document.getElementById(
+      "mobile"
+    ).value.trim();
+
+  let address =
+    document.getElementById(
+      "address"
+    ).value.trim();
+
+  let state =
+    document.getElementById(
+      "state"
+    ).value.trim();
+
+  let pin =
+    document.getElementById(
+      "pin"
+    ).value.trim();
+
+  if(
+    !name ||
+    !/^[0-9]{10}$/.test(mobile) ||
+    !address ||
+    !state ||
+    !/^[0-9]{6}$/.test(pin)
+  ){
+
+    alert(
+      "Please fill all details correctly."
+    );
+
+    return;
+
+  }
+
+  let orderId =
+    "GRO-"+Date.now()
+      .toString()
+      .slice(-8);
+
+  let payment =
+    document.querySelector(
+      'input[name="payment"]:checked'
+    ).value;
+
+  let orders =
+    JSON.parse(
+      localStorage.getItem(
+        "groOrders"
+      ) || "[]"
+    );
+
+  orders.unshift({
+
+    id:orderId,
+    name:name,
+    mobile:mobile,
+    address:address,
+    state:state,
+    pin:pin,
+    payment:payment,
+    total:getTotal(),
+    status:"Order Received",
+    date:new Date().toLocaleString("en-IN")
+
+  });
+
+  localStorage.setItem(
+    "groOrders",
+    JSON.stringify(orders)
+  );
+
+  cart=[];
+
+  saveCart();
+
+  document.getElementById(
+    "checkout"
+  ).innerHTML = `
+
+    <div class="success">
+
+      <div class="success-icon">
+        ✓
+      </div>
+
+      <h2>
+        Order Received
+      </h2>
+
+      <p>
+        Your order has been created successfully.
+      </p>
+
+      <div style="
+        margin:25px auto;
+        padding:20px;
+        background:#151922;
+        border:1px solid var(--line);
+        border-radius:14px;
+        max-width:350px;
+      ">
+
+        <small style="
+          color:var(--muted)
+        ">
+          ORDER ID
+        </small>
+
+        <div style="
+          font-size:23px;
+          font-weight:1000;
+          color:var(--gold2);
+          margin-top:5px;
+        ">
+          ${orderId}
+        </div>
+
+      </div>
+
+      <button
+        class="gold-btn"
+        style="width:100%"
+        onclick="
+          closeCheckout();
+          openTrack();
+          document.getElementById(
+            'trackId'
+          ).value='${orderId}';
+        ">
+        TRACK ORDER
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+function openTrack(){
 
   document
-    .getElementById("search")
-    .focus();
+    .getElementById("trackOverlay")
+    .classList.add("show");
+
+}
+
+
+function closeTrack(){
+
+  document
+    .getElementById("trackOverlay")
+    .classList.remove("show");
+
+}
+
+
+function trackOrder(){
+
+  let id =
+    document.getElementById(
+      "trackId"
+    ).value.trim();
+
+  let orders =
+    JSON.parse(
+      localStorage.getItem(
+        "groOrders"
+      ) || "[]"
+    );
+
+  let order =
+    orders.find(
+      x=>x.id===id
+    );
+
+  let result =
+    document.getElementById(
+      "trackResult"
+    );
+
+  if(!order){
+
+    result.innerHTML = `
+
+      <div style="
+        padding:15px;
+        border:1px solid rgba(255,102,117,.2);
+        border-radius:12px;
+        color:var(--red);
+      ">
+        Order not found.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  result.innerHTML = `
+
+    <div style="
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:15px;
+      background:#11141b;
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+      ">
+
+        <strong>
+          ${order.id}
+        </strong>
+
+        <span style="
+          color:var(--green);
+          font-size:10px;
+          font-weight:1000;
+        ">
+          ${order.status}
+        </span>
+
+      </div>
+
+      <div style="
+        margin-top:18px;
+        line-height:2;
+        font-size:12px;
+      ">
+
+        <div>
+          ✓ Order Received
+        </div>
+
+        <div style="color:#596170">
+          ○ Processing
+        </div>
+
+        <div style="color:#596170">
+          ○ Dispatched
+        </div>
+
+        <div style="color:#596170">
+          ○ Delivered
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function goShop(){
 
   document
     .getElementById("shop")
@@ -2379,114 +2541,22 @@ function focusSearch(){
 }
 
 
-/* =========================================================
-   WISHLIST
-========================================================= */
+function showFeatured(){
 
-function wishlist(id){
-
-  let list =
-    JSON.parse(
-      localStorage.getItem("gro_wishlist") ||
-      "[]"
-    );
-
-  if(list.includes(id)){
-
-    list=list.filter(x=>x!==id);
-
-  }else{
-
-    list.push(id);
-
-  }
-
-  localStorage.setItem(
-    "gro_wishlist",
-    JSON.stringify(list)
-  );
+  goShop();
 
 }
 
 
 /* =========================================================
-   FAQ
-========================================================= */
-
-function faq(button){
-
-  const item=button.parentElement;
-
-  item.classList.toggle("open");
-
-  const span=button.querySelector("span");
-
-  span.textContent =
-    item.classList.contains("open")
-      ? "−"
-      : "＋";
-
-}
-
-
-/* =========================================================
-   KEYBOARD
-========================================================= */
-
-document.addEventListener(
-  "keydown",
-  e=>{
-
-    if(
-      (e.ctrlKey || e.metaKey) &&
-      e.key.toLowerCase()==="k"
-    ){
-
-      e.preventDefault();
-      focusSearch();
-
-    }
-
-    if(e.key==="Escape"){
-
-      closeCart();
-      closeModal("quickModal");
-      closeModal("checkoutModal");
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   INIT
+   START
 ========================================================= */
 
 renderProducts();
+
 updateCart();
-
-
-/* =========================================================
-   OUTSIDE MODAL CLICK
-========================================================= */
-
-document.querySelectorAll(".modal")
-.forEach(modal=>{
-
-  modal.addEventListener(
-    "click",
-    e=>{
-
-      if(e.target===modal)
-        modal.classList.remove("show");
-
-    }
-  );
-
-});
 
 </script>
 
 </body>
-  </html>
+    </html>
