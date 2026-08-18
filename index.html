@@ -1,1596 +1,953 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#07111f">
-<meta name="description" content="GRO — Premium Men's Wellness Store">
-<title>GRO — Premium Men's Wellness Store</title>
+<!-- =========================================================
+     GRO PRODUCT SHOWCASE
+     ONLY YOUR EXISTING PRODUCTS
+========================================================= -->
+
+<section class="gro-products" id="products">
 
 <style>
-:root{
-  --bg:#f5f7fb;
-  --card:#fff;
-  --nav:#07111f;
-  --nav2:#0d1b2d;
-  --text:#111827;
-  --muted:#667085;
-  --line:#e5e7eb;
-  --accent:#18b981;
-  --accent2:#0ea5e9;
-  --danger:#ef4444;
-  --gold:#f59e0b;
-  --shadow:0 15px 40px rgba(15,23,42,.08);
-  --radius:18px;
-}
 
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Inter,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer;border:0}
-a{text-decoration:none;color:inherit}
-
-.topbar{
-  background:#020817;
-  color:#dbeafe;
-  text-align:center;
-  padding:8px 12px;
-  font-size:12px;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(7,17,31,.96);
-  backdrop-filter:blur(15px);
-  color:white;
-  box-shadow:0 4px 20px rgba(0,0,0,.15);
-}
-
-.nav{
-  max-width:1250px;
-  margin:auto;
-  min-height:68px;
-  display:flex;
-  align-items:center;
-  gap:18px;
-  padding:10px 18px;
-}
-
-.logo{
-  font-size:27px;
-  font-weight:900;
-  letter-spacing:2px;
-}
-.logo span{color:var(--accent)}
-
-.search{
-  flex:1;
-  position:relative;
-}
-.search input{
-  width:100%;
-  padding:13px 45px 13px 17px;
-  border-radius:13px;
-  border:1px solid #334155;
-  background:#101d2e;
-  color:white;
-  outline:none;
-}
-.search input::placeholder{color:#94a3b8}
-.search button{
-  position:absolute;
-  right:5px;
-  top:5px;
-  width:35px;
-  height:35px;
-  border-radius:9px;
-  background:var(--accent);
-  color:white;
-}
-
-.nav-actions{
-  display:flex;
-  gap:8px;
-}
-.nav-btn{
-  position:relative;
-  background:#122238;
-  color:white;
-  border:1px solid #263951;
-  border-radius:12px;
-  padding:11px 13px;
-}
-.badge{
-  position:absolute;
-  right:-5px;
-  top:-7px;
-  min-width:20px;
-  height:20px;
-  padding:2px 5px;
-  border-radius:20px;
-  background:#ef4444;
-  color:white;
-  font-size:11px;
-  font-weight:800;
-}
-
-.hero{
-  max-width:1250px;
-  margin:22px auto;
-  padding:0 18px;
-}
-.hero-box{
-  min-height:310px;
-  border-radius:25px;
-  overflow:hidden;
-  position:relative;
+.gro-products{
   background:
-    radial-gradient(circle at 85% 25%,rgba(24,185,129,.25),transparent 25%),
-    linear-gradient(135deg,#07111f,#10253a);
-  color:white;
-  display:flex;
-  align-items:center;
-  padding:45px;
-  box-shadow:var(--shadow);
-}
-.hero-content{max-width:650px}
-.eyebrow{
-  color:#6ee7b7;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:12px;
-  margin-bottom:12px;
-}
-.hero h1{
-  font-size:clamp(34px,6vw,62px);
-  line-height:1;
-  margin-bottom:18px;
-}
-.hero p{
-  color:#cbd5e1;
-  max-width:570px;
-  line-height:1.7;
-}
-.hero-buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:25px;
-}
-.btn{
-  padding:13px 20px;
-  border-radius:12px;
-  font-weight:800;
-  transition:.2s;
-}
-.btn:hover{transform:translateY(-2px)}
-.primary{background:var(--accent);color:white}
-.secondary{background:#fff;color:#07111f}
-
-.section{
-  max-width:1250px;
-  margin:30px auto;
-  padding:0 18px;
-}
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  margin-bottom:18px;
-}
-.section-head h2{font-size:25px}
-.section-head p{color:var(--muted);font-size:14px}
-
-.categories{
-  display:flex;
-  gap:10px;
-  overflow:auto;
-  padding-bottom:5px;
-}
-.cat{
-  flex:0 0 auto;
-  background:white;
-  border:1px solid var(--line);
-  padding:11px 17px;
-  border-radius:30px;
-  font-weight:700;
-}
-.cat.active,.cat:hover{
-  background:var(--nav);
-  color:white;
+    radial-gradient(circle at 50% 0%,rgba(196,160,82,.08),transparent 35%),
+    #08090c;
+  padding:90px 18px;
+  color:#fff;
 }
 
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-.product{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:0 5px 20px rgba(15,23,42,.04);
-  transition:.25s;
-  position:relative;
-}
-.product:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow);
-}
-.product-img{
-  height:230px;
-  background:#f1f5f9;
-  position:relative;
-  overflow:hidden;
-}
-.product-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.product-tag{
-  position:absolute;
-  top:12px;
-  left:12px;
-  background:#07111f;
-  color:white;
-  padding:6px 9px;
-  border-radius:8px;
-  font-size:10px;
-  font-weight:800;
-}
-.product-info{padding:15px}
-.product-info h3{
-  font-size:16px;
-  margin-bottom:7px;
-}
-.rating{
-  color:#f59e0b;
-  font-size:13px;
-  margin-bottom:8px;
-}
-.price{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.price strong{font-size:20px}
-.old{
-  color:#98a2b3;
-  text-decoration:line-through;
-  font-size:13px;
-}
-.discount{
-  color:#16a34a;
-  font-size:12px;
-  font-weight:800;
-}
-.product-actions{
-  display:grid;
-  grid-template-columns:1fr 42px;
-  gap:8px;
-  margin-top:13px;
-}
-.add{
-  background:var(--nav);
-  color:white;
-  border-radius:10px;
-  padding:11px;
-  font-weight:800;
-}
-.buy{
-  background:#ecfdf5;
-  color:#047857;
-  border-radius:10px;
-  font-size:18px;
-}
-
-.features{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-.feature{
-  background:white;
-  border:1px solid var(--line);
-  padding:20px;
-  border-radius:16px;
-}
-.feature-icon{font-size:25px;margin-bottom:10px}
-.feature h3{font-size:15px;margin-bottom:5px}
-.feature p{font-size:12px;color:var(--muted);line-height:1.5}
-
-footer{
-  background:#020817;
-  color:#cbd5e1;
-  margin-top:50px;
-}
-.footer-inner{
+.gro-products-wrap{
   max-width:1250px;
   margin:auto;
-  padding:45px 18px;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:30px;
 }
-.footer-title{
-  color:white;
-  font-size:22px;
-  font-weight:900;
-  margin-bottom:12px;
-}
-footer p,footer a{
-  font-size:13px;
-  line-height:2;
-  color:#94a3b8;
-}
-.footer-bottom{
-  border-top:1px solid #1e293b;
+
+.gro-products-heading{
   text-align:center;
-  padding:18px;
-  font-size:12px;
+  margin-bottom:55px;
 }
 
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(2,8,23,.65);
-  backdrop-filter:blur(4px);
-  z-index:2000;
-  display:none;
-}
-.overlay.show{display:block}
-
-.drawer{
-  position:absolute;
-  right:0;
-  top:0;
-  height:100%;
-  width:min(440px,100%);
-  background:white;
-  display:flex;
-  flex-direction:column;
-}
-.drawer-head{
-  padding:18px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.close{
-  width:36px;
-  height:36px;
-  border-radius:10px;
-  background:#f1f5f9;
-}
-.cart-items{
-  flex:1;
-  overflow:auto;
-  padding:15px;
-}
-.cart-item{
-  display:flex;
-  gap:12px;
-  padding:12px 0;
-  border-bottom:1px solid var(--line);
-}
-.cart-item img{
-  width:72px;
-  height:72px;
-  object-fit:cover;
-  border-radius:10px;
-  background:#f1f5f9;
-}
-.cart-item h4{font-size:14px}
-.cart-item small{color:var(--muted)}
-.qty{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin-top:8px;
-}
-.qty button{
-  width:25px;
-  height:25px;
-  border-radius:7px;
-  background:#eef2f7;
-}
-.cart-footer{
-  padding:18px;
-  border-top:1px solid var(--line);
-}
-.total-row{
-  display:flex;
-  justify-content:space-between;
+.gro-products-heading .mini{
+  color:#d7ae58;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:4px;
+  text-transform:uppercase;
   margin-bottom:14px;
-  font-size:18px;
-  font-weight:900;
 }
 
-.modal{
-  position:fixed;
+.gro-products-heading h2{
+  margin:0;
+  font-size:clamp(35px,5vw,58px);
+  line-height:1;
+  letter-spacing:-3px;
+}
+
+.gro-products-heading p{
+  max-width:600px;
+  margin:18px auto 0;
+  color:#858c99;
+  font-size:14px;
+  line-height:1.8;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.gro-product-grid{
+  display:grid;
+  grid-template-columns:1.35fr 1fr 1fr;
+  gap:18px;
+  align-items:stretch;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.gro-product-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:26px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.045),
+      rgba(255,255,255,.015)
+    ),
+    #0d1015;
+  transition:.35s ease;
+}
+
+.gro-product-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(215,174,88,.38);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45),
+    0 0 50px rgba(215,174,88,.05);
+}
+
+/* =========================
+   FEATURED CARD
+========================= */
+
+.gro-product-card.featured{
+  border-color:rgba(215,174,88,.32);
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(215,174,88,.12),
+      transparent 42%
+    ),
+    #0d1015;
+}
+
+/* =========================
+   BADGE
+========================= */
+
+.gro-product-badge{
+  position:absolute;
+  z-index:5;
+  top:16px;
+  left:16px;
+
+  padding:7px 11px;
+
+  border-radius:999px;
+
+  background:#d7ae58;
+  color:#16120a;
+
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.gro-product-image{
+  height:330px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.05),
+      transparent 65%
+    ),
+    #11141a;
+}
+
+.featured .gro-product-image{
+  height:390px;
+}
+
+.gro-product-image::after{
+  content:"";
+  position:absolute;
   inset:0;
-  z-index:3000;
-  background:rgba(2,8,23,.7);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
-}
-.modal.show{display:flex}
-.modal-box{
-  width:min(720px,100%);
-  max-height:94vh;
-  overflow:auto;
-  background:white;
-  border-radius:22px;
-  box-shadow:0 30px 100px rgba(0,0,0,.3);
-}
-.modal-head{
-  padding:20px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-}
-.modal-body{padding:20px}
 
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
+  background:
+    linear-gradient(
+      to top,
+      rgba(8,9,12,.5),
+      transparent 45%
+    );
+
+  pointer-events:none;
 }
-.field{display:flex;flex-direction:column;gap:6px}
-.field.full{grid-column:1/-1}
-.field label{
+
+.gro-product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:.5s ease;
+  padding:22px;
+}
+
+.gro-product-card:hover
+.gro-product-image img{
+  transform:scale(1.055);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.gro-product-content{
+  padding:24px;
+}
+
+.gro-product-type{
+  color:#d7ae58;
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.gro-product-name{
+  margin:8px 0 0;
+
+  font-size:22px;
+  font-weight:950;
+  letter-spacing:-.8px;
+}
+
+.featured .gro-product-name{
+  font-size:28px;
+}
+
+.gro-product-description{
+  color:#858c99;
   font-size:12px;
-  font-weight:800;
-}
-.field input,.field textarea,.field select{
-  border:1px solid #d8dee8;
-  border-radius:10px;
-  padding:12px;
-  outline:none;
-}
-.field input:focus,.field textarea:focus,.field select:focus{
-  border-color:var(--accent);
+  line-height:1.7;
+  margin-top:9px;
 }
 
-.payment-box{
-  margin-top:18px;
-  padding:15px;
-  background:#f8fafc;
-  border:1px solid var(--line);
-  border-radius:14px;
-}
-.payment-option{
+/* =========================
+   PRICE
+========================= */
+
+.gro-price-row{
   display:flex;
   align-items:center;
-  gap:10px;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:11px;
-  padding:13px;
-  margin-top:8px;
-}
-.payment-option input{accent-color:var(--accent)}
-
-.advance-note{
-  margin-top:10px;
-  padding:12px;
-  border-radius:10px;
-  background:#fff7ed;
-  color:#9a3412;
-  font-size:12px;
-  line-height:1.5;
-}
-
-.order-summary{
+  gap:9px;
+  flex-wrap:wrap;
   margin-top:18px;
-  background:#f8fafc;
-  border-radius:14px;
-  padding:15px;
 }
-.summary-line{
-  display:flex;
-  justify-content:space-between;
-  padding:7px 0;
-  font-size:13px;
+
+.gro-price{
+  font-size:26px;
+  font-weight:1000;
 }
-.summary-total{
-  border-top:1px solid var(--line);
-  margin-top:5px;
-  padding-top:12px;
-  font-size:18px;
+
+.gro-old-price{
+  color:#646b77;
+  font-size:12px;
+  text-decoration:line-through;
+}
+
+.gro-discount{
+  color:#38d47a;
+  font-size:10px;
   font-weight:900;
 }
 
-.success{
-  text-align:center;
-  padding:40px 20px;
+/* =========================
+   RATING
+========================= */
+
+.gro-rating{
+  margin-top:12px;
+  color:#d7ae58;
+  font-size:12px;
+  letter-spacing:2px;
 }
-.success-icon{
-  width:75px;
-  height:75px;
-  margin:auto auto 15px;
-  border-radius:50%;
-  background:#dcfce7;
+
+.gro-rating span{
+  color:#707784;
+  font-size:10px;
+  letter-spacing:0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.gro-product-buttons{
   display:grid;
-  place-items:center;
-  font-size:38px;
-}
-.order-id{
-  display:inline-block;
-  margin:12px 0;
-  padding:8px 12px;
-  border-radius:8px;
-  background:#f1f5f9;
-  font-weight:800;
+  grid-template-columns:1fr 1.3fr;
+  gap:8px;
+  margin-top:20px;
 }
 
-.toast{
-  position:fixed;
-  bottom:22px;
-  left:50%;
-  transform:translateX(-50%) translateY(80px);
-  z-index:5000;
-  background:#07111f;
-  color:white;
-  padding:12px 18px;
+.gro-btn{
+  min-height:45px;
+
   border-radius:12px;
-  opacity:0;
-  transition:.3s;
-  font-size:13px;
-}
-.toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
+
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:.5px;
+
+  transition:.25s;
 }
 
-.empty{
+.gro-btn-details{
+  color:#fff;
+  background:#171a21;
+  border:1px solid rgba(255,255,255,.09);
+}
+
+.gro-btn-buy{
+  color:#151108;
+  background:
+    linear-gradient(
+      135deg,
+      #d7ae58,
+      #f0cc7d
+    );
+  border:0;
+}
+
+.gro-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* =========================
+   PRODUCT FEATURES
+========================= */
+
+.gro-features{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:15px;
+}
+
+.gro-feature{
+  padding:6px 8px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:7px;
+  color:#a0a7b3;
+  font-size:9px;
+}
+
+/* =========================
+   MAIN FEATURE LABEL
+========================= */
+
+.gro-main-label{
+  position:absolute;
+  right:16px;
+  top:16px;
+  z-index:5;
+
+  padding:7px 10px;
+
+  border:1px solid rgba(215,174,88,.3);
+  border-radius:999px;
+
+  background:rgba(8,9,12,.7);
+  backdrop-filter:blur(12px);
+
+  color:#e6c67f;
+  font-size:9px;
+  font-weight:900;
+}
+
+/* =========================
+   QUICK INFO STRIP
+========================= */
+
+.gro-product-info-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-top:18px;
+}
+
+.gro-info{
   text-align:center;
-  padding:45px 10px;
-  color:var(--muted);
+  padding:10px 5px;
+
+  background:#11141a;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;
 }
 
-@media(max-width:950px){
-  .products{grid-template-columns:repeat(3,1fr)}
-  .features{grid-template-columns:repeat(2,1fr)}
-  .footer-inner{grid-template-columns:1fr 1fr}
+.gro-info strong{
+  display:block;
+  font-size:11px;
 }
 
-@media(max-width:700px){
-  .nav{flex-wrap:wrap}
-  .logo{font-size:23px}
-  .search{order:3;flex-basis:100%}
-  .hero-box{padding:30px 22px;min-height:350px}
-  .products{grid-template-columns:repeat(2,1fr);gap:10px}
-  .product-img{height:180px}
-  .product-info{padding:11px}
-  .product-info h3{font-size:14px}
-  .price strong{font-size:17px}
-  .features{grid-template-columns:1fr 1fr}
-  .form-grid{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .footer-inner{grid-template-columns:1fr}
+.gro-info span{
+  display:block;
+  margin-top:3px;
+  color:#707784;
+  font-size:8px;
 }
 
-@media(max-width:420px){
-  .products{grid-template-columns:1fr 1fr}
-  .product-img{height:150px}
-  .nav-actions .nav-btn span{display:none}
-  .hero h1{font-size:37px}
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .gro-product-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .gro-product-card.featured{
+    grid-column:1/-1;
+  }
+
+  .featured .gro-product-image{
+    height:420px;
+  }
+
 }
+
+@media(max-width:600px){
+
+  .gro-products{
+    padding:60px 12px;
+  }
+
+  .gro-products-heading{
+    margin-bottom:30px;
+  }
+
+  .gro-products-heading h2{
+    letter-spacing:-2px;
+  }
+
+  .gro-product-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gro-product-card.featured{
+    grid-column:auto;
+  }
+
+  .gro-product-image,
+  .featured .gro-product-image{
+    height:350px;
+  }
+
+  .gro-product-content{
+    padding:20px;
+  }
+
+  .gro-product-name,
+  .featured .gro-product-name{
+    font-size:22px;
+  }
+
+}
+
 </style>
-</head>
 
-<body>
 
-<div class="topbar">
-  🚚 Premium Delivery • 🔒 Secure Checkout • 📦 Discreet Packaging
-</div>
+<div class="gro-products-wrap">
 
-<header>
-  <div class="nav">
-    <a class="logo" href="#">GR<span>O</span></a>
+  <!-- HEADER -->
 
-    <div class="search">
-      <input id="searchInput" type="search" placeholder="Search products..." oninput="renderProducts()">
-      <button onclick="renderProducts()">⌕</button>
+  <div class="gro-products-heading">
+
+    <div class="mini">
+      GRO EXTENDER COLLECTION
     </div>
 
-    <div class="nav-actions">
-      <button class="nav-btn" onclick="openCart()">🛒 <span>Cart</span><b class="badge" id="cartCount">0</b></button>
-    </div>
-  </div>
-</header>
+    <h2>
+      Choose Your GRO
+    </h2>
 
-<main>
+    <p>
+      Explore the complete GRO Extender collection.
+      Select the configuration that matches your preference.
+    </p>
 
-<section class="hero">
-  <div class="hero-box">
-    <div class="hero-content">
-      <div class="eyebrow">GRO PREMIUM WELLNESS</div>
-      <h1>Upgrade Your<br>Wellness Routine.</h1>
-      <p>
-        Premium men's wellness products designed for a confident,
-        private and comfortable experience.
-      </p>
-      <div class="hero-buttons">
-        <button class="btn primary" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
-        <button class="btn secondary" onclick="showBenefits()">Why GRO?</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="categories">
-    <button class="cat active" onclick="setCategory('All',this)">All</button>
-    <button class="cat" onclick="setCategory('Featured',this)">Featured</button>
-    <button class="cat" onclick="setCategory('Wellness',this)">Wellness</button>
-    <button class="cat" onclick="setCategory('Accessories',this)">Accessories</button>
-    <button class="cat" onclick="setCategory('Care',this)">Care</button>
-  </div>
-</section>
-
-<section class="section" id="products">
-  <div class="section-head">
-    <div>
-      <h2>Featured Products</h2>
-      <p>Premium products selected for the GRO collection.</p>
-    </div>
   </div>
 
-  <div class="products" id="productGrid"></div>
-</section>
 
-<section class="section">
-  <div class="section-head">
-    <div>
-      <h2>Why Shop With GRO?</h2>
-      <p>A clean, private and customer-first shopping experience.</p>
-    </div>
-  </div>
+  <!-- PRODUCTS -->
 
-  <div class="features">
-    <div class="feature">
-      <div class="feature-icon">🔒</div>
-      <h3>Private Shopping</h3>
-      <p>Your shopping experience is designed with privacy and discreet delivery in mind.</p>
-    </div>
+  <div class="gro-product-grid">
 
-    <div class="feature">
-      <div class="feature-icon">📦</div>
-      <h3>Discreet Packaging</h3>
-      <p>Orders can be prepared using neutral outer packaging.</p>
-    </div>
 
-    <div class="feature">
-      <div class="feature-icon">⚡</div>
-      <h3>Fast Checkout</h3>
-      <p>Simple cart, customer details and payment selection in one flow.</p>
-    </div>
+    <!-- =================================================
+         1 — ULTIMATE
+    ================================================== -->
 
-    <div class="feature">
-      <div class="feature-icon">💬</div>
-      <h3>Customer Support</h3>
-      <p>Connect with GRO support directly through WhatsApp.</p>
-    </div>
-  </div>
-</section>
+    <article class="gro-product-card featured">
 
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-title">GRO</div>
-      <p>Premium Men's Wellness Store.</p>
-      <p>Private • Simple • Customer First</p>
-    </div>
-
-    <div>
-      <div class="footer-title">Shop</div>
-      <a href="#products">All Products</a><br>
-      <a href="#products">Featured</a><br>
-      <a href="#products">Wellness</a>
-    </div>
-
-    <div>
-      <div class="footer-title">Support</div>
-      <a href="javascript:openCheckout()">Checkout</a><br>
-      <a href="javascript:openCart()">Cart</a><br>
-      <a href="javascript:showBenefits()">Why GRO?</a>
-    </div>
-
-    <div>
-      <div class="footer-title">Contact</div>
-      <p>WhatsApp Support</p>
-      <p>Daily Customer Assistance</p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 GRO. All rights reserved.
-  </div>
-</footer>
-
-<!-- CART -->
-<div class="overlay" id="cartOverlay" onclick="closeCart(event)">
-  <aside class="drawer" onclick="event.stopPropagation()">
-    <div class="drawer-head">
-      <h2>Your Cart</h2>
-      <button class="close" onclick="closeCart()">✕</button>
-    </div>
-
-    <div class="cart-items" id="cartItems"></div>
-
-    <div class="cart-footer">
-      <div class="total-row">
-        <span>Total</span>
-        <span id="cartTotal">₹0</span>
-      </div>
-      <button class="btn primary" style="width:100%" onclick="openCheckout()">
-        Proceed to Checkout
-      </button>
-    </div>
-  </aside>
-</div>
-
-<!-- CHECKOUT -->
-<div class="modal" id="checkoutModal">
-  <div class="modal-box">
-
-    <div class="modal-head">
-      <h2>Secure Checkout</h2>
-      <button class="close" onclick="closeCheckout()">✕</button>
-    </div>
-
-    <div class="modal-body" id="checkoutBody">
-
-      <div class="form-grid">
-
-        <div class="field">
-          <label>Full Name *</label>
-          <input id="name" placeholder="Enter your name">
-        </div>
-
-        <div class="field">
-          <label>Mobile Number *</label>
-          <input id="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile">
-        </div>
-
-        <div class="field full">
-          <label>Full Address *</label>
-          <textarea id="address" rows="3" placeholder="House / Street / Locality"></textarea>
-        </div>
-
-        <div class="field">
-          <label>Area / City *</label>
-          <input id="area" placeholder="Area / City">
-        </div>
-
-        <div class="field">
-          <label>PIN Code *</label>
-          <input id="pin" inputmode="numeric" maxlength="6" placeholder="PIN Code">
-        </div>
-
-        <div class="field">
-          <label>State *</label>
-          <select id="state">
-            <option value="">Select State</option>
-            <option>West Bengal</option>
-            <option>Odisha</option>
-            <option>Bihar</option>
-            <option>Jharkhand</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Country</label>
-          <input value="India" readonly>
-        </div>
-
+      <div class="gro-product-badge">
+        BEST SELLER
       </div>
 
-      <div class="payment-box">
-        <strong>Payment Method</strong>
-
-        <label class="payment-option">
-          <input type="radio" name="payment" value="online" checked onchange="paymentChanged()">
-          <div>
-            <b>Online Payment</b>
-            <div style="font-size:12px;color:#667085">Pay securely through your configured payment gateway.</div>
-          </div>
-        </label>
-
-        <label class="payment-option">
-          <input type="radio" name="payment" value="cod" onchange="paymentChanged()">
-          <div>
-            <b>Cash on Delivery</b>
-            <div style="font-size:12px;color:#667085">Available after required advance payment.</div>
-          </div>
-        </label>
-
-        <div class="advance-note" id="advanceNote">
-          COD is locked until the required ₹299 advance payment is completed.
-        </div>
+      <div class="gro-main-label">
+        PREMIUM
       </div>
 
-      <div class="order-summary">
-        <div class="summary-line">
-          <span>Products</span>
-          <strong id="summaryProducts">₹0</strong>
-        </div>
-        <div class="summary-line">
-          <span>Delivery</span>
-          <strong id="summaryDelivery">FREE</strong>
-        </div>
-        <div class="summary-line summary-total">
-          <span>Total</span>
-          <strong id="summaryTotal">₹0</strong>
-        </div>
-      </div>
-
-      <button class="btn primary" style="width:100%;margin-top:18px" onclick="placeOrder()">
-        Continue to Payment
-      </button>
-
-      <p style="font-size:11px;color:#98a2b3;text-align:center;margin-top:12px">
-        By placing your order, you agree to the store's terms and privacy policy.
-      </p>
-
-    </div>
-  </div>
-</div>
-
-<!-- SUCCESS -->
-<div class="modal" id="successModal">
-  <div class="modal-box">
-    <div class="success">
-      <div class="success-icon">✓</div>
-      <h2>Order Created</h2>
-      <p style="color:#667085;margin-top:8px">
-        Your order information has been prepared successfully.
-      </p>
-
-      <div class="order-id" id="orderId">GRO-000000</div>
-
-      <button class="btn primary" style="width:100%" onclick="sendWhatsApp()">
-        Send Order on WhatsApp
-      </button>
-
-      <button class="btn" style="width:100%;margin-top:8px;background:#f1f5f9"
-              onclick="closeSuccess()">
-        Continue Shopping
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-/* =========================================================
-   GRO STORE CONFIGURATION
-   ========================================================= */
-
-const STORE = {
-  name: "GRO",
-  currency: "₹",
-
-  /*
-    Replace this with your business WhatsApp number.
-    Example:
-    whatsapp: "919876543210"
-  */
-  whatsapp: "919999999999",
-
-  /*
-    Replace these payment settings with your approved
-    payment-gateway checkout URL / integration.
-  */
-  onlinePaymentUrl: "",
-
-  advanceAmount: 299
-};
-
-
-/* =========================================================
-   PRODUCTS
-   Add / edit your products here.
-   ========================================================= */
-
-const products = [
-
-  {
-    id: "gro-extender",
-    name: "GRO Premium Extender",
-    category: "Featured",
-    price: 3499,
-    oldPrice: 4499,
-    rating: "★★★★★",
-    reviews: "128",
-    tag: "BESTSELLER",
-    image: "GRO_Extender.jpg",
-    description: "Premium men's wellness device."
-  },
-
-  {
-    id: "gro-care",
-    name: "GRO Personal Care Kit",
-    category: "Care",
-    price: 899,
-    oldPrice: 1199,
-    rating: "★★★★★",
-    reviews: "74",
-    tag: "POPULAR",
-    image: "GRO_Care.jpg",
-    description: "Premium personal care essentials."
-  },
-
-  {
-    id: "gro-wellness",
-    name: "GRO Wellness Essential",
-    category: "Wellness",
-    price: 1299,
-    oldPrice: 1699,
-    rating: "★★★★☆",
-    reviews: "61",
-    tag: "NEW",
-    image: "GRO_Wellness.jpg",
-    description: "Everyday wellness essential."
-  },
-
-  {
-    id: "gro-accessory",
-    name: "GRO Premium Accessory",
-    category: "Accessories",
-    price: 599,
-    oldPrice: 799,
-    rating: "★★★★★",
-    reviews: "42",
-    tag: "HOT",
-    image: "GRO_Accessory.jpg",
-    description: "Premium GRO accessory."
-  }
-
-];
-
-
-/* =========================================================
-   STATE
-   ========================================================= */
-
-let cart = JSON.parse(localStorage.getItem("gro_cart") || "[]");
-let currentCategory = "All";
-let lastOrder = null;
-
-
-/* =========================================================
-   HELPERS
-   ========================================================= */
-
-function money(value){
-  return "₹" + Number(value).toLocaleString("en-IN");
-}
-
-function saveCart(){
-  localStorage.setItem("gro_cart", JSON.stringify(cart));
-  updateCartCount();
-}
-
-function getProduct(id){
-  return products.find(p => p.id === id);
-}
-
-function cartCount(){
-  return cart.reduce((sum,item)=>sum + item.qty,0);
-}
-
-function cartTotal(){
-  return cart.reduce((sum,item)=>{
-    const p = getProduct(item.id);
-    return sum + (p ? p.price * item.qty : 0);
-  },0);
-}
-
-function discountPercent(p){
-  if(!p.oldPrice) return "";
-  return Math.round((1 - p.price/p.oldPrice)*100) + "% OFF";
-}
-
-
-/* =========================================================
-   PRODUCT RENDER
-   ========================================================= */
-
-function renderProducts(){
-
-  const grid = document.getElementById("productGrid");
-  const query = document.getElementById("searchInput").value
-    .trim()
-    .toLowerCase();
-
-  const filtered = products.filter(p => {
-
-    const categoryMatch =
-      currentCategory === "All" ||
-      p.category === currentCategory;
-
-    const searchMatch =
-      !query ||
-      p.name.toLowerCase().includes(query) ||
-      p.category.toLowerCase().includes(query);
-
-    return categoryMatch && searchMatch;
-  });
-
-  if(!filtered.length){
-    grid.innerHTML =
-      `<div class="empty" style="grid-column:1/-1">
-        <h3>No products found</h3>
-        <p>Try another search.</p>
-      </div>`;
-    return;
-  }
-
-  grid.innerHTML = filtered.map(p => `
-
-    <article class="product">
-
-      <div class="product-img">
+      <div class="gro-product-image">
 
         <img
-          src="${p.image}"
-          alt="${p.name}"
-          loading="lazy"
-          onerror="this.src='data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-          <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600">
-            <rect width="100%" height="100%" fill="#eef2f7"/>
-            <text x="50%" y="50%" dominant-baseline="middle"
-              text-anchor="middle" fill="#64748b"
-              font-size="30" font-family="Arial">
-              GRO
-            </text>
-          </svg>
-          `)}'"
-        >
-
-        <div class="product-tag">${p.tag}</div>
+          src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png"
+          alt="GRO Extender Ultimate">
 
       </div>
 
-      <div class="product-info">
+      <div class="gro-product-content">
 
-        <h3>${p.name}</h3>
-
-        <div class="rating">
-          ${p.rating}
-          <span style="color:#98a2b3">(${p.reviews})</span>
+        <div class="gro-product-type">
+          ULTIMATE SERIES
         </div>
 
-        <div class="price">
-          <strong>${money(p.price)}</strong>
-          <span class="old">${money(p.oldPrice)}</span>
+        <h3 class="gro-product-name">
+          GRO Extender® Ultimate
+        </h3>
+
+        <div class="gro-rating">
+          ★★★★★
+          <span> Premium configuration</span>
         </div>
 
-        <div class="discount">
-          ${discountPercent(p)}
+        <p class="gro-product-description">
+          Premium adjustable configuration with multiple
+          fitting components.
+        </p>
+
+        <div class="gro-features">
+
+          <span class="gro-feature">
+            Adjustable fitting
+          </span>
+
+          <span class="gro-feature">
+            Multiple positions
+          </span>
+
+          <span class="gro-feature">
+            Reinforced straps
+          </span>
+
+          <span class="gro-feature">
+            Compact design
+          </span>
+
         </div>
 
-        <div class="product-actions">
-          <button class="add" onclick="addToCart('${p.id}')">
-            Add to Cart
+        <div class="gro-price-row">
+
+          <strong class="gro-price">
+            ₹3,249
+          </strong>
+
+          <span class="gro-old-price">
+            ₹4,499
+          </span>
+
+          <span class="gro-discount">
+            28% OFF
+          </span>
+
+        </div>
+
+        <div class="gro-product-info-strip">
+
+          <div class="gro-info">
+            <strong>Premium</strong>
+            <span>Build</span>
+          </div>
+
+          <div class="gro-info">
+            <strong>Adjustable</strong>
+            <span>Configuration</span>
+          </div>
+
+          <div class="gro-info">
+            <strong>18+</strong>
+            <span>Adult Product</span>
+          </div>
+
+        </div>
+
+        <div class="gro-product-buttons">
+
+          <button
+            class="gro-btn gro-btn-details"
+            onclick="openExistingProduct('ultimate')">
+            VIEW DETAILS
           </button>
 
-          <button class="buy" onclick="buyNow('${p.id}')">
-            ⚡
+          <button
+            class="gro-btn gro-btn-buy"
+            onclick="addExistingProduct('ultimate')">
+            ADD TO CART
           </button>
+
         </div>
 
       </div>
 
     </article>
 
-  `).join("");
-}
 
+    <!-- =================================================
+         2 — SUPREME+
+    ================================================== -->
 
-/* =========================================================
-   CATEGORY
-   ========================================================= */
+    <article class="gro-product-card">
 
-function setCategory(category, button){
-
-  currentCategory = category;
-
-  document.querySelectorAll(".cat")
-    .forEach(x => x.classList.remove("active"));
-
-  button.classList.add("active");
-
-  renderProducts();
-}
-
-
-/* =========================================================
-   CART
-   ========================================================= */
-
-function addToCart(id){
-
-  const existing = cart.find(x => x.id === id);
-
-  if(existing){
-    existing.qty++;
-  }else{
-    cart.push({
-      id,
-      qty:1
-    });
-  }
-
-  saveCart();
-  renderCart();
-
-  showToast("Added to cart ✓");
-}
-
-function buyNow(id){
-
-  addToCart(id);
-  openCheckout();
-}
-
-function removeFromCart(id){
-
-  cart = cart.filter(x => x.id !== id);
-
-  saveCart();
-  renderCart();
-}
-
-function changeQty(id, amount){
-
-  const item = cart.find(x => x.id === id);
-
-  if(!item) return;
-
-  item.qty += amount;
-
-  if(item.qty <= 0){
-    removeFromCart(id);
-    return;
-  }
-
-  saveCart();
-  renderCart();
-}
-
-function renderCart(){
-
-  const box = document.getElementById("cartItems");
-
-  if(!cart.length){
-
-    box.innerHTML = `
-      <div class="empty">
-        <div style="font-size:45px">🛒</div>
-        <h3>Your cart is empty</h3>
-        <p>Add products to continue.</p>
+      <div class="gro-product-badge">
+        SUPREME+
       </div>
-    `;
 
-  }else{
+      <div class="gro-product-image">
 
-    box.innerHTML = cart.map(item => {
+        <img
+          src="Gemini_Generated_Image_unscx2unscx2unsc.png"
+          alt="GRO Extender Supreme Plus">
 
-      const p = getProduct(item.id);
+      </div>
 
-      if(!p) return "";
+      <div class="gro-product-content">
 
-      return `
-        <div class="cart-item">
+        <div class="gro-product-type">
+          SUPREME SERIES
+        </div>
 
-          <img src="${p.image}" alt="${p.name}"
-               onerror="this.style.visibility='hidden'">
+        <h3 class="gro-product-name">
+          GRO Extender® Supreme+
+        </h3>
 
-          <div style="flex:1">
+        <div class="gro-rating">
+          ★★★★★
+        </div>
 
-            <h4>${p.name}</h4>
+        <p class="gro-product-description">
+          Premium lightweight adjustable configuration.
+        </p>
 
-            <small>${money(p.price)} each</small>
+        <div class="gro-features">
 
-            <div class="qty">
-              <button onclick="changeQty('${p.id}',-1)">−</button>
-              <b>${item.qty}</b>
-              <button onclick="changeQty('${p.id}',1)">+</button>
-              <button
-                style="margin-left:auto;background:#fee2e2;color:#b91c1c"
-                onclick="removeFromCart('${p.id}')">
-                🗑
-              </button>
-            </div>
+          <span class="gro-feature">
+            Lightweight
+          </span>
 
-          </div>
+          <span class="gro-feature">
+            Adjustable
+          </span>
 
-          <strong>${money(p.price * item.qty)}</strong>
+          <span class="gro-feature">
+            Reinforced
+          </span>
+
+          <span class="gro-feature">
+            Compact
+          </span>
 
         </div>
-      `;
 
-    }).join("");
+        <div class="gro-price-row">
+
+          <strong class="gro-price">
+            ₹4,780
+          </strong>
+
+          <span class="gro-old-price">
+            ₹5,999
+          </span>
+
+          <span class="gro-discount">
+            20% OFF
+          </span>
+
+        </div>
+
+        <div class="gro-product-buttons">
+
+          <button
+            class="gro-btn gro-btn-details"
+            onclick="openExistingProduct('supreme')">
+            VIEW DETAILS
+          </button>
+
+          <button
+            class="gro-btn gro-btn-buy"
+            onclick="addExistingProduct('supreme')">
+            ADD TO CART
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- =================================================
+         3 — DOUBLEDECK
+    ================================================== -->
+
+    <article class="gro-product-card">
+
+      <div class="gro-product-badge">
+        PREMIUM
+      </div>
+
+      <div class="gro-product-image">
+
+        <img
+          src="Gemini_Generated_Image_bezw1nbezw1nbezw.png"
+          alt="GRO Extender DoubleDeck">
+
+      </div>
+
+      <div class="gro-product-content">
+
+        <div class="gro-product-type">
+          DOUBLEDECK SERIES
+        </div>
+
+        <h3 class="gro-product-name">
+          GRO Extender® DoubleDeck
+        </h3>
+
+        <div class="gro-rating">
+          ★★★★★
+        </div>
+
+        <p class="gro-product-description">
+          Multi-component premium adjustable configuration.
+        </p>
+
+        <div class="gro-features">
+
+          <span class="gro-feature">
+            Multi-component
+          </span>
+
+          <span class="gro-feature">
+            Adjustable
+          </span>
+
+          <span class="gro-feature">
+            Reinforced
+          </span>
+
+          <span class="gro-feature">
+            Compact
+          </span>
+
+        </div>
+
+        <div class="gro-price-row">
+
+          <strong class="gro-price">
+            ₹5,950
+          </strong>
+
+          <span class="gro-old-price">
+            ₹6,999
+          </span>
+
+          <span class="gro-discount">
+            15% OFF
+          </span>
+
+        </div>
+
+        <div class="gro-product-buttons">
+
+          <button
+            class="gro-btn gro-btn-details"
+            onclick="openExistingProduct('doubledeck')">
+            VIEW DETAILS
+          </button>
+
+          <button
+            class="gro-btn gro-btn-buy"
+            onclick="addExistingProduct('doubledeck')">
+            ADD TO CART
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================================================
+   YOUR EXISTING PRODUCT DATA
+========================================================= */
+
+const GRO_EXISTING_PRODUCTS = {
+
+  ultimate:{
+    id:"ultimate",
+    name:"GRO Extender® Ultimate",
+    price:3249,
+    old:4499,
+
+    images:[
+      "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
+      "ProExtender-Ultimate-Straps-260x134.jpg",
+      "ProExtender-Ultimate002 (1).png"
+    ],
+
+    description:
+      "Premium adjustable configuration with multiple fitting components.",
+
+    features:[
+      "Adjustable fitting configuration",
+      "Multiple adjustment positions",
+      "Reinforced straps",
+      "Compact component design"
+    ]
+
+  },
+
+  supreme:{
+    id:"supreme",
+    name:"GRO Extender® Supreme+",
+    price:4780,
+    old:5999,
+
+    images:[
+      "Gemini_Generated_Image_unscx2unscx2unsc.png",
+      "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
+      "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
+    ],
+
+    description:
+      "Premium lightweight adjustable configuration.",
+
+    features:[
+      "Lightweight configuration",
+      "Adjustable fitting",
+      "Reinforced components",
+      "Compact design"
+    ]
+
+  },
+
+  doubledeck:{
+    id:"doubledeck",
+    name:"GRO Extender® DoubleDeck",
+    price:5950,
+    old:6999,
+
+    images:[
+      "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
+      "pro-extender-penis-enlargement-system-500x500.jpg",
+      "pro-extender-silicone-tube.webp"
+    ],
+
+    description:
+      "Multi-component premium adjustable configuration.",
+
+    features:[
+      "Multi-component configuration",
+      "Adjustable fitting positions",
+      "Reinforced straps",
+      "Compact structure"
+    ]
 
   }
 
-  document.getElementById("cartTotal").textContent = money(cartTotal());
-}
-
-function updateCartCount(){
-  document.getElementById("cartCount").textContent = cartCount();
-}
-
-function openCart(){
-  renderCart();
-  document.getElementById("cartOverlay").classList.add("show");
-}
-
-function closeCart(event){
-
-  if(event && event.target !== document.getElementById("cartOverlay"))
-    return;
-
-  document.getElementById("cartOverlay").classList.remove("show");
-}
+};
 
 
 /* =========================================================
-   CHECKOUT
-   ========================================================= */
+   ADD TO EXISTING CART
+========================================================= */
 
-function openCheckout(){
+function addExistingProduct(id){
 
-  if(!cart.length){
-    showToast("Your cart is empty");
+  const product=
+    GRO_EXISTING_PRODUCTS[id];
+
+  if(!product)return;
+
+  /*
+    যদি তোর আগের website-এ addToCart()
+    function already থাকে, সেটাই ব্যবহার করবে।
+  */
+
+  if(typeof addToCart==="function"){
+
+    addToCart(id);
+
     return;
+
   }
 
-  document.getElementById("cartOverlay").classList.remove("show");
+  /*
+    Fallback local cart
+  */
 
-  updateCheckoutSummary();
+  let cart=
+    JSON.parse(
+      localStorage.getItem("GRO_CART") || "[]"
+    );
 
-  document.getElementById("checkoutModal")
-    .classList.add("show");
-}
+  const existing=
+    cart.find(x=>x.id===id);
 
-function closeCheckout(){
-  document.getElementById("checkoutModal")
-    .classList.remove("show");
-}
+  if(existing){
 
-function updateCheckoutSummary(){
-
-  document.getElementById("summaryProducts").textContent =
-    money(cartTotal());
-
-  document.getElementById("summaryTotal").textContent =
-    money(cartTotal());
-
-  document.getElementById("summaryDelivery").textContent =
-    "FREE";
-}
-
-function paymentChanged(){
-
-  const method =
-    document.querySelector('input[name="payment"]:checked').value;
-
-  const note =
-    document.getElementById("advanceNote");
-
-  if(method === "cod"){
-
-    note.innerHTML =
-      `⚠ COD is locked. A ₹${STORE.advanceAmount} advance payment is required before COD confirmation.`;
+    existing.qty++;
 
   }else{
 
-    note.innerHTML =
-      `✓ Online payment will be processed through your configured payment gateway.`;
+    cart.push({
+      id:id,
+      qty:1
+    });
 
   }
-}
-
-
-/* =========================================================
-   VALIDATION
-   ========================================================= */
-
-function validateCheckout(){
-
-  const name =
-    document.getElementById("name").value.trim();
-
-  const phone =
-    document.getElementById("phone").value.trim();
-
-  const address =
-    document.getElementById("address").value.trim();
-
-  const area =
-    document.getElementById("area").value.trim();
-
-  const pin =
-    document.getElementById("pin").value.trim();
-
-  const state =
-    document.getElementById("state").value;
-
-  if(!name || !phone || !address || !area || !pin || !state){
-    showToast("Please complete all required fields.");
-    return false;
-  }
-
-  if(!/^[6-9]\d{9}$/.test(phone)){
-    showToast("Enter a valid 10-digit mobile number.");
-    return false;
-  }
-
-  if(!/^\d{6}$/.test(pin)){
-    showToast("Enter a valid 6-digit PIN code.");
-    return false;
-  }
-
-  return true;
-}
-
-
-/* =========================================================
-   ORDER
-   ========================================================= */
-
-function placeOrder(){
-
-  if(!validateCheckout()) return;
-
-  const method =
-    document.querySelector('input[name="payment"]:checked').value;
-
-  /*
-    IMPORTANT:
-    Client-side code cannot independently verify UPI/payment.
-    Connect this button to your approved payment gateway/backend.
-  */
-
-  if(method === "online"){
-
-    if(STORE.onlinePaymentUrl){
-
-      window.location.href =
-        STORE.onlinePaymentUrl +
-        "?amount=" + encodeURIComponent(cartTotal());
-
-      return;
-
-    }
-
-    showToast("Configure your approved payment gateway URL first.");
-    return;
-  }
-
-  if(method === "cod"){
-
-    const advancePaid =
-      localStorage.getItem("gro_advance_paid") === "true";
-
-    if(!advancePaid){
-
-      showToast(
-        "₹299 advance payment is required before COD."
-      );
-
-      /*
-        Put your approved gateway checkout here.
-        After verified server-side payment, your backend
-        should mark gro_advance_paid = true.
-      */
-
-      return;
-    }
-  }
-
-  createOrder();
-}
-
-function createOrder(){
-
-  const orderId =
-    "GRO-" +
-    Date.now().toString().slice(-8);
-
-  const payment =
-    document.querySelector('input[name="payment"]:checked').value;
-
-  lastOrder = {
-
-    id:orderId,
-
-    customer:{
-      name:document.getElementById("name").value.trim(),
-      phone:document.getElementById("phone").value.trim(),
-      address:document.getElementById("address").value.trim(),
-      area:document.getElementById("area").value.trim(),
-      pin:document.getElementById("pin").value.trim(),
-      state:document.getElementById("state").value,
-      country:"India"
-    },
-
-    payment,
-
-    items:cart.map(item => {
-
-      const p = getProduct(item.id);
-
-      return {
-        id:p.id,
-        name:p.name,
-        qty:item.qty,
-        price:p.price
-      };
-
-    }),
-
-    total:cartTotal(),
-
-    createdAt:new Date().toISOString()
-
-  };
 
   localStorage.setItem(
-    "gro_last_order",
-    JSON.stringify(lastOrder)
+    "GRO_CART",
+    JSON.stringify(cart)
   );
-
-  document.getElementById("orderId").textContent =
-    orderId;
-
-  document.getElementById("checkoutModal")
-    .classList.remove("show");
-
-  document.getElementById("successModal")
-    .classList.add("show");
-
-  cart = [];
-
-  saveCart();
-  renderCart();
-}
-
-function closeSuccess(){
-  document.getElementById("successModal")
-    .classList.remove("show");
-}
-
-
-/* =========================================================
-   WHATSAPP ORDER
-   ========================================================= */
-
-function sendWhatsApp(){
-
-  if(!lastOrder) return;
-
-  const c = lastOrder.customer;
-
-  let message =
-`GRO NEW ORDER
-
-Order ID: ${lastOrder.id}
-
-Customer: ${c.name}
-Mobile: ${c.phone}
-
-Address:
-${c.address}
-${c.area}
-PIN: ${c.pin}
-State: ${c.state}
-Country: India
-
-Payment: ${lastOrder.payment.toUpperCase()}
-
-Products:
-`;
-
-  lastOrder.items.forEach(item => {
-
-    message +=
-`• ${item.name} × ${item.qty} — ${money(item.price * item.qty)}
-`;
-
-  });
-
-  message +=
-`
-TOTAL: ${money(lastOrder.total)}
-
-Please confirm the order.`;
-
-  const url =
-    "https://wa.me/" +
-    STORE.whatsapp +
-    "?text=" +
-    encodeURIComponent(message);
-
-  window.open(url,"_blank");
-}
-
-
-/* =========================================================
-   BENEFITS
-   ========================================================= */
-
-function showBenefits(){
 
   alert(
-`GRO PREMIUM
-
-✓ Premium product collection
-✓ Mobile-first shopping experience
-✓ Cart & checkout
-✓ Customer details
-✓ COD / Online payment flow
-✓ WhatsApp order support
-✓ Local cart persistence
-✓ Discreet packaging option`
+    product.name+
+    " added to cart"
   );
+
 }
 
 
 /* =========================================================
-   TOAST
-   ========================================================= */
+   PRODUCT DETAILS
+========================================================= */
 
-let toastTimer;
+function openExistingProduct(id){
 
-function showToast(message){
+  const p=
+    GRO_EXISTING_PRODUCTS[id];
 
-  const toast =
-    document.getElementById("toast");
+  if(!p)return;
 
-  toast.textContent = message;
-  toast.classList.add("show");
+  /*
+    আগের modal থাকলে সেটা ব্যবহার করবে
+  */
 
-  clearTimeout(toastTimer);
+  if(
+    typeof openProduct==="function"
+  ){
 
-  toastTimer = setTimeout(()=>{
-    toast.classList.remove("show");
-  },2500);
+    openProduct(id);
+
+    return;
+
+  }
+
+  alert(
+    p.name+
+    "\n\nPrice: ₹"+
+    p.price.toLocaleString("en-IN")+
+    "\n\n"+
+    p.description
+  );
+
 }
-
-
-/* =========================================================
-   START
-   ========================================================= */
-
-renderProducts();
-renderCart();
-updateCartCount();
 
 </script>
-
-</body>
-</html>
