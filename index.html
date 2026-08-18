@@ -3,1352 +3,1594 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#07090d">
-<title>GRO Extender — Premium Store</title>
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="GRO — Premium Men's Wellness Store">
+<title>GRO — Premium Men's Wellness Store</title>
 
 <style>
 :root{
-  --bg:#07090d;
-  --card:#10131a;
-  --card2:#151922;
-  --gold:#d9a84e;
-  --gold2:#f2c76d;
-  --white:#f8fafc;
-  --muted:#8d96a6;
-  --line:rgba(255,255,255,.09);
-  --green:#39d98a;
-  --red:#ff6675;
+  --bg:#f5f7fb;
+  --card:#fff;
+  --nav:#07111f;
+  --nav2:#0d1b2d;
+  --text:#111827;
+  --muted:#667085;
+  --line:#e5e7eb;
+  --accent:#18b981;
+  --accent2:#0ea5e9;
+  --danger:#ef4444;
+  --gold:#f59e0b;
+  --shadow:0 15px 40px rgba(15,23,42,.08);
+  --radius:18px;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  background:
-    radial-gradient(circle at 90% 0%,rgba(217,168,78,.10),transparent 30%),
-    var(--bg);
-  color:var(--white);
   font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;border:0}
+a{text-decoration:none;color:inherit}
+
+.topbar{
+  background:#020817;
+  color:#dbeafe;
+  text-align:center;
+  padding:8px 12px;
+  font-size:12px;
 }
 
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-/* ================= HEADER ================= */
-
-.top-strip{
-  height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#030406;
-  color:#aeb5c0;
-  font-size:10px;
-  letter-spacing:1.5px;
-}
-
-.header{
+header{
   position:sticky;
   top:0;
-  z-index:999;
-  height:72px;
-  background:rgba(7,9,13,.88);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+  z-index:1000;
+  background:rgba(7,17,31,.96);
+  backdrop-filter:blur(15px);
+  color:white;
+  box-shadow:0 4px 20px rgba(0,0,0,.15);
 }
 
 .nav{
   max-width:1250px;
-  height:100%;
   margin:auto;
-  padding:0 20px;
+  min-height:68px;
   display:flex;
   align-items:center;
-  gap:28px;
+  gap:18px;
+  padding:10px 18px;
 }
 
 .logo{
-  font-size:29px;
-  font-weight:1000;
-  letter-spacing:-2px;
-  cursor:pointer;
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.logo span{color:var(--accent)}
+
+.search{
+  flex:1;
+  position:relative;
+}
+.search input{
+  width:100%;
+  padding:13px 45px 13px 17px;
+  border-radius:13px;
+  border:1px solid #334155;
+  background:#101d2e;
+  color:white;
+  outline:none;
+}
+.search input::placeholder{color:#94a3b8}
+.search button{
+  position:absolute;
+  right:5px;
+  top:5px;
+  width:35px;
+  height:35px;
+  border-radius:9px;
+  background:var(--accent);
+  color:white;
 }
 
-.logo span{
-  color:var(--gold);
-}
-
-.nav-links{
+.nav-actions{
   display:flex;
-  gap:25px;
-  margin-left:15px;
+  gap:8px;
 }
-
-.nav-links button{
-  border:0;
-  background:none;
-  color:#aeb5c0;
-  font-size:12px;
+.nav-btn{
+  position:relative;
+  background:#122238;
+  color:white;
+  border:1px solid #263951;
+  border-radius:12px;
+  padding:11px 13px;
+}
+.badge{
+  position:absolute;
+  right:-5px;
+  top:-7px;
+  min-width:20px;
+  height:20px;
+  padding:2px 5px;
+  border-radius:20px;
+  background:#ef4444;
+  color:white;
+  font-size:11px;
   font-weight:800;
 }
 
-.nav-links button:hover{
-  color:var(--gold2);
-}
-
-.nav-right{
-  margin-left:auto;
-  display:flex;
-  gap:8px;
-}
-
-.icon{
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:#11141b;
-  color:white;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:18px;
-}
-
-.cart-number{
-  position:absolute;
-  right:-5px;
-  top:-5px;
-  min-width:18px;
-  height:18px;
-  padding:0 5px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:var(--gold);
-  color:#171109;
-  border-radius:50px;
-  font-size:10px;
-  font-weight:1000;
-}
-
-/* ================= FLOATING CONTACT WIDGETS ================= */
-
-.floating-widgets{
-  position:fixed;
-  right:20px;
-  bottom:85px;
-  z-index:1400;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.float-btn{
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:22px;
-  box-shadow:0 10px 25px rgba(0,0,0,.5);
-  text-decoration:none;
-  border:none;
-  transition:.3s;
-}
-
-.float-btn:hover{
-  transform:scale(1.1);
-}
-
-.whatsapp-float{
-  background:#25d366;
-}
-
-.call-float{
-  background:#007aff;
-}
-
-/* ================= VIEWS (Multi-page simulation) ================= */
-
-.view-section{
-  display:none;
-}
-
-.view-section.active{
-  display:block;
-}
-
-/* ================= HERO ================= */
-
 .hero{
   max-width:1250px;
-  margin:auto;
-  padding:45px 20px 20px;
+  margin:22px auto;
+  padding:0 18px;
 }
-
 .hero-box{
-  min-height:560px;
-  border:1px solid var(--line);
-  border-radius:30px;
+  min-height:310px;
+  border-radius:25px;
   overflow:hidden;
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  position:relative;
   background:
-    radial-gradient(
-      circle at 75% 50%,
-      rgba(217,168,78,.15),
-      transparent 34%
-    ),
-    linear-gradient(135deg,#11151d,#080a0e);
-}
-
-.hero-text{
-  padding:70px 55px;
+    radial-gradient(circle at 85% 25%,rgba(24,185,129,.25),transparent 25%),
+    linear-gradient(135deg,#07111f,#10253a);
+  color:white;
   display:flex;
-  justify-content:center;
-  flex-direction:column;
+  align-items:center;
+  padding:45px;
+  box-shadow:var(--shadow);
 }
-
-.small-title{
-  color:var(--gold2);
-  font-size:11px;
-  font-weight:1000;
-  letter-spacing:3px;
+.hero-content{max-width:650px}
+.eyebrow{
+  color:#6ee7b7;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:12px;
+  margin-bottom:12px;
+}
+.hero h1{
+  font-size:clamp(34px,6vw,62px);
+  line-height:1;
   margin-bottom:18px;
 }
-
-.hero h1{
-  font-size:clamp(45px,6vw,80px);
-  line-height:.93;
-  letter-spacing:-5px;
-}
-
-.hero h1 span{
-  color:var(--gold2);
-}
-
 .hero p{
-  max-width:500px;
-  margin-top:23px;
-  color:var(--muted);
-  line-height:1.8;
-  font-size:14px;
+  color:#cbd5e1;
+  max-width:570px;
+  line-height:1.7;
 }
-
 .hero-buttons{
   display:flex;
   gap:10px;
-  margin-top:30px;
+  flex-wrap:wrap;
+  margin-top:25px;
 }
-
-.gold-btn{
-  border:0;
-  background:linear-gradient(
-    135deg,
-    var(--gold),
-    var(--gold2)
-  );
-  color:#171108;
+.btn{
+  padding:13px 20px;
   border-radius:12px;
-  padding:14px 22px;
-  font-weight:1000;
+  font-weight:800;
+  transition:.2s;
 }
+.btn:hover{transform:translateY(-2px)}
+.primary{background:var(--accent);color:white}
+.secondary{background:#fff;color:#07111f}
 
-.dark-btn{
-  border:1px solid var(--line);
-  background:#161a22;
-  color:white;
-  border-radius:12px;
-  padding:14px 22px;
-  font-weight:900;
-}
-
-.hero-image{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:35px;
-}
-
-.hero-image img{
-  width:100%;
-  max-width:500px;
-  height:450px;
-  object-fit:contain;
-  filter:drop-shadow(0 35px 50px rgba(0,0,0,.65));
-}
-
-/* ================= TRUST ================= */
-
-.trust{
+.section{
   max-width:1250px;
-  margin:auto;
-  padding:20px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
+  margin:30px auto;
+  padding:0 18px;
 }
-
-.trust-box{
-  padding:17px;
-  border:1px solid var(--line);
-  border-radius:15px;
-  background:#0d1016;
-}
-
-.trust-box strong{
-  display:block;
-  font-size:12px;
-}
-
-.trust-box span{
-  color:var(--muted);
-  font-size:10px;
-}
-
-/* ================= PRODUCTS ================= */
-
-.shop{
-  max-width:1250px;
-  margin:auto;
-  padding:75px 20px;
-}
-
-.shop-head{
+.section-head{
   display:flex;
   justify-content:space-between;
-  align-items:end;
-  margin-bottom:25px;
-}
-
-.shop-head h2{
-  font-size:35px;
-  letter-spacing:-2px;
-}
-
-.shop-head p{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:7px;
-}
-
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.product-card{
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:
-    linear-gradient(
-      180deg,
-      #131720,
-      #0d1016
-    );
-  transition:.3s;
-}
-
-.product-card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(217,168,78,.35);
-  box-shadow:0 25px 60px rgba(0,0,0,.35);
-}
-
-.product-image{
-  height:360px;
-  position:relative;
-  background:
-    radial-gradient(
-      circle,
-      #242a35,
-      #10131a 65%
-    );
-  display:flex;
   align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  gap:15px;
+  margin-bottom:18px;
 }
+.section-head h2{font-size:25px}
+.section-head p{color:var(--muted);font-size:14px}
 
-.product-image img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  padding:18px;
-  transition:.45s;
-}
-
-.product-card:hover .product-image img{
-  transform:scale(1.05);
-}
-
-.product-badge{
-  position:absolute;
-  left:14px;
-  top:14px;
-  z-index:2;
-  padding:7px 10px;
-  background:var(--gold);
-  color:#161008;
-  border-radius:8px;
-  font-size:9px;
-  font-weight:1000;
-}
-
-.product-body{
-  padding:21px;
-}
-
-.product-category{
-  color:var(--gold2);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:9px;
-  font-weight:1000;
-}
-
-.product-name{
-  margin-top:8px;
-  font-size:21px;
-}
-
-.product-description{
-  margin-top:8px;
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.65;
-  min-height:37px;
-}
-
-.stars{
-  color:var(--gold2);
-  font-size:12px;
-  margin-top:12px;
-}
-
-.price-line{
+.categories{
   display:flex;
-  align-items:center;
-  gap:9px;
-  margin-top:13px;
+  gap:10px;
+  overflow:auto;
+  padding-bottom:5px;
 }
-
-.price{
-  font-size:24px;
-  font-weight:1000;
-}
-
-.old-price{
-  color:#69717e;
-  text-decoration:line-through;
-  font-size:11px;
-}
-
-.discount{
-  color:var(--green);
-  font-size:10px;
-  font-weight:1000;
-}
-
-.card-buttons{
-  display:grid;
-  grid-template-columns:1fr 1.25fr;
-  gap:8px;
-  margin-top:17px;
-}
-
-.card-buttons button{
-  padding:12px;
-  border-radius:10px;
-  font-size:11px;
-  font-weight:1000;
-}
-
-.view{
-  background:#191d26;
+.cat{
+  flex:0 0 auto;
+  background:white;
   border:1px solid var(--line);
+  padding:11px 17px;
+  border-radius:30px;
+  font-weight:700;
+}
+.cat.active,.cat:hover{
+  background:var(--nav);
   color:white;
 }
 
-.buy{
-  background:var(--gold);
-  border:0;
-  color:#171108;
-}
-
-/* ================= FEATURED ================= */
-
-.feature-section{
-  margin-top:70px;
-  border:1px solid var(--line);
-  border-radius:25px;
-  background:#0e1117;
-  padding:35px;
-}
-
-.feature-grid{
+.products{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.product{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(15,23,42,.04);
+  transition:.25s;
+  position:relative;
+}
+.product:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+.product-img{
+  height:230px;
+  background:#f1f5f9;
+  position:relative;
+  overflow:hidden;
+}
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.product-tag{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#07111f;
+  color:white;
+  padding:6px 9px;
+  border-radius:8px;
+  font-size:10px;
+  font-weight:800;
+}
+.product-info{padding:15px}
+.product-info h3{
+  font-size:16px;
+  margin-bottom:7px;
+}
+.rating{
+  color:#f59e0b;
+  font-size:13px;
+  margin-bottom:8px;
+}
+.price{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.price strong{font-size:20px}
+.old{
+  color:#98a2b3;
+  text-decoration:line-through;
+  font-size:13px;
+}
+.discount{
+  color:#16a34a;
+  font-size:12px;
+  font-weight:800;
+}
+.product-actions{
+  display:grid;
+  grid-template-columns:1fr 42px;
+  gap:8px;
+  margin-top:13px;
+}
+.add{
+  background:var(--nav);
+  color:white;
+  border-radius:10px;
+  padding:11px;
+  font-weight:800;
+}
+.buy{
+  background:#ecfdf5;
+  color:#047857;
+  border-radius:10px;
+  font-size:18px;
 }
 
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
 .feature{
-  padding:12px;
+  background:white;
+  border:1px solid var(--line);
+  padding:20px;
+  border-radius:16px;
 }
-
-.feature-icon{
-  font-size:28px;
-  margin-bottom:10px;
-}
-
-.feature h3{
-  font-size:14px;
-}
-
-.feature p{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.7;
-  margin-top:7px;
-}
-
-/* ================= FOOTER ================= */
+.feature-icon{font-size:25px;margin-bottom:10px}
+.feature h3{font-size:15px;margin-bottom:5px}
+.feature p{font-size:12px;color:var(--muted);line-height:1.5}
 
 footer{
-  border-top:1px solid var(--line);
-  background:#040507;
-  padding:50px 20px;
+  background:#020817;
+  color:#cbd5e1;
+  margin-top:50px;
 }
-
-.footer{
+.footer-inner{
   max-width:1250px;
   margin:auto;
+  padding:45px 18px;
   display:grid;
   grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:35px;
+  gap:30px;
 }
-
-.footer h3{
-  font-size:25px;
+.footer-title{
+  color:white;
+  font-size:22px;
+  font-weight:900;
+  margin-bottom:12px;
 }
-
-.footer h3 span{
-  color:var(--gold);
+footer p,footer a{
+  font-size:13px;
+  line-height:2;
+  color:#94a3b8;
 }
-
-.footer p,
-.footer button{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.8;
+.footer-bottom{
+  border-top:1px solid #1e293b;
+  text-align:center;
+  padding:18px;
+  font-size:12px;
 }
-
-.footer button{
-  display:block;
-  border:0;
-  background:none;
-  margin-top:9px;
-  text-align:left;
-}
-
-/* ================= MODAL ================= */
 
 .overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.76);
-  backdrop-filter:blur(8px);
+  background:rgba(2,8,23,.65);
+  backdrop-filter:blur(4px);
   z-index:2000;
   display:none;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
 }
+.overlay.show{display:block}
 
-.overlay.show{
-  display:flex;
-}
-
-.modal{
-  width:min(900px,100%);
-  max-height:92vh;
-  overflow:auto;
-  border:1px solid var(--line);
-  border-radius:24px;
-  background:#0d1016;
-  position:relative;
-}
-
-.close{
+.drawer{
   position:absolute;
-  right:16px;
-  top:16px;
-  width:40px;
-  height:40px;
-  border:1px solid var(--line);
-  background:#171a22;
-  color:white;
-  border-radius:10px;
-  z-index:5;
-}
-
-.detail{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-}
-
-.detail-image{
-  min-height:540px;
-  background:#10131a;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.detail-image img{
-  width:100%;
-  height:540px;
-  object-fit:contain;
-  padding:25px;
-}
-
-.detail-info{
-  padding:45px 35px;
-}
-
-.detail-info h2{
-  font-size:37px;
-  letter-spacing:-2px;
-  margin-top:10px;
-}
-
-.detail-info p{
-  color:var(--muted);
-  line-height:1.8;
-  font-size:13px;
-  margin-top:15px;
-}
-
-.detail-price{
-  color:var(--gold2);
-  font-size:31px;
-  font-weight:1000;
-  margin-top:22px;
-}
-
-.detail-old{
-  color:#68717e;
-  text-decoration:line-through;
-  font-size:12px;
-}
-
-.features{
-  margin-top:20px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:15px;
-}
-
-.features h4{
-  font-size:12px;
-  margin-bottom:8px;
-}
-
-.features li{
-  list-style:none;
-  color:#aeb5c0;
-  font-size:11px;
-  padding:5px 0;
-}
-
-.features li::before{
-  content:"✓";
-  color:var(--green);
-  margin-right:7px;
-}
-
-/* ================= CART ================= */
-
-.cart-panel{
-  width:min(500px,100%);
-  margin-left:auto;
+  right:0;
+  top:0;
   height:100%;
-  background:#0d1016;
-  border-left:1px solid var(--line);
-  padding:25px;
-  overflow:auto;
+  width:min(440px,100%);
+  background:white;
+  display:flex;
+  flex-direction:column;
 }
-
-.cart-head{
+.drawer-head{
+  padding:18px;
+  border-bottom:1px solid var(--line);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:20px;
 }
-
+.close{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background:#f1f5f9;
+}
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:15px;
+}
 .cart-item{
-  display:grid;
-  grid-template-columns:70px 1fr auto;
+  display:flex;
   gap:12px;
-  padding:14px 0;
+  padding:12px 0;
   border-bottom:1px solid var(--line);
 }
-
 .cart-item img{
-  width:70px;
-  height:70px;
-  object-fit:contain;
-  background:#151922;
+  width:72px;
+  height:72px;
+  object-fit:cover;
   border-radius:10px;
+  background:#f1f5f9;
 }
-
-.cart-item h4{
-  font-size:12px;
-}
-
-.cart-item p{
-  color:var(--gold2);
-  font-size:12px;
-  font-weight:900;
-  margin-top:6px;
-}
-
+.cart-item h4{font-size:14px}
+.cart-item small{color:var(--muted)}
 .qty{
   display:flex;
   align-items:center;
   gap:7px;
   margin-top:8px;
 }
-
 .qty button{
   width:25px;
   height:25px;
-  border:1px solid var(--line);
-  background:#181c25;
-  color:white;
-  border-radius:6px;
+  border-radius:7px;
+  background:#eef2f7;
 }
-
-.cart-total{
-  margin-top:25px;
+.cart-footer{
+  padding:18px;
+  border-top:1px solid var(--line);
+}
+.total-row{
   display:flex;
   justify-content:space-between;
+  margin-bottom:14px;
+  font-size:18px;
+  font-weight:900;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  background:rgba(2,8,23,.7);
+  display:none;
   align-items:center;
+  justify-content:center;
+  padding:15px;
 }
-
-.cart-total strong{
-  font-size:25px;
+.modal.show{display:flex}
+.modal-box{
+  width:min(720px,100%);
+  max-height:94vh;
+  overflow:auto;
+  background:white;
+  border-radius:22px;
+  box-shadow:0 30px 100px rgba(0,0,0,.3);
 }
-
-/* ================= CHECKOUT ================= */
-
-.checkout{
-  padding:30px;
+.modal-head{
+  padding:20px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
 }
+.modal-body{padding:20px}
 
-.checkout-grid{
+.form-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:25px;
+  gap:13px;
 }
-
-.field{
-  margin-bottom:12px;
-}
-
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
 .field label{
-  display:block;
-  color:#aeb5c0;
-  font-size:9px;
-  font-weight:1000;
-  margin-bottom:6px;
+  font-size:12px;
+  font-weight:800;
 }
-
-.field input,
-.field textarea,
-.field select{
-  width:100%;
-  background:#151922;
-  color:white;
-  border:1px solid var(--line);
-  border-radius:9px;
+.field input,.field textarea,.field select{
+  border:1px solid #d8dee8;
+  border-radius:10px;
   padding:12px;
   outline:none;
 }
-
-.field textarea{
-  min-height:90px;
+.field input:focus,.field textarea:focus,.field select:focus{
+  border-color:var(--accent);
 }
 
-.payment{
+.payment-box{
+  margin-top:18px;
+  padding:15px;
+  background:#f8fafc;
   border:1px solid var(--line);
+  border-radius:14px;
+}
+.payment-option{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:13px;
+  margin-top:8px;
+}
+.payment-option input{accent-color:var(--accent)}
+
+.advance-note{
+  margin-top:10px;
+  padding:12px;
+  border-radius:10px;
+  background:#fff7ed;
+  color:#9a3412;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.order-summary{
+  margin-top:18px;
+  background:#f8fafc;
   border-radius:14px;
   padding:15px;
 }
-
-.payment h4{
-  font-size:11px;
-}
-
-.payment label{
-  display:block;
-  margin-top:9px;
-  padding:12px;
-  background:#151922;
-  border:1px solid var(--line);
-  border-radius:9px;
-  font-size:11px;
-}
-
-.summary{
-  margin-top:15px;
-  padding:18px;
-  border:1px solid var(--line);
-  border-radius:14px;
-}
-
-.summary-row{
+.summary-line{
   display:flex;
   justify-content:space-between;
-  margin:9px 0;
-  font-size:12px;
+  padding:7px 0;
+  font-size:13px;
 }
-
-.summary-row.total{
+.summary-total{
   border-top:1px solid var(--line);
-  padding-top:15px;
-  margin-top:15px;
+  margin-top:5px;
+  padding-top:12px;
+  font-size:18px;
+  font-weight:900;
 }
-
-.summary-row.total strong{
-  font-size:22px;
-}
-
-/* ================= SUCCESS ================= */
 
 .success{
-  padding:70px 25px;
   text-align:center;
+  padding:40px 20px;
 }
-
 .success-icon{
-  width:70px;
-  height:70px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:75px;
+  height:75px;
+  margin:auto auto 15px;
   border-radius:50%;
-  background:rgba(57,217,138,.12);
-  color:var(--green);
+  background:#dcfce7;
+  display:grid;
+  place-items:center;
   font-size:38px;
 }
-
-.success h2{
-  margin-top:18px;
-  font-size:30px;
+.order-id{
+  display:inline-block;
+  margin:12px 0;
+  padding:8px 12px;
+  border-radius:8px;
+  background:#f1f5f9;
+  font-weight:800;
 }
 
-.success p{
+.toast{
+  position:fixed;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%) translateY(80px);
+  z-index:5000;
+  background:#07111f;
+  color:white;
+  padding:12px 18px;
+  border-radius:12px;
+  opacity:0;
+  transition:.3s;
+  font-size:13px;
+}
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+.empty{
+  text-align:center;
+  padding:45px 10px;
   color:var(--muted);
-  margin-top:8px;
-  font-size:12px;
 }
 
-/* ================= MOBILE ================= */
-
-.mobile-nav{
-  display:none;
+@media(max-width:950px){
+  .products{grid-template-columns:repeat(3,1fr)}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
 }
 
-@media(max-width:850px){
-  .nav-links{
-    display:none;
-  }
-  .hero-box{
-    grid-template-columns:1fr;
-  }
-  .hero-text{
-    padding:50px 30px 25px;
-  }
-  .hero-image{
-    min-height:340px;
-  }
-  .trust{
-    grid-template-columns:repeat(2,1fr);
-  }
-  .product-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-  .footer{
-    grid-template-columns:1fr 1fr;
-  }
-  .detail{
-    grid-template-columns:1fr;
-  }
-  .detail-image,
-  .detail-image img{
-    min-height:350px;
-    height:350px;
-  }
+@media(max-width:700px){
+  .nav{flex-wrap:wrap}
+  .logo{font-size:23px}
+  .search{order:3;flex-basis:100%}
+  .hero-box{padding:30px 22px;min-height:350px}
+  .products{grid-template-columns:repeat(2,1fr);gap:10px}
+  .product-img{height:180px}
+  .product-info{padding:11px}
+  .product-info h3{font-size:14px}
+  .price strong{font-size:17px}
+  .features{grid-template-columns:1fr 1fr}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .footer-inner{grid-template-columns:1fr}
 }
 
-@media(max-width:600px){
-  body{
-    padding-bottom:68px;
-  }
-  .hero{
-    padding:20px 13px;
-  }
-  .hero h1{
-    font-size:47px;
-    letter-spacing:-3px;
-  }
-  .hero-text{
-    padding:40px 22px 20px;
-  }
-  .hero-image{
-    min-height:270px;
-    padding:15px;
-  }
-  .hero-image img{
-    height:260px;
-  }
-  .trust{
-    padding:12px 13px;
-    gap:7px;
-  }
-  .trust-box{
-    padding:12px;
-  }
-  .shop{
-    padding:55px 13px;
-  }
-  .shop-head h2{
-    font-size:27px;
-  }
-  .product-grid{
-    grid-template-columns:1fr;
-  }
-  .product-image{
-    height:370px;
-  }
-  .feature-grid{
-    grid-template-columns:1fr;
-  }
-  .footer{
-    grid-template-columns:1fr;
-  }
-  .checkout-grid{
-    grid-template-columns:1fr;
-  }
-  .mobile-nav{
-    display:grid;
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    height:68px;
-    background:rgba(8,10,14,.96);
-    backdrop-filter:blur(15px);
-    border-top:1px solid var(--line);
-    z-index:1500;
-    grid-template-columns:repeat(4,1fr);
-  }
-  .mobile-nav button{
-    border:0;
-    background:none;
-    color:#9aa2b0;
-    font-size:9px;
-    font-weight:900;
-  }
-  .mobile-nav span{
-    display:block;
-    font-size:20px;
-    margin-bottom:3px;
-  }
+@media(max-width:420px){
+  .products{grid-template-columns:1fr 1fr}
+  .product-img{height:150px}
+  .nav-actions .nav-btn span{display:none}
+  .hero h1{font-size:37px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="top-strip">
-  18+ • DISCREET PACKAGING • PREMIUM COLLECTION
+<div class="topbar">
+  🚚 Premium Delivery • 🔒 Secure Checkout • 📦 Discreet Packaging
 </div>
 
-<header class="header">
-  <nav class="nav">
-    <div class="logo" onclick="switchView('home')">
-      GRO<span>®</span>
+<header>
+  <div class="nav">
+    <a class="logo" href="#">GR<span>O</span></a>
+
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="Search products..." oninput="renderProducts()">
+      <button onclick="renderProducts()">⌕</button>
     </div>
 
-    <div class="nav-links">
-      <button onclick="switchView('home')">HOME</button>
-      <button onclick="switchView('shop')">SHOP</button>
-      <button onclick="openTrack()">TRACK ORDER</button>
+    <div class="nav-actions">
+      <button class="nav-btn" onclick="openCart()">🛒 <span>Cart</span><b class="badge" id="cartCount">0</b></button>
     </div>
-
-    <div class="nav-right">
-      <button class="icon" onclick="openCart()">
-        🛒
-        <span class="cart-number" id="cartCount">0</span>
-      </button>
-    </div>
-  </nav>
+  </div>
 </header>
 
-<!-- FLOATING WIDGETS (WhatsApp & Call) -->
-<div class="floating-widgets">
-  <a href="https://wa.me/919876543210?text=Hello,%20I%20want%20to%20know%20more%20about%20GRO%20Extender" target="_blank" class="float-btn whatsapp-float" title="Chat on WhatsApp">
-    💬
-  </a>
-  <a href="tel:+919876543210" class="float-btn call-float" title="Call Us">
-    📞
-  </a>
-</div>
+<main>
 
-<!-- ================= MULTI-PAGE VIEWS ================= -->
-
-<!-- VIEW 1: HOME PAGE -->
-<div id="view-home" class="view-section active">
-  <section class="hero">
-    <div class="hero-box">
-      <div class="hero-text">
-        <div class="small-title">
-          GRO EXTENDER COLLECTION
-        </div>
-        <h1>
-          PREMIUM<br>
-          <span>CONFIDENCE.</span>
-        </h1>
-        <p>
-          Explore the GRO Extender premium collection.
-          Choose your configuration and experience
-          a private, discreet shopping experience.
-        </p>
-        <div class="hero-buttons">
-          <button class="gold-btn" onclick="switchView('shop')">
-            SHOP COLLECTION →
-          </button>
-          <button class="dark-btn" onclick="openTrack()">
-            TRACK ORDER
-          </button>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png" alt="GRO Extender Ultimate">
-      </div>
-    </div>
-  </section>
-
-  <section class="trust">
-    <div class="trust-box">
-      <strong>🔒 PRIVATE SHOPPING</strong>
-      <span>Customer-focused checkout</span>
-    </div>
-    <div class="trust-box">
-      <strong>📦 DISCREET PACKAGING</strong>
-      <span>Privacy-focused delivery</span>
-    </div>
-    <div class="trust-box">
-      <strong>⚡ FAST PROCESSING</strong>
-      <span>Quick order handling</span>
-    </div>
-    <div class="trust-box">
-      <strong>💬 CUSTOMER SUPPORT</strong>
-      <span>Support when you need it</span>
-    </div>
-  </section>
-</div>
-
-<!-- VIEW 2: SHOP PAGE -->
-<div id="view-shop" class="view-section">
-  <section class="shop" id="shop">
-    <div class="shop-head">
-      <div>
-        <div class="small-title">
-          THE GRO COLLECTION
-        </div>
-        <h2>
-          Choose Your GRO
-        </h2>
-        <p>
-          Three premium configurations.
-        </p>
-      </div>
-    </div>
-
-    <div class="product-grid" id="productGrid"></div>
-
-    <div class="feature-section">
-      <div class="feature-grid">
-        <div class="feature">
-          <div class="feature-icon">◈</div>
-          <h3>Premium Configurations</h3>
-          <p>
-            Multiple GRO configurations are
-            presented clearly so customers can
-            choose according to their preference.
-          </p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">◉</div>
-          <h3>Discreet Experience</h3>
-          <p>
-            The storefront is designed around
-            privacy and a clean premium purchase
-            experience.
-          </p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">✓</div>
-          <h3>Simple Checkout</h3>
-          <p>
-            Product selection, quantity and
-            customer details are handled through
-            a streamlined checkout.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-  <div class="footer">
-    <div>
-      <h3>
-        GRO<span>®</span>
-      </h3>
+<section class="hero">
+  <div class="hero-box">
+    <div class="hero-content">
+      <div class="eyebrow">GRO PREMIUM WELLNESS</div>
+      <h1>Upgrade Your<br>Wellness Routine.</h1>
       <p>
-        Premium men's wellness store.
-        Private shopping and discreet
-        customer experience.
+        Premium men's wellness products designed for a confident,
+        private and comfortable experience.
       </p>
+      <div class="hero-buttons">
+        <button class="btn primary" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
+        <button class="btn secondary" onclick="showBenefits()">Why GRO?</button>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="categories">
+    <button class="cat active" onclick="setCategory('All',this)">All</button>
+    <button class="cat" onclick="setCategory('Featured',this)">Featured</button>
+    <button class="cat" onclick="setCategory('Wellness',this)">Wellness</button>
+    <button class="cat" onclick="setCategory('Accessories',this)">Accessories</button>
+    <button class="cat" onclick="setCategory('Care',this)">Care</button>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="section-head">
     <div>
-      <strong>SHOP</strong>
-      <button onclick="switchView('shop')">All Products</button>
-      <button onclick="switchView('shop')">GRO Ultimate</button>
-      <button onclick="switchView('shop')">GRO Supreme+</button>
-      <button onclick="switchView('shop')">GRO DoubleDeck</button>
+      <h2>Featured Products</h2>
+      <p>Premium products selected for the GRO collection.</p>
     </div>
+  </div>
+
+  <div class="products" id="productGrid"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
     <div>
-      <strong>ORDER</strong>
-      <button onclick="openCart()">Cart</button>
-      <button onclick="openTrack()">Track Order</button>
+      <h2>Why Shop With GRO?</h2>
+      <p>A clean, private and customer-first shopping experience.</p>
     </div>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <h3>Private Shopping</h3>
+      <p>Your shopping experience is designed with privacy and discreet delivery in mind.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📦</div>
+      <h3>Discreet Packaging</h3>
+      <p>Orders can be prepared using neutral outer packaging.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">⚡</div>
+      <h3>Fast Checkout</h3>
+      <p>Simple cart, customer details and payment selection in one flow.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">💬</div>
+      <h3>Customer Support</h3>
+      <p>Connect with GRO support directly through WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
     <div>
-      <strong>POLICIES</strong>
-      <button>Privacy Policy</button>
-      <button>Terms</button>
-      <button>Refund Policy</button>
+      <div class="footer-title">GRO</div>
+      <p>Premium Men's Wellness Store.</p>
+      <p>Private • Simple • Customer First</p>
     </div>
+
+    <div>
+      <div class="footer-title">Shop</div>
+      <a href="#products">All Products</a><br>
+      <a href="#products">Featured</a><br>
+      <a href="#products">Wellness</a>
+    </div>
+
+    <div>
+      <div class="footer-title">Support</div>
+      <a href="javascript:openCheckout()">Checkout</a><br>
+      <a href="javascript:openCart()">Cart</a><br>
+      <a href="javascript:showBenefits()">Why GRO?</a>
+    </div>
+
+    <div>
+      <div class="footer-title">Contact</div>
+      <p>WhatsApp Support</p>
+      <p>Daily Customer Assistance</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 GRO. All rights reserved.
   </div>
 </footer>
 
-<!-- ================= PRODUCT MODAL ================= -->
-<div class="overlay" id="productOverlay">
-  <div class="modal">
-    <button class="close" onclick="closeProduct()">×</button>
-    <div class="detail" id="productDetail"></div>
-  </div>
-</div>
-
-<!-- ================= CART ================= -->
-<div class="overlay" id="cartOverlay">
-  <div class="cart-panel">
-    <div class="cart-head">
+<!-- CART -->
+<div class="overlay" id="cartOverlay" onclick="closeCart(event)">
+  <aside class="drawer" onclick="event.stopPropagation()">
+    <div class="drawer-head">
       <h2>Your Cart</h2>
-      <button class="close" style="position:static" onclick="closeCart()">×</button>
+      <button class="close" onclick="closeCart()">✕</button>
     </div>
-    <div id="cartItems"></div>
-    <div class="cart-total">
-      <span>Total</span>
-      <strong id="cartTotal">₹0</strong>
-    </div>
-    <button class="gold-btn" style="width:100%; margin-top:18px" onclick="openCheckout()">
-      CHECKOUT →
-    </button>
-  </div>
-</div>
 
-<!-- ================= CHECKOUT ================= -->
-<div class="overlay" id="checkoutOverlay">
-  <div class="modal">
-    <button class="close" onclick="closeCheckout()">×</button>
-    <div class="checkout" id="checkout"></div>
-  </div>
-</div>
+    <div class="cart-items" id="cartItems"></div>
 
-<!-- ================= TRACK ================= -->
-<div class="overlay" id="trackOverlay">
-  <div class="modal">
-    <button class="close" onclick="closeTrack()">×</button>
-    <div class="checkout">
-      <div class="small-title">ORDER SERVICE</div>
-      <h2>Track Order</h2>
-      <div class="field" style="margin-top:25px">
-        <label>ORDER ID</label>
-        <input id="trackId" placeholder="GRO-XXXXXXXX">
+    <div class="cart-footer">
+      <div class="total-row">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
       </div>
-      <button class="gold-btn" style="width:100%" onclick="trackOrder()">
-        CHECK STATUS
+      <button class="btn primary" style="width:100%" onclick="openCheckout()">
+        Proceed to Checkout
       </button>
-      <div id="trackResult" style="margin-top:20px"></div>
+    </div>
+  </aside>
+</div>
+
+<!-- CHECKOUT -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>Secure Checkout</h2>
+      <button class="close" onclick="closeCheckout()">✕</button>
+    </div>
+
+    <div class="modal-body" id="checkoutBody">
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Full Name *</label>
+          <input id="name" placeholder="Enter your name">
+        </div>
+
+        <div class="field">
+          <label>Mobile Number *</label>
+          <input id="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile">
+        </div>
+
+        <div class="field full">
+          <label>Full Address *</label>
+          <textarea id="address" rows="3" placeholder="House / Street / Locality"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Area / City *</label>
+          <input id="area" placeholder="Area / City">
+        </div>
+
+        <div class="field">
+          <label>PIN Code *</label>
+          <input id="pin" inputmode="numeric" maxlength="6" placeholder="PIN Code">
+        </div>
+
+        <div class="field">
+          <label>State *</label>
+          <select id="state">
+            <option value="">Select State</option>
+            <option>West Bengal</option>
+            <option>Odisha</option>
+            <option>Bihar</option>
+            <option>Jharkhand</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Country</label>
+          <input value="India" readonly>
+        </div>
+
+      </div>
+
+      <div class="payment-box">
+        <strong>Payment Method</strong>
+
+        <label class="payment-option">
+          <input type="radio" name="payment" value="online" checked onchange="paymentChanged()">
+          <div>
+            <b>Online Payment</b>
+            <div style="font-size:12px;color:#667085">Pay securely through your configured payment gateway.</div>
+          </div>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment" value="cod" onchange="paymentChanged()">
+          <div>
+            <b>Cash on Delivery</b>
+            <div style="font-size:12px;color:#667085">Available after required advance payment.</div>
+          </div>
+        </label>
+
+        <div class="advance-note" id="advanceNote">
+          COD is locked until the required ₹299 advance payment is completed.
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <div class="summary-line">
+          <span>Products</span>
+          <strong id="summaryProducts">₹0</strong>
+        </div>
+        <div class="summary-line">
+          <span>Delivery</span>
+          <strong id="summaryDelivery">FREE</strong>
+        </div>
+        <div class="summary-line summary-total">
+          <span>Total</span>
+          <strong id="summaryTotal">₹0</strong>
+        </div>
+      </div>
+
+      <button class="btn primary" style="width:100%;margin-top:18px" onclick="placeOrder()">
+        Continue to Payment
+      </button>
+
+      <p style="font-size:11px;color:#98a2b3;text-align:center;margin-top:12px">
+        By placing your order, you agree to the store's terms and privacy policy.
+      </p>
+
     </div>
   </div>
 </div>
 
-<!-- ================= MOBILE NAV ================= -->
-<div class="mobile-nav">
-  <button onclick="switchView('home')">
-    <span>⌂</span>
-    Home
-  </button>
-  <button onclick="switchView('shop')">
-    <span>▦</span>
-    Shop
-  </button>
-  <button onclick="openTrack()">
-    <span>🚚</span>
-    Track
-  </button>
-  <button onclick="openCart()">
-    <span>🛒</span>
-    Cart
-  </button>
+<!-- SUCCESS -->
+<div class="modal" id="successModal">
+  <div class="modal-box">
+    <div class="success">
+      <div class="success-icon">✓</div>
+      <h2>Order Created</h2>
+      <p style="color:#667085;margin-top:8px">
+        Your order information has been prepared successfully.
+      </p>
+
+      <div class="order-id" id="orderId">GRO-000000</div>
+
+      <button class="btn primary" style="width:100%" onclick="sendWhatsApp()">
+        Send Order on WhatsApp
+      </button>
+
+      <button class="btn" style="width:100%;margin-top:8px;background:#f1f5f9"
+              onclick="closeSuccess()">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
 </div>
+
+<div class="toast" id="toast"></div>
 
 <script>
-/* ================= PRODUCT DATA ================= */
-const PRODUCTS = [
+/* =========================================================
+   GRO STORE CONFIGURATION
+   ========================================================= */
+
+const STORE = {
+  name: "GRO",
+  currency: "₹",
+
+  /*
+    Replace this with your business WhatsApp number.
+    Example:
+    whatsapp: "919876543210"
+  */
+  whatsapp: "919999999999",
+
+  /*
+    Replace these payment settings with your approved
+    payment-gateway checkout URL / integration.
+  */
+  onlinePaymentUrl: "",
+
+  advanceAmount: 299
+};
+
+
+/* =========================================================
+   PRODUCTS
+   Add / edit your products here.
+   ========================================================= */
+
+const products = [
+
   {
-    id:"ultimate",
-    name:"GRO Extender® Ultimate",
-    category:"ULTIMATE",
-    price:3249,
-    old:4499,
-    badge:"BESTSELLER",
-    image:"Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
-    gallery:[
-      "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
-      "ProExtender-Ultimate-Straps-260x134.jpg",
-      "ProExtender-Ultimate002 (1).png"
-    ],
-    description:"Premium adjustable configuration with multiple fitting components.",
-    features:[
-      "Adjustable fitting configuration",
-      "Multiple adjustment positions",
-      "Reinforced straps",
-      "Compact component design",
-      "Adult product — 18+"
-    ]
+    id: "gro-extender",
+    name: "GRO Premium Extender",
+    category: "Featured",
+    price: 3499,
+    oldPrice: 4499,
+    rating: "★★★★★",
+    reviews: "128",
+    tag: "BESTSELLER",
+    image: "GRO_Extender.jpg",
+    description: "Premium men's wellness device."
   },
+
   {
-    id:"supreme",
-    name:"GRO Extender® Supreme+",
-    category:"SUPREME+",
-    price:4780,
-    old:5999,
-    badge:"PREMIUM",
-    image:"Gemini_Generated_Image_unscx2unscx2unsc.png",
-    gallery:[
-      "Gemini_Generated_Image_unscx2unscx2unsc.png",
-      "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
-      "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
-    ],
-    description:"Premium lightweight adjustable configuration.",
-    features:[
-      "Lightweight configuration",
-      "Adjustable fitting",
-      "Reinforced components",
-      "Compact design",
-      "Adult product — 18+"
-    ]
+    id: "gro-care",
+    name: "GRO Personal Care Kit",
+    category: "Care",
+    price: 899,
+    oldPrice: 1199,
+    rating: "★★★★★",
+    reviews: "74",
+    tag: "POPULAR",
+    image: "GRO_Care.jpg",
+    description: "Premium personal care essentials."
   },
+
   {
-    id:"doubledeck",
-    name:"GRO Extender® DoubleDeck",
-    category:"DOUBLEDECK",
-    price:5950,
-    old:6999,
-    badge:"ELITE",
-    image:"Gemini_Generated_Image_bezw1nbezw1nbezw.png",
-    gallery:[
-      "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
-      "pro-extender-penis-enlargement-system-500x500.jpg",
-      "pro-extender-silicone-tube.webp"
-    ],
-    description:"Multi-component premium adjustable configuration.",
-    features:[
-      "Multi-component configuration",
-      "Adjustable fitting positions",
-      "Reinforced straps",
-      "Compact structure",
-      "Adult product — 18+"
-    ]
+    id: "gro-wellness",
+    name: "GRO Wellness Essential",
+    category: "Wellness",
+    price: 1299,
+    oldPrice: 1699,
+    rating: "★★★★☆",
+    reviews: "61",
+    tag: "NEW",
+    image: "GRO_Wellness.jpg",
+    description: "Everyday wellness essential."
+  },
+
+  {
+    id: "gro-accessory",
+    name: "GRO Premium Accessory",
+    category: "Accessories",
+    price: 599,
+    oldPrice: 799,
+    rating: "★★★★★",
+    reviews: "42",
+    tag: "HOT",
+    image: "GRO_Accessory.jpg",
+    description: "Premium GRO accessory."
   }
+
 ];
 
-/* ================= VIEW SWITCHER (Multi-page Simulation) ================= */
-function switchView(viewName) {
-  document.querySelectorAll('.view-section').forEach(el => {
-    el.classList.remove('active');
-  });
-  document.getElementById('view-' + viewName).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let cart = JSON.parse(localStorage.getItem("gro_cart") || "[]");
+let currentCategory = "All";
+let lastOrder = null;
+
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
+
+function money(value){
+  return "₹" + Number(value).toLocaleString("en-IN");
 }
 
-/* ================= INDIAN STATES & DISTRICTS DATA ================= */
-const INDIA_STATES_DISTRICTS = {
-  "Andhra Pradesh": ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Prakasam", "Nellore", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"],
-  "Arunachal Pradesh": ["Tawang", "West Kameng", "East Kameng", "Papum Pare", "Kurung Kumey", "Kra Daadi", "Lower Subansiri", "Upper Subansiri", "West Siang", "East Siang", "Siang", "Upper Siang", "Lower Siang", "Lower Dibang Valley", "Dibang Valley", "Anjaw", "Lohit", "Namsai", "Changlang", "Tirap", "Longding"],
-  "Assam": ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup", "Kamrup Metropolitan", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Dima Hasao", "Sivasagar", "Sonitpur", "Tinsukia", "Udalguri", "West Karbi Anglong"],
-  "Bihar": ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"],
-  "Chhattisgarh": ["Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara", "Bijapur", "Bilaspur", "Dantewada", "Dhamtari", "Durg", "Gariaband", "Janjgir-Champa", "Jashpur", "Kanker", "Kawardha", "Kondagaon", "Korba", "Koriya", "Mahasamund", "Mungeli", "Narayanpur", "Raigarh", "Raipur", "Rajnandgaon", "Sukma", "Surajpur", "Surguja"],
-  "Goa": ["North Goa", "South Goa"],
-  "Gujarat": ["Ahmedabad", "Amreli", "Anand", "Aravalli", "Banaskantha", "Bharuch", "Bhavnagar", "Botad", "Chhota Udaipur", "Dahod", "Dang", "Devbhoomi Dwarka", "Gandhinagar", "Gir Somnath", "Jamnagar", "Junagadh", "Kheda", "Kutch", "Mahisagar", "Mehsana", "Morbi", "Narmada", "Navsari", "Panchmahal", "Patan", "Porbandar", "Rajkot", "Sabarkantha", "Surat", "Surendranagar", "Tapi", "Vadodara", "Valsad"],
-  "Haryana": ["Ambala", "Bhiwani", "Charkhi Dadri", "Faridabad", "Fatehabad", "Gurugram", "Hisar", "Jhajjar", "Jind", "Kaithal", "Karnal", "Kurukshetra", "Narnaul", "Nuh", "Palwal", "Panchkula", "Panipat", "Rewari", "Rohtak", "Sirsa", "Sonipat", "Yamunanagar"],
-  "Himachal Pradesh": ["Bilaspur", "Chamba", "Hamirpur", "Kangra", "Kinnaur", "Kullu", "Lahaul Spiti", "Mandi", "Shimla", "Sirmaur", "Solan", "Una"],
-  "Jharkhand": ["Bokaro", "Chatra", "Deoghar", "Dhanbad", "Dumka", "East Singhbhum", "Garhwa", "Giridih", "Godda", "Gumla", "Hazaribagh", "Jamtara", "Khunti", "Koderma", "Latehar", "Lohardaga", "Pakur", "Palamu", "Ramgarh", "Ranchi", "Sahebganj", "Seraikela Kharsawan", "Simdega", "West Singhbhum"],
-  "Karnataka": ["Bagalkot", "Ballari", "Belagavi", "Bengaluru Rural", "Bengaluru Urban", "Bidar", "Chamarajanagar", "Chikkaballapura", "Chikkamagaluru", "Chitradurga", "Dakshina Kannada", "Davanagere", "Dharwad", "Gadag", "Hassan", "Haveri", "Kalaburagi", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysuru", "Raichur", "Ramanagara", "Shivamogga", "Tumakuru", "Udupi", "Uttara Kannada", "Vijayapura", "Yadgir"],
-  "Kerala": ["Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"],
-  "Madhya Pradesh": ["Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Dindori", "Guna", "Gwalior", "Harda", "Hoshangabad", "Indore", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandla", "Mandsaur", "Morena", "Narsinghpur", "Neemuch", "Panna", "Raisen", "Rajgarh", "Ratlam", "Rewa", "Sagar", "Satna", "Sehore", "Seoni", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli", "Tikamgarh", "Ujjain", "Umaria", "Vidisha"],
-  "Maharashtra": ["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed", "Bhandara", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli", "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur", "Latur", "Mumbai City", "Mumbai Suburban", "Nagpur", "Nanded", "Nandurbar", "Nashik", "Osmanabad", "Palghar", "Parbhani", "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara", "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim", "Yavatmal"],
-  "Manipur": ["Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West", "Jiribam", "Kakching", "Kamjong", "Kangpokpi", "Noney", "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul"],
-  "Meghalaya": ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "North Garo Hills", "Ri Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jaintia Hills", "West Khasi Hills"],
-  "Mizoram": ["Aizawl", "Champhai", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Serchhip"],
-  "Nagaland": ["Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Mon", "Noklak", "Peren", "Phek", "Tuensang", "Wokha", "Zunheboto"],
-  "Odisha": ["Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh", "Cuttack", "Deogarh", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Kendujhar", "Khordha", "Koraput", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri", "Rayagada", "Sambalpur", "Subarnapur", "Sundergarh"],
-  "Punjab": ["Amritsar", "Barnala", "Bathinda", "Faridkot", "Fatehgarh Sahib", "Fazilka", "Firozpur", "Gurdaspur", "Hoshiarpur", "Jalandhar", "Kapurthala", "Ludhiana", "Mansa", "Moga", "Mohali", "Muktsar", "Pathankot", "Patiala", "Rupnagar", "Sangrur", "Shaheed Bhagat Singh Nagar", "Tarn Taran"],
-  "Rajasthan": ["Ajmer", "Alwar", "Banswara", बारां (Baran), "Barmer", "Bharatpur", "Bhilwara", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Dholpur", "Dungarpur", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Karauli", "Kota", "Nagaur", "Pali", "Pratapgarh", "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Sri Ganganagar", "Tonk", "Udaipur"],
-  "Sikkim": ["East Sikkim", "North Sikkim", "South Sikkim", "West Sikkim"],
-  "Tamil Nadu": ["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Mayiladuthurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Thoothukudi", "Tiruchirappalli", "Tirunelveli", "Tirupattur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"],
-  "Telangana": ["Adilabad", "Bhadradri Kothagudem", "Hanamkonda", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Kumuram Bheem", "Mahabubabad", "Mahabubnagar", "Mancherial", "Medak", "Medchal–Malkajgiri", "Mulugu", "Nagarkurnool", "Nalgonda", "Narayanpet", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Ranga Reddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal", "Yadadri Bhuvanagiri"],
-  "Tripura": ["Dhalai", "Gomati", "Khowai", "North Tripura", "Sepahijala", "South Tripura", "Unakoti", "West Tripura"],
-  "Uttar Pradesh": ["Agra", "Aligarh", "Ambedkar Nagar", "Amethi", "Amroha", "Auraiya", "Azamgarh", "Baghpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bhadohi", "Bijnor", "Budaun", "Bulandshahr", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Ayodhya", "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur Dehat", "Kanpur Nagar", "Kasganj", "Kaushambi", "Kheri", "Kushinagar", "Lalitpur", "Lucknow", "Maharajganj", "Mahoba", "Mainpuri", "Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+function saveCart(){
+  localStorage.setItem("gro_cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function getProduct(id){
+  return products.find(p => p.id === id);
+}
+
+function cartCount(){
+  return cart.reduce((sum,item)=>sum + item.qty,0);
+}
+
+function cartTotal(){
+  return cart.reduce((sum,item)=>{
+    const p = getProduct(item.id);
+    return sum + (p ? p.price * item.qty : 0);
+  },0);
+}
+
+function discountPercent(p){
+  if(!p.oldPrice) return "";
+  return Math.round((1 - p.price/p.oldPrice)*100) + "% OFF";
+}
+
+
+/* =========================================================
+   PRODUCT RENDER
+   ========================================================= */
+
+function renderProducts(){
+
+  const grid = document.getElementById("productGrid");
+  const query = document.getElementById("searchInput").value
+    .trim()
+    .toLowerCase();
+
+  const filtered = products.filter(p => {
+
+    const categoryMatch =
+      currentCategory === "All" ||
+      p.category === currentCategory;
+
+    const searchMatch =
+      !query ||
+      p.name.toLowerCase().includes(query) ||
+      p.category.toLowerCase().includes(query);
+
+    return categoryMatch && searchMatch;
+  });
+
+  if(!filtered.length){
+    grid.innerHTML =
+      `<div class="empty" style="grid-column:1/-1">
+        <h3>No products found</h3>
+        <p>Try another search.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => `
+
+    <article class="product">
+
+      <div class="product-img">
+
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          loading="lazy"
+          onerror="this.src='data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+          <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600">
+            <rect width="100%" height="100%" fill="#eef2f7"/>
+            <text x="50%" y="50%" dominant-baseline="middle"
+              text-anchor="middle" fill="#64748b"
+              font-size="30" font-family="Arial">
+              GRO
+            </text>
+          </svg>
+          `)}'"
+        >
+
+        <div class="product-tag">${p.tag}</div>
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>${p.name}</h3>
+
+        <div class="rating">
+          ${p.rating}
+          <span style="color:#98a2b3">(${p.reviews})</span>
+        </div>
+
+        <div class="price">
+          <strong>${money(p.price)}</strong>
+          <span class="old">${money(p.oldPrice)}</span>
+        </div>
+
+        <div class="discount">
+          ${discountPercent(p)}
+        </div>
+
+        <div class="product-actions">
+          <button class="add" onclick="addToCart('${p.id}')">
+            Add to Cart
+          </button>
+
+          <button class="buy" onclick="buyNow('${p.id}')">
+            ⚡
+          </button>
+        </div>
+
+      </div>
+
+    </article>
+
+  `).join("");
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+function setCategory(category, button){
+
+  currentCategory = category;
+
+  document.querySelectorAll(".cat")
+    .forEach(x => x.classList.remove("active"));
+
+  button.classList.add("active");
+
+  renderProducts();
+}
+
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+function addToCart(id){
+
+  const existing = cart.find(x => x.id === id);
+
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({
+      id,
+      qty:1
+    });
+  }
+
+  saveCart();
+  renderCart();
+
+  showToast("Added to cart ✓");
+}
+
+function buyNow(id){
+
+  addToCart(id);
+  openCheckout();
+}
+
+function removeFromCart(id){
+
+  cart = cart.filter(x => x.id !== id);
+
+  saveCart();
+  renderCart();
+}
+
+function changeQty(id, amount){
+
+  const item = cart.find(x => x.id === id);
+
+  if(!item) return;
+
+  item.qty += amount;
+
+  if(item.qty <= 0){
+    removeFromCart(id);
+    return;
+  }
+
+  saveCart();
+  renderCart();
+}
+
+function renderCart(){
+
+  const box = document.getElementById("cartItems");
+
+  if(!cart.length){
+
+    box.innerHTML = `
+      <div class="empty">
+        <div style="font-size:45px">🛒</div>
+        <h3>Your cart is empty</h3>
+        <p>Add products to continue.</p>
+      </div>
+    `;
+
+  }else{
+
+    box.innerHTML = cart.map(item => {
+
+      const p = getProduct(item.id);
+
+      if(!p) return "";
+
+      return `
+        <div class="cart-item">
+
+          <img src="${p.image}" alt="${p.name}"
+               onerror="this.style.visibility='hidden'">
+
+          <div style="flex:1">
+
+            <h4>${p.name}</h4>
+
+            <small>${money(p.price)} each</small>
+
+            <div class="qty">
+              <button onclick="changeQty('${p.id}',-1)">−</button>
+              <b>${item.qty}</b>
+              <button onclick="changeQty('${p.id}',1)">+</button>
+              <button
+                style="margin-left:auto;background:#fee2e2;color:#b91c1c"
+                onclick="removeFromCart('${p.id}')">
+                🗑
+              </button>
+            </div>
+
+          </div>
+
+          <strong>${money(p.price * item.qty)}</strong>
+
+        </div>
+      `;
+
+    }).join("");
+
+  }
+
+  document.getElementById("cartTotal").textContent = money(cartTotal());
+}
+
+function updateCartCount(){
+  document.getElementById("cartCount").textContent = cartCount();
+}
+
+function openCart(){
+  renderCart();
+  document.getElementById("cartOverlay").classList.add("show");
+}
+
+function closeCart(event){
+
+  if(event && event.target !== document.getElementById("cartOverlay"))
+    return;
+
+  document.getElementById("cartOverlay").classList.remove("show");
+}
+
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+function openCheckout(){
+
+  if(!cart.length){
+    showToast("Your cart is empty");
+    return;
+  }
+
+  document.getElementById("cartOverlay").classList.remove("show");
+
+  updateCheckoutSummary();
+
+  document.getElementById("checkoutModal")
+    .classList.add("show");
+}
+
+function closeCheckout(){
+  document.getElementById("checkoutModal")
+    .classList.remove("show");
+}
+
+function updateCheckoutSummary(){
+
+  document.getElementById("summaryProducts").textContent =
+    money(cartTotal());
+
+  document.getElementById("summaryTotal").textContent =
+    money(cartTotal());
+
+  document.getElementById("summaryDelivery").textContent =
+    "FREE";
+}
+
+function paymentChanged(){
+
+  const method =
+    document.querySelector('input[name="payment"]:checked').value;
+
+  const note =
+    document.getElementById("advanceNote");
+
+  if(method === "cod"){
+
+    note.innerHTML =
+      `⚠ COD is locked. A ₹${STORE.advanceAmount} advance payment is required before COD confirmation.`;
+
+  }else{
+
+    note.innerHTML =
+      `✓ Online payment will be processed through your configured payment gateway.`;
+
+  }
+}
+
+
+/* =========================================================
+   VALIDATION
+   ========================================================= */
+
+function validateCheckout(){
+
+  const name =
+    document.getElementById("name").value.trim();
+
+  const phone =
+    document.getElementById("phone").value.trim();
+
+  const address =
+    document.getElementById("address").value.trim();
+
+  const area =
+    document.getElementById("area").value.trim();
+
+  const pin =
+    document.getElementById("pin").value.trim();
+
+  const state =
+    document.getElementById("state").value;
+
+  if(!name || !phone || !address || !area || !pin || !state){
+    showToast("Please complete all required fields.");
+    return false;
+  }
+
+  if(!/^[6-9]\d{9}$/.test(phone)){
+    showToast("Enter a valid 10-digit mobile number.");
+    return false;
+  }
+
+  if(!/^\d{6}$/.test(pin)){
+    showToast("Enter a valid 6-digit PIN code.");
+    return false;
+  }
+
+  return true;
+}
+
+
+/* =========================================================
+   ORDER
+   ========================================================= */
+
+function placeOrder(){
+
+  if(!validateCheckout()) return;
+
+  const method =
+    document.querySelector('input[name="payment"]:checked').value;
+
+  /*
+    IMPORTANT:
+    Client-side code cannot independently verify UPI/payment.
+    Connect this button to your approved payment gateway/backend.
+  */
+
+  if(method === "online"){
+
+    if(STORE.onlinePaymentUrl){
+
+      window.location.href =
+        STORE.onlinePaymentUrl +
+        "?amount=" + encodeURIComponent(cartTotal());
+
+      return;
+
+    }
+
+    showToast("Configure your approved payment gateway URL first.");
+    return;
+  }
+
+  if(method === "cod"){
+
+    const advancePaid =
+      localStorage.getItem("gro_advance_paid") === "true";
+
+    if(!advancePaid){
+
+      showToast(
+        "₹299 advance payment is required before COD."
+      );
+
+      /*
+        Put your approved gateway checkout here.
+        After verified server-side payment, your backend
+        should mark gro_advance_paid = true.
+      */
+
+      return;
+    }
+  }
+
+  createOrder();
+}
+
+function createOrder(){
+
+  const orderId =
+    "GRO-" +
+    Date.now().toString().slice(-8);
+
+  const payment =
+    document.querySelector('input[name="payment"]:checked').value;
+
+  lastOrder = {
+
+    id:orderId,
+
+    customer:{
+      name:document.getElementById("name").value.trim(),
+      phone:document.getElementById("phone").value.trim(),
+      address:document.getElementById("address").value.trim(),
+      area:document.getElementById("area").value.trim(),
+      pin:document.getElementById("pin").value.trim(),
+      state:document.getElementById("state").value,
+      country:"India"
+    },
+
+    payment,
+
+    items:cart.map(item => {
+
+      const p = getProduct(item.id);
+
+      return {
+        id:p.id,
+        name:p.name,
+        qty:item.qty,
+        price:p.price
+      };
+
+    }),
+
+    total:cartTotal(),
+
+    createdAt:new Date().toISOString()
+
+  };
+
+  localStorage.setItem(
+    "gro_last_order",
+    JSON.stringify(lastOrder)
+  );
+
+  document.getElementById("orderId").textContent =
+    orderId;
+
+  document.getElementById("checkoutModal")
+    .classList.remove("show");
+
+  document.getElementById("successModal")
+    .classList.add("show");
+
+  cart = [];
+
+  saveCart();
+  renderCart();
+}
+
+function closeSuccess(){
+  document.getElementById("successModal")
+    .classList.remove("show");
+}
+
+
+/* =========================================================
+   WHATSAPP ORDER
+   ========================================================= */
+
+function sendWhatsApp(){
+
+  if(!lastOrder) return;
+
+  const c = lastOrder.customer;
+
+  let message =
+`GRO NEW ORDER
+
+Order ID: ${lastOrder.id}
+
+Customer: ${c.name}
+Mobile: ${c.phone}
+
+Address:
+${c.address}
+${c.area}
+PIN: ${c.pin}
+State: ${c.state}
+Country: India
+
+Payment: ${lastOrder.payment.toUpperCase()}
+
+Products:
+`;
+
+  lastOrder.items.forEach(item => {
+
+    message +=
+`• ${item.name} × ${item.qty} — ${money(item.price * item.qty)}
+`;
+
+  });
+
+  message +=
+`
+TOTAL: ${money(lastOrder.total)}
+
+Please confirm the order.`;
+
+  const url =
+    "https://wa.me/" +
+    STORE.whatsapp +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(url,"_blank");
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+function showBenefits(){
+
+  alert(
+`GRO PREMIUM
+
+✓ Premium product collection
+✓ Mobile-first shopping experience
+✓ Cart & checkout
+✓ Customer details
+✓ COD / Online payment flow
+✓ WhatsApp order support
+✓ Local cart persistence
+✓ Discreet packaging option`
+  );
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+let toastTimer;
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(()=>{
+    toast.classList.remove("show");
+  },2500);
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+renderProducts();
+renderCart();
+updateCartCount();
+
+</script>
+
+</body>
+</html>
