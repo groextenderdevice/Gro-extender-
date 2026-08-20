@@ -4,13 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#07090d">
-<title>GRO Extender — Premium Store</title>
+<title>GRO Extender — Premium Store | Official Website</title>
+<meta name="description" content="GRO Extender Premium Collection - Discreet Shopping, Fast Delivery, Secure Payment">
 
 <!-- EmailJS SDK -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<!-- QR Code Generator -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
 <script type="text/javascript">
 (function(){
-  emailjs.init("YOUR_PUBLIC_KEY"); // এখানে তোমার EmailJS Public Key দাও
+  emailjs.init("YOUR_PUBLIC_KEY");
 })();
 </script>
 
@@ -34,6 +38,7 @@ body{
   background:radial-gradient(circle at 90% 0%,rgba(217,168,78,.10),transparent 30%),var(--bg);
   color:var(--white);
   font-family:Inter,Arial,sans-serif;
+  line-height:1.6;
 }
 button,input,textarea,select{font:inherit;}
 button{cursor:pointer;}
@@ -159,6 +164,17 @@ footer{border-top:1px solid var(--line);background:#040507;padding:50px 20px;}
 .summary-row.total{border-top:1px solid var(--line);padding-top:15px;margin-top:15px;}
 .summary-row.total strong{font-size:22px;}
 
+/* ================= QR CODE ================= */
+.qr-section{margin-top:20px;padding:20px;border:1px solid var(--line);border-radius:14px;background:#11141b;}
+.qr-section h4{font-size:12px;margin-bottom:15px;}
+.qr-container{display:flex;align-items:center;gap:20px;}
+.qr-box{width:180px;height:180px;background:white;border-radius:12px;padding:10px;display:flex;justify-content:center;align-items:center;}
+.qr-box canvas{width:100%;height:100%;}
+.upi-info{flex:1;}
+.upi-id{font-size:14px;font-weight:1000;color:var(--gold2);margin:8px 0;padding:10px;background:#151922;border-radius:8px;}
+.upi-apps{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+.upi-app{padding:8px 12px;background:#151922;border:1px solid var(--line);border-radius:8px;font-size:10px;font-weight:1000;}
+
 /* ================= SUCCESS ================= */
 .success{padding:70px 25px;text-align:center;}
 .success-icon{width:70px;height:70px;margin:auto;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(57,217,138,.12);color:var(--green);font-size:38px;}
@@ -206,13 +222,15 @@ footer{border-top:1px solid var(--line);background:#040507;padding:50px 20px;}
   .mobile-nav button{border:0;background:none;color:#9aa2b0;font-size:9px;font-weight:900;}
   .mobile-nav span{display:block;font-size:20px;margin-bottom:3px;}
   .floating-buttons{bottom:85px;}
+  .qr-container{flex-direction:column;}
+  .qr-box{width:150px;height:150px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="top-strip">18+ • DISCREET PACKAGING • PREMIUM COLLECTION</div>
+<div class="top-strip">18+ • DISCREET PACKAGING • PREMIUM COLLECTION • SECURE PAYMENT</div>
 
 <header class="header">
   <nav class="nav">
@@ -393,6 +411,7 @@ footer{border-top:1px solid var(--line);background:#040507;padding:50px 20px;}
               <th style="padding:12px;border:1px solid var(--line);">Mobile</th>
               <th style="padding:12px;border:1px solid var(--line);">Location</th>
               <th style="padding:12px;border:1px solid var(--line);">Total</th>
+              <th style="padding:12px;border:1px solid var(--line);">Payment</th>
               <th style="padding:12px;border:1px solid var(--line);">Status</th>
               <th style="padding:12px;border:1px solid var(--line);">Date</th>
             </tr>
@@ -705,8 +724,30 @@ function openCheckout(){
       <div>
         <div class="payment">
           <h4>PAYMENT METHOD</h4>
-          <label><input type="radio" name="payment" value="online" checked>Online Payment</label>
-          <label><input type="radio" name="payment" value="cod">Cash on Delivery</label>
+          <label><input type="radio" name="payment" value="cod" checked>Cash on Delivery</label>
+          <label><input type="radio" name="payment" value="online" onchange="showUPI()">Online Payment (UPI)</label>
+        </div>
+        <div id="upiSection" style="display:none;">
+          <div class="qr-section">
+            <h4>SCAN QR CODE TO PAY</h4>
+            <div class="qr-container">
+              <div class="qr-box" id="qrBox"></div>
+              <div class="upi-info">
+                <div style="color:var(--muted);font-size:10px;">UPI ID</div>
+                <div class="upi-id">7407792138@ybl</div>
+                <div style="color:var(--muted);font-size:10px;margin-top:12px;">SUPPORTED APPS</div>
+                <div class="upi-apps">
+                  <div class="upi-app">📱 PhonePe</div>
+                  <div class="upi-app">🔵 Google Pay</div>
+                  <div class="upi-app">🟠 Paytm</div>
+                  <div class="upi-app">🔷 MobiKwik</div>
+                </div>
+                <div style="margin-top:15px;color:var(--muted);font-size:10px;">
+                  Pay to: <strong style="color:var(--gold2)">mr.manna@ptyes</strong> (Paytm)
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="summary">
           <div class="summary-row"><span>Items</span><span>${cart.reduce((a,b)=>a+b.qty,0)}</span></div>
@@ -719,6 +760,32 @@ function openCheckout(){
   `;
   onCountryChange();
   document.getElementById("checkoutOverlay").classList.add("show");
+}
+
+function showUPI(){
+  document.getElementById("upiSection").style.display = "block";
+  generateQR();
+}
+
+function generateQR(){
+  let amount = getTotal();
+  let upiId = "7407792138@ybl";
+  let name = "GRO Extender";
+  let upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+  
+  let qrBox = document.getElementById("qrBox");
+  qrBox.innerHTML = "";
+  
+  QRCode.toCanvas(qrBox, upiUrl, {
+    width: 160,
+    margin: 2,
+    color: {
+      dark: "#000000",
+      light: "#ffffff"
+    }
+  }, function (error, canvas) {
+    if (error) console.error(error);
+  });
 }
 
 function onCountryChange(){
@@ -808,7 +875,7 @@ function placeOrder(){
   cart=[];
   saveCart();
 
-  // 🔔 WhatsApp + Email Notification to You
+  // 🔔 WhatsApp + Email Notification to Admin
   sendOrderNotification(newOrder);
 
   document.getElementById("checkout").innerHTML = `
@@ -836,7 +903,7 @@ function sendOrderNotification(order){
 📱 *Mobile:* ${order.mobile}
 📍 *Location:* ${order.district}, ${order.state}, ${order.country} - ${order.pin}
 💰 *Total:* ₹${order.total}
-💳 *Payment:* ${order.payment}
+💳 *Payment:* ${order.payment.toUpperCase()}
 📅 *Date:* ${order.date}
 
 ✅ Please confirm order.`;
@@ -853,16 +920,16 @@ function sendOrderNotification(order){
       mobile: order.mobile,
       location: `${order.district}, ${order.state}, ${order.country}`,
       total: `₹${order.total}`,
-      payment: order.payment,
+      payment: order.payment.toUpperCase(),
       date: order.date
     };
     
     emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
       .then(()=>{
-        console.log("Email sent successfully!");
+        console.log("✅ Email sent successfully!");
       })
       .catch((err)=>{
-        console.log("Email failed:", err);
+        console.log("❌ Email failed:", err);
       });
   }, 1000);
 }
@@ -923,79 +990,4 @@ function openAdmin(){
   let tbody = document.getElementById("ordersTable");
   
   if(!orders.length){
-    tbody.innerHTML = `<tr><td colspan="7" style="padding:40px;text-align:center;color:var(--muted);">No orders yet</td></tr>`;
-  }else{
-    tbody.innerHTML = orders.map(o=>`
-      <tr>
-        <td style="padding:12px;border:1px solid var(--line);color:var(--gold2);">${o.id}</td>
-        <td style="padding:12px;border:1px solid var(--line);">${o.name}<br><small style="color:var(--muted)">${o.address}</small></td>
-        <td style="padding:12px;border:1px solid var(--line);">${o.mobile}</td>
-        <td style="padding:12px;border:1px solid var(--line);">${o.district}, ${o.state}<br><small style="color:var(--muted)">${o.country} - ${o.pin}</small></td>
-        <td style="padding:12px;border:1px solid var(--line);color:var(--green);">₹${o.total.toLocaleString("en-IN")}</td>
-        <td style="padding:12px;border:1px solid var(--line);">
-          <select onchange="updateStatus('${o.id}',this.value)" style="background:#151922;color:white;border:1px solid var(--line);padding:6px;border-radius:6px;">
-            <option ${o.status==="Order Received"?"selected":""}>Order Received</option>
-            <option ${o.status==="Processing"?"selected":""}>Processing</option>
-            <option ${o.status==="Dispatched"?"selected":""}>Dispatched</option>
-            <option ${o.status==="Delivered"?"selected":""}>Delivered</option>
-          </select>
-        </td>
-        <td style="padding:12px;border:1px solid var(--line);color:var(--muted);">${o.date}</td>
-      </tr>
-    `).join("");
-  }
-  
-  document.getElementById("adminOverlay").classList.add("show");
-}
-
-function closeAdmin(){
-  document.getElementById("adminOverlay").classList.remove("show");
-}
-
-function updateStatus(orderId,newStatus){
-  let orders = JSON.parse(localStorage.getItem("groOrders") || "[]");
-  let order = orders.find(x=>x.id===orderId);
-  if(order){
-    order.status = newStatus;
-    localStorage.setItem("groOrders", JSON.stringify(orders));
-    openAdmin();
-  }
-}
-
-function exportOrders(){
-  let orders = JSON.parse(localStorage.getItem("groOrders") || "[]");
-  if(!orders.length){
-    alert("No orders to export!");
-    return;
-  }
-  
-  let csv = "Order ID,Customer Name,Mobile,Country,State,District,PIN,Address,Total,Status,Date\n";
-  orders.forEach(o=>{
-    csv += `"${o.id}","${o.name}","${o.mobile}","${o.country}","${o.state}","${o.district}","${o.pin}","${o.address.replace(/"/g,'""')}","${o.total}","${o.status}","${o.date}"\n`;
-  });
-  
-  let blob = new Blob([csv], {type: "text/csv"});
-  let url = URL.createObjectURL(blob);
-  let a = document.createElement("a");
-  a.href = url;
-  a.download = `GRO_Orders_${new Date().toISOString().slice(0,10)}.csv`;
-  a.click();
-}
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-function goShop(){
-  document.getElementById("shop").scrollIntoView({behavior:"smooth"});
-}
-function showFeatured(){ goShop(); }
-
-/* =========================================================
-   START
-========================================================= */
-renderProducts();
-updateCart();
-</script>
-
-</body>
-</html>
+    tbody.innerHTML = `<tr><td colspan="8" style="padding:40px;text-align:center;color:var
