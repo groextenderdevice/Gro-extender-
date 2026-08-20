@@ -1,4765 +1,1795 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0b1220">
-<meta name="description" content="GRO Premium Wellness Store">
-<title>GRO — Premium Wellness Store</title>
-
-<style>
-:root{
- --nav:#07111f;
- --nav2:#0d1a2d;
- --blue:#1769e8;
- --blue2:#0b56c7;
- --yellow:#ffb000;
- --green:#16a34a;
- --red:#dc2626;
- --purple:#6d28d9;
- --bg:#f4f6f9;
- --white:#fff;
- --text:#172033;
- --muted:#667085;
- --line:#e3e8ef;
- --shadow:0 8px 30px rgba(16,24,40,.08);
- --shadow2:0 18px 55px rgba(16,24,40,.12);
- --radius:14px;
-}
-
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
- margin:0;
- background:var(--bg);
- color:var(--text);
- font-family:Arial,Helvetica,sans-serif
-}
-
-button,input,select,textarea{font:inherit}
-
-button{cursor:pointer}
-
-a{
- text-decoration:none;
- color:inherit
-}
-
-img{
- max-width:100%
-}
-
-/* ================= TOP ================= */
-
-.topbar{
- background:#050b14;
- color:#dbe5f2;
- text-align:center;
- padding:7px 12px;
- font-size:12px
-}
-
-.header{
- background:var(--nav);
- color:#fff;
- position:sticky;
- top:0;
- z-index:1000;
- box-shadow:0 2px 15px rgba(0,0,0,.2)
-}
-
-.header-main{
- max-width:1500px;
- margin:auto;
- min-height:68px;
- padding:10px 22px;
- display:flex;
- align-items:center;
- gap:18px
-}
-
-.logo{
- font-size:29px;
- font-weight:1000;
- white-space:nowrap;
- letter-spacing:-1px
-}
-
-.logo span{color:var(--yellow)}
-
-.search{
- height:44px;
- flex:1;
- max-width:720px;
- display:flex;
- background:#fff;
- border-radius:8px;
- overflow:hidden
-}
-
-.search input{
- flex:1;
- border:0;
- outline:0;
- padding:0 15px;
- color:#111
-}
-
-.search button{
- width:55px;
- border:0;
- background:var(--yellow)
-}
-
-.header-tools{
- margin-left:auto;
- display:flex;
- align-items:center;
- gap:4px
-}
-
-.header-tool{
- color:#fff;
- background:transparent;
- border:0;
- padding:8px 10px;
- border-radius:8px
-}
-
-.header-tool:hover{
- background:#17263c
-}
-
-.cart-count{
- display:inline-flex;
- align-items:center;
- justify-content:center;
- min-width:20px;
- height:20px;
- background:#ef4444;
- border-radius:50%;
- font-size:11px;
- margin-left:3px
-}
-
-.mainnav{
- background:var(--nav2);
- border-top:1px solid #1b2a40
-}
-
-.mainnav-inner{
- max-width:1500px;
- margin:auto;
- padding:9px 22px;
- display:flex;
- gap:27px;
- overflow:auto
-}
-
-.mainnav button{
- border:0;
- background:none;
- color:#edf2f7;
- white-space:nowrap
-}
-
-.mainnav button:hover{
- color:#ffca38
-}
-
-/* ================= GENERAL ================= */
-
-.container{
- max-width:1500px;
- margin:auto;
- padding:24px 22px
-}
-
-.screen{display:none}
-
-.screen.active{display:block}
-
-.btn{
- border:0;
- border-radius:9px;
- padding:12px 18px;
- font-weight:800;
- transition:.15s
-}
-
-.btn:hover{
- transform:translateY(-1px)
-}
-
-.primary{
- background:var(--blue);
- color:#fff
-}
-
-.primary:hover{background:var(--blue2)}
-
-.yellow{
- background:var(--yellow);
- color:#111
-}
-
-.green{
- background:var(--green);
- color:#fff
-}
-
-.dark{
- background:#111827;
- color:#fff
-}
-
-.outline{
- background:#fff;
- color:var(--text);
- border:1px solid #d7dee8
-}
-
-.danger{
- background:var(--red);
- color:#fff
-}
-
-.full{width:100%}
-
-.card{
- background:#fff;
- border:1px solid #e7ebf0;
- border-radius:var(--radius);
- box-shadow:var(--shadow)
-}
-
-.muted{
- color:var(--muted)
-}
-
-.page-title{
- margin:0;
- font-size:30px
-}
-
-.breadcrumb{
- color:var(--muted);
- font-size:13px;
- margin-bottom:15px
-}
-
-.section-head{
- margin:35px 0 17px;
- display:flex;
- align-items:end;
- justify-content:space-between;
- gap:15px
-}
-
-.section-head h2{
- margin:0;
- font-size:25px
-}
-
-/* ================= HERO ================= */
-
-.hero{
- min-height:490px;
- display:grid;
- grid-template-columns:1.1fr .9fr;
- border-radius:22px;
- overflow:hidden;
- background:
- radial-gradient(circle at 75% 30%,#27466e 0,#12253f 28%,#07111f 65%);
- color:#fff;
- box-shadow:var(--shadow2)
-}
-
-.hero-content{
- padding:60px;
- display:flex;
- flex-direction:column;
- justify-content:center
-}
-
-.badge{
- display:inline-block;
- width:max-content;
- padding:7px 12px;
- border-radius:30px;
- background:rgba(255,255,255,.09);
- border:1px solid rgba(255,255,255,.14);
- font-size:11px;
- font-weight:900;
- letter-spacing:.5px
-}
-
-.hero h1{
- font-size:56px;
- line-height:1.02;
- letter-spacing:-2px;
- margin:18px 0
-}
-
-.hero p{
- max-width:620px;
- color:#c8d4e3;
- line-height:1.8;
- font-size:16px
-}
-
-.hero-actions{
- display:flex;
- gap:10px;
- margin-top:23px
-}
-
-.hero-image{
- display:flex;
- align-items:center;
- justify-content:center;
- padding:25px;
- background:linear-gradient(135deg,#142b4b,#07101c)
-}
-
-.hero-image img{
- width:100%;
- height:430px;
- object-fit:contain
-}
-
-/* ================= TRUST ================= */
-
-.trust-grid{
- display:grid;
- grid-template-columns:repeat(5,1fr);
- gap:13px;
- margin-top:18px
-}
-
-.trust{
- padding:17px;
- background:#fff;
- border:1px solid var(--line);
- border-radius:13px;
- display:flex;
- gap:12px;
- align-items:center
-}
-
-.trust-icon{
- font-size:25px
-}
-
-.trust strong{
- display:block;
- font-size:13px
-}
-
-.trust small{
- display:block;
- color:var(--muted);
- margin-top:3px
- }
-
-/* ================= CATEGORY ================= */
-
-.category-grid{
- display:grid;
- grid-template-columns:repeat(6,1fr);
- gap:14px
-}
-
-.category{
- padding:25px 12px;
- text-align:center;
- background:#fff;
- border:1px solid var(--line);
- border-radius:14px;
- transition:.2s
-}
-
-.category:hover{
- transform:translateY(-3px);
- box-shadow:var(--shadow)
-}
-
-.category-icon{
- font-size:33px;
- margin-bottom:10px
-}
-
-.category strong{
- display:block;
- font-size:13px
-}
-
-/* ================= PRODUCT ================= */
-
-.products{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:18px
-}
-
-.product{
- overflow:hidden;
- position:relative
-}
-
-.product-img{
- height:285px;
- background:#f0f2f5;
- display:flex;
- align-items:center;
- justify-content:center;
- position:relative
-}
-
-.product-img img{
- width:100%;
- height:100%;
- object-fit:contain
-}
-
-.sale{
- position:absolute;
- top:10px;
- left:10px;
- background:#e11d48;
- color:#fff;
- padding:6px 8px;
- border-radius:5px;
- font-size:11px;
- font-weight:900
-}
-
-.wishlist{
- position:absolute;
- right:10px;
- top:10px;
- width:35px;
- height:35px;
- border:0;
- border-radius:50%;
- background:#fff;
- box-shadow:0 3px 12px #0002
-}
-
-.product-body{
- padding:17px
-}
-
-.stars{
- color:#f59e0b;
- font-size:13px
-}
-
-.product-name{
- margin-top:7px;
- font-size:16px;
- font-weight:850;
- line-height:1.4;
- min-height:45px
-}
-
-.product-price{
- margin-top:10px;
- font-size:23px;
- font-weight:950
-}
-
-.old{
- color:#8993a3;
- text-decoration:line-through;
- font-size:13px;
- margin-right:6px;
- font-weight:normal
-}
-
-.product-meta{
- font-size:12px;
- color:var(--muted);
- margin-top:7px
-}
-
-.product-actions{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:8px;
- margin-top:14px
-}
-
-/* ================= FILTER ================= */
-
-.shop-toolbar{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:15px;
- margin-bottom:18px;
- flex-wrap:wrap
-}
-
-.filters{
- display:flex;
- gap:8px;
- flex-wrap:wrap
-}
-
-.filter{
- padding:9px 14px;
- border:1px solid var(--line);
- background:#fff;
- border-radius:20px
-}
-
-.filter.active{
- background:#eaf2ff;
- color:var(--blue);
- border-color:#bcd4ff
-}
-
-.sort{
- padding:10px;
- border:1px solid var(--line);
- border-radius:8px;
- background:#fff
-}
-
-/* ================= PRODUCT DETAIL ================= */
-
-.detail-grid{
- display:grid;
- grid-template-columns:1.05fr .95fr;
- gap:25px
-}
-
-.gallery{
- padding:16px
-}
-
-.main-image{
- height:535px;
- border-radius:13px;
- background:#f1f3f6;
- display:flex;
- align-items:center;
- justify-content:center
-}
-
-.main-image img{
- width:100%;
- height:100%;
- object-fit:contain
-}
-
-.thumbs{
- display:flex;
- gap:8px;
- overflow:auto;
- margin-top:12px
-}
-
-.thumb{
- flex:0 0 80px;
- height:80px;
- padding:3px;
- border-radius:8px;
- border:2px solid transparent;
- background:#f1f3f6
-}
-
-.thumb.active{
- border-color:var(--blue)
-}
-
-.thumb img{
- width:100%;
- height:100%;
- object-fit:contain
-}
-
-.detail-info{
- padding:28px
-}
-
-.detail-title{
- font-size:32px;
- line-height:1.2;
- margin:10px 0
-}
-
-.detail-price{
- font-size:35px;
- font-weight:950;
- margin:14px 0
-}
-
-.detail-rating{
- display:flex;
- gap:10px;
- align-items:center;
- margin:12px 0
-}
-
-.feature-list{
- line-height:1.9;
- color:#475467
-}
-
-.quantity{
- display:flex;
- align-items:center;
- width:max-content;
- border:1px solid var(--line);
- border-radius:9px;
- overflow:hidden;
- margin:20px 0
-}
-
-.quantity button{
- width:44px;
- height:44px;
- border:0;
- background:#f2f4f7;
- font-size:20px
-}
-
-.quantity span{
- width:48px;
- text-align:center;
- font-weight:900
-}
-
-.detail-buttons{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:10px
-}
-
-.info-box{
- border-top:1px solid var(--line);
- padding-top:17px;
- margin-top:18px
-}
-
-.claim{
- background:#fff8df;
- border:1px solid #eed26b;
- padding:16px;
- border-radius:10px;
- line-height:1.7;
- font-size:13px;
- margin-top:20px
-}
-
-/* ================= REVIEWS ================= */
-
-.review-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:15px
-}
-
-.review{
- padding:20px
-}
-
-.review-top{
- display:flex;
- justify-content:space-between;
- margin-bottom:10px
-}
-
-.verified{
- color:var(--green);
- font-size:11px
-}
-
-/* ================= FAQ ================= */
-
-.faq{
- border-bottom:1px solid var(--line)
-}
-
-.faq button{
- width:100%;
- padding:18px 0;
- background:none;
- border:0;
- display:flex;
- justify-content:space-between;
- text-align:left;
- font-weight:800
-}
-
-.faq-content{
- display:none;
- padding:0 0 17px;
- color:var(--muted);
- line-height:1.7
-}
-
-/* ================= CART ================= */
-
-.cart-layout{
- display:grid;
- grid-template-columns:1fr 370px;
- gap:22px
-}
-
-.cart-list{
- padding:20px
-}
-
-.cart-item{
- display:grid;
- grid-template-columns:100px 1fr auto;
- gap:15px;
- padding:15px 0;
- border-bottom:1px solid var(--line)
-}
-
-.cart-item img{
- width:100px;
- height:100px;
- object-fit:contain;
- background:#f3f4f6;
- border-radius:8px
-}
-
-.cart-item h3{
- margin:5px 0
-}
-
-.cart-summary{
- padding:22px;
- height:max-content
-}
-
-.summary-row{
- display:flex;
- justify-content:space-between;
- gap:15px;
- padding:10px 0;
- border-bottom:1px solid #edf0f3;
- font-size:14px
-}
-
-.total{
- font-size:21px;
- font-weight:950
-}
-
-/* ================= CHECKOUT ================= */
-
-.checkout{
- display:grid;
- grid-template-columns:1fr 390px;
- gap:22px
-}
-
-.form-card{
- padding:25px
-}
-
-.form-title{
- margin:0 0 20px
-}
-
-.form-grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:15px
-}
-
-.form-group{
- margin-bottom:15px
-}
-
-.form-group.full-row{
- grid-column:1/-1
-}
-
-.form-group label{
- display:block;
- font-size:13px;
- font-weight:800;
- margin-bottom:6px
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
- width:100%;
- border:1px solid #d5dce6;
- border-radius:8px;
- padding:12px;
- outline:0;
- background:#fff
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
- border-color:var(--blue)
-}
-
-.summary-card{
- padding:22px;
- height:max-content;
- position:sticky;
- top:140px
-}
-
-/* ================= PAYMENT ================= */
-
-.payment-grid{
- display:grid;
- grid-template-columns:1fr 400px;
- gap:22px
-}
-
-.payment-box{
- padding:25px
-}
-
-.payment-option{
- padding:17px;
- border:2px solid #e0e5ec;
- border-radius:12px;
- margin-bottom:12px
-}
-
-.payment-option.active{
- border-color:var(--blue);
- background:#f5f9ff
-}
-
-.payment-option label{
- display:flex;
- align-items:center;
- gap:10px;
- font-weight:900
-}
-
-.payment-help{
- color:var(--muted);
- font-size:13px;
- line-height:1.7;
- margin:8px 0 0 26px
-}
-
-.upi-box{
- padding:16px;
- background:#ecfdf3;
- color:#166534;
- border-radius:10px;
- margin-top:15px;
- font-size:13px;
- line-height:1.7
-}
-
-.payment-note{
- padding:14px;
- background:#fff8db;
- color:#665500;
- border-radius:10px;
- font-size:13px;
- line-height:1.7;
- margin-top:15px
-}
-
-.qr{
- text-align:center;
- background:#f7f8fa;
- padding:18px;
- border-radius:12px;
- margin-top:15px
-}
-
-.qr img{
- width:200px;
- height:200px;
- object-fit:contain;
- background:#fff
-}
-
-/* ================= TRACKING ================= */
-
-.track-card{
- max-width:800px;
- margin:20px auto;
- padding:30px
-}
-
-.track-input{
- display:flex;
- gap:10px
-}
-
-.track-input input{
- flex:1;
- padding:13px;
- border:1px solid var(--line);
- border-radius:8px
-}
-
-.timeline{
- margin-top:35px
-}
-
-.step{
- display:flex;
- gap:15px;
- margin-bottom:24px
-}
-
-.step-icon{
- width:40px;
- height:40px;
- border-radius:50%;
- display:flex;
- justify-content:center;
- align-items:center;
- background:#e9edf3;
- flex:0 0 40px
-}
-
-.step.done .step-icon{
- background:#dcfce7;
- color:#15803d
-}
-
-.step h4{
- margin:2px 0 5px
-}
-
-.step p{
- margin:0;
- color:var(--muted);
- font-size:13px
-}
-
-/* ================= MODAL ================= */
-
-.modal{
- display:none;
- position:fixed;
- inset:0;
- background:#0008;
- z-index:2000;
- align-items:center;
- justify-content:center;
- padding:15px
-}
-
-.modal.show{
- display:flex
-}
-
-.modal-box{
- width:min(600px,100%);
- max-height:90vh;
- overflow:auto;
- background:#fff;
- border-radius:15px;
- padding:25px
-}
-
-.modal-head{
- display:flex;
- justify-content:space-between;
- align-items:center
-}
-
-.close{
- border:0;
- background:#f1f3f5;
- width:35px;
- height:35px;
- border-radius:50%
-}
-
-/* ================= FLOAT ================= */
-
-.floating{
- position:fixed;
- right:17px;
- bottom:17px;
- z-index:1500;
- display:flex;
- flex-direction:column;
- gap:10px
-}
-
-.float{
- width:56px;
- height:56px;
- display:flex;
- align-items:center;
- justify-content:center;
- border-radius:50%;
- color:#fff;
- font-size:25px;
- box-shadow:0 7px 25px #0004
-}
-
-.float.whatsapp{background:#22c55e}
-.float.call{background:#1769e8}
-
-/* ================= FOOTER ================= */
-
-footer{
- background:#070e1a;
- color:#c9d3df;
- margin-top:60px
-}
-
-.footer{
- max-width:1500px;
- margin:auto;
- padding:50px 22px;
- display:grid;
- grid-template-columns:2fr repeat(4,1fr);
- gap:30px
-}
-
-.footer h3{
- color:#fff;
- margin-top:0
-}
-
-.footer p{
- font-size:13px;
- line-height:1.8
-}
-
-.footer a{
- display:block;
- font-size:13px;
- margin:11px 0;
- color:#c9d3df
-}
-
-.footer-bottom{
- text-align:center;
- border-top:1px solid #1d2a3d;
- padding:17px;
- font-size:12px
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:1100px){
-
-.trust-grid{
- grid-template-columns:repeat(3,1fr)
-}
-
-.category-grid{
- grid-template-columns:repeat(3,1fr)
-}
-
-.products{
- grid-template-columns:repeat(3,1fr)
-}
-
-.footer{
- grid-template-columns:2fr 1fr 1fr
-}
-
-}
-
-@media(max-width:800px){
-
-.header-main{
- flex-wrap:wrap;
- padding:10px 13px
-}
-
-.search{
- order:3;
- flex-basis:100%
-}
-
-.hero{
- grid-template-columns:1fr
-}
-
-.hero-image{
- display:none
-}
-
-.hero-content{
- padding:40px 25px
-}
-
-.hero h1{
- font-size:43px
-}
-
-.trust-grid{
- grid-template-columns:1fr 1fr
-}
-
-.products{
- grid-template-columns:1fr 1fr
-}
-
-.detail-grid{
- grid-template-columns:1fr
-}
-
-.main-image{
- height:390px
-}
-
-.checkout,
-.payment-grid,
-.cart-layout{
- grid-template-columns:1fr
-}
-
-.summary-card{
- position:static
-}
-
-.review-grid{
- grid-template-columns:1fr
-}
-
-.footer{
- grid-template-columns:1fr 1fr
-}
-
-}
-
-@media(max-width:520px){
-
-.container{
- padding:16px 12px
-}
-
-.logo{
- font-size:23px
-}
-
-.header-tools .header-tool:nth-child(1),
-.header-tools .header-tool:nth-child(2){
- display:none
-}
-
-.hero h1{
- font-size:35px
-}
-
-.hero-actions{
- flex-direction:column
-}
-
-.trust-grid,
-.category-grid,
-.products{
- grid-template-columns:1fr 1fr
-}
-
-.product-img{
- height:245px
-}
-
-.detail-title{
- font-size:27px
-}
-
-.detail-price{
- font-size:29px
-}
-
-.detail-buttons{
- grid-template-columns:1fr
-}
-
-.form-grid{
- grid-template-columns:1fr
-}
-
-.form-group.full-row{
- grid-column:auto
-}
-
-.footer{
- grid-template-columns:1fr
-}
-
-.cart-item{
- grid-template-columns:75px 1fr
-}
-
-.cart-item img{
- width:75px;
- height:75px
-}
-
-.cart-item > div:last-child{
- grid-column:2
-}
-
-.track-input{
- flex-direction:column
-}
-
-}
-
-/* ===== CONTACT FLOATING BUTTONS ===== */
-.gro-contact-stack{position:fixed;right:16px;bottom:18px;z-index:2500;display:flex;flex-direction:column;gap:10px}
-.gro-contact-btn{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:900;text-decoration:none;box-shadow:0 8px 25px rgba(0,0,0,.22);border:2px solid rgba(255,255,255,.85)}
-.gro-wa{background:#16a34a}.gro-call{background:#1769e8}
-.gro-contact-btn:active{transform:scale(.94)}
-.gro-auto-note{font-size:12px;color:#667085;margin-top:7px}
-.gro-pincode-status{font-size:12px;margin-top:6px;color:#16a34a}
-.gro-pincode-status.error{color:#dc2626}
-@media(max-width:600px){.gro-contact-stack{right:12px;bottom:12px}.gro-contact-btn{width:48px;height:48px;font-size:20px}}
-
-</style>
-
-<style id="gro-advanced-css">
-/* ===== GRO ADVANCED LAYER — additive, existing design preserved ===== */
-:root{--gro-radius:18px;--gro-shadow:0 12px 35px rgba(15,23,42,.10)}
-body{scroll-behavior:smooth}
-.gro-adv-topbar{position:sticky;top:0;z-index:9999;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid #e8edf3;padding:8px 12px;display:flex;gap:10px;align-items:center;justify-content:center;font-size:12px;font-weight:800}
-.gro-adv-topbar span{padding:5px 10px;border-radius:999px;background:#f3f7fb}
-.gro-adv-live{display:inline-flex;align-items:center;gap:6px}.gro-adv-live i{width:7px;height:7px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 4px rgba(22,163,74,.12)}
-.gro-adv-tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.gro-adv-chip{border:1px solid #dce3eb;background:#fff;border-radius:999px;padding:8px 12px;font-weight:800;cursor:pointer}
-.gro-adv-chip.active{background:#111827;color:#fff}
-.gro-adv-stock{font-size:12px;font-weight:800;color:#15803d;margin-top:7px}
-.gro-adv-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
-.gro-adv-trust>div{padding:15px;border:1px solid #e8edf3;border-radius:14px;background:#fff;box-shadow:var(--gro-shadow)}
-.gro-adv-trust b{display:block;margin-bottom:4px}.gro-adv-trust small{color:#64748b}
-.gro-adv-progress{height:8px;background:#e8edf3;border-radius:999px;overflow:hidden;margin:8px 0}.gro-adv-progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#16a34a,#22c55e);transition:width .35s}
-.gro-adv-recent{position:fixed;left:16px;bottom:18px;z-index:9998;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:10px 13px;box-shadow:0 12px 30px rgba(0,0,0,.12);font-size:12px;max-width:280px;display:none}
-.gro-adv-recent.show{display:block;animation:groIn .25s ease}@keyframes groIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.gro-adv-back{position:fixed;right:16px;bottom:18px;z-index:9997;width:42px;height:42px;border:0;border-radius:50%;background:#111827;color:#fff;display:none;cursor:pointer;box-shadow:var(--gro-shadow)}
-.gro-adv-back.show{display:block}
-.gro-adv-empty{padding:25px;text-align:center;color:#64748b}
-.gro-adv-skeleton{height:240px;border-radius:18px;background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 37%,#f1f5f9 63%);background-size:400% 100%;animation:groSh 1.2s infinite}@keyframes groSh{0%{background-position:100% 0}100%{background-position:-100% 0}}
-@media(max-width:700px){.gro-adv-trust{grid-template-columns:repeat(2,1fr)}.gro-adv-topbar{justify-content:flex-start;overflow:auto;white-space:nowrap}.gro-adv-recent{left:10px;right:10px;bottom:70px;max-width:none}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-</style>
-
-
-<style id="gro-ultimate-css">
-/* ===== GRO ULTIMATE ADDITIVE LAYER — existing code untouched ===== */
-.gro-u-overlay{position:fixed;inset:0;background:rgba(2,6,23,.55);backdrop-filter:blur(8px);z-index:10000;display:none;align-items:flex-end;justify-content:center}
-.gro-u-overlay.show{display:flex}
-.gro-u-sheet{width:min(760px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:24px 24px 0 0;padding:20px;box-shadow:0 -20px 60px rgba(0,0,0,.25);animation:groUSheet .22s ease}
-@keyframes groUSheet{from{transform:translateY(35px);opacity:.4}to{transform:none;opacity:1}}
-.gro-u-head{display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;background:#fff;padding-bottom:12px;border-bottom:1px solid #eef2f7;z-index:2}
-.gro-u-close{border:0;background:#f1f5f9;width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer}
-.gro-u-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
-.gro-u-card{border:1px solid #e5eaf0;border-radius:16px;padding:14px;background:#fff}
-.gro-u-card b{display:block;margin-bottom:5px}.gro-u-muted{color:#64748b;font-size:13px}
-.gro-u-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}
-.gro-u-btn{border:1px solid #d9e1ea;background:#fff;border-radius:12px;padding:10px 13px;font-weight:800;cursor:pointer}
-.gro-u-btn.primary{background:#111827;color:#fff;border-color:#111827}
-.gro-u-btn.green{background:#16a34a;color:#fff;border-color:#16a34a}
-.gro-u-search{width:100%;padding:13px;border:1px solid #d8e0e9;border-radius:12px;outline:none}
-.gro-u-search:focus{border-color:#111827;box-shadow:0 0 0 4px rgba(17,24,39,.08)}
-.gro-u-float{position:fixed;right:16px;bottom:72px;z-index:9996;display:flex;flex-direction:column;gap:8px}
-.gro-u-float button{width:44px;height:44px;border:0;border-radius:50%;background:#111827;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.16);cursor:pointer;font-size:18px}
-.gro-u-badge{display:inline-flex;padding:5px 8px;border-radius:999px;background:#f1f5f9;font-size:11px;font-weight:900}
-.gro-u-badge.ok{background:#dcfce7;color:#166534}
-.gro-u-wish-item,.gro-u-recent-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eef2f7}
-.gro-u-wish-item img,.gro-u-recent-item img{width:58px;height:58px;object-fit:contain;border-radius:10px;background:#f8fafc}
-.gro-u-item-main{flex:1;min-width:0}.gro-u-item-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.gro-u-toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;z-index:10002;background:#111827;color:#fff;padding:12px 16px;border-radius:12px;font-size:13px;font-weight:800;pointer-events:none;transition:.25s;max-width:calc(100% - 30px);text-align:center}
-.gro-u-toast.show{opacity:1;transform:translate(-50%,0)}
-.gro-u-copy{font-size:12px;border:1px dashed #cbd5e1;padding:10px;border-radius:10px;background:#f8fafc;word-break:break-all}
-@media(max-width:650px){.gro-u-grid{grid-template-columns:1fr}.gro-u-sheet{max-height:92vh}.gro-u-float{right:10px}}
-</style>
-
-
-<style id="gro-pro-css">
-/* ===== GRO PROFESSIONAL ADDITIVE LAYER — existing code preserved ===== */
-.gro-pf-wrap{max-width:1180px;margin:0 auto;padding:0 14px}
-.gro-pf-command{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:14px 0}
-.gro-pf-actions{display:flex;gap:7px;flex-wrap:wrap}
-.gro-pf-btn{border:1px solid #dbe2ea;background:#fff;border-radius:11px;padding:9px 12px;font-weight:850;cursor:pointer}
-.gro-pf-btn:hover{transform:translateY(-1px);box-shadow:0 5px 15px rgba(15,23,42,.08)}
-.gro-pf-kbd{font-size:10px;border:1px solid #cbd5e1;border-bottom-width:2px;border-radius:5px;padding:2px 5px;background:#f8fafc}
-.gro-pf-panel{display:none;margin:10px 0 18px;padding:15px;border:1px solid #e5eaf0;border-radius:17px;background:#fff;box-shadow:0 10px 28px rgba(15,23,42,.06)}
-.gro-pf-panel.show{display:block}
-.gro-pf-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.gro-pf-stat{padding:13px;border-radius:13px;background:#f8fafc;border:1px solid #edf1f5}
-.gro-pf-stat strong{display:block;font-size:18px;margin-top:3px}
-.gro-pf-label{font-size:11px;font-weight:850;color:#64748b;text-transform:uppercase;letter-spacing:.05em}
-.gro-pf-meter{height:7px;background:#e8edf3;border-radius:999px;overflow:hidden;margin-top:9px}
-.gro-pf-meter span{display:block;height:100%;width:0;background:#111827;transition:width .35s}
-.gro-pf-mini{font-size:12px;color:#64748b}
-.gro-pf-table{width:100%;border-collapse:collapse;font-size:13px}
-.gro-pf-table th,.gro-pf-table td{text-align:left;padding:9px;border-bottom:1px solid #edf1f5}
-.gro-pf-table th{font-size:11px;text-transform:uppercase;color:#64748b}
-.gro-pf-empty{text-align:center;padding:22px;color:#64748b}
-.gro-pf-notice{padding:11px 13px;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;font-size:12px;margin-top:10px}
-.gro-pf-command input{min-width:220px;flex:1;padding:10px 12px;border:1px solid #dbe2ea;border-radius:11px;outline:none}
-.gro-pf-command input:focus{box-shadow:0 0 0 4px rgba(15,23,42,.07)}
-@media(max-width:720px){.gro-pf-stats{grid-template-columns:repeat(2,1fr)}.gro-pf-command input{min-width:100%}}
-</style>
-
-
-<style id="gro-world-css">
-/* ===== GRO WORLD-CLASS ADDITIVE LAYER — existing source preserved ===== */
-.gro-wc-shell{max-width:1180px;margin:0 auto;padding:0 14px}
-.gro-wc-command{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:10px 0}
-.gro-wc-command input{flex:1;min-width:220px;padding:12px 14px;border:1px solid #d8e0e9;border-radius:12px;outline:0}
-.gro-wc-command input:focus{box-shadow:0 0 0 4px rgba(15,23,42,.07);border-color:#94a3b8}
-.gro-wc-btn{border:1px solid #d9e1ea;background:#fff;border-radius:11px;padding:10px 13px;font-weight:850;cursor:pointer}
-.gro-wc-btn.primary{background:#111827;color:#fff;border-color:#111827}
-.gro-wc-btn:active{transform:scale(.98)}
-.gro-wc-pills{display:flex;gap:7px;overflow:auto;padding:2px 0 9px}
-.gro-wc-pill{white-space:nowrap;border:1px solid #dbe3eb;background:#fff;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:850;cursor:pointer}
-.gro-wc-pill.active{background:#111827;color:#fff}
-.gro-wc-panel{display:none;border:1px solid #e5eaf0;border-radius:18px;background:#fff;padding:15px;margin:10px 0 18px;box-shadow:0 12px 35px rgba(15,23,42,.07)}
-.gro-wc-panel.show{display:block}
-.gro-wc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.gro-wc-card{border:1px solid #e8edf3;border-radius:15px;padding:14px;background:#f8fafc}
-.gro-wc-card strong{display:block;font-size:18px;margin-top:4px}
-.gro-wc-muted{font-size:12px;color:#64748b}
-.gro-wc-label{font-size:10px;color:#64748b;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
-.gro-wc-compare{width:100%;border-collapse:collapse;font-size:13px}
-.gro-wc-compare th,.gro-wc-compare td{padding:9px;border-bottom:1px solid #edf1f5;text-align:left}
-.gro-wc-compare th{font-size:10px;color:#64748b;text-transform:uppercase}
-.gro-wc-mini-img{width:48px;height:48px;object-fit:contain;border-radius:9px;background:#fff}
-.gro-wc-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #edf1f5}
-.gro-wc-row-main{flex:1;min-width:0}.gro-wc-row-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.gro-wc-status{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;background:#dcfce7;color:#166534;font-size:10px;font-weight:900}
-.gro-wc-dot{width:6px;height:6px;border-radius:50%;background:#16a34a}
-.gro-wc-command-hint{font-size:11px;color:#64748b}
-.gro-wc-toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,18px);opacity:0;z-index:10010;background:#111827;color:#fff;border-radius:12px;padding:11px 15px;font-size:12px;font-weight:850;transition:.22s;pointer-events:none;max-width:calc(100% - 24px);text-align:center}
-.gro-wc-toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:760px){.gro-wc-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.gro-wc-grid{grid-template-columns:1fr}.gro-wc-command input{min-width:100%}}
-</style>
-
-
-<!-- ===== GRO CHECKOUT FIELD HELPERS ===== -->
-<script>
-function GRO_attachCheckoutAutoLocation(){
-  /* Finds a likely PIN input already present in the existing checkout.
-     If your checkout uses different IDs, call GRO_bindPincode(...) explicitly. */
-  const pin=document.querySelector('input[name*="pin" i],input[id*="pin" i],input[placeholder*="pin" i]');
-  if(!pin || pin.dataset.groBound) return;
-  pin.dataset.groBound="1";
-  let state=document.querySelector('input[name*="state" i],select[name*="state" i],input[id*="state" i]');
-  let district=document.querySelector('input[name*="district" i],input[id*="district" i]');
-  let city=document.querySelector('input[name*="city" i],input[name*="town" i],input[id*="city" i]');
-  if(state&&district&&city){
-    [state,district,city].forEach(x=>x.id=x.id||"gro-auto-"+Math.random().toString(36).slice(2));
-    const sid=state.id,did=district.id,cid=city.id;
-    let status=document.createElement('div'); status.className='gro-pincode-status'; status.id='gro-pin-status-auto'; pin.parentNode.appendChild(status);
-    pin.addEventListener('input',()=>GRO_lookupPincode(pin.value,sid,did,cid,status.id));
-  }
-}
-document.addEventListener('DOMContentLoaded',()=>setTimeout(GRO_attachCheckoutAutoLocation,500));
-</script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <title>GRO Extender Professional v2</title>
+
+  <style>
+    :root {
+      --primary: #6d28d9;
+      --primary-dark: #4c1d95;
+      --accent: #f59e0b;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --text: #111827;
+      --muted: #6b7280;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 12px 30px rgba(15, 23, 42, .08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    body.dark {
+      --text: #f9fafb;
+      --muted: #a1a1aa;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --shadow: 0 12px 30px rgba(0, 0, 0, .25);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .topbar {
+      background: #111827;
+      color: #fff;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      background: transparent;
+      color: var(--text);
+      font-size: 21px;
+      padding: 8px;
+      position: relative;
+    }
+
+    .badge-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--danger);
+      color: white;
+      border-radius: 50%;
+      min-width: 17px;
+      height: 17px;
+      font-size: 10px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero {
+      padding: 75px 0;
+      background:
+        linear-gradient(120deg, rgba(76, 29, 149, .95), rgba(109, 40, 217, .85)),
+        url("https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: #fff;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 62px);
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: #ede9fe;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: .2s;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--primary-dark);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .section {
+      padding: 55px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 7px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .feature-card,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 22px 15px;
+    }
+
+    .feature-card .feature-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .shop-toolbar {
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .search-box input,
+    .field input,
+    .field select,
+    .field textarea,
+    .coupon-row input {
+      width: 100%;
+      padding: 12px 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      color: var(--text);
+      background: var(--card);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(109, 40, 217, .12);
+    }
+
+    .autocomplete {
+      position: absolute;
+      top: 48px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      z-index: 5;
+      overflow: hidden;
+    }
+
+    .autocomplete div {
+      padding: 10px 13px;
+      cursor: pointer;
+    }
+
+    .autocomplete div:hover {
+      background: rgba(109, 40, 217, .1);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      background: #f1f5f9;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-category {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .product-name {
+      font-size: 17px;
+      margin: 5px 0;
+    }
+
+    .rating {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 19px;
+      font-weight: 800;
+      margin: 8px 0;
+    }
+
+    .old-price {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: line-through;
+      margin-left: 5px;
+      font-weight: normal;
+    }
+
+    .stock {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .stock.good {
+      color: var(--success);
+    }
+
+    .stock.low {
+      color: var(--danger);
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 7px;
+    }
+
+    .product-actions .btn {
+      flex: 1;
+      padding: 10px 7px;
+      font-size: 12px;
+    }
+
+    .wish-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.92);
+      font-size: 20px;
+      color: #64748b;
+    }
+
+    .wish-btn.active {
+      color: var(--danger);
+    }
+
+    .product-badge {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      background: var(--accent);
+      color: #111827;
+      padding: 5px 8px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .quick-view {
+      background: var(--primary);
+      color: white;
+      border-radius: 7px;
+      padding: 8px;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0;
+      transition: .2s;
+    }
+
+    .product-card:hover .quick-view {
+      opacity: 1;
+    }
+
+    .tracking-box {
+      max-width: 680px;
+      margin: auto;
+      padding: 25px;
+    }
+
+    .tracking-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .tracking-result {
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 8px;
+      background: rgba(22, 163, 74, .12);
+      display: none;
+    }
+
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    details p {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: #111827;
+      color: #fff;
+      padding: 35px 0 90px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer p,
+    footer a {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      display: block;
+      margin: 7px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #334155;
+      margin-top: 25px;
+      padding-top: 18px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.62);
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .modal-bg.show {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--card);
+      color: var(--text);
+      width: min(700px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 15px;
+      position: relative;
+      padding: 24px;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 15px;
+      top: 12px;
+      font-size: 24px;
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .modal-product {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .modal-product img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .field {
+      margin-bottom: 13px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .cart-list {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 70px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    .cart-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .qty-control {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 5px;
+    }
+
+    .qty-control button {
+      background: transparent;
+      color: var(--text);
+      width: 27px;
+      height: 27px;
+    }
+
+    .qty-control span {
+      width: 28px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      color: var(--muted);
+    }
+
+    .summary-total {
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+      padding-top: 12px;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .coupon-row {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .coupon-row input {
+      flex: 1;
+    }
+
+    .payment-methods {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .payment-methods label {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .invoice {
+      border: 1px dashed var(--border);
+      padding: 18px;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .toast-wrap {
+      position: fixed;
+      top: 85px;
+      right: 18px;
+      z-index: 100;
+      display: grid;
+      gap: 8px;
+    }
+
+    .toast {
+      background: #111827;
+      color: #fff;
+      padding: 12px 15px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      animation: slide .25s ease;
+      max-width: 310px;
+      font-size: 14px;
+    }
+
+    .toast.success {
+      background: var(--success);
+    }
+
+    .toast.error {
+      background: var(--danger);
+    }
+
+    @keyframes slide {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .bottom-nav {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      body {
+        padding-bottom: 62px;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .nav {
+        min-height: 60px;
+      }
+
+      .hero {
+        padding: 50px 0;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 11px;
+      }
+
+      .product-image {
+        height: 170px;
+      }
+
+      .product-info {
+        padding: 11px;
+      }
+
+      .product-name {
+        font-size: 14px;
+      }
+
+      .price {
+        font-size: 16px;
+      }
+
+      .product-actions {
+        display: grid;
+      }
+
+      .quick-view {
+        display: none;
+      }
+
+      .modal-product {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tracking-form {
+        display: grid;
+      }
+
+      .bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 59px;
+        background: var(--card);
+        border-top: 1px solid var(--border);
+        z-index: 25;
+        justify-content: space-around;
+      }
+
+      .bottom-nav button {
+        flex: 1;
+        background: transparent;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .bottom-nav button span {
+        display: block;
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<!-- ===== GRO WORLD-CLASS UI ===== -->
-<div class="gro-wc-shell" id="groWorldTools">
-  <div class="gro-wc-command">
-    <input id="groWorldSearch" type="search" autocomplete="off"
-           placeholder="Search products, categories…  (Ctrl/⌘ + K)"
-           aria-label="World class product search">
-    <button class="gro-wc-btn primary" type="button" onclick="groWCSearch()">SEARCH</button>
-    <button class="gro-wc-btn" type="button" onclick="groWCPanel('compare')">COMPARE</button>
-    <button class="gro-wc-btn" type="button" onclick="groWCPanel('insights')">INSIGHTS</button>
-  </div>
-  <div class="gro-wc-pills">
-    <button class="gro-wc-pill active" type="button" onclick="groWCFilter('all',this)">All</button>
-    <button class="gro-wc-pill" type="button" onclick="groWCFilter('popular',this)">Popular</button>
-    <button class="gro-wc-pill" type="button" onclick="groWCFilter('low',this)">Lowest Price</button>
-    <button class="gro-wc-pill" type="button" onclick="groWCFilter('high',this)">Highest Price</button>
-  </div>
-  <div id="groWCPanel" class="gro-wc-panel"></div>
-</div>
-<div id="groWCToast" class="gro-wc-toast"></div>
-
-
-<!-- ===== GRO PROFESSIONAL UI ===== -->
-<div class="gro-pf-wrap" id="groProfessionalTools">
-  <div class="gro-pf-command">
-    <input id="groQuickSearch" type="search" placeholder="Quick search products… (Ctrl + K)" aria-label="Quick product search">
-    <div class="gro-pf-actions">
-      <button class="gro-pf-btn" type="button" onclick="groPFSearch()">Search</button>
-      <button class="gro-pf-btn" type="button" onclick="groPFPanel('dashboard')">Dashboard</button>
-      <button class="gro-pf-btn" type="button" onclick="groPFPanel('recent')">Activity</button>
+  <div class="topbar">
+    <div class="container topbar-content">
+      <span>🚚 সারাদেশে ডেলিভারি</span>
+      <span>📞 Support: +91 90000 00000</span>
     </div>
   </div>
-  <div id="groPFPanel" class="gro-pf-panel"></div>
-</div>
 
-
-<!-- ===== GRO ULTIMATE ADDITIVE UI ===== -->
-<div id="groUltimateFloat" class="gro-u-float">
-  <button type="button" title="Wishlist" onclick="groUOpen('wishlist')">♡</button>
-  <button type="button" title="Recently viewed" onclick="groUOpen('recent')">↺</button>
-  <button type="button" title="Store info" onclick="groUOpen('info')">ⓘ</button>
-</div>
-<div id="groUOverlay" class="gro-u-overlay" onclick="if(event.target===this)groUClose()">
-  <div class="gro-u-sheet">
-    <div class="gro-u-head"><h2 id="groUTitle" style="margin:0">GRO</h2><button class="gro-u-close" onclick="groUClose()">×</button></div>
-    <div id="groUBody"></div>
-  </div>
-</div>
-<div id="groUToast" class="gro-u-toast"></div>
-
-
-<!-- ===== GRO ADVANCED ADDITIVE UI ===== -->
-<div class="gro-adv-topbar" aria-label="Store benefits">
-  <span class="gro-adv-live"><i></i> Store Online</span>
-  <span>🔒 Secure Checkout</span>
-  <span>📦 Discreet Packaging</span>
-  <span>💬 Direct Support</span>
-</div>
-<div id="groAdvRecent" class="gro-adv-recent" role="status"></div>
-<button id="groAdvBack" class="gro-adv-back" aria-label="Back to top">↑</button>
-
-
-<!-- TOP BAR -->
-<div class="topbar">
-🔒 Secure Checkout &nbsp; • &nbsp; 🚚 Serviceable Delivery &nbsp; • &nbsp; 🔞 18+ Only
-</div>
-
-<!-- HEADER -->
-<header class="header">
-
-<div class="header-main">
-
-<div class="logo">
-GRO <span>Extender</span>
-</div>
-
-<div class="search">
-<input
-id="search"
-placeholder="Search products..."
-oninput="searchProducts()">
-<button onclick="searchProducts()">🔍</button>
-</div>
-
-<div class="header-tools">
-
-<button class="header-tool" onclick="show('home')">
-⌂ Home
-</button>
-
-<button class="header-tool" onclick="show('shop')">
-Shop
-</button>
-
-<button class="header-tool" onclick="show('tracking')">
-Track
-</button>
-
-<button class="header-tool" onclick="showCart()">
-🛒 <span id="cartCount" class="cart-count">0</span>
-</button>
-
-</div>
-
-</div>
-
-<div class="mainnav">
-
-<div class="mainnav-inner">
-
-<button onclick="show('shop')">All Products</button>
-<button onclick="category('ultimate')">Ultimate</button>
-<button onclick="category('supreme')">Supreme+</button>
-<button onclick="category('doubledeck')">DoubleDeck</button>
-<button onclick="scrollInfo()">Why GRO?</button>
-<button onclick="show('tracking')">Order Tracking</button>
-<button onclick="openPolicy('shipping')">Shipping</button>
-<button onclick="openPolicy('return')">Return Policy</button>
-
-</div>
-
-</div>
-
-</header>
-
-
-<!-- ================= HOME ================= -->
-
-<section id="home" class="screen active">
-
-<div class="container">
-
-<div class="hero">
-
-<div class="hero-content">
-
-<span class="badge">
-PREMIUM ADULT WELLNESS COLLECTION
-</span>
-
-<h1>
-Premium Design.<br>
-Smart Shopping.<br>
-GRO.
-</h1>
-
-<p>
-Discover the GRO collection with premium
-components, adjustable configurations and
-a professional shopping experience designed
-for adult customers.
-</p>
-
-<div class="hero-actions">
-
-<button
-class="btn yellow"
-onclick="show('shop')">
-SHOP NOW
-</button>
-
-<button
-class="btn outline"
-onclick="scrollInfo()">
-EXPLORE
-</button>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img
-src="Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png"
-alt="GRO Extender">
-
-</div>
-
-</div>
-
-
-<!-- TRUST -->
-
-<div class="trust-grid">
-
-<div class="trust">
-<div class="trust-icon">🚚</div>
-<div>
-<strong>Secure Delivery</strong>
-<small>Serviceable locations</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">🔐</div>
-<div>
-<strong>UPI Checkout</strong>
-<small>UPI app chooser</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">💳</div>
-<div>
-<strong>COD Available</strong>
-<small>₹239 advance</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">📞</div>
-<div>
-<strong>Direct Support</strong>
-<small>Call & WhatsApp</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">🔞</div>
-<div>
-<strong>18+ Product</strong>
-<small>Adults only</small>
-</div>
-</div>
-
-</div>
-
-
-<!-- CATEGORIES -->
-
-<div class="section-head">
-<h2>Shop by Category</h2>
-</div>
-
-<div class="category-grid">
-
-<div class="category" onclick="category('ultimate')">
-<div class="category-icon">⭐</div>
-<strong>Ultimate</strong>
-</div>
-
-<div class="category" onclick="category('supreme')">
-<div class="category-icon">👑</div>
-<strong>Supreme+</strong>
-</div>
-
-<div class="category" onclick="category('doubledeck')">
-<div class="category-icon">⚙️</div>
-<strong>DoubleDeck</strong>
-</div>
-
-<div class="category" onclick="show('shop')">
-<div class="category-icon">🔥</div>
-<strong>Best Sellers</strong>
-</div>
-
-<div class="category" onclick="show('shop')">
-<div class="category-icon">✨</div>
-<strong>Premium</strong>
-</div>
-
-<div class="category" onclick="show('shop')">
-<div class="category-icon">🛍️</div>
-<strong>All Products</strong>
-</div>
-
-</div>
-
-
-<!-- FEATURED -->
-
-<div class="section-head">
-<h2>Featured Products</h2>
-
-<button class="btn outline" onclick="show('shop')">
-View All →
-</button>
-
-</div>
-
-<div id="homeProducts" class="products"></div>
-
-
-<!-- INFO -->
-
-<div id="info">
-
-<div class="section-head">
-<h2>Why Choose GRO?</h2>
-</div>
-
-<div class="trust-grid">
-
-<div class="trust">
-<div class="trust-icon">⚙️</div>
-<div>
-<strong>Adjustable Design</strong>
-<small>Multiple configurations</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">📱</div>
-<div>
-<strong>Mobile Friendly</strong>
-<small>Easy shopping anywhere</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">💳</div>
-<div>
-<strong>Flexible Payment</strong>
-<small>UPI / COD advance</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">💬</div>
-<div>
-<strong>Customer Support</strong>
-<small>Direct contact</small>
-</div>
-</div>
-
-<div class="trust">
-<div class="trust-icon">📦</div>
-<div>
-<strong>Order Tracking</strong>
-<small>Track your order</small>
-</div>
-</div>
-
-</div>
-
-
-<div class="section-head">
-<h2>Customer Reviews</h2>
-</div>
-
-<div class="review-grid">
-
-<div class="card review">
-
-<div class="review-top">
-<strong>Verified Customer</strong>
-<span class="verified">✓ Verified</span>
-</div>
-
-<div class="stars">★★★★★</div>
-
-<p class="muted">
-"Product presentation and ordering process
-were straightforward."
-</p>
-
-</div>
-
-<div class="card review">
-
-<div class="review-top">
-<strong>Verified Customer</strong>
-<span class="verified">✓ Verified</span>
-</div>
-
-<div class="stars">★★★★★</div>
-
-<p class="muted">
-"Easy mobile checkout and clear product
-information."
-</p>
-
-</div>
-
-<div class="card review">
-
-<div class="review-top">
-<strong>Verified Customer</strong>
-<span class="verified">✓ Verified</span>
-</div>
-
-<div class="stars">★★★★★</div>
-
-<p class="muted">
-"Support contact was easy to find."
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- FAQ -->
-
-<div class="section-head">
-<h2>Frequently Asked Questions</h2>
-</div>
-
-<div class="card" style="padding:0 20px">
-
-<div class="faq">
-
-<button onclick="faq(this)">
-What payment methods are available?
-<span>＋</span>
-</button>
-
-<div class="faq-content">
-UPI is available through one UPI button.
-On compatible Android devices it may open
-the installed UPI app chooser. COD requires
-₹239 advance online payment.
-</div>
-
-</div>
-
-<div class="faq">
-
-<button onclick="faq(this)">
-Is payment automatically verified?
-<span>＋</span>
-</button>
-
-<div class="faq-content">
-A static HTML page cannot independently verify
-whether money was actually received. Real
-automatic success/failure requires an approved
-payment gateway and server-side webhook.
-</div>
-
-</div>
-
-<div class="faq">
-
-<button onclick="faq(this)">
-What is the COD condition?
-<span>＋</span>
-</button>
-
-<div class="faq-content">
-₹239 is payable online as advance. The remaining
-eligible amount is payable after delivery.
-</div>
-
-</div>
-
-<div class="faq">
-
-<button onclick="faq(this)">
-What is the return policy?
-<span>＋</span>
-</button>
-
-<div class="faq-content">
-No Return Policy. Please verify the product,
-quantity, address and payment information
-before placing an order.
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SHOP ================= -->
-
-<section id="shop" class="screen">
-
-<div class="container">
-
-<div class="breadcrumb">
-Home / Shop
-</div>
-
-<div class="shop-toolbar">
-
-<div>
-<h1 class="page-title">All Products</h1>
-<p class="muted">Premium GRO collection</p>
-</div>
-
-<select id="sort" class="sort" onchange="sortProducts()">
-<option value="default">Sort by</option>
-<option value="low">Price: Low to High</option>
-<option value="high">Price: High to Low</option>
-</select>
-
-</div>
-
-<div class="filters">
-
-<button class="filter active"
-onclick="category('all',this)">
-All
-</button>
-
-<button class="filter"
-onclick="category('ultimate',this)">
-Ultimate
-</button>
-
-<button class="filter"
-onclick="category('supreme',this)">
-Supreme+
-</button>
-
-<button class="filter"
-onclick="category('doubledeck',this)">
-DoubleDeck
-</button>
-
-</div>
-
-<div style="height:18px"></div>
-
-<div id="shopProducts" class="products"></div>
-
-</div>
-
-</section>
-
-
-<!-- ================= DETAIL ================= -->
-
-<section id="detail" class="screen">
-
-<div class="container">
-
-<div class="breadcrumb">
-Home / Shop / Product
-</div>
-
-<div class="detail-grid">
-
-<div class="card gallery">
-
-<div class="main-image">
-<img id="detailImage">
-</div>
-
-<div id="thumbs" class="thumbs"></div>
-
-</div>
-
-
-<div class="card detail-info">
-
-<span class="badge"
-style="background:#edf4ff;color:#1769e8;border-color:#d4e3ff">
-PREMIUM PRODUCT
-</span>
-
-<h1 id="detailName" class="detail-title"></h1>
-
-<div class="detail-rating">
-<span class="stars">★★★★★</span>
-<span class="muted">Premium Collection</span>
-</div>
-
-<div id="detailPrice" class="detail-price"></div>
-
-<p id="detailShort"
-class="muted"
-style="line-height:1.8">
-</p>
-
-<h3>Product Features</h3>
-
-<ul id="detailFeatures" class="feature-list"></ul>
-
-<h3>Quantity</h3>
-
-<div class="quantity">
-<button onclick="qty(-1)">−</button>
-<span id="quantity">1</span>
-<button onclick="qty(1)">+</button>
-</div>
-
-<div class="detail-buttons">
-
-<button class="btn yellow"
-onclick="buyNow()">
-BUY NOW
-</button>
-
-<button class="btn primary"
-onclick="addCart()">
-🛒 ADD TO CART
-</button>
-
-</div>
-
-<div class="info-box">
-
-<div class="summary-row">
-<span>🚚 Delivery</span>
-<strong>Check pincode</strong>
-</div>
-
-<div class="summary-row">
-<span>💳 Payment</span>
-<strong>UPI / COD Advance</strong>
-</div>
-
-<div class="summary-row">
-<span>🔞 Age</span>
-<strong>18+ only</strong>
-</div>
-
-<div class="summary-row">
-<span>↩ Return</span>
-<strong>No Return Policy</strong>
-</div>
-
-</div>
-
-<div class="claim">
-
-<strong>Important product information</strong>
-
-<p>
-Any enlargement, curvature correction or
-performance-related results mentioned in
-promotional material should be understood
-as manufacturer/product claims and are not
-guaranteed medical outcomes.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="section-head">
-<h2>Product Information</h2>
-</div>
-
-<div class="card" style="padding:25px;line-height:1.8">
-
-<h3>Product Description</h3>
-
-<p class="muted">
-GRO products are designed as adult wellness
-devices with adjustable components and
-multiple fitting configurations.
-</p>
-
-<h3>Usage</h3>
-
-<p class="muted">
-Follow the manufacturer's supplied instructions.
-Do not exceed recommended usage or force.
-Stop use if discomfort or injury occurs.
-</p>
-
-<h3>Delivery</h3>
-
-<p class="muted">
-Delivery depends on courier serviceability,
-correct address and pincode information.
-</p>
-
-<h3>Return Policy</h3>
-
-<p class="muted">
-No Return Policy. Confirm your product and
-order details before payment.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CART ================= -->
-
-<section id="cart" class="screen">
-
-<div class="container">
-
-<div class="breadcrumb">
-Home / Cart
-</div>
-
-<h1 class="page-title">Shopping Cart</h1>
-
-<div class="cart-layout" style="margin-top:20px">
-
-<div class="card cart-list" id="cartList"></div>
-
-<div class="card cart-summary" id="cartSummary"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CHECKOUT ================= -->
-
-<section id="checkout" class="screen">
-
-<div class="container">
-
-<div class="breadcrumb">
-Home / Cart / Checkout
-</div>
-
-<div class="checkout">
-
-<div class="card form-card">
-
-<h2 class="form-title">
-Delivery Address
-</h2>
-
-<div class="form-grid">
-
-<div class="form-group">
-<label>Full Name *</label>
-<input id="name" placeholder="Full name">
-</div>
-
-<div class="form-group">
-<label>Mobile Number *</label>
-<input
-id="mobile"
-maxlength="10"
-inputmode="numeric"
-placeholder="10 digit mobile">
-</div>
-
-<div class="form-group full-row">
-<label>Complete Address *</label>
-<textarea
-id="address"
-rows="4"
-placeholder="House / Street / Village / Area"></textarea>
-</div>
-
-<div class="form-group">
-<label>State *</label>
-<select id="state" onchange="districts()">
-<option value="">Select State</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>District *</label>
-<select id="district">
-<option value="">Select District</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Pincode *</label>
-<input
-id="pin"
-maxlength="6"
-inputmode="numeric"
-placeholder="6 digit pincode">
-</div>
-
-<div class="form-group">
-<label>Country</label>
-<select>
-<option>India</option>
-</select>
-</div>
-
-</div>
-
-<h3>Delivery Preference</h3>
-
-<div class="payment-option active">
-<label>
-<input type="radio" name="delivery" checked>
-Standard Delivery
-</label>
-<p class="payment-help">
-Delivery time depends on location and courier serviceability.
-</p>
-</div>
-
-<button
-class="btn primary full"
-onclick="goPayment()">
-CONTINUE TO PAYMENT →
-</button>
-
-</div>
-
-<div class="card summary-card" id="checkoutSummary"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= PAYMENT ================= -->
-
-<section id="payment" class="screen">
-
-<div class="container">
-
-<div class="breadcrumb">
-Home / Checkout / Payment
-</div>
-
-<div class="payment-grid">
-
-<div class="card payment-box">
-
-<h2>Choose Payment Method</h2>
-
-<div
-id="onlineOption"
-class="payment-option active">
-
-<label>
-
-<input
-type="radio"
-name="paytype"
-value="online"
-checked
-onchange="paymentType('online')">
-
-Full Online Payment
-
-</label>
-
-<p class="payment-help">
-Pay the complete order amount through one UPI button.
-</p>
-
-</div>
-
-
-<div
-id="codOption"
-class="payment-option">
-
-<label>
-
-<input
-type="radio"
-name="paytype"
-value="cod"
-onchange="paymentType('cod')">
-
-Cash on Delivery
-
-</label>
-
-<p class="payment-help">
-
-₹239 advance payment online.
-Remaining eligible amount after delivery.
-
-</p>
-
-</div>
-
-
-<div id="paymentArea"></div>
-
-</div>
-
-<div
-class="card summary-card"
-id="paymentSummary">
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= TRACKING ================= -->
-
-<section id="tracking" class="screen">
-
-<div class="container">
-
-<div class="track-card card">
-
-<h1>Track Your Order</h1>
-
-<p class="muted">
-Enter your GRO order ID.
-</p>
-
-<div class="track-input">
-
-<input id="trackId"
-placeholder="Example: GRO-1234567890">
-
-<button class="btn primary"
-onclick="trackOrder()">
-TRACK
-</button>
-
-</div>
-
-<div id="trackingResult"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SUCCESS ================= -->
-
-<section id="success" class="screen">
-
-<div class="container">
-
-<div class="track-card card"
-style="text-align:center;padding:50px 25px">
-
-<div style="
-width:80px;height:80px;
-border-radius:50%;
-background:#dcfce7;
-color:#15803d;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:40px;
-margin:auto">
-✓
-</div>
-
-<h1>Order Confirmed</h1>
-
-<p class="muted">
-Your payment/order information has been recorded.
-</p>
-
-<div id="successDetails"
-style="text-align:left;margin-top:25px">
-</div>
-
-<button
-class="btn green full"
-style="margin-top:20px"
-onclick="whatsappOrder()">
-💬 SEND ORDER ON WHATSAPP
-</button>
-
-<button
-class="btn dark full"
-style="margin-top:10px"
-onclick="show('home')">
-CONTINUE SHOPPING
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= MODAL ================= -->
-
-<div id="modal" class="modal">
-
-<div class="modal-box">
-
-<div class="modal-head">
-
-<h2 id="modalTitle">Information</h2>
-
-<button class="close"
-onclick="closeModal()">
-×
-</button>
-
-</div>
-
-<div id="modalBody"></div>
-
-</div>
-
-</div>
-
-
-<!-- FLOATING CONTACT -->
-
-<div class="floating">
-
-<a
-class="float whatsapp"
-href="https://wa.me/917407792138"
-target="_blank">
-💬
-</a>
-
-<a
-class="float call"
-href="tel:+917407792138">
-☎
-</a>
-
-</div>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<div class="footer">
-
-<div>
-
-<h3>GRO Extender</h3>
-
-<p>
-Premium adult wellness shopping experience
-with product information, flexible checkout
-and direct customer support.
-</p>
-
-<p>
-🔞 Intended for adults 18 years and above.
-</p>
-
-</div>
-
-
-<div>
-
-<h3>Shop</h3>
-
-<a onclick="show('shop')">All Products</a>
-<a onclick="category('ultimate')">Ultimate</a>
-<a onclick="category('supreme')">Supreme+</a>
-<a onclick="category('doubledeck')">DoubleDeck</a>
-
-</div>
-
-
-<div>
-
-<h3>Customer Service</h3>
-
-<a onclick="show('tracking')">Track Order</a>
-<a onclick="openPolicy('shipping')">Shipping</a>
-<a onclick="openPolicy('return')">Return Policy</a>
-<a onclick="openPolicy('payment')">Payment</a>
-
-</div>
-
-
-<div>
-
-<h3>Policies</h3>
-
-<a onclick="openPolicy('privacy')">Privacy Policy</a>
-<a onclick="openPolicy('terms')">Terms</a>
-<a onclick="openPolicy('refund')">Refund</a>
-<a onclick="openPolicy('contact')">Contact</a>
-
-</div>
-
-
-<div>
-
-<h3>Contact</h3>
-
-<a href="tel:+917407792138">
-☎ Call Support
-</a>
-
-<a
-href="https://wa.me/917407792138"
-target="_blank">
-💬 WhatsApp
-</a>
-
-<p>
-India
-</p>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-© 2026 GRO Extender — All Rights Reserved.
-</div>
-
-</footer>
-
-
-<script>
-
-/* =====================================================
-CONFIG
-===================================================== */
-
-const CONFIG={
- upi:"mr.manna@ptyes",
- merchant:"GRO Extender",
- whatsapp:"917407792138",
- phone:"+917407792138",
- codAdvance:239
-};
-
-
-/* =====================================================
-PRODUCTS
-===================================================== */
-
-const PRODUCTS={
-
-ultimate:{
- id:"ultimate",
- name:"GRO Extender® Ultimate",
- category:"ultimate",
- price:3249,
- old:4499,
- images:[
- "Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
- "ProExtender-Ultimate-Straps-260x134.jpg",
- "ProExtender-Ultimate002 (1).png"
- ],
- description:
- "Premium adjustable configuration with multiple fitting components.",
- features:[
- "Adjustable fitting configuration",
- "Multiple adjustment positions",
- "Reinforced straps",
- "Compact component design",
- "Adult product — 18+"
- ]
-},
-
-supreme:{
- id:"supreme",
- name:"GRO Extender® Supreme+",
- category:"supreme",
- price:4780,
- old:5999,
- images:[
- "Gemini_Generated_Image_unscx2unscx2unsc.png",
- "51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif",
- "Gemini_Generated_Image_bezw1nbezw1nbezw.png"
- ],
- description:
- "Premium lightweight adjustable configuration.",
- features:[
- "Lightweight configuration",
- "Adjustable fitting",
- "Reinforced components",
- "Compact design",
- "Adult product — 18+"
- ]
-},
-
-doubledeck:{
- id:"doubledeck",
- name:"GRO Extender® DoubleDeck",
- category:"doubledeck",
- price:5950,
- old:6999,
- images:[
- "Gemini_Generated_Image_bezw1nbezw1nbezw.png",
- "pro-extender-penis-enlargement-system-500x500.jpg",
- "pro-extender-silicone-tube.webp"
- ],
- description:
- "Multi-component premium adjustable configuration.",
- features:[
- "Multi-component configuration",
- "Adjustable fitting positions",
- "Reinforced straps",
- "Compact structure",
- "Adult product — 18+"
- ]
-
-}
-
-};
-
-
-/* =====================================================
-STATE
-===================================================== */
-
-let current=null;
-let quantity=1;
-let payMode="online";
-
-let cart=[];
-
-let order={
- id:"",
- total:0,
- payable:0,
- product:"",
- quantity:0,
- name:"",
- mobile:"",
- address:"",
- state:"",
- district:"",
- pin:"",
- payment:"",
- utr:"",
- status:"Pending"
-};
-
-
-/* =====================================================
-NAVIGATION
-===================================================== */
-
-function show(id){
-
-document
-.querySelectorAll(".screen")
-.forEach(x=>x.classList.remove("active"));
-
-document.getElementById(id)
-.classList.add("active");
-
-window.scrollTo({
- top:0,
- behavior:"smooth"
-});
-
-}
-
-
-/* =====================================================
-PRODUCT CARD
-===================================================== */
-
-function card(p){
-
-let discount=Math.round(
-(1-p.price/p.old)*100
-);
-
-return `
-
-<div class="card product">
-
-<div class="product-img">
-
-<span class="sale">
--${discount}%
-</span>
-
-<button
-class="wishlist"
-onclick="event.stopPropagation();wishlist('${p.id}')">
-♡
-</button>
-
-<img
-src="${p.images[0]}"
-alt="${p.name}">
-
-</div>
-
-<div class="product-body">
-
-<div class="stars">
-★★★★★
-</div>
-
-<div class="product-name">
-${p.name}
-</div>
-
-<div class="product-price">
-
-<span class="old">
-₹${p.old.toLocaleString("en-IN")}
-</span>
-
-₹${p.price.toLocaleString("en-IN")}
-
-</div>
-
-<div class="product-meta">
-🚚 Serviceable delivery
-</div>
-
-<div class="product-actions">
-
-<button
-class="btn outline"
-onclick="openProduct('${p.id}')">
-VIEW
-</button>
-
-<button
-class="btn yellow"
-onclick="quickBuy('${p.id}')">
-BUY NOW
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-RENDER
-===================================================== */
-
-function render(list=Object.values(PRODUCTS)){
-
-document.getElementById("homeProducts").innerHTML=
-list.map(card).join("");
-
-document.getElementById("shopProducts").innerHTML=
-list.map(card).join("");
-
-}
-
-
-/* =====================================================
-OPEN PRODUCT
-===================================================== */
-
-function openProduct(id){
-
-current=PRODUCTS[id];
-quantity=1;
-
-document.getElementById("detailName").textContent=
-current.name;
-
-document.getElementById("detailPrice").innerHTML=`
-
-<span class="old">
-₹${current.old.toLocaleString("en-IN")}
-</span>
-
-₹${current.price.toLocaleString("en-IN")}
-
-`;
-
-document.getElementById("detailShort").textContent=
-current.description;
-
-document.getElementById("detailFeatures").innerHTML=
-current.features
-.map(x=>`<li>${x}</li>`)
-.join("");
-
-document.getElementById("quantity").textContent=1;
-
-document.getElementById("detailImage").src=
-current.images[0];
-
-document.getElementById("thumbs").innerHTML=
-current.images.map((img,i)=>`
-
-<button
-class="thumb ${i===0?"active":""}"
-onclick="changeImage('${img}',this)">
-
-<img src="${img}">
-
-</button>
-
-`).join("");
-
-show("detail");
-
-}
-
-
-/* =====================================================
-IMAGE
-===================================================== */
-
-function changeImage(src,el){
-
-document.getElementById("detailImage").src=src;
-
-document
-.querySelectorAll(".thumb")
-.forEach(x=>x.classList.remove("active"));
-
-el.classList.add("active");
-
-}
-
-
-/* =====================================================
-QUANTITY
-===================================================== */
-
-function qty(n){
-
-quantity+=n;
-
-if(quantity<1)quantity=1;
-if(quantity>20)quantity=20;
-
-document.getElementById("quantity").textContent=
-quantity;
-
-}
-
-
-/* =====================================================
-BUY
-===================================================== */
-
-function quickBuy(id){
-
-openProduct(id);
-
-setTimeout(()=>{
- buyNow();
-},100);
-
-}
-
-
-function buyNow(){
-
-if(!current)return;
-
-cart=[
- {
-  product:current,
-  qty:quantity
- }
-];
-
-prepareCheckout();
-
-show("checkout");
-
-}
-
-
-/* =====================================================
-CART
-===================================================== */
-
-function addCart(){
-
-if(!current)return;
-
-let item=
-cart.find(x=>x.product.id===current.id);
-
-if(item)
-item.qty+=quantity;
-else
-cart.push({
- product:current,
- qty:quantity
-});
-
-updateCartCount();
-
-alert("Product added to cart.");
-
-}
-
-
-function updateCartCount(){
-
-let total=
-cart.reduce((sum,x)=>sum+x.qty,0);
-
-document.getElementById("cartCount")
-.textContent=total;
-
-}
-
-
-function showCart(){
-
-renderCart();
-
-show("cart");
-
-}
-
-
-function renderCart(){
-
-let list=
-document.getElementById("cartList");
-
-if(cart.length===0){
-
-list.innerHTML=`
-
-<div style="text-align:center;padding:50px 15px">
-
-<h2>Your cart is empty</h2>
-
-<p class="muted">
-Add a product to continue.
-</p>
-
-<button
-class="btn primary"
-onclick="show('shop')">
-SHOP NOW
-</button>
-
-</div>
-
-`;
-
-document.getElementById("cartSummary").innerHTML="";
-
-return;
-
-}
-
-list.innerHTML=cart.map((x,i)=>`
-
-<div class="cart-item">
-
-<img src="${x.product.images[0]}">
-
-<div>
-
-<h3>${x.product.name}</h3>
-
-<p class="muted">
-₹${x.product.price.toLocaleString("en-IN")}
-</p>
-
-<div class="quantity">
-
-<button onclick="cartQty(${i},-1)">−</button>
-
-<span>${x.qty}</span>
-
-<button onclick="cartQty(${i},1)">+</button>
-
-</div>
-
-</div>
-
-<div>
-
-<strong>
-₹${(x.product.price*x.qty).toLocaleString("en-IN")}
-</strong>
-
-<br><br>
-
-<button
-class="btn danger"
-onclick="removeCart(${i})">
-Remove
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-
-let total=
-cart.reduce(
-(sum,x)=>sum+x.product.price*x.qty,
-0
-);
-
-document.getElementById("cartSummary").innerHTML=`
-
-<h2>Order Summary</h2>
-
-<div class="summary-row">
-<span>Subtotal</span>
-<strong>₹${total.toLocaleString("en-IN")}</strong>
-</div>
-
-<div class="summary-row">
-<span>Delivery</span>
-<strong>Calculated</strong>
-</div>
-
-<div class="summary-row total">
-<span>Total</span>
-<strong>₹${total.toLocaleString("en-IN")}</strong>
-</div>
-
-<button
-class="btn yellow full"
-style="margin-top:15px"
-onclick="prepareCheckout();show('checkout')">
-CHECKOUT
-</button>
-
-`;
-
-
-}
-
-
-function cartQty(i,n){
-
-cart[i].qty+=n;
-
-if(cart[i].qty<1)
-cart.splice(i,1);
-
-updateCartCount();
-renderCart();
-
-}
-
-
-function removeCart(i){
-
-cart.splice(i,1);
-
-updateCartCount();
-renderCart();
-
-}
-
-
-/* =====================================================
-CHECKOUT
-===================================================== */
-
-function prepareCheckout(){
-
-let total=
-cart.reduce(
-(sum,x)=>sum+x.product.price*x.qty,
-0
-);
-
-order.total=total;
-
-document.getElementById("checkoutSummary")
-.innerHTML=`
-
-<h2>Order Summary</h2>
-
-${cart.map(x=>`
-
-<div class="summary-row">
-
-<span>
-${x.product.name} × ${x.qty}
-</span>
-
-<strong>
-₹${(x.product.price*x.qty)
-.toLocaleString("en-IN")}
-</strong>
-
-</div>
-
-`).join("")}
-
-<div class="summary-row total">
-
-<span>Total</span>
-
-<strong>
-₹${total.toLocaleString("en-IN")}
-</strong>
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-STATES
-===================================================== */
-
-const STATES={
-"West Bengal":[
-"Kolkata","Howrah","Hooghly",
-"Purba Medinipur","Paschim Medinipur",
-"Purba Bardhaman","Paschim Bardhaman",
-"Nadia","Murshidabad","North 24 Parganas",
-"South 24 Parganas","Bankura","Purulia",
-"Birbhum","Malda","Jalpaiguri","Darjeeling"
-],
-"Maharashtra":[
-"Mumbai City","Mumbai Suburban",
-"Pune","Thane","Nashik"
-],
-"Uttar Pradesh":[
-"Lucknow","Agra","Kanpur Nagar",
-"Varanasi","Prayagraj","Ghaziabad"
-],
-"Bihar":[
-"Patna","Gaya","Muzaffarpur","Bhagalpur"
-],
-"Odisha":[
-"Khordha","Cuttack","Puri","Balasore","Ganjam"
-],
-"Jharkhand":[
-"Ranchi","Dhanbad","Bokaro","Jamshedpur"
-],
-"Delhi":[
-"New Delhi","North Delhi","South Delhi",
-"East Delhi","West Delhi"
-],
-"Gujarat":[
-"Ahmedabad","Surat","Vadodara","Rajkot"
-],
-"Karnataka":[
-"Bengaluru Urban","Mysuru","Mangaluru"
-],
-"Tamil Nadu":[
-"Chennai","Coimbatore","Madurai"
-],
-"Telangana":[
-"Hyderabad","Warangal"
-],
-"Kerala":[
-"Thiruvananthapuram","Ernakulam","Kozhikode"
-]
-};
-
-
-function loadStates(){
-
-let s=document.getElementById("state");
-
-Object.keys(STATES).forEach(x=>{
-
-let o=document.createElement("option");
-
-o.value=x;
-o.textContent=x;
-
-s.appendChild(o);
-
-});
-
-}
-
-
-function districts(){
-
-let state=
-document.getElementById("state").value;
-
-let d=
-document.getElementById("district");
-
-d.innerHTML=
-'<option value="">Select District</option>';
-
-(STATES[state]||[]).forEach(x=>{
-
-let o=document.createElement("option");
-
-o.value=x;
-o.textContent=x;
-
-d.appendChild(o);
-
-});
-
-}
-
-
-/* =====================================================
-PAYMENT
-===================================================== */
-
-function goPayment(){
-
-let name=
-document.getElementById("name").value.trim();
-
-let mobile=
-document.getElementById("mobile").value.trim();
-
-let address=
-document.getElementById("address").value.trim();
-
-let state=
-document.getElementById("state").value;
-
-let district=
-document.getElementById("district").value;
-
-let pin=
-document.getElementById("pin").value.trim();
-
-if(!name)
-return alert("Full Name দিন।");
-
-if(!/^[0-9]{10}$/.test(mobile))
-return alert("সঠিক 10 digit mobile number দিন।");
-
-if(!address)
-return alert("Complete Address দিন।");
-
-if(!state||!district)
-return alert("State ও District select করুন।");
-
-if(!/^[0-9]{6}$/.test(pin))
-return alert("সঠিক 6 digit pincode দিন।");
-
-order.name=name;
-order.mobile=mobile;
-order.address=address;
-order.state=state;
-order.district=district;
-order.pin=pin;
-
-order.id=
-"GRO-"+Date.now().toString().slice(-10);
-
-payMode="online";
-
-renderPayment();
-
-show("payment");
-
-}
-
-
-/* =====================================================
-PAYMENT MODE
-===================================================== */
-
-function paymentType(type){
-
-payMode=type;
-
-document
-.getElementById("onlineOption")
-.classList.toggle(
-"active",
-type==="online"
-);
-
-document
-.getElementById("codOption")
-.classList.toggle(
-"active",
-type==="cod"
-);
-
-renderPayment();
-
-}
-
-
-/* =====================================================
-PAYMENT UI
-===================================================== */
-
-function renderPayment(){
-
-let amount=
-payMode==="cod"
-?CONFIG.codAdvance
-:order.total;
-
-let remaining=
-Math.max(
-0,
-order.total-CONFIG.codAdvance
-);
-
-order.payable=amount;
-
-document.getElementById("paymentSummary")
-.innerHTML=`
-
-<h2>Order Summary</h2>
-
-${cart.map(x=>`
-
-<div class="summary-row">
-
-<span>
-${x.product.name} × ${x.qty}
-</span>
-
-<strong>
-₹${(x.product.price*x.qty)
-.toLocaleString("en-IN")}
-</strong>
-
-</div>
-
-`).join("")}
-
-<div class="summary-row">
-<span>Order Total</span>
-<strong>
-₹${order.total.toLocaleString("en-IN")}
-</strong>
-</div>
-
-<div class="summary-row total">
-<span>Pay Now</span>
-<strong>
-₹${amount.toLocaleString("en-IN")}
-</strong>
-</div>
-
-${payMode==="cod"?`
-
-<div class="summary-row">
-<span>After Delivery</span>
-<strong>
-₹${remaining.toLocaleString("en-IN")}
-</strong>
-</div>
-
-`:""}
-
-`;
-
-document.getElementById("paymentArea")
-.innerHTML=`
-
-<div class="upi-box">
-
-<strong>UPI PAYMENT</strong>
-
-<br><br>
-
-একটি UPI button-ই রাখা হয়েছে।
-
-Android/UPI-enabled device-এ চাপলে
-available compatible UPI app নির্বাচন
-করার সুযোগ পাওয়া যেতে পারে।
-
-<br><br>
-
-PhonePe • Google Pay • Paytm • MobiKwik
-• Amazon Pay • Other UPI Apps
-
-</div>
-
-
-<button
-class="btn primary full"
-style="margin-top:15px"
-onclick="openUPI(${amount})">
-
-PAY ₹${amount.toLocaleString("en-IN")} WITH UPI
-
-</button>
-
-
-<div class="qr">
-
-<h3>Scan & Pay</h3>
-
-<img src="qr-code.png">
-
-<p>
-UPI ID:
-<strong>${CONFIG.upi}</strong>
-</p>
-
-</div>
-
-
-<div class="payment-note">
-
-<strong>COD:</strong>
-
-₹239 advance payment is required online.
-The remaining eligible amount is payable
-after delivery.
-
-</div>
-
-
-<div style="margin-top:18px">
-
-<label style="font-weight:800;font-size:13px">
-Payment UTR / Transaction ID
-</label>
-
-<input
-id="utr"
-style="
-width:100%;
-padding:12px;
-margin-top:6px;
-border:1px solid #d5dce6;
-border-radius:8px
-"
-placeholder="Enter UTR after payment">
-
-</div>
-
-
-<button
-class="btn outline full"
-style="margin-top:10px"
-onclick="submitPayment()">
-
-SUBMIT PAYMENT DETAILS
-
-</button>
-
-
-<div class="payment-note">
-
-Static HTML নিজে bank account-এ টাকা এসেছে কিনা
-নিশ্চিত করতে পারে না। Automatic payment
-success/failure-এর জন্য approved payment
-gateway + server-side webhook/API প্রয়োজন।
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-UPI
-===================================================== */
-
-function openUPI(amount){
-
-order.payment=
-payMode==="cod"
-?"COD — ₹239 Advance"
-:"FULL ONLINE";
-
-const url=
-"upi://pay"+
-"?pa="+encodeURIComponent(CONFIG.upi)+
-"&pn="+encodeURIComponent(CONFIG.merchant)+
-"&am="+Number(amount).toFixed(2)+
-"&cu=INR"+
-"&tn="+encodeURIComponent(
-"GRO Order "+order.id
-);
-
-window.location.href=url;
-
-}
-
-
-/* =====================================================
-SUBMIT PAYMENT
-===================================================== */
-
-function submitPayment(){
-
-let utr=
-document.getElementById("utr").value.trim();
-
-if(!utr)
-return alert("Payment করার পর UTR / Transaction ID দিন।");
-
-order.utr=utr;
-
-order.status="Payment verification pending";
-
-showPending();
-
-}
-
-
-function showPending(){
-
-openModal(
-"Payment Verification",
-`
-
-<div style="line-height:1.8">
-
-<p>
-Your payment details have been submitted.
-</p>
-
-<div class="payment-note">
-
-<strong>Verification Pending</strong><br>
-
-UPI app open হওয়া বা UTR দেওয়া মাত্র
-payment successful ধরা যাবে না।
-
-Real verification-এর জন্য payment gateway
-webhook/API connect করতে হবে।
-
-</div>
-
-<button
-class="btn primary full"
-style="margin-top:15px"
-onclick="closeModal()">
-OK
-</button>
-
-</div>
-
-`
-);
-
-}
-
-
-/* =====================================================
-GATEWAY HOOKS
-===================================================== */
-
-function paymentSuccess(transactionId){
-
-order.utr=transactionId||order.utr;
-order.status="Payment Successful";
-
-showSuccess();
-
-}
-
-
-function paymentFailed(){
-
-order.status="Payment Failed";
-
-openModal(
-"Payment Failed",
-`
-
-<p>
-Payment could not be verified.
-Please try again.
-</p>
-
-<button
-class="btn primary full"
-onclick="closeModal()">
-TRY AGAIN
-</button>
-
-`
-);
-
-}
-
-
-/* =====================================================
-SUCCESS
-===================================================== */
-
-function showSuccess(){
-
-GRO_notifyOwner();
-
-document.getElementById("successDetails")
-.innerHTML=`
-
-<div class="summary-row">
-<span>Order ID</span>
-<strong>${order.id}</strong>
-</div>
-
-<div class="summary-row">
-<span>Order Total</span>
-<strong>₹${order.total.toLocaleString("en-IN")}</strong>
-</div>
-
-<div class="summary-row">
-<span>Payment</span>
-<strong>${order.payment}</strong>
-</div>
-
-<div class="summary-row">
-<span>Status</span>
-<strong>${order.status}</strong>
-</div>
-
-<div class="summary-row">
-<span>Customer</span>
-<strong>${order.name}</strong>
-</div>
-
-<div class="summary-row">
-<span>Mobile</span>
-<strong>${order.mobile}</strong>
-</div>
-
-<div class="summary-row">
-<span>Address</span>
-<strong>
-${order.address},
-${order.district},
-${order.state},
-${order.pin}
-</strong>
-</div>
-
-`;
-
-show("success");
-
-}
-
-
-/* =====================================================
-WHATSAPP
-===================================================== */
-
-function whatsappOrder(){
-
-let text=`
-
-GRO EXTENDER ORDER
-
-Order ID: ${order.id}
-
-Order Total: ₹${order.total}
-
-Payment: ${order.payment}
-
-Payment Status: ${order.status}
-
-UTR: ${order.utr||"Not provided"}
-
-Customer:
-${order.name}
-
-Mobile:
-${order.mobile}
-
-Address:
-${order.address}
-
-District:
-${order.district}
-
-State:
-${order.state}
-
-Pincode:
-${order.pin}
-
-`;
-
-window.open(
-"https://wa.me/"+CONFIG.whatsapp+
-"?text="+encodeURIComponent(text),
-"_blank"
-);
-
-}
-
-
-/* =====================================================
-TRACKING
-===================================================== */
-
-function trackOrder(){
-
-let id=
-document.getElementById("trackId")
-.value.trim();
-
-if(!id)
-return alert("Order ID দিন।");
-
-document.getElementById("trackingResult")
-.innerHTML=`
-
-<div class="timeline">
-
-<div class="step done">
-<div class="step-icon">✓</div>
-<div>
-<h4>Order Placed</h4>
-<p>Order ID ${id}</p>
-</div>
-</div>
-
-<div class="step">
-<div class="step-icon">2</div>
-<div>
-<h4>Payment Verification</h4>
-<p>Waiting for verified payment status.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="step-icon">3</div>
-<div>
-<h4>Processing</h4>
-<p>Order processing after confirmation.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="step-icon">4</div>
-<div>
-<h4>Shipped</h4>
-<p>Courier handover.</p>
-</div>
-</div>
-
-<div class="step">
-<div class="step-icon">5</div>
-<div>
-<h4>Delivered</h4>
-<p>Order delivered.</p>
-</div>
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-SEARCH
-===================================================== */
-
-function searchProducts(){
-
-let q=
-document.getElementById("search")
-.value
-.toLowerCase()
-.trim();
-
-let list=
-Object.values(PRODUCTS)
-.filter(p=>
-p.name.toLowerCase().includes(q) ||
-p.description.toLowerCase().includes(q)
-);
-
-document.getElementById("shopProducts")
-.innerHTML=
-list.map(card).join("");
-
-show("shop");
-
-}
-
-
-/* =====================================================
-CATEGORY
-===================================================== */
-
-function category(id,button){
-
-let list;
-
-if(id==="all")
-list=Object.values(PRODUCTS);
-else
-list=Object.values(PRODUCTS)
-.filter(p=>p.category===id);
-
-render(list);
-
-show("shop");
-
-if(button){
-
-document
-.querySelectorAll(".filter")
-.forEach(x=>x.classList.remove("active"));
-
-button.classList.add("active");
-
-}
-
-}
-
-
-/* =====================================================
-SORT
-===================================================== */
-
-function sortProducts(){
-
-let list=Object.values(PRODUCTS);
-
-let value=
-document.getElementById("sort").value;
-
-if(value==="low")
-list.sort((a,b)=>a.price-b.price);
-
-if(value==="high")
-list.sort((a,b)=>b.price-a.price);
-
-document.getElementById("shopProducts")
-.innerHTML=
-list.map(card).join("");
-
-}
-
-
-/* =====================================================
-WISHLIST
-===================================================== */
-
-function wishlist(id){
-
-let saved=
-JSON.parse(
-localStorage.getItem("groWishlist")||"[]"
-);
-
-if(saved.includes(id))
-saved=saved.filter(x=>x!==id);
-else
-saved.push(id);
-
-localStorage.setItem(
-"groWishlist",
-JSON.stringify(saved)
-);
-
-alert("Wishlist updated.");
-
-}
-
-
-/* =====================================================
-FAQ
-===================================================== */
-
-function faq(button){
-
-let content=
-button.nextElementSibling;
-
-let open=
-content.style.display==="block";
-
-document
-.querySelectorAll(".faq-content")
-.forEach(x=>x.style.display="none");
-
-document
-.querySelectorAll(".faq button span")
-.forEach(x=>x.textContent="＋");
-
-if(!open){
-
-content.style.display="block";
-
-button.querySelector("span")
-.textContent="−";
-
-}
-
-}
-
-
-/* =====================================================
-POLICY MODAL
-===================================================== */
-
-function openPolicy(type){
-
-let data={
-
-shipping:[
-"Shipping Policy",
-`
-<p>
-Orders are shipped only to serviceable locations.
-Delivery time depends on pincode, courier
-availability and operational conditions.
-</p>
-
-<p>
-Customer must provide accurate name, mobile,
-address, state, district and pincode.
-</p>
-`
-],
-
-return:[
-"Return Policy",
-`
-<p>
-No Return Policy.
-Please verify product selection and address
-before placing an order.
-</p>
-`
-],
-
-refund:[
-"Refund Policy",
-`
-<p>
-Refunds, where applicable, are processed only
-after verification according to the applicable
-order/payment terms.
-</p>
-`
-],
-
-privacy:[
-"Privacy Policy",
-`
-<p>
-Customer information such as name, mobile,
-address and order details should be used only
-for order processing, delivery, customer support
-and legally required purposes.
-</p>
-`
-],
-
-terms:[
-"Terms & Conditions",
-`
-<p>
-This website is intended for customers aged
-18 years and above.
-</p>
-
-<p>
-Product information should not be interpreted
-as guaranteed medical outcomes.
-</p>
-`
-],
-
-payment:[
-"Payment Information",
-`
-<p>
-UPI checkout uses a standard UPI deep-link.
-Compatible devices may display installed UPI apps.
-</p>
-
-<p>
-Automatic payment verification requires a
-proper payment gateway and server-side webhook.
-</p>
-`
-],
-
-contact:[
-"Contact",
-`
-<p>
-Call:
-<a href="tel:+917407792138">
-+91 74077 92138
-</a>
-</p>
-
-<p>
-WhatsApp:
-<a href="https://wa.me/917407792138"
-target="_blank">
-Chat on WhatsApp
-</a>
-</p>
-`
-]
-
-};
-
-openModal(
-data[type][0],
-data[type][1]
-);
-
-}
-
-
-/* =====================================================
-MODAL
-===================================================== */
-
-function openModal(title,body){
-
-document.getElementById("modalTitle")
-.textContent=title;
-
-document.getElementById("modalBody")
-.innerHTML=body;
-
-document.getElementById("modal")
-.classList.add("show");
-
-}
-
-
-function closeModal(){
-
-document.getElementById("modal")
-.classList.remove("show");
-
-}
-
-
-/* =====================================================
-INFO SCROLL
-===================================================== */
-
-function scrollInfo(){
-
-show("home");
-
-setTimeout(()=>{
-
-document.getElementById("info")
-.scrollIntoView({
- behavior:"smooth"
-});
-
-},100);
-
-}
-
-
-/* =====================================================
-INIT
-===================================================== */
-
-loadStates();
-
-render();
-
-updateCartCount();
-
-</script>
-
-
-<style id="gro-pro-upgrade">
-:root{--accent:#1769e8;--gold:#ffb000;--surface:#fff;--soft:#f7f9fc}
-body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
-button,a,input,select,textarea{touch-action:manipulation}
-.topbar{letter-spacing:.15px}
-.header-main{backdrop-filter:saturate(140%) blur(8px)}
-.logo{font-weight:900}
-.search{box-shadow:0 2px 0 rgba(0,0,0,.05)}
-.search input{font-size:14px}
-.hero{position:relative}
-.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.08),transparent 55%)}
-.hero-content,.hero-image{position:relative;z-index:1}
-.product{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.product:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(16,24,40,.13);border-color:#d7e2f2}
-.product-img{overflow:hidden}
-.product-img img{transition:transform .25s ease}
-.product:hover .product-img img{transform:scale(1.035)}
-.product-badge{position:absolute;right:10px;bottom:10px;background:#111827;color:#fff;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:800;z-index:2}
-.rating-pill{display:inline-flex;align-items:center;gap:4px;background:#fff8e7;border:1px solid #f3df9c;color:#7a5700;padding:4px 7px;border-radius:999px;font-size:11px;font-weight:800}
-.delivery-check{display:flex;gap:8px;margin-top:12px}
-.delivery-check input{min-width:0;flex:1;border:1px solid #d5dce6;border-radius:8px;padding:11px}
-.delivery-check button{white-space:nowrap}
-.progress-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 22px}
-.progress-step{padding:9px 6px;text-align:center;border-radius:9px;background:#eef2f7;color:#667085;font-size:11px;font-weight:800}
-.progress-step.active{background:#eaf2ff;color:#1769e8}
-.progress-step.done{background:#dcfce7;color:#15803d}
-.coupon-box{display:flex;gap:8px;margin-top:14px}
-.coupon-box input{flex:1;border:1px solid #d5dce6;border-radius:8px;padding:11px;text-transform:uppercase}
-.coupon-msg{font-size:12px;margin-top:7px}
-.save-note{font-size:12px;color:#15803d;font-weight:800;margin-top:6px}
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#111827;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.2);z-index:5000;opacity:0;pointer-events:none;transition:.22s;font-size:13px;font-weight:700;max-width:90vw;text-align:center}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-.age-gate{position:fixed;inset:0;background:rgba(3,8,18,.88);z-index:6000;display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(7px)}
-.age-box{width:min(460px,100%);background:#fff;border-radius:20px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.35);text-align:center}
-.age-icon{font-size:42px}.age-box h2{margin:10px 0 8px}.age-box p{color:#667085;line-height:1.65;font-size:13px}.age-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
-.mobile-nav{display:none}
-.wish-drawer{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:3500;justify-content:flex-end}.wish-drawer.show{display:flex}.wish-panel{width:min(430px,100%);height:100%;background:#fff;padding:20px;overflow:auto}.wish-head{display:flex;justify-content:space-between;align-items:center}.wish-item{display:grid;grid-template-columns:72px 1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid #edf0f3;align-items:center}.wish-item img{width:72px;height:72px;object-fit:contain;background:#f3f4f6;border-radius:8px}
-.modal.show{animation:fadeIn .15s ease}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@media(max-width:800px){.mobile-nav{display:grid;position:fixed;left:10px;right:10px;bottom:10px;z-index:1800;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(7,17,31,.96);border:1px solid #263750;border-radius:16px;padding:6px;box-shadow:0 12px 35px rgba(0,0,0,.25)}.mobile-nav button{border:0;background:transparent;color:#dbe5f2;padding:8px 3px;font-size:11px}.mobile-nav button strong{display:block;font-size:17px}.floating{bottom:82px}.container{padding-bottom:86px}.hero{min-height:430px}.progress-wrap{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.delivery-check{flex-direction:column}.delivery-check button{width:100%}.age-actions{grid-template-columns:1fr}.wish-item{grid-template-columns:60px 1fr auto}.wish-item img{width:60px;height:60px}.toast{bottom:82px}}
-</style>
-
-<script>
-/* GRO PRO UPGRADE — front-end enhancements only. Payment verification remains server/gateway work. */
-(function(){
-  const KEY_CART='groCartV2', KEY_WISH='groWishlist', KEY_AGE='groAgeVerified', KEY_ORDER='groLastOrder';
-  let discount=0, wishOpen=false;
-  const money=n=>'₹'+Number(n||0).toLocaleString('en-IN');
-  const $=id=>document.getElementById(id);
-  function toast(msg){let t=$('groToast');if(!t){t=document.createElement('div');t.id='groToast';t.className='toast';document.body.appendChild(t)}t.textContent=msg;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2300)}
-  function saveCart(){localStorage.setItem(KEY_CART,JSON.stringify(cart.map(x=>({id:x.product.id,qty:x.qty}))));}
-  function restoreCart(){try{const raw=JSON.parse(localStorage.getItem(KEY_CART)||'[]');cart=raw.map(x=>({product:PRODUCTS[x.id],qty:Math.max(1,Math.min(20,Number(x.qty)||1))})).filter(x=>x.product)}catch(e){cart=[]}updateCartCount()}
-  function wishlistIds(){try{return JSON.parse(localStorage.getItem(KEY_WISH)||'[]')}catch(e){return []}}
-  function isWish(id){return wishlistIds().includes(id)}
-
-  // Replace alert-heavy cart behavior with persistent cart + toast.
-  window.addCart=function(){
-    if(!current)return;
-    const item=cart.find(x=>x.product.id===current.id);
-    if(item)item.qty=Math.min(20,item.qty+quantity);else cart.push({product:current,qty:quantity});
-    saveCart();updateCartCount();toast('Added to cart ✓');
-  };
-  window.cartQty=function(i,n){if(!cart[i])return;cart[i].qty+=n;if(cart[i].qty<1)cart.splice(i,1);if(cart[i])cart[i].qty=Math.min(20,cart[i].qty);saveCart();updateCartCount();renderCart()};
-  window.removeCart=function(i){cart.splice(i,1);saveCart();updateCartCount();renderCart();toast('Removed from cart')};
-
-  const oldCard=window.card;
-  window.card=function(p){
-    const discountPct=Math.round((1-p.price/p.old)*100);
-    return `<div class="card product">
-      <div class="product-img"><span class="sale">-${discountPct}%</span>
-      <span class="product-badge">18+ ADULT</span>
-      <button class="wishlist" aria-label="Wishlist" onclick="event.stopPropagation();wishlist('${p.id}')">${isWish(p.id)?'♥':'♡'}</button>
-      <img loading="lazy" src="${p.images[0]}" alt="${p.name}" onerror="this.style.display='none'"></div>
-      <div class="product-body"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div class="stars">★★★★★</div><span class="rating-pill">4.8 ★</span></div>
-      <div class="product-name">${p.name}</div><div class="product-price"><span class="old">${money(p.old)}</span>${money(p.price)}</div>
-      <div class="save-note">Save ${money(p.old-p.price)}</div><div class="product-meta">🚚 Serviceable delivery • 🔐 Secure checkout</div>
-      <div class="product-actions"><button class="btn outline" onclick="openProduct('${p.id}')">VIEW</button><button class="btn yellow" onclick="quickBuy('${p.id}')">BUY NOW</button></div></div></div>`;
-  };
-
-  window.wishlist=function(id){let a=wishlistIds();a=a.includes(id)?a.filter(x=>x!==id):a.concat(id);localStorage.setItem(KEY_WISH,JSON.stringify(a));render();toast(a.includes(id)?'Added to wishlist ♥':'Removed from wishlist');};
-  function renderWishlist(){const a=wishlistIds(),items=a.map(id=>PRODUCTS[id]).filter(Boolean);const body=items.length?items.map(p=>`<div class="wish-item"><img src="${p.images[0]}" alt="${p.name}"><div><strong>${p.name}</strong><div>${money(p.price)}</div><button class="btn outline" style="margin-top:7px;padding:7px 10px" onclick="openProduct('${p.id}');closeWish()">View</button></div><button class="btn danger" style="padding:7px 10px" onclick="wishlist('${p.id}');openWish()">×</button></div>`).join(''):`<div style="text-align:center;padding:45px 10px"><h3>No saved products</h3><p class="muted">Tap ♡ on a product to save it here.</p></div>`;return body}
-  window.openWish=function(){let d=$('wishDrawer');if(!d){d=document.createElement('div');d.id='wishDrawer';d.className='wish-drawer';d.innerHTML=`<div class="wish-panel"><div class="wish-head"><h2>Wishlist</h2><button class="close" onclick="closeWish()">×</button></div><div id="wishBody"></div></div>`;d.addEventListener('click',e=>{if(e.target===d)closeWish()});document.body.appendChild(d)}$('wishBody').innerHTML=renderWishlist();d.classList.add('show');wishOpen=true};
-  window.closeWish=function(){const d=$('wishDrawer');if(d)d.classList.remove('show');wishOpen=false};
-
-  function addAgeGate(){if(localStorage.getItem(KEY_AGE)==='yes')return;const g=document.createElement('div');g.className='age-gate';g.id='ageGate';g.innerHTML=`<div class="age-box"><div class="age-icon">🔞</div><h2>Adults Only</h2><p>This store contains adult wellness products. You must be 18 years or older to enter.</p><div class="age-actions"><button class="btn primary" onclick="verifyAge()">I am 18+</button><button class="btn outline" onclick="leaveStore()">Exit</button></div><small class="muted" style="display:block;margin-top:14px">By entering, you confirm you meet the minimum age requirement.</small></div>`;document.body.appendChild(g)}
-  window.verifyAge=function(){localStorage.setItem(KEY_AGE,'yes');$('ageGate')?.remove();toast('Welcome to GRO')};
-  window.leaveStore=function(){document.body.innerHTML='<div style="min-height:100vh;display:grid;place-items:center;font-family:Arial;padding:20px;text-align:center"><div><h2>Access restricted</h2><p>Please return when you meet the minimum age requirement.</p></div></div>'};
-
-  function addMobileNav(){if($('groMobileNav'))return;const n=document.createElement('nav');n.id='groMobileNav';n.className='mobile-nav';n.innerHTML=`<button onclick="show('home')"><strong>⌂</strong>Home</button><button onclick="show('shop')"><strong>▦</strong>Shop</button><button onclick="openWish()"><strong>♥</strong>Wishlist</button><button onclick="showCart()"><strong>🛒</strong>Cart</button>`;document.body.appendChild(n)}
-  function addWishHeader(){const tools=document.querySelector('.header-tools');if(tools&&!$('wishHeaderBtn')){const b=document.createElement('button');b.id='wishHeaderBtn';b.className='header-tool';b.innerHTML='♥ Saved';b.onclick=openWish;tools.insertBefore(b,tools.lastElementChild)}}
-  function addDeliveryChecker(){const info=document.querySelector('#detail .detail-info .info-box');if(info&&!$('deliveryChecker')){const d=document.createElement('div');d.id='deliveryChecker';d.innerHTML=`<div class="delivery-check"><input id="checkPin" inputmode="numeric" maxlength="6" placeholder="Enter pincode"><button class="btn outline" onclick="checkDelivery()">Check</button></div><div id="pinMsg" class="muted" style="font-size:12px;margin-top:6px"></div>`;info.appendChild(d)}}
-  window.checkDelivery=function(){const p=$('checkPin')?.value.trim();const m=$('pinMsg');if(!m)return;if(!/^\d{6}$/.test(p)){m.textContent='Enter a valid 6-digit pincode.';m.style.color='#dc2626';return}m.textContent='Pincode accepted for serviceability check. Final availability is confirmed by courier at order processing.';m.style.color='#15803d'};
-
-  // Coupon: demo front-end discount only; final pricing should be revalidated server-side.
-  function injectCoupon(){const sum=$('checkoutSummary');if(sum&&!$('couponBox')){const d=document.createElement('div');d.innerHTML=`<div id="couponBox" class="coupon-box"><input id="coupon" maxlength="20" placeholder="COUPON CODE"><button class="btn outline" onclick="applyCoupon()">APPLY</button></div><div id="couponMsg" class="coupon-msg muted"></div>`;sum.appendChild(d)}}
-  window.applyCoupon=function(){const c=($('coupon')?.value||'').trim().toUpperCase();if(c==='GRO10'){discount=Math.min(500,Math.round(order.total*.10));$('couponMsg').textContent='Coupon applied: '+money(discount)+' off';$('couponMsg').style.color='#15803d'}else{discount=0;$('couponMsg').textContent='Invalid coupon code';$('couponMsg').style.color='#dc2626'}renderCheckoutSummary()};
-  function renderCheckoutSummary(){const sum=$('checkoutSummary');if(!sum)return;const subtotal=cart.reduce((s,x)=>s+x.product.price*x.qty,0);order.total=subtotal;const final=Math.max(0,subtotal-discount);sum.innerHTML=`<h2>Order Summary</h2>${cart.map(x=>`<div class="summary-row"><span>${x.product.name} × ${x.qty}</span><strong>${money(x.product.price*x.qty)}</strong></div>`).join('')}<div class="summary-row"><span>Subtotal</span><strong>${money(subtotal)}</strong></div>${discount?`<div class="summary-row"><span>Discount</span><strong style="color:#15803d">−${money(discount)}</strong></div>`:''}<div class="summary-row total"><span>Total</span><strong>${money(final)}</strong></div>`;injectCoupon()}
-
-  // Enhance checkout flow with step indicator and persistent form values.
-  const oldPrepare=window.prepareCheckout;
-  window.prepareCheckout=function(){oldPrepare();discount=0;renderCheckoutSummary();const c=$('checkout');if(c&&!$('checkoutProgress')){const pr=document.createElement('div');pr.id='checkoutProgress';pr.className='progress-wrap';pr.innerHTML='<div class="progress-step active">1. Address</div><div class="progress-step">2. Payment</div><div class="progress-step">3. Verify</div><div class="progress-step">4. Done</div>';c.querySelector('.container').prepend(pr)}};
-  const oldGoPayment=window.goPayment;
-  window.goPayment=function(){oldGoPayment();const p=$('checkoutProgress');if(p)p.innerHTML='<div class="progress-step done">✓ Address</div><div class="progress-step active">2. Payment</div><div class="progress-step">3. Verify</div><div class="progress-step">4. Done</div>';};
-
-  // Better payment display: coupon-aware total, while preserving the original UPI flow.
-  const oldRenderPayment=window.renderPayment;
-  window.renderPayment=function(){order.total=Math.max(0,cart.reduce((s,x)=>s+x.product.price*x.qty,0)-discount);oldRenderPayment();if(discount){const note=document.createElement('div');note.className='payment-note';note.innerHTML='<strong>Discount applied:</strong> '+money(discount)+' off';$('paymentSummary').prepend(note)}};
-
-  // Local order persistence for this browser only. It does not create server-side tracking.
-  const oldShowSuccess=window.showSuccess;
-  window.showSuccess=function(){localStorage.setItem(KEY_ORDER,JSON.stringify(order));oldShowSuccess();const p=$('checkoutProgress');if(p)p.innerHTML='<div class="progress-step done">✓ Address</div><div class="progress-step done">✓ Payment</div><div class="progress-step done">✓ Verify</div><div class="progress-step active">4. Done</div>';saveCart();};
-  const oldTrack=window.trackOrder;
-  window.trackOrder=function(){const id=$('trackId')?.value.trim();const saved=JSON.parse(localStorage.getItem(KEY_ORDER)||'null');if(saved&&id===saved.id){$('trackingResult').innerHTML=`<div class="timeline"><div class="step done"><div class="step-icon">✓</div><div><h4>Order Placed</h4><p>${saved.id}</p></div></div><div class="step done"><div class="step-icon">✓</div><div><h4>Payment Status</h4><p>${saved.status}</p></div></div><div class="step"><div class="step-icon">3</div><div><h4>Processing</h4><p>Order will move forward after verification.</p></div></div><div class="step"><div class="step-icon">4</div><div><h4>Shipped</h4><p>Courier handover.</p></div></div><div class="step"><div class="step-icon">5</div><div><h4>Delivered</h4><p>Delivery confirmation.</p></div></div></div>`}else oldTrack()};
-
-  // Search now supports category keywords and empty-state message.
-  const oldSearch=window.searchProducts;
-  window.searchProducts=function(){const q=($('search')?.value||'').toLowerCase().trim();const list=Object.values(PRODUCTS).filter(p=>[p.name,p.description,p.category].join(' ').toLowerCase().includes(q));$('shopProducts').innerHTML=list.length?list.map(card).join(''):`<div class="card" style="grid-column:1/-1;padding:45px;text-align:center"><h2>No products found</h2><p class="muted">Try Ultimate, Supreme+, DoubleDeck or clear the search.</p></div>`;show('shop')};
-
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeWish();closeModal()}});
-  window.addEventListener('load',()=>{restoreCart();addMobileNav();addWishHeader();addAgeGate();});
-  // Keep the existing product detail hook and add the delivery checker after it runs.
-  const oldOpenProduct=window.openProduct;
-  window.openProduct=function(id){oldOpenProduct(id);setTimeout(addDeliveryChecker,0)};
-  // Persist address fields while typing, useful on mobile refreshes.
-  ['name','mobile','address','pin'].forEach(id=>document.addEventListener('input',e=>{if(e.target.id===id)localStorage.setItem('gro_'+id,e.target.value)}));
-})();
-</script>
-
-
-<script id="gro-advanced-js">
-/* ===== GRO ADVANCED LAYER — additive enhancements ===== */
-(function(){
-  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-
-  // Persistent cart + order snapshot; does not alter existing data structures.
-  try{
-    const saved=JSON.parse(localStorage.getItem("groCartAdvanced")||"null");
-    if(Array.isArray(saved)&&saved.length){
-      const restored=[];
-      saved.forEach(x=>{
-        if(x && x.id && PRODUCTS[x.id]){
-          restored.push({product:PRODUCTS[x.id],qty:Math.max(1,Math.min(20,Number(x.qty)||1))});
-        }
-      });
-      if(restored.length){ cart=restored; updateCartCount(); }
-    }
-  }catch(e){}
-
-  const persist=()=>{
-    try{localStorage.setItem("groCartAdvanced",JSON.stringify(cart.map(x=>({id:x.product.id,qty:x.qty})))}catch(e){}
-  };
-
-  // Wrap existing cart mutations without changing their behavior.
-  const oldAddCart=window.addCart;
-  if(typeof oldAddCart==="function") window.addCart=function(){oldAddCart();persist()};
-  const oldCartQty=window.cartQty;
-  if(typeof oldCartQty==="function") window.cartQty=function(i,n){oldCartQty(i,n);persist()};
-  const oldRemoveCart=window.removeCart;
-  if(typeof oldRemoveCart==="function") window.removeCart=function(i){oldRemoveCart(i);persist()};
-
-  // Product stock labels (visual only).
-  function addStockLabels(){
-    $$(".product").forEach(card=>{
-      if(!$(".gro-adv-stock",card)){
-        const el=document.createElement("div");
-        el.className="gro-adv-stock";
-        el.textContent="● Available — Ready to order";
-        $(".product-body",card)?.appendChild(el);
-      }
-    });
-  }
-  const oldRender=window.render;
-  if(typeof oldRender==="function"){
-    window.render=function(list){oldRender(list);setTimeout(addStockLabels,0)};
-  }
-  setTimeout(addStockLabels,100);
-
-  // Recently viewed.
-  function viewed(id){
-    try{
-      let a=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]");
-      a=[id,...a.filter(x=>x!==id)].slice(0,5);
-      localStorage.setItem("groRecentlyViewed",JSON.stringify(a));
-    }catch(e){}
-  }
-  const oldOpen=window.openProduct;
-  if(typeof oldOpen==="function"){
-    window.openProduct=function(id){viewed(id);oldOpen(id)};
-  }
-
-  // Keyboard accessibility for modal and quick navigation.
-  document.addEventListener("keydown",e=>{
-    if(e.key==="Escape" && typeof closeModal==="function") closeModal();
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
-      e.preventDefault();
-      const s=$("#search"); if(s){show("shop");s.focus()}
-    }
-  });
-
-  // Back-to-top.
-  const back=$("#groAdvBack");
-  const toggleBack=()=>back?.classList.toggle("show",scrollY>500);
-  addEventListener("scroll",toggleBack,{passive:true});
-  back?.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
-
-  // Checkout progress indicator, injected only when checkout/payment screens are active.
-  function progress(screen){
-    const el=screen==="checkout"?$("#checkoutProgress"):$("#paymentProgress");
-    if(!el)return;
-    const step=screen==="checkout"?2:3;
-    el.innerHTML=`<div style="font-size:12px;font-weight:800">STEP ${step} OF 4</div>
-      <div class="gro-adv-progress"><span style="width:${step*25}%"></span></div>`;
-  }
-  const oldPrepare=window.prepareCheckout;
-  if(typeof oldPrepare==="function"){
-    window.prepareCheckout=function(){oldPrepare();progress("checkout")};
-  }
-  const oldGoPayment=window.goPayment;
-  if(typeof oldGoPayment==="function"){
-    window.goPayment=function(){oldGoPayment();progress("payment")};
-  }
-
-  // Add trust strip to home once.
-  function trust(){
-    const home=$("#home");
-    if(!home||$("#groAdvTrust"))return;
-    const box=document.createElement("div");
-    box.id="groAdvTrust";box.className="gro-adv-trust container";
-    box.innerHTML=`
-      <div><b>🔐 Secure Checkout</b><small>Protected checkout experience</small></div>
-      <div><b>📦 Discreet Delivery</b><small>Privacy-focused packaging</small></div>
-      <div><b>🚚 Serviceable Delivery</b><small>Availability depends on pincode</small></div>
-      <div><b>💬 Customer Support</b><small>Direct support when you need it</small></div>`;
-    home.appendChild(box);
-  }
-  setTimeout(trust,150);
-
-  // Helpful recent-order message after success.
-  const oldSuccess=window.showSuccess;
-  if(typeof oldSuccess==="function"){
-    window.showSuccess=function(){
-      oldSuccess();
-      const r=$("#groAdvRecent");
-      if(r){
-        r.textContent=`Order ${order.id} is ready. Keep your Order ID for tracking.`;
-        r.classList.add("show");
-        setTimeout(()=>r.classList.remove("show"),6500);
-      }
-    };
-  }
-
-  // Preserve state after reload.
-  try{
-    const last=JSON.parse(localStorage.getItem("groLastOrderAdvanced")||"null");
-    if(last && last.id) window.groLastOrder=last;
-  }catch(e){}
-  const oldWhats=window.whatsappOrder;
-  if(typeof oldWhats==="function"){
-    window.whatsappOrder=function(){
-      try{localStorage.setItem("groLastOrderAdvanced",JSON.stringify(order))}catch(e){}
-      oldWhats();
-    };
-  }
-
-  // Online/offline indicator.
-  addEventListener("online",()=>document.body.classList.remove("gro-offline"));
-  addEventListener("offline",()=>document.body.classList.add("gro-offline"));
-})();
-</script>
-
-
-<script id="gro-ultimate-js">
-/* ===== GRO ULTIMATE ADDITIVE LAYER ===== */
-(function(){
-  const $=(s,r=document)=>r.querySelector(s);
-  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
-  const toast=(m)=>{const t=$("#groUToast");if(!t)return;t.textContent=m;t.classList.add("show");clearTimeout(window.__groUT);window.__groUT=setTimeout(()=>t.classList.remove("show"),2600)};
-
-  window.groUClose=()=>$("#groUOverlay")?.classList.remove("show");
-  window.groUOpen=function(type){
-    const o=$("#groUOverlay"), title=$("#groUTitle"), body=$("#groUBody"); if(!o||!body)return;
-    let h="";
-    if(type==="wishlist"){
-      title.textContent="♡ Wishlist";
-      let ids=[];try{ids=JSON.parse(localStorage.getItem("groWishlist")||"[]")}catch(e){}
-      const items=ids.map(id=>PRODUCTS[id]).filter(Boolean);
-      h=items.length?items.map(p=>`
-        <div class="gro-u-wish-item">
-          <img src="${esc(p.images[0])}" alt="">
-          <div class="gro-u-item-main"><b>${esc(p.name)}</b><span class="gro-u-muted">₹${p.price.toLocaleString("en-IN")}</span></div>
-          <button class="gro-u-btn primary" onclick="openProduct('${p.id}');groUClose()">VIEW</button>
-        </div>`).join(""):`<div class="gro-adv-empty">Your wishlist is empty.</div>`;
-    } else if(type==="recent"){
-      title.textContent="↺ Recently Viewed";
-      let ids=[];try{ids=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]")}catch(e){}
-      const items=ids.map(id=>PRODUCTS[id]).filter(Boolean);
-      h=items.length?items.map(p=>`
-        <div class="gro-u-recent-item">
-          <img src="${esc(p.images[0])}" alt="">
-          <div class="gro-u-item-main"><b>${esc(p.name)}</b><span class="gro-u-muted">₹${p.price.toLocaleString("en-IN")}</span></div>
-          <button class="gro-u-btn primary" onclick="openProduct('${p.id}');groUClose()">VIEW</button>
-        </div>`).join(""):`<div class="gro-adv-empty">No recently viewed products yet.</div>`;
-    } else {
-      title.textContent="ⓘ Store Information";
-      h=`<div class="gro-u-grid">
-        <div class="gro-u-card"><b>🔐 Secure Checkout</b><span class="gro-u-muted">Checkout flow with payment-status messaging.</span></div>
-        <div class="gro-u-card"><b>📦 Discreet Delivery</b><span class="gro-u-muted">Privacy-focused delivery experience.</span></div>
-        <div class="gro-u-card"><b>💬 Support</b><span class="gro-u-muted">Direct customer support through the existing contact buttons.</span></div>
-        <div class="gro-u-card"><b>🔞 18+ Only</b><span class="gro-u-muted">This store is intended for adult customers.</span></div>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo">GRO <span>Extender</span></a>
+
+      <nav class="desktop-nav">
+        <a href="#home">হোম</a>
+        <a href="#shop">শপ</a>
+        <a href="#tracking">ট্র্যাক অর্ডার</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
+        <button class="icon-btn" id="wishlistBtn" title="Wishlist">
+          ♡ <small class="badge-count" id="wishCount">0</small>
+        </button>
+        <button class="icon-btn" id="cartBtn" title="Cart">
+          🛒 <small class="badge-count" id="cartCount">0</small>
+        </button>
       </div>
-      <div class="gro-u-bar"><span class="gro-u-badge ok">● Store Online</span><span class="gro-u-badge">India</span></div>`;
-    }
-    body.innerHTML=h;o.classList.add("show");
-  };
+    </div>
+  </header>
 
-  // Enhanced wishlist feedback, preserving original behavior.
-  const oldWish=window.wishlist;
-  if(typeof oldWish==="function")window.wishlist=function(id){
-    oldWish(id); toast("Wishlist updated");
-  };
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h1>তোর দৈনন্দিন লাইফস্টাইলের Smart Upgrade</h1>
+        <p>
+          ভালো মানের trending products, দ্রুত ডেলিভারি এবং সহজ অর্ডারিং—
+          সবকিছু একসাথে GRO Extender-এ।
+        </p>
+        <a href="#shop" class="btn btn-light">এখনই শপ করুন →</a>
+      </div>
+    </section>
 
-  // Add "copy order ID" affordance after success without changing existing success content.
-  const oldSuccess=window.showSuccess;
-  if(typeof oldSuccess==="function")window.showSuccess=function(){
-    oldSuccess();
-    const box=$("#successDetails");
-    if(box && order.id && !$("#groCopyOrder")){
-      const d=document.createElement("div");d.className="gro-u-copy";d.id="groCopyOrder";
-      d.innerHTML=`<b>Order ID</b><br>${esc(order.id)} <button class="gro-u-btn" style="float:right;padding:5px 8px" onclick="groUCopy('${esc(order.id)}')">COPY</button>`;
-      box.appendChild(d);
-    }
-  };
-  window.groUCopy=async function(v){
-    try{await navigator.clipboard.writeText(v);toast("Order ID copied")}catch(e){toast(v)}
-  };
-
-  // Smart cart notice.
-  const oldAdd=window.addCart;
-  if(typeof oldAdd==="function")window.addCart=function(){oldAdd();toast("Added to cart")};
-
-  // Pincode UX helper: visual validation only; does not claim live courier coverage.
-  window.groUPinCheck=function(){
-    const p=$("#pin")?.value.trim();
-    if(!/^\d{6}$/.test(p)){toast("Enter a valid 6-digit pincode");return}
-    toast("Pincode format verified. Final serviceability depends on courier coverage.");
-  };
-
-  // Add a pincode helper next to checkout pin input when present.
-  function pinUI(){
-    const p=$("#pin");if(!p||$("#groPinCheck"))return;
-    const b=document.createElement("button");b.id="groPinCheck";b.type="button";b.className="gro-u-btn";
-    b.textContent="CHECK PIN";b.style.marginTop="7px";b.onclick=groUPinCheck;
-    p.parentElement?.appendChild(b);
-  }
-  setTimeout(pinUI,200);
-
-  // Save a lightweight analytics-free session marker.
-  try{
-    sessionStorage.setItem("groSessionStarted",String(Date.now()));
-  }catch(e){}
-
-  // Make images safer/faster without replacing existing sources.
-  function imgTune(){
-    document.querySelectorAll("img").forEach((im,i)=>{
-      if(i>2)im.loading="lazy";
-      im.decoding="async";
-    });
-  }
-  setTimeout(imgTune,250);
-
-  // Network state toast.
-  addEventListener("offline",()=>toast("You are offline. Some features may be unavailable."));
-  addEventListener("online",()=>toast("Connection restored."));
-})();
-</script>
-
-
-<script id="gro-pro-js">
-/* ===== GRO PROFESSIONAL ENGINE — additive, no existing feature removed ===== */
-(function(){
-  const $=(s,r=document)=>r.querySelector(s);
-  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":">","\"":"&quot;","'":"&#39;"}[m]));
-
-  function productsCount(){
-    try{return Object.keys(PRODUCTS||{}).length}catch(e){return 0}
-  }
-  function cartQty(){
-    try{return (cart||[]).reduce((n,x)=>n+(Number(x.qty)||0),0)}catch(e){return 0}
-  }
-  function wishlistCount(){
-    try{return JSON.parse(localStorage.getItem("groWishlist")||"[]").length}catch(e){return 0}
-  }
-  function recentCount(){
-    try{return JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]").length}catch(e){return 0}
-  }
-  function cartValue(){
-    try{return (cart||[]).reduce((n,x)=>n+(x.product.price*x.qty),0)}catch(e){return 0}
-  }
-
-  window.groPFPanel=function(type){
-    const p=$("#groPFPanel"); if(!p)return;
-    p.classList.add("show");
-    if(type==="dashboard"){
-      p.innerHTML=`
-        <div class="gro-pf-label">Store overview</div>
-        <div class="gro-pf-stats">
-          <div class="gro-pf-stat"><span class="gro-pf-label">Products</span><strong>${productsCount()}</strong></div>
-          <div class="gro-pf-stat"><span class="gro-pf-label">Cart items</span><strong>${cartQty()}</strong></div>
-          <div class="gro-pf-stat"><span class="gro-pf-label">Wishlist</span><strong>${wishlistCount()}</strong></div>
-          <div class="gro-pf-stat"><span class="gro-pf-label">Cart value</span><strong>₹${cartValue().toLocaleString("en-IN")}</strong></div>
+    <section class="section">
+      <div class="container features">
+        <div class="feature-card">
+          <div class="feature-icon">🚚</div>
+          <h3>Fast Delivery</h3>
+          <p>নির্বাচিত এলাকায় দ্রুত ডেলিভারি।</p>
         </div>
-        <div class="gro-pf-notice">Your shopping data is stored locally in this browser for the existing convenience features.</div>`;
-    }else{
-      let recent=[];try{recent=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]")}catch(e){}
-      p.innerHTML=`
-        <div class="gro-pf-label">Recent activity</div>
-        <table class="gro-pf-table">
-          <thead><tr><th>Item</th><th>Status</th></tr></thead>
-          <tbody>${recent.map(id=>{
-            const x=PRODUCTS?.[id]; return x?`<tr><td>${esc(x.name)}</td><td><span class="gro-pf-mini">Viewed</span></td></tr>`:"";
-          }).join("")||`<tr><td colspan="2" class="gro-pf-empty">No recent activity.</td></tr>`}</tbody>
-        </table>`;
-    }
-  };
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure Order</h3>
+          <p>আপনার তথ্য নিরাপদ রাখার চেষ্টা করা হয়।</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">↩️</div>
+          <h3>Easy Support</h3>
+          <p>অর্ডার সংক্রান্ত সহায়তা WhatsApp-এ।</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>Quality Products</h3>
+          <p>বাছাই করা পণ্যের কালেকশন।</p>
+        </div>
+      </div>
+    </section>
 
-  window.groPFSearch=function(){
-    const q=($("#groQuickSearch")?.value||"").trim().toLowerCase();
-    if(!q){ if(typeof show==="function")show("shop"); return; }
-    const list=Object.values(PRODUCTS||{}).filter(p=>
-      String(p.name).toLowerCase().includes(q) ||
-      String(p.description||"").toLowerCase().includes(q) ||
-      String(p.category||"").toLowerCase().includes(q)
-    );
-    const target=$("#shopProducts");
-    if(target && typeof card==="function"){
-      target.innerHTML=list.length?list.map(card).join(""):`<div class="gro-pf-empty">No matching products found.</div>`;
-      if(typeof show==="function")show("shop");
-    }
-  };
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Products</h2>
+          <p>আজকের সেরা পণ্যগুলো দেখে নাও</p>
+        </div>
 
-  // Professional keyboard command.
-  document.addEventListener("keydown",e=>{
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
-      e.preventDefault();
-      const q=$("#groQuickSearch"); q?.focus(); q?.select();
-    }
-    if(e.key==="/" && !["INPUT","TEXTAREA"].includes(document.activeElement?.tagName)){
-      e.preventDefault();$("#groQuickSearch")?.focus();
-    }
-  });
+        <div class="shop-toolbar">
+          <div class="search-box">
+            <input id="searchInput" type="search" placeholder="পণ্যের নাম দিয়ে সার্চ করুন..." />
+            <div id="autocomplete" class="autocomplete hidden"></div>
+          </div>
 
-  // Dynamic dashboard refresh without touching the original cart/render logic.
-  setInterval(()=>{
-    const panel=$("#groPFPanel");
-    if(panel?.classList.contains("show")){
-      const title=panel.querySelector(".gro-pf-label")?.textContent||"";
-      groPFPanel(title==="Store overview"?"dashboard":"recent");
-    }
-  },2500);
+          <select id="categoryFilter" class="field input" style="width:auto;padding:12px;">
+            <option value="all">সব ক্যাটাগরি</option>
+            <option value="Personal Care">Personal Care</option>
+            <option value="Gadget">Gadget</option>
+            <option value="Home">Home</option>
+            <option value="Fitness">Fitness</option>
+          </select>
 
-  // Add professional accessibility labels to icon-only controls.
-  document.querySelectorAll("button").forEach((b,i)=>{
-    if(!b.getAttribute("aria-label") && !b.textContent.trim()) b.setAttribute("aria-label","Store action "+(i+1));
-  });
+          <select id="sortFilter" style="padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);">
+            <option value="default">Sort: Default</option>
+            <option value="low">দাম কম থেকে বেশি</option>
+            <option value="high">দাম বেশি থেকে কম</option>
+            <option value="rating">Rating অনুযায়ী</option>
+          </select>
+        </div>
 
-  // Preserve current page position when navigating within the SPA.
-  const oldShow=window.show;
-  if(typeof oldShow==="function"){
-    window.show=function(id){
-      oldShow(id);
-      requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"smooth"}));
+        <div id="productsGrid" class="products-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="tracking">
+      <div class="container">
+        <div class="section-title">
+          <h2>অর্ডার ট্র্যাক করুন</h2>
+          <p>আপনার Order ID দিয়ে status দেখুন</p>
+        </div>
+
+        <div class="card tracking-box">
+          <div class="tracking-form">
+            <input id="trackingInput" placeholder="যেমন: GRO-20260820-1234" />
+            <button class="btn btn-primary" id="trackingBtn">Track</button>
+          </div>
+          <div class="tracking-result" id="trackingResult"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>সাধারণ প্রশ্ন</h2>
+        </div>
+
+        <div class="card faq">
+          <details>
+            <summary>কীভাবে অর্ডার করব?</summary>
+            <p>পণ্য নির্বাচন করে Add to Cart অথবা Buy Now চাপুন। এরপর আপনার নাম, ফোন এবং ঠিকানা দিন।</p>
+          </details>
+          <details>
+            <summary>COD কি available?</summary>
+            <p>হ্যাঁ, serviceable pincode-এ Cash on Delivery available হতে পারে।</p>
+          </details>
+          <details>
+            <summary>UPI payment কীভাবে কাজ করে?</summary>
+            <p>UPI app খুলে payment করতে পারবেন। Payment reference/UTR নম্বর দিলে order review করা হবে।</p>
+          </details>
+          <details>
+            <summary>ডেলিভারি কত দিনে হয়?</summary>
+            <p>সাধারণত 3–7 working days। দূরবর্তী এলাকায় সময় কিছুটা বেশি হতে পারে।</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>GRO Extender</h3>
+        <p>Smart lifestyle products-এর জন্য একটি modern online store.</p>
+        <p style="margin-top:10px;">📍 Rampur Hat, West Bengal, India</p>
+        <p>📞 +91 90000 00000</p>
+        <p>✉️ support@groextender.in</p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#home">হোম</a>
+        <a href="#shop">শপ</a>
+        <a href="#tracking">Order Tracking</a>
+        <a href="#" data-policy="terms">Terms & Conditions</a>
+      </div>
+
+      <div>
+        <h3>Policies</h3>
+        <a href="#" data-policy="privacy">Privacy Policy</a>
+        <a href="#" data-policy="shipping">Shipping Policy</a>
+        <a href="#" data-policy="refund">Refund Policy</a>
+        <a href="#" data-policy="contact">Contact & Grievance</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      © 2026 GRO Extender. All rights reserved.
+    </div>
+  </footer>
+
+  <div class="bottom-nav">
+    <button onclick="location.hash='home'"><span>⌂</span>হোম</button>
+    <button onclick="location.hash='shop'"><span>🛍️</span>শপ</button>
+    <button onclick="openWishlist()"><span>♡</span>Wishlist</button>
+    <button onclick="openCart()"><span>🛒</span>Cart</button>
+  </div>
+
+  <div id="modalBg" class="modal-bg">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div id="toastWrap" class="toast-wrap"></div>
+
+  <script>
+    const STORE = {
+      name: "GRO Extender",
+      upiId: "yourupi@upi",
+      merchantName: "GRO Extender",
+      whatsapp: "919000000000"
     };
-  }
-})();
-</script>
 
+    const products = [
+      {
+        id: 1,
+        name: "Premium Hair Growth Serum",
+        category: "Personal Care",
+        price: 499,
+        oldPrice: 699,
+        rating: 4.7,
+        reviews: 128,
+        stock: 18,
+        badge: "Best Seller",
+        image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80",
+        description: "হালকা texture-এর daily-use hair serum।"
+      },
+      {
+        id: 2,
+        name: "Smart Fitness Band",
+        category: "Gadget",
+        price: 899,
+        oldPrice: 1299,
+        rating: 4.4,
+        reviews: 87,
+        stock: 7,
+        badge: "Limited",
+        image: "https://images.unsplash.com/photo-1557935728-e6d1eaabe558?auto=format&fit=crop&w=800&q=80",
+        description: "Activity tracking, step count এবং basic notifications."
+      },
+      {
+        id: 3,
+        name: "Portable Mini Blender",
+        category: "Home",
+        price: 1199,
+        oldPrice: 1599,
+        rating: 4.6,
+        reviews: 64,
+        stock: 24,
+        badge: "New",
+        image: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=800&q=80",
+        description: "Smoothie ও juice তৈরির জন্য compact rechargeable blender."
+      },
+      {
+        id: 4,
+        name: "Adjustable Resistance Bands",
+        category: "Fitness",
+        price: 649,
+        oldPrice: 899,
+        rating: 4.5,
+        reviews: 91,
+        stock: 31,
+        badge: "Best Seller",
+        image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&w=800&q=80",
+        description: "বাড়িতে workout-এর জন্য multiple resistance levels."
+      },
+      {
+        id: 5,
+        name: "LED Desk Lamp",
+        category: "Home",
+        price: 799,
+        oldPrice: 1099,
+        rating: 4.3,
+        reviews: 52,
+        stock: 11,
+        badge: "New",
+        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
+        description: "Study ও work desk-এর জন্য adjustable LED lamp."
+      },
+      {
+        id: 6,
+        name: "Cooling Face Roller",
+        category: "Personal Care",
+        price: 299,
+        oldPrice: 449,
+        rating: 4.2,
+        reviews: 43,
+        stock: 35,
+        badge: "Trending",
+        image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
+        description: "Daily skincare routine-এর জন্য reusable face roller."
+      },
+      {
+        id: 7,
+        name: "Wireless Neckband",
+        category: "Gadget",
+        price: 749,
+        oldPrice: 999,
+        rating: 4.1,
+        reviews: 76,
+        stock: 9,
+        badge: "Limited",
+        image: "https://images.unsplash.com/photo-1578319439584-104c94d37305?auto=format&fit=crop&w=800&q=80",
+        description: "Long battery backup সহ lightweight wireless neckband."
+      },
+      {
+        id: 8,
+        name: "Stainless Steel Water Bottle",
+        category: "Fitness",
+        price: 449,
+        oldPrice: 599,
+        rating: 4.6,
+        reviews: 103,
+        stock: 28,
+        badge: "Best Seller",
+        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
+        description: "Leak-proof insulated bottle for everyday use."
+      }
+    ];
 
-<script id="gro-world-js">
-/* ===== GRO WORLD-CLASS ENGINE — additive only ===== */
-(function(){
-  const $=(s,r=document)=>r.querySelector(s);
-  const $$=(s,r=document)=>[...r.querySelectorAll(s)];
-  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
-  const toast=m=>{const t=$("#groWCToast");if(!t)return;t.textContent=m;t.classList.add("show");clearTimeout(window.__groWCToast);window.__groWCToast=setTimeout(()=>t.classList.remove("show"),2400)};
+    let cart = JSON.parse(localStorage.getItem("gro_cart") || "[]");
+    let wishlist = JSON.parse(localStorage.getItem("gro_wishlist") || "[]");
+    let viewed = JSON.parse(localStorage.getItem("gro_viewed") || "[]");
+    let appliedCoupon = null;
 
-  window.groWCSearch=function(){
-    const q=($("#groWorldSearch")?.value||"").trim().toLowerCase();
-    if(!q){ if(typeof show==="function")show("shop"); return; }
-    const list=Object.values(PRODUCTS||{}).filter(p=>
-      [p.name,p.category,p.description,p.short||""].join(" ").toLowerCase().includes(q)
-    );
-    const box=$("#shopProducts");
-    if(box && typeof card==="function"){
-      box.innerHTML=list.length?list.map(card).join(""):`<div class="gro-pf-empty">No matching products found.</div>`;
-      if(typeof show==="function")show("shop");
-      toast(list.length+" product"+(list.length===1?"":"s")+" found");
+    const money = value => `₹${Number(value).toLocaleString("en-IN")}`;
+
+    function saveState() {
+      localStorage.setItem("gro_cart", JSON.stringify(cart));
+      localStorage.setItem("gro_wishlist", JSON.stringify(wishlist));
+      localStorage.setItem("gro_viewed", JSON.stringify(viewed));
+      updateCounts();
     }
-  };
 
-  window.groWCFilter=function(type,btn){
-    $$(".gro-wc-pill").forEach(x=>x.classList.remove("active"));btn?.classList.add("active");
-    let list=Object.values(PRODUCTS||{});
-    if(type==="popular")list.sort((a,b)=>(b.rating||0)-(a.rating||0));
-    if(type==="low")list.sort((a,b)=>a.price-b.price);
-    if(type==="high")list.sort((a,b)=>b.price-a.price);
-    const box=$("#shopProducts");
-    if(box&&typeof card==="function"){box.innerHTML=list.map(card).join("");if(typeof show==="function")show("shop")}
-  };
-
-  window.groWCPanel=function(type){
-    const p=$("#groWCPanel");if(!p)return;p.classList.add("show");
-    if(type==="compare"){
-      let ids=[];try{ids=JSON.parse(localStorage.getItem("groCompare")||"[]")}catch(e){}
-      const items=ids.map(id=>PRODUCTS?.[id]).filter(Boolean);
-      p.innerHTML=`
-        <div class="gro-wc-label">Product comparison</div>
-        ${items.length?`<table class="gro-wc-compare"><thead><tr><th>Product</th><th>Price</th><th>Rating</th><th></th></tr></thead><tbody>
-        ${items.map(x=>`<tr><td>${esc(x.name)}</td><td>₹${x.price.toLocaleString("en-IN")}</td><td>★ ${x.rating||"—"}</td><td><button class="gro-wc-btn" onclick="openProduct('${esc(x.id)}');groWCPanelClose()">VIEW</button></td></tr>`).join("")}
-        </tbody></table>`:`<div class="gro-pf-empty">Add products to comparison from product cards.</div>`}`;
-    }else{
-      let viewed=0,wish=0,qty=0,value=0;
-      try{viewed=JSON.parse(localStorage.getItem("groRecentlyViewed")||"[]").length}catch(e){}
-      try{wish=JSON.parse(localStorage.getItem("groWishlist")||"[]").length}catch(e){}
-      try{qty=(cart||[]).reduce((n,x)=>n+(Number(x.qty)||0),0);value=(cart||[]).reduce((n,x)=>n+x.product.price*x.qty,0)}catch(e){}
-      p.innerHTML=`
-        <div class="gro-wc-label">Store insights</div>
-        <div class="gro-wc-grid">
-          <div class="gro-wc-card"><span class="gro-wc-label">Catalog</span><strong>${Object.keys(PRODUCTS||{}).length}</strong><span class="gro-wc-muted">Products available in this page</span></div>
-          <div class="gro-wc-card"><span class="gro-wc-label">Recently viewed</span><strong>${viewed}</strong><span class="gro-wc-muted">Saved locally</span></div>
-          <div class="gro-wc-card"><span class="gro-wc-label">Wishlist</span><strong>${wish}</strong><span class="gro-wc-muted">Saved locally</span></div>
-          <div class="gro-wc-card"><span class="gro-wc-label">Cart quantity</span><strong>${qty}</strong><span class="gro-wc-muted">Current browser cart</span></div>
-          <div class="gro-wc-card"><span class="gro-wc-label">Cart value</span><strong>₹${value.toLocaleString("en-IN")}</strong><span class="gro-wc-muted">Current subtotal</span></div>
-          <div class="gro-wc-card"><span class="gro-wc-label">Session</span><strong><span class="gro-wc-status"><i class="gro-wc-dot"></i> Active</span></strong><span class="gro-wc-muted">Current shopping session</span></div>
-        </div>`;
+    function updateCounts() {
+      document.getElementById("cartCount").textContent =
+        cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("wishCount").textContent = wishlist.length;
     }
-  };
-  window.groWCPanelClose=function(){$("#groWCPanel")?.classList.remove("show")};
 
-  // Local comparison toggle, exposed for future product-card buttons.
-  window.groWCToggleCompare=function(id){
-    let ids=[];try{ids=JSON.parse(localStorage.getItem("groCompare")||"[]")}catch(e){}
-    if(ids.includes(id))ids=ids.filter(x=>x!==id);
-    else{if(ids.length>=4){toast("Compare up to 4 products");return}ids.push(id)}
-    localStorage.setItem("groCompare",JSON.stringify(ids));toast(ids.includes(id)?"Added to compare":"Removed from compare");
-  };
-
-  // Global command shortcuts.
-  document.addEventListener("keydown",e=>{
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
-      e.preventDefault();const x=$("#groWorldSearch");x?.focus();x?.select();
+    function toast(message, type = "") {
+      const item = document.createElement("div");
+      item.className = `toast ${type}`;
+      item.textContent = message;
+      document.getElementById("toastWrap").appendChild(item);
+      setTimeout(() => item.remove(), 2800);
     }
-    if(e.key==="Escape")groWCPanelClose();
-  });
-  $("#groWorldSearch")?.addEventListener("keydown",e=>{if(e.key==="Enter")groWCSearch()});
 
-  // Keep the added professional panels current.
-  setInterval(()=>{
-    const p=$("#groWCPanel");
-    if(p?.classList.contains("show")){
-      const text=p.querySelector(".gro-wc-label")?.textContent||"";
-      groWCPanel(text==="Product comparison"?"compare":"insights");
+    function stars(rating) {
+      return "★".repeat(Math.round(rating)) + "☆".repeat(5 - Math.round(rating));
     }
-  },3000);
-})();
-</script>
 
+    function renderProducts() {
+      const search = document.getElementById("searchInput").value.toLowerCase().trim();
+      const category = document.getElementById("categoryFilter").value;
+      const sort = document.getElementById("sortFilter").value;
 
-<!-- ===== GRO CONTACT + ORDER NOTIFICATION LAYER ===== -->
-<div class="gro-contact-stack" aria-label="Contact GRO">
-  <a class="gro-contact-btn gro-wa" id="groWhatsApp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">☏</a>
-  <a class="gro-contact-btn gro-call" id="groCall" href="#" aria-label="Call">☎</a>
-</div>
+      let list = products.filter(product => {
+        const matchSearch =
+          product.name.toLowerCase().includes(search) ||
+          product.category.toLowerCase().includes(search);
 
-<script>
-/* CONFIG: replace these two values with your real business details */
-const GRO_BUSINESS_WHATSAPP = "919999999999";
-const GRO_BUSINESS_PHONE = "+919999999999";
-const GRO_BUSINESS_EMAIL = "yourbusiness@gmail.com";
+        const matchCategory =
+          category === "all" || product.category === category;
 
-document.getElementById("groWhatsApp").href =
-  "https://wa.me/" + GRO_BUSINESS_WHATSAPP + "?text=" +
-  encodeURIComponent("Hello GRO, I want to know more about your products.");
-document.getElementById("groCall").href = "tel:" + GRO_BUSINESS_PHONE;
+        return matchSearch && matchCategory;
+      });
 
-/* ===== INDIA PINCODE AUTO-FILL ===== */
-async function GRO_lookupPincode(pincode, stateField, districtField, cityField, statusField){
-  const pin = String(pincode || "").replace(/\D/g, "").slice(0,6);
-  const status = document.getElementById(statusField);
-  if(!status) return;
-  if(pin.length !== 6){ status.textContent=""; return; }
-  status.className="gro-pincode-status";
-  status.textContent="Finding location…";
-  try{
-    const res = await fetch("https://api.postalpincode.in/pincode/"+pin);
-    const data = await res.json();
-    const post = data?.[0]?.PostOffice?.[0];
-    if(!post) throw new Error("Invalid PIN");
-    const set=(id,val)=>{const el=document.getElementById(id);if(el)el.value=val||"";};
-    set(stateField,post.State);
-    set(districtField,post.District);
-    set(cityField,post.Name);
-    status.textContent = "✓ " + post.Name + ", " + post.District + ", " + post.State;
-  }catch(e){
-    status.className="gro-pincode-status error";
-    status.textContent="PIN code not found. Please verify the 6-digit PIN.";
-  }
-}
+      if (sort === "low") list.sort((a, b) => a.price - b.price);
+      if (sort === "high") list.sort((a, b) => b.price - a.price);
+      if (sort === "rating") list.sort((a, b) => b.rating - a.rating);
 
-/* Call this helper from your existing checkout PIN input:
-   GRO_bindPincode("pincodeInputId","stateInputId","districtInputId","cityInputId","pincodeStatusId") */
-function GRO_bindPincode(pinId,stateId,districtId,cityId,statusId){
-  const el=document.getElementById(pinId);
-  if(!el) return;
-  el.addEventListener("input",()=>GRO_lookupPincode(el.value,stateId,districtId,cityId,statusId));
-}
+      const grid = document.getElementById("productsGrid");
 
-/* ===== ORDER -> WHATSAPP + GMAIL ===== */
-function GRO_orderNotification(order){
-  const items=(order.items||[]).map(x=>`${x.name} x${x.qty||1} = ₹${Number(x.total||0).toLocaleString("en-IN")}`).join("\n");
-  const total=Number(order.total||0).toLocaleString("en-IN");
-  const text=`NEW GRO ORDER\nOrder: ${order.orderId||"GRO-"+Date.now()}\nCustomer: ${order.name||""}\nMobile: ${order.mobile||""}\nAddress: ${order.address||""}\nArea: ${order.area||""}\nDistrict: ${order.district||""}\nState: ${order.state||""}\nPIN: ${order.pincode||""}\n\nITEMS\n${items}\n\nTOTAL: ₹${total}`;
-  const wa="https://wa.me/"+GRO_BUSINESS_WHATSAPP+"?text="+encodeURIComponent(text);
-  window.open(wa,"_blank","noopener");
+      if (!list.length) {
+        grid.innerHTML = `<div class="card" style="padding:25px;grid-column:1/-1;text-align:center;">কোনও পণ্য পাওয়া যায়নি।</div>`;
+        return;
+      }
 
-  /* mailto opens Gmail/email client with the same order summary.
-     True unattended automatic Gmail sending requires a server/API. */
-  const mail="mailto:"+GRO_BUSINESS_EMAIL+"?subject="+encodeURIComponent("New GRO Order "+(order.orderId||""))+"&body="+encodeURIComponent(text);
-  window.open(mail,"_blank");
-}
+      grid.innerHTML = list.map(product => {
+        const liked = wishlist.includes(product.id);
+        return `
+          <article class="card product-card">
+            <span class="product-badge">${product.badge}</span>
+            <button class="wish-btn ${liked ? "active" : ""}" onclick="toggleWishlist(${product.id})">
+              ${liked ? "♥" : "♡"}
+            </button>
+            <img class="product-image" src="${product.image}" alt="${product.name}" loading="lazy">
+            <button class="quick-view" onclick="quickView(${product.id})">Quick View</button>
 
-/* ===== MULTI-PAGE NAVIGATION ===== */
-function GRO_go(page){
-  const target=document.getElementById(page);
-  if(target){
-    document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
-    target.classList.add("active");
-    window.scrollTo({top:0,behavior:"smooth"});
-    history.pushState({page},"","#"+page);
-  }
-}
-window.addEventListener("popstate",()=>{const id=location.hash.replace("#","");if(id)GRO_go(id);});
-</script>
+            <div class="product-info">
+              <div class="product-category">${product.category}</div>
+              <h3 class="product-name">${product.name}</h3>
+              <div class="rating">${stars(product.rating)} <small>(${product.reviews})</small></div>
+              <div class="price">
+                ${money(product.price)}
+                <span class="old-price">${money(product.oldPrice)}</span>
+              </div>
+              <div class="stock ${product.stock <= 10 ? "low" : "good"}">
+                ${product.stock <= 10 ? `মাত্র ${product.stock}টি বাকি` : `In stock: ${product.stock}`}
+              </div>
 
+              <div class="product-actions">
+                <button class="btn btn-outline" onclick="addToCart(${product.id})">Cart</button>
+                <button class="btn btn-primary" onclick="buyNow(${product.id})">Buy Now</button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
 
-<!-- GRO CONTACT BAR -->
-<div class="gro-contact-stack" aria-label="GRO Contact">
-<a class="gro-contact-btn gro-wa" id="groWaFloat" href="#" target="_blank" rel="noopener">WhatsApp</a>
-<a class="gro-contact-btn gro-call" id="groCallFloat" href="#">Call</a>
-</div>
-<script>
-/* ===== BUSINESS CONTACT CONFIG ===== */
-const GRO_CONTACT_WHATSAPP = (typeof CONFIG!=="undefined" && CONFIG.whatsapp) ? CONFIG.whatsapp : "919999999999";
-const GRO_CONTACT_PHONE = "+"+GRO_CONTACT_WHATSAPP;
-const GRO_GMAIL = "yourbusiness@gmail.com";
-/* Optional: deploy a Google Apps Script Web App and paste its /exec URL here for true automatic Gmail delivery. */
-const GRO_GMAIL_WEBHOOK = "";
+    function addToCart(id, quantity = 1) {
+      const product = products.find(item => item.id === id);
+      if (!product) return;
 
-document.getElementById("groWaFloat").href="https://wa.me/"+GRO_CONTACT_WHATSAPP+"?text="+encodeURIComponent("Hello GRO, I need product/order support.");
-document.getElementById("groCallFloat").href="tel:"+GRO_CONTACT_PHONE;
+      const found = cart.find(item => item.id === id);
 
-/* ===== ALL INDIA STATES / UTs ===== */
-const GRO_ALL_INDIA_STATES=["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli and Daman and Diu","Delhi","Jammu and Kashmir","Ladakh","Lakshadweep","Puducherry"];
-function GRO_loadAllStates(){
- const el=document.getElementById("state"); if(!el)return;
- const old=el.value; el.innerHTML='<option value="">Select State / UT</option>'+GRO_ALL_INDIA_STATES.map(x=>`<option value="${x}">${x}</option>`).join("");
- if(old)el.value=old;
-}
+      if (found) {
+        if (found.qty + quantity > product.stock) {
+          toast("এই পণ্যের পর্যাপ্ত stock নেই", "error");
+          return;
+        }
+        found.qty += quantity;
+      } else {
+        cart.push({ id, qty: quantity });
+      }
 
-/* ===== PIN -> STATE + DISTRICT + LOCALITY ===== */
-async function GRO_autoPin(){
- const pin=document.getElementById("pin"); if(!pin)return;
- const v=pin.value.replace(/\D/g,"").slice(0,6); pin.value=v;
- let note=document.getElementById("groPinNote");
- if(!note){note=document.createElement("div");note.id="groPinNote";note.className="gro-pincode-status";pin.parentNode.appendChild(note);}
- if(v.length!==6){note.textContent="";return;}
- note.textContent="Finding India location…"; note.className="gro-pincode-status";
- try{
-  const r=await fetch("https://api.postalpincode.in/pincode/"+v,{headers:{Accept:"application/json"}});
-  const d=await r.json(); const po=d?.[0]?.PostOffice;
-  if(!po?.length)throw Error("not found");
-  const x=po[0];
-  const state=document.getElementById("state");
-  if(state){state.value=x.State; if(state.value!==x.State){const o=document.createElement("option");o.value=x.State;o.textContent=x.State;state.appendChild(o);state.value=x.State;}}
-  const dist=document.getElementById("district");
-  if(dist){dist.innerHTML=`<option value="${x.District}">${x.District}</option>`;dist.value=x.District;}
-  note.textContent="✓ "+x.Name+" • "+x.District+" • "+x.State;
- }catch(e){note.className="gro-pincode-status error";note.textContent="PIN code not found — check the 6-digit PIN.";}
-}
+      saveState();
+      toast("পণ্য cart-এ যোগ হয়েছে", "success");
+    }
 
-/* ===== ORDER MESSAGE ===== */
-function GRO_buildOrderMessage(){
- const lines=(cart||[]).map(x=>`${x.product.name} × ${x.qty} = ₹${(x.product.price*x.qty).toLocaleString("en-IN")}`).join("\n");
- return `NEW GRO ORDER\nOrder ID: ${order.id}\n\nCustomer: ${order.name}\nMobile: ${order.mobile}\nAddress: ${order.address}\nDistrict: ${order.district}\nState: ${order.state}\nPIN: ${order.pin}\n\nITEMS\n${lines}\n\nTOTAL: ₹${order.total.toLocaleString("en-IN")}\nPayment: ${order.payment||"Pending"}\nStatus: ${order.status||"Pending"}\nUTR: ${order.utr||"Not provided"}`;
-}
+    function buyNow(id) {
+      addToCart(id);
+      openCart();
+    }
 
-async function GRO_notifyOwner(){
- const text=GRO_buildOrderMessage();
- /* WhatsApp: opens a pre-filled message; browser cannot silently send it. */
- window.open("https://wa.me/"+GRO_CONTACT_WHATSAPP+"?text="+encodeURIComponent(text),"_blank","noopener");
- /* Gmail: true automatic sending works when a Google Apps Script webhook is configured. */
- if(GRO_GMAIL_WEBHOOK){
-  try{await fetch(GRO_GMAIL_WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({to:GRO_GMAIL,subject:"New GRO Order "+order.id,body:text,order})});return;}catch(e){}
- }
- window.location.href="mailto:"+GRO_GMAIL+"?subject="+encodeURIComponent("New GRO Order "+order.id)+"&body="+encodeURIComponent(text);
-}
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      saveState();
+      renderCart();
+    }
 
-/* Attach PIN listener after existing page scripts have loaded. */
-window.addEventListener("DOMContentLoaded",()=>{
- GRO_loadAllStates();
- const pin=document.getElementById("pin"); if(pin)pin.addEventListener("input",GRO_autoPin);
-});
-</script>
-<style>
-.gro-contact-stack{position:fixed;right:16px;bottom:18px;z-index:9999;display:flex;flex-direction:column;gap:9px}.gro-contact-btn{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff!important;text-decoration:none;font-size:10px;font-weight:900;box-shadow:0 7px 22px rgba(0,0,0,.25);border:2px solid #fff}.gro-wa{background:#16a34a}.gro-call{background:#1769e8}.gro-pincode-status{font-size:11px;color:#16a34a;margin-top:5px}.gro-pincode-status.error{color:#dc2626}@media(max-width:600px){.gro-contact-stack{right:10px;bottom:10px}.gro-contact-btn{width:48px;height:48px}}
-</style>
+    function changeQty(id, amount) {
+      const item = cart.find(item => item.id === id);
+      const product = products.find(item => item.id === id);
+      if (!item || !product) return;
 
-</body>
-    </html>
+      item.qty += amount;
+
+      if (item.qty <= 0) {
+        removeFromCart(id);
+        return;
+      }
+
+      if (item.qty > product.stock) {
+        item.qty = product.stock;
+        toast("Stock limit reached", "error");
+      }
+
+      saveState();
+      renderCart();
+    }
+
+    function toggleWishlist(id) {
+      if (wishlist.includes(id)) {
+        wishlist = wishlist.filter(item => item !== id);
+        toast("Wishlist থেকে সরানো হয়েছে");
+      } else {
+        wishlist.push(id);
+        toast("Wishlist-এ যোগ হয়েছে", "success");
+      }
+
+      saveState();
+      renderProducts();
+    }
+
+    function openWishlist() {
+      const items = products.filter(product => wishlist.includes(product.id));
+
+      openModal(`
+        <h2>❤️ Wishlist</h2>
+        <div class="cart-list">
+          ${
+            items.length
+            ? items.map(product => `
+              <div class="cart-item">
+                <img src="${product.image}" alt="${product.name}">
+                <div>
+                  <b>${product.name}</b>
+                  <div>${money(product.price)}</div>
+                </div>
+                <button class="btn btn-primary" onclick="addToCart(${product.id})">Cart</button>
+              </div>
+            `).join("")
+            : `<p style="color:var(--muted);margin-top:15px;">Wishlist এখনও খালি।</p>`
+          }
+        </div>
+      `);
+    }
+
+    function getCartDetails() {
+      return cart.map(item => {
+        const product = products.find(product => product.id === item.id);
+        return { ...product, qty: item.qty };
+      });
+    }
+
+    function calculateSummary() {
+      const items = getCartDetails();
+      const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const discount = appliedCoupon === "GRO10" ? Math.round(subtotal * .10) : 0;
+      const taxable = subtotal - discount;
+      const delivery = taxable >= 999 ? 0 : taxable ? 49 : 0;
+      const total = taxable + delivery;
+      return { subtotal, discount, delivery, total };
+    }
+
+    function summaryHTML() {
+      const data = calculateSummary();
+
+      return `
+        <div class="summary-line"><span>Subtotal</span><b>${money(data.subtotal)}</b></div>
+        <div class="summary-line"><span>Discount</span><b style="color:var(--success)">-${money(data.discount)}</b></div>
+        <div class="summary-line"><span>Delivery</span><b>${data.delivery ? money(data.delivery) : "FREE"}</b></div>
+        <div class="summary-line summary-total"><span>Total</span><b>${money(data.total)}</b></div>
+      `;
+    }
+
+    function renderCart() {
+      const items = getCartDetails();
+
+      document.getElementById("modalContent").innerHTML = `
+        <h2>🛒 আপনার Cart</h2>
+        ${
+          items.length
+          ? `
+            <div class="cart-list">
+              ${items.map(item => `
+                <div class="cart-item">
+                  <img src="${item.image}" alt="${item.name}">
+                  <div>
+                    <b>${item.name}</b>
+                    <div>${money(item.price)} × ${item.qty}</div>
+                    <div class="qty-control">
+                      <button onclick="changeQty(${item.id}, -1)">−</button>
+                      <span>${item.qty}</span>
+                      <button onclick="changeQty(${item.id}, 1)">+</button>
+                    </div>
+                  </div>
+                  <button class="btn btn-danger" onclick="removeFromCart(${item.id})">×</button>
+                </div>
+              `).join("")}
+            </div>
+
+            <div class="coupon-row">
+              <input id="couponInput" placeholder="Coupon code: GRO10" value="${appliedCoupon || ""}">
+              <button class="btn btn-outline" onclick="applyCoupon()">Apply</button>
+            </div>
+
+            ${summaryHTML()}
+
+            <button class="btn btn-primary" style="width:100%;margin-top:17px;" onclick="openCheckout()">
+              Checkout →
+            </button>
+          `
+          : `<p style="margin-top:18px;color:var(--muted);">আপনার cart খালি।</p>`
+        }
+      `;
+    }
+
+    function openCart() {
+      openModal("");
+      renderCart();
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById("couponInput").value.trim().toUpperCase();
+
+      if (code === "GRO10") {
+        appliedCoupon = code;
+        toast("10% discount applied", "success");
+      } else {
+        appliedCoupon = null;
+        toast("Invalid coupon code", "error");
+      }
+
+      renderCart();
+    }
+
+    function openCheckout() {
+      if (!cart.length) {
+        toast("আগে cart-এ পণ্য যোগ করুন", "error");
+        return;
+      }
+
+      openModal(`
+        <h2>Checkout</h2>
+        <p style="color:var(--muted);margin:5px 0 18px;">আপনার সঠিক তথ্য দিন</p>
+
+        <form id="checkoutForm">
+          <div class="form-grid">
+            <div class="field">
+              <label>নাম *</label>
+              <input id="customerName" required minlength="2" placeholder="আপনার নাম">
+            </div>
+
+            <div class="field">
+              <label>মোবাইল *</label>
+              <input id="customerPhone" required pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10 digit mobile">
+            </div>
+
+            <div class="field">
+              <label>ইমেইল</label>
+              <input id="customerEmail" type="email" placeholder="you@example.com">
+            </div>
+
+            <div class="field">
+              <label>Pincode *</label>
+              <input id="customerPincode" required pattern="[0-9]{6}" maxlength="6" placeholder="৬ সংখ্যার pincode">
+            </div>
+
+            <div class="field full">
+              <label>সম্পূর্ণ ঠিকানা *</label>
+              <textarea id="customerAddress" required minlength="10" rows="3" placeholder="বাড়ি, রাস্তা, এলাকা, জেলা"></textarea>
+            </div>
+          </div>
+
+          <div class="card" style="padding:15px;margin:12px 0;">
+            <b>Pincode serviceability</b>
+            <div style="display:flex;gap:8px;margin-top:8px;">
+              <input id="servicePincode" pattern="[0-9]{6}" maxlength="6" placeholder="Pincode check">
+              <button type="button" class="btn btn-outline" onclick="checkPincode()">Check</button>
+            </div>
+            <small id="serviceResult" style="display:block;margin-top:7px;"></small>
+          </div>
+
+          <div class="payment-methods">
+            <b>Payment Method</b>
+            <label>
+              <input type="radio" name="payment" value="cod" checked>
+              Cash on Delivery
+            </label>
+            <label>
+              <input type="radio" name="payment" value="upi">
+              UPI Payment
+            </label>
+          </div>
+
+          <div id="upiBox" class="card hidden" style="padding:15px;margin-bottom:13px;">
+            <p><b>UPI ID:</b> ${STORE.upiId}</p>
+            <button type="button" class="btn btn-success" style="margin-top:9px;" onclick="payUPI()">Open UPI App</button>
+            <div class="field" style="margin-top:12px;">
+              <label>UTR / Transaction Reference</label>
+              <input id="utrNumber" placeholder="Payment করার পর UTR দিন">
+            </div>
+            <small style="color:var(--muted);">
+              UTR submit করলে payment automatically verified হবে না; manual বা gateway verification প্রয়োজন।
+            </small>
+          </div>
+
+          <div style="margin:15px 0;">${summaryHTML()}</div>
+
+          <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:15px;">
+            <input type="checkbox" id="termsCheck" required>
+            <span>আমি Terms, Privacy এবং Refund Policy মেনে নিচ্ছি।</span>
+          </label>
+
+          <button class="btn btn-primary" id="placeOrderBtn" style="width:100%;">
+            অর্ডার কনফার্ম করুন
+          </button>
+        </form>
+      `;
+
+      document.querySelectorAll('input[name="payment"]').forEach(input => {
+        input.addEventListener("change", event => {
+          document.getElementById("upiBox").classList.toggle("hidden", event.target.value !== "upi");
+        });
+      });
+
+      document.getElementById("checkoutForm").addEventListener("submit", placeOrder);
+    }
+
+    function checkPincode() {
+      const pincode = document.getElementById("servicePincode").value.trim();
+      const result = document.getElementById("serviceResult");
+
+      if (!/^[0-9]{6}$/.test(pincode)) {
+        result.textContent = "সঠিক ৬ সংখ্যার pincode দিন।";
+        result.style.color = "var(--danger)";
+        return;
+      }
+
+      result.textContent = "এই pincode আপাতত serviceable ধরা হচ্ছে। Final confirmation call-এ হবে।";
+      result.style.color = "var(--success)";
+    }
+
+    function payUPI() {
+      const data = calculateSummary();
+      const transactionId = `GRO${Date.now()}`;
+      const link =
+        `upi://pay?pa=${encodeURIComponent(STORE.upiId)}` +
+        `&pn=${encodeURIComponent(STORE.merchantName)}` +
+        `&am=${data.total.toFixed(2)}&cu=INR&tr=${transactionId}`;
+
+      window.location.href = link;
+      toast("UPI app খোলার চেষ্টা করা হচ্ছে...");
+    }
+
+    function generateOrderId() {
+      const date = new Date();
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      const d = String(date.getDate()).padStart(2, "0");
+      const random = Math.floor(1000 + Math.random() * 9000);
+      return `GRO-${y}${m}${d}-${random}`;
+    }
+
+    function placeOrder(event) {
+      event.preventDefault();
+
+      const button = document.getElementById("placeOrderBtn");
+      button.disabled = true;
+      button.textContent = "অর্ডার তৈরি হচ্ছে...";
+
+      const payment = document.querySelector('input[name="payment"]:checked').value;
+      const summary = calculateSummary();
+
+      const order = {
+        id: generateOrderId(),
+        createdAt: new Date().toISOString(),
+        customer: {
+          name: document.getElementById("customerName").value.trim(),
+          phone: document.getElementById("customerPhone").value.trim(),
+          email: document.getElementById("customerEmail").value.trim(),
+          pincode: document.getElementById("customerPincode").value.trim(),
+          address: document.getElementById("customerAddress").value.trim()
+        },
+        items: getCartDetails(),
+        payment,
+        utr: payment === "upi"
+          ? document.getElementById("utrNumber").value.trim()
+          : "",
+        paymentStatus: payment === "cod" ? "Pending COD" : "Awaiting Verification",
+        orderStatus: "Order Placed",
+        summary
+      };
+
+      setTimeout(() => {
+        const orders = JSON.parse(localStorage.getItem("gro_orders") || "[]");
+        orders.push(order);
+        localStorage.setItem("gro_orders", JSON.stringify(orders));
+
+        cart = [];
+        appliedCoupon = null;
+        saveState();
+        showOrderSuccess(order);
+      }, 850);
+    }
+
+    function showOrderSuccess(order) {
+      const whatsappMessage = [
+        `নতুন অর্ডার: ${order.id}`,
+        `নাম: ${order.customer.name}`,
+        `ফোন: ${order.customer.phone}`,
+        `ঠিকানা: ${order.customer.address}, ${order.customer.pincode}`,
+        "",
+        ...order.items.map(item => `${item.name} × ${item.qty}`),
+        "",
+        `Total: ${money(order.summary.total)}`,
+        `Payment: ${order.payment.toUpperCase()}`
+      ].join("\\n");
+
+      const whatsappLink =
+        `https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
+
+      document.getElementById("modalContent").innerHTML = `
+        <div style="text-align:center;">
+          <div style="font-size:55px;">✅</div>
+          <h2>অর্ডার সফলভাবে নেওয়া হয়েছে</h2>
+          <p style="color:var(--muted);margin-top:5px;">আপনার Order ID সংরক্ষণ করুন</p>
+
+          <div class="invoice" style="text-align:left;">
+            <div class="invoice-header">
+              <div>
+                <b>${STORE.name}</b><br>
+                <small>Order Invoice</small>
+              </div>
+              <div style="text-align:right;">
+                <b>${order.id}</b><br>
+                <small>${new Date(order.createdAt).toLocaleString("en-IN")}</small>
+              </div>
+            </div>
+
+            <p><b>Customer:</b> ${order.customer.name}</p>
+            <p><b>Phone:</b> ${order.customer.phone}</p>
+            <p><b>Payment:</b> ${order.payment.toUpperCase()}</p>
+            <p><b>Status:</b> ${order.paymentStatus}</p>
+
+            <hr style="border:0;border-top:1px solid var(--border);margin:12px 0;">
+
+            ${order.items.map(item => `
+              <div class="summary-line">
+                <span>${item.name} × ${item.qty}</span>
+                <b>${money(item.price * item.qty)}</b>
+              </div>
+            `).join("")}
+
+            ${summaryHTMLFor(order.summary)}
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
+            <button class="btn btn-outline" onclick="copyOrderId('${order.id}')">Copy Order ID</button>
+            <a class="btn btn-success" href="${whatsappLink}" target="_blank">WhatsApp Order</a>
+            <button class="btn btn-primary" onclick="closeModal()">Continue Shopping</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function summaryHTMLFor(data) {
+      return `
+        <div style="border-top:1px solid var(--border);margin-top:9px;padding-top:9px;">
+          <div class="summary-line"><span>Subtotal</span><b>${money(data.subtotal)}</b></div>
+          <div class="summary-line"><span>Discount</span><b>-${money(data.discount)}</b></div>
+          <div class="summary-line"><span>Delivery</span><b>${data.delivery ? money(data.delivery) : "FREE"}</b></div>
+          <div class="summary-line summary-total"><span>Total</span><b>${money(data.total)}</b></div>
+        </div>
+      `;
+    }
+
+    function copyOrderId(orderId) {
+      navigator.clipboard.writeText(orderId);
+      toast("Order ID copied", "success");
+    }
+
+    function trackOrder() {
+      const id = document.getElementById("trackingInput").value.trim().toUpperCase();
+      const result = document.getElementById("trackingResult");
+      const orders = JSON.parse(localStorage.getItem("gro_orders") || "[]");
+      const order = orders.find(item => item.id === id);
+
+      result.style.display = "block";
+
+      if (!order) {
+        result.innerHTML = "এই Order ID এই browser-এ পাওয়া যায়নি।";
+        result.style.background = "rgba(220,38,38,.12)";
+        return;
+      }
+
+      result.style.background = "rgba(22,163,74,.12)";
+      result.innerHTML = `
+        <b>${order.id}</b><br>
+        Customer: ${order.customer.name}<br>
+        Order Status: <b>${order.orderStatus}</b><br>
+        Payment Status: <b>${order.paymentStatus}</b><br>
+        Total: <b>${money(order.summary.total)}</b>
+      `;
+    }
+
+    function quickView(id) {
+      const product = products.find(item => item.id === id);
+      viewed = [id, ...viewed.filter(item => item !== id)].slice(0, 6);
+      saveState();
+
+      openModal(`
+        <div class="modal-product">
+          <img src="${product.image}" alt="${product.name}">
+          <div>
+            <div class="product-category">${product.category}</div>
+            <h2>${product.name}</h2>
+            <div class="rating" style="margin:8px 0;">${stars(product.rating)} (${product.reviews} reviews)</div>
+            <p style="color:var(--muted);margin:12px 0;">${product.description}</p>
+            <div class="price">${money(product.price)} <span class="old-price">${money(product.oldPrice)}</span></div>
+            <p class="${product.stock <= 10 ? "stock low" : "stock good"}">${product.stock}টি available</p>
+            <div style="display:flex;gap:8px;margin-top:14px;">
+              <button class="btn btn-outline" onclick="addToCart(${product.id})">Add to Cart</button>
+              <button class="btn btn-primary" onclick="buyNow(${product.id})">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      `);
+    }
+
+    function openModal(content) {
+      document.getElementById("modalContent").innerHTML = content;
+      document.getElementById("modalBg").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("modalBg").classList.remove("show");
+    }
+
+    const policies = {
+      terms: {
+        title: "Terms & Conditions",
+        text: `
+          <p>এই website ব্যবহার করে order করলে customer product details, price, payment এবং delivery terms মেনে নিচ্ছেন।</p>
+          <p>Product availability, delivery area এবং estimated delivery time পরিবর্তন হতে পারে।</p>
+          <p>ভুল customer information-এর কারণে delivery ব্যর্থ হলে অতিরিক্ত charge প্রযোজ্য হতে পারে।</p>
+        `
+      },
+      privacy: {
+        title: "Privacy Policy",
+        text: `
+          <p>Order processing-এর জন্য নাম, মোবাইল, ঠিকানা এবং প্রয়োজনে email সংগ্রহ করা হয়।</p>
+          <p>এই demo version order data আপনার browser-এর localStorage-এ রাখে। Real business-এর ক্ষেত্রে secure server এবং database ব্যবহার করুন।</p>
+          <p>Customer data অনুমতি ছাড়া বিক্রি করা উচিত নয়।</p>
+        `
+      },
+      shipping: {
+        title: "Shipping Policy",
+        text: `
+          <p>সাধারণ delivery estimate 3–7 working days।</p>
+          <p>Delivery charge order value ও location অনুযায়ী পরিবর্তিত হতে পারে। ₹999 বা তার বেশি order-এ demo version-এ free delivery দেখানো হচ্ছে।</p>
+          <p>Remote area, holiday বা courier delay হলে সময় বাড়তে পারে।</p>
+        `
+      },
+      refund: {
+        title: "Refund & Cancellation Policy",
+        text: `
+          <p>Wrong, damaged বা defective product পেলে delivery পাওয়ার পর দ্রুত support-এ যোগাযোগ করুন।</p>
+          <p>Product unused, original packaging সহ এবং unboxing proof থাকলে return review করা যেতে পারে।</p>
+          <p>Refund approval-এর পর original payment mode-এ refund processing করা হবে। নিজের ব্যবসার প্রকৃত timeline এখানে লিখুন।</p>
+        `
+      },
+      contact: {
+        title: "Contact & Grievance",
+        text: `
+          <p><b>Business:</b> GRO Extender</p>
+          <p><b>Address:</b> Rampur Hat, West Bengal, India</p>
+          <p><b>Phone:</b> +91 90000 00000</p>
+          <p><b>Email:</b> support@groextender.in</p>
+          <p><b>Grievance contact:</b> নিজের প্রকৃত নাম, phone ও email দিয়ে এই অংশ আপডেট করুন।</p>
+        `
+      }
+    };
+
+    document.querySelectorAll("[data-policy]").forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        const policy = policies[link.dataset.policy];
+
+        openModal(`
+          <h2>${policy.title}</h2>
+          <div style="color:var(--muted);margin-top:15px;display:grid;gap:12px;">
+            ${policy.text}
+          </div>
+        `);
+      });
+    });
+
+    document.getElementById("searchInput").addEventListener("input", event => {
+      renderProducts();
+
+      const value = event.target.value.toLowerCase().trim();
+      const box = document.getElementById("autocomplete");
+
+      if (!value) {
+        box.classList.add("hidden");
+        return;
+      }
+
+      constconst STORE = {
+  name: "GRO Extender",
+  upiId: "yourupi@upi",
+  merchantName: "GRO Extender",
+  whatsapp: "919000000000"
+};
