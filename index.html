@@ -6,6 +6,14 @@
 <meta name="theme-color" content="#07090d">
 <title>GRO Extender — Premium Store</title>
 
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+(function(){
+  emailjs.init("YOUR_PUBLIC_KEY"); // এখানে তোমার EmailJS Public Key দাও
+})();
+</script>
+
 <style>
 :root{
   --bg:#07090d;
@@ -800,7 +808,7 @@ function placeOrder(){
   cart=[];
   saveCart();
 
-  // 🔔 WhatsApp Notification to You
+  // 🔔 WhatsApp + Email Notification to You
   sendOrderNotification(newOrder);
 
   document.getElementById("checkout").innerHTML = `
@@ -817,9 +825,10 @@ function placeOrder(){
   `;
 }
 
-// 🔔 Send WhatsApp Notification to Admin
+// 🔔 Send WhatsApp + Email Notification to Admin
 function sendOrderNotification(order){
-  let yourNumber = "919876543210"; // ⚠️ তোমার নাম্বার বসাও
+  // WhatsApp
+  let yourNumber = "917407792138";
   let msg = `🔔 *NEW ORDER ALERT!*
 
 📦 *Order ID:* ${order.id}
@@ -832,8 +841,30 @@ function sendOrderNotification(order){
 
 ✅ Please confirm order.`;
   
-  let url = `https://wa.me/${yourNumber}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
+  let waUrl = `https://wa.me/${yourNumber}?text=${encodeURIComponent(msg)}`;
+  window.open(waUrl, '_blank');
+
+  // Email
+  setTimeout(()=>{
+    let templateParams = {
+      to_email: "Bikrammanna349@gmail.com",
+      order_id: order.id,
+      customer_name: order.name,
+      mobile: order.mobile,
+      location: `${order.district}, ${order.state}, ${order.country}`,
+      total: `₹${order.total}`,
+      payment: order.payment,
+      date: order.date
+    };
+    
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+      .then(()=>{
+        console.log("Email sent successfully!");
+      })
+      .catch((err)=>{
+        console.log("Email failed:", err);
+      });
+  }, 1000);
 }
 
 /* =========================================================
@@ -874,13 +905,13 @@ function trackOrder(){
    FLOATING BUTTONS
 ========================================================= */
 function openWhatsApp(){
-  let number = "917407792138"; // তোমার WhatsApp নাম্বার বসাও
+  let number = "917407792138";
   let msg = encodeURIComponent("Hello, I want to know more about GRO Extender.");
   window.open(`https://wa.me/${number}?text=${msg}`,"_blank");
 }
 
 function makeCall(){
-  let number = "+917407792138"; // তোমার কল নাম্বার বসাও
+  let number = "+917407792138";
   window.location.href = `tel:${number}`;
 }
 
