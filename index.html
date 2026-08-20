@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#111827" />
-  <title>GRO Extender Professional v2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRO Multi-Pool PEGS</title>
 
   <style>
     :root {
-      --primary: #6d28d9;
+      --primary: #7c3aed;
       --primary-dark: #4c1d95;
       --accent: #f59e0b;
       --success: #16a34a;
       --danger: #dc2626;
+      --warning: #d97706;
+      --bg: #f5f7fb;
+      --card: #ffffff;
       --text: #111827;
       --muted: #6b7280;
-      --bg: #f8fafc;
-      --card: #ffffff;
       --border: #e5e7eb;
       --shadow: 0 12px 30px rgba(15, 23, 42, .08);
     }
@@ -35,12 +35,12 @@
     }
 
     body.dark {
-      --text: #f9fafb;
-      --muted: #a1a1aa;
       --bg: #0f172a;
       --card: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
       --border: #334155;
-      --shadow: 0 12px 30px rgba(0, 0, 0, .25);
+      --shadow: 0 12px 30px rgba(0, 0, 0, .28);
     }
 
     button,
@@ -55,24 +55,19 @@
       border: 0;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
     .container {
-      width: min(1180px, 92%);
+      width: min(1220px, 92%);
       margin: auto;
     }
 
     .topbar {
       background: #111827;
-      color: #fff;
+      color: white;
       padding: 8px 0;
       font-size: 13px;
     }
 
-    .topbar-content {
+    .topbar-inner {
       display: flex;
       justify-content: space-between;
       gap: 15px;
@@ -82,23 +77,23 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
       background: var(--card);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav {
+    .navbar {
       min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
     }
 
     .logo {
-      font-size: 23px;
-      font-weight: 800;
       color: var(--primary);
+      font-size: 23px;
+      font-weight: 900;
       white-space: nowrap;
     }
 
@@ -106,80 +101,81 @@
       color: var(--accent);
     }
 
-    .desktop-nav {
+    .nav-links {
       display: flex;
       gap: 18px;
       align-items: center;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .desktop-nav a:hover {
+    .nav-links a:hover {
       color: var(--primary);
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
 
     .icon-btn {
       background: transparent;
       color: var(--text);
-      font-size: 21px;
+      font-size: 20px;
       padding: 8px;
       position: relative;
     }
 
-    .badge-count {
+    .count {
       position: absolute;
-      top: 0;
       right: 0;
+      top: 0;
       background: var(--danger);
-      color: white;
-      border-radius: 50%;
-      min-width: 17px;
+      width: 17px;
       height: 17px;
-      font-size: 10px;
       display: grid;
       place-items: center;
+      color: white;
+      font-size: 10px;
+      border-radius: 50%;
     }
 
     .hero {
       padding: 75px 0;
+      color: white;
       background:
-        linear-gradient(120deg, rgba(76, 29, 149, .95), rgba(109, 40, 217, .85)),
-        url("https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1600&q=80")
+        linear-gradient(120deg, rgba(76, 29, 149, .98), rgba(124, 58, 237, .80)),
+        url("https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80")
         center/cover;
-      color: #fff;
     }
 
     .hero-content {
-      max-width: 650px;
+      max-width: 700px;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 6vw, 62px);
+      font-size: clamp(34px, 6vw, 65px);
       line-height: 1.08;
-      margin-bottom: 18px;
+      margin-bottom: 17px;
     }
 
     .hero p {
       color: #ede9fe;
       font-size: 18px;
+      max-width: 610px;
       margin-bottom: 25px;
     }
 
     .btn {
-      padding: 12px 18px;
-      border-radius: 9px;
-      font-weight: 700;
-      transition: .2s;
+      padding: 11px 16px;
+      border-radius: 8px;
       display: inline-flex;
-      justify-content: center;
       align-items: center;
-      gap: 7px;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 800;
+      transition: .2s;
     }
 
     .btn:hover {
@@ -188,189 +184,225 @@
 
     .btn-primary {
       background: var(--primary);
-      color: #fff;
+      color: white;
     }
 
     .btn-primary:hover {
       background: var(--primary-dark);
     }
 
-    .btn-light {
-      background: #fff;
-      color: var(--primary-dark);
-    }
-
     .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--text);
       background: transparent;
-    }
-
-    .btn-danger {
-      background: var(--danger);
-      color: white;
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .btn-success {
-      background: var(--success);
       color: white;
+      background: var(--success);
+    }
+
+    .btn-danger {
+      color: white;
+      background: var(--danger);
+    }
+
+    .btn-warning {
+      color: white;
+      background: var(--warning);
     }
 
     .section {
       padding: 55px 0;
     }
 
-    .section-title {
+    .title {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 27px;
     }
 
-    .section-title h2 {
-      font-size: 30px;
-      margin-bottom: 7px;
+    .title h2 {
+      font-size: 31px;
+      margin-bottom: 5px;
     }
 
-    .section-title p {
+    .title p {
       color: var(--muted);
     }
 
-    .features {
+    .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 15px;
     }
 
-    .feature-card,
-    .card {
+    .stat-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 15px;
+      border-radius: 13px;
+      padding: 20px;
       box-shadow: var(--shadow);
     }
 
-    .feature-card {
-      text-align: center;
-      padding: 22px 15px;
-    }
-
-    .feature-card .feature-icon {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
+    .stat-card span {
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    .shop-toolbar {
+    .stat-card h3 {
+      margin-top: 6px;
+      font-size: 26px;
+    }
+
+    .toolbar {
       display: flex;
-      gap: 12px;
-      justify-content: space-between;
+      gap: 10px;
       align-items: center;
-      margin-bottom: 22px;
       flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
-    .search-box {
-      position: relative;
+    .search {
       flex: 1;
-      min-width: 240px;
-    }
-
-    .search-box input,
-    .field input,
-    .field select,
-    .field textarea,
-    .coupon-row input {
-      width: 100%;
-      padding: 12px 13px;
+      min-width: 250px;
+      padding: 12px;
+      color: var(--text);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 8px;
       outline: none;
+    }
+
+    .select {
+      padding: 12px;
       color: var(--text);
-      background: var(--card);
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(109, 40, 217, .12);
-    }
-
-    .autocomplete {
-      position: absolute;
-      top: 48px;
-      width: 100%;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 8px;
-      z-index: 5;
-      overflow: hidden;
+      outline: none;
     }
 
-    .autocomplete div {
-      padding: 10px 13px;
-      cursor: pointer;
-    }
-
-    .autocomplete div:hover {
-      background: rgba(109, 40, 217, .1);
-    }
-
-    .products-grid {
+    .layout {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      grid-template-columns: 220px 1fr;
+      gap: 20px;
     }
 
-    .product-card {
-      overflow: hidden;
-      position: relative;
+    .sidebar {
+      height: max-content;
+      position: sticky;
+      top: 90px;
+      padding: 16px;
     }
 
-    .product-image {
-      height: 220px;
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .filter-item {
+      display: block;
       width: 100%;
+      background: transparent;
+      color: var(--text);
+      text-align: left;
+      padding: 9px;
+      border-radius: 7px;
+      margin: 3px 0;
+    }
+
+    .filter-item:hover,
+    .filter-item.active {
+      background: rgba(124, 58, 237, .12);
+      color: var(--primary);
+    }
+
+    .vendor-mini {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .vendor-avatar {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .product {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product img {
+      width: 100%;
+      height: 210px;
       object-fit: cover;
       display: block;
-      background: #f1f5f9;
     }
 
-    .product-info {
-      padding: 15px;
+    .product-body {
+      padding: 14px;
     }
 
-    .product-category {
+    .pool-label {
+      display: inline-block;
       color: var(--primary);
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 900;
       text-transform: uppercase;
+      margin-bottom: 3px;
     }
 
-    .product-name {
+    .product h3 {
       font-size: 17px;
-      margin: 5px 0;
+      margin-bottom: 5px;
+    }
+
+    .vendor-name {
+      color: var(--muted);
+      font-size: 12px;
     }
 
     .rating {
       color: var(--accent);
-      font-size: 14px;
+      font-size: 13px;
+      margin: 5px 0;
     }
 
     .price {
       font-size: 19px;
-      font-weight: 800;
-      margin: 8px 0;
+      font-weight: 900;
+      margin: 7px 0;
     }
 
-    .old-price {
+    .old {
       color: var(--muted);
-      font-size: 13px;
       text-decoration: line-through;
-      margin-left: 5px;
+      font-size: 12px;
       font-weight: normal;
+      margin-left: 5px;
     }
 
     .stock {
@@ -378,200 +410,157 @@
       margin-bottom: 10px;
     }
 
-    .stock.good {
-      color: var(--success);
-    }
-
     .stock.low {
       color: var(--danger);
     }
 
-    .product-actions {
+    .stock.ok {
+      color: var(--success);
+    }
+
+    .product-buttons {
       display: flex;
       gap: 7px;
     }
 
-    .product-actions .btn {
+    .product-buttons .btn {
       flex: 1;
-      padding: 10px 7px;
+      padding: 9px 6px;
       font-size: 12px;
-    }
-
-    .wish-btn {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.92);
-      font-size: 20px;
-      color: #64748b;
-    }
-
-    .wish-btn.active {
-      color: var(--danger);
     }
 
     .product-badge {
       position: absolute;
-      left: 10px;
       top: 10px;
-      background: var(--accent);
+      left: 10px;
       color: #111827;
-      padding: 5px 8px;
+      background: var(--accent);
       border-radius: 5px;
+      padding: 4px 7px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .heart {
+      position: absolute;
+      top: 9px;
+      right: 9px;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      color: #64748b;
+      background: rgba(255,255,255,.92);
+      font-size: 20px;
+    }
+
+    .heart.active {
+      color: var(--danger);
+    }
+
+    .dashboard-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-tabs button.active {
+      color: white;
+      background: var(--primary);
+    }
+
+    .dashboard-panel {
+      padding: 20px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .mini-stat {
+      border: 1px solid var(--border);
+      padding: 17px;
+      border-radius: 10px;
+    }
+
+    .mini-stat small {
+      color: var(--muted);
+    }
+
+    .mini-stat b {
+      display: block;
+      margin-top: 5px;
+      font-size: 22px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 650px;
+    }
+
+    th,
+    td {
+      padding: 11px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-size: 13px;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .status {
+      padding: 4px 8px;
+      border-radius: 20px;
       font-size: 11px;
       font-weight: 800;
+      display: inline-block;
     }
 
-    .quick-view {
-      background: var(--primary);
-      color: white;
-      border-radius: 7px;
-      padding: 8px;
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      opacity: 0;
-      transition: .2s;
+    .status.success {
+      color: #166534;
+      background: #dcfce7;
     }
 
-    .product-card:hover .quick-view {
-      opacity: 1;
+    .status.pending {
+      color: #92400e;
+      background: #fef3c7;
     }
 
-    .tracking-box {
-      max-width: 680px;
-      margin: auto;
-      padding: 25px;
+    .status.danger {
+      color: #991b1b;
+      background: #fee2e2;
     }
 
-    .tracking-form {
-      display: flex;
-      gap: 10px;
-    }
-
-    .tracking-result {
-      margin-top: 18px;
-      padding: 15px;
-      border-radius: 8px;
-      background: rgba(22, 163, 74, .12);
-      display: none;
-    }
-
-    .faq {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    details {
-      padding: 15px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    details p {
-      margin-top: 8px;
-      color: var(--muted);
-    }
-
-    footer {
-      background: #111827;
-      color: #fff;
-      padding: 35px 0 90px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 30px;
-    }
-
-    footer p,
-    footer a {
-      color: #cbd5e1;
-      font-size: 14px;
-    }
-
-    footer h3 {
-      margin-bottom: 10px;
-    }
-
-    footer a {
-      display: block;
-      margin: 7px 0;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #334155;
-      margin-top: 25px;
-      padding-top: 18px;
-      font-size: 13px;
-      color: #94a3b8;
-    }
-
-    .modal-bg {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.62);
-      z-index: 50;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 15px;
-    }
-
-    .modal-bg.show {
-      display: flex;
-    }
-
-    .modal {
-      background: var(--card);
-      color: var(--text);
-      width: min(700px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 15px;
-      position: relative;
-      padding: 24px;
-    }
-
-    .modal-close {
-      position: absolute;
-      right: 15px;
-      top: 12px;
-      font-size: 24px;
-      color: var(--muted);
-      background: transparent;
-    }
-
-    .modal-product {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .modal-product img {
+    .input,
+    textarea {
       width: 100%;
-      max-height: 320px;
-      object-fit: cover;
-      border-radius: 12px;
+      padding: 11px;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      outline: none;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 13px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
 
     .field {
-      margin-bottom: 13px;
+      margin-bottom: 12px;
     }
 
     .field.full {
@@ -580,131 +569,117 @@
 
     .field label {
       display: block;
-      font-size: 13px;
-      font-weight: 700;
       margin-bottom: 5px;
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    .cart-list {
-      display: grid;
-      gap: 12px;
-      margin: 18px 0;
-    }
-
-    .cart-item {
-      display: grid;
-      grid-template-columns: 70px 1fr auto;
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      display: none;
       align-items: center;
-      gap: 12px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
+      justify-content: center;
+      z-index: 80;
+      background: rgba(0, 0, 0, .65);
+      padding: 15px;
     }
 
-    .cart-item img {
-      width: 70px;
-      height: 70px;
+    .modal-bg.show {
+      display: flex;
+    }
+
+    .modal {
+      position: relative;
+      width: min(760px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 23px;
+      color: var(--text);
+      background: var(--card);
+      border-radius: 14px;
+    }
+
+    .close {
+      position: absolute;
+      right: 14px;
+      top: 9px;
+      color: var(--muted);
+      background: transparent;
+      font-size: 25px;
+    }
+
+    .cart-row {
+      display: grid;
+      grid-template-columns: 65px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-row img {
+      width: 65px;
+      height: 65px;
       object-fit: cover;
       border-radius: 8px;
     }
 
-    .qty-control {
+    .qty {
       display: inline-flex;
       align-items: center;
       border: 1px solid var(--border);
       border-radius: 6px;
-      overflow: hidden;
       margin-top: 5px;
     }
 
-    .qty-control button {
-      background: transparent;
-      color: var(--text);
+    .qty button {
       width: 27px;
-      height: 27px;
+      height: 26px;
+      color: var(--text);
+      background: transparent;
     }
 
-    .qty-control span {
-      width: 28px;
+    .qty span {
+      width: 27px;
       text-align: center;
-      font-size: 13px;
+    }
+
+    .summary {
+      margin-top: 17px;
     }
 
     .summary-line {
       display: flex;
       justify-content: space-between;
-      padding: 6px 0;
+      padding: 5px 0;
       color: var(--muted);
     }
 
     .summary-total {
-      border-top: 1px solid var(--border);
-      margin-top: 8px;
-      padding-top: 12px;
-      font-size: 19px;
-      font-weight: 800;
       color: var(--text);
+      border-top: 1px solid var(--border);
+      margin-top: 7px;
+      padding-top: 10px;
+      font-size: 19px;
+      font-weight: 900;
     }
 
-    .coupon-row {
-      display: flex;
-      gap: 8px;
-      margin: 12px 0;
-    }
-
-    .coupon-row input {
-      flex: 1;
-    }
-
-    .payment-methods {
-      display: grid;
-      gap: 8px;
-      margin: 10px 0;
-    }
-
-    .payment-methods label {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px;
-      cursor: pointer;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .invoice {
-      border: 1px dashed var(--border);
-      padding: 18px;
-      border-radius: 10px;
-      margin-top: 15px;
-    }
-
-    .invoice-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-    }
-
-    .toast-wrap {
+    .toast-box {
       position: fixed;
-      top: 85px;
       right: 18px;
+      top: 85px;
       z-index: 100;
       display: grid;
       gap: 8px;
     }
 
     .toast {
+      color: white;
       background: #111827;
-      color: #fff;
       padding: 12px 15px;
       border-radius: 8px;
       box-shadow: var(--shadow);
-      animation: slide .25s ease;
-      max-width: 310px;
       font-size: 14px;
     }
 
@@ -716,27 +691,36 @@
       background: var(--danger);
     }
 
-    @keyframes slide {
-      from {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    footer {
+      color: white;
+      background: #111827;
+      padding: 38px 0;
     }
 
-    .bottom-nav {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer p,
+    footer a {
+      color: #cbd5e1;
+      display: block;
+      font-size: 14px;
+      margin: 7px 0;
+    }
+
+    .mobile-nav {
       display: none;
     }
 
-    @media (max-width: 900px) {
-      .products-grid {
-        grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 950px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .features {
+      .stats {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -746,52 +730,47 @@
         padding-bottom: 62px;
       }
 
-      .desktop-nav {
+      .nav-links {
         display: none;
       }
 
-      .nav {
+      .navbar {
         min-height: 60px;
       }
 
-      .hero {
-        padding: 50px 0;
-      }
-
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 11px;
-      }
-
-      .product-image {
-        height: 170px;
-      }
-
-      .product-info {
-        padding: 11px;
-      }
-
-      .product-name {
-        font-size: 14px;
-      }
-
-      .price {
-        font-size: 16px;
-      }
-
-      .product-actions {
-        display: grid;
-      }
-
-      .quick-view {
-        display: none;
-      }
-
-      .modal-product {
+      .layout {
         grid-template-columns: 1fr;
       }
 
-      .form-grid {
+      .sidebar {
+        position: static;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .product img {
+        height: 165px;
+      }
+
+      .product-body {
+        padding: 10px;
+      }
+
+      .product h3 {
+        font-size: 14px;
+      }
+
+      .product-buttons {
+        display: grid;
+      }
+
+      .stats,
+      .dashboard-grid,
+      .form-grid,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
@@ -799,35 +778,26 @@
         grid-column: auto;
       }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .tracking-form {
-        display: grid;
-      }
-
-      .bottom-nav {
+      .mobile-nav {
         display: flex;
         position: fixed;
+        z-index: 35;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 59px;
+        height: 61px;
         background: var(--card);
         border-top: 1px solid var(--border);
-        z-index: 25;
-        justify-content: space-around;
       }
 
-      .bottom-nav button {
+      .mobile-nav button {
         flex: 1;
-        background: transparent;
         color: var(--muted);
+        background: transparent;
         font-size: 11px;
       }
 
-      .bottom-nav button span {
+      .mobile-nav span {
         display: block;
         font-size: 20px;
       }
@@ -836,399 +806,559 @@
 </head>
 
 <body>
+
   <div class="topbar">
-    <div class="container topbar-content">
-      <span>🚚 সারাদেশে ডেলিভারি</span>
-      <span>📞 Support: +91 90000 00000</span>
+    <div class="container topbar-inner">
+      <span>⚡ GRO Multi-Pool PEGS Marketplace</span>
+      <span>Seller • Buyer • Admin — One Platform</span>
     </div>
   </div>
 
   <header>
-    <div class="container nav">
-      <a href="#home" class="logo">GRO <span>Extender</span></a>
+    <div class="container navbar">
+      <a href="#home" class="logo">GRO <span>PEGS</span></a>
 
-      <nav class="desktop-nav">
+      <nav class="nav-links">
         <a href="#home">হোম</a>
-        <a href="#shop">শপ</a>
-        <a href="#tracking">ট্র্যাক অর্ডার</a>
-        <a href="#faq">FAQ</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#pools">Pools</a>
+        <a href="#vendor">Seller Center</a>
+        <a href="#admin">Admin</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
-        <button class="icon-btn" id="wishlistBtn" title="Wishlist">
-          ♡ <small class="badge-count" id="wishCount">0</small>
+        <button class="icon-btn" id="themeBtn">🌙</button>
+        <button class="icon-btn" onclick="openWishlist()">
+          ♡ <small class="count" id="wishCount">0</small>
         </button>
-        <button class="icon-btn" id="cartBtn" title="Cart">
-          🛒 <small class="badge-count" id="cartCount">0</small>
+        <button class="icon-btn" onclick="openCart()">
+          🛒 <small class="count" id="cartCount">0</small>
         </button>
       </div>
     </div>
   </header>
 
   <main>
+
     <section class="hero" id="home">
       <div class="container hero-content">
-        <h1>তোর দৈনন্দিন লাইফস্টাইলের Smart Upgrade</h1>
+        <h1>একটি Platform, হাজার Seller, অসীম Product Pool</h1>
         <p>
-          ভালো মানের trending products, দ্রুত ডেলিভারি এবং সহজ অর্ডারিং—
-          সবকিছু একসাথে GRO Extender-এ।
+          GRO Multi-Pool PEGS হলো buyer, seller এবং admin-এর জন্য তৈরি
+          next-generation marketplace system।
         </p>
-        <a href="#shop" class="btn btn-light">এখনই শপ করুন →</a>
+        <a href="#marketplace" class="btn" style="background:white;color:var(--primary);">
+          Marketplace দেখুন →
+        </a>
       </div>
     </section>
 
     <section class="section">
-      <div class="container features">
-        <div class="feature-card">
-          <div class="feature-icon">🚚</div>
-          <h3>Fast Delivery</h3>
-          <p>নির্বাচিত এলাকায় দ্রুত ডেলিভারি।</p>
+      <div class="container">
+        <div class="title">
+          <h2>Marketplace Overview</h2>
+          <p>আপনার multi-vendor business-এর live snapshot</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Secure Order</h3>
-          <p>আপনার তথ্য নিরাপদ রাখার চেষ্টা করা হয়।</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">↩️</div>
-          <h3>Easy Support</h3>
-          <p>অর্ডার সংক্রান্ত সহায়তা WhatsApp-এ।</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">⭐</div>
-          <h3>Quality Products</h3>
-          <p>বাছাই করা পণ্যের কালেকশন।</p>
+
+        <div class="stats">
+          <div class="stat-card">
+            <span>Active Vendors</span>
+            <h3 id="vendorStat">0</h3>
+          </div>
+          <div class="stat-card">
+            <span>Listed Products</span>
+            <h3 id="productStat">0</h3>
+          </div>
+          <div class="stat-card">
+            <span>Total Pools</span>
+            <h3 id="poolStat">0</h3>
+          </div>
+          <div class="stat-card">
+            <span>Marketplace GMV</span>
+            <h3 id="gmvStat">₹0</h3>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="shop">
+    <section class="section" id="pools">
       <div class="container">
-        <div class="section-title">
-          <h2>Featured Products</h2>
-          <p>আজকের সেরা পণ্যগুলো দেখে নাও</p>
+        <div class="title">
+          <h2>Explore Product Pools</h2>
+          <p>Pool-based discovery দিয়ে customer দ্রুত product খুঁজে পাবে</p>
         </div>
 
-        <div class="shop-toolbar">
-          <div class="search-box">
-            <input id="searchInput" type="search" placeholder="পণ্যের নাম দিয়ে সার্চ করুন..." />
-            <div id="autocomplete" class="autocomplete hidden"></div>
-          </div>
+        <div class="stats">
+          <button class="stat-card" onclick="setPool('all')">
+            <span>🛍️</span>
+            <h3>All Products</h3>
+          </button>
 
-          <select id="categoryFilter" class="field input" style="width:auto;padding:12px;">
-            <option value="all">সব ক্যাটাগরি</option>
-            <option value="Personal Care">Personal Care</option>
-            <option value="Gadget">Gadget</option>
-            <option value="Home">Home</option>
-            <option value="Fitness">Fitness</option>
+          <button class="stat-card" onclick="setPool('Personal Care')">
+            <span>🧴</span>
+            <h3>Care Pool</h3>
+          </button>
+
+          <button class="stat-card" onclick="setPool('Gadget')">
+            <span>🎧</span>
+            <h3>Gadget Pool</h3>
+          </button>
+
+          <button class="stat-card" onclick="setPool('Home')">
+            <span>🏠</span>
+            <h3>Home Pool</h3>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="marketplace">
+      <div class="container">
+        <div class="title">
+          <h2>Live Marketplace</h2>
+          <p>এক order-এ একাধিক seller-এর product নেওয়া যাবে</p>
+        </div>
+
+        <div class="toolbar">
+          <input id="searchInput" class="search" placeholder="Product, pool বা vendor দিয়ে search করুন...">
+
+          <select id="sortSelect" class="select">
+            <option value="default">Default Sort</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
           </select>
 
-          <select id="sortFilter" style="padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);">
-            <option value="default">Sort: Default</option>
-            <option value="low">দাম কম থেকে বেশি</option>
-            <option value="high">দাম বেশি থেকে কম</option>
-            <option value="rating">Rating অনুযায়ী</option>
-          </select>
+          <button class="btn btn-primary" onclick="openCart()">Cart খুলুন</button>
         </div>
 
-        <div id="productsGrid" class="products-grid"></div>
-      </div>
-    </section>
+        <div class="layout">
+          <aside class="card sidebar">
+            <h3>Product Pools</h3>
 
-    <section class="section" id="tracking">
-      <div class="container">
-        <div class="section-title">
-          <h2>অর্ডার ট্র্যাক করুন</h2>
-          <p>আপনার Order ID দিয়ে status দেখুন</p>
-        </div>
+            <button class="filter-item active" data-pool="all" onclick="setPool('all')">
+              সব Products
+            </button>
+            <button class="filter-item" data-pool="Personal Care" onclick="setPool('Personal Care')">
+              Personal Care
+            </button>
+            <button class="filter-item" data-pool="Gadget" onclick="setPool('Gadget')">
+              Gadget
+            </button>
+            <button class="filter-item" data-pool="Home" onclick="setPool('Home')">
+              Home
+            </button>
+            <button class="filter-item" data-pool="Fitness" onclick="setPool('Fitness')">
+              Fitness
+            </button>
 
-        <div class="card tracking-box">
-          <div class="tracking-form">
-            <input id="trackingInput" placeholder="যেমন: GRO-20260820-1234" />
-            <button class="btn btn-primary" id="trackingBtn">Track</button>
+            <h3 style="margin-top:20px;">Top Vendors</h3>
+            <div id="vendorList"></div>
+          </aside>
+
+          <div>
+            <div id="productGrid" class="products"></div>
           </div>
-          <div class="tracking-result" id="trackingResult"></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="faq">
+    <section class="section" id="vendor">
       <div class="container">
-        <div class="section-title">
-          <h2>সাধারণ প্রশ্ন</h2>
+        <div class="title">
+          <h2>Seller Center</h2>
+          <p>Vendor নিজের product, stock, order এবং earnings manage করতে পারবে</p>
         </div>
 
-        <div class="card faq">
-          <details>
-            <summary>কীভাবে অর্ডার করব?</summary>
-            <p>পণ্য নির্বাচন করে Add to Cart অথবা Buy Now চাপুন। এরপর আপনার নাম, ফোন এবং ঠিকানা দিন।</p>
-          </details>
-          <details>
-            <summary>COD কি available?</summary>
-            <p>হ্যাঁ, serviceable pincode-এ Cash on Delivery available হতে পারে।</p>
-          </details>
-          <details>
-            <summary>UPI payment কীভাবে কাজ করে?</summary>
-            <p>UPI app খুলে payment করতে পারবেন। Payment reference/UTR নম্বর দিলে order review করা হবে।</p>
-          </details>
-          <details>
-            <summary>ডেলিভারি কত দিনে হয়?</summary>
-            <p>সাধারণত 3–7 working days। দূরবর্তী এলাকায় সময় কিছুটা বেশি হতে পারে।</p>
-          </details>
+        <div class="card dashboard-panel">
+          <div class="dashboard-tabs">
+            <button class="btn btn-outline active" onclick="showVendorTab('overview', this)">
+              Overview
+            </button>
+            <button class="btn btn-outline" onclick="showVendorTab('products', this)">
+              Products
+            </button>
+            <button class="btn btn-outline" onclick="showVendorTab('orders', this)">
+              Orders
+            </button>
+            <button class="btn btn-outline" onclick="showVendorTab('add', this)">
+              Add Product
+            </button>
+          </div>
+
+          <div id="vendorPanel"></div>
         </div>
       </div>
     </section>
+
+    <section class="section" id="admin">
+      <div class="container">
+        <div class="title">
+          <h2>Admin Control Center</h2>
+          <p>Vendor approval, commission, products এবং order governance</p>
+        </div>
+
+        <div class="card dashboard-panel">
+          <div class="dashboard-grid">
+            <div class="mini-stat">
+              <small>Total Sales</small>
+              <b id="adminSales">₹0</b>
+            </div>
+            <div class="mini-stat">
+              <small>Platform Commission</small>
+              <b id="adminCommission">₹0</b>
+            </div>
+            <div class="mini-stat">
+              <small>Pending Approvals</small>
+              <b id="pendingVendorCount">0</b>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <h3>Vendor Management</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Vendor</th>
+                  <th>Category</th>
+                  <th>Commission</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="vendorTable"></tbody>
+            </table>
+          </div>
+
+          <div class="table-wrap">
+            <h3>All Orders</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Buyer</th>
+                  <th>Vendor Split</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="adminOrderTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     <div class="container footer-grid">
       <div>
-        <h3>GRO Extender</h3>
-        <p>Smart lifestyle products-এর জন্য একটি modern online store.</p>
-        <p style="margin-top:10px;">📍 Rampur Hat, West Bengal, India</p>
+        <h3>GRO Multi-Pool PEGS</h3>
+        <p>Multi-vendor marketplace infrastructure for modern sellers and buyers.</p>
+        <p>📍 Rampur Hat, West Bengal, India</p>
         <p>📞 +91 90000 00000</p>
-        <p>✉️ support@groextender.in</p>
       </div>
 
       <div>
-        <h3>Quick Links</h3>
-        <a href="#home">হোম</a>
-        <a href="#shop">শপ</a>
-        <a href="#tracking">Order Tracking</a>
-        <a href="#" data-policy="terms">Terms & Conditions</a>
+        <h3>Platform</h3>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#vendor">Seller Center</a>
+        <a href="#admin">Admin Panel</a>
       </div>
 
       <div>
         <h3>Policies</h3>
-        <a href="#" data-policy="privacy">Privacy Policy</a>
-        <a href="#" data-policy="shipping">Shipping Policy</a>
-        <a href="#" data-policy="refund">Refund Policy</a>
-        <a href="#" data-policy="contact">Contact & Grievance</a>
+        <a href="#" onclick="openPolicy('terms')">Terms</a>
+        <a href="#" onclick="openPolicy('privacy')">Privacy</a>
+        <a href="#" onclick="openPolicy('refund')">Refund</a>
       </div>
-    </div>
-
-    <div class="container footer-bottom">
-      © 2026 GRO Extender. All rights reserved.
     </div>
   </footer>
 
-  <div class="bottom-nav">
-    <button onclick="location.hash='home'"><span>⌂</span>হোম</button>
-    <button onclick="location.hash='shop'"><span>🛍️</span>শপ</button>
+  <div class="mobile-nav">
+    <button onclick="location.hash='home'"><span>⌂</span>Home</button>
+    <button onclick="location.hash='marketplace'"><span>🛍️</span>Shop</button>
     <button onclick="openWishlist()"><span>♡</span>Wishlist</button>
     <button onclick="openCart()"><span>🛒</span>Cart</button>
   </div>
 
   <div id="modalBg" class="modal-bg">
     <div class="modal">
-      <button class="modal-close" onclick="closeModal()">×</button>
+      <button class="close" onclick="closeModal()">×</button>
       <div id="modalContent"></div>
     </div>
   </div>
 
-  <div id="toastWrap" class="toast-wrap"></div>
+  <div id="toastBox" class="toast-box"></div>
 
   <script>
-    const STORE = {
-      name: "GRO Extender",
-      upiId: "yourupi@upi",
-      merchantName: "GRO Extender",
-      whatsapp: "919000000000"
+    const platform = {
+      commissionRate: 10,
+      currency: "₹"
     };
 
-    const products = [
+    let vendors = JSON.parse(localStorage.getItem("gro_vendors") || "null") || [
       {
         id: 1,
-        name: "Premium Hair Growth Serum",
+        name: "Manna Lifestyle",
+        owner: "Bikram Manna",
         category: "Personal Care",
-        price: 499,
-        oldPrice: 699,
-        rating: 4.7,
-        reviews: 128,
-        stock: 18,
-        badge: "Best Seller",
-        image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80",
-        description: "হালকা texture-এর daily-use hair serum।"
+        commission: 10,
+        status: "Approved",
+        rating: 4.8
       },
       {
         id: 2,
-        name: "Smart Fitness Band",
+        name: "Tech World Bengal",
+        owner: "Rahul Das",
         category: "Gadget",
-        price: 899,
-        oldPrice: 1299,
-        rating: 4.4,
-        reviews: 87,
-        stock: 7,
-        badge: "Limited",
-        image: "https://images.unsplash.com/photo-1557935728-e6d1eaabe558?auto=format&fit=crop&w=800&q=80",
-        description: "Activity tracking, step count এবং basic notifications."
+        commission: 12,
+        status: "Approved",
+        rating: 4.6
       },
       {
         id: 3,
-        name: "Portable Mini Blender",
+        name: "HomeKart Rampur",
+        owner: "Suman Roy",
         category: "Home",
-        price: 1199,
-        oldPrice: 1599,
-        rating: 4.6,
-        reviews: 64,
-        stock: 24,
-        badge: "New",
-        image: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=800&q=80",
-        description: "Smoothie ও juice তৈরির জন্য compact rechargeable blender."
+        commission: 10,
+        status: "Pending",
+        rating: 4.3
       },
       {
         id: 4,
-        name: "Adjustable Resistance Bands",
+        name: "FitZone India",
+        owner: "Arjun Sen",
         category: "Fitness",
-        price: 649,
-        oldPrice: 899,
-        rating: 4.5,
-        reviews: 91,
-        stock: 31,
-        badge: "Best Seller",
-        image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&w=800&q=80",
-        description: "বাড়িতে workout-এর জন্য multiple resistance levels."
-      },
-      {
-        id: 5,
-        name: "LED Desk Lamp",
-        category: "Home",
-        price: 799,
-        oldPrice: 1099,
-        rating: 4.3,
-        reviews: 52,
-        stock: 11,
-        badge: "New",
-        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
-        description: "Study ও work desk-এর জন্য adjustable LED lamp."
-      },
-      {
-        id: 6,
-        name: "Cooling Face Roller",
-        category: "Personal Care",
-        price: 299,
-        oldPrice: 449,
-        rating: 4.2,
-        reviews: 43,
-        stock: 35,
-        badge: "Trending",
-        image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
-        description: "Daily skincare routine-এর জন্য reusable face roller."
-      },
-      {
-        id: 7,
-        name: "Wireless Neckband",
-        category: "Gadget",
-        price: 749,
-        oldPrice: 999,
-        rating: 4.1,
-        reviews: 76,
-        stock: 9,
-        badge: "Limited",
-        image: "https://images.unsplash.com/photo-1578319439584-104c94d37305?auto=format&fit=crop&w=800&q=80",
-        description: "Long battery backup সহ lightweight wireless neckband."
-      },
-      {
-        id: 8,
-        name: "Stainless Steel Water Bottle",
-        category: "Fitness",
-        price: 449,
-        oldPrice: 599,
-        rating: 4.6,
-        reviews: 103,
-        stock: 28,
-        badge: "Best Seller",
-        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
-        description: "Leak-proof insulated bottle for everyday use."
+        commission: 8,
+        status: "Approved",
+        rating: 4.5
       }
     ];
 
-    let cart = JSON.parse(localStorage.getItem("gro_cart") || "[]");
-    let wishlist = JSON.parse(localStorage.getItem("gro_wishlist") || "[]");
-    let viewed = JSON.parse(localStorage.getItem("gro_viewed") || "[]");
-    let appliedCoupon = null;
+    let products = JSON.parse(localStorage.getItem("gro_market_products") || "null") || [
+      {
+        id: 101,
+        vendorId: 1,
+        name: "Premium Hair Growth Serum",
+        pool: "Personal Care",
+        price: 499,
+        oldPrice: 699,
+        stock: 20,
+        rating: 4.7,
+        badge: "Best Seller",
+        image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 102,
+        vendorId: 2,
+        name: "Smart Fitness Band",
+        pool: "Gadget",
+        price: 899,
+        oldPrice: 1299,
+        stock: 7,
+        rating: 4.4,
+        badge: "Limited",
+        image: "https://images.unsplash.com/photo-1557935728-e6d1eaabe558?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 103,
+        vendorId: 3,
+        name: "Portable Mini Blender",
+        pool: "Home",
+        price: 1199,
+        oldPrice: 1599,
+        stock: 24,
+        rating: 4.6,
+        badge: "New",
+        image: "https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 104,
+        vendorId: 4,
+        name: "Resistance Training Bands",
+        pool: "Fitness",
+        price: 649,
+        oldPrice: 899,
+        stock: 31,
+        rating: 4.5,
+        badge: "Popular",
+        image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 105,
+        vendorId: 1,
+        name: "Cooling Face Roller",
+        pool: "Personal Care",
+        price: 299,
+        oldPrice: 449,
+        stock: 35,
+        rating: 4.3,
+        badge: "Trending",
+        image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 106,
+        vendorId: 2,
+        name: "Wireless Neckband",
+        pool: "Gadget",
+        price: 749,
+        oldPrice: 999,
+        stock: 9,
+        rating: 4.2,
+        badge: "Limited",
+        image: "https://images.unsplash.com/photo-1578319439584-104c94d37305?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
 
-    const money = value => `₹${Number(value).toLocaleString("en-IN")}`;
+    let cart = JSON.parse(localStorage.getItem("gro_pool_cart") || "[]");
+    let wishlist = JSON.parse(localStorage.getItem("gro_pool_wishlist") || "[]");
+    let orders = JSON.parse(localStorage.getItem("gro_pool_orders") || "[]");
+    let activePool = "all";
 
-    function saveState() {
-      localStorage.setItem("gro_cart", JSON.stringify(cart));
-      localStorage.setItem("gro_wishlist", JSON.stringify(wishlist));
-      localStorage.setItem("gro_viewed", JSON.stringify(viewed));
+    const money = amount => `${platform.currency}${Number(amount).toLocaleString("en-IN")}`;
+
+    function vendorById(id) {
+      return vendors.find(vendor => vendor.id === id);
+    }
+
+    function saveAll() {
+      localStorage.setItem("gro_vendors", JSON.stringify(vendors));
+      localStorage.setItem("gro_market_products", JSON.stringify(products));
+      localStorage.setItem("gro_pool_cart", JSON.stringify(cart));
+      localStorage.setItem("gro_pool_wishlist", JSON.stringify(wishlist));
+      localStorage.setItem("gro_pool_orders", JSON.stringify(orders));
       updateCounts();
+      updateStats();
+    }
+
+    function toast(message, type = "") {
+      const element = document.createElement("div");
+      element.className = `toast ${type}`;
+      element.textContent = message;
+      document.getElementById("toastBox").appendChild(element);
+      setTimeout(() => element.remove(), 2600);
     }
 
     function updateCounts() {
       document.getElementById("cartCount").textContent =
-        cart.reduce((sum, item) => sum + item.qty, 0);
+        cart.reduce((total, item) => total + item.qty, 0);
+
       document.getElementById("wishCount").textContent = wishlist.length;
     }
 
-    function toast(message, type = "") {
-      const item = document.createElement("div");
-      item.className = `toast ${type}`;
-      item.textContent = message;
-      document.getElementById("toastWrap").appendChild(item);
-      setTimeout(() => item.remove(), 2800);
+    function updateStats() {
+      const approved = vendors.filter(v => v.status === "Approved");
+      const gmv = orders.reduce((sum, order) => sum + order.total, 0);
+
+      document.getElementById("vendorStat").textContent = approved.length;
+      document.getElementById("productStat").textContent = products.length;
+      document.getElementById("poolStat").textContent =
+        new Set(products.map(product => product.pool)).size;
+      document.getElementById("gmvStat").textContent = money(gmv);
+
+      document.getElementById("adminSales").textContent = money(gmv);
+
+      const commission = orders.reduce((sum, order) => sum + order.commission, 0);
+      document.getElementById("adminCommission").textContent = money(commission);
+
+      document.getElementById("pendingVendorCount").textContent =
+        vendors.filter(v => v.status === "Pending").length;
     }
 
-    function stars(rating) {
-      return "★".repeat(Math.round(rating)) + "☆".repeat(5 - Math.round(rating));
+    function setPool(pool) {
+      activePool = pool;
+
+      document.querySelectorAll("[data-pool]").forEach(item => {
+        item.classList.toggle("active", item.dataset.pool === pool);
+      });
+
+      renderProducts();
+      location.hash = "marketplace";
+    }
+
+    function renderVendorList() {
+      document.getElementById("vendorList").innerHTML = vendors
+        .filter(vendor => vendor.status === "Approved")
+        .map(vendor => `
+          <div class="vendor-mini">
+            <div class="vendor-avatar">${vendor.name.charAt(0)}</div>
+            <div>
+              <b>${vendor.name}</b><br>
+              <small>⭐ ${vendor.rating}</small>
+            </div>
+          </div>
+        `).join("");
     }
 
     function renderProducts() {
       const search = document.getElementById("searchInput").value.toLowerCase().trim();
-      const category = document.getElementById("categoryFilter").value;
-      const sort = document.getElementById("sortFilter").value;
+      const sort = document.getElementById("sortSelect").value;
 
       let list = products.filter(product => {
-        const matchSearch =
+        const vendor = vendorById(product.vendorId);
+        const matchesPool = activePool === "all" || product.pool === activePool;
+        const matchesSearch =
           product.name.toLowerCase().includes(search) ||
-          product.category.toLowerCase().includes(search);
+          product.pool.toLowerCase().includes(search) ||
+          vendor.name.toLowerCase().includes(search);
 
-        const matchCategory =
-          category === "all" || product.category === category;
-
-        return matchSearch && matchCategory;
+        return matchesPool && matchesSearch && vendor.status === "Approved";
       });
 
       if (sort === "low") list.sort((a, b) => a.price - b.price);
       if (sort === "high") list.sort((a, b) => b.price - a.price);
       if (sort === "rating") list.sort((a, b) => b.rating - a.rating);
 
-      const grid = document.getElementById("productsGrid");
+      const grid = document.getElementById("productGrid");
 
       if (!list.length) {
-        grid.innerHTML = `<div class="card" style="padding:25px;grid-column:1/-1;text-align:center;">কোনও পণ্য পাওয়া যায়নি।</div>`;
+        grid.innerHTML = `
+          <div class="card" style="grid-column:1/-1;padding:25px;text-align:center;">
+            কোনও product পাওয়া যায়নি।
+          </div>
+        `;
         return;
       }
 
       grid.innerHTML = list.map(product => {
+        const vendor = vendorById(product.vendorId);
         const liked = wishlist.includes(product.id);
+
         return `
-          <article class="card product-card">
+          <article class="card product">
             <span class="product-badge">${product.badge}</span>
-            <button class="wish-btn ${liked ? "active" : ""}" onclick="toggleWishlist(${product.id})">
+
+            <button class="heart ${liked ? "active" : ""}"
+              onclick="toggleWishlist(${product.id})">
               ${liked ? "♥" : "♡"}
             </button>
-            <img class="product-image" src="${product.image}" alt="${product.name}" loading="lazy">
-            <button class="quick-view" onclick="quickView(${product.id})">Quick View</button>
 
-            <div class="product-info">
-              <div class="product-category">${product.category}</div>
-              <h3 class="product-name">${product.name}</h3>
-              <div class="rating">${stars(product.rating)} <small>(${product.reviews})</small></div>
+            <img src="${product.image}" alt="${product.name}" loading="lazy">
+
+            <div class="product-body">
+              <span class="pool-label">${product.pool} Pool</span>
+              <h3>${product.name}</h3>
+              <div class="vendor-name">Sold by: ${vendor.name}</div>
+              <div class="rating">★★★★★ <small>${product.rating}</small></div>
+
               <div class="price">
                 ${money(product.price)}
-                <span class="old-price">${money(product.oldPrice)}</span>
-              </div>
-              <div class="stock ${product.stock <= 10 ? "low" : "good"}">
-                ${product.stock <= 10 ? `মাত্র ${product.stock}টি বাকি` : `In stock: ${product.stock}`}
+                <span class="old">${money(product.oldPrice)}</span>
               </div>
 
-              <div class="product-actions">
-                <button class="btn btn-outline" onclick="addToCart(${product.id})">Cart</button>
-                <button class="btn btn-primary" onclick="buyNow(${product.id})">Buy Now</button>
+              <div class="stock ${product.stock <= 10 ? "low" : "ok"}">
+                ${product.stock <= 10 ? `মাত্র ${product.stock}টি বাকি` : `${product.stock}টি available`}
+              </div>
+
+              <div class="product-buttons">
+                <button class="btn btn-outline" onclick="addToCart(${product.id})">
+                  Cart
+                </button>
+                <button class="btn btn-primary" onclick="buyNow(${product.id})">
+                  Buy Now
+                </button>
               </div>
             </div>
           </article>
@@ -1236,24 +1366,37 @@
       }).join("");
     }
 
-    function addToCart(id, quantity = 1) {
+    function toggleWishlist(id) {
+      wishlist = wishlist.includes(id)
+        ? wishlist.filter(item => item !== id)
+        : [...wishlist, id];
+
+      saveAll();
+      renderProducts();
+      toast(wishlist.includes(id) ? "Wishlist-এ যোগ হয়েছে" : "Wishlist থেকে সরানো হয়েছে");
+    }
+
+    function addToCart(id, qty = 1) {
       const product = products.find(item => item.id === id);
       if (!product) return;
 
-      const found = cart.find(item => item.id === id);
+      const item = cart.find(item => item.id === id);
 
-      if (found) {
-        if (found.qty + quantity > product.stock) {
-          toast("এই পণ্যের পর্যাপ্ত stock নেই", "error");
+      if (item) {
+        if (item.qty + qty > product.stock) {
+          toast("Stock limit reached", "error");
           return;
         }
-        found.qty += quantity;
+        item.qty += qty;
       } else {
-        cart.push({ id, qty: quantity });
+        cart.push({
+          id,
+          qty
+        });
       }
 
-      saveState();
-      toast("পণ্য cart-এ যোগ হয়েছে", "success");
+      saveAll();
+      toast("Product cart-এ যোগ হয়েছে", "success");
     }
 
     function buyNow(id) {
@@ -1261,137 +1404,80 @@
       openCart();
     }
 
-    function removeFromCart(id) {
+    function removeCart(id) {
       cart = cart.filter(item => item.id !== id);
-      saveState();
+      saveAll();
       renderCart();
     }
 
     function changeQty(id, amount) {
       const item = cart.find(item => item.id === id);
       const product = products.find(item => item.id === id);
+
       if (!item || !product) return;
 
       item.qty += amount;
 
       if (item.qty <= 0) {
-        removeFromCart(id);
+        removeCart(id);
         return;
       }
 
       if (item.qty > product.stock) {
         item.qty = product.stock;
-        toast("Stock limit reached", "error");
+        toast("Maximum stock reached", "error");
       }
 
-      saveState();
+      saveAll();
       renderCart();
     }
 
-    function toggleWishlist(id) {
-      if (wishlist.includes(id)) {
-        wishlist = wishlist.filter(item => item !== id);
-        toast("Wishlist থেকে সরানো হয়েছে");
-      } else {
-        wishlist.push(id);
-        toast("Wishlist-এ যোগ হয়েছে", "success");
-      }
-
-      saveState();
-      renderProducts();
-    }
-
-    function openWishlist() {
-      const items = products.filter(product => wishlist.includes(product.id));
-
-      openModal(`
-        <h2>❤️ Wishlist</h2>
-        <div class="cart-list">
-          ${
-            items.length
-            ? items.map(product => `
-              <div class="cart-item">
-                <img src="${product.image}" alt="${product.name}">
-                <div>
-                  <b>${product.name}</b>
-                  <div>${money(product.price)}</div>
-                </div>
-                <button class="btn btn-primary" onclick="addToCart(${product.id})">Cart</button>
-              </div>
-            `).join("")
-            : `<p style="color:var(--muted);margin-top:15px;">Wishlist এখনও খালি।</p>`
-          }
-        </div>
-      `);
-    }
-
-    function getCartDetails() {
+    function getCartItems() {
       return cart.map(item => {
         const product = products.find(product => product.id === item.id);
-        return { ...product, qty: item.qty };
+        const vendor = vendorById(product.vendorId);
+
+        return {
+          ...product,
+          qty: item.qty,
+          vendor
+        };
       });
     }
 
-    function calculateSummary() {
-      const items = getCartDetails();
+    function getSummary() {
+      const items = getCartItems();
       const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
-      const discount = appliedCoupon === "GRO10" ? Math.round(subtotal * .10) : 0;
-      const taxable = subtotal - discount;
-      const delivery = taxable >= 999 ? 0 : taxable ? 49 : 0;
-      const total = taxable + delivery;
-      return { subtotal, discount, delivery, total };
+      const delivery = subtotal >= 999 ? 0 : subtotal ? 49 : 0;
+      const commission = items.reduce(
+        (sum, item) => sum + item.price * item.qty * (item.vendor.commission / 100),
+        0
+      );
+
+      return {
+        subtotal,
+        delivery,
+        total: subtotal + delivery,
+        commission
+      };
     }
 
-    function summaryHTML() {
-      const data = calculateSummary();
-
+    function summaryHTML(summary) {
       return `
-        <div class="summary-line"><span>Subtotal</span><b>${money(data.subtotal)}</b></div>
-        <div class="summary-line"><span>Discount</span><b style="color:var(--success)">-${money(data.discount)}</b></div>
-        <div class="summary-line"><span>Delivery</span><b>${data.delivery ? money(data.delivery) : "FREE"}</b></div>
-        <div class="summary-line summary-total"><span>Total</span><b>${money(data.total)}</b></div>
-      `;
-    }
-
-    function renderCart() {
-      const items = getCartDetails();
-
-      document.getElementById("modalContent").innerHTML = `
-        <h2>🛒 আপনার Cart</h2>
-        ${
-          items.length
-          ? `
-            <div class="cart-list">
-              ${items.map(item => `
-                <div class="cart-item">
-                  <img src="${item.image}" alt="${item.name}">
-                  <div>
-                    <b>${item.name}</b>
-                    <div>${money(item.price)} × ${item.qty}</div>
-                    <div class="qty-control">
-                      <button onclick="changeQty(${item.id}, -1)">−</button>
-                      <span>${item.qty}</span>
-                      <button onclick="changeQty(${item.id}, 1)">+</button>
-                    </div>
-                  </div>
-                  <button class="btn btn-danger" onclick="removeFromCart(${item.id})">×</button>
-                </div>
-              `).join("")}
-            </div>
-
-            <div class="coupon-row">
-              <input id="couponInput" placeholder="Coupon code: GRO10" value="${appliedCoupon || ""}">
-              <button class="btn btn-outline" onclick="applyCoupon()">Apply</button>
-            </div>
-
-            ${summaryHTML()}
-
-            <button class="btn btn-primary" style="width:100%;margin-top:17px;" onclick="openCheckout()">
-              Checkout →
-            </button>
-          `
-          : `<p style="margin-top:18px;color:var(--muted);">আপনার cart খালি।</p>`
-        }
+        <div class="summary">
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <b>${money(summary.subtotal)}</b>
+          </div>
+          <div class="summary-line">
+            <span>Delivery</span>
+            <b>${summary.delivery ? money(summary.delivery) : "FREE"}</b>
+          </div>
+          <div class="summary-line summary-total">
+            <span>Total</span>
+            <b>${money(summary.total)}</b>
+          </div>
+        </div>
       `;
     }
 
@@ -1400,396 +1486,486 @@
       renderCart();
     }
 
-    function applyCoupon() {
-      const code = document.getElementById("couponInput").value.trim().toUpperCase();
+    function renderCart() {
+      const items = getCartItems();
+      const summary = getSummary();
 
-      if (code === "GRO10") {
-        appliedCoupon = code;
-        toast("10% discount applied", "success");
-      } else {
-        appliedCoupon = null;
-        toast("Invalid coupon code", "error");
-      }
+      document.getElementById("modalContent").innerHTML = `
+        <h2>🛒 Multi-Vendor Cart</h2>
+        ${
+          items.length
+          ? `
+            <div>
+              ${items.map(item => `
+                <div class="cart-row">
+                  <img src="${item.image}" alt="${item.name}">
+                  <div>
+                    <b>${item.name}</b>
+                    <small style="display:block;color:var(--muted);">
+                      Vendor: ${item.vendor.name}
+                    </small>
+                    <div>${money(item.price)} × ${item.qty}</div>
 
-      renderCart();
+                    <div class="qty">
+                      <button onclick="changeQty(${item.id}, -1)">−</button>
+                      <span>${item.qty}</span>
+                      <button onclick="changeQty(${item.id}, 1)">+</button>
+                    </div>
+                  </div>
+                  <button class="btn btn-danger" onclick="removeCart(${item.id})">×</button>
+                </div>
+              `).join("")}
+            </div>
+
+            ${renderVendorSplit(items)}
+
+            ${summaryHTML(summary)}
+
+            <button class="btn btn-primary" style="width:100%;margin-top:16px;" onclick="openCheckout()">
+              Checkout →
+            </button>
+          `
+          : `<p style="margin-top:15px;color:var(--muted);">Cart খালি।</p>`
+        }
+      `;
+    }
+
+    function renderVendorSplit(items) {
+      const groups = {};
+
+      items.forEach(item => {
+        if (!groups[item.vendorId]) {
+          groups[item.vendorId] = {
+            vendor: item.vendor,
+            amount: 0
+          };
+        }
+
+        groups[item.vendorId].amount += item.price * item.qty;
+      });
+
+      return `
+        <div class="card" style="padding:13px;margin-top:15px;">
+          <b>Vendor-wise Order Split</b>
+          ${Object.values(groups).map(group => `
+            <div class="summary-line">
+              <span>${group.vendor.name}</span>
+              <b>${money(group.amount)}</b>
+            </div>
+          `).join("")}
+        </div>
+      `;
     }
 
     function openCheckout() {
       if (!cart.length) {
-        toast("আগে cart-এ পণ্য যোগ করুন", "error");
+        toast("Cart খালি", "error");
         return;
       }
 
       openModal(`
         <h2>Checkout</h2>
-        <p style="color:var(--muted);margin:5px 0 18px;">আপনার সঠিক তথ্য দিন</p>
+        <p style="color:var(--muted);margin:5px 0 16px;">
+          Multi-vendor order-এর জন্য buyer information দিন
+        </p>
 
         <form id="checkoutForm">
           <div class="form-grid">
             <div class="field">
               <label>নাম *</label>
-              <input id="customerName" required minlength="2" placeholder="আপনার নাম">
+              <input id="buyerName" class="input" required>
             </div>
 
             <div class="field">
               <label>মোবাইল *</label>
-              <input id="customerPhone" required pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10 digit mobile">
-            </div>
-
-            <div class="field">
-              <label>ইমেইল</label>
-              <input id="customerEmail" type="email" placeholder="you@example.com">
+              <input id="buyerPhone" class="input" required pattern="[6-9][0-9]{9}" maxlength="10">
             </div>
 
             <div class="field">
               <label>Pincode *</label>
-              <input id="customerPincode" required pattern="[0-9]{6}" maxlength="6" placeholder="৬ সংখ্যার pincode">
+              <input id="buyerPin" class="input" required pattern="[0-9]{6}" maxlength="6">
+            </div>
+
+            <div class="field">
+              <label>Payment</label>
+              <select id="paymentMethod" class="select" style="width:100%;">
+                <option value="COD">Cash on Delivery</option>
+                <option value="UPI">UPI</option>
+              </select>
             </div>
 
             <div class="field full">
-              <label>সম্পূর্ণ ঠিকানা *</label>
-              <textarea id="customerAddress" required minlength="10" rows="3" placeholder="বাড়ি, রাস্তা, এলাকা, জেলা"></textarea>
+              <label>ঠিকানা *</label>
+              <textarea id="buyerAddress" required rows="3"></textarea>
             </div>
           </div>
 
-          <div class="card" style="padding:15px;margin:12px 0;">
-            <b>Pincode serviceability</b>
-            <div style="display:flex;gap:8px;margin-top:8px;">
-              <input id="servicePincode" pattern="[0-9]{6}" maxlength="6" placeholder="Pincode check">
-              <button type="button" class="btn btn-outline" onclick="checkPincode()">Check</button>
-            </div>
-            <small id="serviceResult" style="display:block;margin-top:7px;"></small>
-          </div>
+          ${summaryHTML(getSummary())}
 
-          <div class="payment-methods">
-            <b>Payment Method</b>
-            <label>
-              <input type="radio" name="payment" value="cod" checked>
-              Cash on Delivery
-            </label>
-            <label>
-              <input type="radio" name="payment" value="upi">
-              UPI Payment
-            </label>
-          </div>
-
-          <div id="upiBox" class="card hidden" style="padding:15px;margin-bottom:13px;">
-            <p><b>UPI ID:</b> ${STORE.upiId}</p>
-            <button type="button" class="btn btn-success" style="margin-top:9px;" onclick="payUPI()">Open UPI App</button>
-            <div class="field" style="margin-top:12px;">
-              <label>UTR / Transaction Reference</label>
-              <input id="utrNumber" placeholder="Payment করার পর UTR দিন">
-            </div>
-            <small style="color:var(--muted);">
-              UTR submit করলে payment automatically verified হবে না; manual বা gateway verification প্রয়োজন।
-            </small>
-          </div>
-
-          <div style="margin:15px 0;">${summaryHTML()}</div>
-
-          <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:15px;">
-            <input type="checkbox" id="termsCheck" required>
-            <span>আমি Terms, Privacy এবং Refund Policy মেনে নিচ্ছি।</span>
+          <label style="display:flex;gap:7px;margin:15px 0;font-size:13px;">
+            <input type="checkbox" required>
+            <span>Terms এবং marketplace policy মেনে নিচ্ছি</span>
           </label>
 
-          <button class="btn btn-primary" id="placeOrderBtn" style="width:100%;">
-            অর্ডার কনফার্ম করুন
+          <button class="btn btn-primary" id="checkoutBtn" style="width:100%;">
+            Place Multi-Vendor Order
           </button>
         </form>
-      `;
-
-      document.querySelectorAll('input[name="payment"]').forEach(input => {
-        input.addEventListener("change", event => {
-          document.getElementById("upiBox").classList.toggle("hidden", event.target.value !== "upi");
-        });
-      });
+      `);
 
       document.getElementById("checkoutForm").addEventListener("submit", placeOrder);
     }
 
-    function checkPincode() {
-      const pincode = document.getElementById("servicePincode").value.trim();
-      const result = document.getElementById("serviceResult");
-
-      if (!/^[0-9]{6}$/.test(pincode)) {
-        result.textContent = "সঠিক ৬ সংখ্যার pincode দিন।";
-        result.style.color = "var(--danger)";
-        return;
-      }
-
-      result.textContent = "এই pincode আপাতত serviceable ধরা হচ্ছে। Final confirmation call-এ হবে।";
-      result.style.color = "var(--success)";
-    }
-
-    function payUPI() {
-      const data = calculateSummary();
-      const transactionId = `GRO${Date.now()}`;
-      const link =
-        `upi://pay?pa=${encodeURIComponent(STORE.upiId)}` +
-        `&pn=${encodeURIComponent(STORE.merchantName)}` +
-        `&am=${data.total.toFixed(2)}&cu=INR&tr=${transactionId}`;
-
-      window.location.href = link;
-      toast("UPI app খোলার চেষ্টা করা হচ্ছে...");
-    }
-
-    function generateOrderId() {
-      const date = new Date();
-      const y = date.getFullYear();
-      const m = String(date.getMonth() + 1).padStart(2, "0");
-      const d = String(date.getDate()).padStart(2, "0");
-      const random = Math.floor(1000 + Math.random() * 9000);
-      return `GRO-${y}${m}${d}-${random}`;
+    function createOrderId() {
+      return `PEGS-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
     }
 
     function placeOrder(event) {
       event.preventDefault();
 
-      const button = document.getElementById("placeOrderBtn");
-      button.disabled = true;
-      button.textContent = "অর্ডার তৈরি হচ্ছে...";
-
-      const payment = document.querySelector('input[name="payment"]:checked').value;
-      const summary = calculateSummary();
+      const items = getCartItems();
+      const summary = getSummary();
 
       const order = {
-        id: generateOrderId(),
-        createdAt: new Date().toISOString(),
-        customer: {
-          name: document.getElementById("customerName").value.trim(),
-          phone: document.getElementById("customerPhone").value.trim(),
-          email: document.getElementById("customerEmail").value.trim(),
-          pincode: document.getElementById("customerPincode").value.trim(),
-          address: document.getElementById("customerAddress").value.trim()
+        id: createOrderId(),
+        buyer: {
+          name: document.getElementById("buyerName").value.trim(),
+          phone: document.getElementById("buyerPhone").value.trim(),
+          pincode: document.getElementById("buyerPin").value.trim(),
+          address: document.getElementById("buyerAddress").value.trim()
         },
-        items: getCartDetails(),
-        payment,
-        utr: payment === "upi"
-          ? document.getElementById("utrNumber").value.trim()
-          : "",
-        paymentStatus: payment === "cod" ? "Pending COD" : "Awaiting Verification",
-        orderStatus: "Order Placed",
-        summary
+        items,
+        total: summary.total,
+        commission: Math.round(summary.commission),
+        payment: document.getElementById("paymentMethod").value,
+        status: "Placed",
+        createdAt: new Date().toISOString()
       };
 
-      setTimeout(() => {
-        const orders = JSON.parse(localStorage.getItem("gro_orders") || "[]");
-        orders.push(order);
-        localStorage.setItem("gro_orders", JSON.stringify(orders));
+      order.vendorOrders = {};
 
-        cart = [];
-        appliedCoupon = null;
-        saveState();
-        showOrderSuccess(order);
-      }, 850);
+      items.forEach(item => {
+        if (!order.vendorOrders[item.vendorId]) {
+          order.vendorOrders[item.vendorId] = {
+            vendorId: item.vendorId,
+            vendorName: item.vendor.name,
+            status: "Vendor Pending",
+            amount: 0,
+            items: []
+          };
+        }
+
+        order.vendorOrders[item.vendorId].amount += item.price * item.qty;
+        order.vendorOrders[item.vendorId].items.push({
+          name: item.name,
+          qty: item.qty,
+          price: item.price
+        });
+
+        const product = products.find(product => product.id === item.id);
+        product.stock -= item.qty;
+      });
+
+      orders.push(order);
+      cart = [];
+      saveAll();
+
+      showOrderSuccess(order);
+      renderAdmin();
+      renderVendorPanel("overview");
     }
 
     function showOrderSuccess(order) {
-      const whatsappMessage = [
-        `নতুন অর্ডার: ${order.id}`,
-        `নাম: ${order.customer.name}`,
-        `ফোন: ${order.customer.phone}`,
-        `ঠিকানা: ${order.customer.address}, ${order.customer.pincode}`,
-        "",
-        ...order.items.map(item => `${item.name} × ${item.qty}`),
-        "",
-        `Total: ${money(order.summary.total)}`,
-        `Payment: ${order.payment.toUpperCase()}`
-      ].join("\\n");
-
-      const whatsappLink =
-        `https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
-
       document.getElementById("modalContent").innerHTML = `
         <div style="text-align:center;">
-          <div style="font-size:55px;">✅</div>
-          <h2>অর্ডার সফলভাবে নেওয়া হয়েছে</h2>
-          <p style="color:var(--muted);margin-top:5px;">আপনার Order ID সংরক্ষণ করুন</p>
+          <div style="font-size:55px;">🎉</div>
+          <h2>Multi-Vendor Order Placed</h2>
+          <p style="color:var(--muted);margin-top:6px;">Order ID সংরক্ষণ করুন</p>
 
-          <div class="invoice" style="text-align:left;">
-            <div class="invoice-header">
-              <div>
-                <b>${STORE.name}</b><br>
-                <small>Order Invoice</small>
-              </div>
-              <div style="text-align:right;">
-                <b>${order.id}</b><br>
-                <small>${new Date(order.createdAt).toLocaleString("en-IN")}</small>
-              </div>
-            </div>
-
-            <p><b>Customer:</b> ${order.customer.name}</p>
-            <p><b>Phone:</b> ${order.customer.phone}</p>
-            <p><b>Payment:</b> ${order.payment.toUpperCase()}</p>
-            <p><b>Status:</b> ${order.paymentStatus}</p>
-
-            <hr style="border:0;border-top:1px solid var(--border);margin:12px 0;">
-
-            ${order.items.map(item => `
-              <div class="summary-line">
-                <span>${item.name} × ${item.qty}</span>
-                <b>${money(item.price * item.qty)}</b>
-              </div>
-            `).join("")}
-
-            ${summaryHTMLFor(order.summary)}
+          <div class="card" style="padding:17px;text-align:left;margin-top:16px;">
+            <p><b>Order ID:</b> ${order.id}</p>
+            <p><b>Buyer:</b> ${order.buyer.name}</p>
+            <p><b>Payment:</b> ${order.payment}</p>
+            <p><b>Total:</b> ${money(order.total)}</p>
+            <p><b>Vendor Split:</b> ${Object.keys(order.vendorOrders).length} vendors</p>
           </div>
 
-          <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
-            <button class="btn btn-outline" onclick="copyOrderId('${order.id}')">Copy Order ID</button>
-            <a class="btn btn-success" href="${whatsappLink}" target="_blank">WhatsApp Order</a>
-            <button class="btn btn-primary" onclick="closeModal()">Continue Shopping</button>
-          </div>
+          <button class="btn btn-primary" style="margin-top:16px;" onclick="closeModal()">
+            Continue Shopping
+          </button>
         </div>
       `;
     }
 
-    function summaryHTMLFor(data) {
-      return `
-        <div style="border-top:1px solid var(--border);margin-top:9px;padding-top:9px;">
-          <div class="summary-line"><span>Subtotal</span><b>${money(data.subtotal)}</b></div>
-          <div class="summary-line"><span>Discount</span><b>-${money(data.discount)}</b></div>
-          <div class="summary-line"><span>Delivery</span><b>${data.delivery ? money(data.delivery) : "FREE"}</b></div>
-          <div class="summary-line summary-total"><span>Total</span><b>${money(data.total)}</b></div>
-        </div>
-      `;
-    }
-
-    function copyOrderId(orderId) {
-      navigator.clipboard.writeText(orderId);
-      toast("Order ID copied", "success");
-    }
-
-    function trackOrder() {
-      const id = document.getElementById("trackingInput").value.trim().toUpperCase();
-      const result = document.getElementById("trackingResult");
-      const orders = JSON.parse(localStorage.getItem("gro_orders") || "[]");
-      const order = orders.find(item => item.id === id);
-
-      result.style.display = "block";
-
-      if (!order) {
-        result.innerHTML = "এই Order ID এই browser-এ পাওয়া যায়নি।";
-        result.style.background = "rgba(220,38,38,.12)";
-        return;
-      }
-
-      result.style.background = "rgba(22,163,74,.12)";
-      result.innerHTML = `
-        <b>${order.id}</b><br>
-        Customer: ${order.customer.name}<br>
-        Order Status: <b>${order.orderStatus}</b><br>
-        Payment Status: <b>${order.paymentStatus}</b><br>
-        Total: <b>${money(order.summary.total)}</b>
-      `;
-    }
-
-    function quickView(id) {
-      const product = products.find(item => item.id === id);
-      viewed = [id, ...viewed.filter(item => item !== id)].slice(0, 6);
-      saveState();
+    function openWishlist() {
+      const items = products.filter(product => wishlist.includes(product.id));
 
       openModal(`
-        <div class="modal-product">
-          <img src="${product.image}" alt="${product.name}">
-          <div>
-            <div class="product-category">${product.category}</div>
-            <h2>${product.name}</h2>
-            <div class="rating" style="margin:8px 0;">${stars(product.rating)} (${product.reviews} reviews)</div>
-            <p style="color:var(--muted);margin:12px 0;">${product.description}</p>
-            <div class="price">${money(product.price)} <span class="old-price">${money(product.oldPrice)}</span></div>
-            <p class="${product.stock <= 10 ? "stock low" : "stock good"}">${product.stock}টি available</p>
-            <div style="display:flex;gap:8px;margin-top:14px;">
-              <button class="btn btn-outline" onclick="addToCart(${product.id})">Add to Cart</button>
-              <button class="btn btn-primary" onclick="buyNow(${product.id})">Buy Now</button>
-            </div>
-          </div>
+        <h2>❤️ Wishlist</h2>
+        <div style="margin-top:15px;">
+          ${
+            items.length
+            ? items.map(item => `
+              <div class="cart-row">
+                <img src="${item.image}" alt="${item.name}">
+                <div>
+                  <b>${item.name}</b>
+                  <small style="display:block;color:var(--muted);">${item.pool} Pool</small>
+                  <b>${money(item.price)}</b>
+                </div>
+                <button class="btn btn-primary" onclick="addToCart(${item.id})">Cart</button>
+              </div>
+            `).join("")
+            : `<p style="color:var(--muted);">Wishlist এখনও খালি।</p>`
+          }
         </div>
       `);
     }
 
-    function openModal(content) {
-      document.getElementById("modalContent").innerHTML = content;
-      document.getElementById("modalBg").classList.add("show");
+    function showVendorTab(tab, button) {
+      document.querySelectorAll(".dashboard-tabs button")
+        .forEach(btn => btn.classList.remove("active"));
+
+      button.classList.add("active");
+      renderVendorPanel(tab);
     }
 
-    function closeModal() {
-      document.getElementById("modalBg").classList.remove("show");
+    function currentVendor() {
+      return vendors.find(vendor => vendor.status === "Approved") || vendors[0];
     }
 
-    const policies = {
-      terms: {
-        title: "Terms & Conditions",
-        text: `
-          <p>এই website ব্যবহার করে order করলে customer product details, price, payment এবং delivery terms মেনে নিচ্ছেন।</p>
-          <p>Product availability, delivery area এবং estimated delivery time পরিবর্তন হতে পারে।</p>
-          <p>ভুল customer information-এর কারণে delivery ব্যর্থ হলে অতিরিক্ত charge প্রযোজ্য হতে পারে।</p>
-        `
-      },
-      privacy: {
-        title: "Privacy Policy",
-        text: `
-          <p>Order processing-এর জন্য নাম, মোবাইল, ঠিকানা এবং প্রয়োজনে email সংগ্রহ করা হয়।</p>
-          <p>এই demo version order data আপনার browser-এর localStorage-এ রাখে। Real business-এর ক্ষেত্রে secure server এবং database ব্যবহার করুন।</p>
-          <p>Customer data অনুমতি ছাড়া বিক্রি করা উচিত নয়।</p>
-        `
-      },
-      shipping: {
-        title: "Shipping Policy",
-        text: `
-          <p>সাধারণ delivery estimate 3–7 working days।</p>
-          <p>Delivery charge order value ও location অনুযায়ী পরিবর্তিত হতে পারে। ₹999 বা তার বেশি order-এ demo version-এ free delivery দেখানো হচ্ছে।</p>
-          <p>Remote area, holiday বা courier delay হলে সময় বাড়তে পারে।</p>
-        `
-      },
-      refund: {
-        title: "Refund & Cancellation Policy",
-        text: `
-          <p>Wrong, damaged বা defective product পেলে delivery পাওয়ার পর দ্রুত support-এ যোগাযোগ করুন।</p>
-          <p>Product unused, original packaging সহ এবং unboxing proof থাকলে return review করা যেতে পারে।</p>
-          <p>Refund approval-এর পর original payment mode-এ refund processing করা হবে। নিজের ব্যবসার প্রকৃত timeline এখানে লিখুন।</p>
-        `
-      },
-      contact: {
-        title: "Contact & Grievance",
-        text: `
-          <p><b>Business:</b> GRO Extender</p>
-          <p><b>Address:</b> Rampur Hat, West Bengal, India</p>
-          <p><b>Phone:</b> +91 90000 00000</p>
-          <p><b>Email:</b> support@groextender.in</p>
-          <p><b>Grievance contact:</b> নিজের প্রকৃত নাম, phone ও email দিয়ে এই অংশ আপডেট করুন।</p>
-        `
-      }
-    };
+    function vendorOrders(vendorId) {
+      return orders.filter(order =>
+        Object.values(order.vendorOrders || {})
+          .some(item => item.vendorId === vendorId)
+      );
+    }
 
-    document.querySelectorAll("[data-policy]").forEach(link => {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        const policy = policies[link.dataset.policy];
+    function renderVendorPanel(tab = "overview") {
+      const vendor = currentVendor();
+      const vendorProducts = products.filter(product => product.vendorId === vendor.id);
+      const vendorOrderList = vendorOrders(vendor.id);
 
-        openModal(`
-          <h2>${policy.title}</h2>
-          <div style="color:var(--muted);margin-top:15px;display:grid;gap:12px;">
-            ${policy.text}
+      const gross = vendorOrderList.reduce((sum, order) => {
+        const part = order.vendorOrders[vendor.id];
+        return sum + (part ? part.amount : 0);
+      }, 0);
+
+      const commission = Math.round(gross * vendor.commission / 100);
+      const payable = gross - commission;
+
+      const panel = document.getElementById("vendorPanel");
+
+      if (tab === "overview") {
+        panel.innerHTML = `
+          <h3>${vendor.name} Dashboard</h3>
+          <p style="color:var(--muted);margin:5px 0 18px;">
+            Logged in as: ${vendor.owner}
+          </p>
+
+          <div class="dashboard-grid">
+            <div class="mini-stat">
+              <small>My Products</small>
+              <b>${vendorProducts.length}</b>
+            </div>
+            <div class="mini-stat">
+              <small>Gross Sales</small>
+              <b>${money(gross)}</b>
+            </div>
+            <div class="mini-stat">
+              <small>Payable Earnings</small>
+              <b>${money(payable)}</b>
+            </div>
           </div>
-        `);
-      });
-    });
 
-    document.getElementById("searchInput").addEventListener("input", event => {
-      renderProducts();
-
-      const value = event.target.value.toLowerCase().trim();
-      const box = document.getElementById("autocomplete");
-
-      if (!value) {
-        box.classList.add("hidden");
-        return;
+          <div class="card" style="padding:15px;margin-top:18px;">
+            <b>Commission Rule</b>
+            <p style="color:var(--muted);margin-top:5px;">
+              ${vendor.commission}% commission • Platform fee: ${money(commission)}
+            </p>
+          </div>
+        `;
       }
 
-      constconst STORE = {
-  name: "GRO Extender",
-  upiId: "yourupi@upi",
-  merchantName: "GRO Extender",
-  whatsapp: "919000000000"
-};
+      if (tab === "products") {
+        panel.innerHTML = `
+          <h3>My Product Catalog</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Pool</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${vendorProducts.map(product => `
+                  <tr>
+                    <td>${product.name}</td>
+                    <td>${product.pool}</td>
+                    <td>${money(product.price)}</td>
+                    <td>${product.stock}</td>
+                    <td>
+                      <button class="btn btn-outline" onclick="increaseStock(${product.id})">
+                        + Stock
+                      </button>
+                    </td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      if (tab === "orders") {
+        panel.innerHTML = `
+          <h3>Vendor Orders</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Buyer</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${
+                  vendorOrderList.length
+                  ? vendorOrderList.map(order => {
+                    const part = order.vendorOrders[vendor.id];
+                    return `
+                      <tr>
+                        <td>${order.id}</td>
+                        <td>${order.buyer.name}</td>
+                        <td>${money(part.amount)}</td>
+                        <td><span class="status pending">${part.status}</span></td>
+                        <td>
+                          <button class="btn btn-success" onclick="shipVendorOrder('${order.id}', ${vendor.id})">
+                            Mark Shipped
+                          </button>
+                        </td>
+                      </tr>
+                    `;
+                  }).join("")
+                  : `<tr><td colspan="5">No vendor orders</td></tr>`
+                }
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      if (tab === "add") {
+        panel.innerHTML = `
+          <h3>Add New Product</h3>
+          <form id="addProductForm" style="margin-top:17px;">
+            <div class="form-grid">
+              <div class="field">
+                <label>Product Name</label>
+                <input id="newProductName" class="input" required>
+              </div>
+
+              <div class="field">
+                <label>Pool</label>
+                <select id="newProductPool" class="select" style="width:100%;">
+                  <option>Personal Care</option>
+                  <option>Gadget</option>
+                  <option>Home</option>
+                  <option>Fitness</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Price</label>
+                <input id="newProductPrice" class="input" type="number" required>
+              </div>
+
+              <div class="field">
+                <label>Stock</label>
+                <input id="newProductStock" class="input" type="number" required>
+              </div>
+
+              <div class="field full">
+                <label>Image URL</label>
+                <input id="newProductImage" class="input" required
+                  placeholder="https://images.unsplash.com/...">
+              </div>
+            </div>
+
+            <button class="btn btn-primary">Submit Product for Approval</button>
+          </form>
+        `;
+
+        document.getElementById("addProductForm")
+          .addEventListener("submit", addVendorProduct);
+      }
+    }
+
+    function increaseStock(productId) {
+      const product = products.find(item => item.id === productId);
+      if (!product) return;
+
+      product.stock += 10;
+      saveAll();
+      renderVendorPanel("products");
+      renderProducts();
+      toast("Stock updated", "success");
+    }
+
+    function addVendorProduct(event) {
+      event.preventDefault();
+
+      const vendor = currentVendor();
+
+      products.push({
+        id: Date.now(),
+        vendorId: vendor.id,
+        name: document.getElementById("newProductName").value,
+        pool: document.getElementById("newProductPool").value,
+        price: Number(document.getElementById("newProductPrice").value),
+        oldPrice: Number(document.getElementById("newProductPrice").value) + 200,
+        stock: Number(document.getElementById("newProductStock").value),
+        rating: 4.2,
+        badge: "Pending Review",
+        image: document.getElementById("newProductImage").value
+      });
+
+      saveAll();
+      renderProducts();
+      renderVendorPanel("products");
+      toast("Product submitted for admin review", "success");
+    }
+
+    function shipVendorOrder(orderId, vendorId) {
+      const order = orders.find(order => order.id === orderId);
+      if (!order || !order.vendorOrders[vendorId]) return;
+
+      order.vendorOrders[vendorId].status = "Shipped";
+
+      const allShipped = Object.values(order.vendorOrders)
+        .every(item => item.status === "Shipped");
+
+      if (allShipped) order.status = "Shipped";
+
+      saveAll();
+      renderVendorPanel("orders");
+      renderAdmin();
+      toast("Vendor order marked as shipped", "success");
+    }
+
+    function approveVendor(id) {
+      const vendor = vendors.find(vendor => vendor.id === id);
+      if (!vendor) return;
+
+      vendor.status = "Approved";
+      saveAll();
+      renderAdmin();
+      renderVendorList();
+      renderProducts();
