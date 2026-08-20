@@ -15,6 +15,7 @@ button{cursor:pointer}
 .header{height:70px;background:rgba(7,9,13,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:999}
 .logo{font-size:28px;font-weight:1000;letter-spacing:-1px}
 .logo span{color:var(--gold)}
+.cart-icon{position:absolute;right:20px;top:15px;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:#11141b;color:#fff;font-size:20px}
 
 /* HERO */
 .hero{max-width:1200px;margin:auto;padding:50px 20px 30px;text-align:center}
@@ -119,7 +120,10 @@ button{cursor:pointer}
 </head>
 <body>
 
-<div class="header"><div class="logo">GRO<span>®</span></div></div>
+<div class="header">
+  <div class="logo">GRO<span>®</span></div>
+  <button class="cart-icon" onclick="openCart()">🛒<span id="cartCount" style="position:absolute;right:-5px;top:-5px;min-width:18px;height:18px;background:var(--gold);color:#000;border-radius:50%;font-size:10px;font-weight:1000;display:flex;align-items:center;justify-content:center">0</span></button>
+</div>
 
 <div class="hero">
   <h1>PREMIUM <span>CONFIDENCE</span></h1>
@@ -275,7 +279,7 @@ function addToCart(id){
 
 function updateCartCount(){
   let count = cart.reduce((a,b)=>a+b.qty, 0);
-  // Can show in header if needed
+  document.getElementById("cartCount").textContent = count;
 }
 
 function openCart(){
@@ -308,12 +312,14 @@ function changeQty(id,n){
   item.qty += n;
   if(item.qty <= 0) cart = cart.filter(x=>x.id!==id);
   localStorage.setItem("groCart", JSON.stringify(cart));
+  updateCartCount();
   openCart();
 }
 
 function removeItem(id){
   cart = cart.filter(x=>x.id!==id);
   localStorage.setItem("groCart", JSON.stringify(cart));
+  updateCartCount();
   openCart();
 }
 
@@ -431,6 +437,7 @@ function placeOrder(){
   
   cart = [];
   localStorage.setItem("groCart", "[]");
+  updateCartCount();
   document.getElementById("orderID").textContent = orderId;
   closeCheckout();
   document.getElementById("successModal").classList.add("show");
