@@ -251,7 +251,7 @@ footer{border-top:1px solid var(--line);background:#040507;padding:50px 20px}
     <div>
       <div class="small-title">THE GRO COLLECTION</div>
       <h2>Choose Your GRO</h2>
-      <p>Three premium configurations.</p>
+      <p>Four premium configurations.</p>
     </div>
   </div>
   <div class="product-grid" id="productGrid"></div>
@@ -291,6 +291,7 @@ footer{border-top:1px solid var(--line);background:#040507;padding:50px 20px}
       <button onclick="goShop()">GRO Ultimate</button>
       <button onclick="goShop()">GRO Supreme+</button>
       <button onclick="goShop()">GRO DoubleDeck</button>
+      <button onclick="goShop()">GRO Elite Pro</button>
     </div>
     <div>
       <strong>ORDER</strong>
@@ -404,15 +405,15 @@ footer{border-top:1px solid var(--line);background:#040507;padding:50px 20px}
 
 <script>
 /* =========================================================
-   PRODUCTS
+   PRODUCTS - বড় প্রোডাক্ট প্রাইস
 ========================================================= */
 const PRODUCTS = [
   {
     id:"ultimate",
     name:"GRO Extender® Ultimate",
     category:"ULTIMATE",
-    price:3249,
-    old:4499,
+    price:8249,
+    old:12499,
     badge:"BESTSELLER",
     image:"Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png",
     gallery:["Gemini_Generated_Image_kjvnc0kjvnc0kjvn.png","ProExtender-Ultimate-Straps-260x134.jpg","ProExtender-Ultimate002 (1).png"],
@@ -423,8 +424,8 @@ const PRODUCTS = [
     id:"supreme",
     name:"GRO Extender® Supreme+",
     category:"SUPREME+",
-    price:4780,
-    old:5999,
+    price:12780,
+    old:15999,
     badge:"PREMIUM",
     image:"Gemini_Generated_Image_unscx2unscx2unsc.png",
     gallery:["Gemini_Generated_Image_unscx2unscx2unsc.png","51QvTFiepcL._AC_AIweblab1006854,T4_FMavif_SF700,700_PQ69_.avif","Gemini_Generated_Image_bezw1nbezw1nbezw.png"],
@@ -435,13 +436,25 @@ const PRODUCTS = [
     id:"doubledeck",
     name:"GRO Extender® DoubleDeck",
     category:"DOUBLEDECK",
-    price:5950,
-    old:6999,
+    price:15950,
+    old:19999,
     badge:"ELITE",
     image:"Gemini_Generated_Image_bezw1nbezw1nbezw.png",
     gallery:["Gemini_Generated_Image_bezw1nbezw1nbezw.png","pro-extender-penis-enlargement-system-500x500.jpg","pro-extender-silicone-tube.webp"],
     description:"Multi-component premium adjustable configuration.",
     features:["Multi-component configuration","Adjustable fitting positions","Reinforced straps","Compact structure","Adult product — 18+"]
+  },
+  {
+    id:"elitepro",
+    name:"GRO Extender® Elite Pro",
+    category:"ELITE PRO",
+    price:18000,
+    old:25000,
+    badge:"NEW",
+    image:"Gemini_Generated_Image_bezw1nbezw1nbezw.png",
+    gallery:["Gemini_Generated_Image_bezw1nbezw1nbezw.png","pro-extender-penis-enlargement-system-500x500.jpg","pro-extender-silicone-tube.webp"],
+    description:"Professional grade premium configuration with advanced features.",
+    features:["Professional grade configuration","Advanced adjustment system","Premium materials","Enhanced comfort design","Adult product — 18+"]
   }
 ];
 
