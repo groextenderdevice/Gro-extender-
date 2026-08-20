@@ -1,4 +1,87 @@
-<!DOCTYPE html>
+
+      if (tab === "orders") {
+        panel.innerHTML = `
+          <h3>Vendor Orders</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Buyer</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${
+                  vendorOrderList.length
+                  ? vendorOrderList.map(order => {
+                    const part = order.vendorOrders[vendor.id];
+                    return `
+                      <tr>
+                        <td>${order.id}</td>
+                        <td>${order.buyer.name}</td>
+                        <td>${money(part.amount)}</td>
+                        <td><span class="status pending">${part.status}</span></td>
+                        <td>
+                          <button class="btn btn-success" onclick="shipVendorOrder('${order.id}', ${vendor.id})">
+                            Mark Shipped
+                          </button>
+                        </td>
+                      </tr>
+                    `;
+                  }).join("")
+                  : `<tr><td colspan="5">No vendor orders</td></tr>`
+                }
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      if (tab === "add") {
+        panel.innerHTML = `
+          <h3>Add New Product</h3>
+          <form id="addProductForm" style="margin-top:17px;">
+            <div class="form-grid">
+              <div class="field">
+                <label>Product Name</label>
+                <input id="newProductName" class="input" required>
+              </div>
+
+              <div class="field">
+                <label>Pool</label>
+                <select id="newProductPool" class="select" style="width:100%;">
+                  <option>Personal Care</option>
+                  <option>Gadget</option>
+                  <option>Home</option>
+                  <option>Fitness</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Price</label>
+                <input id="newProductPrice" class="input" type="number" required>
+              </div>
+
+              <div class="field">
+                <label>Stock</label>
+                <input id="newProductStock" class="input" type="number" required>
+              </div>
+
+              <div class="field full">
+                <label>Image URL</label>
+                <input id="newProductImage" class="input" required
+                  placeholder="https://images.unsplash.com/...">
+              </div>
+            </div>
+
+            <button class="btn btn-primary">Submit Product for Approval</button>
+          </form>
+        `;
+
+        <!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
@@ -1904,6 +1987,189 @@
         `;
 
         document.getElementById("addProductForm")
+          .addEventListener("submit", addVendorProduct);
+      }
+    }
+
+    function increaseStock(productId) {
+      const product = products.find(item => item.id === productId);
+      if (!product) return;
+
+      product.stock += 10;
+      saveAll();
+      renderVendorPanel("products");
+      renderProducts();
+      toast("Stock updated", "success");
+    }
+
+    function addVendorProduct(event) {
+      event.preventDefault();
+
+      const vendor = currentVendor();
+
+      products.push({
+        id: Date.now(),
+        vendorId: vendor.id,
+        name: document.getElementById("newProductName").value,
+        pool: document.getElementById("newProductPool").value,
+        price: Number(document.getElementById("newProductPrice").value),
+        oldPrice: Number(document.getElementById("newProductPrice").value) + 200,
+        stock: Number(document.getElementById("newProductStock").value),
+        rating: 4.2,
+        badge: "Pending Review",
+        image: document.getElementById("newProductImage").value
+      });
+
+      saveAll();
+      renderProducts();
+      renderVendorPanel("products");
+      toast("Product submitted for admin review", "success");
+    }
+
+    function shipVendorOrder(orderId, vendorId) {
+      const order = orders.find(order => order.id === orderId);
+      if (!order || !order.vendorOrders[vendorId]) return;
+
+      order.vendorOrders[vendorId].status = "Shipped";
+
+      const allShipped = Object.values(order.vendorOrders)
+        .every(item => item.status === "Shipped");
+
+      if (allShipped) order.status = "Shipped";
+
+      saveAll();
+      renderVendorPanel("orders");
+      renderAdmin();
+      toast("Vendor order marked as shipped", "success");
+    }
+
+    function approveVendor(id) {
+      const vendor = vendors.find(vendor => vendor.id === id);
+      if (!vendor) return;
+
+      vendor.status = "Approved";
+      saveAll();
+      renderAdmin();
+      renderVendorList();
+      renderProducts();
+      toast("Vendor approved", "success");
+    }
+
+    function renderAdmin() {
+      updateStats();
+
+      document.getElementById("vendorTable").innerHTML = vendors.map(vendor => `
+        <tr>
+          <td>
+            <b>${vendor.name}</b><br>
+            <small>${vendor.owner}</small>
+          </td>
+          <td>${vendor.category}</td>
+          <td>${vendor.commission}%</td>
+          <td>
+            <span class="status ${vendor.status === "Approved" ? "success" : "pending"}">
+              ${vendor.status}
+            </span>
+          </td>
+          <td>
+            ${
+              vendor.status === "Pending"
+              ? `<button class="btn btn-success" onclick="approveVendor(${vendor.id})">Approve</button>`
+              : `<button class="btn btn-outline" onclick="changeCommission(${vendor.id})">Commission</button>`
+            }
+          </td>
+        </tr>
+      `).join("");
+
+      document.getElementById("adminOrderTable").innerHTML = orders.length
+        ? orders.map(order => `
+          <tr>
+            <td>${order.id}</td>
+            <td>${order.buyer.name}</td>
+            <td>${Object.keys(order.vendorOrders).length} vendor(s)</td>
+            <td>${money(order.total)}</td>
+            <td><span class="status success">${order.status}</span></td>
+          </tr>
+        `).join("")
+        : `<tr><td colspan="5">No orders yet</td></tr>`;
+    }
+
+    function changeCommission(id) {
+      const vendor = vendors.find(vendor => vendor.id === id);
+      if (!vendor) return;
+
+      const rate = prompt(`Commission percentage for ${vendor.name}`, vendor.commission);
+
+      if (rate !== null && !isNaN(rate) && Number(rate) >= 0 && Number(rate) <= 50) {
+        vendor.commission = Number(rate);
+        saveAll();
+        renderAdmin();
+        toast("Commission updated", "success");
+      }
+    }
+
+    function openPolicy(type) {
+      event.preventDefault();
+
+      const policy = {
+        terms: {
+          title: "Terms & Conditions",
+          text: "Marketplace-এ seller এবং buyer উভয়কেই platform rules, product quality, delivery এবং refund conditions মেনে চলতে হবে।"
+        },
+        privacy: {
+          title: "Privacy Policy",
+          text: "এই prototype localStorage ব্যবহার করে। Production system-এ encrypted database, access control এবং proper consent management ব্যবহার করতে হবে।"
+        },
+        refund: {
+          title: "Refund Policy",
+          text: "Return, refund, damaged product এবং seller dispute-এর প্রকৃত নিয়ম এখানে লিখতে হবে।"
+        }
+      }[type];
+
+      openModal(`
+        <h2>${policy.title}</h2>
+        <p style="color:var(--muted);margin-top:15px;">${policy.text}</p>
+      `);
+    }
+
+    function openModal(content) {
+      document.getElementById("modalContent").innerHTML = content;
+      document.getElementById("modalBg").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("modalBg").classList.remove("show");
+    }
+
+    document.getElementById("searchInput").addEventListener("input", renderProducts);
+    document.getElementById("sortSelect").addEventListener("change", renderProducts);
+
+    document.getElementById("themeBtn").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      const dark = document.body.classList.contains("dark");
+      localStorage.setItem("gro_pool_theme", dark ? "dark" : "light");
+      document.getElementById("themeBtn").textContent = dark ? "☀️" : "🌙";
+    });
+
+    document.getElementById("modalBg").addEventListener("click", event => {
+      if (event.target.id === "modalBg") closeModal();
+    });
+
+    if (localStorage.getItem("gro_pool_theme") === "dark") {
+      document.body.classList.add("dark");
+      document.getElementById("themeBtn").textContent = "☀️";
+    }
+
+    renderVendorList();
+    renderProducts();
+    renderVendorPanel();
+    renderAdmin();
+    updateCounts();
+    updateStats();
+  </script>
+</body>
+</html>("addProductForm")
           .addEventListener("submit", addVendorProduct);
       }
     }
