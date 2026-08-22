@@ -3,58 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>GRO — Fashion Men & Kids</title>
+<meta name="theme-color" content="#2874f0">
+<title>GRO+ — Online Shopping</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#f1f3f6;
     color:#202124;
 }
-button{font:inherit;cursor:pointer}
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 .header{
     background:#2874f0;
     color:#fff;
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:9999;
     box-shadow:0 2px 10px rgba(0,0,0,.18);
 }
+
 .header-inner{
-    max-width:1450px;
-    margin:auto;
+    max-width:1500px;
     min-height:64px;
+    margin:auto;
     padding:9px 18px;
     display:flex;
     align-items:center;
     gap:20px;
 }
+
 .logo{
     font-size:29px;
     font-weight:900;
     font-style:italic;
     white-space:nowrap;
 }
+
 .logo span{color:#ffe500}
 
 .search{
     flex:1;
+    max-width:760px;
     height:43px;
-    max-width:720px;
     display:flex;
     background:#fff;
     border-radius:4px;
     overflow:hidden;
 }
+
 .search input{
     flex:1;
     border:0;
     outline:0;
     padding:0 15px;
 }
+
 .search button{
     width:55px;
     border:0;
@@ -70,14 +80,16 @@ button{font:inherit;cursor:pointer}
     border-radius:3px;
 }
 
-.cart-btn{
+.cart{
     border:0;
     background:transparent;
     color:#fff;
     font-weight:bold;
+    white-space:nowrap;
 }
 
-/* NAV */
+/* ================= NAV ================= */
+
 .nav{
     background:#fff;
     display:flex;
@@ -88,40 +100,41 @@ button{font:inherit;cursor:pointer}
     overflow-x:auto;
     white-space:nowrap;
 }
-.nav div{
+
+.nav-item{
     font-size:13px;
     font-weight:bold;
     cursor:pointer;
 }
 
-/* PAGE */
-.page{
-    max-width:1450px;
-    margin:auto;
-    padding:20px;
-}
-
-/* BREADCRUMB */
-.breadcrumb{
-    color:#777;
-    font-size:12px;
-    margin-bottom:15px;
-}
-.breadcrumb span{
+.nav-item:hover{
     color:#2874f0;
-    font-weight:bold;
 }
 
-/* HERO */
-.fashion-hero{
-    min-height:250px;
-    border-radius:10px;
-    padding:45px;
+/* ================= MAIN ================= */
+
+.main-page{
+    display:block;
+}
+
+.container{
+    max-width:1500px;
+    margin:auto;
+    padding:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:310px;
+    border-radius:12px;
+    padding:50px;
     color:#fff;
+
     background:
     radial-gradient(
         circle at 80% 20%,
-        rgba(255,255,255,.2),
+        rgba(255,255,255,.20),
         transparent 30%
     ),
     linear-gradient(
@@ -130,32 +143,212 @@ button{font:inherit;cursor:pointer}
         #194d92,
         #2874f0
     );
-    margin-bottom:22px;
+
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
 }
-.fashion-hero small{
+
+.hero small{
     letter-spacing:3px;
     color:#dbe7ff;
 }
-.fashion-hero h1{
-    font-size:42px;
+
+.hero h1{
+    font-size:45px;
     margin:14px 0;
 }
-.fashion-hero p{
+
+.hero p{
+    color:#dce8fa;
     max-width:650px;
     line-height:1.6;
-    color:#e3ecfa;
 }
 
-/* SECTION */
-.category-section{
+.hero-btn{
+    margin-top:20px;
+    border:0;
+    background:#ff9f00;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:4px;
+    font-weight:bold;
+}
+
+/* ================= HOME CATEGORIES ================= */
+
+.home-section{
     background:#fff;
     border-radius:10px;
-    margin-bottom:20px;
     padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #eee;
+    padding-bottom:14px;
+    margin-bottom:18px;
+}
+
+.section-head h2{
+    font-size:21px;
+}
+
+.section-head span{
+    font-size:12px;
+    color:#777;
+}
+
+.home-category-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.home-category{
+    border:1px solid #e4e4e4;
+    border-radius:9px;
+    overflow:hidden;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.home-category:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.home-category-img{
+    aspect-ratio:1/1;
+    background:#f5f5f5;
+    overflow:hidden;
+}
+
+.home-category-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.3s;
+}
+
+.home-category:hover img{
+    transform:scale(1.06);
+}
+
+.home-category-info{
+    padding:12px;
+}
+
+.home-category-info h3{
+    font-size:13px;
+}
+
+.home-category-info p{
+    font-size:10px;
+    color:#777;
+    margin-top:5px;
+}
+
+/* ================= FASHION PAGE ================= */
+
+.fashion-page{
+    display:none;
+}
+
+.fashion-page.active{
+    display:block;
+}
+
+.fashion-header{
+    background:#2874f0;
+    color:#fff;
+    padding:12px 18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    position:sticky;
+    top:64px;
+    z-index:500;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.back-btn{
+    background:#fff;
+    color:#2874f0;
+    border:0;
+    padding:9px 16px;
+    border-radius:4px;
+    font-weight:bold;
+}
+
+.fashion-header h1{
+    font-size:19px;
+}
+
+.fashion-container{
+    max-width:1500px;
+    margin:auto;
+    padding:18px;
+}
+
+.breadcrumb{
+    font-size:12px;
+    color:#777;
+    margin-bottom:15px;
+}
+
+.fashion-hero{
+    min-height:250px;
+    border-radius:12px;
+    padding:42px;
+    color:#fff;
+
+    background:
+    radial-gradient(
+        circle at 80% 20%,
+        rgba(255,255,255,.18),
+        transparent 30%
+    ),
+    linear-gradient(
+        110deg,
+        #071529,
+        #194d92,
+        #2874f0
+    );
+
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.fashion-hero small{
+    letter-spacing:3px;
+    color:#dce8ff;
+}
+
+.fashion-hero h2{
+    font-size:40px;
+    margin:13px 0;
+}
+
+.fashion-hero p{
+    color:#dce8fa;
+}
+
+.fashion-section{
+    background:#fff;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
     box-shadow:0 2px 12px rgba(0,0,0,.07);
 }
 
-.section-title{
+.fashion-title{
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -163,90 +356,93 @@ button{font:inherit;cursor:pointer}
     padding-bottom:14px;
     margin-bottom:18px;
 }
-.section-title h2{
-    font-size:21px;
-}
-.section-title span{
-    color:#777;
-    font-size:12px;
+
+.fashion-title h2{
+    font-size:20px;
 }
 
-/* CATEGORY GRID */
-.category-grid{
+.fashion-title span{
+    font-size:12px;
+    color:#777;
+}
+
+.subcategory-grid{
     display:grid;
     grid-template-columns:repeat(8,1fr);
     gap:14px;
 }
 
-.card{
-    border:1px solid #e5e5e5;
+.subcategory-card{
+    border:1px solid #e4e4e4;
     border-radius:9px;
     overflow:hidden;
     background:#fff;
     cursor:pointer;
     transition:.2s;
 }
-.card:hover{
+
+.subcategory-card:hover{
     transform:translateY(-5px);
     box-shadow:0 8px 20px rgba(0,0,0,.12);
-    border-color:#b9cdf4;
 }
 
-.card-img{
-    width:100%;
+.subcategory-img{
     aspect-ratio:1/1;
     background:#f6f6f6;
     overflow:hidden;
 }
-.card-img img{
+
+.subcategory-img img{
     width:100%;
     height:100%;
     object-fit:cover;
     transition:.3s;
 }
-.card:hover img{
+
+.subcategory-card:hover img{
     transform:scale(1.07);
 }
 
-.card-info{
+.subcategory-info{
     padding:10px;
 }
-.card-info h3{
+
+.subcategory-info h3{
     font-size:12px;
-    line-height:1.35;
+    line-height:1.4;
 }
-.card-info p{
-    font-size:10px;
+
+.subcategory-info p{
+    font-size:9px;
     color:#777;
     margin-top:5px;
 }
 
-/* PRODUCTS */
-.products-page{
+/* ================= PRODUCT PAGE ================= */
+
+.product-page{
     display:none;
-    background:#fff;
-    border-radius:10px;
-    padding:20px;
-    margin-top:20px;
 }
-.products-page.active{
+
+.product-page.active{
     display:block;
 }
 
-.products-header{
+.product-toolbar{
+    background:#fff;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:15px;
     display:flex;
     align-items:center;
-    gap:12px;
-    margin-bottom:20px;
+    gap:15px;
 }
-.back{
-    background:#fff;
+
+.product-toolbar button{
     border:1px solid #ddd;
+    background:#fff;
     padding:8px 14px;
     border-radius:4px;
-}
-.products-header h2{
-    font-size:22px;
 }
 
 .product-grid{
@@ -254,58 +450,69 @@ button{font:inherit;cursor:pointer}
     grid-template-columns:repeat(5,1fr);
     gap:15px;
 }
-.product{
-    border:1px solid #e5e5e5;
+
+.product-card{
+    background:#fff;
+    border:1px solid #e4e4e4;
     border-radius:8px;
     overflow:hidden;
 }
+
 .product-img{
     height:230px;
-    position:relative;
     background:#f5f5f5;
+    position:relative;
 }
+
 .product-img img{
     width:100%;
     height:100%;
     object-fit:cover;
 }
+
 .discount{
     position:absolute;
-    top:8px;
     left:8px;
+    top:8px;
     background:#00875a;
     color:#fff;
-    padding:5px;
+    padding:5px 7px;
     font-size:10px;
     border-radius:3px;
 }
+
 .product-info{
     padding:12px;
 }
+
 .product-info h3{
     font-size:13px;
-    min-height:35px;
+    min-height:36px;
 }
+
 .rating{
     display:inline-block;
     background:#00875a;
     color:#fff;
     padding:4px 6px;
     font-size:10px;
-    margin:7px 0;
     border-radius:3px;
+    margin:7px 0;
 }
+
 .price{
     font-size:18px;
     font-weight:bold;
 }
+
 .mrp{
     color:#888;
     text-decoration:line-through;
     font-size:11px;
-    margin-left:5px;
+    margin-left:6px;
 }
-.add{
+
+.add-cart{
     width:100%;
     border:0;
     background:#ff9f00;
@@ -316,22 +523,26 @@ button{font:inherit;cursor:pointer}
     border-radius:3px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
+
 .footer{
     background:#101b2b;
     color:#fff;
     padding:40px 7%;
     margin-top:30px;
 }
+
 .footer-grid{
     display:grid;
     grid-template-columns:2fr repeat(4,1fr);
     gap:30px;
 }
+
 .footer h3{
     font-size:13px;
     margin-bottom:12px;
 }
+
 .footer p,
 .footer a{
     color:#aeb7c4;
@@ -340,71 +551,109 @@ button{font:inherit;cursor:pointer}
     margin:7px 0;
 }
 
-/* MOBILE */
+/* ================= RESPONSIVE ================= */
+
 @media(max-width:1100px){
-    .category-grid{
+
+    .subcategory-grid{
         grid-template-columns:repeat(5,1fr);
     }
+
     .product-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .home-category-grid{
         grid-template-columns:repeat(4,1fr);
     }
 }
 
-@media(max-width:750px){
+@media(max-width:700px){
+
     .header-inner{
         flex-wrap:wrap;
     }
+
     .search{
         order:5;
         flex-basis:100%;
     }
+
     .login{
         display:none;
     }
-    .category-grid{
-        grid-template-columns:repeat(4,1fr);
+
+    .home-category-grid{
+        grid-template-columns:repeat(3,1fr);
     }
+
+    .subcategory-grid{
+        grid-template-columns:repeat(4,1fr);
+        gap:8px;
+    }
+
     .product-grid{
         grid-template-columns:repeat(3,1fr);
     }
+
+    .hero{
+        min-height:250px;
+        padding:30px 22px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .fashion-hero{
+        padding:30px 22px;
+    }
+
+    .fashion-hero h2{
+        font-size:31px;
+    }
+
     .footer-grid{
         grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media(max-width:500px){
-    .page{
+@media(max-width:450px){
+
+    .container,
+    .fashion-container{
         padding:10px;
     }
-    .fashion-hero{
-        padding:28px 20px;
-        min-height:220px;
+
+    .home-section,
+    .fashion-section{
+        padding:12px;
     }
-    .fashion-hero h1{
-        font-size:30px;
-    }
-    .category-grid{
+
+    .home-category-grid{
         grid-template-columns:repeat(3,1fr);
         gap:8px;
     }
-    .category-section{
-        padding:12px;
+
+    .subcategory-grid{
+        grid-template-columns:repeat(3,1fr);
     }
-    .card-info{
-        padding:7px;
-    }
-    .card-info h3{
-        font-size:10px;
-    }
-    .card-info p{
-        font-size:8px;
-    }
+
     .product-grid{
         grid-template-columns:repeat(2,1fr);
         gap:8px;
     }
+
     .product-img{
-        height:170px;
+        height:175px;
+    }
+
+    .fashion-header{
+        top:58px;
+    }
+
+    .fashion-header h1{
+        font-size:14px;
     }
 }
 </style>
@@ -412,315 +661,556 @@ button{font:inherit;cursor:pointer}
 
 <body>
 
-<!-- HEADER -->
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<div id="mainPage" class="main-page">
+
 <header class="header">
+
 <div class="header-inner">
 
-<div class="logo">GRO<span>+</span></div>
+<div class="logo">
+GRO<span>+</span>
+</div>
 
 <div class="search">
 <input
+id="searchInput"
 type="search"
 placeholder="Search products, brands and more...">
-<button>🔍</button>
+
+<button onclick="searchProducts()">
+🔍
+</button>
 </div>
 
 <button class="login">
 LOGIN
 </button>
 
-<button class="cart-btn">
-🛒 Cart
+<button class="cart">
+🛒 Cart <span id="cartCount">0</span>
 </button>
 
 </div>
+
 </header>
 
 
-<!-- NAV -->
 <nav class="nav">
 
-<div>Fashion Men & Kids</div>
-<div>Home & Decor</div>
-<div>Electronics</div>
-<div>Beauty</div>
-<div>Toys</div>
-<div>Books</div>
+<div class="nav-item"
+onclick="openFashion()">
+Fashion Men & Kids
+</div>
+
+<div class="nav-item">
+Home & Decor
+</div>
+
+<div class="nav-item">
+Electronics
+</div>
+
+<div class="nav-item">
+Beauty
+</div>
+
+<div class="nav-item">
+Toys
+</div>
+
+<div class="nav-item">
+Books
+</div>
 
 </nav>
 
 
-<!-- MAIN -->
-<main class="page">
+<main class="container">
 
-<div class="breadcrumb">
-Home › <span>Fashion Men & Kids</span>
-</div>
+<section class="hero">
 
+<div>
 
-<!-- HERO -->
-<section class="fashion-hero">
-
-<small>GRO FASHION</small>
+<small>
+GRO ONLINE SHOPPING
+</small>
 
 <h1>
-Fashion for Everyone
+Everything You Love.
+<br>
+One Place.
 </h1>
 
 <p>
-Men, Kids, Traditional, Western,
-Sleepwear, Footwear, Accessories
-and more — explore everything
-from one place.
+Fashion, Home Decor, Electronics,
+Beauty, Toys, Books and thousands
+of products.
 </p>
+
+<button class="hero-btn">
+Shop Now
+</button>
+
+</div>
+
+</section>
+
+
+<section class="home-section">
+
+<div class="section-head">
+
+<h2>
+Shop by Category
+</h2>
+
+<span>
+Explore All
+</span>
+
+</div>
+
+
+<div class="home-category-grid">
+
+
+<!-- IMPORTANT:
+     Fashion card ONLY navigates.
+     Other existing categories remain here.
+-->
+
+<div
+class="home-category"
+onclick="openFashion()">
+
+<div class="home-category-img">
+
+<img
+src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=700"
+alt="Fashion Men Kids">
+
+</div>
+
+<div class="home-category-info">
+
+<h3>
+Fashion Men & Kids
+</h3>
+
+<p>
+Men • Kids • Women • Accessories
+</p>
+
+</div>
+
+</div>
+
+
+<div class="home-category">
+
+<div class="home-category-img">
+
+<img
+src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700">
+
+</div>
+
+<div class="home-category-info">
+
+<h3>Home & Decor</h3>
+
+<p>Explore Products →</p>
+
+</div>
+
+</div>
+
+
+<div class="home-category">
+
+<div class="home-category-img">
+
+<img
+src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700">
+
+</div>
+
+<div class="home-category-info">
+
+<h3>Electronics</h3>
+
+<p>Explore Products →</p>
+
+</div>
+
+</div>
+
+
+<div class="home-category">
+
+<div class="home-category-img">
+
+<img
+src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700">
+
+</div>
+
+<div class="home-category-info">
+
+<h3>Beauty</h3>
+
+<p>Explore Products →</p>
+
+</div>
+
+</div>
+
+
+<div class="home-category">
+
+<div class="home-category-img">
+
+<img
+src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=700">
+
+</div>
+
+<div class="home-category-info">
+
+<h3>Toys</h3>
+
+<p>Explore Products →</p>
+
+</div>
+
+</div>
+
+
+<div class="home-category">
+
+<div class="home-category-img">
+
+<img
+src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=700">
+
+</div>
+
+<div class="home-category-info">
+
+<h3>Books</h3>
+
+<p>Explore Products →</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+
+<div class="logo">
+GRO<span>+</span>
+</div>
+
+<p>
+Premium online shopping destination.
+</p>
+
+</div>
+
+<div>
+
+<h3>ABOUT</h3>
+
+<a>About GRO</a>
+<a>Contact</a>
+<a>Careers</a>
+
+</div>
+
+<div>
+
+<h3>HELP</h3>
+
+<a>Shipping</a>
+<a>Returns</a>
+<a>FAQ</a>
+
+</div>
+
+<div>
+
+<h3>POLICY</h3>
+
+<a>Privacy</a>
+<a>Terms</a>
+<a>Refund</a>
+
+</div>
+
+<div>
+
+<h3>SOCIAL</h3>
+
+<a>Instagram</a>
+<a>Facebook</a>
+<a>YouTube</a>
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
+
+<!-- =====================================================
+     FASHION PAGE
+===================================================== -->
+
+<div id="fashionPage" class="fashion-page">
+
+<div class="fashion-header">
+
+<button
+class="back-btn"
+onclick="closeFashion()">
+
+← Back
+
+</button>
+
+<h1>
+Fashion Men & Kids
+</h1>
+
+</div>
+
+
+<main class="fashion-container">
+
+<div class="breadcrumb">
+
+Home → Fashion Men & Kids
+
+</div>
+
+
+<section class="fashion-hero">
+
+<div>
+
+<small>
+GRO FASHION
+</small>
+
+<h2>
+Fashion Men & Kids
+</h2>
+
+<p>
+Men, Kids, Traditional, Western,
+Innerwear, Footwear, Accessories
+and more.
+</p>
+
+</div>
 
 </section>
 
 
 <!-- MEN -->
-<section class="category-section">
 
-<div class="section-title">
+<section class="fashion-section">
+
+<div class="fashion-title">
+
 <h2>👔 Men</h2>
-<span>10 Categories</span>
+
+<span>
+10 Categories
+</span>
+
 </div>
 
-<div class="category-grid">
-
-<script>
-const men=[
-["T-Shirts","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"],
-["Shirts","https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500"],
-["Pants","https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500"],
-["Jeans","https://images.unsplash.com/photo-1542272604-787c3835535d?w=500"],
-["Panjabi","https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=500"],
-["Trousers","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=500"],
-["Belts","https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=500"],
-["Wallets","https://images.unsplash.com/photo-1627123424574-724758594e93?w=500"],
-["Watches","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500"],
-["Shoes","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"]
-];
-
-renderCategory(men,"Men");
-
-function renderCategory(data,section){
-
-document.write(
-data.map(x=>`
 <div
-class="card"
-onclick="openProducts('${x[0]}','${section}')">
-
-<div class="card-img">
-<img src="${x[1]}" loading="lazy">
+id="menGrid"
+class="subcategory-grid">
 </div>
 
-<div class="card-info">
-<h3>${x[0]}</h3>
-<p>View Products →</p>
-</div>
-
-</div>
-`).join("")
-);
-
-}
-</script>
-
-</div>
 </section>
 
 
 <!-- KIDS -->
-<section class="category-section">
 
-<div class="section-title">
+<section class="fashion-section">
+
+<div class="fashion-title">
+
 <h2>🧸 Kids</h2>
-<span>8 Categories</span>
-</div>
 
-<div class="category-grid">
-
-<script>
-
-const kids=[
-["Boys Dress","https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500"],
-["Girls Dress","https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=500"],
-["T-Shirts","https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=500"],
-["Frocks","https://images.unsplash.com/photo-1560787313-5dff3307e257?w=500"],
-["Romper","https://images.unsplash.com/photo-1522771930-78848d9293e8?w=500"],
-["Newborn Set","https://images.unsplash.com/photo-1519689680058-324335c77eba?w=500"],
-["Baby Shoes","https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=500"],
-["Accessories","https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500"]
-];
-
-renderCategory(kids,"Kids");
-
-</script>
+<span>
+8 Categories
+</span>
 
 </div>
+
+<div
+id="kidsGrid"
+class="subcategory-grid">
+</div>
+
 </section>
 
 
-<!-- TRADITIONAL -->
-<section class="category-section">
+<!-- ETHNIC -->
 
-<div class="section-title">
-<h2>🥻 Traditional & Ethnic Wear</h2>
-<span>6 Categories</span>
-</div>
+<section class="fashion-section">
 
-<div class="category-grid">
+<div class="fashion-title">
 
-<script>
+<h2>
+🥻 Traditional & Ethnic Wear
+</h2>
 
-const ethnic=[
-["শাড়ি","https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500"],
-["সালোয়ার কামিজ","https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=500"],
-["কুর্তি","https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=500"],
-["প্লাজো সেট","https://images.unsplash.com/photo-1605763240000-7e93b172d754?w=500"],
-["লেহেঙ্গা","https://images.unsplash.com/photo-1610189012906-4c7c0f5b5a8a?w=500"],
-["নাইটসুয়েট","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500"]
-];
-
-renderCategory(ethnic,"Traditional & Ethnic Wear");
-
-</script>
+<span>
+6 Categories
+</span>
 
 </div>
+
+<div
+id="ethnicGrid"
+class="subcategory-grid">
+</div>
+
 </section>
 
 
 <!-- WESTERN -->
-<section class="category-section">
 
-<div class="section-title">
-<h2>👗 Western Wear</h2>
-<span>9 Categories</span>
-</div>
+<section class="fashion-section">
 
-<div class="category-grid">
+<div class="fashion-title">
 
-<script>
+<h2>
+👗 Western Wear
+</h2>
 
-const western=[
-["টপস","https://images.unsplash.com/photo-1564257577054-8e9f9e4f6f58?w=500"],
-["টি-শার্ট","https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=500"],
-["শার্ট","https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=500"],
-["ড্রেস","https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500"],
-["মেক্সি","https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500"],
-["স্কার্ট","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=500"],
-["জিন্স","https://images.unsplash.com/photo-1496440737103-cd596325d314?w=500"],
-["ট্রাউজার্স","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=500"],
-["জগার্স","https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=500"]
-];
-
-renderCategory(western,"Western Wear");
-
-</script>
+<span>
+9 Categories
+</span>
 
 </div>
+
+<div
+id="westernGrid"
+class="subcategory-grid">
+</div>
+
 </section>
 
 
 <!-- INNERWEAR -->
-<section class="category-section">
 
-<div class="section-title">
-<h2>🌙 Innerwear & Sleepwear</h2>
-<span>5 Categories</span>
-</div>
+<section class="fashion-section">
 
-<div class="category-grid">
+<div class="fashion-title">
 
-<script>
+<h2>
+🌙 Innerwear & Sleepwear
+</h2>
 
-const inner=[
-["ব্রা","https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=500"],
-["প্যান্টি","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=500"],
-["শেপওয়্যার","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500"],
-["নাইটি","https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=500"],
-["পাইজামা সেট","https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=500"]
-];
-
-renderCategory(inner,"Innerwear & Sleepwear");
-
-</script>
+<span>
+5 Categories
+</span>
 
 </div>
+
+<div
+id="innerwearGrid"
+class="subcategory-grid">
+</div>
+
 </section>
 
 
 <!-- FOOTWEAR -->
-<section class="category-section">
 
-<div class="section-title">
-<h2>👟 Footwear</h2>
-<span>4 Categories</span>
-</div>
+<section class="fashion-section">
 
-<div class="category-grid">
+<div class="fashion-title">
 
-<script>
+<h2>
+👟 Footwear
+</h2>
 
-const footwear=[
-["হিল","https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500"],
-["ফ্ল্যাট স্যান্ডেল","https://images.unsplash.com/photo-1603487742131-4160ec999306?w=500"],
-["স্নিকার্স","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"],
-["শু","https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500"]
-];
-
-renderCategory(footwear,"Footwear");
-
-</script>
+<span>
+4 Categories
+</span>
 
 </div>
+
+<div
+id="footwearGrid"
+class="subcategory-grid">
+</div>
+
 </section>
 
 
 <!-- ACCESSORIES -->
-<section class="category-section">
 
-<div class="section-title">
-<h2>👜 Accessories & Bags</h2>
-<span>6 Categories</span>
-</div>
+<section class="fashion-section">
 
-<div class="category-grid">
+<div class="fashion-title">
 
-<script>
+<h2>
+👜 Accessories & Bags
+</h2>
 
-const accessories=[
-["হ্যান্ডব্যাগ","https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500"],
-["পার্স","https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=500"],
-["কানের দুল","https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500"],
-["হার","https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500"],
-["সানগ্লাস","https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500"],
-["ওয়াচ","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500"]
-];
-
-renderCategory(accessories,"Accessories & Bags");
-
-</script>
+<span>
+6 Categories
+</span>
 
 </div>
+
+<div
+id="accessoriesGrid"
+class="subcategory-grid">
+</div>
+
 </section>
 
 
-<!-- PRODUCT PAGE -->
+<!-- PRODUCT RESULTS -->
+
 <section
-id="productsPage"
-class="products-page">
+id="productPage"
+class="product-page">
 
-<div class="products-header">
+<div class="product-toolbar">
 
-<button
-class="back"
-onclick="closeProducts()">
+<button onclick="closeProducts()">
 ← Fashion
 </button>
 
-<h2 id="productTitle">
+<h2 id="productHeading">
 Products
 </h2>
 
@@ -736,65 +1226,158 @@ class="product-grid">
 </main>
 
 
-<!-- FOOTER -->
 <footer class="footer">
 
 <div class="footer-grid">
 
 <div>
-<div class="logo">GRO<span>+</span></div>
+
+<div class="logo">
+GRO<span>+</span>
+</div>
+
 <p>
 Premium online shopping destination.
 </p>
+
 </div>
 
 <div>
+
 <h3>ABOUT</h3>
+
 <a>About GRO</a>
 <a>Contact</a>
-<a>Careers</a>
+
 </div>
 
 <div>
+
 <h3>HELP</h3>
+
 <a>Shipping</a>
 <a>Returns</a>
-<a>FAQ</a>
+
 </div>
 
 <div>
+
 <h3>POLICY</h3>
+
 <a>Privacy</a>
 <a>Terms</a>
-<a>Refund</a>
+
 </div>
 
 <div>
+
 <h3>SOCIAL</h3>
+
 <a>Instagram</a>
 <a>Facebook</a>
-<a>YouTube</a>
+
 </div>
 
 </div>
 
 </footer>
 
+</div>
+
 
 <script>
 
-/* ==========================================
-PRODUCT DATABASE
-পরে এখানে 1000+ product যোগ করতে পারবি
-========================================== */
+/* =====================================================
+   FASHION CATEGORY DATA
+===================================================== */
+
+const fashionData={
+
+men:[
+["T-Shirt","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"],
+["Shirt","https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600"],
+["Pant","https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600"],
+["Jeans","https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"],
+["Panjabi","https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=600"],
+["Trousers","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600"],
+["Belt","https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600"],
+["Wallet","https://images.unsplash.com/photo-1627123424574-724758594e93?w=600"],
+["Watch","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"],
+["Shoes","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"]
+],
+
+kids:[
+["Boys Dress","https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600"],
+["Girls Dress","https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=600"],
+["T-Shirt","https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=600"],
+["Frock","https://images.unsplash.com/photo-1560787313-5dff3307e257?w=600"],
+["Romper","https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600"],
+["Newborn Set","https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600"],
+["Baby Shoes","https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=600"],
+["Accessories","https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600"]
+],
+
+ethnic:[
+["শাড়ি","https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600"],
+["সালোয়ার কামিজ","https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=600"],
+["কুর্তি","https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=600"],
+["প্লাজো সেট","https://images.unsplash.com/photo-1605763240000-7e93b172d754?w=600"],
+["লেহেঙ্গা","https://images.unsplash.com/photo-1610189012906-4c7c0f5b5a8a?w=600"],
+["নাইটসুয়েট","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"]
+],
+
+western:[
+["টপস","https://images.unsplash.com/photo-1564257577054-8e9f9e4f6f58?w=600"],
+["টি-শার্ট","https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600"],
+["শার্ট","https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600"],
+["ড্রেস","https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600"],
+["মেক্সি","https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600"],
+["স্কার্ট","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600"],
+["জিন্স","https://images.unsplash.com/photo-1496440737103-cd596325d314?w=600"],
+["ট্রাউজার্স","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600"],
+["জগার্স","https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600"]
+],
+
+innerwear:[
+["ব্রা","https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=600"],
+["প্যান্টি","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600"],
+["শেপওয়্যার","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"],
+["নাইটি","https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=600"],
+["পাইজামা সেট","https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=600"]
+],
+
+footwear:[
+["হিল","https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600"],
+["ফ্ল্যাট স্যান্ডেল","https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600"],
+["স্নিকার্স","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"],
+["শু","https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600"]
+],
+
+accessories:[
+["হ্যান্ডব্যাগ","https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600"],
+["পার্স","https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600"],
+["কানের দুল","https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600"],
+["হার","https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600"],
+["সানগ্লাস","https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600"],
+["ওয়াচ","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"]
+]
+
+};
+
+
+/* =====================================================
+   PRODUCT DATABASE
+   পরে এখানে 1000+ product / API / database connect
+   করা যাবে।
+===================================================== */
 
 const products=[
 
 {
 id:1,
 name:"Premium Men's T-Shirt",
-section:"Men",
-subcategory:"T-Shirts",
+category:"Men",
+subcategory:"T-Shirt",
 mrp:1299,
 price:699,
 rating:4.6,
@@ -804,8 +1387,8 @@ image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800"
 {
 id:2,
 name:"Classic Men's Shirt",
-section:"Men",
-subcategory:"Shirts",
+category:"Men",
+subcategory:"Shirt",
 mrp:1999,
 price:999,
 rating:4.7,
@@ -815,7 +1398,7 @@ image:"https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800"
 {
 id:3,
 name:"Slim Fit Jeans",
-section:"Men",
+category:"Men",
 subcategory:"Jeans",
 mrp:2499,
 price:1299,
@@ -826,7 +1409,7 @@ image:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=800"
 {
 id:4,
 name:"Premium Girls Dress",
-section:"Kids",
+category:"Kids",
 subcategory:"Girls Dress",
 mrp:1599,
 price:799,
@@ -837,7 +1420,7 @@ image:"https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=800"
 {
 id:5,
 name:"Designer Kurti",
-section:"Traditional & Ethnic Wear",
+category:"Traditional & Ethnic Wear",
 subcategory:"কুর্তি",
 mrp:1799,
 price:899,
@@ -848,7 +1431,7 @@ image:"https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=800"
 {
 id:6,
 name:"Women's Western Dress",
-section:"Western Wear",
+category:"Western Wear",
 subcategory:"ড্রেস",
 mrp:2299,
 price:1199,
@@ -859,7 +1442,7 @@ image:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800"
 {
 id:7,
 name:"Fashion Sneakers",
-section:"Footwear",
+category:"Footwear",
 subcategory:"স্নিকার্স",
 mrp:2999,
 price:1499,
@@ -870,7 +1453,7 @@ image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
 {
 id:8,
 name:"Premium Handbag",
-section:"Accessories & Bags",
+category:"Accessories & Bags",
 subcategory:"হ্যান্ডব্যাগ",
 mrp:2499,
 price:1299,
@@ -881,163 +1464,382 @@ image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800"
 ];
 
 
-/* ==========================================
-OPEN PRODUCT LIST
-========================================== */
+/* =====================================================
+   RENDER FASHION CARDS
+===================================================== */
 
-function openProducts(subcategory,section){
+function renderFashionCards(data,elementId){
 
-const list=products.filter(
-p=>
-p.section===section &&
-p.subcategory===subcategory
-);
+    const element=document.getElementById(elementId);
 
-document.getElementById(
-"productTitle"
-).innerText=
-subcategory+" — Products";
+    element.innerHTML=data.map(item=>`
 
-const grid=
-document.getElementById(
-"productGrid"
-);
+        <div
+        class="subcategory-card"
+        onclick="openProducts('${escapeHTML(item[0])}')">
 
-if(!list.length){
+            <div class="subcategory-img">
 
-grid.innerHTML=`
+                <img
+                src="${item[1]}"
+                loading="lazy"
+                alt="${item[0]}">
 
-<div style="
-grid-column:1/-1;
-text-align:center;
-padding:60px;
-color:#777;
-">
+            </div>
 
-<h3>
-এই category-তে এখনো product যোগ করা হয়নি
-</h3>
+            <div class="subcategory-info">
 
-<p style="margin-top:10px">
-Product database-এ product যোগ করলেই
-এখানে automatically দেখাবে।
-</p>
+                <h3>
+                ${item[0]}
+                </h3>
 
-</div>
+                <p>
+                View Products →
+                </p>
 
-`;
+            </div>
 
-}else{
+        </div>
 
-grid.innerHTML=
-list.map(p=>`
-
-<div class="product">
-
-<div class="product-img">
-
-<img
-src="${p.image}"
-loading="lazy">
-
-<span class="discount">
-${Math.round(
-((p.mrp-p.price)/p.mrp)*100
-)}% OFF
-</span>
-
-</div>
-
-<div class="product-info">
-
-<h3>
-${p.name}
-</h3>
-
-<span class="rating">
-⭐ ${p.rating}
-</span>
-
-<div>
-<span class="price">
-₹${p.price.toLocaleString("en-IN")}
-</span>
-
-<span class="mrp">
-₹${p.mrp.toLocaleString("en-IN")}
-</span>
-</div>
-
-<button
-class="add"
-onclick="addCart(${p.id})">
-ADD TO CART
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
-
-const productPage=
-document.getElementById(
-"productsPage"
-);
-
-productPage.classList.add("active");
-
-productPage.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
+    `).join("");
 }
 
 
-/* ==========================================
-CLOSE PRODUCT PAGE
-========================================== */
+renderFashionCards(fashionData.men,"menGrid");
+renderFashionCards(fashionData.kids,"kidsGrid");
+renderFashionCards(fashionData.ethnic,"ethnicGrid");
+renderFashionCards(fashionData.western,"westernGrid");
+renderFashionCards(fashionData.innerwear,"innerwearGrid");
+renderFashionCards(fashionData.footwear,"footwearGrid");
+renderFashionCards(fashionData.accessories,"accessoriesGrid");
+
+
+/* =====================================================
+   ONLY FASHION NAVIGATION
+===================================================== */
+
+function openFashion(){
+
+    document.getElementById("mainPage")
+    .style.display="none";
+
+    document.getElementById("fashionPage")
+    .classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+}
+
+
+function closeFashion(){
+
+    document.getElementById("fashionPage")
+    .classList.remove("active");
+
+    document.getElementById("mainPage")
+    .style.display="block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+}
+
+
+/* =====================================================
+   SUBCATEGORY → PRODUCT LIST
+===================================================== */
+
+function openProducts(subcategory){
+
+    const page=document.getElementById("productPage");
+
+    const grid=document.getElementById("productGrid");
+
+    const heading=document.getElementById("productHeading");
+
+    heading.innerText=
+        subcategory+" — Products";
+
+    const result=products.filter(
+        product =>
+        product.subcategory === subcategory
+    );
+
+    if(!result.length){
+
+        grid.innerHTML=`
+
+            <div style="
+                grid-column:1/-1;
+                background:#fff;
+                padding:70px 20px;
+                text-align:center;
+                color:#777;
+            ">
+
+                <h3>
+                এই category-তে এখনো product যোগ করা হয়নি।
+                </h3>
+
+                <p style="margin-top:10px">
+                Database/API-তে product যোগ করলেই
+                এখানে automatically দেখাবে।
+                </p>
+
+            </div>
+
+        `;
+
+    }else{
+
+        grid.innerHTML=result.map(product=>`
+
+            <div class="product-card">
+
+                <div class="product-img">
+
+                    <img
+                    src="${product.image}"
+                    loading="lazy"
+                    alt="${product.name}">
+
+                    <span class="discount">
+                    ${Math.round(
+                    ((product.mrp-product.price)
+                    /product.mrp)*100
+                    )}% OFF
+                    </span>
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                    ${product.name}
+                    </h3>
+
+                    <span class="rating">
+                    ⭐ ${product.rating}
+                    </span>
+
+                    <div>
+
+                        <span class="price">
+                        ₹${product.price.toLocaleString("en-IN")}
+                        </span>
+
+                        <span class="mrp">
+                        ₹${product.mrp.toLocaleString("en-IN")}
+                        </span>
+
+                    </div>
+
+                    <button
+                    class="add-cart"
+                    onclick="addToCart(${product.id})">
+
+                    ADD TO CART
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+    }
+
+    page.classList.add("active");
+
+    page.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+}
+
 
 function closeProducts(){
 
-document
-.getElementById("productsPage")
-.classList.remove("active");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+    document.getElementById("productPage")
+    .classList.remove("active");
 
 }
 
 
-/* ==========================================
-CART
-========================================== */
+/* =====================================================
+   CART
+===================================================== */
 
 let cart=[];
 
-function addCart(id){
+function addToCart(id){
 
-const p=
-products.find(x=>x.id===id);
+    const product=
+        products.find(p=>p.id===id);
 
-if(!p)return;
+    if(!product)return;
 
-cart.push(p);
+    cart.push(product);
 
-alert(
-p.name+
-" added to cart"
-);
+    document.getElementById("cartCount")
+    .innerText=cart.length;
 
+    alert(
+        product.name+
+        " added to cart"
+    );
 }
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchProducts(){
+
+    const query=
+        document.getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if(!query)return;
+
+    const results=products.filter(product=>
+
+        product.name.toLowerCase().includes(query) ||
+
+        product.subcategory.toLowerCase().includes(query) ||
+
+        product.category.toLowerCase().includes(query)
+
+    );
+
+    document.getElementById("mainPage")
+    .style.display="none";
+
+    document.getElementById("fashionPage")
+    .classList.add("active");
+
+    document.getElementById("productPage")
+    .classList.add("active");
+
+    document.getElementById("productHeading")
+    .innerText=
+        "Search Results — "+query;
+
+    const grid=
+        document.getElementById("productGrid");
+
+    if(!results.length){
+
+        grid.innerHTML=`
+
+            <div style="
+            grid-column:1/-1;
+            background:#fff;
+            padding:70px;
+            text-align:center;
+            color:#777">
+
+            <h3>
+            No products found
+            </h3>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+    grid.innerHTML=results.map(product=>`
+
+        <div class="product-card">
+
+            <div class="product-img">
+
+                <img
+                src="${product.image}"
+                loading="lazy">
+
+                <span class="discount">
+                ${Math.round(
+                ((product.mrp-product.price)
+                /product.mrp)*100
+                )}% OFF
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                ${product.name}
+                </h3>
+
+                <span class="rating">
+                ⭐ ${product.rating}
+                </span>
+
+                <div>
+
+                    <span class="price">
+                    ₹${product.price.toLocaleString("en-IN")}
+                    </span>
+
+                    <span class="mrp">
+                    ₹${product.mrp.toLocaleString("en-IN")}
+                    </span>
+
+                </div>
+
+                <button
+                class="add-cart"
+                onclick="addToCart(${product.id})">
+
+                ADD TO CART
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+}
+
+
+/* =====================================================
+   BASIC ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+    return value
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+/* ENTER TO SEARCH */
+
+document.getElementById("searchInput")
+.addEventListener("keydown",function(e){
+
+    if(e.key==="Enter"){
+        searchProducts();
+    }
+
+});
 
 </script>
 
 </body>
- </html>
+    </html>
