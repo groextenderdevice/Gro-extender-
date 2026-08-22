@@ -4,961 +4,1132 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#2874f0">
-<title>GRO Market — Premium E-Commerce</title>
+<title>GRO+ — Premium Online Shopping</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f1f3f6;color:#212121}
-button,input,select,textarea{font:inherit}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f1f3f6;
+    color:#202124;
+}
+button,input{font:inherit}
 button{cursor:pointer}
-a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
 
+/* HEADER */
 .header{
-background:#2874f0;color:#fff;padding:9px 5%;
-display:flex;align-items:center;gap:18px;
-position:sticky;top:0;z-index:999
+    background:#2874f0;
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:9999;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
 }
-.logo{font-size:29px;font-weight:900;font-style:italic;min-width:100px}
-.logo span{color:#ffd700}
+.header-inner{
+    max-width:1500px;
+    margin:auto;
+    min-height:64px;
+    padding:9px 18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+.logo{
+    font-size:29px;
+    font-weight:900;
+    font-style:italic;
+    white-space:nowrap;
+}
+.logo span{color:#ffe500}
 .search{
-flex:1;max-width:750px;display:flex;background:#fff;
-border-radius:4px;overflow:hidden
+    flex:1;
+    max-width:760px;
+    height:43px;
+    display:flex;
+    background:#fff;
+    border-radius:4px;
+    overflow:hidden;
 }
-.search input{flex:1;border:0;outline:0;padding:13px 15px;color:#222}
-.search button{border:0;background:#fff;padding:0 18px;font-size:18px}
-.header-btn{
-background:transparent;border:0;color:#fff;font-weight:700;
-padding:10px
+.search input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:0 15px;
 }
-.badge{
-background:#ff6161;border-radius:20px;padding:2px 7px;
-font-size:11px;margin-left:3px
+.search button{
+    width:55px;
+    border:0;
+    background:#fff;
+}
+.login{
+    border:0;
+    background:#fff;
+    color:#2874f0;
+    font-weight:bold;
+    padding:10px 24px;
+    border-radius:4px;
+}
+.cart{
+    border:0;
+    background:transparent;
+    color:#fff;
+    font-weight:bold;
+    white-space:nowrap;
 }
 
+/* NAV */
 .nav{
-background:#fff;display:flex;justify-content:center;gap:34px;
-padding:14px;box-shadow:0 2px 6px #ddd;
-position:sticky;top:66px;z-index:998;overflow:auto
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    padding:13px;
+    box-shadow:0 2px 7px #ddd;
+    overflow-x:auto;
+    white-space:nowrap;
 }
-.nav a{white-space:nowrap;font-weight:700;font-size:14px}
+.nav-item{
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.nav-item:hover{color:#2874f0}
 
+/* COMMON */
+.container,
+.fashion-container{
+    max-width:1500px;
+    margin:auto;
+    padding:18px;
+}
+
+/* HOME */
 .hero{
-max-width:1450px;margin:18px auto;padding:55px 6%;
-border-radius:12px;color:#fff;
-background:linear-gradient(115deg,#071426,#2874f0,#174ea6)
+    min-height:310px;
+    border-radius:12px;
+    padding:50px;
+    color:#fff;
+    background:
+    radial-gradient(circle at 80% 20%,rgba(255,255,255,.2),transparent 30%),
+    linear-gradient(110deg,#071529,#194d92,#2874f0);
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
 }
-.hero small{letter-spacing:3px}
-.hero h1{font-size:43px;margin:12px 0}
-.hero p{font-size:17px;color:#e8efff}
-.hero button{
-margin-top:22px;border:0;background:#ff9f00;color:#fff;
-padding:13px 27px;border-radius:5px;font-weight:bold
+.hero small,
+.fashion-hero small{
+    letter-spacing:3px;
+    color:#dce8ff;
+}
+.hero h1{
+    font-size:45px;
+    margin:14px 0;
+}
+.hero p{
+    color:#dce8fa;
+    max-width:650px;
+    line-height:1.6;
+}
+.hero-btn{
+    margin-top:20px;
+    border:0;
+    background:#ff9f00;
+    color:#fff;
+    padding:12px 25px;
+    border-radius:4px;
+    font-weight:bold;
+}
+.home-section,
+.fashion-section{
+    background:#fff;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.section-head,
+.fashion-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #eee;
+    padding-bottom:14px;
+    margin-bottom:18px;
+}
+.section-head h2,
+.fashion-title h2{font-size:21px}
+.section-head span,
+.fashion-title span{
+    color:#777;
+    font-size:12px;
 }
 
-.section{
-max-width:1450px;margin:18px auto;background:#fff;
-padding:22px;border-radius:10px
+/* HOME CATEGORY */
+.home-category-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
 }
-.section-title{display:flex;justify-content:space-between;align-items:center}
-.section-title h2{font-size:23px}
+.home-category{
+    border:1px solid #e4e4e4;
+    border-radius:9px;
+    overflow:hidden;
+    cursor:pointer;
+    background:#fff;
+    transition:.2s;
+}
+.home-category:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+.home-category-img{
+    aspect-ratio:1;
+    background:#f5f5f5;
+    overflow:hidden;
+}
+.home-category-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.3s;
+}
+.home-category:hover img{transform:scale(1.06)}
+.home-category-info{padding:12px}
+.home-category-info h3{font-size:13px}
+.home-category-info p{
+    font-size:10px;
+    color:#777;
+    margin-top:5px;
+}
 
-.category-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(125px,1fr));
-gap:14px;margin-top:18px
-}
-.category{
-border:1px solid #e0e0e0;border-radius:9px;background:#fff;
-padding:14px;text-align:center;transition:.2s;cursor:pointer
-}
-.category:hover{
-transform:translateY(-3px);box-shadow:0 7px 20px #ddd
-}
-.category img{
-width:100%;height:115px;object-fit:cover;border-radius:7px;
-background:#f5f5f5
-}
-.category .icon{font-size:48px;height:115px;display:grid;place-items:center}
-.category b{display:block;margin-top:10px;font-size:14px}
-.category small{color:#2874f0;display:block;margin-top:5px}
+/* PAGE SYSTEM */
+#mainPage{display:block}
+#fashionPage{display:none}
+#productPage{display:none}
 
+/* FASHION */
+.fashion-page-active #fashionPage{display:block}
+.fashion-header{
+    background:#2874f0;
+    color:#fff;
+    padding:12px 18px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    position:sticky;
+    top:64px;
+    z-index:500;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+.back-btn{
+    background:#fff;
+    color:#2874f0;
+    border:0;
+    padding:9px 16px;
+    border-radius:4px;
+    font-weight:bold;
+}
+.fashion-header h1{font-size:19px}
+.breadcrumb{
+    font-size:12px;
+    color:#777;
+    margin-bottom:15px;
+}
+.fashion-hero{
+    min-height:250px;
+    border-radius:12px;
+    padding:42px;
+    color:#fff;
+    background:
+    radial-gradient(circle at 80% 20%,rgba(255,255,255,.18),transparent 30%),
+    linear-gradient(110deg,#071529,#194d92,#2874f0);
+    display:flex;
+    align-items:center;
+    margin-bottom:20px;
+}
+.fashion-hero h2{
+    font-size:40px;
+    margin:13px 0;
+}
+.fashion-hero p{color:#dce8fa}
+
+/* SUBCATEGORY */
+.subcategory-grid{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:14px;
+}
+.subcategory-card{
+    border:1px solid #e4e4e4;
+    border-radius:9px;
+    overflow:hidden;
+    background:#fff;
+    cursor:pointer;
+    transition:.2s;
+}
+.subcategory-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+.subcategory-img{
+    aspect-ratio:1;
+    background:#f6f6f6;
+    overflow:hidden;
+}
+.subcategory-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.3s;
+}
+.subcategory-card:hover img{transform:scale(1.07)}
+.subcategory-info{padding:10px}
+.subcategory-info h3{
+    font-size:12px;
+    line-height:1.4;
+}
+.subcategory-info p{
+    font-size:9px;
+    color:#777;
+    margin-top:5px;
+}
+
+/* PRODUCT PAGE */
+.product-page-wrap{
+    max-width:1500px;
+    margin:auto;
+    padding:18px;
+}
+.product-toolbar{
+    background:#fff;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.product-toolbar button{
+    border:1px solid #ddd;
+    background:#fff;
+    padding:8px 14px;
+    border-radius:4px;
+}
 .product-grid{
-display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:18px
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
 }
 .product-card{
-background:#fff;border:1px solid #e2e2e2;border-radius:8px;
-overflow:hidden;cursor:pointer;transition:.2s
+    background:#fff;
+    border:1px solid #e4e4e4;
+    border-radius:8px;
+    overflow:hidden;
+    transition:.2s;
 }
-.product-card:hover{transform:translateY(-3px);box-shadow:0 7px 20px #ddd}
-.product-card img{width:100%;height:220px;object-fit:contain;background:#fafafa}
+.product-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+.product-img{
+    height:240px;
+    background:#f5f5f5;
+    position:relative;
+    overflow:hidden;
+}
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.discount{
+    position:absolute;
+    left:8px;
+    top:8px;
+    background:#00875a;
+    color:#fff;
+    padding:5px 7px;
+    font-size:10px;
+    border-radius:3px;
+}
 .product-info{padding:12px}
-.product-info h3{font-size:15px;margin-bottom:8px}
-.price{font-size:19px;font-weight:bold}
-.mrp{text-decoration:line-through;color:#777;font-size:13px;margin-left:6px}
-.discount{color:#00875a;font-size:13px;font-weight:bold;margin-left:5px}
-.rating{color:#087f23;font-size:12px;margin:7px 0}
-.stock{color:#00875a;font-size:12px}
-
-.page{
-display:none;max-width:1450px;margin:auto;padding:20px
+.product-info h3{
+    font-size:13px;
+    min-height:36px;
 }
-.page.active{display:block}
-.back{
-border:0;background:#2874f0;color:#fff;padding:10px 17px;
-border-radius:5px;margin-bottom:18px
+.rating{
+    display:inline-block;
+    background:#00875a;
+    color:#fff;
+    padding:4px 6px;
+    font-size:10px;
+    border-radius:3px;
+    margin:7px 0;
 }
-
-.sub-title{
-background:#fff;padding:18px;border-radius:9px;margin-bottom:16px
+.price{
+    font-size:18px;
+    font-weight:bold;
 }
-.sub-title h1{font-size:28px}
-.sub-title p{color:#777;margin-top:6px}
-
-.product-page{
-background:#fff;border-radius:10px;padding:25px;
-display:grid;grid-template-columns:1fr 1fr;gap:40px
+.mrp{
+    color:#888;
+    text-decoration:line-through;
+    font-size:11px;
+    margin-left:6px;
 }
-.gallery-main{
-width:100%;height:500px;object-fit:contain;background:#fafafa;border-radius:8px
+.stock{
+    font-size:11px;
+    color:#555;
+    margin-top:7px;
 }
-.thumbs{display:flex;gap:8px;margin-top:10px;overflow:auto}
-.thumbs img{
-width:78px;height:78px;object-fit:cover;border:1px solid #ccc;
-border-radius:6px;cursor:pointer
+.description{
+    font-size:11px;
+    color:#777;
+    margin-top:7px;
+    line-height:1.4;
 }
-.product-detail h1{font-size:30px;margin:10px 0}
-.breadcrumb{font-size:13px;color:#777}
-.product-rating{color:#087f23;font-weight:bold;margin:12px 0}
-.big-price{font-size:31px;font-weight:bold}
-.product-mrp{text-decoration:line-through;color:#777;margin-left:10px}
-.product-off{color:#00875a;font-weight:bold;margin-left:10px}
-.size-box{margin-top:25px}
-.size-btn{
-border:1px solid #aaa;background:#fff;padding:9px 15px;
-border-radius:4px;margin:7px 5px 0 0
-}
-.size-btn.selected{background:#2874f0;color:#fff;border-color:#2874f0}
-.qty-box{display:flex;align-items:center;margin-top:22px}
-.qty-box button{
-width:40px;height:40px;border:1px solid #aaa;background:#fff
-}
-.qty-number{min-width:55px;text-align:center;font-weight:bold}
-.product-description{
-border-top:1px solid #eee;margin-top:25px;padding-top:20px;
-line-height:1.7;color:#555
-}
-.action-row{display:flex;gap:10px;margin-top:25px}
-.action-row button{
-flex:1;border:0;color:#fff;padding:16px;border-radius:5px;font-weight:bold
+.add-cart,
+.buy-now{
+    width:100%;
+    border:0;
+    color:#fff;
+    padding:10px;
+    margin-top:10px;
+    font-weight:bold;
+    border-radius:3px;
 }
 .add-cart{background:#ff9f00}
-.buy-now{background:#fb641b}
+.buy-now{background:#2874f0}
 
-.cart-drawer{
-position:fixed;right:-430px;top:0;width:420px;max-width:95%;
-height:100vh;background:#fff;z-index:2000;
-box-shadow:-5px 0 25px #999;transition:.3s;
-display:flex;flex-direction:column
+/* FOOTER */
+.footer{
+    background:#101b2b;
+    color:#fff;
+    padding:40px 7%;
+    margin-top:30px;
 }
-.cart-drawer.open{right:0}
-.cart-head{
-padding:18px;background:#2874f0;color:#fff;
-display:flex;justify-content:space-between
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr repeat(4,1fr);
+    gap:30px;
 }
-.close{border:0;background:transparent;color:#fff;font-size:25px}
-.cart-items{flex:1;overflow:auto;padding:15px}
-.cart-item{
-display:flex;gap:10px;border-bottom:1px solid #eee;
-padding:12px 0
+.footer h3{
+    font-size:13px;
+    margin-bottom:12px;
 }
-.cart-item img{width:75px;height:75px;object-fit:cover}
-.cart-item-info{flex:1}
-.cart-qty{display:flex;align-items:center;margin-top:7px}
-.cart-qty button{
-width:28px;height:28px;border:1px solid #aaa;background:#fff
-}
-.cart-total{
-padding:18px;border-top:1px solid #ddd
-}
-.checkout-btn{
-width:100%;border:0;background:#fb641b;color:#fff;
-padding:14px;font-weight:bold;border-radius:5px;margin-top:10px
+.footer p,
+.footer a{
+    color:#aeb7c4;
+    font-size:12px;
+    display:block;
+    margin:7px 0;
 }
 
-.checkout-page{
-max-width:1200px;margin:auto;padding:20px;
-display:grid;grid-template-columns:1.4fr .8fr;gap:20px
+/* MOBILE */
+@media(max-width:1100px){
+    .subcategory-grid{grid-template-columns:repeat(5,1fr)}
+    .product-grid{grid-template-columns:repeat(4,1fr)}
+    .home-category-grid{grid-template-columns:repeat(4,1fr)}
 }
-.checkout-box,.summary-box{
-background:#fff;border-radius:10px;padding:24px
-}
-.field{margin-bottom:15px}
-.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
-.field input,.field textarea,.field select{
-width:100%;padding:12px;border:1px solid #ccc;border-radius:5px;outline:0
-}
-.field textarea{min-height:90px;resize:vertical}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.payment{
-display:flex;gap:10px;padding:14px;border:1px solid #ddd;
-border-radius:6px;margin:8px 0
-}
-.upi-box{
-display:none;background:#f4f7ff;padding:15px;border-radius:6px;margin-top:10px
-}
-.upi-id{
-background:#fff;padding:12px;font-weight:bold;margin:10px 0
-}
-.place-order{
-width:100%;border:0;background:#fb641b;color:#fff;
-padding:16px;border-radius:5px;font-weight:bold;margin-top:18px
-}
-.summary-item{
-display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #eee
-}
-.summary-item img{width:65px;height:65px;object-fit:cover}
-.summary-total{
-display:flex;justify-content:space-between;font-size:21px;
-font-weight:bold;padding-top:18px
-}
-
-.modal{
-display:none;position:fixed;inset:0;background:#0008;
-z-index:3000;align-items:center;justify-content:center;padding:20px
-}
-.modal.open{display:flex}
-.modal-box{
-background:#fff;width:550px;max-width:100%;border-radius:10px;
-padding:25px;max-height:90vh;overflow:auto
-}
-.modal-head{display:flex;justify-content:space-between}
-.modal-close{border:0;background:none;font-size:24px}
-
-.toast{
-position:fixed;bottom:25px;left:50%;transform:translateX(-50%);
-background:#222;color:#fff;padding:13px 20px;border-radius:5px;
-display:none;z-index:5000
-}
-.toast.show{display:block}
-
-footer{
-background:#172337;color:#fff;text-align:center;padding:40px;margin-top:25px
-}
-
-@media(max-width:1000px){
-.product-grid{grid-template-columns:repeat(4,1fr)}
-.product-page{grid-template-columns:1fr}
-.checkout-page{grid-template-columns:1fr}
-}
-
 @media(max-width:700px){
-.header{flex-wrap:wrap}
-.search{order:5;flex-basis:100%;max-width:none}
-.nav{top:116px}
-.hero{margin:10px;padding:35px 25px}
-.hero h1{font-size:30px}
-.product-grid{grid-template-columns:repeat(2,1fr)}
-.product-page{padding:15px}
-.gallery-main{height:350px}
-.two{grid-template-columns:1fr}
+    .header-inner{flex-wrap:wrap}
+    .search{
+        order:5;
+        flex-basis:100%;
+    }
+    .login{display:none}
+    .home-category-grid{grid-template-columns:repeat(3,1fr)}
+    .subcategory-grid{grid-template-columns:repeat(4,1fr);gap:8px}
+    .product-grid{grid-template-columns:repeat(3,1fr)}
+    .hero{min-height:250px;padding:30px 22px}
+    .hero h1{font-size:32px}
+    .fashion-hero{padding:30px 22px}
+    .fashion-hero h2{font-size:31px}
+    .footer-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-@media(max-width:420px){
-.product-grid{gap:8px}
-.product-card img{height:175px}
-.category-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:450px){
+    .container,.fashion-container,.product-page-wrap{padding:10px}
+    .home-section,.fashion-section{padding:12px}
+    .home-category-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+    .subcategory-grid{grid-template-columns:repeat(3,1fr)}
+    .product-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+    .product-img{height:175px}
+    .fashion-header{top:58px}
+    .fashion-header h1{font-size:14px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- =====================================================
+HOME PAGE
+===================================================== -->
+
+<div id="mainPage">
+
 <header class="header">
+<div class="header-inner">
 
 <div class="logo">GRO<span>+</span></div>
 
 <div class="search">
-<input id="searchInput" placeholder="Search products, brands and categories">
+<input
+id="searchInput"
+type="search"
+placeholder="Search products, brands and more...">
 <button onclick="searchProducts()">🔍</button>
 </div>
 
-<button class="header-btn" onclick="openCart()">
-🛒 Cart <span class="badge" id="cartCount">0</span>
+<button class="login">LOGIN</button>
+
+<button class="cart">
+🛒 Cart <span id="cartCount">0</span>
 </button>
 
+</div>
 </header>
 
-
 <nav class="nav">
-<a href="#home" onclick="showHome()">Home</a>
-<a href="#fashion" onclick="showPage('fashionPage')">Fashion Men & Kids</a>
-<a href="#decor">Home Decor</a>
-<a href="#electronics">Electronics</a>
-<a href="#beauty">Beauty</a>
-<a href="#toys">Toys</a>
-<a href="#books">Books</a>
+
+<div class="nav-item" onclick="openFashion()">
+Fashion Men & Kids
+</div>
+
+<div class="nav-item">Home & Decor</div>
+<div class="nav-item">Electronics</div>
+<div class="nav-item">Beauty</div>
+<div class="nav-item">Toys</div>
+<div class="nav-item">Books</div>
+
 </nav>
 
-
-<!-- HOME -->
-
-<main id="homePage">
+<main class="container">
 
 <section class="hero">
+<div>
+<small>GRO ONLINE SHOPPING</small>
 
-<small>GRO MARKET</small>
+<h1>
+Everything You Love.
+<br>
+One Place.
+</h1>
 
-<h1>Everything You Love.<br>One Place.</h1>
+<p>
+Fashion, Home Decor, Electronics,
+Beauty, Toys, Books and thousands
+of products.
+</p>
 
-<p>Fashion • Home Decor • Electronics • Beauty • Toys • Books</p>
-
-<button onclick="showPage('fashionPage')">
-SHOP NOW
+<button class="hero-btn" onclick="openFashion()">
+Shop Fashion
 </button>
-
-</section>
-
-
-<section class="section" id="fashion">
-
-<div class="section-title">
-<h2>Fashion Men & Kids</h2>
-</div>
-
-<div class="category-grid">
-
-<div class="category" onclick="showPage('fashionPage')">
-<div class="icon">👕</div>
-<b>Fashion Men & Kids</b>
-<small>Explore →</small>
-</div>
-
-<div class="category" onclick="scrollToSection('decor')">
-<div class="icon">🏠</div>
-<b>Home Decor</b>
-</div>
-
-<div class="category" onclick="scrollToSection('electronics')">
-<div class="icon">📱</div>
-<b>Electronics</b>
-</div>
-
-<div class="category" onclick="scrollToSection('beauty')">
-<div class="icon">💄</div>
-<b>Beauty</b>
-</div>
-
-<div class="category" onclick="scrollToSection('toys')">
-<div class="icon">🧸</div>
-<b>Toys</b>
-</div>
-
-<div class="category" onclick="scrollToSection('books')">
-<div class="icon">📚</div>
-<b>Books</b>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="section" id="decor">
-<h2>🏠 Home Decor</h2>
-<div class="category-grid">
-<div class="category"><div class="icon">🛋️</div><b>Furniture Decor</b></div>
-<div class="category"><div class="icon">💡</div><b>Lighting</b></div>
-<div class="category"><div class="icon">🖼️</div><b>Wall Decor</b></div>
-<div class="category"><div class="icon">🌱</div><b>Plants & Pots</b></div>
 </div>
 </section>
 
+<section class="home-section">
 
-<section class="section" id="electronics">
-<h2>📱 Electronics</h2>
-<div class="category-grid">
-<div class="category"><div class="icon">📱</div><b>Mobiles</b></div>
-<div class="category"><div class="icon">💻</div><b>Laptops</b></div>
-<div class="category"><div class="icon">🎧</div><b>Audio</b></div>
-<div class="category"><div class="icon">⌚</div><b>Smart Watches</b></div>
+<div class="section-head">
+<h2>Shop by Category</h2>
+<span>Explore All</span>
 </div>
-</section>
 
+<div class="home-category-grid">
 
-<section class="section" id="beauty">
-<h2>💄 Beauty</h2>
-<div class="category-grid">
-<div class="category"><div class="icon">💄</div><b>Makeup</b></div>
-<div class="category"><div class="icon">🧴</div><b>Skincare</b></div>
-<div class="category"><div class="icon">💇</div><b>Hair Care</b></div>
-<div class="category"><div class="icon">🌸</div><b>Fragrance</b></div>
+<div class="home-category" onclick="openFashion()">
+<div class="home-category-img">
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=700">
 </div>
-</section>
-
-
-<section class="section" id="toys">
-<h2>🧸 Toys</h2>
-<div class="category-grid">
-<div class="category"><div class="icon">🚗</div><b>Cars</b></div>
-<div class="category"><div class="icon">🧸</div><b>Soft Toys</b></div>
-<div class="category"><div class="icon">🧩</div><b>Puzzles</b></div>
-<div class="category"><div class="icon">🎨</div><b>Learning Toys</b></div>
+<div class="home-category-info">
+<h3>Fashion Men & Kids</h3>
+<p>Men • Kids • Women • Accessories</p>
 </div>
-</section>
+</div>
 
+<div class="home-category">
+<div class="home-category-img">
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700">
+</div>
+<div class="home-category-info">
+<h3>Home & Decor</h3>
+<p>Explore Products →</p>
+</div>
+</div>
 
-<section class="section" id="books">
-<h2>📚 Books</h2>
-<div class="category-grid">
-<div class="category"><div class="icon">📖</div><b>Fiction</b></div>
-<div class="category"><div class="icon">🎓</div><b>Education</b></div>
-<div class="category"><div class="icon">📕</div><b>Competitive Exams</b></div>
-<div class="category"><div class="icon">📗</div><b>Self Help</b></div>
+<div class="home-category">
+<div class="home-category-img">
+<img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700">
+</div>
+<div class="home-category-info">
+<h3>Electronics</h3>
+<p>Explore Products →</p>
+</div>
+</div>
+
+<div class="home-category">
+<div class="home-category-img">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700">
+</div>
+<div class="home-category-info">
+<h3>Beauty</h3>
+<p>Explore Products →</p>
+</div>
+</div>
+
+<div class="home-category">
+<div class="home-category-img">
+<img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=700">
+</div>
+<div class="home-category-info">
+<h3>Toys</h3>
+<p>Explore Products →</p>
+</div>
+</div>
+
+<div class="home-category">
+<div class="home-category-img">
+<img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=700">
+</div>
+<div class="home-category-info">
+<h3>Books</h3>
+<p>Explore Products →</p>
+</div>
+</div>
+
 </div>
 </section>
 
 </main>
 
+<footer class="footer">
+<div class="footer-grid">
 
-<!-- FASHION PAGE -->
+<div>
+<div class="logo">GRO<span>+</span></div>
+<p>Premium online shopping destination.</p>
+</div>
 
-<section id="fashionPage" class="page">
+<div>
+<h3>ABOUT</h3>
+<a>About GRO</a>
+<a>Contact</a>
+<a>Careers</a>
+</div>
 
-<button class="back" onclick="showHome()">← Home</button>
+<div>
+<h3>HELP</h3>
+<a>Shipping</a>
+<a>Returns</a>
+<a>FAQ</a>
+</div>
 
-<div class="sub-title">
+<div>
+<h3>POLICY</h3>
+<a>Privacy</a>
+<a>Terms</a>
+<a>Refund</a>
+</div>
+
+<div>
+<h3>SOCIAL</h3>
+<a>Instagram</a>
+<a>Facebook</a>
+<a>YouTube</a>
+</div>
+
+</div>
+</footer>
+
+</div>
+
+
+<!-- =====================================================
+FASHION PAGE
+===================================================== -->
+
+<div id="fashionPage">
+
+<div class="fashion-header">
+
+<button class="back-btn" onclick="closeFashion()">
+← Back
+</button>
+
 <h1>Fashion Men & Kids</h1>
-<p>Men • Kids • Traditional • Western • Footwear • Accessories</p>
-</div>
-
-
-<div class="section">
-
-<h2>Men</h2>
-
-<div class="category-grid">
-
-<div class="category"><div class="icon">👕</div><b>টি-শার্ট</b></div>
-<div class="category"><div class="icon">👔</div><b>শার্ট</b></div>
-<div class="category"><div class="icon">👖</div><b>প্যান্ট</b></div>
-
-<div class="category" onclick="showPage('jeansPage')">
-<img src="Screenshot_20260822-165228.jpg">
-<b>জিন্স</b>
-<small>Products →</small>
-</div>
-
-<div class="category"><div class="icon">🥻</div><b>পাঞ্জাবি</b></div>
-<div class="category"><div class="icon">👖</div><b>ট্রাউজার্স</b></div>
-<div class="category"><div class="icon">🧷</div><b>বেল্ট</b></div>
-<div class="category"><div class="icon">👛</div><b>ওয়ালেট</b></div>
-<div class="category"><div class="icon">⌚</div><b>ওয়াচ</b></div>
-<div class="category"><div class="icon">👟</div><b>জুতো</b></div>
 
 </div>
 
+<main class="fashion-container">
+
+<div class="breadcrumb">
+Home → Fashion Men & Kids
 </div>
 
+<section class="fashion-hero">
+<div>
 
-<div class="section">
+<small>GRO FASHION</small>
 
-<h2>Kids</h2>
+<h2>Fashion Men & Kids</h2>
 
-<div class="category-grid">
-
-<div class="category"><div class="icon">👦</div><b>বয়েজ ড্রেস</b></div>
-<div class="category"><div class="icon">👧</div><b>গার্লস ড্রেস</b></div>
-<div class="category"><div class="icon">👕</div><b>টি-শার্ট</b></div>
-<div class="category"><div class="icon">👗</div><b>ফ্রক</b></div>
-<div class="category"><div class="icon">👶</div><b>রোম্পার</b></div>
-<div class="category"><div class="icon">🍼</div><b>নিউবর্ন সেট</b></div>
-<div class="category"><div class="icon">👟</div><b>বেবি শু</b></div>
-<div class="category"><div class="icon">🎀</div><b>এক্সেসরিজ</b></div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>Traditional & Ethnic Wear</h2>
-
-<div class="category-grid">
-
-<div class="category"><div class="icon">🥻</div><b>শাড়ি</b></div>
-<div class="category"><div class="icon">👗</div><b>সালোয়ার কামিজ</b></div>
-<div class="category"><div class="icon">👗</div><b>কুর্তি</b></div>
-<div class="category"><div class="icon">👖</div><b>প্লাজো সেট</b></div>
-<div class="category"><div class="icon">👗</div><b>লেহেঙ্গা</b></div>
-<div class="category"><div class="icon">🌙</div><b>নাইটসুয়েট</b></div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>Western Wear</h2>
-
-<div class="category-grid">
-
-<div class="category"><div class="icon">👚</div><b>টপস</b></div>
-<div class="category"><div class="icon">👕</div><b>টি-শার্ট</b></div>
-<div class="category"><div class="icon">👔</div><b>শার্ট</b></div>
-<div class="category"><div class="icon">👗</div><b>ড্রেস</b></div>
-<div class="category"><div class="icon">👗</div><b>মেক্সি</b></div>
-<div class="category"><div class="icon">👗</div><b>স্কার্ট</b></div>
-<div class="category"><div class="icon">👖</div><b>জিন্স</b></div>
-<div class="category"><div class="icon">👖</div><b>ট্রাউজার্স</b></div>
-<div class="category"><div class="icon">👖</div><b>জগার্স</b></div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>Innerwear & Sleepwear</h2>
-
-<div class="category-grid">
-
-<div class="category"><div class="icon">🩱</div><b>ব্রা</b></div>
-<div class="category"><div class="icon">🩲</div><b>প্যান্টি</b></div>
-<div class="category"><div class="icon">👗</div><b>শেপওয়্যার</b></div>
-<div class="category"><div class="icon">🌙</div><b>নাইটি</b></div>
-<div class="category"><div class="icon">🛏️</div><b>পাইজামা সেট</b></div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>Footwear</h2>
-
-<div class="category-grid">
-
-<div class="category"><div class="icon">👠</div><b>হিল</b></div>
-<div class="category"><div class="icon">🩴</div><b>ফ্ল্যাট স্যান্ডেল</b></div>
-<div class="category"><div class="icon">👟</div><b>স্নিকার্স</b></div>
-<div class="category"><div class="icon">👞</div><b>শু</b></div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>Accessories & Bags</h2>
-
-<div class="category-grid">
-
-<div class="category"><div class="icon">👜</div><b>হ্যান্ডব্যাগ</b></div>
-<div class="category"><div class="icon">👛</div><b>পার্স</b></div>
-<div class="category"><div class="icon">💎</div><b>জুয়েলারি</b></div>
-<div class="category"><div class="icon">🕶️</div><b>সানগ্লাস</b></div>
-<div class="category"><div class="icon">⌚</div><b>ওয়াচ</b></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- JEANS PAGE -->
-
-<section id="jeansPage" class="page">
-
-<button class="back" onclick="showPage('fashionPage')">
-← Fashion Men & Kids
-</button>
-
-<div class="sub-title">
-<h1>Men → Jeans</h1>
-<p>Premium Jeans Collection</p>
-</div>
-
-<div id="jeansProducts" class="product-grid"></div>
-
-</section>
-
-
-<!-- PRODUCT DETAIL -->
-
-<section id="productPage" class="page">
-
-<button class="back" onclick="showPage('jeansPage')">
-← Jeans
-</button>
-
-<div id="productDetail"></div>
-
-</section>
-
-
-<!-- CHECKOUT -->
-
-<section id="checkoutPage" class="page">
-
-<button class="back" onclick="backFromCheckout()">← Back</button>
-
-<div class="checkout-page">
-
-<div class="checkout-box">
-
-<h1>Delivery Details</h1>
-
-<br>
-
-<div class="field">
-<label>নাম</label>
-<input id="customerName" placeholder="আপনার পূর্ণ নাম">
-</div>
-
-<div class="field">
-<label>মোবাইল নম্বর</label>
-<input id="customerMobile" maxlength="10" placeholder="10 digit mobile number">
-</div>
-
-<div class="field">
-<label>ঠিকানা</label>
-<textarea id="customerAddress" placeholder="House / Road / Area / Village"></textarea>
-</div>
-
-<div class="two">
-
-<div class="field">
-<label>State</label>
-
-<select id="customerState">
-
-<option value="">Select State</option>
-<option>Andhra Pradesh</option>
-<option>Assam</option>
-<option>Bihar</option>
-<option>Chhattisgarh</option>
-<option>Delhi</option>
-<option>Goa</option>
-<option>Gujarat</option>
-<option>Haryana</option>
-<option>Himachal Pradesh</option>
-<option>Jharkhand</option>
-<option>Karnataka</option>
-<option>Kerala</option>
-<option>Madhya Pradesh</option>
-<option>Maharashtra</option>
-<option>Manipur</option>
-<option>Meghalaya</option>
-<option>Mizoram</option>
-<option>Nagaland</option>
-<option>Odisha</option>
-<option>Punjab</option>
-<option>Rajasthan</option>
-<option>Sikkim</option>
-<option>Tamil Nadu</option>
-<option>Telangana</option>
-<option>Tripura</option>
-<option>Uttar Pradesh</option>
-<option>Uttarakhand</option>
-<option>West Bengal</option>
-
-</select>
-
-</div>
-
-<div class="field">
-<label>District</label>
-<input id="customerDistrict" placeholder="District">
-</div>
-
-</div>
-
-<div class="field">
-<label>PIN Code</label>
-<input id="customerPin" maxlength="6" placeholder="6 digit PIN code">
-</div>
-
-<h2>Payment Method</h2>
-
-<br>
-
-<label class="payment">
-<input type="radio" name="payment" value="COD" checked>
-Cash on Delivery
-</label>
-
-<label class="payment">
-<input type="radio" name="payment" value="UPI">
-Online Payment — UPI
-</label>
-
-<div id="upiBox" class="upi-box">
-
-<h3>UPI Payment</h3>
-
-<p>PhonePe • Google Pay • Paytm • Other UPI apps</p>
-
-<div class="upi-id">
-YOUR-UPI-ID@BANK
-</div>
-
-<p>আপনার payment করার পরে Transaction ID দিন:</p>
-
-<br>
-
-<input id="transactionId" placeholder="UPI Transaction / Reference ID">
-
-</div>
-
-<button class="place-order" onclick="placeOrder()">
-PLACE ORDER
-</button>
-
-</div>
-
-
-<div class="summary-box">
-
-<h2>Order Summary</h2>
-
-<div id="checkoutSummary"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CART -->
-
-<div id="cartDrawer" class="cart-drawer">
-
-<div class="cart-head">
-
-<h2>🛒 Your Cart</h2>
-
-<button class="close" onclick="closeCart()">×</button>
-
-</div>
-
-<div id="cartItems" class="cart-items"></div>
-
-<div class="cart-total">
-
-<div class="row">
-<span>Total</span>
-<strong id="cartTotal">₹0</strong>
-</div>
-
-<button class="checkout-btn" onclick="goCheckout()">
-CHECKOUT
-</button>
-
-</div>
-
-</div>
-
-
-<div id="toast" class="toast"></div>
-
-
-<footer>
-
-<h2>GRO+</h2>
-
-<p>Premium Online Marketplace</p>
-
-<p style="margin-top:8px;font-size:13px">
-Fashion • Home • Electronics • Beauty • Toys • Books
+<p>
+Men, Kids, Traditional, Western,
+Innerwear, Footwear, Accessories
+and more.
 </p>
 
+</div>
+</section>
+
+
+<!-- MEN -->
+
+<section class="fashion-section">
+
+<div class="fashion-title">
+<h2>👔 Men</h2>
+<span>10 Categories</span>
+</div>
+
+<div id="menGrid" class="subcategory-grid"></div>
+
+</section>
+
+
+<!-- KIDS -->
+
+<section class="fashion-section">
+
+<div class="fashion-title">
+<h2>🧸 Kids</h2>
+<span>8 Categories</span>
+</div>
+
+<div id="kidsGrid" class="subcategory-grid"></div>
+
+</section>
+
+
+<!-- ETHNIC -->
+
+<section class="fashion-section">
+
+<div class="fashion-title">
+<h2>🥻 Traditional & Ethnic Wear</h2>
+<span>6 Categories</span>
+</div>
+
+<div id="ethnicGrid" class="subcategory-grid"></div>
+
+</section>
+
+
+<!-- WESTERN -->
+
+<section class="fashion-section">
+
+<div class="fashion-title">
+<h2>👗 Western Wear</h2>
+<span>9 Categories</span>
+</div>
+
+<div id="westernGrid" class="subcategory-grid"></div>
+
+</section>
+
+
+<!-- INNERWEAR -->
+
+<section class="fashion-section">
+
+<div class="fashion-title">
+<h2>🌙 Innerwear & Sleepwear</h2>
+<span>5 Categories</span>
+</div>
+
+<div id="innerwearGrid" class="subcategory-grid"></div>
+
+</section>
+
+
+<!-- FOOTWEAR -->
+
+<section class="fashion-section">
+
+<div class="fashion-title">
+<h2>👟 Footwear</h2>
+<span>4 Categories</span>
+</div>
+
+<div id="footwearGrid" class="subcategory-grid"></div>
+
+</section>
+
+
+<!-- ACCESSORIES -->
+
+<section class="fashion-section">
+
+<div class="fashion-title">
+<h2>👜 Accessories & Bags</h2>
+<span>6 Categories</span>
+</div>
+
+<div id="accessoriesGrid" class="subcategory-grid"></div>
+
+</section>
+
+
+<!-- =====================================================
+PRODUCT PAGE INSIDE FASHION
+===================================================== -->
+
+<section id="productPage">
+
+<div class="product-page-wrap">
+
+<div class="product-toolbar">
+
+<button onclick="closeProducts()">
+← Fashion
+</button>
+
+<h2 id="productHeading">
+Products
+</h2>
+
+</div>
+
+<div id="productGrid" class="product-grid"></div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="footer-grid">
+
+<div>
+<div class="logo">GRO<span>+</span></div>
+<p>Premium online shopping destination.</p>
+</div>
+
+<div>
+<h3>ABOUT</h3>
+<a>About GRO</a>
+<a>Contact</a>
+</div>
+
+<div>
+<h3>HELP</h3>
+<a>Shipping</a>
+<a>Returns</a>
+</div>
+
+<div>
+<h3>POLICY</h3>
+<a>Privacy</a>
+<a>Terms</a>
+</div>
+
+<div>
+<h3>SOCIAL</h3>
+<a>Instagram</a>
+<a>Facebook</a>
+</div>
+
+</div>
 </footer>
+
+</div>
 
 
 <script>
 
-const products=[
+/* =====================================================
+FASHION CATEGORIES
+===================================================== */
 
-{
-id:"jeans001",
+const fashionData={
 
-name:"Premium Men's Jeans",
-
-category:"Fashion Men & Kids",
-
-subcategory:"Men",
-
-type:"Jeans",
-
-mrp:420,
-
-price:420,
-
-stock:50,
-
-rating:"4.6",
-
-sizes:["Short","28","30","32","34","36","38"],
-
-images:[
-"Screenshot_20260822-165228.jpg",
-"Screenshot_20260822-165225.jpg",
-"Screenshot_20260822-165219.jpg",
-"Screenshot_20260822-165216.jpg"
+men:[
+["T-Shirt","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"],
+["Shirt","https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600"],
+["Pant","https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600"],
+["Jeans","https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"],
+["Panjabi","https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=600"],
+["Trousers","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600"],
+["Belt","https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600"],
+["Wallet","https://images.unsplash.com/photo-1627123424574-724758594e93?w=600"],
+["Watch","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"],
+["Shoes","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"]
 ],
 
-description:
-"Premium quality men's jeans with comfortable fit, durable denim fabric and modern everyday styling. Suitable for casual and regular use."
+kids:[
+["Boys Dress","https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600"],
+["Girls Dress","https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=600"],
+["T-Shirt","https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=600"],
+["Frock","https://images.unsplash.com/photo-1560787313-5dff3307e257?w=600"],
+["Romper","https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600"],
+["Newborn Set","https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600"],
+["Baby Shoes","https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=600"],
+["Accessories","https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600"]
+],
 
+ethnic:[
+["শাড়ি","https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600"],
+["সালোয়ার কামিজ","https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=600"],
+["কুর্তি","https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=600"],
+["প্লাজো সেট","https://images.unsplash.com/photo-1605763240000-7e93b172d754?w=600"],
+["লেহেঙ্গা","https://images.unsplash.com/photo-1610189012906-4c7c0f5b5a8a?w=600"],
+["নাইটসুয়েট","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"]
+],
+
+western:[
+["টপস","https://images.unsplash.com/photo-1564257577054-8e9f9e4f6f58?w=600"],
+["টি-শার্ট","https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600"],
+["শার্ট","https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600"],
+["ড্রেস","https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600"],
+["মেক্সি","https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600"],
+["স্কার্ট","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600"],
+["জিন্স","https://images.unsplash.com/photo-1496440737103-cd596325d314?w=600"],
+["ট্রাউজার্স","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600"],
+["জগার্স","https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600"]
+],
+
+innerwear:[
+["ব্রা","https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=600"],
+["প্যান্টি","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600"],
+["শেপওয়্যার","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"],
+["নাইটি","https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=600"],
+["পাইজামা সেট","https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=600"]
+],
+
+footwear:[
+["হিল","https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600"],
+["ফ্ল্যাট স্যান্ডেল","https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600"],
+["স্নিকার্স","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"],
+["শু","https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600"]
+],
+
+accessories:[
+["হ্যান্ডব্যাগ","https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600"],
+["পার্স","https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600"],
+["কানের দুল","https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600"],
+["হার","https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600"],
+["সানগ্লাস","https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600"],
+["ওয়াচ","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"]
+]
+
+};
+
+
+/* =====================================================
+ALL PRODUCTS
+===================================================== */
+
+const products=[
+
+/* EXISTING DEMO PRODUCTS */
+
+{
+id:1,
+name:"Premium Men's T-Shirt",
+category:"Men",
+subcategory:"T-Shirt",
+mrp:1299,
+price:699,
+stock:20,
+rating:4.6,
+image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800",
+description:"Premium quality men's T-shirt."
+},
+
+{
+id:2,
+name:"Classic Men's Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1999,
+price:999,
+stock:25,
+rating:4.7,
+image:"https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800",
+description:"Classic comfortable men's shirt."
+},
+
+/* =====================================================
+JEANS PRODUCTS
+===================================================== */
+
+{
+id:1001,
+name:"Premium Blue Slim Fit Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2499,
+price:1299,
+stock:25,
+rating:4.6,
+image:"images/Screenshot_20260822-182854.jpg",
+description:"Premium denim slim-fit men's jeans."
+},
+
+{
+id:1002,
+name:"Classic Dark Blue Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2299,
+price:1199,
+stock:18,
+rating:4.5,
+image:"images/Screenshot_20260822-182852.jpg",
+description:"Classic comfortable denim jeans."
+},
+
+{
+id:1003,
+name:"Regular Fit Casual Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:1999,
+price:999,
+stock:30,
+rating:4.4,
+image:"images/Screenshot_20260822-182850.jpg",
+description:"Comfortable regular-fit casual jeans."
+},
+
+{
+id:1004,
+name:"Premium Black Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2399,
+price:1249,
+stock:15,
+rating:4.7,
+image:"images/Screenshot_20260822-182703.jpg",
+description:"Premium black denim jeans."
+},
+
+{
+id:1005,
+name:"Stretch Fit Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2199,
+price:1099,
+stock:22,
+rating:4.5,
+image:"images/Screenshot_20260822-182700.jpg",
+description:"Stretch denim jeans for everyday comfort."
+},
+
+/* =====================================================
+SHIRT PRODUCTS
+===================================================== */
+
+{
+id:1101,
+name:"Premium Casual Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1799,
+price:899,
+stock:25,
+rating:4.6,
+image:"images/Screenshot_20260822-182654.jpg",
+description:"Premium casual shirt for men."
+},
+
+{
+id:1102,
+name:"Classic Cotton Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1999,
+price:999,
+stock:20,
+rating:4.7,
+image:"images/Screenshot_20260822-182652.jpg",
+description:"Comfortable cotton shirt."
+},
+
+{
+id:1103,
+name:"Slim Fit Formal Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:2299,
+price:1199,
+stock:17,
+rating:4.5,
+image:"images/Screenshot_20260822-182650.jpg",
+description:"Smart slim-fit formal shirt."
+},
+
+{
+id:1104,
+name:"Premium Checked Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1899,
+price:949,
+stock:28,
+rating:4.4,
+image:"images/Screenshot_20260822-182647.jpg",
+description:"Stylish checked shirt."
+},
+
+{
+id:1105,
+name:"Casual Full Sleeve Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:2099,
+price:1049,
+stock:19,
+rating:4.6,
+image:"images/Screenshot_20260822-182435.jpg",
+description:"Comfortable full-sleeve casual shirt."
 }
 
 ];
 
 
-let selectedProduct=null;
-let selectedSize="";
-let selectedQty=1;
+/* =====================================================
+RENDER CATEGORY CARDS
+===================================================== */
 
+function renderFashionCards(data,id){
 
-function getCart(){
+const el=document.getElementById(id);
 
-return JSON.parse(
-localStorage.getItem("GRO_CART")||"[]"
-);
+el.innerHTML=data.map(item=>`
 
-}
+<div class="subcategory-card"
+onclick="openProducts('${item[0]}')">
 
+<div class="subcategory-img">
 
-function saveCart(cart){
-
-localStorage.setItem(
-"GRO_CART",
-JSON.stringify(cart)
-);
-
-updateCartCount();
-
-}
-
-
-function updateCartCount(){
-
-let cart=getCart();
-
-let count=cart.reduce(
-(a,b)=>a+b.qty,0
-);
-
-document.getElementById("cartCount").innerText=count;
-
-}
-
-
-function hideAllPages(){
-
-document.querySelectorAll(".page").forEach(
-p=>p.classList.remove("active")
-);
-
-document.getElementById("homePage").style.display="none";
-
-}
-
-
-function showHome(){
-
-hideAllPages();
-
-document.getElementById("homePage").style.display="block";
-
-window.scrollTo(0,0);
-
-}
-
-
-function showPage(id){
-
-hideAllPages();
-
-document.getElementById(id).classList.add("active");
-
-if(id==="jeansPage"){
-
-renderJeans();
-
-}
-
-if(id==="checkoutPage"){
-
-renderCheckout();
-
-}
-
-window.scrollTo(0,0);
-
-}
-
-
-function scrollToSection(id){
-
-showHome();
-
-setTimeout(()=>{
-
-document.getElementById(id)
-.scrollIntoView();
-
-},50);
-
-}
-
-
-function renderJeans(){
-
-let box=document.getElementById("jeansProducts");
-
-let jeans=products.filter(
-p=>p.type==="Jeans"
-);
-
-box.innerHTML=jeans.map(p=>`
-
-<div class="product-card"
-onclick="openProduct('${p.id}')">
-
-<img src="${p.images[0]}">
-
-<div class="product-info">
-
-<h3>${p.name}</h3>
-
-<div class="rating">
-⭐ ${p.rating} | 100+ Ratings
-</div>
-
-<div>
-
-<span class="price">
-₹${p.price}
-</span>
-
-<span class="mrp">
-₹${p.mrp}
-</span>
+<img
+src="${item[1]}"
+loading="lazy"
+alt="${item[0]}">
 
 </div>
 
-<div class="stock">
-In Stock: ${p.stock}
-</div>
+<div class="subcategory-info">
+
+<h3>${item[0]}</h3>
+
+<p>View Products →</p>
 
 </div>
 
@@ -968,379 +1139,152 @@ In Stock: ${p.stock}
 
 }
 
-
-function openProduct(id){
-
-selectedProduct=
-products.find(p=>p.id===id);
-
-selectedSize="";
-
-selectedQty=1;
-
-renderProduct();
-
-showPage("productPage");
-
-}
+renderFashionCards(fashionData.men,"menGrid");
+renderFashionCards(fashionData.kids,"kidsGrid");
+renderFashionCards(fashionData.ethnic,"ethnicGrid");
+renderFashionCards(fashionData.western,"westernGrid");
+renderFashionCards(fashionData.innerwear,"innerwearGrid");
+renderFashionCards(fashionData.footwear,"footwearGrid");
+renderFashionCards(fashionData.accessories,"accessoriesGrid");
 
 
-function renderProduct(){
+/* =====================================================
+FASHION NAVIGATION
+===================================================== */
 
-let p=selectedProduct;
+function openFashion(){
 
-document.getElementById("productDetail").innerHTML=`
+document.getElementById("mainPage").style.display="none";
+document.getElementById("fashionPage").style.display="block";
+document.getElementById("productPage").style.display="none";
 
-<div class="product-page">
-
-<div>
-
-<img id="mainProductImage"
-class="gallery-main"
-src="${p.images[0]}">
-
-<div class="thumbs">
-
-${p.images.map(img=>`
-
-<img src="${img}"
-onclick="changeMainImage('${img}')">
-
-`).join("")}
-
-</div>
-
-</div>
-
-
-<div class="product-detail">
-
-<div class="breadcrumb">
-Fashion Men & Kids → Men → Jeans
-</div>
-
-<h1>${p.name}</h1>
-
-<div class="product-rating">
-⭐ ${p.rating} | 100+ Ratings
-</div>
-
-<div>
-
-<span class="big-price">
-₹${p.price}
-</span>
-
-<span class="product-mrp">
-₹${p.mrp}
-</span>
-
-<span class="product-off">
-${p.mrp>p.price?
-Math.round((1-p.price/p.mrp)*100):0}% OFF
-</span>
-
-</div>
-
-
-<div class="size-box">
-
-<h3>Select Size</h3>
-
-${p.sizes.map(s=>`
-
-<button
-class="size-btn"
-onclick="selectSize('${s}',this)">
-${s}
-</button>
-
-`).join("")}
-
-</div>
-
-
-<div class="qty-box">
-
-<button onclick="changeProductQty(-1)">
-−
-</button>
-
-<span class="qty-number" id="productQty">
-${selectedQty}
-</span>
-
-<button onclick="changeProductQty(1)">
-+
-</button>
-
-</div>
-
-
-<div class="stock">
-✓ In Stock — ${p.stock} available
-</div>
-
-
-<div class="product-description">
-
-<h3>Product Description</h3>
-
-<p>${p.description}</p>
-
-<br>
-
-<ul>
-
-<li>Premium denim fabric</li>
-<li>Comfortable everyday fit</li>
-<li>Durable stitching</li>
-<li>Modern casual design</li>
-<li>Multiple size options</li>
-
-</ul>
-
-</div>
-
-
-<div class="action-row">
-
-<button class="add-cart"
-onclick="addToCart()">
-🛒 ADD TO CART
-</button>
-
-<button class="buy-now"
-onclick="buyNow()">
-⚡ BUY NOW
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-`;
+window.scrollTo(0,0);
 
 }
 
 
-function changeMainImage(src){
+function closeFashion(){
 
-document.getElementById(
-"mainProductImage"
-).src=src;
+document.getElementById("fashionPage").style.display="none";
+document.getElementById("mainPage").style.display="block";
 
-}
-
-
-function selectSize(size,button){
-
-selectedSize=size;
-
-document.querySelectorAll(".size-btn")
-.forEach(b=>b.classList.remove("selected"));
-
-button.classList.add("selected");
+window.scrollTo(0,0);
 
 }
 
 
-function changeProductQty(value){
+/* =====================================================
+PRODUCT PAGE
+===================================================== */
 
-if(!selectedProduct)return;
+function openProducts(category){
 
-selectedQty+=value;
+const page=document.getElementById("productPage");
+const grid=document.getElementById("productGrid");
+const heading=document.getElementById("productHeading");
 
-if(selectedQty<1)selectedQty=1;
+heading.innerText=category+" Products";
 
-if(selectedQty>selectedProduct.stock)
-selectedQty=selectedProduct.stock;
-
-document.getElementById(
-"productQty"
-).innerText=selectedQty;
-
-}
-
-
-function addToCart(){
-
-if(!selectedSize){
-
-showToast("আগে Size select করুন");
-
-return;
-
-}
-
-let cart=getCart();
-
-let existing=cart.find(
-x=>x.id===selectedProduct.id &&
-x.size===selectedSize
+const result=products.filter(
+p=>p.subcategory===category
 );
 
-if(existing){
+page.style.display="block";
 
-existing.qty+=selectedQty;
+if(!result.length){
 
-}else{
+grid.innerHTML=`
 
-cart.push({
+<div style="
+grid-column:1/-1;
+background:#fff;
+padding:70px 20px;
+text-align:center;
+">
 
-id:selectedProduct.id,
+<h2>No Products Available</h2>
 
-name:selectedProduct.name,
+<p style="margin-top:10px;color:#777">
+এই category-তে এখনো product যোগ করা হয়নি।
+</p>
 
-price:selectedProduct.price,
-
-mrp:selectedProduct.mrp,
-
-size:selectedSize,
-
-qty:selectedQty,
-
-image:selectedProduct.images[0]
-
-});
-
-}
-
-saveCart(cart);
-
-showToast("Product Cart-এ যোগ হয়েছে");
-
-}
-
-
-function buyNow(){
-
-if(!selectedSize){
-
-showToast("আগে Size select করুন");
-
-return;
-
-}
-
-let cart=[{
-
-id:selectedProduct.id,
-
-name:selectedProduct.name,
-
-price:selectedProduct.price,
-
-mrp:selectedProduct.mrp,
-
-size:selectedSize,
-
-qty:selectedQty,
-
-image:selectedProduct.images[0]
-
-}];
-
-saveCart(cart);
-
-showPage("checkoutPage");
-
-}
-
-
-function openCart(){
-
-renderCart();
-
-document.getElementById(
-"cartDrawer"
-).classList.add("open");
-
-}
-
-
-function closeCart(){
-
-document.getElementById(
-"cartDrawer"
-).classList.remove("open");
-
-}
-
-
-function renderCart(){
-
-let cart=getCart();
-
-let box=document.getElementById("cartItems");
-
-if(!cart.length){
-
-box.innerHTML=`
-<div style="text-align:center;padding:50px">
-<h3>Cart Empty</h3>
-<p>কোনো product যোগ করা হয়নি।</p>
 </div>
+
 `;
 
-document.getElementById(
-"cartTotal"
-).innerText="₹0";
-
 return;
 
 }
 
+grid.innerHTML=result.map(product=>{
 
-let total=0;
+const discount=Math.round(
+((product.mrp-product.price)/product.mrp)*100
+);
 
-box.innerHTML=cart.map((item,index)=>{
+return`
 
-let itemTotal=item.price*item.qty;
+<div class="product-card">
 
-total+=itemTotal;
+<div class="product-img">
 
-return `
+<img
+src="${product.image}"
+alt="${product.name}"
+loading="lazy"
+onerror="this.src='https://via.placeholder.com/600x600?text=Product+Image'">
 
-<div class="cart-item">
-
-<img src="${item.image}">
-
-<div class="cart-item-info">
-
-<b>${item.name}</b>
-
-<div style="font-size:12px;color:#777">
-Size: ${item.size}
-</div>
-
-<div style="font-weight:bold;margin-top:5px">
-₹${item.price}
-</div>
-
-<div class="cart-qty">
-
-<button onclick="cartQty(${index},-1)">
-−
-</button>
-
-<span style="min-width:35px;text-align:center">
-${item.qty}
+<span class="discount">
+${discount}% OFF
 </span>
 
-<button onclick="cartQty(${index},1)">
-+
+</div>
+
+<div class="product-info">
+
+<h3>
+${product.name}
+</h3>
+
+<span class="rating">
+⭐ ${product.rating}
+</span>
+
+<div>
+
+<span class="price">
+₹${product.price.toLocaleString("en-IN")}
+</span>
+
+<span class="mrp">
+₹${product.mrp.toLocaleString("en-IN")}
+</span>
+
+</div>
+
+<div class="stock">
+Stock: ${product.stock}
+</div>
+
+<div class="description">
+${product.description}
+</div>
+
+<button
+class="add-cart"
+onclick="addToCart(${product.id})">
+
+ADD TO CART
+
 </button>
 
 <button
-onclick="removeCart(${index})"
-style="margin-left:10px;border:0;background:none;color:#d00">
-Remove
-</button>
+class="buy-now"
+onclick="buyNow(${product.id})">
 
-</div>
+BUY NOW
+
+</button>
 
 </div>
 
@@ -1350,347 +1294,224 @@ Remove
 
 }).join("");
 
-document.getElementById(
-"cartTotal"
-).innerText="₹"+total;
-
-}
-
-
-function cartQty(index,value){
-
-let cart=getCart();
-
-cart[index].qty+=value;
-
-if(cart[index].qty<1)
-cart.splice(index,1);
-
-saveCart(cart);
-
-renderCart();
-
-}
-
-
-function removeCart(index){
-
-let cart=getCart();
-
-cart.splice(index,1);
-
-saveCart(cart);
-
-renderCart();
-
-}
-
-
-function goCheckout(){
-
-if(!getCart().length){
-
-showToast("Cart Empty");
-
-return;
-
-}
-
-closeCart();
-
-showPage("checkoutPage");
-
-}
-
-
-function renderCheckout(){
-
-let cart=getCart();
-
-let box=document.getElementById(
-"checkoutSummary"
-);
-
-if(!cart.length){
-
-box.innerHTML="<p>Cart Empty</p>";
-
-return;
-
-}
-
-let total=0;
-
-box.innerHTML=cart.map(item=>{
-
-let t=item.price*item.qty;
-
-total+=t;
-
-return `
-
-<div class="summary-item">
-
-<img src="${item.image}">
-
-<div>
-
-<b>${item.name}</b>
-
-<div>Size: ${item.size}</div>
-
-<div>Qty: ${item.qty}</div>
-
-<strong>₹${t}</strong>
-
-</div>
-
-</div>
-
-`;
-
-}).join("")+
-
-`
-
-<div class="summary-total">
-
-<span>Total</span>
-
-<span>₹${total}</span>
-
-</div>
-
-`;
-
-}
-
-
-document.querySelectorAll(
-'input[name="payment"]'
-).forEach(radio=>{
-
-radio.addEventListener("change",function(){
-
-document.getElementById(
-"upiBox"
-).style.display=
-this.value==="UPI"?
-"block":"none";
-
+page.scrollIntoView({
+behavior:"smooth"
 });
 
-});
+}
 
 
-function placeOrder(){
+function closeProducts(){
 
-let name=
-document.getElementById("customerName").value.trim();
+document.getElementById("productPage").style.display="none";
 
-let mobile=
-document.getElementById("customerMobile").value.trim();
-
-let address=
-document.getElementById("customerAddress").value.trim();
-
-let state=
-document.getElementById("customerState").value;
-
-let district=
-document.getElementById("customerDistrict").value.trim();
-
-let pin=
-document.getElementById("customerPin").value.trim();
-
-let payment=
-document.querySelector(
-'input[name="payment"]:checked'
-).value;
-
-let transaction=
-document.getElementById(
-"transactionId"
-).value.trim();
+}
 
 
-if(!name||!mobile||!address||
-!state||!district||!pin){
+/* =====================================================
+CART
+===================================================== */
 
-showToast("সব delivery details পূরণ করুন");
+let cart=[];
+
+function addToCart(id){
+
+const product=products.find(p=>p.id===id);
+
+if(!product)return;
+
+if(product.stock<=0){
+
+alert("Product Out of Stock");
 
 return;
 
 }
 
+cart.push(product);
 
-if(!/^[6-9][0-9]{9}$/.test(mobile)){
-
-showToast("সঠিক Indian mobile number দিন");
-
-return;
-
-}
-
-
-if(!/^[0-9]{6}$/.test(pin)){
-
-showToast("সঠিক 6 digit PIN দিন");
-
-return;
-
-}
-
-
-if(payment==="UPI"&&!transaction){
-
-showToast("UPI Transaction ID দিন");
-
-return;
-
-}
-
-
-let cart=getCart();
-
-if(!cart.length){
-
-showToast("Cart Empty");
-
-return;
-
-}
-
-
-let total=cart.reduce(
-(sum,item)=>sum+(item.price*item.qty),0
-);
-
-
-let order={
-
-orderId:"GRO-"+Date.now(),
-
-customer:{
-
-name:name,
-
-mobile:mobile,
-
-address:address,
-
-district:district,
-
-state:state,
-
-pin:pin,
-
-country:"India"
-
-},
-
-items:cart,
-
-total:total,
-
-paymentMethod:payment,
-
-transactionId:transaction,
-
-createdAt:new Date().toISOString()
-
-};
-
-
-console.log("ORDER:",order);
-
-
-/*
-====================================
-BACKEND CONNECTION PLACE
-====================================
-
-এখানে পরে Cloudflare Worker API বসবে।
-
-Example:
-
-fetch("YOUR-CLOUDFLARE-WORKER-URL/orders",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(order)
-});
-
-তাহলে order database-এ যাবে।
-====================================
-*/
-
-
-localStorage.removeItem("GRO_CART");
-
-updateCartCount();
+document.getElementById("cartCount")
+.innerText=cart.length;
 
 alert(
-"Order Created Successfully!\n\n"+
-"Order ID: "+order.orderId+
-"\nTotal: ₹"+order.total+
-"\nPayment: "+order.paymentMethod
+product.name+
+"\nCart-এ যোগ হয়েছে।"
 );
-
-showHome();
 
 }
 
+
+/* =====================================================
+BUY NOW
+===================================================== */
+
+function buyNow(id){
+
+const product=products.find(p=>p.id===id);
+
+if(!product)return;
+
+if(product.stock<=0){
+
+alert("এই product এখন Out of Stock");
+
+return;
+
+}
+
+/*
+পরবর্তীতে এখানে:
+checkout.html
+payment
+COD
+order API
+database
+ইত্যাদি connect করা যাবে।
+*/
+
+alert(
+"BUY NOW\n\n"+
+product.name+
+"\n\nSelling Price: ₹"+
+product.price.toLocaleString("en-IN")
+);
+
+}
+
+
+/* =====================================================
+SEARCH
+===================================================== */
 
 function searchProducts(){
 
-let q=document.getElementById(
-"searchInput"
-).value.toLowerCase().trim();
+const q=document
+.getElementById("searchInput")
+.value
+.trim()
+.toLowerCase();
 
 if(!q)return;
 
-let p=products.find(x=>
+const result=products.filter(p=>
 
-x.name.toLowerCase().includes(q)||
-x.category.toLowerCase().includes(q)||
-x.subcategory.toLowerCase().includes(q)||
-x.type.toLowerCase().includes(q)
+p.name.toLowerCase().includes(q) ||
+
+p.subcategory.toLowerCase().includes(q) ||
+
+p.category.toLowerCase().includes(q)
 
 );
 
-if(p){
+openFashion();
 
-openProduct(p.id);
+document.getElementById("productPage").style.display="block";
 
-}else{
+document.getElementById("productHeading")
+.innerText="Search Results";
 
-showToast("Product পাওয়া যায়নি");
+const grid=document.getElementById("productGrid");
+
+if(!result.length){
+
+grid.innerHTML=`
+
+<div style="
+grid-column:1/-1;
+background:#fff;
+padding:70px;
+text-align:center;
+">
+
+<h2>No Products Found</h2>
+
+</div>
+
+`;
+
+return;
 
 }
 
+grid.innerHTML=result.map(product=>{
+
+const discount=Math.round(
+((product.mrp-product.price)/product.mrp)*100
+);
+
+return`
+
+<div class="product-card">
+
+<div class="product-img">
+
+<img
+src="${product.image}"
+loading="lazy"
+onerror="this.src='https://via.placeholder.com/600x600?text=Product'">
+
+<span class="discount">
+${discount}% OFF
+</span>
+
+</div>
+
+<div class="product-info">
+
+<h3>${product.name}</h3>
+
+<span class="rating">
+⭐ ${product.rating}
+</span>
+
+<div>
+
+<span class="price">
+₹${product.price.toLocaleString("en-IN")}
+</span>
+
+<span class="mrp">
+₹${product.mrp.toLocaleString("en-IN")}
+</span>
+
+</div>
+
+<div class="stock">
+Stock: ${product.stock}
+</div>
+
+<button
+class="add-cart"
+onclick="addToCart(${product.id})">
+ADD TO CART
+</button>
+
+<button
+class="buy-now"
+onclick="buyNow(${product.id})">
+BUY NOW
+</button>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
 }
 
 
-function showToast(message){
+document
+.getElementById("searchInput")
+.addEventListener("keydown",function(e){
 
-let toast=document.getElementById("toast");
-
-toast.innerText=message;
-
-toast.classList.add("show");
-
-setTimeout(()=>{
-
-toast.classList.remove("show");
-
-},2200);
-
+if(e.key==="Enter"){
+searchProducts();
 }
 
-
-updateCartCount();
+});
 
 </script>
 
