@@ -2,1844 +2,539 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#2874f0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GRO+ — Online Shopping</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f1f3f6;
-    color:#202124;
-}
-button,input{font:inherit}
+body{font-family:Arial,sans-serif;background:#f1f3f6;color:#222}
 button{cursor:pointer}
-a{text-decoration:none;color:inherit}
-
-/* ================= HEADER ================= */
-
-.header{
-    background:#2874f0;
-    color:#fff;
-    position:sticky;
-    top:0;
-    z-index:9999;
-    box-shadow:0 2px 10px rgba(0,0,0,.18);
-}
-
-.header-inner{
-    max-width:1500px;
-    min-height:64px;
-    margin:auto;
-    padding:9px 18px;
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-
-.logo{
-    font-size:29px;
-    font-weight:900;
-    font-style:italic;
-    white-space:nowrap;
-}
-
+.header{background:#2874f0;color:white;padding:12px 5%;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:100}
+.logo{font-size:28px;font-weight:900;font-style:italic}
 .logo span{color:#ffe500}
-
-.search{
-    flex:1;
-    max-width:760px;
-    height:43px;
-    display:flex;
-    background:#fff;
-    border-radius:4px;
-    overflow:hidden;
-}
-
-.search input{
-    flex:1;
-    border:0;
-    outline:0;
-    padding:0 15px;
-}
-
-.search button{
-    width:55px;
-    border:0;
-    background:#fff;
-}
-
-.login{
-    border:0;
-    background:#fff;
-    color:#2874f0;
-    font-weight:bold;
-    padding:10px 25px;
-    border-radius:3px;
-}
-
-.cart{
-    border:0;
-    background:transparent;
-    color:#fff;
-    font-weight:bold;
-    white-space:nowrap;
-}
-
-/* ================= NAV ================= */
-
-.nav{
-    background:#fff;
-    display:flex;
-    justify-content:center;
-    gap:35px;
-    padding:13px;
-    box-shadow:0 2px 7px #ddd;
-    overflow-x:auto;
-    white-space:nowrap;
-}
-
-.nav-item{
-    font-size:13px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.nav-item:hover{
-    color:#2874f0;
-}
-
-/* ================= MAIN ================= */
-
-.main-page{
-    display:block;
-}
-
-.container{
-    max-width:1500px;
-    margin:auto;
-    padding:18px;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:310px;
-    border-radius:12px;
-    padding:50px;
-    color:#fff;
-
-    background:
-    radial-gradient(
-        circle at 80% 20%,
-        rgba(255,255,255,.20),
-        transparent 30%
-    ),
-    linear-gradient(
-        110deg,
-        #071529,
-        #194d92,
-        #2874f0
-    );
-
-    display:flex;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.hero small{
-    letter-spacing:3px;
-    color:#dbe7ff;
-}
-
-.hero h1{
-    font-size:45px;
-    margin:14px 0;
-}
-
-.hero p{
-    color:#dce8fa;
-    max-width:650px;
-    line-height:1.6;
-}
-
-.hero-btn{
-    margin-top:20px;
-    border:0;
-    background:#ff9f00;
-    color:#fff;
-    padding:12px 24px;
-    border-radius:4px;
-    font-weight:bold;
-}
-
-/* ================= HOME CATEGORIES ================= */
-
-.home-section{
-    background:#fff;
-    border-radius:10px;
-    padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.06);
-}
-
-.section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #eee;
-    padding-bottom:14px;
-    margin-bottom:18px;
-}
-
-.section-head h2{
-    font-size:21px;
-}
-
-.section-head span{
-    font-size:12px;
-    color:#777;
-}
-
-.home-category-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:15px;
-}
-
-.home-category{
-    border:1px solid #e4e4e4;
-    border-radius:9px;
-    overflow:hidden;
-    background:#fff;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.home-category:hover{
-    transform:translateY(-5px);
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
-}
-
-.home-category-img{
-    aspect-ratio:1/1;
-    background:#f5f5f5;
-    overflow:hidden;
-}
-
-.home-category-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.3s;
-}
-
-.home-category:hover img{
-    transform:scale(1.06);
-}
-
-.home-category-info{
-    padding:12px;
-}
-
-.home-category-info h3{
-    font-size:13px;
-}
-
-.home-category-info p{
-    font-size:10px;
-    color:#777;
-    margin-top:5px;
-}
-
-/* ================= FASHION PAGE ================= */
-
-.fashion-page{
-    display:none;
-}
-
-.fashion-page.active{
-    display:block;
-}
-
-.fashion-header{
-    background:#2874f0;
-    color:#fff;
-    padding:12px 18px;
-    display:flex;
-    align-items:center;
-    gap:18px;
-    position:sticky;
-    top:64px;
-    z-index:500;
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
-}
-
-.back-btn{
-    background:#fff;
-    color:#2874f0;
-    border:0;
-    padding:9px 16px;
-    border-radius:4px;
-    font-weight:bold;
-}
-
-.fashion-header h1{
-    font-size:19px;
-}
-
-.fashion-container{
-    max-width:1500px;
-    margin:auto;
-    padding:18px;
-}
-
-.breadcrumb{
-    font-size:12px;
-    color:#777;
-    margin-bottom:15px;
-}
-
-.fashion-hero{
-    min-height:250px;
-    border-radius:12px;
-    padding:42px;
-    color:#fff;
-
-    background:
-    radial-gradient(
-        circle at 80% 20%,
-        rgba(255,255,255,.18),
-        transparent 30%
-    ),
-    linear-gradient(
-        110deg,
-        #071529,
-        #194d92,
-        #2874f0
-    );
-
-    display:flex;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.fashion-hero small{
-    letter-spacing:3px;
-    color:#dce8ff;
-}
-
-.fashion-hero h2{
-    font-size:40px;
-    margin:13px 0;
-}
-
-.fashion-hero p{
-    color:#dce8fa;
-}
-
-.fashion-section{
-    background:#fff;
-    border-radius:10px;
-    padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 2px 12px rgba(0,0,0,.07);
-}
-
-.fashion-title{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #eee;
-    padding-bottom:14px;
-    margin-bottom:18px;
-}
-
-.fashion-title h2{
-    font-size:20px;
-}
-
-.fashion-title span{
-    font-size:12px;
-    color:#777;
-}
-
-.subcategory-grid{
-    display:grid;
-    grid-template-columns:repeat(8,1fr);
-    gap:14px;
-}
-
-.subcategory-card{
-    border:1px solid #e4e4e4;
-    border-radius:9px;
-    overflow:hidden;
-    background:#fff;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.subcategory-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
-}
-
-.subcategory-img{
-    aspect-ratio:1/1;
-    background:#f6f6f6;
-    overflow:hidden;
-}
-
-.subcategory-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.3s;
-}
-
-.subcategory-card:hover img{
-    transform:scale(1.07);
-}
-
-.subcategory-info{
-    padding:10px;
-}
-
-.subcategory-info h3{
-    font-size:12px;
-    line-height:1.4;
-}
-
-.subcategory-info p{
-    font-size:9px;
-    color:#777;
-    margin-top:5px;
-}
-
-/* ================= PRODUCT PAGE ================= */
-
-.product-page{
-    display:none;
-}
-
-.product-page.active{
-    display:block;
-}
-
-.product-toolbar{
-    background:#fff;
-    padding:15px;
-    border-radius:8px;
-    margin-bottom:15px;
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.product-toolbar button{
-    border:1px solid #ddd;
-    background:#fff;
-    padding:8px 14px;
-    border-radius:4px;
-}
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:15px;
-}
-
-.product-card{
-    background:#fff;
-    border:1px solid #e4e4e4;
-    border-radius:8px;
-    overflow:hidden;
-}
-
-.product-img{
-    height:230px;
-    background:#f5f5f5;
-    position:relative;
-}
-
-.product-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.discount{
-    position:absolute;
-    left:8px;
-    top:8px;
-    background:#00875a;
-    color:#fff;
-    padding:5px 7px;
-    font-size:10px;
-    border-radius:3px;
-}
-
-.product-info{
-    padding:12px;
-}
-
-.product-info h3{
-    font-size:13px;
-    min-height:36px;
-}
-
-.rating{
-    display:inline-block;
-    background:#00875a;
-    color:#fff;
-    padding:4px 6px;
-    font-size:10px;
-    border-radius:3px;
-    margin:7px 0;
-}
-
-.price{
-    font-size:18px;
-    font-weight:bold;
-}
-
-.mrp{
-    color:#888;
-    text-decoration:line-through;
-    font-size:11px;
-    margin-left:6px;
-}
-
-.add-cart{
-    width:100%;
-    border:0;
-    background:#ff9f00;
-    color:#fff;
-    padding:10px;
-    margin-top:10px;
-    font-weight:bold;
-    border-radius:3px;
-}
-
-/* ================= FOOTER ================= */
-
-.footer{
-    background:#101b2b;
-    color:#fff;
-    padding:40px 7%;
-    margin-top:30px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:2fr repeat(4,1fr);
-    gap:30px;
-}
-
-.footer h3{
-    font-size:13px;
-    margin-bottom:12px;
-}
-
-.footer p,
-.footer a{
-    color:#aeb7c4;
-    font-size:12px;
-    display:block;
-    margin:7px 0;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1100px){
-
-    .subcategory-grid{
-        grid-template-columns:repeat(5,1fr);
-    }
-
-    .product-grid{
-        grid-template-columns:repeat(4,1fr);
-    }
-
-    .home-category-grid{
-        grid-template-columns:repeat(4,1fr);
-    }
-}
-
-@media(max-width:700px){
-
-    .header-inner{
-        flex-wrap:wrap;
-    }
-
-    .search{
-        order:5;
-        flex-basis:100%;
-    }
-
-    .login{
-        display:none;
-    }
-
-    .home-category-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .subcategory-grid{
-        grid-template-columns:repeat(4,1fr);
-        gap:8px;
-    }
-
-    .product-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .hero{
-        min-height:250px;
-        padding:30px 22px;
-    }
-
-    .hero h1{
-        font-size:32px;
-    }
-
-    .fashion-hero{
-        padding:30px 22px;
-    }
-
-    .fashion-hero h2{
-        font-size:31px;
-    }
-
-    .footer-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:450px){
-
-    .container,
-    .fashion-container{
-        padding:10px;
-    }
-
-    .home-section,
-    .fashion-section{
-        padding:12px;
-    }
-
-    .home-category-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:8px;
-    }
-
-    .subcategory-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:8px;
-    }
-
-    .product-img{
-        height:175px;
-    }
-
-    .fashion-header{
-        top:58px;
-    }
-
-    .fashion-header h1{
-        font-size:14px;
-    }
+.search{flex:1;display:flex;background:white;border-radius:4px;overflow:hidden}
+.search input{flex:1;border:0;padding:13px;outline:0}
+.search button{border:0;background:white;padding:0 18px}
+.cart,.login{border:0;padding:10px 18px;border-radius:4px;font-weight:bold}
+.nav{background:white;display:flex;justify-content:center;gap:35px;padding:14px;box-shadow:0 2px 8px #ddd;overflow:auto}
+.nav div{font-weight:bold;font-size:13px;white-space:nowrap;cursor:pointer}
+.container{max-width:1450px;margin:auto;padding:18px}
+.hero{background:linear-gradient(110deg,#071529,#2874f0);color:white;padding:55px;border-radius:12px;margin-bottom:20px}
+.hero h1{font-size:42px;margin:15px 0}
+.section{background:white;padding:20px;border-radius:10px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
+.card{border:1px solid #ddd;border-radius:8px;overflow:hidden;background:white;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px #ddd}
+.card img{width:100%;aspect-ratio:1;object-fit:cover}
+.card h3{padding:12px;font-size:13px}
+.card p{padding:0 12px 12px;color:#777;font-size:11px}
+
+/* FASHION */
+#fashionPage,#jeansPage{display:none}
+.page{max-width:1450px;margin:auto;padding:18px}
+.back{background:#2874f0;color:white;border:0;padding:10px 18px;border-radius:5px;margin-bottom:18px}
+.fashionHero{background:linear-gradient(110deg,#071529,#2874f0);color:white;padding:40px;border-radius:12px;margin-bottom:20px}
+.fashionHero h1{font-size:38px;margin:10px 0}
+.subgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:14px}
+
+/* JEANS */
+.jeansBox{background:white;border-radius:10px;padding:25px;display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.mainImg{background:#f7f7f7;border-radius:8px;overflow:hidden}
+.mainImg img{width:100%;height:500px;object-fit:contain}
+.thumbs{display:flex;gap:10px;margin-top:12px;overflow:auto}
+.thumbs img{width:75px;height:75px;object-fit:cover;border:2px solid #ddd;border-radius:6px;cursor:pointer}
+.details h1{font-size:28px;margin:12px 0}
+.rating{color:#07852b;font-weight:bold;margin:10px 0}
+.price strong{font-size:30px}
+.price del{color:#777;margin-left:10px}
+.offer{color:#00875a;font-weight:bold;margin-left:10px}
+.sizes{margin-top:25px}
+.sizes h3{margin-bottom:10px}
+.sizes button{background:white;border:1px solid #aaa;padding:10px 15px;border-radius:5px;margin:4px}
+.sizes button.selected{background:#2874f0;color:white;border-color:#2874f0}
+.description{margin-top:25px;border-top:1px solid #eee;padding-top:20px;line-height:1.7;color:#555}
+.actions{display:flex;gap:10px;margin-top:25px}
+.actions button{flex:1;border:0;color:white;padding:15px;border-radius:5px;font-weight:bold}
+.cartBtn{background:#ff9f00}
+.buyBtn{background:#fb641b}
+
+.footer{background:#101b2b;color:white;padding:40px;text-align:center;margin-top:30px}
+
+@media(max-width:900px){
+.grid{grid-template-columns:repeat(4,1fr)}
+.subgrid{grid-template-columns:repeat(5,1fr)}
+}
+@media(max-width:600px){
+.header{flex-wrap:wrap}
+.search{order:5;flex-basis:100%}
+.grid{grid-template-columns:repeat(3,1fr)}
+.subgrid{grid-template-columns:repeat(3,1fr)}
+.jeansBox{grid-template-columns:1fr;padding:15px}
+.mainImg img{height:350px}
+.details h1{font-size:23px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     MAIN WEBSITE
-===================================================== -->
+<!-- ================= MAIN ================= -->
 
-<div id="mainPage" class="main-page">
+<div id="mainPage">
 
 <header class="header">
-
-<div class="header-inner">
-
-<div class="logo">
-GRO<span>+</span>
-</div>
+<div class="logo">GRO<span>+</span></div>
 
 <div class="search">
-<input
-id="searchInput"
-type="search"
-placeholder="Search products, brands and more...">
-
-<button onclick="searchProducts()">
-🔍
-</button>
+<input placeholder="Search products...">
+<button>🔍</button>
 </div>
 
-<button class="login">
-LOGIN
-</button>
-
-<button class="cart">
-🛒 Cart <span id="cartCount">0</span>
-</button>
-
-</div>
-
+<button class="login">LOGIN</button>
+<button class="cart">🛒 Cart <span id="cartCount">0</span></button>
 </header>
 
-
 <nav class="nav">
-
-<div class="nav-item"
-onclick="openFashion()">
-Fashion Men & Kids
-</div>
-
-<div class="nav-item">
-Home & Decor
-</div>
-
-<div class="nav-item">
-Electronics
-</div>
-
-<div class="nav-item">
-Beauty
-</div>
-
-<div class="nav-item">
-Toys
-</div>
-
-<div class="nav-item">
-Books
-</div>
-
+<div onclick="openFashion()">Fashion Men & Kids</div>
+<div>Home & Decor</div>
+<div>Electronics</div>
+<div>Beauty</div>
+<div>Toys</div>
+<div>Books</div>
 </nav>
-
 
 <main class="container">
 
 <section class="hero">
-
-<div>
-
-<small>
-GRO ONLINE SHOPPING
-</small>
-
-<h1>
-Everything You Love.
-<br>
-One Place.
-</h1>
-
-<p>
-Fashion, Home Decor, Electronics,
-Beauty, Toys, Books and thousands
-of products.
-</p>
-
-<button class="hero-btn">
-Shop Now
-</button>
-
-</div>
-
+<h1>Everything You Love.<br>One Place.</h1>
+<p>Fashion, Home Decor, Electronics, Beauty, Toys & Books.</p>
 </section>
 
+<section class="section">
+<h2>Shop by Category</h2><br>
 
-<section class="home-section">
+<div class="grid">
 
-<div class="section-head">
-
-<h2>
-Shop by Category
-</h2>
-
-<span>
-Explore All
-</span>
-
+<div class="card" onclick="openFashion()">
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=700">
+<h3>Fashion Men & Kids</h3>
+<p>Men • Kids • Women • Accessories</p>
 </div>
 
-
-<div class="home-category-grid">
-
-
-<!-- IMPORTANT:
-     Fashion card ONLY navigates.
-     Other existing categories remain here.
--->
-
-<div
-class="home-category"
-onclick="openFashion()">
-
-<div class="home-category-img">
-
-<img
-src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=700"
-alt="Fashion Men Kids">
-
-</div>
-
-<div class="home-category-info">
-
-<h3>
-Fashion Men & Kids
-</h3>
-
-<p>
-Men • Kids • Women • Accessories
-</p>
-
-</div>
-
-</div>
-
-
-<div class="home-category">
-
-<div class="home-category-img">
-
-<img
-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700">
-
-</div>
-
-<div class="home-category-info">
-
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700">
 <h3>Home & Decor</h3>
-
 <p>Explore Products →</p>
-
 </div>
 
-</div>
-
-
-<div class="home-category">
-
-<div class="home-category-img">
-
-<img
-src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700">
-
-</div>
-
-<div class="home-category-info">
-
+<div class="card">
+<img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700">
 <h3>Electronics</h3>
-
 <p>Explore Products →</p>
-
 </div>
 
-</div>
-
-
-<div class="home-category">
-
-<div class="home-category-img">
-
-<img
-src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700">
-
-</div>
-
-<div class="home-category-info">
-
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700">
 <h3>Beauty</h3>
-
 <p>Explore Products →</p>
-
 </div>
 
-</div>
-
-
-<div class="home-category">
-
-<div class="home-category-img">
-
-<img
-src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=700">
-
-</div>
-
-<div class="home-category-info">
-
+<div class="card">
+<img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=700">
 <h3>Toys</h3>
-
 <p>Explore Products →</p>
-
 </div>
 
-</div>
-
-
-<div class="home-category">
-
-<div class="home-category-img">
-
-<img
-src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=700">
-
-</div>
-
-<div class="home-category-info">
-
+<div class="card">
+<img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=700">
 <h3>Books</h3>
-
 <p>Explore Products →</p>
-
 </div>
 
 </div>
-
-</div>
-
 </section>
 
 </main>
 
-
-<footer class="footer">
-
-<div class="footer-grid">
-
-<div>
-
-<div class="logo">
-GRO<span>+</span>
-</div>
-
-<p>
-Premium online shopping destination.
-</p>
-
-</div>
-
-<div>
-
-<h3>ABOUT</h3>
-
-<a>About GRO</a>
-<a>Contact</a>
-<a>Careers</a>
-
-</div>
-
-<div>
-
-<h3>HELP</h3>
-
-<a>Shipping</a>
-<a>Returns</a>
-<a>FAQ</a>
-
-</div>
-
-<div>
-
-<h3>POLICY</h3>
-
-<a>Privacy</a>
-<a>Terms</a>
-<a>Refund</a>
-
-</div>
-
-<div>
-
-<h3>SOCIAL</h3>
-
-<a>Instagram</a>
-<a>Facebook</a>
-<a>YouTube</a>
-
-</div>
-
-</div>
-
-</footer>
+<footer class="footer">© 2026 GRO+ Online Shopping</footer>
 
 </div>
 
 
-<!-- =====================================================
-     FASHION PAGE
-===================================================== -->
+<!-- ================= FASHION PAGE ================= -->
 
-<div id="fashionPage" class="fashion-page">
+<div id="fashionPage">
 
-<div class="fashion-header">
+<div class="page">
 
-<button
-class="back-btn"
-onclick="closeFashion()">
+<button class="back" onclick="goHome()">← Home</button>
 
-← Back
-
-</button>
-
-<h1>
-Fashion Men & Kids
-</h1>
-
-</div>
-
-
-<main class="fashion-container">
-
-<div class="breadcrumb">
-
-Home → Fashion Men & Kids
-
-</div>
-
-
-<section class="fashion-hero">
-
-<div>
-
-<small>
-GRO FASHION
-</small>
-
-<h2>
-Fashion Men & Kids
-</h2>
-
-<p>
-Men, Kids, Traditional, Western,
-Innerwear, Footwear, Accessories
-and more.
-</p>
-
-</div>
-
+<section class="fashionHero">
+<small>GRO FASHION</small>
+<h1>Fashion Men & Kids</h1>
+<p>Men, Kids, Traditional, Western, Innerwear, Footwear & Accessories</p>
 </section>
 
 
 <!-- MEN -->
 
-<section class="fashion-section">
+<section class="section">
+<h2>👔 Men</h2><br>
 
-<div class="fashion-title">
+<div class="subgrid">
 
-<h2>👔 Men</h2>
-
-<span>
-10 Categories
-</span>
-
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600">
+<h3>T-Shirt</h3>
 </div>
 
-<div
-id="menGrid"
-class="subcategory-grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600">
+<h3>Shirt</h3>
 </div>
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600">
+<h3>Pant</h3>
+</div>
+
+<!-- JEANS -->
+<div class="card" onclick="openJeans()">
+<img src="Screenshot_20260822-165228.jpg">
+<h3>Jeans</h3>
+<p>View Products →</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=600">
+<h3>Panjabi</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600">
+<h3>Trousers</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600">
+<h3>Belt</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600">
+<h3>Wallet</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600">
+<h3>Watch</h3>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600">
+<h3>Shoes</h3>
+</div>
+
+</div>
 </section>
 
 
-<!-- KIDS -->
+<!-- OTHER FASHION CATEGORIES -->
 
-<section class="fashion-section">
-
-<div class="fashion-title">
-
-<h2>🧸 Kids</h2>
-
-<span>
-8 Categories
-</span>
-
+<section class="section">
+<h2>🧸 Kids</h2><br>
+<div class="subgrid">
+<div class="card"><img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600"><h3>Boys Dress</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=600"><h3>Girls Dress</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=600"><h3>T-Shirt</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1560787313-5dff3307e257?w=600"><h3>Frock</h3></div>
 </div>
-
-<div
-id="kidsGrid"
-class="subcategory-grid">
-</div>
-
 </section>
 
-
-<!-- ETHNIC -->
-
-<section class="fashion-section">
-
-<div class="fashion-title">
-
-<h2>
-🥻 Traditional & Ethnic Wear
-</h2>
-
-<span>
-6 Categories
-</span>
-
+<section class="section">
+<h2>🥻 Traditional & Ethnic Wear</h2><br>
+<div class="subgrid">
+<div class="card"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600"><h3>শাড়ি</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=600"><h3>সালোয়ার কামিজ</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=600"><h3>কুর্তি</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?w=600"><h3>প্লাজো সেট</h3></div>
 </div>
-
-<div
-id="ethnicGrid"
-class="subcategory-grid">
-</div>
-
 </section>
 
-
-<!-- WESTERN -->
-
-<section class="fashion-section">
-
-<div class="fashion-title">
-
-<h2>
-👗 Western Wear
-</h2>
-
-<span>
-9 Categories
-</span>
-
+<section class="section">
+<h2>👗 Western Wear</h2><br>
+<div class="subgrid">
+<div class="card"><img src="https://images.unsplash.com/photo-1564257577054-8e9f9e4f6f58?w=600"><h3>টপস</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600"><h3>টি-শার্ট</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600"><h3>ড্রেস</h3></div>
 </div>
-
-<div
-id="westernGrid"
-class="subcategory-grid">
-</div>
-
 </section>
 
-
-<!-- INNERWEAR -->
-
-<section class="fashion-section">
-
-<div class="fashion-title">
-
-<h2>
-🌙 Innerwear & Sleepwear
-</h2>
-
-<span>
-5 Categories
-</span>
-
+<section class="section">
+<h2>🌙 Innerwear & Sleepwear</h2><br>
+<div class="subgrid">
+<div class="card"><img src="https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=600"><h3>ব্রা</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=600"><h3>নাইটি</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=600"><h3>পাইজামা সেট</h3></div>
 </div>
-
-<div
-id="innerwearGrid"
-class="subcategory-grid">
-</div>
-
 </section>
 
-
-<!-- FOOTWEAR -->
-
-<section class="fashion-section">
-
-<div class="fashion-title">
-
-<h2>
-👟 Footwear
-</h2>
-
-<span>
-4 Categories
-</span>
-
+<section class="section">
+<h2>👟 Footwear</h2><br>
+<div class="subgrid">
+<div class="card"><img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600"><h3>হিল</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600"><h3>ফ্ল্যাট স্যান্ডেল</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"><h3>স্নিকার্স</h3></div>
 </div>
-
-<div
-id="footwearGrid"
-class="subcategory-grid">
-</div>
-
 </section>
 
-
-<!-- ACCESSORIES -->
-
-<section class="fashion-section">
-
-<div class="fashion-title">
-
-<h2>
-👜 Accessories & Bags
-</h2>
-
-<span>
-6 Categories
-</span>
-
+<section class="section">
+<h2>👜 Accessories & Bags</h2><br>
+<div class="subgrid">
+<div class="card"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600"><h3>হ্যান্ডব্যাগ</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600"><h3>পার্স</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600"><h3>কানের দুল</h3></div>
 </div>
-
-<div
-id="accessoriesGrid"
-class="subcategory-grid">
-</div>
-
 </section>
 
+</div>
+</div>
 
-<!-- PRODUCT RESULTS -->
 
-<section
-id="productPage"
-class="product-page">
+<!-- ================= JEANS PAGE ================= -->
 
-<div class="product-toolbar">
+<div id="jeansPage">
 
-<button onclick="closeProducts()">
-← Fashion
+<div class="page">
+
+<button class="back" onclick="backToFashion()">
+← Fashion Men & Kids
 </button>
 
-<h2 id="productHeading">
-Products
-</h2>
-
-</div>
-
-<div
-id="productGrid"
-class="product-grid">
-</div>
-
-</section>
-
-</main>
-
-
-<footer class="footer">
-
-<div class="footer-grid">
+<div class="jeansBox">
 
 <div>
 
-<div class="logo">
-GRO<span>+</span>
+<div class="mainImg">
+<img id="jeansMain"
+src="Screenshot_20260822-165228.jpg">
 </div>
 
-<p>
-Premium online shopping destination.
+<div class="thumbs">
+
+<img onclick="changeImage(this.src)"
+src="Screenshot_20260822-165228.jpg">
+
+<img onclick="changeImage(this.src)"
+src="Screenshot_20260822-165225.jpg">
+
+<img onclick="changeImage(this.src)"
+src="Screenshot_20260822-165219.jpg">
+
+<img onclick="changeImage(this.src)"
+src="Screenshot_20260822-165216.jpg">
+
+</div>
+
+</div>
+
+
+<div class="details">
+
+<h1>
+Premium Men's Jeans
+</h1>
+
+<div class="rating">
+⭐ 4.6 | 100+ Ratings
+</div>
+
+<div class="price">
+<strong>₹420</strong>
+<del>₹699</del>
+<span class="offer">40% OFF</span>
+</div>
+
+<p style="color:#777;margin-top:7px">
+Inclusive of applicable taxes
 </p>
 
-</div>
 
-<div>
+<div class="sizes">
 
-<h3>ABOUT</h3>
+<h3>Select Size</h3>
 
-<a>About GRO</a>
-<a>Contact</a>
+<button onclick="sizeSelect(this)">
+Short
+</button>
 
-</div>
+<button onclick="sizeSelect(this)">
+28
+</button>
 
-<div>
+<button onclick="sizeSelect(this)">
+30
+</button>
 
-<h3>HELP</h3>
+<button onclick="sizeSelect(this)">
+32
+</button>
 
-<a>Shipping</a>
-<a>Returns</a>
+<button onclick="sizeSelect(this)">
+34
+</button>
 
-</div>
+<button onclick="sizeSelect(this)">
+36
+</button>
 
-<div>
-
-<h3>POLICY</h3>
-
-<a>Privacy</a>
-<a>Terms</a>
-
-</div>
-
-<div>
-
-<h3>SOCIAL</h3>
-
-<a>Instagram</a>
-<a>Facebook</a>
+<button onclick="sizeSelect(this)">
+38
+</button>
 
 </div>
 
+
+<div class="description">
+
+<h2>Product Details</h2>
+
+<p>
+Premium men's jeans designed for everyday comfort
+and stylish casual wear. The jeans are suitable for
+casual outings, daily use and modern street style.
+</p>
+
+<ul>
+<li>Comfortable denim fabric</li>
+<li>Modern stylish fit</li>
+<li>Durable stitching</li>
+<li>Suitable for daily and casual wear</li>
+<li>Easy to pair with shirts and T-shirts</li>
+<li>Multiple sizes available</li>
+</ul>
+
 </div>
 
-</footer>
 
+<div class="actions">
+
+<button class="cartBtn"
+onclick="addCart()">
+🛒 ADD TO CART
+</button>
+
+<button class="buyBtn"
+onclick="buyNow()">
+⚡ BUY NOW
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
 </div>
 
 
 <script>
 
-/* =====================================================
-   FASHION CATEGORY DATA
-===================================================== */
-
-const fashionData={
-
-men:[
-["T-Shirt","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"],
-["Shirt","https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600"],
-["Pant","https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600"],
-["Jeans","https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"],
-["Panjabi","https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=600"],
-["Trousers","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600"],
-["Belt","https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600"],
-["Wallet","https://images.unsplash.com/photo-1627123424574-724758594e93?w=600"],
-["Watch","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"],
-["Shoes","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"]
-],
-
-kids:[
-["Boys Dress","https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600"],
-["Girls Dress","https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=600"],
-["T-Shirt","https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=600"],
-["Frock","https://images.unsplash.com/photo-1560787313-5dff3307e257?w=600"],
-["Romper","https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600"],
-["Newborn Set","https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600"],
-["Baby Shoes","https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=600"],
-["Accessories","https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600"]
-],
-
-ethnic:[
-["শাড়ি","https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600"],
-["সালোয়ার কামিজ","https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=600"],
-["কুর্তি","https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=600"],
-["প্লাজো সেট","https://images.unsplash.com/photo-1605763240000-7e93b172d754?w=600"],
-["লেহেঙ্গা","https://images.unsplash.com/photo-1610189012906-4c7c0f5b5a8a?w=600"],
-["নাইটসুয়েট","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"]
-],
-
-western:[
-["টপস","https://images.unsplash.com/photo-1564257577054-8e9f9e4f6f58?w=600"],
-["টি-শার্ট","https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600"],
-["শার্ট","https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600"],
-["ড্রেস","https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600"],
-["মেক্সি","https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600"],
-["স্কার্ট","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600"],
-["জিন্স","https://images.unsplash.com/photo-1496440737103-cd596325d314?w=600"],
-["ট্রাউজার্স","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600"],
-["জগার্স","https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600"]
-],
-
-innerwear:[
-["ব্রা","https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=600"],
-["প্যান্টি","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600"],
-["শেপওয়্যার","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"],
-["নাইটি","https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=600"],
-["পাইজামা সেট","https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=600"]
-],
-
-footwear:[
-["হিল","https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600"],
-["ফ্ল্যাট স্যান্ডেল","https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600"],
-["স্নিকার্স","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"],
-["শু","https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600"]
-],
-
-accessories:[
-["হ্যান্ডব্যাগ","https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600"],
-["পার্স","https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600"],
-["কানের দুল","https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600"],
-["হার","https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600"],
-["সানগ্লাস","https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600"],
-["ওয়াচ","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"]
-]
-
-};
-
-
-/* =====================================================
-   PRODUCT DATABASE
-   পরে এখানে 1000+ product / API / database connect
-   করা যাবে।
-===================================================== */
-
-const products=[
-
-{
-id:1,
-name:"Premium Men's T-Shirt",
-category:"Men",
-subcategory:"T-Shirt",
-mrp:1299,
-price:699,
-rating:4.6,
-image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800"
-},
-
-{
-id:2,
-name:"Classic Men's Shirt",
-category:"Men",
-subcategory:"Shirt",
-mrp:1999,
-price:999,
-rating:4.7,
-image:"https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800"
-},
-
-{
-id:3,
-name:"Slim Fit Jeans",
-category:"Men",
-subcategory:"Jeans",
-mrp:2499,
-price:1299,
-rating:4.5,
-image:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=800"
-},
-
-{
-id:4,
-name:"Premium Girls Dress",
-category:"Kids",
-subcategory:"Girls Dress",
-mrp:1599,
-price:799,
-rating:4.8,
-image:"https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=800"
-},
-
-{
-id:5,
-name:"Designer Kurti",
-category:"Traditional & Ethnic Wear",
-subcategory:"কুর্তি",
-mrp:1799,
-price:899,
-rating:4.7,
-image:"https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=800"
-},
-
-{
-id:6,
-name:"Women's Western Dress",
-category:"Western Wear",
-subcategory:"ড্রেস",
-mrp:2299,
-price:1199,
-rating:4.6,
-image:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800"
-},
-
-{
-id:7,
-name:"Fashion Sneakers",
-category:"Footwear",
-subcategory:"স্নিকার্স",
-mrp:2999,
-price:1499,
-rating:4.7,
-image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
-},
-
-{
-id:8,
-name:"Premium Handbag",
-category:"Accessories & Bags",
-subcategory:"হ্যান্ডব্যাগ",
-mrp:2499,
-price:1299,
-rating:4.8,
-image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800"
-}
-
-];
-
-
-/* =====================================================
-   RENDER FASHION CARDS
-===================================================== */
-
-function renderFashionCards(data,elementId){
-
-    const element=document.getElementById(elementId);
-
-    element.innerHTML=data.map(item=>`
-
-        <div
-        class="subcategory-card"
-        onclick="openProducts('${escapeHTML(item[0])}')">
-
-            <div class="subcategory-img">
-
-                <img
-                src="${item[1]}"
-                loading="lazy"
-                alt="${item[0]}">
-
-            </div>
-
-            <div class="subcategory-info">
-
-                <h3>
-                ${item[0]}
-                </h3>
-
-                <p>
-                View Products →
-                </p>
-
-            </div>
-
-        </div>
-
-    `).join("");
-}
-
-
-renderFashionCards(fashionData.men,"menGrid");
-renderFashionCards(fashionData.kids,"kidsGrid");
-renderFashionCards(fashionData.ethnic,"ethnicGrid");
-renderFashionCards(fashionData.western,"westernGrid");
-renderFashionCards(fashionData.innerwear,"innerwearGrid");
-renderFashionCards(fashionData.footwear,"footwearGrid");
-renderFashionCards(fashionData.accessories,"accessoriesGrid");
-
-
-/* =====================================================
-   ONLY FASHION NAVIGATION
-===================================================== */
+let selectedSize="";
 
 function openFashion(){
 
-    document.getElementById("mainPage")
-    .style.display="none";
+document.getElementById("mainPage").style.display="none";
+document.getElementById("fashionPage").style.display="block";
+document.getElementById("jeansPage").style.display="none";
 
-    document.getElementById("fashionPage")
-    .classList.add("active");
-
-    window.scrollTo({
-        top:0,
-        behavior:"instant"
-    });
+window.scrollTo(0,0);
 }
 
+function goHome(){
 
-function closeFashion(){
+document.getElementById("fashionPage").style.display="none";
+document.getElementById("jeansPage").style.display="none";
+document.getElementById("mainPage").style.display="block";
 
-    document.getElementById("fashionPage")
-    .classList.remove("active");
-
-    document.getElementById("mainPage")
-    .style.display="block";
-
-    window.scrollTo({
-        top:0,
-        behavior:"instant"
-    });
+window.scrollTo(0,0);
 }
 
+function openJeans(){
 
-/* =====================================================
-   SUBCATEGORY → PRODUCT LIST
-===================================================== */
+document.getElementById("mainPage").style.display="none";
+document.getElementById("fashionPage").style.display="none";
+document.getElementById("jeansPage").style.display="block";
 
-function openProducts(subcategory){
-
-    const page=document.getElementById("productPage");
-
-    const grid=document.getElementById("productGrid");
-
-    const heading=document.getElementById("productHeading");
-
-    heading.innerText=
-        subcategory+" — Products";
-
-    const result=products.filter(
-        product =>
-        product.subcategory === subcategory
-    );
-
-    if(!result.length){
-
-        grid.innerHTML=`
-
-            <div style="
-                grid-column:1/-1;
-                background:#fff;
-                padding:70px 20px;
-                text-align:center;
-                color:#777;
-            ">
-
-                <h3>
-                এই category-তে এখনো product যোগ করা হয়নি।
-                </h3>
-
-                <p style="margin-top:10px">
-                Database/API-তে product যোগ করলেই
-                এখানে automatically দেখাবে।
-                </p>
-
-            </div>
-
-        `;
-
-    }else{
-
-        grid.innerHTML=result.map(product=>`
-
-            <div class="product-card">
-
-                <div class="product-img">
-
-                    <img
-                    src="${product.image}"
-                    loading="lazy"
-                    alt="${product.name}">
-
-                    <span class="discount">
-                    ${Math.round(
-                    ((product.mrp-product.price)
-                    /product.mrp)*100
-                    )}% OFF
-                    </span>
-
-                </div>
-
-                <div class="product-info">
-
-                    <h3>
-                    ${product.name}
-                    </h3>
-
-                    <span class="rating">
-                    ⭐ ${product.rating}
-                    </span>
-
-                    <div>
-
-                        <span class="price">
-                        ₹${product.price.toLocaleString("en-IN")}
-                        </span>
-
-                        <span class="mrp">
-                        ₹${product.mrp.toLocaleString("en-IN")}
-                        </span>
-
-                    </div>
-
-                    <button
-                    class="add-cart"
-                    onclick="addToCart(${product.id})">
-
-                    ADD TO CART
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        `).join("");
-    }
-
-    page.classList.add("active");
-
-    page.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
+window.scrollTo(0,0);
 }
 
+function backToFashion(){
 
-function closeProducts(){
+document.getElementById("jeansPage").style.display="none";
+document.getElementById("fashionPage").style.display="block";
 
-    document.getElementById("productPage")
-    .classList.remove("active");
+window.scrollTo(0,0);
+}
+
+function changeImage(src){
+
+document.getElementById("jeansMain").src=src;
 
 }
 
+function sizeSelect(button){
 
-/* =====================================================
-   CART
-===================================================== */
+document
+.querySelectorAll(".sizes button")
+.forEach(b=>b.classList.remove("selected"));
 
-let cart=[];
+button.classList.add("selected");
 
-function addToCart(id){
+selectedSize=button.innerText;
 
-    const product=
-        products.find(p=>p.id===id);
-
-    if(!product)return;
-
-    cart.push(product);
-
-    document.getElementById("cartCount")
-    .innerText=cart.length;
-
-    alert(
-        product.name+
-        " added to cart"
-    );
 }
 
+function addCart(){
 
-/* =====================================================
-   SEARCH
-===================================================== */
+if(!selectedSize){
 
-function searchProducts(){
+alert("আগে Size নির্বাচন করুন।");
+return;
 
-    const query=
-        document.getElementById("searchInput")
-        .value
-        .trim()
-        .toLowerCase();
-
-    if(!query)return;
-
-    const results=products.filter(product=>
-
-        product.name.toLowerCase().includes(query) ||
-
-        product.subcategory.toLowerCase().includes(query) ||
-
-        product.category.toLowerCase().includes(query)
-
-    );
-
-    document.getElementById("mainPage")
-    .style.display="none";
-
-    document.getElementById("fashionPage")
-    .classList.add("active");
-
-    document.getElementById("productPage")
-    .classList.add("active");
-
-    document.getElementById("productHeading")
-    .innerText=
-        "Search Results — "+query;
-
-    const grid=
-        document.getElementById("productGrid");
-
-    if(!results.length){
-
-        grid.innerHTML=`
-
-            <div style="
-            grid-column:1/-1;
-            background:#fff;
-            padding:70px;
-            text-align:center;
-            color:#777">
-
-            <h3>
-            No products found
-            </h3>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-    grid.innerHTML=results.map(product=>`
-
-        <div class="product-card">
-
-            <div class="product-img">
-
-                <img
-                src="${product.image}"
-                loading="lazy">
-
-                <span class="discount">
-                ${Math.round(
-                ((product.mrp-product.price)
-                /product.mrp)*100
-                )}% OFF
-                </span>
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>
-                ${product.name}
-                </h3>
-
-                <span class="rating">
-                ⭐ ${product.rating}
-                </span>
-
-                <div>
-
-                    <span class="price">
-                    ₹${product.price.toLocaleString("en-IN")}
-                    </span>
-
-                    <span class="mrp">
-                    ₹${product.mrp.toLocaleString("en-IN")}
-                    </span>
-
-                </div>
-
-                <button
-                class="add-cart"
-                onclick="addToCart(${product.id})">
-
-                ADD TO CART
-
-                </button>
-
-            </div>
-
-        </div>
-
-    `).join("");
 }
 
+let count=
+Number(document.getElementById("cartCount").innerText);
 
-/* =====================================================
-   BASIC ESCAPE
-===================================================== */
+document.getElementById("cartCount")
+.innerText=count+1;
 
-function escapeHTML(value){
+alert(
+"Jeans Cart-এ যোগ হয়েছে\n"+
+"Size: "+selectedSize
+);
 
-    return value
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
 }
 
+function buyNow(){
 
-/* ENTER TO SEARCH */
+if(!selectedSize){
 
-document.getElementById("searchInput")
-.addEventListener("keydown",function(e){
+alert("আগে Size নির্বাচন করুন।");
+return;
 
-    if(e.key==="Enter"){
-        searchProducts();
-    }
+}
 
-});
+alert(
+"Buy Now\n\n"+
+"Premium Men's Jeans\n"+
+"Size: "+selectedSize+
+"\nPrice: ₹420"
+);
+
+}
 
 </script>
 
 </body>
-</html>
+    </html>
