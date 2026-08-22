@@ -8,466 +8,446 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{
+    margin:0;
     font-family:Arial,Helvetica,sans-serif;
     background:#f1f3f6;
-    color:#202124;
+    color:#202124
 }
-button,input{font:inherit}
-button{cursor:pointer}
-img{max-width:100%;display:block}
+button{cursor:pointer;font-family:inherit}
+img{display:block;max-width:100%}
 
-/* HEADER */
 .header{
     background:#2874f0;
-    color:#fff;
+    color:white;
     position:sticky;
     top:0;
     z-index:9999;
-    box-shadow:0 2px 10px rgba(0,0,0,.2);
+    box-shadow:0 2px 8px #999
 }
 .header-inner{
     max-width:1500px;
     margin:auto;
-    min-height:64px;
-    padding:9px 18px;
+    padding:10px 18px;
+    min-height:62px;
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:18px
 }
 .logo{
     font-size:29px;
     font-weight:900;
     font-style:italic;
-    white-space:nowrap;
+    white-space:nowrap
 }
 .logo span{color:#ffe500}
+
 .search{
     flex:1;
-    max-width:760px;
     height:43px;
+    max-width:750px;
     display:flex;
-    background:#fff;
+    background:white;
     border-radius:4px;
-    overflow:hidden;
+    overflow:hidden
 }
 .search input{
     flex:1;
     border:0;
     outline:0;
     padding:0 15px;
+    font-size:14px
 }
 .search button{
     width:55px;
     border:0;
-    background:#fff;
+    background:white
 }
 .login{
     border:0;
-    background:#fff;
+    background:white;
     color:#2874f0;
-    font-weight:bold;
-    padding:10px 24px;
+    padding:10px 25px;
     border-radius:4px;
+    font-weight:bold
 }
 .cart{
     border:0;
     background:transparent;
-    color:#fff;
-    font-weight:bold;
-    white-space:nowrap;
+    color:white;
+    font-weight:bold
 }
 
-/* NAV */
 .nav{
     background:#fff;
     display:flex;
     justify-content:center;
     gap:35px;
     padding:13px;
-    box-shadow:0 2px 7px #ddd;
     overflow-x:auto;
     white-space:nowrap;
+    box-shadow:0 2px 5px #ddd
 }
-.nav-item{
+.nav div{
     font-size:13px;
     font-weight:bold;
-    cursor:pointer;
+    cursor:pointer
 }
-.nav-item:hover{color:#2874f0}
+.nav div:hover{color:#2874f0}
 
-/* COMMON */
 .container,
-.fashion-container{
+.fashion-container,
+.products-wrap{
     max-width:1500px;
     margin:auto;
-    padding:18px;
+    padding:18px
 }
 
-/* HOME */
 .hero{
     min-height:310px;
     border-radius:12px;
     padding:50px;
-    color:#fff;
+    color:white;
     background:
     radial-gradient(circle at 80% 20%,rgba(255,255,255,.2),transparent 30%),
-    linear-gradient(110deg,#071529,#194d92,#2874f0);
+    linear-gradient(110deg,#061529,#174d92,#2874f0);
     display:flex;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:20px
 }
 .hero small,
 .fashion-hero small{
-    letter-spacing:3px;
-    color:#dce8ff;
+    letter-spacing:3px
 }
 .hero h1{
     font-size:45px;
-    margin:14px 0;
+    margin:14px 0
 }
 .hero p{
-    color:#dce8fa;
     max-width:650px;
-    line-height:1.6;
+    color:#dce8fa;
+    line-height:1.6
 }
-.hero-btn{
+.hero button{
     margin-top:20px;
-    border:0;
     background:#ff9f00;
-    color:#fff;
+    color:white;
+    border:0;
     padding:12px 25px;
     border-radius:4px;
-    font-weight:bold;
+    font-weight:bold
 }
-.home-section,
-.fashion-section{
+
+.section{
     background:#fff;
     border-radius:10px;
     padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.06);
+    margin-bottom:20px
 }
-.section-head,
-.fashion-title{
+.section-title{
     display:flex;
     justify-content:space-between;
     align-items:center;
     border-bottom:1px solid #eee;
     padding-bottom:14px;
-    margin-bottom:18px;
+    margin-bottom:18px
 }
-.section-head h2,
-.fashion-title h2{font-size:21px}
-.section-head span,
-.fashion-title span{
-    color:#777;
+.section-title h2{font-size:21px}
+.section-title span{
     font-size:12px;
+    color:#777
 }
 
-/* HOME CATEGORY */
-.home-category-grid{
+.home-grid{
     display:grid;
     grid-template-columns:repeat(6,1fr);
-    gap:15px;
+    gap:15px
 }
-.home-category{
-    border:1px solid #e4e4e4;
-    border-radius:9px;
+.home-card{
+    border:1px solid #e5e5e5;
+    border-radius:8px;
     overflow:hidden;
-    cursor:pointer;
     background:#fff;
-    transition:.2s;
+    cursor:pointer;
+    transition:.2s
 }
-.home-category:hover{
-    transform:translateY(-5px);
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
+.home-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px #ddd
 }
-.home-category-img{
+.home-img{
     aspect-ratio:1;
-    background:#f5f5f5;
     overflow:hidden;
+    background:#eee
 }
-.home-category-img img{
+.home-img img{
     width:100%;
     height:100%;
-    object-fit:cover;
-    transition:.3s;
+    object-fit:cover
 }
-.home-category:hover img{transform:scale(1.06)}
-.home-category-info{padding:12px}
-.home-category-info h3{font-size:13px}
-.home-category-info p{
-    font-size:10px;
-    color:#777;
+.home-info{padding:11px}
+.home-info h3{font-size:13px}
+.home-info p{
     margin-top:5px;
+    color:#777;
+    font-size:10px
 }
 
-/* PAGE SYSTEM */
-#mainPage{display:block}
-#fashionPage{display:none}
-#productPage{display:none}
+/* PAGE */
+#fashionPage,
+#productPage{
+    display:none
+}
 
-/* FASHION */
-.fashion-page-active #fashionPage{display:block}
-.fashion-header{
+.fashion-bar{
     background:#2874f0;
-    color:#fff;
+    color:white;
     padding:12px 18px;
     display:flex;
     align-items:center;
     gap:18px;
     position:sticky;
-    top:64px;
-    z-index:500;
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
+    top:62px;
+    z-index:100
 }
-.back-btn{
-    background:#fff;
+.back{
+    background:white;
     color:#2874f0;
     border:0;
     padding:9px 16px;
     border-radius:4px;
-    font-weight:bold;
+    font-weight:bold
 }
-.fashion-header h1{font-size:19px}
+.fashion-bar h1{font-size:19px}
+
 .breadcrumb{
     font-size:12px;
     color:#777;
-    margin-bottom:15px;
+    margin-bottom:15px
 }
+
 .fashion-hero{
     min-height:250px;
     border-radius:12px;
     padding:42px;
-    color:#fff;
+    color:white;
     background:
-    radial-gradient(circle at 80% 20%,rgba(255,255,255,.18),transparent 30%),
+    radial-gradient(circle at 80% 20%,rgba(255,255,255,.2),transparent 30%),
     linear-gradient(110deg,#071529,#194d92,#2874f0);
     display:flex;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:20px
 }
 .fashion-hero h2{
     font-size:40px;
-    margin:13px 0;
+    margin:13px 0
 }
 .fashion-hero p{color:#dce8fa}
 
-/* SUBCATEGORY */
-.subcategory-grid{
+.sub-grid{
     display:grid;
     grid-template-columns:repeat(8,1fr);
-    gap:14px;
+    gap:13px
 }
-.subcategory-card{
-    border:1px solid #e4e4e4;
-    border-radius:9px;
-    overflow:hidden;
+.sub-card{
     background:#fff;
-    cursor:pointer;
-    transition:.2s;
-}
-.subcategory-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
-}
-.subcategory-img{
-    aspect-ratio:1;
-    background:#f6f6f6;
+    border:1px solid #e4e4e4;
+    border-radius:8px;
     overflow:hidden;
+    cursor:pointer;
+    transition:.2s
 }
-.subcategory-img img{
+.sub-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 18px #ddd
+}
+.sub-img{
+    aspect-ratio:1;
+    background:#eee;
+    overflow:hidden
+}
+.sub-img img{
     width:100%;
     height:100%;
-    object-fit:cover;
-    transition:.3s;
+    object-fit:cover
 }
-.subcategory-card:hover img{transform:scale(1.07)}
-.subcategory-info{padding:10px}
-.subcategory-info h3{
+.sub-info{padding:9px}
+.sub-info h3{
     font-size:12px;
-    line-height:1.4;
+    line-height:1.4
 }
-.subcategory-info p{
-    font-size:9px;
+.sub-info p{
     color:#777;
-    margin-top:5px;
+    font-size:9px;
+    margin-top:5px
 }
 
-/* PRODUCT PAGE */
-.product-page-wrap{
-    max-width:1500px;
-    margin:auto;
-    padding:18px;
-}
-.product-toolbar{
-    background:#fff;
-    padding:15px;
+/* PRODUCTS */
+.product-header{
+    background:white;
     border-radius:8px;
+    padding:15px;
     margin-bottom:15px;
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:15px
 }
-.product-toolbar button{
-    border:1px solid #ddd;
-    background:#fff;
-    padding:8px 14px;
-    border-radius:4px;
-}
+.product-header h2{font-size:21px}
+
 .product-grid{
     display:grid;
     grid-template-columns:repeat(5,1fr);
-    gap:15px;
+    gap:15px
 }
 .product-card{
-    background:#fff;
-    border:1px solid #e4e4e4;
+    background:white;
+    border:1px solid #e3e3e3;
     border-radius:8px;
     overflow:hidden;
-    transition:.2s;
+    transition:.2s
 }
 .product-card:hover{
     transform:translateY(-3px);
-    box-shadow:0 8px 20px rgba(0,0,0,.1);
+    box-shadow:0 8px 20px #ddd
 }
-.product-img{
-    height:240px;
-    background:#f5f5f5;
+.product-image{
+    height:245px;
     position:relative;
-    overflow:hidden;
+    background:#f5f5f5;
+    overflow:hidden
 }
-.product-img img{
+.product-image img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:cover
 }
 .discount{
     position:absolute;
-    left:8px;
     top:8px;
+    left:8px;
     background:#00875a;
     color:#fff;
     padding:5px 7px;
     font-size:10px;
-    border-radius:3px;
+    border-radius:3px
 }
 .product-info{padding:12px}
 .product-info h3{
     font-size:13px;
-    min-height:36px;
+    min-height:36px
 }
 .rating{
     display:inline-block;
     background:#00875a;
     color:#fff;
     padding:4px 6px;
-    font-size:10px;
     border-radius:3px;
-    margin:7px 0;
+    font-size:10px;
+    margin:7px 0
 }
 .price{
     font-size:18px;
-    font-weight:bold;
+    font-weight:bold
 }
 .mrp{
     color:#888;
     text-decoration:line-through;
     font-size:11px;
-    margin-left:6px;
+    margin-left:6px
 }
 .stock{
     font-size:11px;
     color:#555;
-    margin-top:7px;
+    margin-top:7px
 }
 .description{
     font-size:11px;
     color:#777;
-    margin-top:7px;
     line-height:1.4;
+    margin-top:7px
 }
-.add-cart,
-.buy-now{
+.btn{
     width:100%;
     border:0;
     color:#fff;
     padding:10px;
-    margin-top:10px;
-    font-weight:bold;
     border-radius:3px;
+    margin-top:9px;
+    font-weight:bold
 }
-.add-cart{background:#ff9f00}
-.buy-now{background:#2874f0}
+.cart-btn{background:#ff9f00}
+.buy-btn{background:#2874f0}
 
 /* FOOTER */
 .footer{
+    margin-top:30px;
     background:#101b2b;
     color:#fff;
-    padding:40px 7%;
-    margin-top:30px;
+    padding:40px 7%
 }
 .footer-grid{
     display:grid;
     grid-template-columns:2fr repeat(4,1fr);
-    gap:30px;
+    gap:30px
 }
 .footer h3{
     font-size:13px;
-    margin-bottom:12px;
+    margin-bottom:12px
 }
-.footer p,
-.footer a{
+.footer p,.footer a{
+    display:block;
     color:#aeb7c4;
     font-size:12px;
-    display:block;
-    margin:7px 0;
+    margin:7px 0
 }
 
 /* MOBILE */
 @media(max-width:1100px){
-    .subcategory-grid{grid-template-columns:repeat(5,1fr)}
+    .home-grid{grid-template-columns:repeat(4,1fr)}
+    .sub-grid{grid-template-columns:repeat(5,1fr)}
     .product-grid{grid-template-columns:repeat(4,1fr)}
-    .home-category-grid{grid-template-columns:repeat(4,1fr)}
 }
 @media(max-width:700px){
     .header-inner{flex-wrap:wrap}
     .search{
         order:5;
-        flex-basis:100%;
+        flex-basis:100%
     }
     .login{display:none}
-    .home-category-grid{grid-template-columns:repeat(3,1fr)}
-    .subcategory-grid{grid-template-columns:repeat(4,1fr);gap:8px}
+    .home-grid{grid-template-columns:repeat(3,1fr)}
+    .sub-grid{grid-template-columns:repeat(4,1fr)}
     .product-grid{grid-template-columns:repeat(3,1fr)}
-    .hero{min-height:250px;padding:30px 22px}
+    .hero{
+        min-height:250px;
+        padding:30px 22px
+    }
     .hero h1{font-size:32px}
     .fashion-hero{padding:30px 22px}
     .fashion-hero h2{font-size:31px}
-    .footer-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:450px){
-    .container,.fashion-container,.product-page-wrap{padding:10px}
-    .home-section,.fashion-section{padding:12px}
-    .home-category-grid{grid-template-columns:repeat(3,1fr);gap:8px}
-    .subcategory-grid{grid-template-columns:repeat(3,1fr)}
+    .container,
+    .fashion-container,
+    .products-wrap{padding:10px}
+    .section{padding:12px}
+    .home-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+    .sub-grid{grid-template-columns:repeat(3,1fr);gap:8px}
     .product-grid{grid-template-columns:repeat(2,1fr);gap:8px}
-    .product-img{height:175px}
-    .fashion-header{top:58px}
-    .fashion-header h1{font-size:14px}
+    .product-image{height:175px}
+    .product-info{padding:9px}
+    .product-info h3{font-size:11px}
+    .price{font-size:15px}
+    .fashion-bar h1{font-size:14px}
+    .footer-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-HOME PAGE
-===================================================== -->
+<!-- ================= HOME ================= -->
 
-<div id="mainPage">
+<div id="homePage">
 
 <header class="header">
 <div class="header-inner">
@@ -475,10 +455,9 @@ HOME PAGE
 <div class="logo">GRO<span>+</span></div>
 
 <div class="search">
-<input
-id="searchInput"
-type="search"
-placeholder="Search products, brands and more...">
+<input id="search"
+placeholder="Search products, brands and more..."
+onkeydown="if(event.key==='Enter')searchProducts()">
 <button onclick="searchProducts()">🔍</button>
 </div>
 
@@ -493,15 +472,12 @@ placeholder="Search products, brands and more...">
 
 <nav class="nav">
 
-<div class="nav-item" onclick="openFashion()">
-Fashion Men & Kids
-</div>
-
-<div class="nav-item">Home & Decor</div>
-<div class="nav-item">Electronics</div>
-<div class="nav-item">Beauty</div>
-<div class="nav-item">Toys</div>
-<div class="nav-item">Books</div>
+<div onclick="openFashion()">Fashion Men & Kids</div>
+<div>Home Decor</div>
+<div>Electronics</div>
+<div>Beauty</div>
+<div>Toys</div>
+<div>Books</div>
 
 </nav>
 
@@ -509,11 +485,11 @@ Fashion Men & Kids
 
 <section class="hero">
 <div>
+
 <small>GRO ONLINE SHOPPING</small>
 
 <h1>
-Everything You Love.
-<br>
+Everything You Love.<br>
 One Place.
 </h1>
 
@@ -523,76 +499,77 @@ Beauty, Toys, Books and thousands
 of products.
 </p>
 
-<button class="hero-btn" onclick="openFashion()">
-Shop Fashion
+<button onclick="openFashion()">
+SHOP FASHION
 </button>
+
 </div>
 </section>
 
-<section class="home-section">
+<section class="section">
 
-<div class="section-head">
+<div class="section-title">
 <h2>Shop by Category</h2>
 <span>Explore All</span>
 </div>
 
-<div class="home-category-grid">
+<div class="home-grid">
 
-<div class="home-category" onclick="openFashion()">
-<div class="home-category-img">
+<div class="home-card" onclick="openFashion()">
+<div class="home-img">
 <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=700">
 </div>
-<div class="home-category-info">
+<div class="home-info">
 <h3>Fashion Men & Kids</h3>
 <p>Men • Kids • Women • Accessories</p>
 </div>
 </div>
 
-<div class="home-category">
-<div class="home-category-img">
+<div class="home-card">
+<div class="home-img">
 <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700">
 </div>
-<div class="home-category-info">
-<h3>Home & Decor</h3>
+<div class="home-info">
+<h3>Home Decor</h3>
 <p>Explore Products →</p>
 </div>
 </div>
 
-<div class="home-category">
-<div class="home-category-img">
+<div class="home-card">
+<div class="home-img">
 <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700">
 </div>
-<div class="home-category-info">
+<div class="home-info">
 <h3>Electronics</h3>
 <p>Explore Products →</p>
 </div>
 </div>
 
-<div class="home-category">
-<div class="home-category-img">
+<div class="home-card">
+<div class="home-img">
 <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700">
 </div>
-<div class="home-category-info">
+<div class="home-info">
 <h3>Beauty</h3>
 <p>Explore Products →</p>
 </div>
 </div>
 
-<div class="home-category">
-<div class="home-category-img">
+<div class="home-card">
+<div class="home-img">
 <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=700">
 </div>
-<div class="home-category-info">
+<div class="home-info">
 <h3>Toys</h3>
 <p>Explore Products →</p>
 </div>
 </div>
 
-<div class="home-category">
-<div class="home-category-img">
+<div class="home-card">
+<div class="home-img">
 <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=700">
 </div>
-<div class="home-category-info">
+<div class="home-info">
 <h3>Books</h3>
 <p>Explore Products →</p>
 </div>
@@ -645,17 +622,13 @@ Shop Fashion
 </div>
 
 
-<!-- =====================================================
-FASHION PAGE
-===================================================== -->
+<!-- ================= FASHION ================= -->
 
 <div id="fashionPage">
 
-<div class="fashion-header">
+<div class="fashion-bar">
 
-<button class="back-btn" onclick="closeFashion()">
-← Back
-</button>
+<button class="back" onclick="closeFashion()">← Back</button>
 
 <h1>Fashion Men & Kids</h1>
 
@@ -686,125 +659,98 @@ and more.
 
 <!-- MEN -->
 
-<section class="fashion-section">
+<section class="section">
 
-<div class="fashion-title">
+<div class="section-title">
 <h2>👔 Men</h2>
 <span>10 Categories</span>
 </div>
 
-<div id="menGrid" class="subcategory-grid"></div>
+<div id="menGrid" class="sub-grid"></div>
 
 </section>
 
 
 <!-- KIDS -->
 
-<section class="fashion-section">
+<section class="section">
 
-<div class="fashion-title">
+<div class="section-title">
 <h2>🧸 Kids</h2>
 <span>8 Categories</span>
 </div>
 
-<div id="kidsGrid" class="subcategory-grid"></div>
+<div id="kidsGrid" class="sub-grid"></div>
 
 </section>
 
 
 <!-- ETHNIC -->
 
-<section class="fashion-section">
+<section class="section">
 
-<div class="fashion-title">
+<div class="section-title">
 <h2>🥻 Traditional & Ethnic Wear</h2>
 <span>6 Categories</span>
 </div>
 
-<div id="ethnicGrid" class="subcategory-grid"></div>
+<div id="ethnicGrid" class="sub-grid"></div>
 
 </section>
 
 
 <!-- WESTERN -->
 
-<section class="fashion-section">
+<section class="section">
 
-<div class="fashion-title">
+<div class="section-title">
 <h2>👗 Western Wear</h2>
 <span>9 Categories</span>
 </div>
 
-<div id="westernGrid" class="subcategory-grid"></div>
+<div id="westernGrid" class="sub-grid"></div>
 
 </section>
 
 
 <!-- INNERWEAR -->
 
-<section class="fashion-section">
+<section class="section">
 
-<div class="fashion-title">
+<div class="section-title">
 <h2>🌙 Innerwear & Sleepwear</h2>
 <span>5 Categories</span>
 </div>
 
-<div id="innerwearGrid" class="subcategory-grid"></div>
+<div id="innerwearGrid" class="sub-grid"></div>
 
 </section>
 
 
 <!-- FOOTWEAR -->
 
-<section class="fashion-section">
+<section class="section">
 
-<div class="fashion-title">
+<div class="section-title">
 <h2>👟 Footwear</h2>
 <span>4 Categories</span>
 </div>
 
-<div id="footwearGrid" class="subcategory-grid"></div>
+<div id="footwearGrid" class="sub-grid"></div>
 
 </section>
 
 
 <!-- ACCESSORIES -->
 
-<section class="fashion-section">
+<section class="section">
 
-<div class="fashion-title">
+<div class="section-title">
 <h2>👜 Accessories & Bags</h2>
 <span>6 Categories</span>
 </div>
 
-<div id="accessoriesGrid" class="subcategory-grid"></div>
-
-</section>
-
-
-<!-- =====================================================
-PRODUCT PAGE INSIDE FASHION
-===================================================== -->
-
-<section id="productPage">
-
-<div class="product-page-wrap">
-
-<div class="product-toolbar">
-
-<button onclick="closeProducts()">
-← Fashion
-</button>
-
-<h2 id="productHeading">
-Products
-</h2>
-
-</div>
-
-<div id="productGrid" class="product-grid"></div>
-
-</div>
+<div id="accessoriesGrid" class="sub-grid"></div>
 
 </section>
 
@@ -848,13 +794,46 @@ Products
 </div>
 
 
+<!-- ================= PRODUCT PAGE ================= -->
+
+<div id="productPage">
+
+<div class="fashion-bar">
+
+<button class="back" onclick="backToFashion()">
+← Fashion
+</button>
+
+<h1 id="productTitle">Products</h1>
+
+</div>
+
+<div class="products-wrap">
+
+<div class="product-header">
+
+<button class="back" onclick="backToFashion()">
+← Back
+</button>
+
+<h2 id="productHeading">Products</h2>
+
+</div>
+
+<div id="productGrid" class="product-grid"></div>
+
+</div>
+
+</div>
+
+
 <script>
 
-/* =====================================================
-FASHION CATEGORIES
-===================================================== */
+/* =========================================================
+CATEGORY DATA
+========================================================= */
 
-const fashionData={
+const categories={
 
 men:[
 ["T-Shirt","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"],
@@ -928,43 +907,14 @@ accessories:[
 };
 
 
-/* =====================================================
-ALL PRODUCTS
-===================================================== */
+/* =========================================================
+25 PRODUCTS — ALL PROVIDED FILENAMES
+10 JEANS + 15 SHIRTS
+========================================================= */
 
 const products=[
 
-/* EXISTING DEMO PRODUCTS */
-
-{
-id:1,
-name:"Premium Men's T-Shirt",
-category:"Men",
-subcategory:"T-Shirt",
-mrp:1299,
-price:699,
-stock:20,
-rating:4.6,
-image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800",
-description:"Premium quality men's T-shirt."
-},
-
-{
-id:2,
-name:"Classic Men's Shirt",
-category:"Men",
-subcategory:"Shirt",
-mrp:1999,
-price:999,
-stock:25,
-rating:4.7,
-image:"https://images.unsplash.com/photo-1603252109303-2751441dd157?w=800",
-description:"Classic comfortable men's shirt."
-},
-
-/* =====================================================
-JEANS PRODUCTS
-===================================================== */
+/* JEANS */
 
 {
 id:1001,
@@ -976,7 +926,7 @@ price:1299,
 stock:25,
 rating:4.6,
 image:"images/Screenshot_20260822-182854.jpg",
-description:"Premium denim slim-fit men's jeans."
+description:"Premium denim slim-fit jeans."
 },
 
 {
@@ -986,7 +936,7 @@ category:"Men",
 subcategory:"Jeans",
 mrp:2299,
 price:1199,
-stock:18,
+stock:20,
 rating:4.5,
 image:"images/Screenshot_20260822-182852.jpg",
 description:"Classic comfortable denim jeans."
@@ -1028,12 +978,75 @@ price:1099,
 stock:22,
 rating:4.5,
 image:"images/Screenshot_20260822-182700.jpg",
-description:"Stretch denim jeans for everyday comfort."
+description:"Stretch denim jeans."
 },
 
-/* =====================================================
-SHIRT PRODUCTS
-===================================================== */
+{
+id:1006,
+name:"Modern Casual Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2299,
+price:1149,
+stock:20,
+rating:4.5,
+image:"images/Screenshot_20260822-182654.jpg",
+description:"Modern everyday casual jeans."
+},
+
+{
+id:1007,
+name:"Premium Denim Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2499,
+price:1299,
+stock:18,
+rating:4.6,
+image:"images/Screenshot_20260822-182652.jpg",
+description:"Premium denim men's jeans."
+},
+
+{
+id:1008,
+name:"Comfort Fit Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2199,
+price:1099,
+stock:25,
+rating:4.5,
+image:"images/Screenshot_20260822-182650.jpg",
+description:"Comfort fit jeans for everyday wear."
+},
+
+{
+id:1009,
+name:"Classic Regular Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2399,
+price:1199,
+stock:20,
+rating:4.6,
+image:"images/Screenshot_20260822-182647.jpg",
+description:"Classic regular-fit denim."
+},
+
+{
+id:1010,
+name:"Everyday Blue Jeans",
+category:"Men",
+subcategory:"Jeans",
+mrp:2099,
+price:1049,
+stock:24,
+rating:4.4,
+image:"images/Screenshot_20260822-182435.jpg",
+description:"Affordable everyday denim jeans."
+},
+
+/* SHIRTS */
 
 {
 id:1101,
@@ -1044,8 +1057,8 @@ mrp:1799,
 price:899,
 stock:25,
 rating:4.6,
-image:"images/Screenshot_20260822-182654.jpg",
-description:"Premium casual shirt for men."
+image:"images/Screenshot_20260822-182432.jpg",
+description:"Premium casual shirt."
 },
 
 {
@@ -1057,7 +1070,7 @@ mrp:1999,
 price:999,
 stock:20,
 rating:4.7,
-image:"images/Screenshot_20260822-182652.jpg",
+image:"images/Screenshot_20260822-182428.jpg",
 description:"Comfortable cotton shirt."
 },
 
@@ -1070,7 +1083,7 @@ mrp:2299,
 price:1199,
 stock:17,
 rating:4.5,
-image:"images/Screenshot_20260822-182650.jpg",
+image:"images/Screenshot_20260822-182426.jpg",
 description:"Smart slim-fit formal shirt."
 },
 
@@ -1083,54 +1096,174 @@ mrp:1899,
 price:949,
 stock:28,
 rating:4.4,
-image:"images/Screenshot_20260822-182647.jpg",
+image:"images/Screenshot_20260822-182416.jpg",
 description:"Stylish checked shirt."
 },
 
 {
 id:1105,
-name:"Casual Full Sleeve Shirt",
+name:"Full Sleeve Casual Shirt",
 category:"Men",
 subcategory:"Shirt",
 mrp:2099,
 price:1049,
 stock:19,
 rating:4.6,
-image:"images/Screenshot_20260822-182435.jpg",
-description:"Comfortable full-sleeve casual shirt."
+image:"images/Screenshot_20260822-182420.jpg",
+description:"Comfortable full-sleeve shirt."
+},
+
+{
+id:1106,
+name:"Premium Daily Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1999,
+price:999,
+stock:22,
+rating:4.5,
+image:"images/Screenshot_20260822-182328.jpg",
+description:"Premium daily wear shirt."
+},
+
+{
+id:1107,
+name:"Modern Slim Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:2199,
+price:1099,
+stock:21,
+rating:4.6,
+image:"images/Screenshot_20260822-182325.jpg",
+description:"Modern slim-fit shirt."
+},
+
+{
+id:1108,
+name:"Classic Casual Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1899,
+price:949,
+stock:26,
+rating:4.4,
+image:"images/Screenshot_20260822-182322.jpg",
+description:"Classic casual shirt."
+},
+
+{
+id:1109,
+name:"Premium Designer Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:2299,
+price:1199,
+stock:15,
+rating:4.6,
+image:"images/Screenshot_20260822-182318.jpg",
+description:"Premium designer-style shirt."
+},
+
+{
+id:1110,
+name:"Comfort Cotton Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:2099,
+price:1049,
+stock:23,
+rating:4.5,
+image:"images/Screenshot_20260822-182250.jpg",
+description:"Comfortable cotton shirt."
+},
+
+{
+id:1111,
+name:"Smart Casual Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1999,
+price:999,
+stock:20,
+rating:4.5,
+image:"images/Screenshot_20260822-182157.jpg",
+description:"Smart casual men's shirt."
+},
+
+{
+id:1112,
+name:"Premium Office Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:2199,
+price:1099,
+stock:18,
+rating:4.6,
+image:"images/Screenshot_20260822-182155.jpg",
+description:"Premium office-wear shirt."
+},
+
+{
+id:1113,
+name:"Classic Pattern Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1899,
+price:949,
+stock:25,
+rating:4.4,
+image:"images/Screenshot_20260822-182153.jpg",
+description:"Classic patterned shirt."
+},
+
+{
+id:1114,
+name:"Premium Party Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:2299,
+price:1149,
+stock:16,
+rating:4.7,
+image:"images/Screenshot_20260822-182151.jpg",
+description:"Premium party-wear shirt."
+},
+
+{
+id:1115,
+name:"Everyday Cotton Shirt",
+category:"Men",
+subcategory:"Shirt",
+mrp:1999,
+price:999,
+stock:24,
+rating:4.5,
+image:"images/Screenshot_20260822-182146.jpg",
+description:"Everyday comfortable cotton shirt."
 }
 
 ];
 
 
-/* =====================================================
-RENDER CATEGORY CARDS
-===================================================== */
+/* =========================================================
+CATEGORY RENDER
+========================================================= */
 
-function renderFashionCards(data,id){
+function renderCategories(list,id){
 
-const el=document.getElementById(id);
+document.getElementById(id).innerHTML=list.map(x=>`
 
-el.innerHTML=data.map(item=>`
+<div class="sub-card"
+onclick="openProducts('${x[0]}')">
 
-<div class="subcategory-card"
-onclick="openProducts('${item[0]}')">
-
-<div class="subcategory-img">
-
-<img
-src="${item[1]}"
-loading="lazy"
-alt="${item[0]}">
-
+<div class="sub-img">
+<img src="${x[1]}" loading="lazy" alt="${x[0]}">
 </div>
 
-<div class="subcategory-info">
-
-<h3>${item[0]}</h3>
-
+<div class="sub-info">
+<h3>${x[0]}</h3>
 <p>View Products →</p>
-
 </div>
 
 </div>
@@ -1139,22 +1272,22 @@ alt="${item[0]}">
 
 }
 
-renderFashionCards(fashionData.men,"menGrid");
-renderFashionCards(fashionData.kids,"kidsGrid");
-renderFashionCards(fashionData.ethnic,"ethnicGrid");
-renderFashionCards(fashionData.western,"westernGrid");
-renderFashionCards(fashionData.innerwear,"innerwearGrid");
-renderFashionCards(fashionData.footwear,"footwearGrid");
-renderFashionCards(fashionData.accessories,"accessoriesGrid");
+renderCategories(categories.men,"menGrid");
+renderCategories(categories.kids,"kidsGrid");
+renderCategories(categories.ethnic,"ethnicGrid");
+renderCategories(categories.western,"westernGrid");
+renderCategories(categories.innerwear,"innerwearGrid");
+renderCategories(categories.footwear,"footwearGrid");
+renderCategories(categories.accessories,"accessoriesGrid");
 
 
-/* =====================================================
-FASHION NAVIGATION
-===================================================== */
+/* =========================================================
+NAVIGATION
+========================================================= */
 
 function openFashion(){
 
-document.getElementById("mainPage").style.display="none";
+document.getElementById("homePage").style.display="none";
 document.getElementById("fashionPage").style.display="block";
 document.getElementById("productPage").style.display="none";
 
@@ -1162,128 +1295,127 @@ window.scrollTo(0,0);
 
 }
 
-
 function closeFashion(){
 
+document.getElementById("homePage").style.display="block";
 document.getElementById("fashionPage").style.display="none";
-document.getElementById("mainPage").style.display="block";
+document.getElementById("productPage").style.display="none";
+
+window.scrollTo(0,0);
+
+}
+
+function backToFashion(){
+
+document.getElementById("productPage").style.display="none";
+document.getElementById("fashionPage").style.display="block";
 
 window.scrollTo(0,0);
 
 }
 
 
-/* =====================================================
+/* =========================================================
 PRODUCT PAGE
-===================================================== */
+========================================================= */
 
 function openProducts(category){
 
-const page=document.getElementById("productPage");
-const grid=document.getElementById("productGrid");
-const heading=document.getElementById("productHeading");
+document.getElementById("homePage").style.display="none";
+document.getElementById("fashionPage").style.display="block";
+document.getElementById("productPage").style.display="block";
 
-heading.innerText=category+" Products";
+document.getElementById("productTitle").innerText=
+category+" Products";
 
-const result=products.filter(
+document.getElementById("productHeading").innerText=
+category+" Products";
+
+const list=products.filter(
 p=>p.subcategory===category
 );
 
-page.style.display="block";
+const grid=document.getElementById("productGrid");
 
-if(!result.length){
+if(!list.length){
 
 grid.innerHTML=`
-
 <div style="
 grid-column:1/-1;
 background:#fff;
-padding:70px 20px;
+padding:70px;
 text-align:center;
+border-radius:8px
 ">
-
 <h2>No Products Available</h2>
-
-<p style="margin-top:10px;color:#777">
+<p style="color:#777;margin-top:10px">
 এই category-তে এখনো product যোগ করা হয়নি।
 </p>
-
-</div>
-
-`;
+</div>`;
 
 return;
-
 }
 
-grid.innerHTML=result.map(product=>{
+grid.innerHTML=list.map(p=>{
 
 const discount=Math.round(
-((product.mrp-product.price)/product.mrp)*100
+((p.mrp-p.price)/p.mrp)*100
 );
 
 return`
 
 <div class="product-card">
 
-<div class="product-img">
+<div class="product-image">
 
 <img
-src="${product.image}"
-alt="${product.name}"
+src="${p.image}"
+alt="${p.name}"
 loading="lazy"
 onerror="this.src='https://via.placeholder.com/600x600?text=Product+Image'">
 
-<span class="discount">
+<div class="discount">
 ${discount}% OFF
-</span>
+</div>
 
 </div>
 
 <div class="product-info">
 
-<h3>
-${product.name}
-</h3>
+<h3>${p.name}</h3>
 
-<span class="rating">
-⭐ ${product.rating}
-</span>
+<div class="rating">
+⭐ ${p.rating}
+</div>
 
 <div>
-
 <span class="price">
-₹${product.price.toLocaleString("en-IN")}
+₹${p.price.toLocaleString("en-IN")}
 </span>
 
 <span class="mrp">
-₹${product.mrp.toLocaleString("en-IN")}
+₹${p.mrp.toLocaleString("en-IN")}
 </span>
-
 </div>
 
 <div class="stock">
-Stock: ${product.stock}
+✓ Stock Available: ${p.stock}
 </div>
 
 <div class="description">
-${product.description}
+${p.description}
 </div>
 
 <button
-class="add-cart"
-onclick="addToCart(${product.id})">
-
+class="btn cart-btn"
+onclick="addToCart(${p.id})">
 ADD TO CART
-
 </button>
 
 <button
-class="buy-now"
-onclick="buyNow(${product.id})">
-
+class="btn buy-btn"
+onclick="buyNow(${p.id})">
 BUY NOW
-
 </button>
 
 </div>
@@ -1294,99 +1426,84 @@ BUY NOW
 
 }).join("");
 
-page.scrollIntoView({
+window.scrollTo({
+top:0,
 behavior:"smooth"
 });
 
 }
 
 
-function closeProducts(){
-
-document.getElementById("productPage").style.display="none";
-
-}
-
-
-/* =====================================================
+/* =========================================================
 CART
-===================================================== */
+========================================================= */
 
 let cart=[];
 
 function addToCart(id){
 
-const product=products.find(p=>p.id===id);
+const p=products.find(x=>x.id===id);
 
-if(!product)return;
+if(!p)return;
 
-if(product.stock<=0){
+if(p.stock<=0){
 
 alert("Product Out of Stock");
-
 return;
 
 }
 
-cart.push(product);
+cart.push(p);
 
-document.getElementById("cartCount")
-.innerText=cart.length;
+document.getElementById("cartCount").innerText=
+cart.length;
 
 alert(
-product.name+
-"\nCart-এ যোগ হয়েছে।"
+p.name+
+"\n\nCart-এ যোগ হয়েছে।"
 );
 
 }
 
 
-/* =====================================================
+/* =========================================================
 BUY NOW
-===================================================== */
+========================================================= */
 
 function buyNow(id){
 
-const product=products.find(p=>p.id===id);
+const p=products.find(x=>x.id===id);
 
-if(!product)return;
+if(!p)return;
 
-if(product.stock<=0){
+if(p.stock<=0){
 
-alert("এই product এখন Out of Stock");
-
+alert("Product Out of Stock");
 return;
 
 }
 
-/*
-পরবর্তীতে এখানে:
-checkout.html
-payment
-COD
-order API
-database
-ইত্যাদি connect করা যাবে।
-*/
-
 alert(
 "BUY NOW\n\n"+
-product.name+
-"\n\nSelling Price: ₹"+
-product.price.toLocaleString("en-IN")
+p.name+
+"\n\nMRP: ₹"+
+p.mrp.toLocaleString("en-IN")+
+"\nSelling Price: ₹"+
+p.price.toLocaleString("en-IN")+
+"\n\nCheckout system এখানে connect করা যাবে।"
 );
 
 }
 
 
-/* =====================================================
+/* =========================================================
 SEARCH
-===================================================== */
+========================================================= */
 
 function searchProducts(){
 
 const q=document
-.getElementById("searchInput")
+.getElementById("search")
 .value
 .trim()
 .toLowerCase();
@@ -1394,101 +1511,93 @@ const q=document
 if(!q)return;
 
 const result=products.filter(p=>
-
 p.name.toLowerCase().includes(q) ||
-
-p.subcategory.toLowerCase().includes(q) ||
-
-p.category.toLowerCase().includes(q)
-
+p.subcategory.toLowerCase().includes(q)
 );
 
 openFashion();
 
 document.getElementById("productPage").style.display="block";
 
-document.getElementById("productHeading")
-.innerText="Search Results";
+document.getElementById("productTitle").innerText=
+"Search Results";
+
+document.getElementById("productHeading").innerText=
+"Search Results";
 
 const grid=document.getElementById("productGrid");
 
 if(!result.length){
 
 grid.innerHTML=`
-
 <div style="
 grid-column:1/-1;
 background:#fff;
 padding:70px;
 text-align:center;
+border-radius:8px
 ">
-
 <h2>No Products Found</h2>
-
-</div>
-
-`;
+</div>`;
 
 return;
 
 }
 
-grid.innerHTML=result.map(product=>{
+grid.innerHTML=result.map(p=>{
 
 const discount=Math.round(
-((product.mrp-product.price)/product.mrp)*100
+((p.mrp-p.price)/p.mrp)*100
 );
 
 return`
 
 <div class="product-card">
 
-<div class="product-img">
+<div class="product-image">
 
 <img
-src="${product.image}"
+src="${p.image}"
 loading="lazy"
 onerror="this.src='https://via.placeholder.com/600x600?text=Product'">
 
-<span class="discount">
+<div class="discount">
 ${discount}% OFF
-</span>
+</div>
 
 </div>
 
 <div class="product-info">
 
-<h3>${product.name}</h3>
+<h3>${p.name}</h3>
 
-<span class="rating">
-⭐ ${product.rating}
-</span>
+<div class="rating">
+⭐ ${p.rating}
+</div>
 
 <div>
-
 <span class="price">
-₹${product.price.toLocaleString("en-IN")}
+₹${p.price.toLocaleString("en-IN")}
 </span>
 
 <span class="mrp">
-₹${product.mrp.toLocaleString("en-IN")}
+₹${p.mrp.toLocaleString("en-IN")}
 </span>
-
 </div>
 
 <div class="stock">
-Stock: ${product.stock}
+Stock: ${p.stock}
 </div>
 
 <button
-class="add-cart"
-onclick="addToCart(${product.id})">
+class="btn cart-btn"
+onclick="addToCart(${p.id})">
 ADD TO CART
 </button>
 
 <button
-class="buy-now"
-onclick="buyNow(${product.id})">
+class="btn buy-btn"
+onclick="buyNow(${p.id})">
 BUY NOW
 </button>
 
@@ -1501,17 +1610,6 @@ BUY NOW
 }).join("");
 
 }
-
-
-document
-.getElementById("searchInput")
-.addEventListener("keydown",function(e){
-
-if(e.key==="Enter"){
-searchProducts();
-}
-
-});
 
 </script>
 
