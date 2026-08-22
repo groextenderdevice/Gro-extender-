@@ -1,196 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#2874f0">
-<title>GRO — Online Shopping</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
+const products = [
 
-<body>
+{
+ id:1,
+ name:"Premium Men's Casual Shirt",
+ category:"Fashion",
+ mrp:1999,
+ price:999,
+ stock:40,
+ rating:4.5,
+ image:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800",
+ description:"Premium comfortable casual shirt for men."
+},
 
-<header class="topbar">
-    <div class="logo">GRO<span>+</span></div>
+{
+ id:2,
+ name:"Kids Cotton T-Shirt",
+ category:"Fashion",
+ mrp:899,
+ price:499,
+ stock:75,
+ rating:4.4,
+ image:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=800",
+ description:"Soft and comfortable cotton t-shirt for kids."
+},
 
-    <div class="search">
-        <input id="searchInput"
-               type="search"
-               placeholder="Search for products, brands and more">
-        <button onclick="searchProducts()">🔍</button>
-    </div>
+{
+ id:3,
+ name:"Modern Home Decorative Lamp",
+ category:"Home",
+ mrp:2499,
+ price:1399,
+ stock:25,
+ rating:4.7,
+ image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800",
+ description:"Elegant decorative lamp for modern interiors."
+},
 
-    <button class="login">Login</button>
+{
+ id:4,
+ name:"Wireless Bluetooth Earbuds",
+ category:"Electronics",
+ mrp:2999,
+ price:1499,
+ stock:60,
+ rating:4.3,
+ image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=800",
+ description:"Wireless earbuds with immersive sound."
+},
 
-    <a href="cart.html" class="cart">
-        🛒 Cart <b id="cartCount">0</b>
-    </a>
-</header>
+{
+ id:5,
+ name:"Smart LED Desk Lamp",
+ category:"Electronics",
+ mrp:1799,
+ price:899,
+ stock:45,
+ rating:4.6,
+ image:"https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=800",
+ description:"Smart LED desk lamp for work and study."
+},
 
-<nav class="categories">
+{
+ id:6,
+ name:"Daily Beauty Care Kit",
+ category:"Beauty",
+ mrp:1499,
+ price:799,
+ stock:30,
+ rating:4.5,
+ image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800",
+ description:"Everyday beauty and personal care essentials."
+},
 
-    <a href="products.html?category=Fashion">
-        <span>👕</span>
-        <small>Fashion</small>
-    </a>
+{
+ id:7,
+ name:"Educational Building Blocks",
+ category:"Toys",
+ mrp:1299,
+ price:699,
+ stock:80,
+ rating:4.8,
+ image:"https://images.unsplash.com/photo-1594736797933-d0c42f6b6e10?w=800",
+ description:"Creative educational building blocks for children."
+},
 
-    <a href="products.html?category=Home">
-        <span>🏠</span>
-        <small>Home & Decor</small>
-    </a>
+{
+ id:8,
+ name:"Kids Puzzle Game",
+ category:"Toys",
+ mrp:799,
+ price:399,
+ stock:90,
+ rating:4.6,
+ image:"https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?w=800",
+ description:"Fun puzzle game for kids."
+},
 
-    <a href="products.html?category=Electronics">
-        <span>📱</span>
-        <small>Electronics</small>
-    </a>
+{
+ id:9,
+ name:"The Complete Business Guide",
+ category:"Books",
+ mrp:699,
+ price:399,
+ stock:35,
+ rating:4.7,
+ image:"https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800",
+ description:"A practical guide to understanding business."
+},
 
-    <a href="products.html?category=Beauty">
-        <span>💄</span>
-        <small>Beauty</small>
-    </a>
+{
+ id:10,
+ name:"Self Improvement Book",
+ category:"Books",
+ mrp:599,
+ price:299,
+ stock:50,
+ rating:4.8,
+ image:"https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=800",
+ description:"A practical book for personal development."
+}
 
-    <a href="products.html?category=Toys">
-        <span>🧸</span>
-        <small>Toys & Games</small>
-    </a>
-
-    <a href="products.html?category=Books">
-        <span>📚</span>
-        <small>Books</small>
-    </a>
-
-</nav>
-
-<section class="hero">
-
-    <div class="hero-content">
-        <p class="eyebrow">BIG SAVINGS • EVERY DAY</p>
-
-        <h1>Shop Everything<br>
-            <span>You Love.</span>
-        </h1>
-
-        <p>
-            Fashion, electronics, beauty, home decor,
-            toys and books — all in one place.
-        </p>
-
-        <a href="products.html" class="hero-btn">
-            Shop Now →
-        </a>
-    </div>
-
-</section>
-
-<section class="section">
-
-    <div class="section-head">
-        <h2>Shop By Category</h2>
-        <a href="products.html">View All →</a>
-    </div>
-
-    <div class="category-grid">
-
-        <a href="products.html?category=Fashion" class="category-card">
-            <div>👕</div>
-            <h3>Fashion</h3>
-            <p>Men & Kids</p>
-        </a>
-
-        <a href="products.html?category=Home" class="category-card">
-            <div>🏠</div>
-            <h3>Home & Decor</h3>
-            <p>Make home beautiful</p>
-        </a>
-
-        <a href="products.html?category=Electronics" class="category-card">
-            <div>📱</div>
-            <h3>Electronics</h3>
-            <p>Smart gadgets</p>
-        </a>
-
-        <a href="products.html?category=Beauty" class="category-card">
-            <div>💄</div>
-            <h3>Beauty</h3>
-            <p>Beauty & Care</p>
-        </a>
-
-        <a href="products.html?category=Toys" class="category-card">
-            <div>🧸</div>
-            <h3>Toys & Games</h3>
-            <p>Fun for everyone</p>
-        </a>
-
-        <a href="products.html?category=Books" class="category-card">
-            <div>📚</div>
-            <h3>Books</h3>
-            <p>Read & learn</p>
-        </a>
-
-    </div>
-
-</section>
-
-<section class="section">
-
-    <div class="section-head">
-        <h2>Trending Products</h2>
-        <a href="products.html">View All →</a>
-    </div>
-
-    <div id="productGrid" class="product-grid"></div>
-
-</section>
-
-<section class="features">
-
-    <div>
-        <strong>🚚 Fast Delivery</strong>
-        <span>Across India</span>
-    </div>
-
-    <div>
-        <strong>🔒 Secure Shopping</strong>
-        <span>Safe & protected</span>
-    </div>
-
-    <div>
-        <strong>↩️ Easy Returns</strong>
-        <span>Simple return process</span>
-    </div>
-
-    <div>
-        <strong>💳 Secure Payments</strong>
-        <span>Multiple payment options</span>
-    </div>
-
-</section>
-
-<footer>
-
-    <div class="footer-logo">GRO<span>+</span></div>
-
-    <p>
-        Your trusted online shopping destination.
-    </p>
-
-    <div class="footer-links">
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
-        <a href="#">Refund Policy</a>
-    </div>
-
-    <p class="copyright">
-        © 2026 GRO. All Rights Reserved.
-    </p>
-
-</footer>
-
-<script src="js/products.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/app.js"></script>
-
-</body>
- </html>
+];
