@@ -2,122 +2,576 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GRO+ — Online Shopping</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#6c63ff">
+<title>GRO — Smart Shopping</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#f1f3f6;color:#212121}
+:root{
+  --primary:#6c63ff;
+  --primary2:#8f7cff;
+  --pink:#ff7eb6;
+  --bg:#f7f7fc;
+  --card:#fff;
+  --text:#202033;
+  --muted:#77788a;
+  --green:#16a085;
+  --orange:#ff9f43;
+  --shadow:0 8px 30px rgba(44,40,100,.09);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 a{text-decoration:none;color:inherit}
 
-.header{background:#2874f0;color:#fff;position:sticky;top:0;z-index:1000}
-.header-main{max-width:1400px;margin:auto;display:flex;align-items:center;gap:15px;padding:12px 18px}
-.logo{font-size:28px;font-weight:900;font-style:italic}
-.logo span{color:#ffe500}
-.search{height:42px;background:#fff;display:flex;flex:1;border-radius:3px;overflow:hidden}
-.search input{border:0;outline:0;padding:0 15px;flex:1}
-.search button{width:50px;border:0;background:#fff}
-.header-btn{background:transparent;color:#fff;border:0;font-weight:700}
-.nav{background:#fff;display:flex;justify-content:center;gap:28px;padding:13px;box-shadow:0 1px 4px #ccc;overflow:auto;white-space:nowrap}
-.nav button{background:none;border:0;font-weight:700}
-.nav button:hover{color:#2874f0}
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #eee;
+}
+.header-inner{
+  max-width:1450px;
+  margin:auto;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:10px 18px;
+}
+.logo{
+  font-size:28px;
+  font-weight:900;
+  color:var(--primary);
+  white-space:nowrap;
+}
+.logo span{color:var(--pink)}
 
-.container{max-width:1400px;margin:auto;padding:18px}
-.hero{background:linear-gradient(120deg,#071526,#1260ad,#2874f0);color:#fff;border-radius:10px;padding:55px 35px;margin-bottom:20px}
-.hero h1{font-size:44px;margin:10px 0}
-.hero p{margin-bottom:22px;color:#e7f0ff}
-.primary{background:#ff9f00;color:#fff;padding:12px 24px;border-radius:4px;font-weight:bold;border:0}
+.search{
+  flex:1;
+  height:44px;
+  background:#f3f3fa;
+  border-radius:13px;
+  display:flex;
+  overflow:hidden;
+}
+.search input{
+  flex:1;
+  border:0;
+  outline:0;
+  background:transparent;
+  padding:0 16px;
+}
+.search button{
+  width:52px;
+  border:0;
+  background:transparent;
+}
+.icon-btn{
+  border:0;
+  background:#f2f1ff;
+  color:var(--primary);
+  width:44px;
+  height:44px;
+  border-radius:13px;
+  position:relative;
+}
+.badge{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:var(--pink);
+  color:#fff;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  font-size:11px;
+  display:grid;
+  place-items:center;
+}
 
-.section{background:#fff;border-radius:8px;margin-bottom:20px;padding:18px}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.section-head h2{font-size:21px}
+.nav{
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+.nav-inner{
+  max-width:1450px;
+  margin:auto;
+  display:flex;
+  gap:10px;
+  padding:10px 18px;
+  overflow-x:auto;
+}
+.nav button{
+  border:0;
+  background:#f5f4ff;
+  color:#4d4c68;
+  padding:9px 15px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.nav button:hover{
+  background:var(--primary);
+  color:#fff;
+}
 
-.category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.category-card,.sub-card{background:#fff;border:1px solid #ddd;border-radius:8px;overflow:hidden;cursor:pointer}
-.category-card:hover,.sub-card:hover,.product-card:hover{box-shadow:0 4px 16px #ccc}
-.category-card img,.sub-card img{width:100%;aspect-ratio:1;object-fit:cover}
-.category-card p,.sub-card p{padding:10px;font-weight:bold;font-size:13px}
+.container{
+  max-width:1450px;
+  margin:auto;
+  padding:20px;
+}
+
+.hero{
+  min-height:380px;
+  border-radius:28px;
+  padding:50px;
+  color:#fff;
+  background:
+  radial-gradient(circle at 90% 10%,rgba(255,255,255,.35),transparent 25%),
+  linear-gradient(125deg,#6c63ff,#927cff 55%,#ff7eb6);
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  position:relative;
+}
+.hero:after{
+  content:"";
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+  position:absolute;
+  right:70px;
+  bottom:-100px;
+}
+.hero-content{position:relative;z-index:2;max-width:650px}
+.hero small{
+  background:rgba(255,255,255,.18);
+  padding:7px 12px;
+  border-radius:20px;
+}
+.hero h1{
+  font-size:52px;
+  line-height:1.04;
+  margin:20px 0 12px;
+}
+.hero p{font-size:17px;opacity:.92}
+.primary{
+  border:0;
+  background:#fff;
+  color:var(--primary);
+  padding:13px 23px;
+  border-radius:12px;
+  font-weight:800;
+}
+.section{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:20px;
+  margin-top:20px;
+  box-shadow:0 3px 20px rgba(30,30,70,.03);
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+.section-head h2{margin:0;font-size:22px}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:14px;
+}
+.category-card{
+  border:1px solid #eee;
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+  cursor:pointer;
+  transition:.2s;
+}
+.category-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+.category-card img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+}
+.category-card div{
+  padding:12px;
+  font-weight:800;
+  font-size:14px;
+}
 
 .page{display:none}
 .page.active{display:block}
 
-.page-head{background:#2874f0;color:#fff;padding:14px 18px;display:flex;align-items:center;gap:15px}
-.back{background:#fff;color:#2874f0;padding:8px 15px;border-radius:4px;border:0;font-weight:bold}
+.page-head{
+  background:linear-gradient(100deg,#6c63ff,#927cff);
+  color:#fff;
+  padding:20px;
+}
+.page-head-inner{
+  max-width:1450px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.back{
+  border:0;
+  background:#fff;
+  color:var(--primary);
+  padding:9px 15px;
+  border-radius:11px;
+  font-weight:800;
+}
+.page-head h1{margin:0;font-size:25px}
 
-.sub-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
+.sub-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:14px;
+}
+.sub-card{
+  border:1px solid #eee;
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+  cursor:pointer;
+}
+.sub-card:hover{
+  box-shadow:var(--shadow);
+  transform:translateY(-3px);
+}
+.sub-card img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+}
+.sub-card div{
+  padding:11px;
+  font-weight:750;
+  font-size:13px;
+}
 
-.product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
-.product-card{background:#fff;border:1px solid #ddd;border-radius:7px;overflow:hidden}
-.product-image{height:260px;position:relative;background:#eee}
-.product-image img{width:100%;height:100%;object-fit:cover}
-.badge{position:absolute;top:9px;left:9px;background:#00875a;color:#fff;padding:5px 7px;font-size:11px;border-radius:3px}
-.product-info{padding:12px}
-.product-info h3{font-size:14px;line-height:20px;margin-bottom:7px;min-height:40px}
-.rating{display:inline-block;background:#00875a;color:#fff;padding:4px 6px;border-radius:3px;font-size:11px}
-.price{font-size:20px;font-weight:bold;margin-top:9px}
-.mrp{text-decoration:line-through;color:#888;font-size:12px;margin-left:5px}
-.stock{font-size:11px;color:#555;margin-top:6px}
-.product-id{font-size:10px;color:#888;margin-top:4px}
-.btn{width:100%;padding:10px;border:0;border-radius:3px;color:#fff;font-weight:bold;margin-top:8px}
-.cart-btn{background:#ff9f00}
-.buy-btn{background:#2874f0}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+}
+.product-card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:17px;
+  overflow:hidden;
+  transition:.2s;
+}
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+.product-photo{
+  height:260px;
+  background:#f0f0f4;
+  position:relative;
+  cursor:pointer;
+}
+.product-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.discount{
+  position:absolute;
+  left:9px;
+  top:9px;
+  background:#16a085;
+  color:#fff;
+  border-radius:8px;
+  padding:5px 7px;
+  font-size:11px;
+  font-weight:800;
+}
+.product-info{padding:13px}
+.product-info h3{
+  margin:0 0 8px;
+  font-size:14px;
+  min-height:36px;
+}
+.rating{
+  display:inline-block;
+  color:#fff;
+  background:#16a085;
+  border-radius:6px;
+  padding:4px 7px;
+  font-size:11px;
+}
+.price{
+  margin-top:8px;
+  font-size:20px;
+  font-weight:900;
+}
+.mrp{
+  color:#999;
+  text-decoration:line-through;
+  font-size:12px;
+  font-weight:400;
+  margin-left:5px;
+}
+.stock{
+  color:#666;
+  font-size:11px;
+  margin-top:6px;
+}
+.card-buttons{
+  display:flex;
+  gap:7px;
+  margin-top:10px;
+}
+.card-buttons button{
+  flex:1;
+  border:0;
+  padding:9px 5px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:800;
+}
+.add{background:#fff1dc;color:#e87900}
+.buy{background:var(--primary);color:#fff}
 
-.details{display:none;background:#fff;padding:20px}
-.details.active{display:block}
-.detail-layout{display:grid;grid-template-columns:45% 55%;gap:25px}
-.detail-photo{height:520px;background:#f5f5f5}
-.detail-photo img{width:100%;height:100%;object-fit:contain}
-.detail-info h1{font-size:25px;margin-bottom:12px}
-.big-price{font-size:30px;font-weight:bold;margin:15px 0}
-.option-title{font-weight:bold;margin:18px 0 8px}
-.options{display:flex;gap:8px;flex-wrap:wrap}
-.option{border:1px solid #aaa;background:#fff;padding:9px 15px;border-radius:4px}
-.option.selected{border:2px solid #2874f0;color:#2874f0}
-.color-dot{width:28px;height:28px;border-radius:50%;border:2px solid #999}
-.qty{display:flex;align-items:center;width:max-content;border:1px solid #bbb;margin-top:8px}
-.qty button{width:38px;height:36px;border:0;background:#eee}
-.qty span{width:45px;text-align:center}
+.detail{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  background:#fff;
+  padding:25px;
+  border-radius:20px;
+}
+.detail-main{
+  width:100%;
+  height:500px;
+  object-fit:contain;
+  background:#f6f6f8;
+  border-radius:16px;
+}
+.detail h1{margin-top:0}
+.detail-price{
+  font-size:30px;
+  font-weight:900;
+  margin:15px 0;
+}
+.detail-mrp{
+  font-size:14px;
+  color:#999;
+  text-decoration:line-through;
+}
+.option-title{
+  font-weight:800;
+  margin:20px 0 9px;
+}
+.option-list{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.option{
+  border:1px solid #ddd;
+  background:#fff;
+  padding:9px 14px;
+  border-radius:9px;
+}
+.option.selected{
+  border-color:var(--primary);
+  background:#f0efff;
+  color:var(--primary);
+  font-weight:800;
+}
+.qty{
+  display:flex;
+  width:max-content;
+  border:1px solid #ddd;
+  border-radius:10px;
+  overflow:hidden;
+}
+.qty button{
+  width:38px;
+  height:38px;
+  border:0;
+  background:#f5f5f8;
+}
+.qty span{
+  width:42px;
+  display:grid;
+  place-items:center;
+}
+.detail-actions{
+  display:flex;
+  gap:10px;
+  margin-top:22px;
+}
+.detail-actions button{
+  flex:1;
+  padding:13px;
+  border:0;
+  border-radius:11px;
+  font-weight:800;
+}
 
-.cart-page{display:none}
-.cart-item{display:grid;grid-template-columns:100px 1fr auto;gap:15px;align-items:center;background:#fff;padding:15px;border-bottom:1px solid #ddd}
-.cart-item img{width:90px;height:90px;object-fit:cover}
-.cart-total{background:#fff;padding:20px;margin-top:15px;text-align:right;font-size:22px;font-weight:bold}
+.cart-item{
+  display:grid;
+  grid-template-columns:90px 1fr auto;
+  gap:15px;
+  padding:15px 0;
+  border-bottom:1px solid #eee;
+  align-items:center;
+}
+.cart-item img{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:12px;
+}
+.cart-price{font-weight:900}
+.remove{
+  border:0;
+  background:#fff0f3;
+  color:#e44;
+  padding:8px 12px;
+  border-radius:8px;
+}
 
-.checkout{display:none}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.checkout{
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:20px;
+}
+.form-card,.summary{
+  background:#fff;
+  padding:22px;
+  border-radius:18px;
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
 .field{display:flex;flex-direction:column;gap:6px}
 .field.full{grid-column:1/-1}
-.field input,.field select,.field textarea{padding:12px;border:1px solid #ccc;border-radius:4px;outline:none}
-.payment-box{background:#fff;padding:18px;margin-top:20px}
-.payment-option{border:1px solid #ddd;padding:14px;margin:8px 0;border-radius:5px}
-.upi-apps{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-.upi-app{border:1px solid #ccc;padding:10px 15px;border-radius:5px;background:#fff}
-.order-success{display:none;text-align:center;background:#fff;padding:60px 20px}
-.order-success h1{color:#00875a;margin-bottom:10px}
+.field label{font-size:12px;font-weight:800}
+.field input,.field select,.field textarea{
+  border:1px solid #ddd;
+  outline:0;
+  padding:12px;
+  border-radius:10px;
+  background:#fff;
+}
+.field textarea{min-height:90px;resize:vertical}
+.payment{
+  margin-top:20px;
+}
+.pay-option{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid #ddd;
+  padding:13px;
+  border-radius:10px;
+  margin-bottom:8px;
+}
+.upi-box{
+  margin-top:10px;
+  background:#f6f5ff;
+  padding:15px;
+  border-radius:12px;
+  display:none;
+}
+.place{
+  width:100%;
+  border:0;
+  background:var(--primary);
+  color:#fff;
+  padding:14px;
+  border-radius:11px;
+  font-weight:900;
+  margin-top:15px;
+}
 
-.footer{background:#172337;color:#fff;padding:40px 20px;margin-top:30px;text-align:center}
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  padding:9px 0;
+}
+.total{
+  border-top:1px solid #eee;
+  margin-top:8px;
+  padding-top:15px;
+  font-size:21px;
+  font-weight:900;
+}
+
+.success{
+  max-width:700px;
+  margin:50px auto;
+  text-align:center;
+  background:#fff;
+  border-radius:22px;
+  padding:45px 25px;
+  box-shadow:var(--shadow);
+}
+.success-icon{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  background:#e7faf5;
+  color:#16a085;
+  display:grid;
+  place-items:center;
+  margin:auto;
+  font-size:38px;
+}
+
+.footer{
+  background:#202033;
+  color:#ddd;
+  margin-top:35px;
+  padding:40px 20px;
+  text-align:center;
+}
 
 @media(max-width:1000px){
-.category-grid{grid-template-columns:repeat(3,1fr)}
-.sub-grid{grid-template-columns:repeat(4,1fr)}
-.product-grid{grid-template-columns:repeat(3,1fr)}
-.detail-layout{grid-template-columns:1fr}
+  .category-grid{grid-template-columns:repeat(3,1fr)}
+  .sub-grid{grid-template-columns:repeat(4,1fr)}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:600px){
-.header-main{flex-wrap:wrap}
-.search{order:5;flex-basis:100%}
-.category-grid{grid-template-columns:repeat(3,1fr);gap:7px}
-.sub-grid{grid-template-columns:repeat(3,1fr);gap:7px}
-.product-grid{grid-template-columns:repeat(2,1fr);gap:8px}
-.product-image{height:190px}
-.hero{padding:35px 20px}
-.hero h1{font-size:30px}
-.form-grid{grid-template-columns:1fr}
-.field.full{grid-column:auto}
-.cart-item{grid-template-columns:70px 1fr}
-.detail-photo{height:350px}
+@media(max-width:700px){
+  .header-inner{flex-wrap:wrap}
+  .search{order:5;flex-basis:100%}
+  .hero{padding:35px 24px;min-height:320px}
+  .hero h1{font-size:37px}
+  .category-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .sub-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:9px}
+  .product-photo{height:190px}
+  .detail{grid-template-columns:1fr}
+  .detail-main{height:350px}
+  .checkout{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
 }
 </style>
 </head>
@@ -125,293 +579,236 @@ a{text-decoration:none;color:inherit}
 <body>
 
 <header class="header">
-<div class="header-main">
-<div class="logo" onclick="showHome()">GRO<span>+</span></div>
+<div class="header-inner">
+
+<div class="logo">GRO<span>+</span></div>
 
 <div class="search">
-<input id="searchBox" placeholder="Search products, brands and categories">
+<input id="search" placeholder="Search products...">
 <button onclick="searchProducts()">🔍</button>
 </div>
 
-<button class="header-btn" onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+<button class="icon-btn" onclick="showPage('cart')">
+🛒
+<span class="badge" id="cartBadge">0</span>
+</button>
+
 </div>
+</header>
 
 <nav class="nav">
+<div class="nav-inner">
+<button onclick="showPage('home')">Home</button>
 <button onclick="showFashion()">Fashion Men & Kids</button>
-<button onclick="openCategory('Home Decor')">Home Decor</button>
-<button onclick="openCategory('Electronics')">Electronics</button>
-<button onclick="openCategory('Beauty')">Beauty</button>
-<button onclick="openCategory('Toys')">Toys</button>
-<button onclick="openCategory('Books')">Books</button>
+<button>Home Decor</button>
+<button>Electronics</button>
+<button>Beauty</button>
+<button>Toys</button>
+<button>Books</button>
+</div>
 </nav>
-</header>
 
 
 <!-- HOME -->
 
-<div id="home" class="page active">
+<section id="home" class="page active">
 
-<main class="container">
+<div class="container">
 
-<section class="hero">
-<small>GRO+ ONLINE SHOPPING</small>
-<h1>Everything You Love.<br>One Place.</h1>
-<p>Fashion • Home Decor • Electronics • Beauty • Toys • Books</p>
-<button class="primary" onclick="showFashion()">SHOP NOW</button>
-</section>
+<div class="hero">
+<div class="hero-content">
+<small>SMART SHOPPING</small>
+<h1>Everything you love, beautifully together.</h1>
+<p>Discover fashion, lifestyle, electronics, beauty, toys and books in one place.</p>
+<button class="primary" onclick="showFashion()">Explore Fashion</button>
+</div>
+</div>
 
-<section class="section">
-<div class="section-head"><h2>Shop by Category</h2></div>
+<div class="section">
+<div class="section-head">
+<h2>Shop by Category</h2>
+</div>
 
 <div class="category-grid">
 
 <div class="category-card" onclick="showFashion()">
 <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=700">
-<p>Fashion Men & Kids</p>
+<div>Fashion Men & Kids</div>
 </div>
 
-<div class="category-card" onclick="openCategory('Home Decor')">
+<div class="category-card">
 <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700">
-<p>Home Decor</p>
+<div>Home Decor</div>
 </div>
 
-<div class="category-card" onclick="openCategory('Electronics')">
+<div class="category-card">
 <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700">
-<p>Electronics</p>
+<div>Electronics</div>
 </div>
 
-<div class="category-card" onclick="openCategory('Beauty')">
+<div class="category-card">
 <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700">
-<p>Beauty</p>
+<div>Beauty</div>
 </div>
 
-<div class="category-card" onclick="openCategory('Toys')">
+<div class="category-card">
 <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=700">
-<p>Toys</p>
+<div>Toys</div>
 </div>
 
-<div class="category-card" onclick="openCategory('Books')">
+<div class="category-card">
 <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=700">
-<p>Books</p>
+<div>Books</div>
 </div>
 
 </div>
+</div>
+
+</div>
+
+<footer class="footer">
+GRO+ — Smart Shopping
+</footer>
+
 </section>
-
-</main>
-</div>
 
 
 <!-- FASHION -->
 
-<div id="fashion" class="page">
+<section id="fashion" class="page">
 
 <div class="page-head">
-<button class="back" onclick="showHome()">← Back</button>
-<h2>Fashion Men & Kids</h2>
+<div class="page-head-inner">
+<button class="back" onclick="goBack()">← Back</button>
+<h1>Fashion Men & Kids</h1>
+</div>
 </div>
 
-<main class="container">
+<div class="container">
 
-<div class="section">
-<div class="section-head"><h2>Men</h2></div>
-<div id="menGrid" class="sub-grid"></div>
+<div id="fashionSections"></div>
+
 </div>
 
-<div class="section">
-<div class="section-head"><h2>Kids</h2></div>
-<div id="kidsGrid" class="sub-grid"></div>
-</div>
-
-<div class="section">
-<div class="section-head"><h2>Traditional & Ethnic Wear</h2></div>
-<div id="ethnicGrid" class="sub-grid"></div>
-</div>
-
-<div class="section">
-<div class="section-head"><h2>Western Wear</h2></div>
-<div id="westernGrid" class="sub-grid"></div>
-</div>
-
-<div class="section">
-<div class="section-head"><h2>Innerwear & Sleepwear</h2></div>
-<div id="innerGrid" class="sub-grid"></div>
-</div>
-
-<div class="section">
-<div class="section-head"><h2>Footwear</h2></div>
-<div id="footwearGrid" class="sub-grid"></div>
-</div>
-
-<div class="section">
-<div class="section-head"><h2>Accessories & Bags</h2></div>
-<div id="accessoryGrid" class="sub-grid"></div>
-</div>
-
-</main>
-</div>
-
-
-<!-- PRODUCT LIST -->
-
-<div id="listing" class="page">
-
-<div class="page-head">
-<button class="back" onclick="showFashion()">← Back</button>
-<h2 id="listingTitle">Products</h2>
-</div>
-
-<main class="container">
-<section class="section">
-<div id="productGrid" class="product-grid"></div>
 </section>
-</main>
 
+
+<!-- PRODUCTS -->
+
+<section id="products" class="page">
+
+<div class="page-head">
+<div class="page-head-inner">
+<button class="back" onclick="goBack()">← Back</button>
+<h1 id="productsTitle">Products</h1>
 </div>
+</div>
+
+<div class="container">
+<div class="section">
+<div id="productGrid" class="product-grid"></div>
+</div>
+</div>
+
+</section>
 
 
 <!-- PRODUCT DETAIL -->
 
-<div id="productDetails" class="page">
+<section id="detail" class="page">
 
 <div class="page-head">
-<button class="back" onclick="goBackListing()">← Back</button>
-<h2>Product Details</h2>
-</div>
-
-<main class="container">
-
-<section class="details active">
-<div class="detail-layout">
-
-<div class="detail-photo">
-<img id="detailImage">
-</div>
-
-<div class="detail-info">
-
-<h1 id="detailName"></h1>
-<div class="rating">⭐ 4.5</div>
-
-<div class="big-price">
-₹<span id="detailPrice"></span>
-<del style="font-size:15px;color:#888">
-₹<span id="detailMRP"></span>
-</del>
-</div>
-
-<div id="detailDiscount"></div>
-
-<div class="option-title">Color</div>
-<div id="colorOptions" class="options"></div>
-
-<div class="option-title">Size</div>
-<div id="sizeOptions" class="options"></div>
-
-<div class="option-title">Quantity</div>
-
-<div class="qty">
-<button onclick="changeQty(-1)">−</button>
-<span id="detailQty">1</span>
-<button onclick="changeQty(1)">+</button>
-</div>
-
-<p style="margin-top:15px;color:#555">
-Product ID: <b id="detailID"></b>
-</p>
-
-<p style="margin-top:8px;color:#555">
-Stock: <b id="detailStock"></b>
-</p>
-
-<button class="btn cart-btn" onclick="addCurrentToCart()">
-ADD TO CART
-</button>
-
-<button class="btn buy-btn" onclick="buyCurrent()">
-BUY NOW
-</button>
-
+<div class="page-head-inner">
+<button class="back" onclick="goBack()">← Back</button>
+<h1>Product Details</h1>
 </div>
 </div>
+
+<div class="container">
+<div id="detailBox"></div>
+</div>
+
 </section>
-
-</main>
-</div>
 
 
 <!-- CART -->
 
-<div id="cartPage" class="page">
+<section id="cart" class="page">
 
 <div class="page-head">
-<button class="back" onclick="showHome()">← Continue Shopping</button>
-<h2>Shopping Cart</h2>
+<div class="page-head-inner">
+<button class="back" onclick="goBack()">← Back</button>
+<h1>Shopping Cart</h1>
+</div>
 </div>
 
-<main class="container">
+<div class="container">
+<div class="section">
+<div id="cartBox"></div>
+</div>
+</div>
 
-<section class="section">
-<div id="cartItems"></div>
-<div id="cartTotal" class="cart-total"></div>
-<button class="btn buy-btn" onclick="openCheckout()">PROCEED TO CHECKOUT</button>
 </section>
-
-</main>
-</div>
 
 
 <!-- CHECKOUT -->
 
-<div id="checkoutPage" class="page">
+<section id="checkout" class="page">
 
 <div class="page-head">
-<button class="back" onclick="showCart()">← Back to Cart</button>
-<h2>Checkout</h2>
+<div class="page-head-inner">
+<button class="back" onclick="goBack()">← Back</button>
+<h1>Checkout</h1>
+</div>
 </div>
 
-<main class="container">
+<div class="container">
 
-<section class="section">
+<div class="checkout">
 
-<h2>Delivery Information</h2>
+<div class="form-card">
 
-<br>
+<h2>Delivery Details</h2>
 
 <div class="form-grid">
 
 <div class="field">
-<label>Customer Name *</label>
-<input id="customerName">
+<label>Full Name</label>
+<input id="name" required>
 </div>
 
 <div class="field">
-<label>Mobile Number *</label>
-<input id="mobile" type="tel" maxlength="10">
+<label>Mobile Number</label>
+<input id="mobile" inputmode="numeric" maxlength="10">
 </div>
 
-<div class="field">
-<label>House / Building Name or Number *</label>
+<div class="field full">
+<label>House / Building Name or Number</label>
 <input id="house">
 </div>
 
+<div class="field full">
+<label>Full Address</label>
+<textarea id="address"></textarea>
+</div>
+
 <div class="field">
-<label>State *</label>
+<label>State</label>
 <select id="state" onchange="loadDistricts()">
 <option value="">Select State</option>
 </select>
 </div>
 
 <div class="field">
-<label>District *</label>
+<label>District</label>
 <select id="district">
 <option value="">Select District</option>
 </select>
 </div>
 
 <div class="field">
-<label>PIN Code *</label>
-<input id="pin" maxlength="6" oninput="lookupPin()">
+<label>PIN Code</label>
+<input id="pin" inputmode="numeric" maxlength="6" oninput="lookupPin()">
 </div>
 
 <div class="field">
@@ -419,626 +816,645 @@ BUY NOW
 <input id="area" readonly>
 </div>
 
-<div class="field full">
-<label>Full Address *</label>
-<textarea id="address" rows="4"></textarea>
 </div>
 
-</div>
 
-<div class="payment-box">
+<div class="payment">
 
 <h2>Payment Method</h2>
 
-<label class="payment-option">
-<input type="radio" name="payment" value="COD" checked>
+<label class="pay-option">
+<input type="radio" name="payment" value="COD" checked onchange="paymentChanged()">
 Cash on Delivery
 </label>
 
-<label class="payment-option">
-<input type="radio" name="payment" value="UPI">
+<label class="pay-option">
+<input type="radio" name="payment" value="UPI" onchange="paymentChanged()">
 Online UPI
 </label>
 
-<div class="upi-apps">
-<button class="upi-app">PhonePe</button>
-<button class="upi-app">Google Pay</button>
-<button class="upi-app">Paytm</button>
-<button class="upi-app">Other UPI</button>
-</div>
+<div id="upiBox" class="upi-box">
 
-<p style="margin-top:12px">
-UPI ID: <b>YOUR-UPI-ID@upi</b>
+<strong>UPI Payment</strong>
+
+<p>Pay using PhonePe, Google Pay, Paytm or any supported UPI app.</p>
+
+<input id="upiId"
+placeholder="Enter UPI ID"
+style="width:100%;padding:12px;border:1px solid #ddd;border-radius:9px">
+
+<p style="font-size:12px;color:#777">
+Payment verification requires a supported payment gateway/backend.
 </p>
 
 </div>
 
-<button class="btn buy-btn" style="font-size:17px" onclick="placeOrder()">
+<button class="place" onclick="placeOrder()">
 PLACE ORDER
 </button>
 
-</section>
-
-</main>
 </div>
+
+</div>
+
+
+<div class="summary">
+
+<h2>Order Summary</h2>
+
+<div id="checkoutSummary"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 
 <!-- SUCCESS -->
 
-<div id="successPage" class="page">
+<section id="success" class="page">
 
-<main class="container">
+<div class="container">
 
-<section class="order-success" style="display:block">
+<div class="success">
 
-<h1>Order Placed Successfully</h1>
+<div class="success-icon">✓</div>
 
-<p>Your order has been created.</p>
+<h1>Order Placed</h1>
 
-<h2 style="margin:15px">
-Order ID: <span id="orderID"></span>
-</h2>
+<p>Your order has been created successfully.</p>
 
-<button class="primary" onclick="showHome()">
-CONTINUE SHOPPING
+<h3 id="orderNumber"></h3>
+
+<button class="place" onclick="sendWhatsApp()">
+Send Order Details on WhatsApp
 </button>
 
-</section>
+<button class="back" style="margin-top:10px" onclick="showPage('home')">
+Continue Shopping
+</button>
 
-</main>
 </div>
 
+</div>
 
-<footer class="footer">
-GRO+ Online Shopping<br>
-© 2026 GRO+ All Rights Reserved
-</footer>
+</section>
 
 
 <script>
 
-/* ===============================
+/* =====================================
 PRODUCT DATA
-=============================== */
+===================================== */
 
 const products=[
 
 {
-id:"GRO-JN-001",
+id:"JEANS-001",
 name:"Premium Blue Slim Fit Jeans",
-cat:"Jeans",
-mrp:2499,
+category:"Jeans",
 price:1299,
+mrp:2499,
+rating:4.6,
 stock:25,
 image:"Screenshot_20260822-182854.jpg",
-colors:["Blue","Black","Dark Blue"],
-sizes:["28","30","32","34","36"]
+colors:["Blue","Dark Blue","Black"],
+sizes:["30","32","34","36","38"],
+description:"Premium quality slim fit denim jeans."
 },
 
 {
-id:"GRO-JN-002",
+id:"JEANS-002",
 name:"Classic Dark Blue Jeans",
-cat:"Jeans",
-mrp:2299,
+category:"Jeans",
 price:1199,
+mrp:2299,
+rating:4.5,
 stock:20,
 image:"Screenshot_20260822-182852.jpg",
 colors:["Dark Blue","Black"],
-sizes:["30","32","34","36"]
+sizes:["30","32","34","36"],
+description:"Classic everyday denim jeans."
 },
 
 {
-id:"GRO-JN-003",
+id:"JEANS-003",
 name:"Regular Fit Casual Jeans",
-cat:"Jeans",
-mrp:1999,
+category:"Jeans",
 price:999,
+mrp:1999,
+rating:4.4,
 stock:30,
 image:"Screenshot_20260822-182850.jpg",
 colors:["Blue","Black"],
-sizes:["28","30","32","34"]
+sizes:["30","32","34","36","38"],
+description:"Comfortable regular fit jeans."
 },
 
 {
-id:"GRO-JN-004",
+id:"JEANS-004",
 name:"Premium Black Jeans",
-cat:"Jeans",
-mrp:2399,
+category:"Jeans",
 price:1249,
+mrp:2399,
+rating:4.6,
 stock:15,
 image:"Screenshot_20260822-182703.jpg",
-colors:["Black","Grey"],
-sizes:["30","32","34","36"]
+colors:["Black"],
+sizes:["30","32","34","36"],
+description:"Premium black denim."
 },
 
 {
-id:"GRO-JN-005",
+id:"JEANS-005",
 name:"Stretch Fit Jeans",
-cat:"Jeans",
-mrp:2199,
+category:"Jeans",
 price:1099,
+mrp:2199,
+rating:4.5,
 stock:22,
 image:"Screenshot_20260822-182700.jpg",
 colors:["Blue","Black"],
-sizes:["28","30","32","34","36"]
+sizes:["30","32","34","36","38"],
+description:"Flexible stretch fit denim."
 },
 
 {
-id:"GRO-JN-006",
+id:"JEANS-006",
 name:"Modern Casual Jeans",
-cat:"Jeans",
-mrp:2299,
+category:"Jeans",
 price:1149,
+mrp:2299,
+rating:4.5,
 stock:20,
 image:"Screenshot_20260822-182654.jpg",
-colors:["Blue","Dark Blue"],
-sizes:["30","32","34","36"]
+colors:["Blue","Black"],
+sizes:["30","32","34","36"],
+description:"Modern casual denim."
 },
 
 {
-id:"GRO-JN-007",
+id:"JEANS-007",
 name:"Premium Denim Jeans",
-cat:"Jeans",
-mrp:2499,
+category:"Jeans",
 price:1299,
+mrp:2499,
+rating:4.7,
 stock:18,
 image:"Screenshot_20260822-182652.jpg",
-colors:["Blue","Black"],
-sizes:["28","30","32","34"]
+colors:["Blue","Dark Blue"],
+sizes:["30","32","34","36","38"],
+description:"Premium denim construction."
 },
 
 {
-id:"GRO-JN-008",
+id:"JEANS-008",
 name:"Comfort Fit Jeans",
-cat:"Jeans",
-mrp:2199,
+category:"Jeans",
 price:1099,
+mrp:2199,
+rating:4.4,
 stock:25,
 image:"Screenshot_20260822-182650.jpg",
 colors:["Blue","Black"],
-sizes:["30","32","34","36"]
+sizes:["30","32","34","36"],
+description:"Comfort focused everyday jeans."
 },
 
 {
-id:"GRO-JN-009",
+id:"JEANS-009",
 name:"Classic Regular Jeans",
-cat:"Jeans",
-mrp:2399,
+category:"Jeans",
 price:1199,
+mrp:2399,
+rating:4.5,
 stock:20,
 image:"Screenshot_20260822-182647.jpg",
-colors:["Blue","Grey"],
-sizes:["30","32","34","36"]
+colors:["Blue","Black"],
+sizes:["30","32","34","36","38"],
+description:"Classic regular fit denim."
 },
 
 {
-id:"GRO-JN-010",
+id:"JEANS-010",
 name:"Everyday Blue Jeans",
-cat:"Jeans",
-mrp:2099,
+category:"Jeans",
 price:1049,
+mrp:2099,
+rating:4.4,
 stock:24,
 image:"Screenshot_20260822-182435.jpg",
-colors:["Blue","Dark Blue"],
-sizes:["28","30","32","34"]
+colors:["Blue"],
+sizes:["30","32","34","36"],
+description:"Affordable everyday jeans."
 },
 
+
 {
-id:"GRO-SH-001",
+id:"SHIRT-001",
 name:"Premium Casual Shirt",
-cat:"Shirt",
-mrp:1799,
+category:"Shirt",
 price:899,
+mrp:1799,
+rating:4.5,
 stock:25,
 image:"Screenshot_20260822-182432.jpg",
 colors:["White","Blue","Black"],
-sizes:["S","M","L","XL","XXL"]
+sizes:["S","M","L","XL"],
+description:"Premium casual shirt."
 },
 
 {
-id:"GRO-SH-002",
+id:"SHIRT-002",
 name:"Classic Cotton Shirt",
-cat:"Shirt",
-mrp:1999,
+category:"Shirt",
 price:999,
+mrp:1999,
+rating:4.6,
 stock:20,
 image:"Screenshot_20260822-182428.jpg",
 colors:["White","Blue"],
-sizes:["M","L","XL","XXL"]
+sizes:["S","M","L","XL","XXL"],
+description:"Comfortable cotton shirt."
 },
 
 {
-id:"GRO-SH-003",
+id:"SHIRT-003",
 name:"Slim Fit Formal Shirt",
-cat:"Shirt",
-mrp:2299,
+category:"Shirt",
 price:1199,
+mrp:2299,
+rating:4.6,
 stock:17,
 image:"Screenshot_20260822-182426.jpg",
-colors:["White","Black","Blue"],
-sizes:["S","M","L","XL"]
+colors:["White","Blue","Grey"],
+sizes:["S","M","L","XL"],
+description:"Smart slim fit formal shirt."
 },
 
 {
-id:"GRO-SH-004",
+id:"SHIRT-004",
 name:"Premium Checked Shirt",
-cat:"Shirt",
-mrp:1899,
+category:"Shirt",
 price:949,
+mrp:1899,
+rating:4.4,
 stock:28,
 image:"Screenshot_20260822-182416.jpg",
-colors:["Red","Blue","Green"],
-sizes:["M","L","XL","XXL"]
+colors:["Blue","Red","Black"],
+sizes:["S","M","L","XL"],
+description:"Premium checked casual shirt."
 },
 
 {
-id:"GRO-SH-005",
+id:"SHIRT-005",
 name:"Full Sleeve Casual Shirt",
-cat:"Shirt",
-mrp:2099,
+category:"Shirt",
 price:1049,
+mrp:2099,
+rating:4.5,
 stock:19,
 image:"Screenshot_20260822-182420.jpg",
-colors:["White","Black"],
-sizes:["S","M","L","XL"]
+colors:["White","Blue","Black"],
+sizes:["M","L","XL","XXL"],
+description:"Full sleeve everyday shirt."
 },
 
 {
-id:"GRO-SH-006",
+id:"SHIRT-006",
 name:"Premium Daily Shirt",
-cat:"Shirt",
-mrp:1999,
+category:"Shirt",
 price:999,
+mrp:1999,
+rating:4.5,
 stock:22,
 image:"Screenshot_20260822-182328.jpg",
 colors:["Blue","White"],
-sizes:["M","L","XL","XXL"]
+sizes:["S","M","L","XL"],
+description:"Daily wear premium shirt."
 },
 
 {
-id:"GRO-SH-007",
+id:"SHIRT-007",
 name:"Modern Slim Shirt",
-cat:"Shirt",
-mrp:2199,
+category:"Shirt",
 price:1099,
+mrp:2199,
+rating:4.5,
 stock:21,
 image:"Screenshot_20260822-182325.jpg",
 colors:["Black","Blue"],
-sizes:["S","M","L","XL"]
+sizes:["S","M","L","XL"],
+description:"Modern slim fit shirt."
 },
 
 {
-id:"GRO-SH-008",
+id:"SHIRT-008",
 name:"Classic Casual Shirt",
-cat:"Shirt",
-mrp:1899,
+category:"Shirt",
 price:949,
+mrp:1899,
+rating:4.4,
 stock:26,
 image:"Screenshot_20260822-182322.jpg",
-colors:["White","Grey"],
-sizes:["M","L","XL","XXL"]
+colors:["Blue","White"],
+sizes:["M","L","XL"],
+description:"Classic casual wear shirt."
 },
 
 {
-id:"GRO-SH-009",
+id:"SHIRT-009",
 name:"Premium Designer Shirt",
-cat:"Shirt",
-mrp:2299,
+category:"Shirt",
 price:1199,
+mrp:2299,
+rating:4.7,
 stock:15,
 image:"Screenshot_20260822-182318.jpg",
-colors:["Black","White"],
-sizes:["S","M","L","XL"]
+colors:["Black","Blue","White"],
+sizes:["S","M","L","XL"],
+description:"Premium designer style shirt."
 },
 
 {
-id:"GRO-SH-010",
+id:"SHIRT-010",
 name:"Comfort Cotton Shirt",
-cat:"Shirt",
-mrp:2099,
+category:"Shirt",
 price:1049,
+mrp:2099,
+rating:4.5,
 stock:23,
 image:"Screenshot_20260822-182250.jpg",
-colors:["Blue","White"],
-sizes:["M","L","XL","XXL"]
+colors:["White","Blue"],
+sizes:["S","M","L","XL","XXL"],
+description:"Soft cotton comfort shirt."
 },
 
 {
-id:"GRO-SH-011",
+id:"SHIRT-011",
 name:"Smart Casual Shirt",
-cat:"Shirt",
-mrp:1999,
+category:"Shirt",
 price:999,
+mrp:1999,
+rating:4.5,
 stock:20,
 image:"Screenshot_20260822-182157.jpg",
-colors:["Black","Blue"],
-sizes:["S","M","L","XL"]
+colors:["Blue","Black"],
+sizes:["S","M","L","XL"],
+description:"Smart casual everyday shirt."
 },
 
 {
-id:"GRO-SH-012",
+id:"SHIRT-012",
 name:"Premium Office Shirt",
-cat:"Shirt",
-mrp:2199,
+category:"Shirt",
 price:1099,
+mrp:2199,
+rating:4.6,
 stock:18,
 image:"Screenshot_20260822-182155.jpg",
-colors:["White","Blue"],
-sizes:["M","L","XL","XXL"]
+colors:["White","Blue","Grey"],
+sizes:["S","M","L","XL"],
+description:"Professional office shirt."
 },
 
 {
-id:"GRO-SH-013",
+id:"SHIRT-013",
 name:"Classic Pattern Shirt",
-cat:"Shirt",
-mrp:1899,
+category:"Shirt",
 price:949,
+mrp:1899,
+rating:4.4,
 stock:25,
 image:"Screenshot_20260822-182153.jpg",
-colors:["Blue","Green"],
-sizes:["S","M","L","XL"]
+colors:["Blue","Red"],
+sizes:["S","M","L","XL"],
+description:"Classic patterned shirt."
 },
 
 {
-id:"GRO-SH-014",
+id:"SHIRT-014",
 name:"Premium Party Shirt",
-cat:"Shirt",
-mrp:2299,
+category:"Shirt",
 price:1149,
+mrp:2299,
+rating:4.6,
 stock:16,
 image:"Screenshot_20260822-182151.jpg",
 colors:["Black","White"],
-sizes:["M","L","XL"]
+sizes:["S","M","L","XL"],
+description:"Premium party wear shirt."
 },
 
 {
-id:"GRO-SH-015",
+id:"SHIRT-015",
 name:"Everyday Cotton Shirt",
-cat:"Shirt",
-mrp:1999,
+category:"Shirt",
 price:999,
+mrp:1999,
+rating:4.5,
 stock:24,
 image:"Screenshot_20260822-182146.jpg",
 colors:["White","Blue"],
-sizes:["S","M","L","XL","XXL"]
+sizes:["M","L","XL","XXL"],
+description:"Everyday cotton shirt."
 }
 
 ];
 
 
-/* ===============================
-CATEGORY DATA
-=============================== */
+/* =====================================
+SUBCATEGORIES
+===================================== */
 
-const fashionCategories={
+const subcategories={
 
-men:[
-["T-Shirts","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"],
-["Shirts","https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500"],
-["Pants","https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500"],
-["Jeans","https://images.unsplash.com/photo-1542272604-787c3835535d?w=500"],
-["Panjabi","https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=500"],
-["Trousers","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=500"],
-["Belts","https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=500"],
-["Wallets","https://images.unsplash.com/photo-1627123424574-724758594e93?w=500"],
-["Watches","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500"],
-["Shoes","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"]
+"Men":[
+["T-Shirts","https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"],
+["Shirts","https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600"],
+["Pants","https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600"],
+["Jeans","https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"],
+["Panjabi","https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=600"],
+["Trousers","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600"],
+["Belts","https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600"],
+["Wallets","https://images.unsplash.com/photo-1627123424574-724758594e93?w=600"],
+["Watches","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"],
+["Shoes","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"]
 ],
 
-kids:[
-["Boys Dresses","https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500"],
-["Girls Dresses","https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=500"],
-["T-Shirts","https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=500"],
-["Frocks","https://images.unsplash.com/photo-1560787313-5dff3307e257?w=500"],
-["Rompers","https://images.unsplash.com/photo-1522771930-78848d9293e8?w=500"],
-["Newborn Sets","https://images.unsplash.com/photo-1519689680058-324335c77eba?w=500"],
-["Baby Shoes","https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=500"],
-["Accessories","https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500"]
+"Kids":[
+["Boys Dresses","https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600"],
+["Girls Dresses","https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=600"],
+["T-Shirts","https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=600"],
+["Frocks","https://images.unsplash.com/photo-1560787313-5dff3307e257?w=600"],
+["Rompers","https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600"],
+["Newborn Sets","https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600"],
+["Baby Shoes","https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=600"],
+["Accessories","https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600"]
 ],
 
-ethnic:[
-["Sarees","https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500"],
-["Salwar Kameez","https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=500"],
-["Kurtis","https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=500"],
-["Palazzo Sets","https://images.unsplash.com/photo-1605763240000-7e93b172d754?w=500"],
-["Lehengas","https://images.unsplash.com/photo-1610189012906-4c7c0f5b5a8a?w=500"],
-["Night Suits","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500"]
+"Traditional & Ethnic Wear":[
+["Sarees","https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600"],
+["Salwar Kameez","https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=600"],
+["Kurtis","https://images.unsplash.com/photo-1597983073493-88cd35cf93a0?w=600"],
+["Plazo Sets","https://images.unsplash.com/photo-1605763240000-7e93b172d754?w=600"],
+["Lehengas","https://images.unsplash.com/photo-1610189012906-4c7c0f5b5a8a?w=600"],
+["Night Suits","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"]
 ],
 
-western:[
-["Tops","https://images.unsplash.com/photo-1564257577054-8e9f9e4f6f58?w=500"],
-["T-Shirts","https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=500"],
-["Shirts","https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=500"],
-["Dresses","https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500"],
-["Maxi Dresses","https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500"],
-["Skirts","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=500"],
-["Jeans","https://images.unsplash.com/photo-1496440737103-cd596325d314?w=500"],
-["Trousers","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=500"],
-["Joggers","https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=500"]
+"Western Wear":[
+["Tops","https://images.unsplash.com/photo-1564257577054-8e9f9e4f6f58?w=600"],
+["T-Shirts","https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600"],
+["Shirts","https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600"],
+["Dresses","https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600"],
+["Maxi Dresses","https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600"],
+["Skirts","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600"],
+["Jeans","https://images.unsplash.com/photo-1496440737103-cd596325d314?w=600"],
+["Trousers","https://images.unsplash.com/photo-1506629905607-d9b1c9f1a2b7?w=600"],
+["Joggers","https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600"]
 ],
 
-inner:[
-["Bras","https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=500"],
-["Panties","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=500"],
-["Shapewear","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500"],
-["Nighties","https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=500"],
-["Pajama Sets","https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=500"]
+"Innerwear & Sleepwear":[
+["Bras","https://images.unsplash.com/photo-1583743814966-8936f37f4678?w=600"],
+["Panties","https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600"],
+["Shapewear","https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"],
+["Nighties","https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=600"],
+["Pyjama Sets","https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=600"]
 ],
 
-footwear:[
-["Heels","https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500"],
-["Flat Sandals","https://images.unsplash.com/photo-1603487742131-4160ec999306?w=500"],
-["Sneakers","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"],
-["Shoes","https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500"]
+"Footwear":[
+["Heels","https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600"],
+["Flat Sandals","https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600"],
+["Sneakers","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"],
+["Shoes","https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600"]
 ],
 
-accessories:[
-["Handbags","https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500"],
-["Purses","https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=500"],
-["Earrings","https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500"],
-["Necklaces","https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500"],
-["Sunglasses","https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500"],
-["Watches","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500"]
+"Accessories & Bags":[
+["Handbags","https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600"],
+["Purses","https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600"],
+["Earrings","https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600"],
+["Necklaces","https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600"],
+["Sunglasses","https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600"],
+["Watches","https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"]
 ]
 
 };
 
 
-/* ===============================
-INDIAN STATES + DISTRICTS
-=============================== */
+/* =====================================
+FASHION PAGE
+===================================== */
 
-const stateDistricts={
+function renderFashion(){
 
-"Andhra Pradesh":["Anantapur","Chittoor","East Godavari","Guntur","Krishna","Kurnool","Nellore","Prakasam","Srikakulam","Visakhapatnam","Vizianagaram","West Godavari","YSR Kadapa"],
+const box=document.getElementById("fashionSections");
 
-"Arunachal Pradesh":["Tawang","West Kameng","East Kameng","Papum Pare","Lower Subansiri","Upper Subansiri","West Siang","East Siang","Siang","Upper Siang","Lower Siang","Lohit","Namsai","Changlang","Tirap","Longding"],
+box.innerHTML=Object.entries(subcategories).map(([section,items])=>`
 
-"Assam":["Baksa","Barpeta","Biswanath","Bongaigaon","Cachar","Charaideo","Darrang","Dhemaji","Dhubri","Dibrugarh","Dima Hasao","Goalpara","Golaghat","Hailakandi","Hojai","Jorhat","Kamrup","Kamrup Metropolitan","Karbi Anglong","Karimganj","Kokrajhar","Lakhimpur","Majuli","Morigaon","Nagaon","Nalbari","Sivasagar","Sonitpur","South Salmara-Mankachar","Tinsukia","Udalguri","West Karbi Anglong"],
+<div class="section">
 
-"Bihar":["Araria","Arwal","Aurangabad","Banka","Begusarai","Bhagalpur","Bhojpur","Buxar","Darbhanga","East Champaran","Gaya","Gopalganj","Jamui","Jehanabad","Kaimur","Katihar","Khagaria","Kishanganj","Lakhisarai","Madhepura","Madhubani","Munger","Muzaffarpur","Nalanda","Nawada","Patna","Purnia","Rohtas","Saharsa","Samastipur","Saran","Sheikhpura","Sheohar","Sitamarhi","Siwan","Supaul","Vaishali","West Champaran"],
+<div class="section-head">
+<h2>${section}</h2>
+</div>
 
-"Chhattisgarh":["Balod","Baloda Bazar","Balrampur","Bastar","Bemetara","Bijapur","Bilaspur","Dantewada","Dhamtari","Durg","Gariaband","Gaurela-Pendra-Marwahi","Janjgir-Champa","Jashpur","Kabirdham","Kanker","Kondagaon","Korba","Koriya","Mahasamund","Mungeli","Narayanpur","Raigarh","Raipur","Rajnandgaon","Sukma","Surajpur","Surguja"],
+<div class="sub-grid">
 
-"Goa":["North Goa","South Goa"],
+${items.map(item=>`
 
-"Gujarat":["Ahmedabad","Amreli","Anand","Aravalli","Banaskantha","Bharuch","Bhavnagar","Botad","Chhota Udaipur","Dahod","Dang","Devbhoomi Dwarka","Gandhinagar","Gir Somnath","Jamnagar","Junagadh","Kheda","Kutch","Mahisagar","Mehsana","Morbi","Narmada","Navsari","Panchmahal","Patan","Porbandar","Rajkot","Sabarkantha","Surat","Surendranagar","Tapi","Vadodara","Valsad"],
+<div class="sub-card"
+onclick="openCategory('${item[0]}')">
 
-"Haryana":["Ambala","Bhiwani","Charkhi Dadri","Faridabad","Fatehabad","Gurugram","Hisar","Jhajjar","Jind","Kaithal","Karnal","Kurukshetra","Mahendragarh","Nuh","Palwal","Panchkula","Panipat","Rewari","Rohtak","Sirsa","Sonipat","Yamunanagar"],
+<img src="${item[1]}" loading="lazy">
 
-"Himachal Pradesh":["Bilaspur","Chamba","Hamirpur","Kangra","Kinnaur","Kullu","Lahaul and Spiti","Mandi","Shimla","Sirmaur","Solan","Una"],
+<div>${item[0]} →</div>
 
-"Jharkhand":["Bokaro","Chatra","Deoghar","Dhanbad","Dumka","East Singhbhum","Garhwa","Giridih","Godda","Gumla","Hazaribagh","Jamtara","Khunti","Koderma","Latehar","Lohardaga","Pakur","Palamu","Ramgarh","Ranchi","Sahibganj","Seraikela Kharsawan","Simdega","West Singhbhum"],
+</div>
 
-"Karnataka":["Bagalkot","Ballari","Belagavi","Bengaluru Rural","Bengaluru Urban","Bidar","Chamarajanagar","Chikkaballapur","Chikkamagaluru","Chitradurga","Dakshina Kannada","Davanagere","Dharwad","Gadag","Hassan","Haveri","Kalaburagi","Kodagu","Kolar","Koppal","Mandya","Mysuru","Raichur","Ramanagara","Shivamogga","Tumakuru","Udupi","Uttara Kannada","Vijayapura","Yadgir"],
+`).join("")}
 
-"Kerala":["Alappuzha","Ernakulam","Idukki","Kannur","Kasaragod","Kollam","Kottayam","Kozhikode","Malappuram","Palakkad","Pathanamthitta","Thiruvananthapuram","Thrissur","Wayanad"],
+</div>
 
-"Madhya Pradesh":["Agar Malwa","Alirajpur","Anuppur","Ashoknagar","Balaghat","Barwani","Betul","Bhind","Bhopal","Burhanpur","Chhatarpur","Chhindwara","Damoh","Datia","Dewas","Dhar","Dindori","Guna","Gwalior","Harda","Hoshangabad","Indore","Jabalpur","Jhabua","Katni","Khandwa","Khargone","Mandla","Mandsaur","Morena","Narsinghpur","Neemuch","Panna","Raisen","Rajgarh","Ratlam","Rewa","Sagar","Satna","Sehore","Seoni","Shahdol","Shajapur","Sheopur","Shivpuri","Sidhi","Singrauli","Tikamgarh","Ujjain","Umaria","Vidisha"],
-
-"Maharashtra":["Ahmednagar","Akola","Amravati","Aurangabad","Beed","Bhandara","Buldhana","Chandrapur","Dhule","Gadchiroli","Gondia","Hingoli","Jalgaon","Jalna","Kolhapur","Latur","Mumbai City","Mumbai Suburban","Nagpur","Nanded","Nandurbar","Nashik","Osmanabad","Palghar","Parbhani","Pune","Raigad","Ratnagiri","Sangli","Satara","Sindhudurg","Solapur","Thane","Wardha","Washim","Yavatmal"],
-
-"Manipur":["Bishnupur","Chandel","Churachandpur","Imphal East","Imphal West","Jiribam","Kakching","Kamjong","Kangpokpi","Noney","Pherzawl","Senapati","Tamenglong","Tengnoupal","Thoubal","Ukhrul"],
-
-"Meghalaya":["East Garo Hills","East Jaintia Hills","East Khasi Hills","North Garo Hills","Ri Bhoi","South Garo Hills","South West Garo Hills","South West Khasi Hills","West Garo Hills","West Jaintia Hills","West Khasi Hills"],
-
-"Mizoram":["Aizawl","Champhai","Hnahthial","Khawzawl","Kolasib","Lawngtlai","Lunglei","Mamit","Saiha","Serchhip"],
-
-"Nagaland":["Chumoukedima","Dimapur","Kiphire","Kohima","Longleng","Mokokchung","Mon","Niuland","Noklak","Peren","Phek","Shamator","Tuensang","Wokha","Zunheboto"],
-
-"Odisha":["Angul","Balangir","Balasore","Bargarh","Bhadrak","Boudh","Cuttack","Deogarh","Dhenkanal","Gajapati","Ganjam","Jagatsinghpur","Jajpur","Jharsuguda","Kalahandi","Kandhamal","Kendrapara","Keonjhar","Khordha","Koraput","Malkangiri","Mayurbhanj","Nabarangpur","Nayagarh","Nuapada","Puri","Rayagada","Sambalpur","Subarnapur","Sundargarh"],
-
-"Punjab":["Amritsar","Barnala","Bathinda","Faridkot","Fatehgarh Sahib","Fazilka","Ferozepur","Gurdaspur","Hoshiarpur","Jalandhar","Kapurthala","Ludhiana","Malerkotla","Mansa","Moga","Pathankot","Patiala","Rupnagar","Sahibzada Ajit Singh Nagar","Sangrur","Shahid Bhagat Singh Nagar","Sri Muktsar Sahib","Tarn Taran"],
-
-"Rajasthan":["Ajmer","Alwar","Banswara","Baran","Barmer","Bharatpur","Bhilwara","Bikaner","Bundi","Chittorgarh","Churu","Dausa","Dholpur","Dungarpur","Hanumangarh","Jaipur","Jaisalmer","Jalore","Jhalawar","Jhunjhunu","Jodhpur","Karauli","Kota","Nagaur","Pali","Pratapgarh","Rajsamand","Sawai Madhopur","Sikar","Sirohi","Sri Ganganagar","Tonk","Udaipur"],
-
-"Sikkim":["East Sikkim","North Sikkim","South Sikkim","West Sikkim"],
-
-"Tamil Nadu":["Ariyalur","Chengalpattu","Chennai","Coimbatore","Cuddalore","Dharmapuri","Dindigul","Erode","Kallakurichi","Kancheepuram","Karur","Krishnagiri","Madurai","Mayiladuthurai","Nagapattinam","Namakkal","Nilgiris","Perambalur","Pudukkottai","Ramanathapuram","Ranipet","Salem","Sivaganga","Tenkasi","Thanjavur","Theni","Thoothukudi","Tiruchirappalli","Tirunelveli","Tirupathur","Tiruppur","Tiruvallur","Tiruvannamalai","Tiruvarur","Vellore","Viluppuram","Virudhunagar"],
-
-"Telangana":["Adilabad","Bhadradri Kothagudem","Hyderabad","Jagtial","Jangaon","Jayashankar","Jogulamba Gadwal","Kamareddy","Karimnagar","Khammam","Komaram Bheem","Mahabubabad","Mahbubnagar","Mancherial","Medak","Medchal","Mulugu","Nagarkurnool","Nalgonda","Narayanpet","Nirmal","Nizamabad","Peddapalli","Rajanna Sircilla","Rangareddy","Sangareddy","Siddipet","Suryapet","Vikarabad","Wanaparthy","Warangal","Yadadri Bhuvanagiri"],
-
-"Tripura":["Dhalai","Gomati","Khowai","North Tripura","Sepahijala","South Tripura","Unakoti","West Tripura"],
-
-"Uttar Pradesh":["Agra","Aligarh","Ambedkar Nagar","Amethi","Amroha","Auraiya","Ayodhya","Azamgarh","Baghpat","Bahraich","Ballia","Balrampur","Banda","Barabanki","Bareilly","Basti","Bhadohi","Bijnor","Budaun","Bulandshahr","Chandauli","Chitrakoot","Deoria","Etah","Etawah","Farrukhabad","Fatehpur","Firozabad","Gautam Buddha Nagar","Ghaziabad","Ghazipur","Gonda","Gorakhpur","Hamirpur","Hapur","Hardoi","Hathras","Jalaun","Jaunpur","Jhansi","Kannauj","Kanpur Dehat","Kanpur Nagar","Kasganj","Kaushambi","Kushinagar","Lakhimpur Kheri","Lalitpur","Lucknow","Maharajganj","Mahoba","Mainpuri","Mathura","Mau","Meerut","Mirzapur","Moradabad","Muzaffarnagar","Pilibhit","Pratapgarh","Prayagraj","Raebareli","Rampur","Saharanpur","Sambhal","Sant Kabir Nagar","Shahjahanpur","Shamli","Shravasti","Siddharthnagar","Sitapur","Sonbhadra","Sultanpur","Unnao","Varanasi"],
-
-"Uttarakhand":["Almora","Bageshwar","Chamoli","Champawat","Dehradun","Haridwar","Nainital","Pauri Garhwal","Pithoragarh","Rudraprayag","Tehri Garhwal","Udham Singh Nagar","Uttarkashi"],
-
-"West Bengal":["Alipurduar","Bankura","Paschim Bardhaman","Purba Bardhaman","Birbhum","Cooch Behar","Dakshin Dinajpur","Darjeeling","Hooghly","Howrah","Jalpaiguri","Jhargram","Kalimpong","Kolkata","Maldah","Murshidabad","Nadia","North 24 Parganas","South 24 Parganas","Paschim Medinipur","Purba Medinipur","Uttar Dinajpur"],
-
-"Delhi":["Central Delhi","East Delhi","New Delhi","North Delhi","North East Delhi","North West Delhi","Shahdara","South Delhi","South East Delhi","South West Delhi","West Delhi"],
-
-"Jammu and Kashmir":["Anantnag","Bandipora","Baramulla","Budgam","Doda","Ganderbal","Jammu","Kathua","Kishtwar","Kulgam","Kupwara","Poonch","Pulwama","Rajouri","Ramban","Reasi","Samba","Shopian","Srinagar","Udhampur"],
-
-"Ladakh":["Kargil","Leh"],
-
-"Chandigarh":["Chandigarh"],
-
-"Puducherry":["Karaikal","Mahe","Puducherry","Yanam"],
-
-"Andaman and Nicobar Islands":["Nicobar","North and Middle Andaman","South Andaman"],
-
-"Dadra and Nagar Haveli and Daman and Diu":["Dadra and Nagar Haveli","Daman","Diu"],
-
-"Lakshadweep":["Agatti","Amini","Andrott","Kavaratti","Kalpeni","Kiltan","Minicoy"],
-
-"Goa":["North Goa","South Goa"]
-};
-
-
-/* ===============================
-PAGE NAVIGATION
-=============================== */
-
-function hidePages(){
-
-document.querySelectorAll(".page").forEach(p=>{
-p.classList.remove("active");
-});
-
-}
-
-function showHome(){
-
-hidePages();
-document.getElementById("home").classList.add("active");
-window.scrollTo(0,0);
-
-}
-
-function showFashion(){
-
-hidePages();
-document.getElementById("fashion").classList.add("active");
-window.scrollTo(0,0);
-
-}
-
-
-/* ===============================
-SUBCATEGORY RENDER
-=============================== */
-
-function renderSubs(id,data){
-
-document.getElementById(id).innerHTML=data.map(x=>`
-
-<div class="sub-card" onclick="openListing('${x[0]}')">
-<img src="${x[1]}" loading="lazy">
-<p>${x[0]} →</p>
 </div>
 
 `).join("");
 
 }
 
-renderSubs("menGrid",fashionCategories.men);
-renderSubs("kidsGrid",fashionCategories.kids);
-renderSubs("ethnicGrid",fashionCategories.ethnic);
-renderSubs("westernGrid",fashionCategories.western);
-renderSubs("innerGrid",fashionCategories.inner);
-renderSubs("footwearGrid",fashionCategories.footwear);
-renderSubs("accessoryGrid",fashionCategories.accessories);
+
+/* =====================================
+PAGE HISTORY
+===================================== */
+
+let historyStack=["home"];
+
+function showPage(page,push=true){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
+
+document.getElementById(page).classList.add("active");
+
+window.scrollTo(0,0);
+
+if(push && historyStack[historyStack.length-1]!==page){
+historyStack.push(page);
+}
+
+}
+
+function goBack(){
+
+if(historyStack.length>1){
+
+historyStack.pop();
+
+const previous=
+historyStack[historyStack.length-1];
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
+
+document.getElementById(previous).classList.add("active");
+
+window.scrollTo(0,0);
+
+}
+
+}
+
+function showFashion(){
+
+renderFashion();
+showPage("fashion");
+
+}
 
 
-/* ===============================
+/* =====================================
 PRODUCT LIST
-=============================== */
+===================================== */
 
-function openListing(category){
+let currentCategory="";
 
-hidePages();
-document.getElementById("listing").classList.add("active");
+function openCategory(category){
 
-document.getElementById("listingTitle").innerText=category;
+currentCategory=category;
+
+document.getElementById("productsTitle").innerText=
+category+" Collection";
 
 const matches=products.filter(p=>
-p.cat.toLowerCase()===category.toLowerCase()
+p.category.toLowerCase()===category.toLowerCase()
 );
 
 renderProducts(matches);
 
-window.scrollTo(0,0);
+showPage("products");
 
 }
 
@@ -1050,7 +1466,8 @@ if(!list.length){
 
 grid.innerHTML=`
 <div style="grid-column:1/-1;text-align:center;padding:70px">
-<h2>No products available</h2>
+<h2>Products Coming Soon</h2>
+<p>New products will be added here.</p>
 </div>`;
 
 return;
@@ -1059,18 +1476,22 @@ return;
 
 grid.innerHTML=list.map(p=>{
 
-const discount=Math.round((p.mrp-p.price)/p.mrp*100);
+const discount=Math.round(
+((p.mrp-p.price)/p.mrp)*100
+);
 
 return`
 
 <div class="product-card">
 
-<div class="product-image">
+<div class="product-photo"
+onclick="openProduct('${p.id}')">
 
 <img src="${p.image}"
-onerror="this.src='https://via.placeholder.com/600x600?text=Product+Image'">
+loading="lazy"
+onerror="fallbackImage(this)">
 
-<div class="badge">${discount}% OFF</div>
+<div class="discount">${discount}% OFF</div>
 
 </div>
 
@@ -1078,26 +1499,35 @@ onerror="this.src='https://via.placeholder.com/600x600?text=Product+Image'">
 
 <h3>${p.name}</h3>
 
-<div class="rating">⭐ 4.5</div>
+<span class="rating">★ ${p.rating}</span>
 
 <div class="price">
 ₹${p.price.toLocaleString("en-IN")}
-<span class="mrp">₹${p.mrp.toLocaleString("en-IN")}</span>
+<span class="mrp">
+₹${p.mrp.toLocaleString("en-IN")}
+</span>
 </div>
 
-<div class="stock">In Stock: ${p.stock}</div>
+<div class="stock">
+${p.stock>0?"✓ In Stock":"Out of Stock"}
+</div>
 
-<div class="product-id">Product ID: ${p.id}</div>
+<div class="card-buttons">
 
-<button class="btn cart-btn" onclick="addToCart('${p.id}')">
-ADD TO CART
+<button class="add"
+onclick="event.stopPropagation();quickAdd('${p.id}')">
+Add to Cart
 </button>
 
-<button class="btn buy-btn" onclick="openDetails('${p.id}')">
-VIEW & BUY
+<button class="buy"
+onclick="event.stopPropagation();openProduct('${p.id}')">
+View
 </button>
 
 </div>
+
+</div>
+
 </div>
 
 `;
@@ -1107,146 +1537,193 @@ VIEW & BUY
 }
 
 
-/* ===============================
-PRODUCT DETAILS
-=============================== */
+/* =====================================
+PRODUCT DETAIL
+===================================== */
 
-let currentProduct=null;
-let currentQty=1;
 let selectedColor="";
 let selectedSize="";
+let detailQty=1;
 
-function openDetails(id){
+function openProduct(id){
 
 const p=products.find(x=>x.id===id);
 
 if(!p)return;
 
-currentProduct=p;
-currentQty=1;
 selectedColor=p.colors[0];
 selectedSize=p.sizes[0];
+detailQty=1;
 
-hidePages();
+document.getElementById("detailBox").innerHTML=`
 
-document.getElementById("productDetails").classList.add("active");
+<div class="detail">
 
-document.getElementById("detailImage").src=p.image;
-document.getElementById("detailName").innerText=p.name;
-document.getElementById("detailPrice").innerText=p.price.toLocaleString("en-IN");
-document.getElementById("detailMRP").innerText=p.mrp.toLocaleString("en-IN");
-document.getElementById("detailID").innerText=p.id;
-document.getElementById("detailStock").innerText=p.stock;
-document.getElementById("detailQty").innerText=1;
+<div>
+<img class="detail-main"
+src="${p.image}"
+onerror="fallbackImage(this)">
+</div>
 
-document.getElementById("detailDiscount").innerText=
-Math.round((p.mrp-p.price)/p.mrp*100)+"% OFF";
+<div>
 
-document.getElementById("colorOptions").innerHTML=
-p.colors.map(c=>`
-<button class="option ${c===selectedColor?'selected':''}"
-onclick="selectColor('${c}')">${c}</button>
-`).join("");
+<div class="rating">★ ${p.rating}</div>
 
-document.getElementById("sizeOptions").innerHTML=
-p.sizes.map(s=>`
-<button class="option ${s===selectedSize?'selected':''}"
-onclick="selectSize('${s}')">${s}</button>
-`).join("");
+<h1>${p.name}</h1>
 
-window.scrollTo(0,0);
+<p style="color:#777">
+Product ID: ${p.id}
+</p>
+
+<div class="detail-price">
+₹${p.price.toLocaleString("en-IN")}
+<span class="detail-mrp">
+₹${p.mrp.toLocaleString("en-IN")}
+</span>
+</div>
+
+<p>${p.description}</p>
+
+<div class="option-title">Color</div>
+
+<div class="option-list" id="colors">
+
+${p.colors.map(c=>`
+<button class="option ${c===selectedColor?"selected":""}"
+onclick="selectColor('${c}')">
+${c}
+</button>
+`).join("")}
+
+</div>
+
+<div class="option-title">Size</div>
+
+<div class="option-list" id="sizes">
+
+${p.sizes.map(s=>`
+<button class="option ${s===selectedSize?"selected":""}"
+onclick="selectSize('${s}')">
+${s}
+</button>
+`).join("")}
+
+</div>
+
+<div class="option-title">Quantity</div>
+
+<div class="qty">
+<button onclick="changeDetailQty(-1)">−</button>
+<span id="detailQty">1</span>
+<button onclick="changeDetailQty(1)">+</button>
+</div>
+
+<p style="font-size:13px;color:#666">
+${p.stock} units available
+</p>
+
+<div class="detail-actions">
+
+<button
+style="background:#fff0df;color:#d87800"
+onclick="addDetailToCart('${p.id}')">
+Add to Cart
+</button>
+
+<button
+style="background:var(--primary);color:#fff"
+onclick="buyDetail('${p.id}')">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+showPage("detail");
 
 }
 
-function selectColor(c){
+function selectColor(color){
 
-selectedColor=c;
+selectedColor=color;
 
-document.querySelectorAll("#colorOptions .option").forEach(b=>{
-b.classList.toggle("selected",b.innerText===c);
+document.querySelectorAll("#colors .option").forEach(x=>{
+x.classList.toggle("selected",x.innerText===color);
 });
 
 }
 
-function selectSize(s){
+function selectSize(size){
 
-selectedSize=s;
+selectedSize=size;
 
-document.querySelectorAll("#sizeOptions .option").forEach(b=>{
-b.classList.toggle("selected",b.innerText===s);
+document.querySelectorAll("#sizes .option").forEach(x=>{
+x.classList.toggle("selected",x.innerText===size);
 });
 
 }
 
-function changeQty(n){
+function changeDetailQty(n){
 
-currentQty+=n;
+detailQty=Math.max(1,detailQty+n);
 
-if(currentQty<1)currentQty=1;
-
-if(currentQty>currentProduct.stock)
-currentQty=currentProduct.stock;
-
-document.getElementById("detailQty").innerText=currentQty;
-
-}
-
-function addCurrentToCart(){
-
-for(let i=0;i<currentQty;i++){
-addToCart(currentProduct.id,selectedColor,selectedSize);
-}
-
-}
-
-function buyCurrent(){
-
-addCurrentToCart();
-openCheckout();
-
-}
-
-function goBackListing(){
-
-hidePages();
-document.getElementById("listing").classList.add("active");
+document.getElementById("detailQty").innerText=detailQty;
 
 }
 
 
-/* ===============================
+/* =====================================
 CART
-=============================== */
+===================================== */
 
 let cart=[];
 
-function addToCart(id,color=null,size=null){
+function quickAdd(id){
 
 const p=products.find(x=>x.id===id);
 
-if(!p)return;
+addCart({
+...p,
+quantity:1,
+color:p.colors[0],
+size:p.sizes[0]
+});
+
+}
+
+function addDetailToCart(id){
+
+const p=products.find(x=>x.id===id);
+
+addCart({
+...p,
+quantity:detailQty,
+color:selectedColor,
+size:selectedSize
+});
+
+}
+
+function addCart(item){
 
 const existing=cart.find(x=>
-x.id===id &&
-x.color===color &&
-x.size===size
+x.id===item.id &&
+x.color===item.color &&
+x.size===item.size
 );
 
 if(existing){
 
-existing.qty++;
+existing.quantity+=item.quantity;
 
 }else{
 
-cart.push({
-id:p.id,
-name:p.name,
-price:p.price,
-image:p.image,
-color:color||p.colors[0],
-size:size||p.sizes[0],
-qty:1
-});
+cart.push(item);
 
 }
 
@@ -1258,85 +1735,170 @@ alert("Product added to cart.");
 
 function updateCart(){
 
-document.getElementById("cartCount").innerText=
-cart.reduce((a,b)=>a+b.qty,0);
+localStorage.setItem("groCart",JSON.stringify(cart));
+
+document.getElementById("cartBadge").innerText=
+cart.reduce((a,b)=>a+b.quantity,0);
 
 }
 
-function showCart(){
+function loadCart(){
 
-hidePages();
+try{
 
-document.getElementById("cartPage").classList.add("active");
+cart=JSON.parse(
+localStorage.getItem("groCart")
+)||[];
 
-const box=document.getElementById("cartItems");
+}catch{
+
+cart=[];
+
+}
+
+updateCart();
+
+}
+
+function renderCart(){
+
+const box=document.getElementById("cartBox");
 
 if(!cart.length){
 
 box.innerHTML=`
-<div style="padding:50px;text-align:center">
+<div style="text-align:center;padding:60px">
 <h2>Your cart is empty</h2>
+<button class="place" onclick="showFashion()">
+Start Shopping
+</button>
 </div>`;
-
-document.getElementById("cartTotal").innerText="";
 
 return;
 
 }
 
-box.innerHTML=cart.map((x,i)=>`
+let total=0;
+
+box.innerHTML=cart.map((p,i)=>{
+
+const line=p.price*p.quantity;
+
+total+=line;
+
+return`
 
 <div class="cart-item">
 
-<img src="${x.image}">
+<img src="${p.image}">
 
 <div>
 
-<h3>${x.name}</h3>
-<p>Color: ${x.color}</p>
-<p>Size: ${x.size}</p>
+<h3>${p.name}</h3>
+
+<p style="font-size:12px;color:#777">
+ID: ${p.id}<br>
+Color: ${p.color}<br>
+Size: ${p.size}
+</p>
 
 <div class="qty">
-<button onclick="changeCartQty(${i},-1)">−</button>
-<span>${x.qty}</span>
-<button onclick="changeCartQty(${i},1)">+</button>
+
+<button onclick="cartQty(${i},-1)">−</button>
+
+<span>${p.quantity}</span>
+
+<button onclick="cartQty(${i},1)">+</button>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="cart-price">
+₹${line.toLocaleString("en-IN")}
+</div>
+
+<button class="remove"
+onclick="removeCart(${i})">
+Remove
+</button>
+
 </div>
 
 </div>
 
-<strong>
-₹${(x.price*x.qty).toLocaleString("en-IN")}
-</strong>
+`;
+
+}).join("")+
+
+`
+
+<div style="text-align:right;margin-top:20px">
+
+<h2>Total: ₹${total.toLocaleString("en-IN")}</h2>
+
+<button class="place" style="max-width:350px"
+onclick="startCheckout()">
+Proceed to Checkout
+</button>
 
 </div>
 
-`).join("");
-
-const total=cart.reduce((a,b)=>a+b.price*b.qty,0);
-
-document.getElementById("cartTotal").innerText=
-"Total: ₹"+total.toLocaleString("en-IN");
+`;
 
 }
 
-function changeCartQty(i,n){
+function cartQty(i,n){
 
-cart[i].qty+=n;
+cart[i].quantity+=n;
 
-if(cart[i].qty<=0)
+if(cart[i].quantity<=0)
 cart.splice(i,1);
 
 updateCart();
-showCart();
+renderCart();
+
+}
+
+function removeCart(i){
+
+cart.splice(i,1);
+
+updateCart();
+renderCart();
 
 }
 
 
-/* ===============================
-CHECKOUT
-=============================== */
+/* =====================================
+BUY NOW
+===================================== */
 
-function openCheckout(){
+function buyDetail(id){
+
+const p=products.find(x=>x.id===id);
+
+cart=[{
+...p,
+quantity:detailQty,
+color:selectedColor,
+size:selectedSize
+}];
+
+updateCart();
+
+startCheckout();
+
+}
+
+
+/* =====================================
+CHECKOUT
+===================================== */
+
+function startCheckout(){
 
 if(!cart.length){
 
@@ -1345,38 +1907,350 @@ return;
 
 }
 
-hidePages();
+loadStates();
 
-document.getElementById("checkoutPage").classList.add("active");
+renderCheckoutSummary();
 
-window.scrollTo(0,0);
+showPage("checkout");
+
+}
+
+function renderCheckoutSummary(){
+
+let total=0;
+
+const box=document.getElementById("checkoutSummary");
+
+box.innerHTML=cart.map(p=>{
+
+const line=p.price*p.quantity;
+
+total+=line;
+
+return`
+
+<div class="summary-row">
+<span>
+${p.name}<br>
+<small>${p.color} / ${p.size} × ${p.quantity}</small>
+</span>
+<strong>₹${line.toLocaleString("en-IN")}</strong>
+</div>
+
+`;
+
+}).join("")+
+
+`
+
+<div class="summary-row total">
+<span>Total</span>
+<span>₹${total.toLocaleString("en-IN")}</span>
+</div>
+
+`;
 
 }
 
 
-/* ===============================
-STATE DROPDOWN
-=============================== */
+/* =====================================
+INDIAN STATES + DISTRICTS
+===================================== */
 
-const stateSelect=document.getElementById("state");
+const stateDistricts={
+
+"Andhra Pradesh":[
+"Alluri Sitharama Raju","Anakapalli","Anantapur","Annamayya",
+"Bapatla","Chittoor","East Godavari","Eluru","Guntur",
+"Kakinada","Konaseema","Krishna","Kurnool","Nandyal",
+"NTR","Palnadu","Parvathipuram Manyam","Prakasam",
+"Sri Potti Sriramulu Nellore","Sri Sathya Sai","Srikakulam",
+"Tirupati","Visakhapatnam","Vizianagaram","West Godavari","YSR Kadapa"
+],
+
+"Arunachal Pradesh":[
+"Anjaw","Changlang","Dibang Valley","East Kameng","East Siang",
+"Kamle","Kra Daadi","Kurung Kumey","Lepa Rada","Lohit",
+"Longding","Lower Dibang Valley","Lower Siang","Lower Subansiri",
+"Namsai","Pakke Kessang","Papum Pare","Shi Yomi","Siang",
+"Tawang","Tirap","Upper Siang","Upper Subansiri","West Kameng","West Siang"
+],
+
+"Assam":[
+"Baksa","Barpeta","Biswanath","Bongaigaon","Cachar","Charaideo",
+"Chirang","Darrang","Dhemaji","Dhubri","Dibrugarh","Dima Hasao",
+"Goalpara","Golaghat","Hailakandi","Hojai","Jorhat","Kamrup",
+"Kamrup Metropolitan","Karbi Anglong","Karimganj","Kokrajhar",
+"Lakhimpur","Majuli","Morigaon","Nagaon","Nalbari","Sivasagar",
+"Sonitpur","South Salmara-Mankachar","Tinsukia","Udalguri","West Karbi Anglong"
+],
+
+"Bihar":[
+"Araria","Arwal","Aurangabad","Banka","Begusarai","Bhagalpur",
+"Bhojpur","Buxar","Darbhanga","East Champaran","Gaya","Gopalganj",
+"Jamui","Jehanabad","Kaimur","Katihar","Khagaria","Kishanganj",
+"Lakhisarai","Madhepura","Madhubani","Munger","Muzaffarpur",
+"Nalanda","Nawada","Patna","Purnia","Rohtas","Saharsa","Samastipur",
+"Saran","Sheikhpura","Sheohar","Sitamarhi","Siwan","Supaul","Vaishali","West Champaran"
+],
+
+"Chhattisgarh":[
+"Balod","Baloda Bazar","Balrampur-Ramanujganj","Bastar","Bemetara",
+"Bijapur","Bilaspur","Dantewada","Dhamtari","Durg","Gariaband",
+"Gaurela-Pendra-Marwahi","Janjgir-Champa","Jashpur","Kabirdham",
+"Kanker","Khairagarh-Chhuikhadan-Gandai","Kondagaon","Korba",
+"Korea","Mahasamund","Manendragarh-Chirmiri-Bharatpur","Mohla-Manpur-Ambagarh Chowki",
+"Mungeli","Narayanpur","Raigarh","Raipur","Rajnandgaon","Sakti",
+"Sarangarh-Bilaigarh","Sukma","Surajpur","Surguja"
+],
+
+"Goa":["North Goa","South Goa"],
+
+"Gujarat":[
+"Ahmedabad","Amreli","Anand","Aravalli","Banaskantha","Bharuch",
+"Bhavnagar","Botad","Chhota Udaipur","Dahod","Dang","Devbhoomi Dwarka",
+"Gandhinagar","Gir Somnath","Jamnagar","Junagadh","Kheda","Kutch",
+"Mahisagar","Mehsana","Morbi","Narmada","Navsari","Panchmahal",
+"Patan","Porbandar","Rajkot","Sabarkantha","Surat","Surendranagar",
+"Tapi","Vadodara","Valsad"
+],
+
+"Haryana":[
+"Ambala","Bhiwani","Charkhi Dadri","Faridabad","Fatehabad","Gurugram",
+"Hisar","Jhajjar","Jind","Kaithal","Karnal","Kurukshetra","Mahendragarh",
+"Nuh","Palwal","Panchkula","Panipat","Rewari","Rohtak","Sirsa",
+"Sonipat","Yamunanagar"
+],
+
+"Himachal Pradesh":[
+"Bilaspur","Chamba","Hamirpur","Kangra","Kinnaur","Kullu","Lahaul and Spiti",
+"Mandi","Shimla","Sirmaur","Solan","Una"
+],
+
+"Jharkhand":[
+"Bokaro","Chatra","Deoghar","Dhanbad","Dumka","East Singhbhum",
+"Garhwa","Giridih","Godda","Gumla","Hazaribagh","Jamtara","Khunti",
+"Koderma","Latehar","Lohardaga","Pakur","Palamu","Ramgarh",
+"Ranchi","Sahebganj","Seraikela Kharsawan","Simdega","West Singhbhum"
+],
+
+"Karnataka":[
+"Bagalkot","Ballari","Belagavi","Bengaluru Rural","Bengaluru Urban",
+"Bidar","Chamarajanagar","Chikkaballapur","Chikkamagaluru","Chitradurga",
+"Dakshina Kannada","Davanagere","Dharwad","Gadag","Hassan","Haveri",
+"Kalaburagi","Kodagu","Kolar","Koppal","Mandya","Mysuru","Raichur",
+"Ramanagara","Shivamogga","Tumakuru","Udupi","Uttara Kannada","Vijayanagara","Vijayapura","Yadgir"
+],
+
+"Kerala":[
+"Alappuzha","Ernakulam","Idukki","Kannur","Kasaragod","Kollam",
+"Kottayam","Kozhikode","Malappuram","Palakkad","Pathanamthitta",
+"Thiruvananthapuram","Thrissur","Wayanad"
+],
+
+"Madhya Pradesh":[
+"Agar Malwa","Alirajpur","Anuppur","Ashoknagar","Balaghat","Barwani",
+"Betul","Bhind","Bhopal","Burhanpur","Chhatarpur","Chhindwara",
+"Damoh","Datia","Dewas","Dhar","Dindori","Guna","Gwalior","Harda",
+"Narmadapuram","Indore","Jabalpur","Jhabua","Katni","Khandwa",
+"Khargone","Maihar","Mandla","Mandsaur","Mauganj","Morena","Narsinghpur",
+"Neemuch","Niwari","Panna","Raisen","Rajgarh","Ratlam","Rewa",
+"Sagar","Satna","Sehore","Seoni","Shahdol","Shajapur","Sheopur",
+"Shivpuri","Sidhi","Singrauli","Tikamgarh","Ujjain","Umaria","Vidisha"
+],
+
+"Maharashtra":[
+"Ahmednagar","Akola","Amravati","Aurangabad","Beed","Bhandara",
+"Buldhana","Chandrapur","Dhule","Gadchiroli","Gondia","Hingoli",
+"Jalgaon","Jalna","Kolhapur","Latur","Mumbai City","Mumbai Suburban",
+"Nagpur","Nanded","Nandurbar","Nashik","Osmanabad","Palghar","Parbhani",
+"Pune","Raigad","Ratnagiri","Sangli","Satara","Sindhudurg","Solapur",
+"Thane","Wardha","Washim","Yavatmal"
+],
+
+"Manipur":[
+"Bishnupur","Chandel","Churachandpur","Imphal East","Imphal West",
+"Jiribam","Kakching","Kamjong","Kangpokpi","Noney","Pherzawl",
+"Senapati","Tamenglong","Tengnoupal","Thoubal","Ukhrul"
+],
+
+"Meghalaya":[
+"East Garo Hills","East Jaintia Hills","East Khasi Hills","Eastern West Khasi Hills",
+"North Garo Hills","Ri Bhoi","South Garo Hills","South West Garo Hills",
+"South West Khasi Hills","West Garo Hills","West Jaintia Hills","West Khasi Hills"
+],
+
+"Mizoram":[
+"Aizawl","Champhai","Hnahthial","Khawzawl","Kolasib","Lawngtlai",
+"Lunglei","Mamit","Saitual","Serchhip"
+],
+
+"Nagaland":[
+"Chumoukedima","Dimapur","Kiphire","Kohima","Longleng","Mokokchung",
+"Mon","Niuland","Noklak","Peren","Phek","Shamator","Tuensang","Wokha","Zunheboto"
+],
+
+"Odisha":[
+"Angul","Balangir","Balasore","Bargarh","Bhadrak","Boudh","Cuttack",
+"Deogarh","Dhenkanal","Gajapati","Ganjam","Jagatsinghpur","Jajpur",
+"Jharsuguda","Kalahandi","Kandhamal","Kendrapara","Keonjhar","Khordha",
+"Koraput","Malkangiri","Mayurbhanj","Nabarangpur","Nayagarh","Nuapada",
+"Puri","Rayagada","Sambalpur","Subarnapur","Sundargarh"
+],
+
+"Punjab":[
+"Amritsar","Barnala","Bathinda","Faridkot","Fatehgarh Sahib","Fazilka",
+"Ferozepur","Gurdaspur","Hoshiarpur","Jalandhar","Kapurthala","Ludhiana",
+"Malerkotla","Mansa","Moga","Pathankot","Patiala","Rupnagar","Sahibzada Ajit Singh Nagar",
+"Sangrur","Shaheed Bhagat Singh Nagar","Sri Muktsar Sahib","Tarn Taran"
+],
+
+"Rajasthan":[
+"Ajmer","Alwar","Anupgarh","Balotra","Banswara","Baran","Barmer",
+"Beawar","Bharatpur","Bhilwara","Bikaner","Bundi","Chittorgarh",
+"Churu","Dausa","Deeg","Dholpur","Didwana-Kuchamana","Dudu",
+"Dungarpur","Gangapur City","Hanumangarh","Jaipur","Jaipur Rural",
+"Jaisalmer","Jalore","Jhalawar","Jhunjhunu","Jodhpur","Jodhpur Rural",
+"Karauli","Khairthal-Tijara","Kota","Kotputli-Behror","Nagaur",
+"Neem Ka Thana","Pali","Phalodi","Pratapgarh","Rajsamand","Salumbar",
+"Sawai Madhopur","Shahpura","Sikar","Sirohi","Sri Ganganagar","Tonk","Udaipur"
+],
+
+"Sikkim":[
+"East Sikkim","North Sikkim","Pakyong","Soreng","South Sikkim","West Sikkim"
+],
+
+"Tamil Nadu":[
+"Ariyalur","Chengalpattu","Chennai","Coimbatore","Cuddalore","Dharmapuri",
+"Dindigul","Erode","Kallakurichi","Kancheepuram","Karur","Krishnagiri",
+"Madurai","Mayiladuthurai","Nagapattinam","Namakkal","Nilgiris",
+"Perambalur","Pudukkottai","Ramanathapuram","Ranipet","Salem",
+"Sivaganga","Tenkasi","Thanjavur","Theni","Thoothukudi","Tiruchirappalli",
+"Tirunelveli","Tirupathur","Tiruppur","Tiruvallur","Tiruvannamalai",
+"Tiruvarur","Vellore","Viluppuram","Virudhunagar"
+],
+
+"Telangana":[
+"Adilabad","Bhadradri Kothagudem","Hanamkonda","Hyderabad","Jagtial",
+"Jangaon","Jayashankar Bhupalpally","Jogulamba Gadwal","Kamareddy",
+"Karimnagar","Khammam","Komaram Bheem","Mahabubabad","Mahabubnagar",
+"Mancherial","Medak","Medchal-Malkajgiri","Mulugu","Nagarkurnool",
+"Nalgonda","Narayanpet","Nirmal","Nizamabad","Peddapalli","Rajanna Sircilla",
+"Rangareddy","Sangareddy","Siddipet","Suryapet","Vikarabad","Wanaparthy",
+"Warangal","Yadadri Bhuvanagiri"
+],
+
+"Tripura":[
+"Dhalai","Gomati","Khowai","North Tripura","Sepahijala","South Tripura",
+"Unakoti","West Tripura"
+],
+
+"Uttar Pradesh":[
+"Agra","Aligarh","Ambedkar Nagar","Amethi","Amroha","Auraiya","Ayodhya",
+"Azamgarh","Baghpat","Bahraich","Ballia","Balrampur","Banda","Barabanki",
+"Bareilly","Basti","Bhadohi","Bijnor","Budaun","Bulandshahr","Chandauli",
+"Chitrakoot","Deoria","Etah","Etawah","Farrukhabad","Fatehpur","Firozabad",
+"Gautam Buddha Nagar","Ghaziabad","Ghazipur","Gonda","Gorakhpur","Hamirpur",
+"Hapur","Hardoi","Hathras","Jalaun","Jaunpur","Jhansi","Kannauj","Kanpur Dehat",
+"Kanpur Nagar","Kasganj","Kaushambi","Kheri","Kushinagar","Lalitpur",
+"Lucknow","Maharajganj","Mahoba","Mainpuri","Mathura","Mau","Meerut",
+"Mirzapur","Moradabad","Muzaffarnagar","Pilibhit","Pratapgarh","Prayagraj",
+"Raebareli","Rampur","Saharanpur","Sambhal","Sant Kabir Nagar","Shahjahanpur",
+"Shamli","Shravasti","Siddharthnagar","Sitapur","Sonbhadra","Sultanpur",
+"Unnao","Varanasi"
+],
+
+"Uttarakhand":[
+"Almora","Bageshwar","Chamoli","Champawat","Dehradun","Haridwar",
+"Nainital","Pauri Garhwal","Pithoragarh","Rudraprayag","Tehri Garhwal",
+"Udham Singh Nagar","Uttarkashi"
+],
+
+"West Bengal":[
+"Alipurduar","Bankura","Paschim Bardhaman","Purba Bardhaman",
+"Birbhum","Cooch Behar","Darjeeling","Hooghly","Howrah","Jalpaiguri",
+"Jhargram","Kalimpong","Kolkata","Maldah","Murshidabad","Nadia",
+"North 24 Parganas","South 24 Parganas","Paschim Medinipur",
+"Purba Medinipur","Uttar Dinajpur","Dakshin Dinajpur"
+],
+
+"Delhi":[
+"Central Delhi","East Delhi","New Delhi","North Delhi","North East Delhi",
+"North West Delhi","Shahdara","South Delhi","South East Delhi",
+"South West Delhi","West Delhi"
+],
+
+"Jammu and Kashmir":[
+"Anantnag","Bandipora","Baramulla","Budgam","Doda","Ganderbal",
+"Jammu","Kathua","Kishtwar","Kulgam","Kupwara","Kishtwar",
+"Pulwama","Poonch","Rajouri","Ramban","Reasi","Samba","Shopian","Srinagar","Udhampur"
+],
+
+"Ladakh":[
+"Leh","Kargil"
+],
+
+"Puducherry":[
+"Karaikal","Mahe","Puducherry","Yanam"
+],
+
+"Chandigarh":[
+"Chandigarh"
+],
+
+"Andaman and Nicobar Islands":[
+"Nicobar","North and Middle Andaman","South Andaman"
+],
+
+"Dadra and Nagar Haveli and Daman and Diu":[
+"Dadra and Nagar Haveli","Daman","Diu"
+],
+
+"Lakshadweep":[
+"Agatti","Amini","Andrott","Bitra","Chetlat","Kadmat","Kalpeni",
+"Kavaratti","Kiltan","Minicoy"
+],
+
+"Goa":[
+"North Goa","South Goa"
+],
+
+"Lakshadweep":[
+"Agatti","Amini","Andrott","Bitra","Chetlat","Kadmat","Kalpeni","Kavaratti","Kiltan","Minicoy"
+]
+
+};
+
+
+/* =====================================
+STATE LOADING
+===================================== */
+
+function loadStates(){
+
+const select=document.getElementById("state");
+
+if(select.options.length>1)return;
 
 Object.keys(stateDistricts)
 .sort()
 .forEach(state=>{
 
-const o=document.createElement("option");
+const option=document.createElement("option");
 
-o.value=state;
-o.textContent=state;
+option.value=state;
+option.textContent=state;
 
-stateSelect.appendChild(o);
+select.appendChild(option);
 
 });
 
+}
 
 function loadDistricts(){
 
 const state=document.getElementById("state").value;
+
 const district=document.getElementById("district");
 
 district.innerHTML=
@@ -1387,50 +2261,44 @@ if(!state)return;
 stateDistricts[state]
 .forEach(d=>{
 
-const o=document.createElement("option");
+const option=document.createElement("option");
 
-o.value=d;
-o.textContent=d;
+option.value=d;
+option.textContent=d;
 
-district.appendChild(o);
+district.appendChild(option);
 
 });
 
 }
 
 
-/* ===============================
-PIN CODE LOOKUP
-=============================== */
+/* =====================================
+PIN LOOKUP
+===================================== */
 
 let pinTimer;
 
 function lookupPin(){
 
-const pin=document.getElementById("pin").value;
-
 clearTimeout(pinTimer);
 
-if(pin.length!==6){
+const pin=document.getElementById("pin").value.trim();
 
 document.getElementById("area").value="";
 
-return;
-
-}
+if(pin.length!==6)return;
 
 pinTimer=setTimeout(async()=>{
 
 try{
 
-const response=await fetch(
-"https://api.postalpincode.in/pincode/"+pin
-);
+const response=
+await fetch("https://api.postalpincode.in/pincode/"+pin);
 
 const data=await response.json();
 
 if(
-data &&
 data[0] &&
 data[0].Status==="Success" &&
 data[0].PostOffice &&
@@ -1440,7 +2308,7 @@ data[0].PostOffice.length
 const po=data[0].PostOffice[0];
 
 document.getElementById("area").value=
-po.Name+" — "+po.District+" — "+po.State;
+po.Name+" — "+po.District;
 
 }else{
 
@@ -1449,7 +2317,7 @@ document.getElementById("area").value=
 
 }
 
-}catch(e){
+}catch{
 
 document.getElementById("area").value=
 "Unable to lookup area";
@@ -1461,88 +2329,49 @@ document.getElementById("area").value=
 }
 
 
-/* ===============================
-SEARCH
-=============================== */
+/* =====================================
+PAYMENT
+===================================== */
 
-function searchProducts(){
+function paymentChanged(){
 
-const q=document.getElementById("searchBox").value
-.toLowerCase().trim();
+const method=document.querySelector(
+'input[name="payment"]:checked'
+).value;
 
-if(!q)return;
-
-const matches=products.filter(p=>
-p.name.toLowerCase().includes(q) ||
-p.cat.toLowerCase().includes(q) ||
-p.id.toLowerCase().includes(q)
-);
-
-hidePages();
-
-document.getElementById("listing").classList.add("active");
-document.getElementById("listingTitle").innerText=
-"Search Results";
-
-renderProducts(matches);
+document.getElementById("upiBox").style.display=
+method==="UPI"?"block":"none";
 
 }
 
 
-/* ===============================
-OTHER CATEGORIES
-=============================== */
-
-function openCategory(name){
-
-hidePages();
-
-document.getElementById("listing").classList.add("active");
-
-document.getElementById("listingTitle").innerText=name;
-
-document.getElementById("productGrid").innerHTML=`
-<div style="grid-column:1/-1;text-align:center;padding:80px">
-<h2>${name}</h2>
-<p style="margin-top:10px;color:#777">
-Products will appear here when added.
-</p>
-</div>
-`;
-
-}
-
-
-/* ===============================
+/* =====================================
 ORDER
-=============================== */
+===================================== */
 
-function generateOrderID(){
-
-return "GRO"+Date.now().toString().slice(-8);
-
-}
+let lastOrder=null;
 
 function placeOrder(){
 
-const name=document.getElementById("customerName").value.trim();
+const name=document.getElementById("name").value.trim();
 const mobile=document.getElementById("mobile").value.trim();
 const house=document.getElementById("house").value.trim();
+const address=document.getElementById("address").value.trim();
 const state=document.getElementById("state").value;
 const district=document.getElementById("district").value;
 const pin=document.getElementById("pin").value.trim();
 const area=document.getElementById("area").value.trim();
-const address=document.getElementById("address").value.trim();
 
-if(!name||!mobile||!house||!state||!district||pin.length!==6||!address){
+if(!name||!mobile||!house||!address||
+!state||!district||pin.length!==6){
 
-alert("Please complete all required delivery details.");
+alert("Please complete all delivery details.");
 
 return;
 
 }
 
-if(!/^[0-9]{10}$/.test(mobile)){
+if(!/^[6-9]\d{9}$/.test(mobile)){
 
 alert("Please enter a valid 10-digit mobile number.");
 
@@ -1551,69 +2380,195 @@ return;
 }
 
 const payment=
-document.querySelector('input[name="payment"]:checked').value;
+document.querySelector(
+'input[name="payment"]:checked'
+).value;
 
-const orderID=generateOrderID();
+if(payment==="UPI" &&
+!document.getElementById("upiId").value.trim()){
 
-const total=cart.reduce((a,b)=>a+b.price*b.qty,0);
+alert("Please enter your UPI ID.");
 
-const items=cart.map(x=>
-`${x.name} | ID:${x.id} | Qty:${x.qty} | Color:${x.color} | Size:${x.size} | ₹${x.price*x.qty}`
-).join("\n");
+return;
 
-const message=
-`GRO+ NEW ORDER
+}
 
-Order ID: ${orderID}
+const total=cart.reduce(
+(sum,p)=>sum+(p.price*p.quantity),0
+);
 
-Customer Name: ${name}
-Mobile: ${mobile}
+const orderId=
+"GRO"+Date.now().toString().slice(-8);
 
-House/Building: ${house}
-Address: ${address}
-Area/Post Office: ${area}
-District: ${district}
-State: ${state}
-PIN: ${pin}
+lastOrder={
 
-PRODUCTS:
-${items}
+orderId,
+name,
+mobile,
+house,
+address,
+state,
+district,
+pin,
+area,
+payment,
+total,
+items:cart.map(p=>({
+id:p.id,
+name:p.name,
+quantity:p.quantity,
+color:p.color,
+size:p.size,
+price:p.price
+}))
 
-TOTAL: ₹${total}
+};
 
-PAYMENT: ${payment}`;
+localStorage.setItem(
+"groLastOrder",
+JSON.stringify(lastOrder)
+);
 
-document.getElementById("orderID").innerText=orderID;
+document.getElementById("orderNumber").innerText=
+"Order ID: "+orderId;
 
-hidePages();
-
-document.getElementById("successPage").classList.add("active");
-
-/*
-WhatsApp order notification.
-This opens WhatsApp with the complete order message.
-Automatic server-side WhatsApp sending requires WhatsApp Business API/backend.
-*/
-
-const whatsappNumber="917407792138";
-
-const whatsappURL=
-"https://wa.me/"+whatsappNumber+
-"?text="+encodeURIComponent(message);
-
-window.open(whatsappURL,"_blank");
-
-cart=[];
-updateCart();
+showPage("success");
 
 }
 
 
-/* ===============================
-INITIAL
-=============================== */
+/* =====================================
+WHATSAPP
+===================================== */
 
-updateCart();
+function sendWhatsApp(){
+
+if(!lastOrder){
+
+try{
+
+lastOrder=JSON.parse(
+localStorage.getItem("groLastOrder")
+);
+
+}catch{}
+
+}
+
+if(!lastOrder)return;
+
+let message=
+"NEW GRO ORDER%0A%0A"+
+"Order ID: "+lastOrder.orderId+"%0A"+
+"Customer: "+lastOrder.name+"%0A"+
+"Mobile: "+lastOrder.mobile+"%0A"+
+"House/Building: "+lastOrder.house+"%0A"+
+"Address: "+lastOrder.address+"%0A"+
+"Area/Post Office: "+lastOrder.area+"%0A"+
+"District: "+lastOrder.district+"%0A"+
+"State: "+lastOrder.state+"%0A"+
+"PIN: "+lastOrder.pin+"%0A%0A"+
+"PRODUCTS:%0A";
+
+lastOrder.items.forEach((p,i)=>{
+
+message+=
+(i+1)+". "+p.name+
+" | ID: "+p.id+
+" | Qty: "+p.quantity+
+" | Color: "+p.color+
+" | Size: "+p.size+
+" | Price: ₹"+p.price+
+"%0A";
+
+});
+
+message+=
+"%0ATotal: ₹"+lastOrder.total+
+"%0APayment: "+lastOrder.payment;
+
+const whatsappNumber="917407792138";
+
+window.open(
+"https://wa.me/"+whatsappNumber+
+"?text="+message,
+"_blank"
+);
+
+}
+
+
+/* =====================================
+SEARCH
+===================================== */
+
+function searchProducts(){
+
+const q=document.getElementById("search")
+.value.trim().toLowerCase();
+
+if(!q)return;
+
+const result=products.filter(p=>
+p.name.toLowerCase().includes(q)||
+p.category.toLowerCase().includes(q)||
+p.id.toLowerCase().includes(q)
+);
+
+document.getElementById("productsTitle").innerText=
+'Search results for "'+q+'"';
+
+renderProducts(result);
+
+showPage("products");
+
+}
+
+
+/* =====================================
+IMAGE FALLBACK
+===================================== */
+
+function fallbackImage(img){
+
+img.onerror=null;
+
+img.src=
+"data:image/svg+xml;charset=UTF-8,"+
+encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg"
+width="600" height="600">
+<rect width="100%" height="100%" fill="#f0f0f4"/>
+<text x="50%" y="50%"
+text-anchor="middle"
+font-family="Arial"
+font-size="24"
+fill="#777">
+Product Image
+</text>
+</svg>
+`);
+
+}
+
+
+/* =====================================
+INITIALIZE
+===================================== */
+
+loadCart();
+
+renderFashion();
+
+window.addEventListener("popstate",()=>{
+
+if(historyStack.length>1)
+goBack();
+
+});
+
+document.querySelector(".icon-btn")
+.addEventListener("click",renderCart);
 
 </script>
 
